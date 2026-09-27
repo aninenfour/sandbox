@@ -6,7 +6,7 @@ import {
 import {SFX} from './sfx';
 
 // 60 fps, 120 BPM: one beat = 30 frames.
-export const DURATION = 1110;
+export const DURATION = 1190;
 
 const C = {ink: '#0B0E11', green: '#7EC25A', paper: '#F1EFE8', red: '#F6465D', ui: '#23C08D', grey: '#9A9C9F'};
 const DISPLAY = '"Archivo Black", sans-serif';
@@ -72,6 +72,16 @@ const Photo: React.FC<{src: string; f: number; bright: number; blur?: number; zo
     </AbsoluteFill>
   );
 };
+const Plate: React.FC<{src: string; f: number; bright: number; zoom?: [number, number]; pos?: string; range?: [number, number]}> = (
+  {src, f, bright, zoom = [1.04, 1.12], pos = '50% 50%', range = [0, DURATION]},
+) => (
+  <AbsoluteFill style={{overflow: 'hidden'}}>
+    <OffthreadVideo src={staticFile(`plates/${src}.mp4`)} muted style={{
+      width: '100%', height: '100%', objectFit: 'cover', objectPosition: pos,
+      transform: `scale(${interpolate(f, range, zoom, clamp)})`, filter: `${GRADE} brightness(${bright})`,
+    }} />
+  </AbsoluteFill>
+);
 const Vignette: React.FC<{strength?: number}> = ({strength = 0.9}) => (
   <AbsoluteFill style={{background: `radial-gradient(ellipse 85% 70% at 50% 42%, rgba(11,14,17,0) 0%, rgba(11,14,17,${strength * 0.55}) 62%, rgba(11,14,17,${strength}) 100%)`}} />
 );
@@ -102,29 +112,31 @@ const pillStyle = (ink: boolean, pressed: number): React.CSSProperties => ({
 // ---------------------------------------------------------------- layout
 type Layout = ReturnType<typeof layoutFor>;
 const layoutFor = (W: number, H: number) => {
-  const v = H > W;
+  const kind = H / W > 1.6 ? 'tall' : H / W > 1.15 ? 'feed' : 'square';
+  const pick = <T,>(tall: T, feed: T, square: T): T => (kind === 'tall' ? tall : kind === 'feed' ? feed : square);
   return {
-    W, H, v,
+    W, H, kind, v: kind !== 'square',
     // scene 1
-    fs1: v ? 170 : 120,
-    tradeY: v ? 330 : 60,
-    card: v ? {cx: 540, cy: 880, w: 820, h: 540} : {cx: 540, cy: 468, w: 700, h: 420},
-    withY: v ? 1232 : 742,
-    fsWith: v ? 150 : 112,
-    // scenes 3 and 4
-    win: v ? {x: 60, y: 690, w: 960, h: 790, r: 40} : {x: 100, y: 330, w: 880, h: 660, r: 34},
-    fs3: v ? 112 : 80,
-    y3: v ? 440 : 150,
+    fs1: pick(170, 132, 120),
+    tradeY: pick(330, 104, 60),
+    card: pick({cx: 540, cy: 880, w: 820, h: 540}, {cx: 540, cy: 612, w: 820, h: 500}, {cx: 540, cy: 468, w: 700, h: 420}),
+    withY: pick(1232, 936, 742),
+    fsWith: pick(150, 122, 112),
+    // scenes 2 to 4: one floating window
+    win: pick({x: 60, y: 690, w: 960, h: 790, r: 40}, {x: 60, y: 300, w: 960, h: 900, r: 36}, {x: 100, y: 330, w: 880, h: 660, r: 34}),
+    win2: pick({x: 40, y: 700, w: 1000, h: 600, r: 40}, {x: 40, y: 380, w: 1000, h: 600, r: 36}, {x: 60, y: 260, w: 960, h: 560, r: 34}),
+    fs3: pick(112, 86, 80),
+    y3: pick(440, 172, 150),
     // scene 6
-    coin: v ? {cx: 540, cy: 870, d: 540, t: 46} : {cx: 540, cy: 470, d: 420, t: 36},
-    fromY: v ? 300 : 42,
-    fsFrom: v ? 150 : 108,
-    usdtY: v ? 1216 : 760,
-    fsUsdt: v ? 180 : 124,
-    noteY: v ? 1418 : 916,
+    coin: pick({cx: 540, cy: 870, d: 540, t: 46}, {cx: 540, cy: 600, d: 450, t: 40}, {cx: 540, cy: 470, d: 420, t: 36}),
+    fromY: pick(300, 96, 42),
+    fsFrom: pick(150, 118, 108),
+    usdtY: pick(1216, 872, 760),
+    fsUsdt: pick(180, 140, 124),
+    noteY: pick(1418, 1060, 916),
     // end card
-    logoW: v ? 680 : 520,
-    endY: v ? 940 : 520,
+    logoW: pick(680, 620, 520),
+    endY: pick(940, 690, 520),
   };
 };
 
@@ -184,8 +196,9 @@ const TICKERS = [
   {t: 'GOLD', cap: 'XAU  ·  Commodity', img: 'gold', pos: '50% 50%'},
   {t: 'ETFs', cap: 'Index funds', img: 'etf', pos: '50% 38%'},
 ];
-const STEPS = [150, 180, 210, 240];
-const CLICK_USDT = 270;
+const STEPS = [130, 160, 190, 220];
+const CLICK_USDT = 250;
+const S1_END = 280;
 const rollAt = (f: number) => STEPS.reduce((a, t) => a + sp(f - t, 15, 210), 0);
 
 const CardFace: React.FC<{i: number; w: number; h: number; L: Layout}> = ({i, w, h, L}) => {
@@ -222,8 +235,8 @@ const Scene1: React.FC<{f: number; L: Layout}> = ({f, L}) => {
   const morph = centered(c.cx, c.cy, w, h, Math.min(h / 2, L.v ? 36 : 30));
   const reveal = interpolate(f, [60, 94], [0, 1200], {...clamp, easing: Easing.bezier(0.5, 0, 0.2, 1)});
   const tiltT = ease(f, 94, 150, INOUT);
-  const rx = tiltT * 12 * (1 - ease(f, 250, 290, INOUT) * 0.5);
-  const ry = tiltT * (-16 + interpolate(f, [150, 300], [0, 6], clamp));
+  const rx = tiltT * 12 * (1 - ease(f, 230, 270, INOUT) * 0.5);
+  const ry = tiltT * (-16 + interpolate(f, [150, 280], [0, 6], clamp));
   const open = ease(f, 96, 136);
   const g = withGroup(L);
   const pillIn = sp(f - 105, 11, 220);
@@ -232,7 +245,7 @@ const Scene1: React.FC<{f: number; L: Layout}> = ({f, L}) => {
 
   return (
     <>
-      <Photo src="wallst" f={f} bright={0.5} zoom={[1.02, 1.14]} range={[0, 300]} pos="50% 60%" />
+      <Plate src="road" f={f} bright={0.95} zoom={[1.04, 1.16]} range={[0, S1_END]} pos={L.kind === 'tall' ? '62% 50%' : '58% 50%'} />
       <Vignette />
       <Light />
       <Slot f={f} at={60} x={0} w={L.W} align="center" y={L.tradeY} h={L.fs1 * 1.06} style={{fontFamily: DISPLAY, fontSize: L.fs1, color: C.paper}}>Trade</Slot>
@@ -278,18 +291,62 @@ const cursor1 = (f: number, L: Layout) => {
   const target = {x: pill.x + pill.w * 0.55, y: pill.y + pill.h * 0.6};
   let x = mix(L.W * 0.86, c.cx, ease(f, 0, 27, MOVE));
   let y = mix(L.H * 0.94, c.cy, ease(f, 0, 27, MOVE));
-  const g = ease(f, 96, 136, MOVE);
+  const g = ease(f, 84, 116, MOVE);
   x = mix(x, grab.x, g); y = mix(y, grab.y, g);
-  y -= interpolate(f, [140, 250], [0, c.h * 0.42], {...clamp, easing: Easing.bezier(0.3, 0, 0.6, 1)});
-  const p = ease(f, 250, 268, MOVE);
+  y -= interpolate(f, [120, 230], [0, c.h * 0.42], {...clamp, easing: Easing.bezier(0.3, 0, 0.6, 1)});
+  const p = ease(f, 230, 248, MOVE);
   x = mix(x, target.x, p); y = mix(y, target.y, p);
-  const hold = f >= 140 && f < 250 ? Math.min(ease(f, 136, 142), 1 - ease(f, 248, 254)) : 0;
+  const hold = f >= 120 && f < 230 ? Math.min(ease(f, 116, 122), 1 - ease(f, 228, 234)) : 0;
   return {x, y, press: Math.max(bump(f, 30), bump(f, CLICK_USDT), hold)};
 };
 
 const Flood1: React.FC<{f: number; L: Layout}> = ({f, L}) => {
-  if (f < CLICK_USDT + 6 || f >= 300) return null;
-  return <Box r={lerpRect(withGroup(L).pill, full(L), ease(f, CLICK_USDT + 6, 300, FLOOD))} bg={C.ink} />;
+  if (f < CLICK_USDT + 6 || f >= S1_END) return null;
+  return <Box r={lerpRect(withGroup(L).pill, full(L), ease(f, CLICK_USDT + 6, S1_END, FLOOD))} bg={C.ink} />;
+};
+
+// ---------------------------------------------------------------- scene 2: hotcoin.com asset tabs (280 to 400)
+// Screenshots of the live TradFi page at 3x. Coordinates are image pixels.
+const SITE = {w: 3720, h: 1290, us: [1182, 507], metal: [1480, 507], etf: [2623, 507]} as const;
+const CLICK_METAL = 326;
+const CLICK_ETF = 358;
+const S2_END = 400;
+const S2_CAM: CamKey[] = [[280, 1860, 640, 0.43], [312, 1860, 640, 0.43], [384, 1880, 630, 0.45], [S2_END, 2623, 520, 2.4]];
+const siteCam = (f: number, L: Layout): Cam => {const c = camAt(f, S2_CAM); return {...c, s: c.s * (L.win2.w / 960)};};
+const win2At = (f: number, L: Layout): Rect =>
+  f < 384 ? lerpRect(full(L), L.win2, ease(f, S1_END, 310)) : lerpRect(L.win2, L.win, ease(f, 384, S2_END, INOUT));
+
+const Scene2: React.FC<{f: number; L: Layout}> = ({f, L}) => {
+  const win = win2At(f, L);
+  const cam = siteCam(f, L);
+  const tab = f < CLICK_METAL + 2 ? 'us' : f < CLICK_ETF + 2 ? 'metal' : 'etf';
+  const rx = keys(f, [S1_END, 304, 322], [0, 8, 0]);
+  const ry = keys(f, [S1_END, 304, 322], [0, -10, 0]);
+  return (
+    <>
+      <Photo src="desk" f={f} bright={0.42} blur={5} zoom={[1.02, 1.06]} range={[S1_END, S2_END]} pos="50% 45%" />
+      <Vignette />
+      <Light />
+      <Float3D r={win} rx={rx} ry={ry} bg="#000">
+        <Img src={staticFile(`site/tab-${tab}.png`)} style={{
+          position: 'absolute', maxWidth: 'none', width: SITE.w * cam.s, height: SITE.h * cam.s,
+          left: win.w / 2 - cam.cx * cam.s, top: win.h / 2 - cam.cy * cam.s,
+        }} />
+      </Float3D>
+    </>
+  );
+};
+const cursor2 = (f: number, L: Layout) => {
+  const at = (p: readonly number[], t: number) => recToScreen(L.win2, siteCam(t, L), p[0], p[1] + 8);
+  const {pill} = withGroup(L);
+  const start = {x: pill.x + pill.w * 0.55, y: pill.y + pill.h * 0.6};
+  const m = at(SITE.metal, CLICK_METAL), e = at(SITE.etf, CLICK_ETF);
+  const t1 = ease(f, 296, CLICK_METAL - 3, MOVE), t2 = ease(f, CLICK_METAL + 8, CLICK_ETF - 3, MOVE);
+  return {
+    x: mix(mix(start.x, m.x, t1), e.x, t2),
+    y: mix(mix(start.y, m.y, t1), e.y, t2),
+    press: Math.max(bump(f, CLICK_METAL), bump(f, CLICK_ETF)),
+  };
 };
 
 // ---------------------------------------------------------------- scenes 3 and 4: the real app, floating
@@ -309,7 +366,7 @@ const I: React.FC<{children: React.ReactNode}> = ({children}) => (
 );
 
 const S3_CAM: CamKey[] = [
-  [300, 480, 640, 1.0], [332, 470, 620, 1.0], [354, 360, 703, 1.7], [418, 360, 703, 1.7],
+  [300, 470, 470, 3.2], [330, 470, 620, 1.0], [332, 470, 620, 1.0], [354, 360, 703, 1.7], [418, 360, 703, 1.7],
   [440, 470, 600, 1.15], [458, 460, 420, 1.5], [482, 470, 520, 1.3], [500, 480, 812, 1.5],
   [528, 480, 700, 1.1], [548, 520, 430, 1.0], [578, 470, 300, 1.25], [600, 200, 170, 5.0],
 ];
@@ -319,13 +376,12 @@ const S4_CAM: CamKey[] = [
 const OPEN_LONG = {x0: 1882, y0: 1175, x1: 2186, y1: 1261};
 const PRESS = 690;
 
-const winAt = (f: number, L: Layout): Rect => (f < 330 ? lerpRect(full(L), L.win, ease(f, 300, 330)) : L.win);
 const tiltAt = (f: number) => (f < 600
   ? {rx: keys(f, [300, 342, 600], [0, 9, 5]), ry: keys(f, [300, 342, 600], [0, -12, -6])}
   : {rx: keys(f, [600, 630, 666], [0, 8, 0]), ry: keys(f, [600, 630, 666], [0, -9, 0])});
 
 const Scene34: React.FC<{f: number; L: Layout}> = ({f, L}) => {
-  const win = winAt(f, L);
+  const win: Rect = L.win;
   const s3 = f < 600;
   const cam = s3 ? camAt(f, S3_CAM) : camAt(f, S4_CAM);
   const {rx, ry} = tiltAt(f);
@@ -494,22 +550,37 @@ const useFonts = () => {
   }, [h]);
 };
 
+// Scenes 3 to 7 were authored on their own clock; the website beat pushes them back by OFF frames.
+export const OFF = S2_END - 300;
+
+const Later: React.FC<{L: Layout}> = ({L}) => {
+  const f = useCurrentFrame();
+  const cur = f >= PRESS - 2 && f < 732 ? cursor5(f, L) : f >= 924 ? cursor7(f, L) : null;
+  return (
+    <>
+      {f >= 300 && f < 722 && <Scene34 f={f} L={L} />}
+      <Scene5 f={f} L={L} />
+      <Scene6 f={f} L={L} />
+      <Scene7 f={f} L={L} />
+      {cur && <Cursor {...cur} />}
+    </>
+  );
+};
+
 export const Film: React.FC<{square: boolean}> = () => {
   useFonts();
   const f = useCurrentFrame();
   const {width, height} = useVideoConfig();
   const L = layoutFor(width, height);
-  const cur = f < 300 ? cursor1(f, L) : f >= PRESS - 2 && f < 732 ? cursor5(f, L) : f >= 924 ? cursor7(f, L) : null;
+  const cur = f < S1_END ? cursor1(f, L) : f < 388 ? cursor2(f, L) : null;
 
   return (
     <AbsoluteFill style={{background: C.ink, overflow: 'hidden'}}>
       <Stage />
-      {f < 300 && <Scene1 f={f} L={L} />}
-      {f < 300 && <Flood1 f={f} L={L} />}
-      {f >= 300 && f < 722 && <Scene34 f={f} L={L} />}
-      <Scene5 f={f} L={L} />
-      <Scene6 f={f} L={L} />
-      <Scene7 f={f} L={L} />
+      {f < S1_END && <Scene1 f={f} L={L} />}
+      {f < S1_END && <Flood1 f={f} L={L} />}
+      {f >= S1_END && f < S2_END && <Scene2 f={f} L={L} />}
+      <Sequence from={OFF} layout="none"><Later L={L} /></Sequence>
       {cur && <Cursor {...cur} />}
       <Grain f={f} />
       <SFX />

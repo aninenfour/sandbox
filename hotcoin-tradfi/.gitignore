@@ -1,6 +1,7 @@
 node_modules
 out
-public/plates
 public/photos
-public/sfx
+public/plates
 public/rec
+public/sfx
+public/site

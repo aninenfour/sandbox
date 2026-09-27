@@ -1,53 +1,36 @@
-# Hotcoin TradFi short: beat map (v3, keynote look)
+# Hotcoin TradFi short: beat map (v4, 4:5 feed first)
 
-**The look:** a dark stage with soft top light, film grain everywhere, and Pexels photos graded like film.
-- **Opening:** Wall Street at night.
-- **Ticker cards:** cash stacks, a circuit board, headlights in fog, gold bars and a stock board.
-- **App scenes:** a trading desk at night, blurred.
-- **Coin scene:** coins.
+- **Formats:** 4:5 (1080x1350) is the lead. 9:16 and 1:1 share the timeline and have their own layouts in `layoutFor()`.
+- **Timing:** 60 fps, 120 BPM, so one beat = 30 frames. The film is 1190 frames (19.8 s).
+- **Look:** a dark stage with soft top light and film grain. Pexels media are graded like film. The depth comes from 3D cards, a floating window and a spinning coin.
+- **Transitions:** every scene is built from the previous one by a shape morph or a cut on the beat. There are no fades.
 
-**The depth:**
-- The tickers are a stack of 3D cards that flip up as you drag.
-- The app window floats in perspective and turns to face the camera before Open Long.
-- "10 USDT" is a 3D coin that spins in, then turns edge-on into a bar that floods the frame for the end card.
-- The pills are shaded buttons with shadows.
-
-- 120 BPM at 60 fps, so one beat = 30 frames = 0.5 s.
-- The film is 1110 frames (18.5 s).
-- Text stays inside y 250 to 1500 on 1080x1920.
-- Scene changes are shape morphs or cuts on the beat. There are no fades.
-
-**The thread:** each scene is built out of the one before it:
-- A click dot opens into the skyline card.
-- The USDT pill floods the frame with ink.
-- The ink contracts into the app window.
-- The camera zooms through into the order panel.
-- The real **Open Long** button floods the frame green.
-- The green contracts into the "0" of "10".
-- The "0" shrinks to a dot, which floods the frame with ink for the end card.
-
-| Frames | Time | Beat | What happens | Text on screen (hold) | SFX (uisfx `studio`) |
-|---|---|---|---|---|---|
-| 0-30 | 0.0-0.5 | 1 | The cursor enters from the bottom right and clicks the center of the paper | none | press |
-| 30-90 | 0.5-1.5 | 2-3 | A green dot pops, stretches into a pill, then opens into a card. The **Pexels night skyline** plays inside it behind a circular hard-edge mask | **Trade** | expand, select |
-| 90-150 | 1.5-2.5 | 4-5 | The ticker slot and the green **USDT** pill pop in | **Trade AAPL with USDT** (1.0 s) | select, toggle-on |
-| 140-250 | 2.3-4.2 | 5-8 | The cursor grabs the card and drags it like a wheel. The ticker rolls on each beat with overshoot | NVDA, TSLA, GOLD, **ETFs** (1.0 s). The full sentence is on screen for 3.2 s | drag-start, seek x4, drop |
-| 270-300 | 4.5-5.0 | 10 | The cursor clicks USDT. The pill turns ink and floods the frame | none | press, swipe |
-| 300-330 | 5.0-5.5 | 11 | The ink contracts into a rounded window showing the **real Hotcoin recording** | none | collapse |
-| 330-420 | 5.5-7.0 | 12-14 | Screen-studio zoom onto the real Futures (1) / Spot (0) tabs and the Stocks category | **Spot and Futures.** (1.5 s) | select |
-| 420-510 | 7.0-8.5 | 15-17 | The recording types **AAPLX**. The camera follows the search box, then the Apple / Stocks result | **One account.** (1.5 s) | select |
-| 510-600 | 8.5-10.0 | 18-20 | The recording's cursor clicks AAPLX/USDT. The camera lands on the pair header (Apple, Stock, Market Open), then zooms through | **No moving funds.** (1.5 s) | select, swipe |
-| 600-690 | 10.0-11.5 | 21-23 | Coming out of the zoom: the order panel (Avail 58,030.71 USDT), then a pan down to **Open Long** | **No separate fiat account.** (1.9 s) | select |
-| 690-720 | 11.5-12.0 | 24 | The cursor presses the real Open Long button. The button grows to fill the frame as it shifts from UI green to brand green | none | press, expand |
-| 720-930 | 12.0-15.5 | 25-31 | The green contracts into a stadium-shaped "0", its hole opens, and **1** lands beside it | **From 10 USDT** (2.2 s). Footnote: *on selected TradFi products* | collapse, snap, select |
-| 930-990 | 15.5-16.5 | 32-33 | The text drops out and the 0 closes into a dot. The cursor clicks the dot, which turns ink and floods the frame | none | collapse, press, expand |
-| 990-1110 | 16.5-18.5 | 34-37 | End card: the Hotcoin logo (keyed out of the recording, not redrawn) wipes in, then the URL and a green underline pill. The cursor parks | **hotcoin.com/en_US/tradFi** (1.8 s) | success |
+| Frames | Time | What happens | Text on screen | SFX (uisfx `studio`) |
+|---|---|---|---|---|
+| 0-60 | 0.0-1.0 | **Car in night rain** (Pexels video). The cursor clicks, a green dot pops and opens into a card | **Trade** | press, expand, select |
+| 60-250 | 1.0-4.2 | A 3D stack of film photo cards: AAPL (cash), NVDA (circuit board), TSLA (headlights in fog), GOLD (bars), ETFs (stock board). The cursor drags and a card flips up on each beat | **Trade [ticker] with USDT** (the full line stays for 3 s) | toggle-on, drag-start, seek x4, drop |
+| 250-280 | 4.2-4.7 | The cursor clicks the USDT pill. It turns ink and floods the frame | none | press, swipe |
+| 280-400 | 4.7-6.7 | The ink contracts into a wide window showing the **real hotcoin.com TradFi asset tabs**. The cursor clicks **Metal** (the Gold and Silver cards appear), then **ETF** (the ETF cards appear) | The site's own heading: "Trade the World's Leading Futures" | collapse, press, press |
+| 384-400 | 6.4-6.7 | Zoom through the ETF tab. The window stretches into the app window | none | swipe |
+| 400-700 | 6.7-11.7 | The **real app recording** floats in 3D: Futures/Spot tabs, typing AAPLX, the Apple Stock row, the pair header | **Spot and Futures.** / **One account.** / **No moving funds.** (1.5 s each) | select x3, swipe |
+| 700-790 | 11.7-13.2 | Zoom through to the order panel (Avail USDT). The window turns to face the camera | **No separate fiat account.** (1.9 s) | select |
+| 790-820 | 13.2-13.7 | The cursor presses the real **Open Long** button, which floods the frame green | none | press, expand |
+| 820-1030 | 13.7-17.2 | The green contracts into a **3D coin** stamped "10 USDT" that spins in over the coins photo | **From 10 USDT** (2.2 s). Footnote: *on selected TradFi products* | collapse, reward, select |
+| 1030-1090 | 17.2-18.2 | The coin turns edge-on into a bar. The cursor clicks it and ink floods the frame | none | collapse, press, expand |
+| 1090-1190 | 18.2-19.8 | End card: the Hotcoin logo (keyed out of the recording) and the URL | **hotcoin.com/en_US/tradFi** (1.4 s) | success |
 
 ## Sources
-- **UI:** `09164a41-hero-pc-en.mp4` (the Hotcoin screen recording). The film uses 1.25 to 6.25 s and 10.6 to 12.8 s.
-- **Plate:** Pexels 29025308, night aerial skyline by JeetsVids. `npm run fetch-plates` downloads it with `PEXELS_API_KEY` from the environment.
-- **SFX:** uisfx 0.4.0, `studio` pack (CC0). `npm run sfx` copies it into `public/sfx`.
-- **Music:** still needed. Pixabay Music refuses requests from this environment (403).
-
-## 1:1 version
-Same timeline and audio. `layoutFor()` holds a separate square layout: type on the left, and the card and app window on the right.
+- **App UI:** the Hotcoin screen recording (`public/rec/hero.mp4`). Frames are only cropped and zoomed.
+- **Website UI:** hotcoin.com/en_US/tradFi, captured at 3x by `scripts/capture-site.cjs` into `public/site`.
+- **Pexels:** `npm run fetch-plates` downloads the media using `PEXELS_API_KEY` from the environment. Credits are written to `public/photos/credits.json`.
+  - Road video 13643100 (Erik Mclean).
+  - Photos:
+    - 6266516 (Tima Miroshnichenko)
+    - 2182863 (TimSon Foox)
+    - 17245109 (Erik Mclean)
+    - 33539242 (3D Render)
+    - 36790143 (Bor Jinson)
+    - 39076662 (NEW VISION PRODUCTION)
+    - 5805712 (Wilson Ren)
+- **SFX:** uisfx 0.4.0 `studio` pack (CC0).
+- **Music:** still needed. Pixabay Music refuses requests from this environment.

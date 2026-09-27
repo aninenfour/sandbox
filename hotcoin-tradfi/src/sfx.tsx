@@ -4,31 +4,39 @@ import {Audio, Sequence, staticFile} from 'remotion';
 // One uisfx pack (CC0) for every event. Files are copied from node_modules/uisfx/sounds into public/sfx (npm run sfx).
 export const PACK = 'studio';
 
+// Scenes 3 to 7 run on a clock shifted by this many frames (see OFF in Film.tsx).
+const OFF = 100;
+
 // [frame, cue, volume]
-export const CUES: [number, string, number][] = [
-  [30, 'press', 0.9],        // click on paper, dot pops
-  [40, 'expand', 0.7],       // dot becomes the plate card
+const EARLY: [number, string, number][] = [
+  [30, 'press', 0.9],        // click on the stage, dot pops
+  [40, 'expand', 0.7],       // dot opens into the first card
   [60, 'select', 0.6],       // Trade
-  [90, 'select', 0.6],       // ticker slot
   [105, 'toggle-on', 0.7],   // USDT pill pops
-  [140, 'drag-start', 0.7],
-  [150, 'seek', 0.6], [180, 'seek', 0.6], [210, 'seek', 0.6], [240, 'seek', 0.7],
-  [250, 'drop', 0.7],
-  [270, 'press', 0.9],       // click USDT
-  [276, 'swipe', 0.8],       // ink flood
-  [300, 'collapse', 0.7],    // flood contracts into the app window
+  [120, 'drag-start', 0.7],
+  [130, 'seek', 0.6], [160, 'seek', 0.6], [190, 'seek', 0.6], [220, 'seek', 0.7],
+  [230, 'drop', 0.7],
+  [250, 'press', 0.9],       // click USDT
+  [256, 'swipe', 0.8],       // ink flood
+  [280, 'collapse', 0.7],    // ink contracts into the website window
+  [326, 'press', 0.8],       // Metal tab
+  [358, 'press', 0.8],       // ETF tab
+  [384, 'swipe', 0.6],       // zoom through into the app
+];
+const LATER: [number, string, number][] = [
   [330, 'select', 0.5], [420, 'select', 0.5], [510, 'select', 0.5], [606, 'select', 0.5],
-  [585, 'swipe', 0.6],       // zoom through
+  [585, 'swipe', 0.6],       // zoom through to the order panel
   [690, 'press', 0.9],       // Open Long
   [694, 'expand', 0.8],      // button floods green
-  [720, 'collapse', 0.7],    // green contracts into the 0
+  [720, 'collapse', 0.7],    // green contracts into the coin
   [752, 'reward', 0.7],      // coin spins in
   [780, 'select', 0.6],      // USDT
-  [930, 'collapse', 0.6],    // 0 becomes a dot
-  [960, 'press', 0.9],       // click the dot
+  [930, 'collapse', 0.6],    // coin turns edge-on
+  [960, 'press', 0.9],       // click the edge
   [962, 'expand', 0.8],      // ink flood
   [990, 'success', 0.8],     // end card
 ];
+export const CUES = [...EARLY, ...LATER.map(([f, c, v]) => [f + OFF, c, v] as [number, string, number])];
 
 export const SFX: React.FC = () => (
   <>
