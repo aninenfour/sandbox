@@ -1,54 +1,41 @@
-# Hotcoin TradFi short: beat map (draft v1, 9:16 master)
+# Hotcoin TradFi short: beat map (v2, as built)
 
-120 BPM = 1 beat every 0.5 s = 30 frames at 60 fps. The film is 18.0 s long: 36 beats, 9 bars, 1080 frames.
-On-screen text stays inside y 250 to 1500 on 1080x1920. Every change is a cut on the beat or a morph. There are no fades.
+- 120 BPM at 60 fps, so one beat = 30 frames = 0.5 s.
+- The film is 1110 frames (18.5 s).
+- Text stays inside y 250 to 1500 on 1080x1920.
+- Scene changes are shape morphs or cuts on the beat. There are no fades.
 
-**The thread:** one green shape runs through the whole film. It starts as a click dot, becomes the USDT pill, then the
-Spot/Futures toggle, then the "0" in "10", then the real **Trade Now** button in the recording, and finally floods the frame into the end card.
+**The thread:** each scene is built out of the one before it:
+- A click dot opens into the skyline card.
+- The USDT pill floods the frame with ink.
+- The ink contracts into the app window.
+- The camera zooms through into the order panel.
+- The real **Open Long** button floods the frame green.
+- The green contracts into the "0" of "10".
+- The "0" shrinks to a dot, which floods the frame with ink for the end card.
 
-| Bar | Beat | Time | Cursor / camera | Shape morph | On-screen text (hold) | SFX |
-|---|---|---|---|---|---|---|
-| 1 | 1 | 0.0 | Cursor enters from bottom right and clicks the center of an ink frame | A green dot pops in (spring) | none | click |
-| | 2 | 0.5 | none | The dot stretches into a pill, then into a tall rounded window. **Pexels plate 1** (night skyline) plays inside it with a hard edge | none | morph |
-| | 3 | 1.0 | The window snaps to full bleed. Slow push-in | none | **Trade** (paper, Archivo Black) | pop |
-| | 4 | 1.5 | none | A ticker slot opens between the words | **Trade TSLA with USDT** (USDT in green) | pop |
-| 2 | 5 | 2.0 | The cursor grabs the slot and drags it up like a wheel | none | TSLA holds 1.0 s | tick |
-| | 6 | 2.5 | Drag continues | The slot rolls | **NVDA** | tick |
-| | 7 | 3.0 | Drag continues | The slot rolls | **AAPL** | tick |
-| | 8 | 3.5 | Drag continues | The slot rolls | **GOLD** | tick |
-| 3 | 9 | 4.0 | The cursor releases | The slot settles with an overshoot | **ETFs** (holds 1.0 s, full line on screen 3.0 s) | tick + pop |
-| | 10 | 4.5 | The cursor clicks **USDT** | The USDT word swells into a solid green pill | none | click |
-| | 11 | 5.0 | none | Ink floods out from behind the pill and covers the skyline | none | morph |
-| | 12 | 5.5 | Screen Studio zoom into the recording's market list | The ink contracts into a rounded app window that holds the **real Hotcoin recording** | none | morph |
-| 4 | 13 | 6.0 | The cursor moves to the recording's real **Stocks** tab and clicks | none | **Spot** (big type above the UI) | click |
-| | 14 | 6.5 | Camera eases onto the price rows (XAU/USDT is in the list) | none | Spot holds 1.0 s | none |
-| | 15 | 7.0 | The cursor clicks the segmented control (the recording's Basic / Trading switch) | The green pill knob slides across | **Futures** | click + slide |
-| | 16 | 7.5 | Camera pulls back slightly | none | Futures holds 1.0 s | none |
-| 5 | 17 | 8.0 | none | The two-part toggle collapses into a single rounded square | **One account.** | morph |
-| | 18-20 | 8.5 | The camera zooms out of the recording and the app window shrinks into that square | none | One account. holds 2.0 s | none |
-| 6 | 21 | 10.0 | The cursor drags a transfer arrow between two cards. The arrow snaps back (red) | The two cards merge into one | **No moving funds.** (1.0 s) | drag + snap |
-| | 23 | 11.0 | The cursor presses the card | The card flattens into a green coin | **No separate fiat account.** (1.0 s) | press |
-| 7 | 25 | 12.0 | The cursor clicks the coin | The coin becomes the "0" of a giant **10**. **Pexels plate 2** (a hand holding a phone) is masked inside the 0 | **From 10 USDT** | click + pop |
-| | 26-28 | 12.5 | Slow push-in | none | Holds 2.0 s. Footnote in Plex Mono: *on selected TradFi products* | none |
-| 8 | 29 | 14.0 | Match cut: the 0 becomes the **real Trade Now button** in the recording. Camera zooms out to show the chart | none | none | morph |
-| | 30 | 14.5 | The cursor presses Trade Now (visible press-in) | none | none | click |
-| | 31 | 15.0 | none | The button floods the frame green | none | morph |
-| | 32 | 15.5 | none | The green contracts into a centered bar | none | morph |
-| 9 | 33 | 16.0 | none | The bar splits and reveals the end card on ink | **Hotcoin logo** (cropped from the recording, never redrawn) | pop |
-| | 34-36 | 16.5 | Cursor parks | none | **hotcoin.com/en_US/tradFi** (Plex Mono) holds 2.0 s | final hit |
+| Frames | Time | Beat | What happens | Text on screen (hold) | SFX (uisfx `studio`) |
+|---|---|---|---|---|---|
+| 0-30 | 0.0-0.5 | 1 | The cursor enters from the bottom right and clicks the center of the paper | none | press |
+| 30-90 | 0.5-1.5 | 2-3 | A green dot pops, stretches into a pill, then opens into a card. The **Pexels night skyline** plays inside it behind a circular hard-edge mask | **Trade** | expand, select |
+| 90-150 | 1.5-2.5 | 4-5 | The ticker slot and the green **USDT** pill pop in | **Trade AAPL with USDT** (1.0 s) | select, toggle-on |
+| 140-250 | 2.3-4.2 | 5-8 | The cursor grabs the card and drags it like a wheel. The ticker rolls on each beat with overshoot | NVDA, TSLA, GOLD, **ETFs** (1.0 s). The full sentence is on screen for 3.2 s | drag-start, seek x4, drop |
+| 270-300 | 4.5-5.0 | 10 | The cursor clicks USDT. The pill turns ink and floods the frame | none | press, swipe |
+| 300-330 | 5.0-5.5 | 11 | The ink contracts into a rounded window showing the **real Hotcoin recording** | none | collapse |
+| 330-420 | 5.5-7.0 | 12-14 | Screen-studio zoom onto the real Futures (1) / Spot (0) tabs and the Stocks category | **Spot and Futures.** (1.5 s) | select |
+| 420-510 | 7.0-8.5 | 15-17 | The recording types **AAPLX**. The camera follows the search box, then the Apple / Stocks result | **One account.** (1.5 s) | select |
+| 510-600 | 8.5-10.0 | 18-20 | The recording's cursor clicks AAPLX/USDT. The camera lands on the pair header (Apple, Stock, Market Open), then zooms through | **No moving funds.** (1.5 s) | select, swipe |
+| 600-690 | 10.0-11.5 | 21-23 | Coming out of the zoom: the order panel (Avail 58,030.71 USDT), then a pan down to **Open Long** | **No separate fiat account.** (1.9 s) | select |
+| 690-720 | 11.5-12.0 | 24 | The cursor presses the real Open Long button. The button grows to fill the frame as it shifts from UI green to brand green | none | press, expand |
+| 720-930 | 12.0-15.5 | 25-31 | The green contracts into a stadium-shaped "0", its hole opens, and **1** lands beside it | **From 10 USDT** (2.2 s). Footnote: *on selected TradFi products* | collapse, snap, select |
+| 930-990 | 15.5-16.5 | 32-33 | The text drops out and the 0 closes into a dot. The cursor clicks the dot, which turns ink and floods the frame | none | collapse, press, expand |
+| 990-1110 | 16.5-18.5 | 34-37 | End card: the Hotcoin logo (keyed out of the recording, not redrawn) wipes in, then the URL and a green underline pill. The cursor parks | **hotcoin.com/en_US/tradFi** (1.8 s) | success |
 
-## The 4 proposed stills
-1. **Beat 4 (1.5 s):** "Trade TSLA with USDT" over the skyline plate, with the cursor on the slot.
-2. **Beat 13 (6.0 s):** the zoomed real recording, the cursor clicking Stocks, and "Spot" above it.
-3. **Beat 26 (12.5 s):** a giant "From 10 USDT" with the phone plate inside the 0 and the footnote.
-4. **Beat 34 (17.0 s):** the end card with the logo crop and the URL.
+## Sources
+- **UI:** `09164a41-hero-pc-en.mp4` (the Hotcoin screen recording). The film uses 1.25 to 6.25 s and 10.6 to 12.8 s.
+- **Plate:** Pexels 29025308, night aerial skyline by JeetsVids. `npm run fetch-plates` downloads it with `PEXELS_API_KEY` from the environment.
+- **SFX:** uisfx 0.4.0, `studio` pack (CC0). `npm run sfx` copies it into `public/sfx`.
+- **Music:** still needed. Pixabay Music refuses requests from this environment (403).
 
 ## 1:1 version
-Same timeline and audio. The type is re-laid out for 1080x1080, the recording window becomes landscape, and the plates are re-cropped.
-
-## Pexels plates (candidates found with the API, portrait and license-free)
-- Plate 1, night skyline: pexels.com/video/dynamic-night-aerial-view-of-city-skyline-29025308 (2160x3840)
-- Plate 2, hand and phone: pexels.com/video/a-person-touching-a-cellphone-screen-7247828 (1080x1920). Only the hand and phone show inside the 0, so no third-party app UI reads on screen.
-
-## Sound
-One uisfx style pack for every event: click, tick, pop, morph, slide, press, drag, snap, final hit. The music is a 120 BPM track aligned so that beat 1 lands on frame 0.
+Same timeline and audio. `layoutFor()` holds a separate square layout: type on the left, and the card and app window on the right.
