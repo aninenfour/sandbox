@@ -390,9 +390,9 @@ const Scene34: React.FC<{f: number; L: Layout}> = ({f, L}) => {
       <Photo src="desk" f={f} bright={0.42} blur={5} zoom={[1.06, 1.16]} range={[300, 722]} pos="50% 45%" />
       <Vignette />
       <Light />
-      <HeadLines f={f} L={L} at={330} out={416} lines={[<>Spot <I>and</I></>, 'Futures.']} />
-      <HeadLines f={f} L={L} at={420} out={506} lines={['One', 'account.']} />
-      <HeadLines f={f} L={L} at={510} out={596} lines={['No moving', 'funds.']} />
+      <HeadLines f={f} L={L} at={330} out={404} lines={[<>Spot <I>and</I></>, 'Futures.']} />
+      <HeadLines f={f} L={L} at={420} out={494} lines={['One', 'account.']} />
+      <HeadLines f={f} L={L} at={510} out={584} lines={['No moving', 'funds.']} />
       <HeadLines f={f} L={L} at={606} lines={[<><I>No</I> separate</>, 'fiat account.']} />
       <Float3D r={win} rx={rx} ry={ry}>
         {s3
