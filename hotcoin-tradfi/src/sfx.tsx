@@ -22,7 +22,7 @@ export const CUES: [number, string, number][] = [
   [690, 'press', 0.9],       // Open Long
   [694, 'expand', 0.8],      // button floods green
   [720, 'collapse', 0.7],    // green contracts into the 0
-  [752, 'snap', 0.7],        // 1 lands
+  [752, 'reward', 0.7],      // coin spins in
   [780, 'select', 0.6],      // USDT
   [930, 'collapse', 0.6],    // 0 becomes a dot
   [960, 'press', 0.9],       // click the dot

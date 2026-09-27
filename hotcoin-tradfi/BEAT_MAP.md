@@ -1,4 +1,16 @@
-# Hotcoin TradFi short: beat map (v2, as built)
+# Hotcoin TradFi short: beat map (v3, keynote look)
+
+**The look:** a dark stage with soft top light, film grain everywhere, and Pexels photos graded like film.
+- **Opening:** Wall Street at night.
+- **Ticker cards:** cash stacks, a circuit board, headlights in fog, gold bars and a stock board.
+- **App scenes:** a trading desk at night, blurred.
+- **Coin scene:** coins.
+
+**The depth:**
+- The tickers are a stack of 3D cards that flip up as you drag.
+- The app window floats in perspective and turns to face the camera before Open Long.
+- "10 USDT" is a 3D coin that spins in, then turns edge-on into a bar that floods the frame for the end card.
+- The pills are shaded buttons with shadows.
 
 - 120 BPM at 60 fps, so one beat = 30 frames = 0.5 s.
 - The film is 1110 frames (18.5 s).
