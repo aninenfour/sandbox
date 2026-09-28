@@ -10,6 +10,7 @@ All footage is pulled by script, never hand-downloaded; the files themselves are
 | New York Stock Exchange trading floor, 1960s | Internet Archive, Prelinger collection 0803 "Vista Stock Shots" | Prelinger Archives; confirm licence before paid media |
 | Coin spinning (30882814), molten gold fire (33938968), city night (10433645), crucible (30342459), wildfire (7533265), flames (5485149) | Pexels | Pexels licence, free for commercial use |
 | Lightning (28067), cash counter (59138) | Pixabay | Pixabay content licence |
+| Countdown voice, "ignition sequence start … liftoff, we have a liftoff" | NASA, Apollo 11 launch film with Jack King (Apollo launch control) narration, KSC 16 Jul 1969 | NASA media, public domain |
 | Music: "Rising Forest" by Diego Nava | Mixkit | Mixkit free licence |
 | Clicks/ticks | uisfx `mechanical` | CC0 |
 

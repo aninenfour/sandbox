@@ -11,32 +11,34 @@ export const LAUNCH_DURATION = 2400;
 const BEAT = 3600 / 124; // frames per beat at 60 fps
 const b = (k: number) => k * BEAT;
 const cut = (k: number) => Math.round(b(k)) - 2; // hard cuts lead the beat by two frames
-const MUSIC_START_S = 0.242 + 20 * 4 * (60 / 124); // track bar 20: the breakdown, so the drop lands on beat 16
+const MUSIC_START_S = 0.242 + 18 * 4 * (60 / 124); // track bar 18: six bars of breakdown, so the drop lands on beat 24
+// Apollo 11 launch control (Jack King, NASA, public domain): seconds into our clip -> beats.
+const V = (sec: number) => (sec * 124) / 60;
+const VOICE = {three: V(6.15), two: V(6.95), one: V(8.15), zero: V(8.53), engines: V(9.93), liftoff: 24};
 
 // ---------------------------------------------------------------- shots
 type Shot = {k0: number; k1: number; src: string; trim?: number; pos?: string; blur?: 'x' | 'y'; dark?: number; mono?: boolean};
 const SHOTS: Shot[] = [
-  {k0: 0, k1: 2, src: 'cal1941', pos: '50% 40%', mono: true},
-  {k0: 2, k1: 4, src: 'ticker1941', mono: true},
-  {k0: 4, k1: 6, src: 'floor60s', blur: 'x'},
-  {k0: 6, k1: 8, src: 'floortop', blur: 'y'},
-  {k0: 8, k1: 10, src: 'pad', trim: 1.5},
-  {k0: 10, k1: 12, src: 'ignite1', blur: 'y'},
-  {k0: 12, k1: 14, src: 'ignite2'},
-  {k0: 14, k1: 16, src: 'pad', trim: 5.4, blur: 'y'},
-  {k0: 16, k1: 19, src: 'liftoff', dark: 0.38},
-  {k0: 19, k1: 21, src: 'flame', blur: 'y', dark: 0.3},
-  {k0: 21, k1: 22, src: 'ascent', trim: 1, blur: 'y'},
-  {k0: 22, k1: 28, src: 'coin', pos: '50% 50%'},
-  {k0: 28, k1: 34, src: 'goldfire', dark: 0.72},
-  {k0: 34, k1: 40, src: 'city', dark: 0.25, blur: 'x'},
-  {k0: 40, k1: 46, src: 'crucible', dark: 0.2, blur: 'y'},
-  {k0: 46, k1: 49, src: 'wildfire', dark: 0.1},
-  {k0: 49, k1: 50, src: 'lightning'},
-  {k0: 50, k1: 52, src: 'wildfire', trim: 3, dark: 0.55, blur: 'y'},
-  {k0: 52, k1: 58, src: 'cash', dark: 0.35, blur: 'x'},
-  {k0: 58, k1: 64, src: 'ascent', trim: 2, dark: 0.45},
-  {k0: 64, k1: 70, src: 'flames', dark: 0.0, blur: 'y'},
+  {k0: 0, k1: 3.5, src: 'cal1941', pos: '50% 40%', mono: true},
+  {k0: 3.5, k1: 6, src: 'ticker1941', mono: true},
+  {k0: 6, k1: 9.5, src: 'floor60s', blur: 'x'},
+  {k0: 9.5, k1: VOICE.three, src: 'floortop', blur: 'y'},
+  {k0: VOICE.three, k1: VOICE.two, src: 'pad', trim: 1.5},
+  {k0: VOICE.two, k1: VOICE.one, src: 'ignite1', blur: 'y'},
+  {k0: VOICE.one, k1: VOICE.engines, src: 'ignite2'},
+  {k0: VOICE.engines, k1: 24, src: 'pad', trim: 5.0, blur: 'y'},
+  {k0: 24, k1: 27, src: 'liftoff', dark: 0.38},
+  {k0: 27, k1: 29, src: 'flame', blur: 'y', dark: 0.3},
+  {k0: 29, k1: 30, src: 'ascent', trim: 1, blur: 'y'},
+  {k0: 30, k1: 35, src: 'coin', pos: '50% 50%'},
+  {k0: 35, k1: 42, src: 'goldfire', dark: 0.72},
+  {k0: 42, k1: 44, src: 'city', dark: 0.3, blur: 'x'},
+  {k0: 44, k1: 46, src: 'crucible', dark: 0.25, blur: 'y'},
+  {k0: 46, k1: 52, src: 'city', trim: 2, dark: 0.5, blur: 'x'},
+  {k0: 54, k1: 55, src: 'lightning'},
+  {k0: 55, k1: 60, src: 'wildfire', trim: 1, dark: 0.5, blur: 'y'},
+  {k0: 60, k1: 66, src: 'cash', dark: 0.35, blur: 'x'},
+  {k0: 66, k1: 73, src: 'ascent', trim: 1.5, dark: 0.45},
 ];
 
 // Every shot enters already moving (exponential ease-out of a push) and leaves on an accelerating, blurred move.
@@ -145,13 +147,13 @@ const riseIn = (f: number, at: number, dist = 900) => dist * Math.exp(-Math.max(
 
 // ---------------------------------------------------------------- UI scenes
 const TradeScene: React.FC<{f: number}> = ({f}) => {
-  const a = cut(28), z = cut(34);
+  const a = cut(35), z = cut(42);
   if (f < a || f >= z) return null;
   const rise = riseIn(f, a, 700);
   const push = 1 + (f - a) * 0.0006;
   const k = 1.4;
   const offX = 940 - 24 - 1420 * k, offY = 10 - 130 * k;
-  const click = cut(30.5), toast = cut(31);
+  const click = cut(37.5), toast = cut(38);
   const bx = 70 + offX + 1235 * k, by = 250 + rise + offY + 806 * k;
   const press = interpolate(f - click, [-3, 0, 8], [0, 1, 0], clamp);
   const t = spring({frame: f - toast, fps: 60, config: {damping: 15, stiffness: 190}});
@@ -200,7 +202,7 @@ const PhoneScene: React.FC<{f: number; k0: number; k1: number; kind: 'tradfi' | 
 };
 
 const DevicesScene: React.FC<{f: number}> = ({f}) => {
-  const a = cut(58), z = cut(64);
+  const a = cut(66), z = cut(73);
   if (f < a || f >= z) return null;
   const rise = riseIn(f, a, 700), rise2 = riseIn(f, a + 8, 900);
   const outK = interpolate(z - f, [0, 7], [1, 0], clamp) ** 2;
@@ -213,7 +215,7 @@ const DevicesScene: React.FC<{f: number}> = ({f}) => {
       </div>
       <PhoneFrame x={700} y={520 + rise2} w={300} f={f}><PhoneMarkets f={f} switchAt={-100} tapRow={-1} tapAt={9999} /></PhoneFrame>
       {['iOS', 'Android', 'Mac', 'Windows'].map((p, i) => {
-        const at = cut(59 + i * 0.75);
+        const at = cut(67.5 + i * 0.75);
         const s = spring({frame: f - at, fps: 60, config: {damping: 13, stiffness: 230}});
         if (f < at) return null;
         return <div key={p} style={{position: 'absolute', left: 115 + i * 220, top: 1190 + (1 - s) * 60, width: 190, height: 64, borderRadius: 32, ...glass(32), background: 'rgba(255,255,255,0.12)',
@@ -225,10 +227,10 @@ const DevicesScene: React.FC<{f: number}> = ({f}) => {
 
 // ---------------------------------------------------------------- end card
 const EndCard: React.FC<{f: number}> = ({f}) => {
-  const a = cut(70);
+  const a = cut(73);
   if (f < a) return null;
   const t = f - a;
-  const w = 540 + 1110 * Math.exp(-t / 3.2) - Math.min(t, 240) * 0.08;
+  const w = 560 + 1090 * Math.exp(-t / 3.2);
   const h = w * (93 / 485);
   const smear = Math.exp(-t / 4);
   return (
@@ -238,9 +240,9 @@ const EndCard: React.FC<{f: number}> = ({f}) => {
         return smear > 0.03 ? <Img key={i} src={staticFile('brand/logo.png')} style={{position: 'absolute', left: 540 - (w * sc) / 2, top: 600 - (h * sc) / 2, width: w * sc, height: h * sc, opacity: 0.08 * (1 - i / 18) * smear * 3}} /> : null;
       })}
       <Img src={staticFile('brand/logo.png')} style={{position: 'absolute', left: 540 - w / 2, top: 600 - h / 2, width: w, height: h, filter: `blur(${smear * 6}px) drop-shadow(0 0 18px rgba(151,231,99,0.35)) drop-shadow(0 0 60px rgba(255,255,255,0.12))`}} />
-      <Small f={f} k0={72} k1={200} y={690} size={30}>Built for traders</Small>
-      <Small f={f} k0={73} k1={200} y={770} size={40}>hotcoin.com</Small>
-      <Small f={f} k0={75} k1={200} y={1250} size={18}>Trading involves risk. T&amp;C apply.</Small>
+      <Small f={f} k0={74} k1={200} y={690} size={30}>Built for traders</Small>
+      <Small f={f} k0={74.8} k1={200} y={770} size={40}>hotcoin.com</Small>
+      <Small f={f} k0={76} k1={200} y={1250} size={18}>Trading involves risk. T&amp;C apply.</Small>
     </AbsoluteFill>
   );
 };
@@ -249,46 +251,45 @@ const EndCard: React.FC<{f: number}> = ({f}) => {
 export const Launch: React.FC = () => {
   useFontsReady();
   const f = useCurrentFrame();
-  const flash = interpolate(f, [cut(16) - 6, cut(16), cut(16) + 10], [0, 1, 0], clamp);
+  const flash = interpolate(f, [cut(24) - 6, cut(24), cut(24) + 10], [0, 1, 0], clamp);
   return (
     <AbsoluteFill style={{background: '#050506', overflow: 'hidden'}}>
       {SHOTS.map((s, i) => <ShotLayer key={i} s={s} f={f} id={i} />)}
       <AbsoluteFill style={{background: 'radial-gradient(90% 70% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%)'}} />
 
-      <Big f={f} k0={0} k1={3.8} lines={['Markets ran', 'on paper.']} size={132} />
-      <Big f={f} k0={4} k1={7.8} lines={['Then on', 'the floor.']} size={140} />
-      {['3', '2', '1'].map((n, i) => <Big key={n} f={f} k0={8 + i * 2} k1={9.8 + i * 2} lines={[n]} size={520} />)}
-      <Small f={f} k0={14} k1={16} y={1180}>Ignition</Small>
-      <Big f={f} k0={16} k1={21.8} lines={['Built for', 'traders.']} size={170} />
+      <Big f={f} k0={0.4} k1={5.8} lines={['Markets ran', 'on paper.']} size={132} />
+      <Big f={f} k0={6.2} k1={VOICE.three - 0.3} lines={['Then on', 'the floor.']} size={140} />
+      <Big f={f} k0={VOICE.three} k1={VOICE.two} lines={['3']} size={520} />
+      <Big f={f} k0={VOICE.two} k1={VOICE.one} lines={['2']} size={520} />
+      <Big f={f} k0={VOICE.one} k1={VOICE.engines - 0.4} lines={['1']} size={520} />
+      <Small f={f} k0={VOICE.engines - 0.3} k1={23.8} y={1170}>All engines running</Small>
+      <Big f={f} k0={24} k1={29.8} lines={['Built for', 'traders.']} size={170} />
 
-      <FilledWords f={f} k0={22} k1={27.8} lines={['Zero', 'fees']} size={330} src="goldfire" />
-      <Small f={f} k0={23} k1={27.8} y={1150}>On Spot crypto · T&amp;C apply</Small>
+      <FilledWords f={f} k0={30} k1={34.8} lines={['Zero', 'fees']} size={330} src="goldfire" />
+      <Small f={f} k0={31} k1={34.8} y={1150}>On Spot crypto · T&amp;C apply</Small>
 
       <TradeScene f={f} />
-      <Big f={f} k0={28} k1={30.8} lines={['Spot + Futures.']} size={96} y={150} />
-      <Big f={f} k0={31} k1={33.8} lines={['One account.']} size={110} y={150} />
+      <Big f={f} k0={35} k1={38.3} lines={['Spot + Futures.']} size={96} y={150} />
+      <Big f={f} k0={38.5} k1={41.8} lines={['One account.']} size={110} y={150} />
 
-      <Big f={f} k0={34} k1={36.8} lines={['US', 'stocks.']} size={260} />
-      <PhoneScene f={f} k0={37} k1={40} kind="tradfi" tapK={38.5} />
-      <Big f={f} k0={37} k1={39.8} lines={['From 10 USDT.']} size={104} y={170} />
-      <Small f={f} k0={37.5} k1={39.8} y={250} size={22}>On selected TradFi products</Small>
+      <Big f={f} k0={42} k1={45.8} lines={['Stocks.']} size={230} y={430} />
+      <Big f={f} k0={43} k1={45.8} lines={['Gold.']} size={230} y={675} />
+      <Big f={f} k0={44} k1={45.8} lines={['ETFs.']} size={230} y={920} />
 
-      <Big f={f} k0={40} k1={45.8} lines={['Gold.']} size={230} y={430} />
-      <Big f={f} k0={41.5} k1={45.8} lines={['Silver.']} size={230} y={675} />
-      <Big f={f} k0={43} k1={45.8} lines={['ETFs.']} size={230} y={920} />
+      <PhoneScene f={f} k0={46} k1={52} kind="tradfi" tapK={48.5} />
+      <Big f={f} k0={46.3} k1={51.8} lines={['From 10 USDT.']} size={104} y={170} />
+      <Small f={f} k0={46.8} k1={51.8} y={250} size={22}>On selected TradFi products</Small>
 
-      <FilledWords f={f} k0={46} k1={49} lines={['Predict']} size={250} src="goldfire" trim={2.5} />
-      <PhoneScene f={f} k0={50} k1={52} kind="predict" tapK={50.8} />
-      <Big f={f} k0={50} k1={51.8} lines={['Up or down.']} size={110} y={170} />
+      <FilledWords f={f} k0={52} k1={54} lines={['Predict']} size={250} src="goldfire" trim={2.5} />
+      <PhoneScene f={f} k0={55} k1={60} kind="predict" tapK={56.5} />
+      <Big f={f} k0={55.3} k1={59.8} lines={['Up or down.']} size={110} y={170} />
 
-      <Big f={f} k0={52} k1={53.8} lines={['8.1M+', 'traders']} size={210} />
-      <Big f={f} k0={54} k1={55.8} lines={['120+', 'countries']} size={200} />
-      <Big f={f} k0={56} k1={57.8} lines={['Since', '2017']} size={230} />
+      <Big f={f} k0={60} k1={61.8} lines={['8.1M+', 'traders']} size={210} />
+      <Big f={f} k0={62} k1={63.8} lines={['120+', 'countries']} size={200} />
+      <Big f={f} k0={64} k1={65.8} lines={['Since', '2017']} size={230} />
 
       <DevicesScene f={f} />
-      <Big f={f} k0={58} k1={63.8} lines={['Trade anywhere.']} size={100} y={220} />
-
-      <FilledWords f={f} k0={64} k1={70} lines={['9 years', 'of focus.']} size={200} src="liftoff" trim={0.5} />
+      <Big f={f} k0={66} k1={72.8} lines={['Trade anywhere.']} size={100} y={220} />
 
       <EndCard f={f} />
       {flash > 0.01 && <AbsoluteFill style={{background: '#FFF6E8', opacity: flash}} />}
@@ -304,20 +305,21 @@ const Grain: React.FC<{f: number}> = ({f}) => {
 };
 
 // ---------------------------------------------------------------- sound
-const WHOOSH_AT = [4, 8, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70];
+const WHOOSH_AT = [6, 24, 30, 35, 42, 46, 52, 55, 60, 66, 73];
 const Sound: React.FC = () => {
   const cues: [number, string, number][] = [
     ...WHOOSH_AT.map((k) => [Math.max(0, cut(k) - 14), 'swipe', 0.8] as [number, string, number]),
-    [cut(14.5), 'expand', 1.4], [cut(16), 'success', 1.2], [cut(22), 'collapse', 0.9],
-    [cut(30.5), 'press', 1], [cut(31), 'snap', 0.8], [cut(38.5), 'press', 0.7], [cut(50.8), 'press', 0.7],
-    [cut(52), 'collapse', 0.8], [cut(54), 'collapse', 0.8], [cut(56), 'collapse', 0.8],
-    ...[0, 1, 2, 3].map((i) => [cut(59 + i * 0.75), 'snap', 0.6] as [number, string, number]),
-    [cut(70), 'success', 1.1],
+    [cut(22.5), 'expand', 1.4], [cut(24), 'success', 1.2], [cut(30), 'collapse', 0.9],
+    [cut(37.5), 'press', 1], [cut(38), 'snap', 0.8], [cut(48.5), 'press', 0.7], [cut(56.5), 'press', 0.7],
+    [cut(60), 'collapse', 0.8], [cut(62), 'collapse', 0.8], [cut(64), 'collapse', 0.8],
+    ...[0, 1, 2, 3].map((i) => [cut(67.5 + i * 0.75), 'snap', 0.6] as [number, string, number]),
+    [cut(73), 'success', 1.1],
   ];
   return (
     <>
-      <Audio src={staticFile('music/rising-forest.mp3')} trimBefore={Math.round(MUSIC_START_S * 60)} volume={(fr) => 0.7 * interpolate(fr, [LAUNCH_DURATION - 60, LAUNCH_DURATION - 2], [1, 0], clamp)} />
-      <Sequence from={cut(15)} durationInFrames={Math.round(b(9))} layout="none">
+      <Audio src={staticFile('music/rising-forest.mp3')} trimBefore={Math.round(MUSIC_START_S * 60)} volume={(fr) => 0.7 * interpolate(fr, [0, cut(23), cut(24)], [0.72, 0.72, 1], clamp) * interpolate(fr, [LAUNCH_DURATION - 60, LAUNCH_DURATION - 2], [1, 0], clamp)} />
+      <Audio src={staticFile('v2/launch-control.wav')} volume={(fr) => interpolate(fr, [0, 6, cut(24) + 150, cut(24) + 240], [0, 1, 1, 0], clamp)} />
+      <Sequence from={cut(23)} durationInFrames={Math.round(b(9))} layout="none">
         <Audio src={staticFile('v2/rocket.wav')} trimBefore={60} volume={(fr) => 0.9 * interpolate(fr, [0, 20, b(6), b(9)], [0, 1, 0.8, 0], clamp)} />
       </Sequence>
       {cues.map(([fr, cue, vol], i) => {
