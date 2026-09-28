@@ -4,7 +4,7 @@
   "scripts": {
     "studio": "remotion studio src/index.ts",
     "fetch-plates": "node scripts/fetch-plates.mjs",
-    "sfx": "mkdir -p public/sfx && cp -r node_modules/uisfx/sounds/studio public/sfx/",
+    "sfx": "mkdir -p public/sfx && cp -r node_modules/uisfx/sounds/mechanical public/sfx/ && python3 scripts/make-foley.py",
     "still": "remotion still src/index.ts",
     "render": "remotion render src/index.ts"
   },

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Audio, Sequence, staticFile} from 'remotion';
+import {soundFor} from './soundmap';
 
 // One uisfx pack (CC0) for every event. Files are copied from node_modules/uisfx/sounds into public/sfx (npm run sfx).
 export const PACK = 'studio';
@@ -42,7 +43,7 @@ export const SFX: React.FC = () => (
   <>
     {CUES.map(([f, cue, vol], i) => (
       <Sequence key={i} from={f} durationInFrames={120} layout="none">
-        <Audio src={staticFile(`sfx/${PACK}/${cue}.mp3`)} volume={vol} />
+        {(() => {const s = soundFor(cue, vol); return <Audio src={staticFile(s.src)} volume={s.volume} />;})()}
       </Sequence>
     ))}
   </>
