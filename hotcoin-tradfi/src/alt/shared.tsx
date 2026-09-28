@@ -14,6 +14,7 @@ export const useFontsReady = () => {
       document.fonts.load('400 100px "Archivo Black"'),
       document.fonts.load('500 40px "IBM Plex Mono"'),
       document.fonts.load('italic 400 100px "Instrument Serif"'),
+      document.fonts.load('400 16px Roboto'), document.fonts.load('500 16px Roboto'), document.fonts.load('700 16px Roboto'),
     ]).then(() => {setReady(true); continueRender(h);});
   }, [h]);
   return ready;

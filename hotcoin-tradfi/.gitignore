@@ -2,6 +2,7 @@ music-previews
 node_modules
 out
 public/alt
+public/music
 public/photos
 public/plates
 public/rec

@@ -6,6 +6,7 @@ import {AltB} from './alt/AltB';
 import {AltC} from './alt/AltC';
 import {Orbit, ORBIT_DURATION} from './alt/Orbit';
 import {Horizon, HORIZON_DURATION} from './alt/Horizon';
+import {Platform, PLATFORM_DURATION} from './platform/Platform';
 
 export const Root: React.FC = () => (
   <>
@@ -17,5 +18,6 @@ export const Root: React.FC = () => (
     <Composition id="Alt-C-Horizon" component={AltC} durationInFrames={120} fps={60} width={1080} height={1350} />
     <Composition id="Orbit-4x5" component={Orbit} durationInFrames={ORBIT_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Horizon-4x5" component={Horizon} durationInFrames={HORIZON_DURATION} fps={60} width={1080} height={1350} />
+    <Composition id="Platform-4x5" component={Platform} durationInFrames={PLATFORM_DURATION} fps={60} width={1080} height={1350} />
   </>
 );
