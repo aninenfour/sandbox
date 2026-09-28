@@ -317,7 +317,7 @@ const Sound: React.FC = () => {
   ];
   return (
     <>
-      <Audio src={staticFile('music/rising-forest.mp3')} trimBefore={Math.round(MUSIC_START_S * 60)} volume={(fr) => 0.7 * interpolate(fr, [0, cut(23), cut(24)], [0.72, 0.72, 1], clamp) * interpolate(fr, [LAUNCH_DURATION - 60, LAUNCH_DURATION - 2], [1, 0], clamp)} />
+      <Audio src={staticFile('music/rising-forest.mp3')} trimBefore={Math.round(MUSIC_START_S * 60)} volume={(fr) => 0.7 * interpolate(fr, [0, cut(23), cut(24)], [0.5, 0.5, 1], clamp) * interpolate(fr, [LAUNCH_DURATION - 60, LAUNCH_DURATION - 2], [1, 0], clamp)} />
       <Audio src={staticFile('v2/launch-control.wav')} volume={(fr) => interpolate(fr, [0, 6, cut(24) + 150, cut(24) + 240], [0, 1, 1, 0], clamp)} />
       <Sequence from={cut(23)} durationInFrames={Math.round(b(9))} layout="none">
         <Audio src={staticFile('v2/rocket.wav')} trimBefore={60} volume={(fr) => 0.9 * interpolate(fr, [0, 20, b(6), b(9)], [0, 1, 0.8, 0], clamp)} />
