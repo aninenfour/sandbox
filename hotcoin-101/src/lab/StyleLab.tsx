@@ -2,8 +2,8 @@ import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {Companion, poseAt, type Beat} from '../companion/Companion';
 import {useFrame} from '../design/clock';
-import {Chrome, Ground, Headline, Note, Underline, useLayout, Wipe} from '../design/Notebook';
-import {FONT, GREEN, INK, LOCKUP, PAPER, RED, theme, type Ground as G} from '../design/tokens';
+import {Chrome, Ground, Headline, Note, Underline, useLayout, Wipe} from '../notebook/Notebook';
+import {FONT, GREEN, INK, LOCKUP, PAPER, RED, theme, type Ground as G} from '../notebook/tokens';
 
 // A 17 second proof of the notebook look: the dot drops in and bounces,
 // opens its eye, becomes the period of the title card, rides an

@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {useFrame} from './clock';
+import {useFrame} from '../design/clock';
 import {FONT, GREEN, RED, theme, type Ground as GroundKind} from './tokens';
 
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));

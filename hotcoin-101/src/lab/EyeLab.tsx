@@ -3,8 +3,8 @@ import {AbsoluteFill} from 'remotion';
 import {Companion} from '../companion/Companion';
 import {MOODS, type Mood} from '../companion/moods';
 import {useFrame} from '../design/clock';
-import {Chrome, Ground, useLayout} from '../design/Notebook';
-import {FONT, RED, theme} from '../design/tokens';
+import {Chrome, Ground, useLayout} from '../notebook/Notebook';
+import {FONT, RED, theme} from '../notebook/tokens';
 
 // Expression sheet: every mood side by side, alive (blinks, saccades,
 // breathing). Halfway through, a red target wanders and every eye tracks it.

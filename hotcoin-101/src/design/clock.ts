@@ -1,18 +1,24 @@
-import {useCurrentFrame, useVideoConfig} from 'remotion';
+import { useCurrentFrame, useVideoConfig } from 'remotion';
 
-// Same contract as the series clock: render at 60fps, author every timing in
-// 30fps units. When the original project lands, keep its clock.ts and delete
-// this one; the API matches.
+/**
+ * THE AUTHORING CLOCK
+ *
+ * Every delay, spring and draw-on in the engine was written in 30fps frames.
+ * Rendering at 60fps would halve all of them. Instead, components read time
+ * from this clock, which always counts in 30fps units and simply lands on
+ * half-frames at 60. Springs in Remotion evaluate cleanly at fractional
+ * frames, so the result is the same timing with twice the samples.
+ */
 export const CLOCK_FPS = 30;
-export const RENDER_FPS = 60;
 
-export const useFrame = (): number => {
+export const useFrame = () => {
   const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
+  const { fps } = useVideoConfig();
   return (frame * CLOCK_FPS) / fps;
 };
 
-// Seconds -> clock units
-export const sec = (s: number) => s * CLOCK_FPS;
-// Clock units -> real frames (for Sequence from/durationInFrames)
-export const real = (units: number) => Math.round((units * RENDER_FPS) / CLOCK_FPS);
+/** A real-frame count converted into authoring units. */
+export const useToClock = () => {
+  const { fps } = useVideoConfig();
+  return (realFrames: number) => (realFrames * CLOCK_FPS) / fps;
+};

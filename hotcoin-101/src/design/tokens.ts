@@ -1,34 +1,58 @@
-import '@fontsource/anton/400.css';
-import '@fontsource/caveat/500.css';
-import '@fontsource/caveat/700.css';
-import '@fontsource/jetbrains-mono/400.css';
-import '@fontsource/jetbrains-mono/500.css';
-import '@fontsource/inter/700.css';
+/**
+ * HOTCOIN 101 — series design tokens
+ * One file to rule the whole series. Change here, every episode follows.
+ */
 
-// Notebook look. Two grounds that alternate page to page, one brand accent,
-// one contrast colour that means "down / wrong / careful".
-export const INK = '#15171A';
-export const PAPER = '#EDECE7';
-export const GREEN = '#7EC25A';
-export const GREEN_DEEP = '#4E8A33';
-export const GREEN_LID = '#5E9E3F';
-export const RED = '#F0453F';
-export const SCLERA = '#FBFBF7';
+export const COLOR = {
+  // Paper stock
+  paper: '#EFE9DC',
+  paperDeep: '#E4DCCB',
+  paperEdge: '#D8CEB9',
 
-export type Ground = 'paper' | 'ink';
+  // Ink
+  ink: '#17170F',
+  inkSoft: '#4A473B',
+  inkFaint: '#8C8877',
+  rule: 'rgba(23,23,15,0.16)',
 
-export const theme = (g: Ground) =>
-  g === 'paper'
-    ? {bg: PAPER, fg: INK, faint: 'rgba(21,23,26,0.16)', ghost: 'rgba(21,23,26,0.28)', note: GREEN_DEEP}
-    : {bg: INK, fg: PAPER, faint: 'rgba(237,236,231,0.14)', ghost: 'rgba(237,236,231,0.3)', note: GREEN};
+  // Hotcoin brand
+  green: '#7EC25A', // sampled from the Hotcoin logo mark
+  greenDeep: '#4C8A2F', // darkened for small type on paper
+  greenForest: '#639649', // legacy palette green, used for charts only
+  greenWash: 'rgba(126,194,90,0.26)',
+  greenLid: '#63A344', // eyelid: darker than the dot, so a blink reads on any ground
+
+  // Editorial signals (loss / risk / heat)
+  red: '#C1362B',
+  redWash: 'rgba(193,54,43,0.10)',
+  gold: '#C08A2E',
+
+  // Night stock (used sparingly, for "danger" or modern-market episodes)
+  night: '#12130F',
+  nightPaper: '#1B1C17',
+} as const;
 
 export const FONT = {
-  display: 'Anton, "Arial Narrow", sans-serif',
-  hand: 'Caveat, "Comic Sans MS", cursive',
-  mono: '"JetBrains Mono", ui-monospace, monospace',
-  brand: 'Inter, sans-serif',
-};
+  display: 'Newsreader',
+  ui: 'Inter',
+  mono: 'IBM Plex Mono',
+} as const;
 
-// Lockup geometry, measured from public/brand/hotcoin-lockup-{dark,light}.png
-// (both cropped to the same 1980 x 336 box, so the dot sits at the same spot).
-export const LOCKUP = {w: 1980, h: 336, dot: {cx: 260.5, cy: 263.5, r: 58}};
+/** Base grid: everything is sized off the frame's short edge so both formats match. */
+export const grid = (shortEdge: number) => ({
+  unit: shortEdge / 36,
+  gutter: shortEdge / 12,
+});
+
+export const SERIES = {
+  name: 'HOTCOIN 101',
+  strap: 'MONEY, EXPLAINED',
+  fps: 60,
+} as const;
+
+export const FORMATS = {
+  vertical: { width: 1080, height: 1920 },
+  horizontal: { width: 1920, height: 1080 },
+} as const;
+
+export type FormatName = keyof typeof FORMATS;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {random, useVideoConfig} from 'remotion';
 import {useFrame} from '../design/clock';
-import {GREEN, GREEN_DEEP, INK, SCLERA, theme, type Ground} from '../design/tokens';
+import {GREEN, GREEN_DEEP, INK, SCLERA, theme, type Ground} from '../notebook/tokens';
 import {blendFace, MOODS, type Face, type Mood} from './moods';
 
 // The narrator, rebuilt. Still the logo's green dot, now a character:

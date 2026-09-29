@@ -1,24 +1,31 @@
 {
   "name": "hotcoin-101",
-  "private": true,
-  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
   "scripts": {
-    "studio": "remotion studio src/index.ts",
-    "still": "remotion still src/index.ts",
-    "render": "remotion render src/index.ts",
-    "vo": "node scripts/voice.mjs",
-    "typecheck": "tsc --noEmit"
+    "studio": "remotion studio",
+    "render": "remotion render"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@fontsource/anton": "^5.3.0",
     "@fontsource/caveat": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.3.0",
-    "@remotion/cli": "^4.0.529",
-    "@types/react": "^18.3.31",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "remotion": "^4.0.529",
+    "@fontsource/newsreader": "^5.3.0",
+    "@remotion/cli": "^4.0.516",
+    "@remotion/google-fonts": "^4.0.516",
+    "@remotion/shapes": "^4.0.516",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "^4.0.516"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
     "typescript": "^5.9.3"
   }
 }
