@@ -5,3 +5,4 @@ bundle
 .env.*
 *.log
 public/vo/*.mp3
+public/vo/sample-*
