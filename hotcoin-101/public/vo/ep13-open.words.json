@@ -1,0 +1,112 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 4.64,
+ "words": [
+  {
+   "word": "China",
+   "start": 0,
+   "end": 0.32,
+   "at": 0,
+   "until": 9.6
+  },
+  {
+   "word": "was",
+   "start": 0.38,
+   "end": 0.56,
+   "at": 11.4,
+   "until": 16.8
+  },
+  {
+   "word": "printing",
+   "start": 0.596,
+   "end": 0.88,
+   "at": 17.9,
+   "until": 26.4
+  },
+  {
+   "word": "paper",
+   "start": 0.933,
+   "end": 1.2,
+   "at": 28,
+   "until": 36
+  },
+  {
+   "word": "money",
+   "start": 1.253,
+   "end": 1.52,
+   "at": 37.6,
+   "until": 45.6
+  },
+  {
+   "word": "more",
+   "start": 1.552,
+   "end": 1.68,
+   "at": 46.6,
+   "until": 50.4
+  },
+  {
+   "word": "than",
+   "start": 1.728,
+   "end": 1.92,
+   "at": 51.8,
+   "until": 57.6
+  },
+  {
+   "word": "six",
+   "start": 2.02,
+   "end": 2.32,
+   "at": 60.6,
+   "until": 69.6
+  },
+  {
+   "word": "hundred",
+   "start": 2.36,
+   "end": 2.64,
+   "at": 70.8,
+   "until": 79.2
+  },
+  {
+   "word": "years",
+   "start": 2.693,
+   "end": 2.96,
+   "at": 80.8,
+   "until": 88.8
+  },
+  {
+   "word": "before",
+   "start": 3.006,
+   "end": 3.28,
+   "at": 90.2,
+   "until": 98.4
+  },
+  {
+   "word": "Europe",
+   "start": 3.337,
+   "end": 3.68,
+   "at": 100.1,
+   "until": 110.4
+  },
+  {
+   "word": "even",
+   "start": 3.728,
+   "end": 3.92,
+   "at": 111.8,
+   "until": 117.6
+  },
+  {
+   "word": "tried",
+   "start": 3.973,
+   "end": 4.24,
+   "at": 119.2,
+   "until": 127.2
+  },
+  {
+   "word": "it.",
+   "start": 4.32,
+   "end": 4.64,
+   "at": 129.6,
+   "until": 139.2
+  }
+ ]
+}

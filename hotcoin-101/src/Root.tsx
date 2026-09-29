@@ -23,6 +23,10 @@ import { TerminalMotion, TERMINAL_MOTION_FRAMES } from './tests/TerminalMotion';
 import { StyleLab, LAB_TOTAL } from './lab/StyleLab';
 import { EyeLab, EYE_TOTAL } from './lab/EyeLab';
 import { real } from './notebook/time';
+import { Ep13, EP13_TOTAL } from './ep13/Ep13';
+
+// FILE 013 onward: bespoke notebook-look episodes, timed to the voiceover
+const NOTEBOOK_EPISODES = [{ slug: 'paper-money-invented-twice', component: Ep13, units: EP13_TOTAL }];
 
 // Notebook look (FILE 013 onward) sign-off comps
 const LABS = [
@@ -34,6 +38,19 @@ const EPISODES: EpisodeScript[] = [ep01, ep02, ep03, ep04, ep05, ep06, ep07, ep0
 
 export const RemotionRoot: React.FC = () => (
   <>
+    {NOTEBOOK_EPISODES.map((ep) =>
+      (['vertical', 'horizontal'] as const).map((fm) => (
+        <Composition
+          key={`${ep.slug}-${fm}`}
+          id={`${ep.slug}-${fm}`}
+          component={ep.component}
+          durationInFrames={real(ep.units)}
+          fps={SERIES.fps}
+          width={FORMATS[fm].width}
+          height={FORMATS[fm].height}
+        />
+      ))
+    )}
     {LABS.map((lab) =>
       (['vertical', 'horizontal'] as const).map((fm) => (
         <Composition

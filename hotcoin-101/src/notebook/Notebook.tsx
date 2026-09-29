@@ -66,13 +66,15 @@ export const Chrome: React.FC<{ground: GroundKind; file: string; keys: number[];
   const {W, H, vertical} = useLayout();
   const th = theme(ground);
   const m = vertical ? 64 : 56;
+  // 9:16 keeps clear of the reels UI: top 13%, bottom 21%
+  const top = vertical ? H * 0.115 : m - 8;
   const tc = (() => {
     const fr = Math.floor(real / (fps / 30));
     const s = Math.floor(fr / 30);
     const p = (n: number) => String(n).padStart(2, '0');
     return `00:${p(Math.floor(s / 60))}:${p(s % 60)}:${p(fr % 30)}`;
   })();
-  const tlY = H - (vertical ? 150 : 64);
+  const tlY = vertical ? H * 0.775 : H - 64;
   const x0 = m;
   const x1 = W - m;
   const head = x0 + (x1 - x0) * clamp(f / total);
@@ -85,11 +87,11 @@ export const Chrome: React.FC<{ground: GroundKind; file: string; keys: number[];
   );
   return (
     <AbsoluteFill>
-      <div style={{position: 'absolute', left: m, top: m - 8, display: 'flex', alignItems: 'center', gap: 16}}>
+      <div style={{position: 'absolute', left: m, top, display: 'flex', alignItems: 'center', gap: 16}}>
         <Img src={staticFile(`brand/hotcoin-lockup-${ground === 'paper' ? 'light' : 'dark'}.png`)} style={{height: 26}} />
         <span style={{fontFamily: FONT.mono, fontSize: 17, color: th.ghost, letterSpacing: 1.5}}>101 · FILE {file}</span>
       </div>
-      <div style={{position: 'absolute', right: m, top: m - 4, fontFamily: FONT.mono, fontSize: 17, color: th.ghost, letterSpacing: 1}}>{tc}</div>
+      <div style={{position: 'absolute', right: m, top: top + 4, fontFamily: FONT.mono, fontSize: 17, color: th.ghost, letterSpacing: 1}}>{tc}</div>
       <svg width={W} height={H} style={{position: 'absolute'}}>
         {mark(m - 20, H * 0.5)}
         {mark(W - m + 20, H * 0.5)}
