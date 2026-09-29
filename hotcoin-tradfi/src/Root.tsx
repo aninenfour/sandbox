@@ -8,6 +8,7 @@ import {Orbit, ORBIT_DURATION} from './alt/Orbit';
 import {Horizon, HORIZON_DURATION} from './alt/Horizon';
 import {Platform, PLATFORM_DURATION} from './platform/Platform';
 import {Launch, LAUNCH_DURATION} from './v2/Launch';
+import {LevelUp, LEVELUP_DURATION} from './levelup/LevelUp';
 
 export const Root: React.FC = () => (
   <>
@@ -21,5 +22,7 @@ export const Root: React.FC = () => (
     <Composition id="Horizon-4x5" component={Horizon} durationInFrames={HORIZON_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Platform-4x5" component={Platform} durationInFrames={PLATFORM_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Launch-4x5" component={Launch} durationInFrames={LAUNCH_DURATION} fps={60} width={1080} height={1350} />
+    <Composition id="LevelUp2-CN" component={LevelUp} durationInFrames={LEVELUP_DURATION} fps={60} width={1080} height={1080} defaultProps={{lang: 'cn' as const}} />
+    <Composition id="LevelUp2-EN" component={LevelUp} durationInFrames={LEVELUP_DURATION} fps={60} width={1080} height={1080} defaultProps={{lang: 'en' as const}} />
   </>
 );
