@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {AbsoluteFill, Audio, Img, Sequence, continueRender, delayRender, interpolate, spring, staticFile, useCurrentFrame} from 'remotion';
 import {COPY, Lang} from './copy';
 
-// Hotcoin Newcomer Level-Up Week #2. 1:1, 60 fps, 15 s. Same look as round 1: dark green burst, flexing
+// Hotcoin Newcomer Level-Up Week #2. 1:1, 60 fps, 9 s. Same look as round 1: dark green burst, flexing
 // frog in shades, LV badge, reward-power bar, white reward card. One level per task, then an end card.
-export const LEVELUP_DURATION = 900;
-const T = {l1: 120, l2: 300, l3: 480, end: 690};
+export const LEVELUP_DURATION = 540;
+const T = {l1: 75, l2: 165, l3: 255, end: 360};
 const LEVELS = [T.l1, T.l2, T.l3];
 
 const C = {
@@ -110,7 +110,7 @@ const Sparkles: React.FC<{f: number}> = ({f}) => {
   );
 };
 
-// ---------------------------------------------------------------- the frog (original character, drawn in code)
+// ---------------------------------------------------------------- the frog: Apu PNG when frogImage is set, else an original frog drawn in code
 const Frog: React.FC<{f: number; lv: number; image?: string}> = ({f, lv, image}) => {
   const flex = Math.sin(f / 7) * 7; // forearm pump, degrees
   const arm = (side: 1 | -1) => {
@@ -143,10 +143,10 @@ const Frog: React.FC<{f: number; lv: number; image?: string}> = ({f, lv, image})
     <svg viewBox="-40 0 480 440" width={560} height={513} style={{overflow: 'visible'}}>
       {/* LV.3 aura */}
       {lv >= 3 && (
-        <polygon points={starPts(200, 250, 14, 250 + 12 * Math.sin(f / 4), 170, f * 0.01, 0.25, 90)} fill={C.gold} stroke={C.ink} strokeWidth={8} opacity={0.95} />
+        <polygon points={starPts(image ? 224 : 200, image ? 230 : 250, 14, 250 + 12 * Math.sin(f / 4), 170, f * 0.01, 0.25, 90)} fill={C.gold} stroke={C.ink} strokeWidth={8} opacity={0.95} />
       )}
       {image ? (
-        <image href={image} x={-40} y={0} width={480} height={440} preserveAspectRatio="xMidYMax meet" />
+        <ApuLayer href={image} f={f} lv={lv} />
       ) : (
         <>
           {silhouette({fill: C.ink, stroke: C.ink, strokeWidth: 18, strokeLinejoin: 'round'})}
@@ -173,7 +173,7 @@ const Frog: React.FC<{f: number; lv: number; image?: string}> = ({f, lv, image})
         </>
       )}
       {/* LV.2+: verified chain (KYC done) */}
-      {lv >= 2 && (
+      {!image && lv >= 2 && (
         <g>
           <path d="M130,262 Q200,318 270,262" fill="none" stroke={C.ink} strokeWidth={16} strokeLinecap="round" />
           <path d="M130,262 Q200,318 270,262" fill="none" stroke={C.gold} strokeWidth={9} strokeLinecap="round" strokeDasharray="2 12" />
@@ -182,15 +182,50 @@ const Frog: React.FC<{f: number; lv: number; image?: string}> = ({f, lv, image})
         </g>
       )}
       {/* LV.3: crown */}
-      {lv >= 3 && (
-        <g transform={`translate(200 64) rotate(${-8 + 3 * Math.sin(f / 10)})`}>
-          <path d="M-80,30 L-92,-40 L-44,-4 L0,-58 L44,-4 L92,-40 L80,30 Z" fill={C.gold} stroke={C.ink} strokeWidth={8} strokeLinejoin="round" />
-          <circle cx={0} cy={8} r={11} fill="#ff4d6d" stroke={C.ink} strokeWidth={5} />
-          <circle cx={-48} cy={14} r={7} fill="#4dc3ff" stroke={C.ink} strokeWidth={4} />
-          <circle cx={48} cy={14} r={7} fill="#4dc3ff" stroke={C.ink} strokeWidth={4} />
+      {!image && lv >= 3 && <Crown x={200} y={64} rot={-8 + 3 * Math.sin(f / 10)} s={1} />}
+    </svg>
+  );
+};
+
+const Crown: React.FC<{x: number; y: number; rot: number; s: number}> = ({x, y, rot, s}) => (
+  <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${s})`}>
+    <path d="M-80,30 L-92,-40 L-44,-4 L0,-58 L44,-4 L92,-40 L80,30 Z" fill={C.gold} stroke={C.ink} strokeWidth={8} strokeLinejoin="round" />
+    <circle cx={0} cy={8} r={11} fill="#ff4d6d" stroke={C.ink} strokeWidth={5} />
+    <circle cx={-48} cy={14} r={7} fill="#4dc3ff" stroke={C.ink} strokeWidth={4} />
+    <circle cx={48} cy={14} r={7} fill="#4dc3ff" stroke={C.ink} strokeWidth={4} />
+  </g>
+);
+
+// Apu ("FRENS" PNG, background keyed out, ink outline added; 888 x 945) fitted into the frog box, with level gear
+// placed on its face and neck. Box coordinates: image x0 = -6.7, scale 0.466. Pupils sit at about (235,107) and (344,111).
+const ApuLayer: React.FC<{href: string; f: number; lv: number}> = ({href, f, lv}) => {
+  const wob = 2.5 * Math.sin(f / 9);
+  return (
+    <g transform={`translate(200 500) scale(1.15) translate(-200 -440) rotate(${wob} 200 440)`}>
+      <image href={href} x={-40} y={0} width={480} height={440} preserveAspectRatio="xMidYMax meet" />
+      {lv >= 1 && (
+        <g transform="translate(0 3) rotate(4 292 106)">
+          <rect x={172} y={74} width={240} height={14} rx={6} fill={C.ink} />
+          <rect x={180} y={78} width={106} height={60} rx={16} fill={C.ink} />
+          <rect x={298} y={78} width={106} height={60} rx={16} fill={C.ink} />
+          {[198, 316].map((x) => (
+            <g key={x} stroke={C.white} strokeWidth={8} strokeLinecap="round">
+              <line x1={x + 20} y1={90} x2={x + 2} y2={122} />
+              <line x1={x + 44} y1={90} x2={x + 26} y2={122} />
+            </g>
+          ))}
         </g>
       )}
-    </svg>
+      {lv >= 2 && (
+        <g>
+          <path d="M140,180 Q232,222 328,186" fill="none" stroke={C.ink} strokeWidth={16} strokeLinecap="round" />
+          <path d="M140,180 Q232,222 328,186" fill="none" stroke={C.gold} strokeWidth={9} strokeLinecap="round" strokeDasharray="2 12" />
+          <circle cx={232} cy={202} r={22} fill={C.gold} stroke={C.ink} strokeWidth={6} />
+          <path d="M222,202 l8,9 l13,-16" fill="none" stroke={C.ink} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" />
+        </g>
+      )}
+      {lv >= 3 && <Crown x={262} y={22} rot={8 + 3 * Math.sin(f / 10)} s={0.85} />}
+    </g>
   );
 };
 
@@ -212,10 +247,10 @@ const LvBadge: React.FC<{lv: number; t: number}> = ({lv, t}) => {
 
 const PowerBar: React.FC<{lv: number; t: number; lang: Lang}> = ({lv, t, lang}) => {
   const c = COPY[lang];
-  const fillNew = lin(t, 10, 26);
+  const fillNew = lin(t, 6, 18);
   const cap = [5, 5, 15][lv - 1];
   const prevCap = lv > 1 ? [5, 5, 15][lv - 2] : 0;
-  const shown = Math.round(interpolate(t, [10, 34], [prevCap, cap], clamp));
+  const shown = Math.round(interpolate(t, [6, 22], [prevCap, cap], clamp));
   return (
     <div style={{position: 'absolute', right: 44, top: 44, width: 470, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 12}}>
       <div style={{fontFamily: lang === 'cn' ? CJK : '"Roboto", sans-serif', fontWeight: 900, fontSize: 34, color: C.white, textShadow: `3px 3px 0 ${C.ink}`}}>{c.power}</div>
@@ -225,13 +260,13 @@ const PowerBar: React.FC<{lv: number; t: number; lang: Lang}> = ({lv, t, lang}) 
           return (
             <div key={i} style={{width: 132, height: 42, transform: 'skewX(-20deg)', background: '#237f45', border: `5px solid ${C.ink}`, position: 'relative', overflow: 'hidden'}}>
               <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: `${w * 100}%`, background: lv === 3 ? C.gold : C.lime}} />
-              {i === lv && t > 10 && t < 34 && <div style={{position: 'absolute', top: 0, bottom: 0, left: `${w * 100 - 8}%`, width: 14, background: C.white}} />}
+              {i === lv && t > 6 && t < 18 && <div style={{position: 'absolute', top: 0, bottom: 0, left: `${w * 100 - 8}%`, width: 14, background: C.white}} />}
             </div>
           );
         })}
       </div>
       <Ink size={lang === 'cn' ? 50 : 54} sw={5} family={lang === 'cn' ? CJK : LATIN} weight={lang === 'cn' ? 900 : 400}
-        style={{transform: `scale(${1 + 0.18 * Math.exp(-Math.max(0, t - 30) / 8) * (t > 28 ? 1 : 0)})`, transformOrigin: 'right center'}}>
+        style={{transform: `scale(${1 + 0.18 * Math.exp(-Math.max(0, t - 22) / 8) * (t > 22 ? 1 : 0)})`, transformOrigin: 'right center'}}>
         {c.upTo(shown)}
       </Ink>
     </div>
@@ -240,18 +275,18 @@ const PowerBar: React.FC<{lv: number; t: number; lang: Lang}> = ({lv, t, lang}) 
 
 const RewardCard: React.FC<{lv: number; t: number; len: number; lang: Lang}> = ({lv, t, len, lang}) => {
   const c = COPY[lang].levels[lv - 1];
-  const inn = sp(t - 8, 11, 150);
-  const out = lin(t, len - 14, len, 0, 1);
+  const inn = sp(t - 4, 11, 190);
+  const out = lin(t, len - 10, len, 0, 1);
   const y = interpolate(inn, [0, 1], [420, 0]) + out * out * 520;
-  const count = Math.round(interpolate(t, [16, 40], [0, c.amount], clamp));
-  const tab = sp(t - 18, 14, 170);
+  const count = Math.round(interpolate(t, [8, 24], [0, c.amount], clamp));
+  const tab = sp(t - 8, 14, 200);
   const isCn = lang === 'cn';
   return (
     <div style={{position: 'absolute', left: 50, right: 50, top: 792, height: 236, transform: `translateY(${y}px) rotate(-2deg)`}}>
       <div style={{position: 'absolute', inset: 0, background: C.white, border: `9px solid ${C.ink}`, boxShadow: `14px 14px 0 ${C.ink}`,
         display: 'flex', alignItems: 'center', padding: '0 40px', gap: 34}}>
         <Ink size={c.amount >= 10 ? 170 : 186} fill={lv === 3 ? C.gold : C.frog} sw={9} lh={1.05}
-          style={{transform: `scale(${1 + 0.1 * Math.exp(-Math.max(0, t - 40) / 6) * (t >= 40 ? 1 : 0)})`}}>
+          style={{transform: `scale(${1 + 0.1 * Math.exp(-Math.max(0, t - 24) / 6) * (t >= 24 ? 1 : 0)})`}}>
           {`${c.plus ? '+' : ''}${count} USDT`}
         </Ink>
         <div style={{display: 'flex', flexDirection: 'column', gap: 10}}>
@@ -270,9 +305,9 @@ const RewardCard: React.FC<{lv: number; t: number; len: number; lang: Lang}> = (
 };
 
 const LevelUpShout: React.FC<{t: number; lang: Lang}> = ({t, lang}) => {
-  if (t > 60) return null;
+  if (t > 40) return null;
   const s = interpolate(sp(t - 2, 8, 220), [0, 1], [0.2, 1]);
-  const o = lin(t, 40, 58, 1, 0);
+  const o = lin(t, 24, 38, 1, 0);
   return (
     <div style={{position: 'absolute', left: 0, right: 0, top: 168, display: 'flex', justifyContent: 'center', transform: `scale(${s}) rotate(-6deg) translateY(${-t * 0.5}px)`, opacity: o}}>
       <Ink size={lang === 'cn' ? 86 : 96} family={lang === 'cn' ? CJK : LATIN} weight={lang === 'cn' ? 900 : 400} fill={C.gold} sw={7} shadow={6} ls={2}>
@@ -286,8 +321,8 @@ const LevelUpShout: React.FC<{t: number; lang: Lang}> = ({t, lang}) => {
 const Intro: React.FC<{t: number; lang: Lang}> = ({t, lang}) => {
   const c = COPY[lang];
   const isCn = lang === 'cn';
-  const a = sp(t - 4, 10, 170), b = sp(t - 14, 10, 170), d = sp(t - 26, 12, 170), e = sp(t - 36, 12, 170);
-  const out = lin(t, 104, 120);
+  const a = sp(t - 2, 10, 200), b = sp(t - 8, 10, 200), d = sp(t - 16, 12, 200), e = sp(t - 22, 12, 200);
+  const out = lin(t, 64, 75);
   return (
     <AbsoluteFill style={{opacity: 1 - out, transform: `scale(${1 + out * 0.25})`}}>
       <div style={{position: 'absolute', top: 58, left: 0, right: 0, display: 'flex', justifyContent: 'center', opacity: lin(t, 0, 10)}}>
@@ -326,10 +361,10 @@ const Intro: React.FC<{t: number; lang: Lang}> = ({t, lang}) => {
 const EndCard: React.FC<{t: number; lang: Lang}> = ({t, lang}) => {
   const c = COPY[lang];
   const isCn = lang === 'cn';
-  const a = sp(t - 2, 9, 200), chips = [0, 1, 2].map((i) => sp(t - 18 - i * 6, 12, 180));
-  const d = sp(t - 40, 12, 170), e = sp(t - 50, 12, 170), g = sp(t - 60, 12, 170);
-  const n = Math.round(interpolate(t, [2, 30], [0, 15], clamp));
-  const cta = 1 + 0.04 * Math.sin(t / 6) * (t > 80 ? 1 : 0);
+  const a = sp(t - 2, 9, 200), chips = [0, 1, 2].map((i) => sp(t - 12 - i * 5, 12, 200));
+  const d = sp(t - 28, 12, 200), e = sp(t - 34, 12, 200), g = sp(t - 40, 12, 200);
+  const n = Math.round(interpolate(t, [2, 22], [0, 15], clamp));
+  const cta = 1 + 0.04 * Math.sin(t / 6) * (t > 56 ? 1 : 0);
   const body = isCn ? CJK : '"Roboto", sans-serif';
   return (
     <AbsoluteFill>
@@ -377,11 +412,11 @@ const EndCard: React.FC<{t: number; lang: Lang}> = ({t, lang}) => {
 
 // ---------------------------------------------------------------- sound
 const SFX: [number, string, number][] = [
-  [0, 'start', 0.7], [30, 'pop', 0.5], [40, 'pop', 0.5],
+  [0, 'start', 0.7], [10, 'pop', 0.5], [18, 'pop', 0.5],
   ...LEVELS.flatMap((l, i): [number, string, number][] => [
-    [l, i === 2 ? 'achievement' : 'level-up', 0.9], [l + 12, 'progress-step', 0.6], [l + 18, 'coupon', 0.7],
+    [l, i === 2 ? 'achievement' : 'level-up', 0.9], [l + 6, 'progress-step', 0.5], [l + 12, 'coupon', 0.7],
   ]),
-  [T.end, 'bonus', 0.9], [T.end + 20, 'snap', 0.5], [T.end + 26, 'snap', 0.5], [T.end + 32, 'snap', 0.5], [T.end + 62, 'reward', 0.8],
+  [T.end, 'bonus', 0.9], [T.end + 12, 'snap', 0.5], [T.end + 17, 'snap', 0.5], [T.end + 22, 'snap', 0.5], [T.end + 40, 'reward', 0.8],
 ];
 const FILES: Record<string, string> = {pop: 'select'};
 
@@ -399,7 +434,7 @@ export const LevelUp: React.FC<{lang: Lang; frogImage?: string}> = ({lang, frogI
   const frogLv = Math.min(lv, 3);
   const inLevel = lv >= 1 && lv <= 3;
   const squash = inLevel || lv === 4 ? Math.exp(-age / 9) * Math.cos(age / 2.2) : 0;
-  const introPop = sp(f - 30, 10, 140);
+  const introPop = sp(f - 14, 10, 170);
   let fx = 540, fy = 548, fs = 1;
   if (lv === 0) {fy = interpolate(introPop, [0, 1], [1400, 1048]); fs = 0.62;}
   if (lv === 4) {const k = sp(t, 14, 120); fx = interpolate(k, [0, 1], [540, 1090]); fy = interpolate(k, [0, 1], [548, 1260]); fs = interpolate(k, [0, 1], [1, 0]);}
