@@ -367,7 +367,7 @@ export const SilverScene: React.FC<SP> = ({g}) => {
   const line = sm(win(f, S.silver + 2, 18));
   const [x1, x2, x3] = g.stations;
   const st = [
-    {x: x1, at: w('Mongols') - 4, greyAt: w('too') + 2, size: g.yuan, year: '1260', name: 'YUAN'},
+    {x: x1, at: S.silver + 6, greyAt: w('too') + 2, size: g.yuan, year: '1260', name: 'YUAN'},
     {x: x2, at: w('Ming') - 4, greyAt: w('Ming') + 16, size: g.ming, year: '1375', name: 'MING'},
   ];
   const syY = syceeAt(f, g);
@@ -468,6 +468,7 @@ export const SwedenScene: React.FC<SP> = ({g}) => {
       </Svg>
       <Note at={w('time') - 4} ground="paper" tone="fg" text="a normal coin" size={40} x={g.coinsX - 40} y={g.sFloor - 130} from="bottom" arrow={{x: g.coinsX + 10, y: g.sFloor - 52, bend: 0.2}} />
       <Note at={w('twenty') - 4} ground="paper" tone="red" text="almost 20 kg" size={60} x={g.plateX - (g.v ? 200 : 260)} y={g.sFloor - g.plate.h - (g.v ? 190 : 170)} from="bottom" arrow={{x: g.plateX - 60, y: g.sFloor - g.plate.h - 16, bend: 0.25}} />
+      <Headline at={w('Sweden') - 6} text="SWEDEN" size={g.v ? 170 : 200} x={g.v ? 0 : 120} y={g.v ? g.cy - 520 : g.kickerY + 50} width={g.v ? g.W : undefined} align={g.v ? 'center' : 'left'} color={theme('paper').fg} />
       <Kicker g={g} at={S.sweden + 4} text="SWEDEN · 1600s · COPPER PLATE MONEY" ground="paper" />
     </AbsoluteFill>
   );

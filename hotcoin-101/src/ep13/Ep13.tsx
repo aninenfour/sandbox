@@ -94,7 +94,7 @@ const buildBeats = (g: Geo, f: number): Beat[] => {
   // silver: rides station to station, lands on the ingot
   const yuanTop = g.baseY - 14 - g.yuan.h - r;
   const mingTop = g.baseY - 14 - g.ming.h - r;
-  b.push({at: w('Mongols') - 2, x: g.stations[0] + g.yuan.w * 0.2, y: yuanTop, r, mood: 'curious', dur: 20, arc: 0.3});
+  b.push({at: S.silver + 10, x: g.stations[0] + g.yuan.w * 0.2, y: yuanTop, r, mood: 'curious', dur: 22, arc: 0.3});
   hold(w('too') + 6, {mood: 'skeptical'});
   b.push({at: w('Ming') - 2, x: g.stations[1] + g.ming.w * 0.2, y: mingTop, r, path: 'hop', hop: 120, mood: 'worried'});
   b.push({at: Math.max(syceeLand() + 4, w('back') - 6), x: g.stations[2], y: g.syceeY - 52 * g.syceeS - r + 14, r, path: 'hop', hop: 150, mood: 'curious'});
