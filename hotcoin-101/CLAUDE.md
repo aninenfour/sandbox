@@ -23,7 +23,7 @@ From FILE 013 the videos ship finished, with voice and a quiet music bed.
 - **Music:** one track for the series, "Serene View" (Mixkit, free licence), `public/music/serene-view-bed.mp3`, normalised to about -31 LUFS so it sits well under the voice. No beat-driven tracks: Alex found them too busy.
 ---
 
-## Current look: Beyond the Green / Terminal (FILE 009 onward)
+## Previous look: Beyond the Green / Terminal (FILE 009 to 012)
 
 Set with `look: 'terminal'` and `verticalLayout: 'reels'` in the episode script.
 
@@ -37,13 +37,13 @@ Older looks (`flat` paper, `cutPaper`, `white`) still exist for episodes 001 to 
 
 ---
 
-## New look: Notebook (FILE 013 onward, in review)
+## Current look: Notebook (FILE 013 onward)
 
-A motion designer's notebook, after the references Alex picked. Prototype lives in `src/lab/` (compositions `lab-style-*`, `lab-eye-*`); episode code will use the same pieces.
+A motion designer's notebook, after the references Alex picked. Episodes are bespoke folders (`src/ep13/`: `timeline.ts`, `geo.ts`, `scenes.tsx`, `art.tsx`) built from `src/notebook/` and `src/companion/`. Sign-off comps live in `src/lab/`.
 
-- Two grounds that alternate page to page: paper `#EDECE7` with static grain, charcoal `#15171A` with a faint dot grid. Tokens in `src/design/tokens.ts`.
+- Two grounds that alternate page to page: paper `#EDECE7` with static grain, charcoal `#15171A` with a faint dot grid. Tokens in `src/notebook/tokens.ts`.
 - Display type is Anton (condensed, uppercase). Handwritten notes in Caveat, mono labels in JetBrains Mono. Brand green is the accent, red `#F0453F` only for "down / wrong / careful".
-- Notes write on and draw an arrow to what they explain (`Note` in `src/design/Notebook.tsx`). They replace most on-screen body text.
+- Notes write on and draw an arrow to what they explain (`Note` in `src/notebook/Notebook.tsx`). They replace most on-screen body text.
 - Chrome stays subordinate: small lockup + file number top left, timecode top right, keyframe timeline along the bottom with a section label, registration marks.
 - Page changes are an iris wipe out of the narrator's position, led by two thin rings (`Wipe`).
 - Headlines drop in letter by letter (about 45ms stagger) and land at exactly zero offset (`Headline`). The narrator can land as the headline's full stop.
@@ -82,7 +82,7 @@ The logo's green dot, alone. From FILE 013 it is a proper character (`src/compan
 - One eye with skin-coloured upper and lower lids, a crease line, iris ring, pupil with two catchlights, and a brow. Ten moods in `src/companion/moods.ts` (neutral, happy, delight, curious, skeptical, surprised, worried, focused, sleepy, excited) that blend numerically, so any mood can turn into any other.
 - Alive on its own: seeded blinks (sometimes double), micro saccades, breathing, pupil tremble when worried. Eyes lead a move: it looks where it's going before it goes.
 - Moves with anticipation and overshoot (`glide`), ballistic `hop` and `drop` with landing squash, `linear` for riding a chart line, `cut` for a hold. Stretch and directional motion blur at speed, onion-skin ghosts, contact shadow on a floor line.
-- `plain: true` is the bare logo dot (no face); `closed: true` shuts the lids. The end card lands it on the lockup's dot (geometry in `LOCKUP`, `src/design/tokens.ts`) and goes plain.
+- `plain: true` is the bare logo dot (no face); `closed: true` shuts the lids. The end card lands it on the lockup's dot (geometry in `LOCKUP`, `src/notebook/tokens.ts`) and goes plain.
 - Driven by a list of beats `{at, x, y, r, path, mood, look}` in clock units. It is a figure, not text, so it may keep moving for the whole page.
 
 ---
