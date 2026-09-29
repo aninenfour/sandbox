@@ -215,9 +215,8 @@ const SceneEnd: React.FC<{g: Geo}> = ({g}) => {
       <Ground ground={ground} />
       <Chrome ground={ground} file={FILE} keys={KEYS} total={LAB_TOTAL} label="end card" />
       <div style={{position: 'absolute', left: g.lx, top: g.ly, width: g.lw, height: LOCKUP.h * g.k, clipPath: `inset(0 ${(1 - e) * 100}% 0 0)`}}>
-        <Img src={staticFile('brand/hotcoin-lockup-light.png')} style={{width: g.lw, height: LOCKUP.h * g.k, display: 'block'}} />
-        {/* the printed logo's own dot is covered; the narrator becomes it */}
-        <div style={{position: 'absolute', left: LOCKUP.dot.cx * g.k - LOCKUP.dot.r * g.k - 3, top: LOCKUP.dot.cy * g.k - LOCKUP.dot.r * g.k - 3, width: (LOCKUP.dot.r * g.k + 3) * 2, height: (LOCKUP.dot.r * g.k + 3) * 2, borderRadius: '50%', background: PAPER}} />
+        {/* dot-free lockup: the narrator becomes the dot */}
+        <Img src={staticFile('brand/hotcoin-lockup-light-nodot.png')} style={{width: g.lw, height: LOCKUP.h * g.k, display: 'block'}} />
       </div>
       {p > 0 && p < 1 && (
         <div style={{position: 'absolute', left: sweep - 40, top: g.ly - 30, width: 80, height: LOCKUP.h * g.k + 60, background: 'linear-gradient(90deg, rgba(126,194,90,0), rgba(126,194,90,0.55), rgba(126,194,90,0))'}} />

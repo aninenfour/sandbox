@@ -29,5 +29,6 @@ export const FONT = {
   brand: 'Inter, sans-serif',
 };
 
-// Reversed lockup geometry, measured from public/brand/*.png (485 x 93).
-export const LOCKUP = {w: 485, h: 93, dot: {cx: 70, cy: 71, r: 14.5}};
+// Lockup geometry, measured from public/brand/hotcoin-lockup-{dark,light}.png
+// (both cropped to the same 1980 x 336 box, so the dot sits at the same spot).
+export const LOCKUP = {w: 1980, h: 336, dot: {cx: 260.5, cy: 263.5, r: 58}};

@@ -326,6 +326,8 @@ export const Companion: React.FC<Props> = ({beats, ground = 'paper', floor, trai
         <g transform={`rotate(${angle}) scale(${along} ${across})`} filter={blur > 0.6 ? `url(#${id}-mb)` : undefined}>
           <g transform={`rotate(${-angle}) scale(${1 - breath * 0.008} ${1 + breath * 0.014})`}>
             <circle r={R} fill={`url(#${id}-body)`} />
+            {/* plain = the logo's own flat dot, so the merge is seamless */}
+            {plain > 0 && <circle r={R} fill={GREEN} opacity={plain} />}
             <g transform={`rotate(${face.tilt * faceOp})`} opacity={faceOp}>
               <path d={browPath} stroke={GREEN_DEEP} strokeWidth={R * 0.1} strokeLinecap="round" fill="none" />
               <g transform={`translate(${ex} ${ey})`}>
@@ -349,7 +351,7 @@ export const Companion: React.FC<Props> = ({beats, ground = 'paper', floor, trai
             <path
               d={`M ${-R * 0.72} ${-R * 0.34} A ${R * 0.8} ${R * 0.8} 0 0 1 ${-R * 0.3} ${-R * 0.74}`}
               stroke="#fff"
-              strokeOpacity={0.4}
+              strokeOpacity={0.4 * (1 - plain)}
               strokeWidth={R * 0.07}
               strokeLinecap="round"
               fill="none"
