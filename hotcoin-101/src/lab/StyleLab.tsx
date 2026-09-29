@@ -150,9 +150,6 @@ const SceneTitle: React.FC<{g: Geo}> = ({g}) => {
         arrow={g.v ? {x: g.W / 2 + 70, y: g.t1 + 6, bend: 0.25} : {x: g.W / 2 + ANTON.adv('HOTCOIN 101') * g.s1 * 0.5 + 12, y: g.t1 + g.s1 * 0.5, bend: 0.3}}
       />
       <Note at={S2 + 70} ground={ground} tone="red" text="that's me" rotate={-5} x={g.dot2.x - (g.v ? 150 : 40)} y={g.base2 + g.S * 0.22} from="top" arrow={{x: g.dot2.x + g.r2 * 0.2, y: g.dot2.y + g.r2 * 1.4, bend: -0.35}} />
-      <div style={{position: 'absolute', width: g.W, textAlign: 'center', top: g.base2 + g.S * (g.v ? 0.62 : 0.5), fontFamily: FONT.mono, fontSize: g.v ? 22 : 20, letterSpacing: 3, color: th.fg, opacity: 0.55 * clamp((f - S2 - 64) / 10)}}>
-        EVERY FRAME DRAWN IN CODE
-      </div>
       <AbsoluteFill style={{background: `radial-gradient(circle at ${g.dot2.x}px ${g.dot2.y}px, rgba(126,194,90,${0.18 * glow}) 0, rgba(126,194,90,0) ${g.S * 0.9}px)`}} />
     </AbsoluteFill>
   );
