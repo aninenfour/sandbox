@@ -10,15 +10,17 @@ Read this before touching anything. Every rule below came from real feedback.
 
 Exactly four files, nothing else:
 
-1. `hotcoin-101-epNN-<slug>-9x16.mp4` — 60fps, no audio track
-2. `hotcoin-101-epNN-<slug>-16x9.mp4` — 60fps, no audio track
+1. `hotcoin-101-epNN-<slug>-9x16.mp4` · 60fps, with voiceover and music (from FILE 013; 001 to 012 were silent)
+2. `hotcoin-101-epNN-<slug>-16x9.mp4` · 60fps, with voiceover and music
 3. `hotcoin-101-epNN-voiceover.md` — only the copy-paste block, no timecodes, no direction notes
 4. `hotcoin-101-epNN-posts.md` — X (main post + reply), Instagram (caption + first-comment hashtags), LinkedIn, Telegram, YouTube (16:9 title, Shorts title under 40 chars, description with footer, tags, pinned comment)
 
-No music bed. No music. Delivered videos stay silent unless Alex says otherwise.
+From FILE 013 the videos ship finished, with voice and a quiet music bed.
 
-Voice can now be generated here: `npm run vo -- <voiceover.md> --out epNN` (ElevenLabs, `scripts/voice.mjs`). It writes `public/vo/epNN.mp3` plus `epNN.words.json` with every word's start in 30fps clock units, so beats and narrator reactions can sit on the words. The API key lives in `.env` (gitignored, never commit it). Set `ELEVENLABS_VOICE_ID` there to Alex's voice; the key is restricted and cannot list voices.
-
+- **Voice:** ElevenLabs, voice "Will" (`bIHbv24MWmeRgasZH58o`), model `eleven_v3`, stability 0.5. Set in `.env` (gitignored, never commit the key). The key is on the free plan, so only ElevenLabs' default voices work through the API; library voices need a paid plan.
+- `npm run vo -- <file> --out epNN-part` writes `public/vo/*.mp3` plus `*.words.json` with every word's start in 30fps clock units. Generate the cold open and the body as separate takes so the title card can sit in silence between them. Will reads at about 2.3 words a second; the body is stretched 5% with ffmpeg `atempo=1.05` (words.json rescaled to match), then both parts are mastered to -16 LUFS.
+- Episodes place scenes and narrator moves on words (`src/ep13/timeline.ts`: `w('word', n)`), so a new take re-times the edit.
+- **Music:** one track for the series, "Serene View" (Mixkit, free licence), `public/music/serene-view-bed.mp3`, normalised to about -31 LUFS so it sits well under the voice. No beat-driven tracks: Alex found them too busy.
 ---
 
 ## Current look: Beyond the Green / Terminal (FILE 009 onward)
@@ -88,7 +90,9 @@ The logo's green dot, alone. From FILE 013 it is a proper character (`src/compan
 ## Writing rules
 
 - Never use em dashes, anywhere.
-- Voiceover: human, spoken rhythm. Contractions. Fewer full stops, more connectives ("and so", "which is why", "because"). Avoid clean parallel declaratives like "X is A. Y is B." About 2.5 words per second, silence on the title card and the end card.
+- Voiceover: human, spoken rhythm, loose like a YouTuber talking ("and iron is... well, heavy"). Contractions. Fewer full stops, more connectives ("and so", "which is why", "because"). At most one or two "uhm"s in a whole episode, never at the start. Avoid clean parallel declaratives like "X is A. Y is B." About 2.5 words per second, silence on the title card and the end card.
+- The voice tells the story; the screen shows it. Don't put the narration on screen as text. One key word or number per scene, plus short handwritten notes.
+- Never mention that the video is made in code.
 - Social copy: human, one or two emoji per post at most, arrow lists (→) not bullets, cashtags on X ($BTC), no first-person brand voice.
 - Instagram captions end with "Follow @hotcoinex for the rest of the series." then "Hotcoin 101 · File NNN · Money, explained". Hashtags go in the first comment and include #hotcoin #hotcoinex.
 
@@ -102,8 +106,8 @@ export REMOTION_CHROME=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linu
 npx remotion bundle src/index.ts --out-dir=bundle
 npx remotion render bundle <slug>-vertical out/<name>-9x16.mp4 --concurrency=<cores>
 npx remotion render bundle <slug>-horizontal out/<name>-16x9.mp4 --concurrency=<cores>
-# strip audio for delivery
-ffmpeg -i in.mp4 -c:v copy -an -movflags +faststart out.mp4
+# delivery: keep the audio, check loudness (about -16 LUFS), move the index to the front
+ffmpeg -i in.mp4 -c copy -movflags +faststart out.mp4
 ```
 
-Composition ids are `${slug}-vertical` and `${slug}-horizontal` (see `src/Root.tsx`). Always re-bundle after source changes. Check stills at several points of each page in both formats before a full render.
+Composition ids are `${slug}-vertical` and `${slug}-horizontal` (see `src/Root.tsx`). FILE 013 is `paper-money-invented-twice`. Always re-bundle after source changes. Check stills at several points of each page in both formats before a full render: `node scripts/stills.mjs <comp-id> out/check 300,900,1500` renders many frames in one browser session.
