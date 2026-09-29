@@ -1,0 +1,7 @@
+node_modules
+out
+bundle
+.env
+.env.*
+*.log
+public/vo/*.mp3
