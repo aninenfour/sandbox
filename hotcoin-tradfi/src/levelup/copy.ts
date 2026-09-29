@@ -5,7 +5,7 @@ export type Lang = 'cn' | 'en';
 type Level = {task: string; amount: number; plus?: boolean; label: string; note?: string; chip: string};
 
 export const COPY: Record<Lang, {
-  title1: string; title2: string; pool: string; hook: string; shout: string; power: string; upTo: (n: number) => string;
+  title1: string; title2: string; pool: string; hook: string; shout: string; power: string; steps: string[]; upTo: (n: number) => string;
   levels: Level[]; endKicker: string; endBig: (n: number) => string; limit: string; dates: string;
   linkLabel: string; link: string; cta: string; fine: string;
 }> = {
@@ -16,6 +16,7 @@ export const COPY: Record<Lang, {
     hook: '第一期没赶上？第二期来了！',
     shout: '升级！',
     power: '奖励能量',
+    steps: ['注册', 'KYC', '首单'],
     upTo: (n) => `最高 ${n} USDT`,
     levels: [
       {task: '任务 1｜指定链接注册', amount: 5, label: '合约手续费\n抵扣券', chip: '手续费抵扣券'},
@@ -38,6 +39,7 @@ export const COPY: Record<Lang, {
     hook: 'Missed round 1? Round 2 is here.',
     shout: 'LEVEL UP!',
     power: 'Reward power',
+    steps: ['Sign up', 'KYC', '1st trade'],
     upTo: (n) => `Up to ${n} USDT`,
     levels: [
       {task: 'STEP 1 · Register via the link', amount: 5, label: 'Futures fee\nvoucher', chip: 'Futures fee voucher'},
