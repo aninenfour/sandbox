@@ -25,16 +25,16 @@ type Coin = {t: string; k: number; ext: string};
 type Era = {k0: number; k1: number; year: string; title: string; rate: number; band?: string; fg?: string; line?: string; coins: Coin[]; headDy?: number};
 const c = (t: string, k: number, ext = 'png'): Coin => ({t, k, ext});
 const ERAS: Era[] = [
-  {k0: 0, k1: 6, year: '2013', title: 'The first|memecoin', rate: 230, coins: [c('DOGE', 2)]},
-  {k0: 6, k1: 12, year: '2020–21', title: 'The dog|wars', rate: 230, coins: [c('SHIB', 7.5), c('FLOKI', 9.5)]},
+  {k0: 0, k1: 6, year: '2013', title: 'The first|memecoin', rate: 180, coins: [c('DOGE', 2)]},
+  {k0: 6, k1: 12, year: '2020–21', title: 'The dog|wars', rate: 180, coins: [c('SHIB', 7.5), c('FLOKI', 9.5)]},
   {k0: 12, k1: 20, year: '2021', title: 'To the|moon', rate: 150, coins: [], headDy: 40},
-  {k0: 20, k1: 26, year: '2023', title: 'The|frog', rate: 230, coins: [c('PEPE', 21.5, 'jpeg')], headDy: -40},
-  {k0: 26, k1: 34, year: '2023–24', title: 'Solana|season', rate: 230, coins: [c('BONK', 27, 'jpg'), c('WIF', 28.5, 'jpg'), c('POPCAT', 30, 'jpg')]},
-  {k0: 34, k1: 40, year: '2024–25', title: 'Cult|coins', rate: 230, coins: [c('NEIRO', 35, 'jpg'), c('MEW', 36.25), c('USELESS', 37.5)]},
-  {k0: 40, k1: 50, year: '2024–25', title: 'Launchpad|mania', rate: 230, coins: [c('PUMP', 41, 'jpg'), c('FARTCOIN', 42, 'jpg'), c('PNUT', 43), c('MOODENG', 44, 'jpg'), c('GOAT', 45, 'jpg'), c('CHILLGUY', 46)]},
-  {k0: 50, k1: 53, year: '2024', title: 'Base|season', rate: 340, band: '#0052FF', fg: PAPER, coins: [c('BRETT', 50.5), c('TOSHI', 51.25), c('DEGEN', 52)]},
-  {k0: 53, k1: 56, year: '2025', title: 'BNB|season', rate: 340, band: '#F0B90B', fg: INK, coins: [c('BROCCOLI', 53.5, 'jpg'), c('MUBARAK', 54.25, 'jpg'), c('TUT', 55)]},
-  {k0: 56, k1: 58, year: '20??', title: 'Next|chain?', rate: 340, band: '#97E763', fg: INK, line: INK, coins: []},
+  {k0: 20, k1: 26, year: '2023', title: 'The|frog', rate: 180, coins: [c('PEPE', 21.5, 'jpeg')], headDy: -40},
+  {k0: 26, k1: 34, year: '2023–24', title: 'Solana|season', rate: 180, coins: [c('BONK', 27, 'jpg'), c('WIF', 28.5, 'jpg'), c('POPCAT', 30, 'jpg')]},
+  {k0: 34, k1: 40, year: '2024–25', title: 'Cult|coins', rate: 180, coins: [c('NEIRO', 35, 'jpg'), c('MEW', 36.25), c('USELESS', 37.5)]},
+  {k0: 40, k1: 50, year: '2024–25', title: 'Launchpad|mania', rate: 262, coins: [c('PUMP', 41, 'jpg'), c('FARTCOIN', 42, 'jpg'), c('PNUT', 43), c('MOODENG', 44, 'jpg'), c('GOAT', 45, 'jpg'), c('CHILLGUY', 46)]},
+  {k0: 50, k1: 53, year: '2024', title: 'Base|season', rate: 300, band: '#0052FF', fg: PAPER, coins: [c('BRETT', 50.4), c('TOSHI', 51.2), c('DEGEN', 52)]},
+  {k0: 53, k1: 56, year: '2025', title: 'BNB|season', rate: 300, band: '#F0B90B', fg: INK, coins: [c('BROCCOLI', 53.4, 'jpg'), c('MUBARAK', 54.2, 'jpg'), c('TUT', 55)]},
+  {k0: 56, k1: 58, year: '20??', title: 'Next|chain?', rate: 300, band: '#97E763', fg: INK, line: INK, coins: []},
   {k0: 58, k1: 74, year: '', title: '', rate: 40, coins: []},
 ];
 const ALL_COINS = ERAS.flatMap((e) => e.coins);
@@ -53,7 +53,7 @@ const Y = (b: number) => {
   return y0 + (y1 - y0) * (0.5 - 0.5 * Math.cos(Math.PI * t)) + tex;
 };
 const camY = (b: number) => {let s = 0; for (let i = 0; i <= 8; i++) s += Y(b - 1.2 + (1.5 * i) / 8); return s / 9;};
-const HEAD_X = 520, LINE_Y = 820;
+const HEAD_X = 790, LINE_Y = 820; // the head rides right of centre so each coin crosses the whole frame
 
 // End card geometry: the logo is 485 x 93 with its green dot centred at (70, 71), radius 14.5.
 const LOGO_W = 620, LOGO_S = LOGO_W / 485, LOGO_X = 540 - LOGO_W / 2, LOGO_Y = 610;
@@ -92,16 +92,16 @@ const World: React.FC<{fr: number; b: number; bs: number}> = ({fr, b, bs}) => {
         {[{t: 'DOGE ATH $0.73', k: 16, dy: -90}, {t: 'SHIB ATH $0.000086', k: 17, dy: 0}].map((a) => {
           const p = fr < E(a.k) ? 0 : sp(fr - E(a.k), 11, 260);
           return p > 0 ? (
-            <div key={a.t} style={{position: 'absolute', left: sx(X(16)) + 70, top: sy(Y(16)) + a.dy - 20, transform: `scale(${p})`, transformOrigin: 'left center',
+            <div key={a.t} style={{position: 'absolute', left: sx(X(16)) - 60, top: sy(Y(16)) + a.dy - 40, transform: `translateX(-100%) scale(${p})`, transformOrigin: 'right center',
               fontFamily: MONO, fontWeight: 500, fontSize: 32, color: PAPER, background: INK, borderRadius: 40, padding: '8px 20px', whiteSpace: 'nowrap'}}>{a.t}</div>
           ) : null;
         })}
         {ALL_COINS.map((coin, i) => {
-          const p = fr < E(coin.k) ? 0 : sp(fr - E(coin.k), 10, 280);
+          const p = fr < E(coin.k) ? 0 : sp(fr - E(coin.k), 13, 190);
           if (p <= 0) return null;
           const x = sx(X(coin.k)), y = sy(Y(coin.k));
           if (x < -300 || x > 1400) return null;
-          const fg = eraAt(coin.k).fg ?? INK;
+          const fg = eraAt(b).fg ?? INK; // labels follow the colour on screen, not the era they were born in
           const below = i % 2 === 0;
           return (
             <React.Fragment key={coin.t}>
