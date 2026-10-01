@@ -11,12 +11,12 @@ const E = (k: number) => at(k) - 2; // visual events lead the beat by two frames
 export const MEME_DURATION = at(74);
 const MUSIC_START_S = 0.017 + 12 * 4 * (60 / 148); // track bar 12, so its drop lands on film beat 16
 const INK = '#0B0E11', PAPER = '#FFFFFF', GREEN = '#7EC25A', DOT_GREEN = '#AAFF73', GREY = '#8B8E93';
-const ARCH = '"Archivo Black", sans-serif', MONO = '"IBM Plex Mono", monospace';
+const ARCH = '"Archivo Black", sans-serif', MONO = '"IBM Plex Mono", monospace', SERIF = '"Instrument Serif", serif';
 
 const useFonts = () => {
   const [h] = useState(() => delayRender('fonts'));
   useEffect(() => {
-    Promise.all(['400 80px "Archivo Black"', '500 30px "IBM Plex Mono"', '400 30px "IBM Plex Mono"'].map((s) => document.fonts.load(s))).then(() => continueRender(h));
+    Promise.all(['400 80px "Archivo Black"', '500 30px "IBM Plex Mono"', '400 30px "IBM Plex Mono"', 'italic 400 80px "Instrument Serif"'].map((s) => document.fonts.load(s))).then(() => continueRender(h));
   }, [h]);
 };
 
@@ -28,7 +28,7 @@ const ERAS: Era[] = [
   {k0: 0, k1: 6, year: '2013', title: 'The first|memecoin', rate: 230, coins: [c('DOGE', 2)]},
   {k0: 6, k1: 12, year: '2020–21', title: 'The dog|wars', rate: 230, coins: [c('SHIB', 7.5), c('FLOKI', 9.5)]},
   {k0: 12, k1: 20, year: '2021', title: 'To the|moon', rate: 150, coins: [], headDy: 40},
-  {k0: 20, k1: 26, year: '2023', title: 'The frog', rate: 230, coins: [c('PEPE', 21.5, 'jpeg')], headDy: -40},
+  {k0: 20, k1: 26, year: '2023', title: 'The|frog', rate: 230, coins: [c('PEPE', 21.5, 'jpeg')], headDy: -40},
   {k0: 26, k1: 34, year: '2023–24', title: 'Solana|season', rate: 230, coins: [c('BONK', 27, 'jpg'), c('WIF', 28.5, 'jpg'), c('POPCAT', 30, 'jpg')]},
   {k0: 34, k1: 40, year: '2024–25', title: 'Cult|coins', rate: 230, coins: [c('NEIRO', 35, 'jpg'), c('MEW', 36.25), c('USELESS', 37.5)]},
   {k0: 40, k1: 50, year: '2024–25', title: 'Launchpad|mania', rate: 230, coins: [c('PUMP', 41, 'jpg'), c('FARTCOIN', 42, 'jpg'), c('PNUT', 43), c('MOODENG', 44, 'jpg'), c('GOAT', 45, 'jpg'), c('CHILLGUY', 46)]},
@@ -121,21 +121,72 @@ const World: React.FC<{fr: number; b: number; bs: number}> = ({fr, b, bs}) => {
 };
 
 // ---------- screen-pinned era titles and colour seasons ----------
-const Titles: React.FC<{fr: number}> = ({fr}) => (
-  <>
-    {ERAS.filter((e) => e.title && fr >= E(e.k0) - 10 && fr < E(e.k1) + 10).map((e) => {
-      const pin = ease(fr, E(e.k0) - 10, E(e.k0) + 10, OUT), out = ease(fr, E(e.k1) - 8, E(e.k1) + 8, IN);
-      const x = 60 + (1 - pin) * 1000 - out * 1150 - Math.max(0, (fr - E(e.k0)) / BEAT) * 10;
-      const fg = e.fg ?? INK;
-      return (
-        <div key={e.k0} style={{position: 'absolute', left: x, top: 80}}>
-          <div style={{display: 'inline-block', fontFamily: MONO, fontWeight: 500, fontSize: 30, color: fg, border: `2px solid ${fg}`, borderRadius: 40, padding: '4px 18px', marginBottom: 18}}>{e.year}</div>
-          {e.title.split('|').map((l) => <div key={l} style={{fontFamily: ARCH, fontSize: 112, lineHeight: 0.98, letterSpacing: -4, color: fg, whiteSpace: 'nowrap'}}>{l}</div>)}
+const TITLED = ERAS.filter((e) => e.title);
+const STRIP = '0123456789?';
+const digitIdx = (ch: string) => Math.max(0, STRIP.indexOf(ch));
+// The year rolls like an odometer from one era to the next; each digit lands a frame after the one before it.
+const Odometer: React.FC<{fr: number; i: number; color: string}> = ({fr, i, color}) => {
+  const cur = TITLED[i].year.slice(0, 4), prev = i ? TITLED[i - 1].year.slice(0, 4) : '2000';
+  const H = 150;
+  return (
+    <div style={{display: 'flex', height: H, overflow: 'hidden'}}>
+      {cur.split('').map((ch, d) => {
+        const p = fr < E(TITLED[i].k0) + d * 2 ? 0 : sp(fr - E(TITLED[i].k0) - d * 2, 15, 170);
+        const pos = digitIdx(prev[d]) + (digitIdx(ch) - digitIdx(prev[d])) * p;
+        return (
+          <div key={d} style={{width: H * 0.68, transform: `translateY(${-pos * H}px)`}}>
+            {STRIP.split('').map((n) => (
+              <div key={n} style={{height: H, lineHeight: `${H}px`, fontFamily: ARCH, fontSize: H * 0.95, textAlign: 'center', color: 'transparent', WebkitTextStroke: `3px ${color}`}}>{n}</div>
+            ))}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+// One masked line of the title: rises in on the era's first beat, rises out just before the era ends.
+const MaskLine: React.FC<{fr: number; k0: number; k1: number; delay: number; h: number; children: React.ReactNode}> = ({fr, k0, k1, delay, h, children}) => {
+  const inP = fr < E(k0) + delay ? 0 : Math.min(1.04, sp(fr - E(k0) - delay, 16, 220));
+  const outP = ease(fr, E(k1) - 11 + delay / 2, E(k1) - 2, IN);
+  return (
+    <div style={{height: h, overflow: 'hidden'}}>
+      <div style={{transform: `translateY(${(1 - inP) * h * 1.05 - outP * h * 1.05}px)`}}>{children}</div>
+    </div>
+  );
+};
+const Titles: React.FC<{fr: number}> = ({fr}) => {
+  let i = 0; TITLED.forEach((e, j) => {if (fr >= E(e.k0)) i = j;});
+  const e = TITLED[i], fg = e.fg ?? INK;
+  const [l1, l2] = e.title.split('|');
+  const suffix = e.year.slice(4);
+  return (
+    <AbsoluteFill style={{opacity: interpolate(fr, [E(58) - 6, E(58) + 2], [1, 0], clamp)}}>
+      <div style={{position: 'absolute', left: 60, top: 54, display: 'flex', alignItems: 'center', gap: 22, fontFamily: MONO, fontWeight: 500, fontSize: 26, color: fg}}>
+        <span>{String(i + 1).padStart(2, '0')}<span style={{opacity: 0.45}}> / {TITLED.length}</span></span>
+        <div style={{display: 'flex', gap: 6}}>
+          {TITLED.map((_, j) => (
+            <div key={j} style={{width: 34, height: 6, borderRadius: 3, background: fg, opacity: j < i ? 0.9 : j === i ? 1 : 0.18,
+              transform: j === i ? `scaleX(${ease(fr, E(e.k0), E(e.k0) + 12, OUT)})` : undefined, transformOrigin: 'left center'}} />
+          ))}
         </div>
-      );
-    })}
-  </>
-);
+      </div>
+      <div style={{position: 'absolute', left: 52, top: 100, display: 'flex', alignItems: 'flex-end', gap: 14}}>
+        <Odometer fr={fr} i={i} color={fg} />
+        {suffix ? <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 34, color: fg, marginBottom: 24, opacity: ease(fr, E(e.k0) + 6, E(e.k0) + 16)}}>{suffix}</div> : null}
+      </div>
+      <div style={{position: 'absolute', left: 60, top: 262}}>
+        <MaskLine fr={fr} k0={e.k0} k1={e.k1} delay={0} h={104}>
+          <div style={{fontFamily: ARCH, fontSize: 96, lineHeight: '104px', letterSpacing: -3, color: fg, whiteSpace: 'nowrap'}}>{l1}</div>
+        </MaskLine>
+        {l2 ? (
+          <MaskLine fr={fr} k0={e.k0} k1={e.k1} delay={4} h={124}>
+            <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 128, lineHeight: '120px', letterSpacing: -2, color: fg, whiteSpace: 'nowrap'}}>{l2}</div>
+          </MaskLine>
+        ) : null}
+      </div>
+    </AbsoluteFill>
+  );
+};
 const Seasons: React.FC<{fr: number}> = ({fr}) => (
   <>
     {ERAS.map((e, i) => {
