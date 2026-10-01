@@ -6,6 +6,18 @@ import '@fontsource/instrument-serif/400-italic.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import '@fontsource/comic-neue/700.css';
+import '@fontsource/bangers/400.css';
+import '@fontsource/press-start-2p/400.css';
+import '@fontsource/monoton/400.css';
+import '@fontsource/unifrakturmaguntia/400.css';
+import '@fontsource/bungee/400.css';
+import '@fontsource/rubik-mono-one/400.css';
+import '@fontsource/shrikhand/400.css';
+import '@fontsource/bowlby-one/400.css';
+import '@fontsource/rubik-bubbles/400.css';
+import '@fontsource/vt323/400.css';
+import '@fontsource/anton/400.css';
 import {Root} from './Root';
 
 registerRoot(Root);
