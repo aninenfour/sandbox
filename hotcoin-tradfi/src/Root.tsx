@@ -9,6 +9,7 @@ import {Horizon, HORIZON_DURATION} from './alt/Horizon';
 import {Platform, PLATFORM_DURATION} from './platform/Platform';
 import {Launch, LAUNCH_DURATION} from './v2/Launch';
 import {Meme, MEME_DURATION} from './meme/Meme';
+import {Carousel, CAROUSEL_W, CAROUSEL_H} from './referral/Carousel';
 
 export const Root: React.FC = () => (
   <>
@@ -22,6 +23,7 @@ export const Root: React.FC = () => (
     <Composition id="Horizon-4x5" component={Horizon} durationInFrames={HORIZON_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Platform-4x5" component={Platform} durationInFrames={PLATFORM_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Launch-4x5" component={Launch} durationInFrames={LAUNCH_DURATION} fps={60} width={1080} height={1350} />
+    <Composition id="Referral-Carousel" component={Carousel} durationInFrames={1} fps={60} width={CAROUSEL_W} height={CAROUSEL_H} />
     <Composition id="Meme-4x5" component={Meme} durationInFrames={MEME_DURATION} fps={60} width={1080} height={1350} />
   </>
 );
