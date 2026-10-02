@@ -22,3 +22,28 @@ Scripts: `scripts/fetch-v2.mjs` (Pexels and Pixabay, keys from the environment).
 **Music:** "Head Bang" by Arulo (Mixkit, free license), 148 BPM. The film starts at track bar 12, so the track's drop lands on film beat 16 (the 2021 peak).
 
 **Everything else** is drawn in code: the white timeline, the green line, type, and the colour seasons. There's no stock footage and no real people.
+
+## Uptober explainer (`src/uptober/Uptober.tsx`)
+**Narration:** Kokoro TTS v1.0 (open-source, Apache 2.0), voice `af_heart`, made by `scripts/make-vo.py`.
+
+**Music:** "Curiosity" (Mixkit, free licence, assets.mixkit.co/music/480).
+
+**Data:** Coin Metrics community API, BTC daily reference rate (PriceUSD). Monthly return = month-end close vs the previous month-end close, Jan 2013 to Sep 2026.
+
+**Photos:** Pexels, turned into halftones by `scripts/halftone.py`.
+- y2013: 37732199 by SHOX ART
+- y2017: 7156480 by Gustavo Fring
+- y2019: 25020077 by JC Terry
+- y2020: 4199524 by Jack Sparrow
+- y2021: 28962712 by Vincent Rivaud
+- y2023: 15914821 by carcdann
+- y2025: 33587048 by thorl5
+
+**Headlines:** paraphrased from contemporary reports and shown with their source and date:
+- Silk Road seizure (2 Oct 2013)
+- CME Group press release (31 Oct 2017)
+- Xi's blockchain remarks (25 Oct 2019)
+- PayPal (Reuters, 21 Oct 2020)
+- ProShares BITO debut (19 Oct 2021)
+- BlackRock's fund on the DTCC list (Oct 2023)
+- The 10 Oct 2025 liquidations
