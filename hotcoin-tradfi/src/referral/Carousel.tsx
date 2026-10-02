@@ -1,240 +1,191 @@
-// Referral carousel: four 1080 x 1350 slides cut from one 4320 x 1350 canvas.
-// One green line runs through all four and leaves slide 4 at the height it enters slide 1, so the swipe loops.
+// Referral carousel v2: four 1080 x 1350 slides cut from one 4320 x 1350 render.
+// One glowing 3D tube runs through all four: an infinity knot, three rings, a coil round an orb,
+// and out of slide 4 at the height it enters slide 1, so the swipe loops.
 // Facts are from hotcoin.com/en_US/user/ic (referral page and its rules), checked 2 Oct 2026.
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {AbsoluteFill, Img, continueRender, delayRender, staticFile} from 'remotion';
+import {ThreeCanvas} from '@remotion/three';
+import {useThree} from '@react-three/fiber';
+import * as THREE from 'three';
+import {RoomEnvironment} from 'three/examples/jsm/environments/RoomEnvironment.js';
 
 export const CAROUSEL_W = 4320, CAROUSEL_H = 1350;
-const INK = '#0B0E11', LIME = '#AAFF73', GREEN = '#7EC25A', PAPER = '#F1EFE8', MUTED = '#A3A8B0';
-const ARCH = '"Archivo Black", sans-serif', MONO = '"IBM Plex Mono", monospace', SERIF = '"Instrument Serif", serif', UI = 'Roboto, sans-serif';
+const BLACK = '#050607', LIME = '#B8F26A', GREEN = '#7EC25A', WHITE = '#F4F5F2', GREY = '#8E949B';
+const SANS = '"Inter Tight", sans-serif', SERIF = '"Instrument Serif", serif', MONO = '"IBM Plex Mono", monospace';
 
 const useFonts = () => {
   const [h] = useState(() => delayRender('fonts'));
   useEffect(() => {
-    Promise.all(['400 80px "Archivo Black"', '500 30px "IBM Plex Mono"', 'italic 400 80px "Instrument Serif"', '400 30px Roboto', '500 30px Roboto'].map((s) => document.fonts.load(s)))
+    Promise.all(['500 96px "Inter Tight"', '400 30px "Inter Tight"', 'italic 400 96px "Instrument Serif"', '500 24px "IBM Plex Mono"'].map((s) => document.fonts.load(s)))
       .then(() => continueRender(h));
   }, [h]);
 };
 
-// ---------- the line ----------
-type P = [number, number];
-const pts: P[] = [];
-const add = (p: P) => pts.push(p);
-const bez = (a: P, b: P, c: P, d: P, n = 60) => {
-  for (let i = 1; i <= n; i++) {
-    const t = i / n, u = 1 - t;
-    add([u * u * u * a[0] + 3 * u * u * t * b[0] + 3 * u * t * t * c[0] + t * t * t * d[0], u * u * u * a[1] + 3 * u * u * t * b[1] + 3 * u * t * t * c[1] + t * t * t * d[1]]);
+// ---------- the path (pixel space: x right, y down, z toward the viewer) ----------
+type V = [number, number, number];
+const LOOP_Y = 1185;
+const KNOT = {x: 560, y: 960, a: 360, z: 150};
+const RING_Y = 880, RINGS = [1330, 1620, 1910];
+const ORB = {x: 2700, y: 860, r: 175, coil: 245};
+const DOTS = {x: 3930, y: 880, r: 150}; // slide 4's sphere, a nod to the logo's green dot
+const buildPath = (): V[] => {
+  const p: V[] = [];
+  const bez = (a: V, b: V, c: V, d: V, n = 40) => {
+    for (let i = 1; i <= n; i++) {
+      const t = i / n, u = 1 - t;
+      p.push([0, 1, 2].map((k) => u * u * u * a[k] + 3 * u * u * t * b[k] + 3 * u * t * t * c[k] + t * t * t * d[k]) as V);
+    }
+  };
+  p.push([-80, LOOP_Y, 0]);
+  bez([-80, LOOP_Y, 0], [180, LOOP_Y, 0], [KNOT.x - 170, KNOT.y + 170, KNOT.z], [KNOT.x, KNOT.y, KNOT.z]);
+  // infinity knot: the two passes through the centre sit at +z and -z, so it really crosses over itself
+  for (let i = 1; i <= 260; i++) {
+    const t = Math.PI / 2 - (i / 260) * 2 * Math.PI, s = Math.sin(t);
+    p.push([KNOT.x + (KNOT.a * Math.cos(t)) / (1 + s * s), KNOT.y - (KNOT.a * s * Math.cos(t)) / (1 + s * s), KNOT.z * s]);
   }
+  bez(p[p.length - 1], [KNOT.x + 170, KNOT.y - 170, KNOT.z], [1060, RING_Y, 40], [1180, RING_Y, 0]);
+  p.push([RINGS[2] + 160, RING_Y, 0]);
+  // a double coil around the orb: it starts and ends on the coil's underside, heading right, so the joins stay smooth
+  const x0 = ORB.x - 260, x1 = ORB.x + 200, R = ORB.coil;
+  const at = (f: number): V => {const th = Math.PI / 2 + f * 4 * Math.PI, z = -R * Math.sin(th - Math.PI / 2) * 1; return [x0 + (x1 - x0) * f - z * 0.55, ORB.y + R * Math.sin(th) * 0.92, R * Math.cos(th)];};
+  const c0 = at(0);
+  bez(p[p.length - 1], [2250, RING_Y, 0], [c0[0] - 160, c0[1], 0], c0);
+  for (let i = 1; i <= 260; i++) p.push(at(i / 260));
+  const c1 = at(1);
+  bez(c1, [c1[0] + 200, c1[1], 0], [3150, LOOP_Y, 0], [3420, LOOP_Y, 0], 60);
+  // slide 4: rise behind the brand sphere, then settle back to the loop height
+  bez(p[p.length - 1], [3640, LOOP_Y, 0], [DOTS.x - 360, DOTS.y + 60, -260], [DOTS.x, DOTS.y - 20, -260], 60);
+  bez(p[p.length - 1], [DOTS.x + 300, DOTS.y - 80, -260], [4150, LOOP_Y, 0], [4400, LOOP_Y, 0], 60);
+  return p;
 };
-const arc = (cx: number, cy: number, r: number, a0: number, a1: number, n = 30) => {
-  for (let i = 1; i <= n; i++) {const a = a0 + ((a1 - a0) * i) / n; add([cx + r * Math.cos(a), cy + r * Math.sin(a)]);}
-};
-// Orthogonal route with rounded corners.
-const route = (corners: P[], r: number) => {
-  for (let i = 1; i < corners.length; i++) {
-    const [x0, y0] = corners[i - 1], [x1, y1] = corners[i];
-    const next = corners[i + 1];
-    if (!next) {add([x1, y1]); break;}
-    const dx = Math.sign(x1 - x0), dy = Math.sign(y1 - y0), nx = Math.sign(next[0] - x1), ny = Math.sign(next[1] - y1);
-    const a: P = [x1 - dx * r, y1 - dy * r], b: P = [x1 + nx * r, y1 + ny * r];
-    add(a);
-    for (let k = 1; k <= 16; k++) {const t = k / 16, u = 1 - t; add([u * u * a[0] + 2 * u * t * x1 + t * t * b[0], u * u * a[1] + 2 * u * t * y1 + t * t * b[1]]);}
-  }
-};
-const LOOP_Y = 1300; // entry height on slide 1 = exit height on slide 4
-const INF = {cx: 640, cy: 1062, a: 300};
-const RAIL2 = 1200, STEP_Y = [500, 780, 1060];
-const LOGO_W = 360, LOGO_S = LOGO_W / 485, DOT: P = [3330, 1180];
-// slide 1: rise into the centre of the infinity sign, loop it once, leave along the same tangent
-add([-40, LOOP_Y]);
-bez([-40, LOOP_Y], [200, LOOP_Y], [INF.cx - 140, INF.cy + 140], [INF.cx, INF.cy]);
-for (let i = 1; i <= 220; i++) {
-  const t = Math.PI / 2 - (i / 220) * 2 * Math.PI, s = Math.sin(t);
-  add([INF.cx + (INF.a * Math.cos(t)) / (1 + s * s), INF.cy - (INF.a * s * Math.cos(t)) / (1 + s * s)]);
-}
-bez([INF.cx, INF.cy], [INF.cx + 150, INF.cy - 150], [990, 940], [990, 800]);
-add([990, 420]);
-arc(1080, 420, 90, Math.PI, 1.5 * Math.PI);
-// slide 2: drop down the step rail, then out along the floor
-arc(RAIL2 - 90, 420, 90, 1.5 * Math.PI, 2 * Math.PI);
-add([RAIL2, 1150]);
-arc(RAIL2 + 90, 1150, 90, Math.PI, 0.5 * Math.PI);
-// slide 3: a staircase of friend milestones; slide 4: down the rail, through the logo's dot, back to the loop height
-const TREADS = [1060, 880, 700, 520], RISERS = [2300, 2520, 2740, 2960];
-route([[RAIL2 + 90, 1240], [RISERS[0], 1240], [RISERS[0], TREADS[0]], [RISERS[1], TREADS[0]], [RISERS[1], TREADS[1]], [RISERS[2], TREADS[1]], [RISERS[2], TREADS[2]],
-  [RISERS[3], TREADS[2]], [RISERS[3], TREADS[3]], [DOT[0], TREADS[3]], [DOT[0], LOOP_Y], [CAROUSEL_W + 40, LOOP_Y]], 46);
-const D = 'M' + pts.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(' L');
 
-const Line: React.FC = () => (
-  <svg width={CAROUSEL_W} height={CAROUSEL_H} style={{position: 'absolute', inset: 0}}>
-    <defs>
-      <linearGradient id="lg" x1="0" x2={CAROUSEL_W} y1="0" y2="0" gradientUnits="userSpaceOnUse">
-        {[LIME, GREEN, LIME, GREEN, LIME].map((c, i) => <stop key={i} offset={i / 4} stopColor={c} />)}
-      </linearGradient>
-      <filter id="glow" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="18" /></filter>
-    </defs>
-    <path d={D} fill="none" stroke={LIME} strokeOpacity={0.45} strokeWidth={26} filter="url(#glow)" strokeLinecap="round" strokeLinejoin="round" />
-    <path d={D} fill="none" stroke="url(#lg)" strokeWidth={12} strokeLinecap="round" strokeLinejoin="round" />
-    <path d={D} fill="none" stroke="#FFFFFF" strokeOpacity={0.45} strokeWidth={2.5} transform="translate(-1.5,-3)" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+// Environment lighting is set during render (not in an effect) so the single still frame already has it.
+const Env: React.FC = () => {
+  const {gl, scene} = useThree();
+  useMemo(() => {
+    const pm = new THREE.PMREMGenerator(gl);
+    scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+    gl.toneMapping = THREE.ACESFilmicToneMapping;
+    gl.toneMappingExposure = 1.05;
+  }, [gl, scene]);
+  return null;
+};
 
-// ---------- pieces ----------
-const sphere = `radial-gradient(circle at 32% 28%, #F4FFE9 0%, ${LIME} 26%, ${GREEN} 62%, #3F7A24 100%)`;
-const Node: React.FC<{x: number; y: number; r?: number; label?: string}> = ({x, y, r = 34, label}) => (
-  <div style={{position: 'absolute', left: x - r, top: y - r, width: r * 2, height: r * 2, borderRadius: '50%', background: sphere,
-    boxShadow: `0 0 0 8px rgba(170,255,115,0.12), 0 0 40px rgba(170,255,115,0.55), inset 0 -6px 12px rgba(0,0,0,0.25)`,
-    display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: ARCH, fontSize: r * 0.72, color: INK}}>{label}</div>
-);
-const Coin: React.FC<{x: number; y: number; d: number; text: string; rx?: number; ry?: number; rz?: number; blur?: number}> = ({x, y, d, text, rx = 0, ry = 0, rz = 0, blur = 0}) => (
-  <div style={{position: 'absolute', left: x, top: y, width: d, height: d, perspective: 900, filter: blur ? `blur(${blur}px)` : undefined}}>
-    <div style={{width: d, height: d, borderRadius: '50%', transform: `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`,
-      background: `radial-gradient(circle at 34% 26%, #F6FFEE 0%, ${LIME} 22%, ${GREEN} 58%, #376B1F 100%)`,
-      boxShadow: `inset 0 0 0 ${d * 0.06}px rgba(255,255,255,0.35), inset 0 0 0 ${d * 0.1}px rgba(55,107,31,0.55), inset 0 -${d * 0.06}px ${d * 0.12}px rgba(0,0,0,0.35), 0 ${d * 0.18}px ${d * 0.3}px rgba(0,0,0,0.55), 0 0 ${d * 0.5}px rgba(170,255,115,0.35)`,
-      display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-      <span style={{fontFamily: ARCH, fontSize: d * (text.length > 3 ? 0.2 : 0.3), color: '#25471A', textShadow: '0 2px 0 rgba(255,255,255,0.45)', letterSpacing: -1}}>{text}</span>
+const Scene: React.FC = () => {
+  const curve = useMemo(() => new THREE.CatmullRomCurve3(buildPath().map(([x, y, z]) => new THREE.Vector3(x, -y, z)), false, 'centripetal'), []);
+  const tube = (r: number) => new THREE.TubeGeometry(curve, 3000, r, 24, false);
+  const geo = useMemo(() => ({core: tube(10)}), [curve]);
+  const darkGlass = {color: '#9AA3AB', metalness: 1, roughness: 0.16, clearcoat: 1, clearcoatRoughness: 0.05, envMapIntensity: 1.6};
+  return (
+    <>
+      <Env />
+      <ambientLight intensity={0.15} />
+      <directionalLight position={[1000, 600, 1200]} intensity={1.6} />
+      {[KNOT.x, RINGS[1], ORB.x, 3800].map((x) => <pointLight key={x} position={[x, -760, 420]} color={LIME} intensity={4} distance={1400} decay={0.6} />)}
+      {/* the line: a lit core plus two additive halos for the glow */}
+      <mesh geometry={geo.core}><meshPhysicalMaterial color={LIME} emissive={GREEN} emissiveIntensity={0.9} roughness={0.22} clearcoat={1} clearcoatRoughness={0.1} /></mesh>
+      {/* slide 2: three dark glass rings the line threads through */}
+      {RINGS.map((x) => (
+        <mesh key={x} position={[x, -RING_Y, 0]} rotation={[0.22, 0.95, 0]}>
+          <torusGeometry args={[132, 15, 48, 160]} />
+          <meshPhysicalMaterial {...darkGlass} />
+        </mesh>
+      ))}
+      {/* slide 4: a glossy brand-green sphere the line passes behind */}
+      <mesh position={[DOTS.x, -DOTS.y, 0]}>
+        <sphereGeometry args={[DOTS.r, 128, 128]} />
+        <meshPhysicalMaterial color={GREEN} emissive={GREEN} emissiveIntensity={0.25} roughness={0.12} clearcoat={1} clearcoatRoughness={0.04} envMapIntensity={1.4} />
+      </mesh>
+      {/* slide 3: a smoked-glass orb with a lime core */}
+      <mesh position={[ORB.x, -ORB.y, 0]}>
+        <sphereGeometry args={[ORB.r, 96, 96]} />
+        <meshPhysicalMaterial color="#1A2024" metalness={0.1} roughness={0.05} transparent opacity={0.32} clearcoat={1} envMapIntensity={2} depthWrite={false} />
+      </mesh>
+      <mesh position={[ORB.x, -ORB.y, 0]}>
+        <sphereGeometry args={[72, 64, 64]} />
+        <meshBasicMaterial color={LIME} />
+      </mesh>
+      <mesh position={[ORB.x, -ORB.y, 0]}>
+        <sphereGeometry args={[120, 64, 64]} />
+        <meshBasicMaterial color={LIME} transparent opacity={0.12} blending={THREE.AdditiveBlending} depthWrite={false} />
+      </mesh>
+    </>
+  );
+};
+
+// ---------- type ----------
+const S = (i: number) => i * 1080;
+const Label: React.FC<{i: number; children: React.ReactNode}> = ({i, children}) => (
+  <>
+    <div style={{position: 'absolute', left: S(i) + 80, top: 214, fontFamily: MONO, fontWeight: 500, fontSize: 24, letterSpacing: 1, color: LIME}}>{children}</div>
+    <div style={{position: 'absolute', left: S(i) + 1080 - 80 - 120, top: 84, width: 120, textAlign: 'right', fontFamily: MONO, fontSize: 22, color: GREY}}>
+      <span style={{color: WHITE}}>0{i + 1}</span> / 04
     </div>
+  </>
+);
+const Head: React.FC<{i: number; children: React.ReactNode}> = ({i, children}) => (
+  <div style={{position: 'absolute', left: S(i) + 76, top: 262, fontFamily: SANS, fontWeight: 500, fontSize: 104, lineHeight: 1.0, letterSpacing: -4, color: WHITE}}>{children}</div>
+);
+const Em: React.FC<{children: React.ReactNode}> = ({children}) => (
+  <span style={{fontFamily: SERIF, fontStyle: 'italic', fontWeight: 400, fontSize: '1.14em', letterSpacing: -1, color: LIME}}>{children}</span>
+);
+const Sub: React.FC<{i: number; top: number; children: React.ReactNode}> = ({i, top, children}) => (
+  <div style={{position: 'absolute', left: S(i) + 80, top, fontFamily: SANS, fontSize: 34, lineHeight: 1.35, color: GREY, width: 860}}>{children}</div>
+);
+const Tag: React.FC<{x: number; y: number; n: string; t: string}> = ({x, y, n, t}) => (
+  <div style={{position: 'absolute', left: x - 110, top: y, width: 220, textAlign: 'center', fontFamily: MONO, fontSize: 22, color: GREY}}>
+    <span style={{color: LIME}}>{n}</span> {t}
   </div>
 );
-const Kicker: React.FC<{x: number; y: number; n: string; children: React.ReactNode}> = ({x, y, n, children}) => (
-  <div style={{position: 'absolute', left: x, top: y, display: 'flex', alignItems: 'center', gap: 18, fontFamily: MONO, fontWeight: 500, fontSize: 26, letterSpacing: 2, color: LIME}}>
-    <span style={{padding: '6px 16px', border: `1.5px solid ${LIME}`, borderRadius: 30}}>{children}</span>
-  </div>
-);
-const Page: React.FC<{i: number}> = ({i}) => (
-  <div style={{position: 'absolute', left: i * 1080 + 1080 - 80 - 140, top: 96, width: 140, textAlign: 'right', fontFamily: MONO, fontSize: 24, color: MUTED}}>
-    <span style={{color: PAPER}}>0{i + 1}</span> / 04
-  </div>
-);
-const Glass: React.CSSProperties = {
-  background: 'linear-gradient(160deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03))', border: '1px solid rgba(255,255,255,0.12)',
-  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.12), 0 24px 50px rgba(0,0,0,0.35)', borderRadius: 24, backdropFilter: 'blur(14px)',
-};
-const H: React.FC<{x: number; y: number; size?: number; children: React.ReactNode; color?: string}> = ({x, y, size = 104, children, color = PAPER}) => (
-  <div style={{position: 'absolute', left: x, top: y, fontFamily: ARCH, fontSize: size, lineHeight: 1, letterSpacing: -size * 0.035, color, whiteSpace: 'nowrap'}}>{children}</div>
-);
-const It: React.FC<{x: number; y: number; size?: number; children: React.ReactNode; color?: string}> = ({x, y, size = 116, children, color = PAPER}) => (
-  <div style={{position: 'absolute', left: x, top: y, fontFamily: SERIF, fontStyle: 'italic', fontSize: size, lineHeight: 1, letterSpacing: -1, color, whiteSpace: 'nowrap'}}>{children}</div>
+const Logo: React.FC<{x: number; y: number; w: number}> = ({x, y, w}) => (
+  <Img src={staticFile('brand/logo-v3.svg')} style={{position: 'absolute', left: x, top: y, width: w, height: (w * 28) / 139}} />
 );
 
-// ---------- the carousel ----------
 export const Carousel: React.FC = () => {
   useFonts();
   return (
-    <AbsoluteFill style={{background: INK, overflow: 'hidden'}}>
-      {/* atmosphere that runs across the seams */}
+    <AbsoluteFill style={{background: BLACK, overflow: 'hidden'}}>
       <AbsoluteFill style={{background: [
-        'radial-gradient(ellipse 520px 380px at 640px 1060px, rgba(126,194,90,0.20), transparent 70%)',
-        'radial-gradient(ellipse 500px 600px at 1240px 760px, rgba(126,194,90,0.12), transparent 70%)',
-        'radial-gradient(ellipse 700px 520px at 2700px 820px, rgba(126,194,90,0.14), transparent 70%)',
-        'radial-gradient(ellipse 600px 420px at 3330px 1180px, rgba(126,194,90,0.16), transparent 70%)',
-        'radial-gradient(ellipse 900px 500px at 4320px 1300px, rgba(126,194,90,0.10), transparent 70%)',
-        'radial-gradient(ellipse 900px 500px at 0px 1300px, rgba(126,194,90,0.10), transparent 70%)',
+        `radial-gradient(ellipse 620px 420px at ${KNOT.x}px ${KNOT.y}px, rgba(126,194,90,0.13), transparent 70%)`,
+        `radial-gradient(ellipse 760px 360px at ${RINGS[1]}px ${RING_Y}px, rgba(126,194,90,0.08), transparent 70%)`,
+        `radial-gradient(ellipse 560px 520px at ${ORB.x}px ${ORB.y}px, rgba(126,194,90,0.16), transparent 70%)`,
       ].join(',')}} />
-      <AbsoluteFill style={{backgroundImage: 'radial-gradient(rgba(255,255,255,0.07) 1.2px, transparent 1.6px)', backgroundSize: '36px 36px',
-        WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, #000 40%, #000 100%)'}} />
+      <ThreeCanvas width={CAROUSEL_W} height={CAROUSEL_H} orthographic camera={{position: [0, 0, 1500], zoom: 1, near: 1, far: 4000}}
+        gl={{antialias: true, preserveDrawingBuffer: true, alpha: true}}
+        style={{position: 'absolute', inset: 0, filter: 'drop-shadow(0 0 10px rgba(184,242,106,0.55)) drop-shadow(0 0 34px rgba(184,242,106,0.35)) drop-shadow(0 0 90px rgba(126,194,90,0.3))'}}>
+        <group position={[-CAROUSEL_W / 2, CAROUSEL_H / 2, 0]}><Scene /></group>
+      </ThreeCanvas>
 
-      {/* 01: the hook */}
-      <Kicker x={80} y={88} n="01">REFERRAL PROGRAM</Kicker>
-      <Page i={0} />
-      <H x={80} y={190} size={96}>Invite friends.</H>
-      <It x={84} y={300} size={118} color={MUTED}>earn up to</It>
-      <div style={{position: 'absolute', left: 64, top: 390, fontFamily: ARCH, fontSize: 330, lineHeight: 1, letterSpacing: -16,
-        background: `linear-gradient(180deg, #E9FFD9 0%, ${LIME} 45%, ${GREEN} 100%)`, WebkitBackgroundClip: 'text', color: 'transparent',
-        filter: 'drop-shadow(0 0 40px rgba(170,255,115,0.35))'}}>20%</div>
-      <div style={{position: 'absolute', left: 82, top: 760, fontFamily: UI, fontSize: 36, lineHeight: 1.35, color: PAPER, width: 720}}>
-        of your friends' net trading fees.<br /><span style={{color: LIME, fontWeight: 500}}>No cap on rewards.</span>
-      </div>
-      <Coin x={800} y={150} d={150} text="%" rx={18} ry={-28} rz={-10} />
-      <Coin x={900} y={300} d={84} text="%" rx={-20} ry={30} rz={14} blur={1.5} />
-      <Node x={INF.cx - INF.a} y={INF.cy} r={20} />
-      <Node x={INF.cx + INF.a} y={INF.cy} r={20} />
-      <div style={{position: 'absolute', left: INF.cx - INF.a - 150, top: INF.cy - 18, fontFamily: MONO, fontWeight: 500, fontSize: 26, color: PAPER, letterSpacing: 2}}>YOU</div>
-      <div style={{position: 'absolute', left: INF.cx + INF.a + 34, top: INF.cy - 18, fontFamily: MONO, fontWeight: 500, fontSize: 26, color: PAPER, letterSpacing: 2}}>FRIEND</div>
-      <div style={{position: 'absolute', left: 80, top: 1180, fontFamily: MONO, fontSize: 22, color: MUTED}}>Follow the line →</div>
+      {/* 01 */}
+      <Logo x={80} y={80} w={190} />
+      <Label i={0}>// referral program</Label>
+      <Head i={0}>Invite friends.<br />Earn up to <Em>20%</Em></Head>
+      <Sub i={0} top={500}>of their trading fees. No cap.</Sub>
 
-      {/* 02: how it works */}
-      <Kicker x={1080 + 80} y={88} n="02">HOW IT WORKS</Kicker>
-      <Page i={1} />
-      <H x={1080 + 210} y={190} size={96}>Three steps.</H>
-      <It x={1080 + 214} y={296} size={104} color={MUTED}>Then it runs itself.</It>
-      {[
-        {t: 'Share your link', b: <>Find your link and code in <b style={{color: PAPER, fontWeight: 500}}>Rewards → Referral Program</b>.</>},
-        {t: 'Friend signs up and trades', b: <>They register with your link or code. Only direct invites count.</>},
-        {t: 'You earn, next day', b: <>Up to 20% of their net fees, paid T+1 by 02:00 (UTC+8).</>},
-      ].map((s, i) => (
-        <React.Fragment key={s.t}>
-          <Node x={RAIL2} y={STEP_Y[i]} r={38} label={`0${i + 1}`} />
-          <div style={{position: 'absolute', left: RAIL2 + 80, top: STEP_Y[i] - 62, width: 760, ...Glass, padding: '26px 32px'}}>
-            <div style={{fontFamily: ARCH, fontSize: 44, letterSpacing: -1, color: PAPER}}>{s.t}</div>
-            <div style={{fontFamily: UI, fontSize: 29, lineHeight: 1.35, color: MUTED, marginTop: 10}}>{s.b}</div>
-          </div>
-        </React.Fragment>
-      ))}
+      {/* 02 */}
+      <Label i={1}>// how it works</Label>
+      <Head i={1}>Share. They trade.<br /><Em>You earn.</Em></Head>
+      <Sub i={1} top={500}>Rewards land the next day.</Sub>
+      <Tag x={RINGS[0]} y={RING_Y + 175} n="01" t="share link" />
+      <Tag x={RINGS[1]} y={RING_Y + 175} n="02" t="friend trades" />
+      <Tag x={RINGS[2]} y={RING_Y + 175} n="03" t="you earn" />
 
-      {/* 03: the friend's side */}
-      <Kicker x={2160 + 80} y={88} n="03">YOUR FRIEND WINS TOO</Kicker>
-      <Page i={2} />
-      <H x={2160 + 80} y={190} size={96}>They get a</H>
-      <It x={2160 + 84} y={290} size={124} color={LIME}>head start.</It>
-      {[
-        {t: 'Sign up', x: RISERS[0], y: TREADS[0]},
-        {t: 'Verify (KYC)', x: RISERS[1], y: TREADS[1]},
-        {t: 'First deposit', x: RISERS[2], y: TREADS[2]},
-        {t: 'First futures\ntrade', x: RISERS[3], y: TREADS[3]},
-      ].map((m) => (
-        <div key={m.t} style={{position: 'absolute', left: m.x + 14, top: m.y - 158, width: 204, height: 136, ...Glass, borderRadius: 20, padding: '16px 18px', boxSizing: 'border-box'}}>
-          <div style={{fontFamily: ARCH, fontSize: 23, lineHeight: 1.12, color: PAPER, whiteSpace: 'pre-line'}}>{m.t}</div>
-          <div style={{position: 'absolute', left: 18, bottom: 14, fontFamily: MONO, fontWeight: 500, fontSize: 22, color: LIME}}>+10 USDT</div>
-        </div>
-      ))}
-      <Coin x={3090} y={250} d={116} text="10" rx={22} ry={-30} rz={-8} />
-      <div style={{position: 'absolute', left: 2600, top: 1010, width: 560, textAlign: 'right'}}>
-        <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 24, letterSpacing: 2, color: MUTED}}>UP TO</div>
-        <div style={{fontFamily: ARCH, fontSize: 150, lineHeight: 1, letterSpacing: -6, color: PAPER}}>16,360</div>
-        <div style={{fontFamily: UI, fontSize: 30, color: MUTED, marginTop: 6}}>USDT in bonuses to unlock</div>
-      </div>
-      <div style={{position: 'absolute', left: 2240, top: 1290, fontFamily: UI, fontSize: 22, color: MUTED, opacity: 0.8}}>Each milestone unlocks a 10 USDT futures trading rebate voucher.</div>
-
-      {/* 04: why it compounds */}
-      <Kicker x={3240 + 170} y={88} n="04">MAKE IT COMPOUND</Kicker>
-      <Page i={3} />
-      <H x={3240 + 170} y={190} size={104}>No cap.</H>
-      <It x={3240 + 174} y={300} size={104} color={MUTED}>Every trade, 360 days.</It>
-      <div style={{position: 'absolute', left: 3410, top: 440, display: 'flex', gap: 14}}>
-        {['No cap on rewards', '360 days per friend', 'Paid daily, T+1'].map((t) => (
-          <div key={t} style={{fontFamily: UI, fontWeight: 500, fontSize: 25, color: PAPER, padding: '12px 20px', borderRadius: 40, ...{border: `1.5px solid rgba(170,255,115,0.55)`, background: 'rgba(170,255,115,0.07)'}}}>{t}</div>
-        ))}
-      </div>
-      <div style={{position: 'absolute', left: 3410, top: 556, width: 830, height: 470, ...Glass, padding: '34px 40px', boxSizing: 'border-box'}}>
-        <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 22, letterSpacing: 2, color: MUTED}}>ILLUSTRATIVE EXAMPLE</div>
-        <div style={{display: 'flex', gap: 12, marginTop: 26}}>
-          {Array.from({length: 10}, (_, i) => <div key={i} style={{width: 46, height: 46, borderRadius: '50%', background: sphere, boxShadow: '0 0 18px rgba(170,255,115,0.4)'}} />)}
-        </div>
-        <div style={{fontFamily: UI, fontSize: 32, lineHeight: 1.4, color: PAPER, marginTop: 24}}>10 friends each pay <b style={{fontWeight: 500}}>50 USDT</b> in net trading fees.</div>
-        <div style={{display: 'flex', alignItems: 'baseline', gap: 18, marginTop: 20}}>
-          <span style={{fontFamily: ARCH, fontSize: 120, lineHeight: 1, letterSpacing: -5, color: LIME}}>100</span>
-          <span style={{fontFamily: ARCH, fontSize: 40, color: LIME}}>USDT</span>
-          <span style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 46, color: PAPER}}>to you, at 20%.</span>
-        </div>
-        <div style={{fontFamily: UI, fontSize: 24, color: MUTED, marginTop: 14}}>And it keeps coming while they keep trading.</div>
-      </div>
-      <div style={{position: 'absolute', left: 3410, top: 1050, fontFamily: UI, fontWeight: 500, fontSize: 30, color: INK, background: `linear-gradient(180deg, #C6FF9F, ${LIME})`, padding: '16px 30px', borderRadius: 14,
-        boxShadow: '0 12px 30px rgba(170,255,115,0.3), inset 0 1px 0 rgba(255,255,255,0.6)'}}>Rewards → Referral Program</div>
-      <Img src={staticFile('brand/logo.png')} style={{position: 'absolute', left: DOT[0] - 70 * LOGO_S, top: DOT[1] - 71 * LOGO_S, width: LOGO_W, height: 93 * LOGO_S}} />
-      <div style={{position: 'absolute', left: 3740, top: 1150, width: 500, fontFamily: UI, fontSize: 17, lineHeight: 1.45, color: MUTED}}>
-        <span style={{fontFamily: MONO, fontWeight: 500, fontSize: 22, color: PAPER}}>hotcoin.com</span><br />
-        Rewards are based on friends' net trading fees. Direct invites only; self-referral is prohibited. Rules and rates may change. Trading involves risk.
+      {/* 03 */}
+      <Label i={2}>// for your friend</Label>
+      <Head i={2}>They win <Em>too.</Em></Head>
+      <Sub i={2} top={400}>Up to 16,360 USDT in bonuses to unlock.</Sub>
+      <div style={{position: 'absolute', left: S(2) + 80, top: 1180, width: 920, fontFamily: MONO, fontSize: 22, color: GREY}}>
+        sign up · verify · deposit · first futures trade
       </div>
 
-      <Line />
-      {/* the infinity's centre bead and the step beads sit on top of the line */}
-      <Node x={INF.cx - INF.a} y={INF.cy} r={20} />
-      <Node x={INF.cx + INF.a} y={INF.cy} r={20} />
-      {STEP_Y.map((y, i) => <Node key={y} x={RAIL2} y={y} r={38} label={`0${i + 1}`} />)}
-      {TREADS.map((y, i) => <Node key={y} x={RISERS[i] + 116} y={y} r={14} />)}
-      <Img src={staticFile('brand/logo.png')} style={{position: 'absolute', left: DOT[0] - 70 * LOGO_S, top: DOT[1] - 71 * LOGO_S, width: LOGO_W, height: 93 * LOGO_S}} />
-      <AbsoluteFill style={{backgroundImage: `url(${staticFile('grain.png')})`, backgroundSize: '384px 384px', mixBlendMode: 'overlay', opacity: 0.18}} />
+      {/* 04 */}
+      <Label i={3}>// start now</Label>
+      <Head i={3}>No cap.<br /><Em>360 days</Em> per friend.</Head>
+      <div style={{position: 'absolute', left: S(3) + 80, top: 540, fontFamily: SANS, fontWeight: 600, fontSize: 34, color: BLACK, background: LIME, padding: '22px 40px', borderRadius: 60}}>Invite friends</div>
+      <Logo x={S(3) + 80} y={80} w={190} />
+      <div style={{position: 'absolute', left: S(3) + 80, top: 1270, width: 920, fontFamily: SANS, fontSize: 19, lineHeight: 1.4, color: GREY, opacity: 0.8}}>
+        Based on friends' net trading fees. Direct invites only. Rules and rates may change. Trading involves risk.
+      </div>
     </AbsoluteFill>
   );
 };

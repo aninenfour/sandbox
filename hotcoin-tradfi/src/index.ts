@@ -18,6 +18,9 @@ import '@fontsource/bowlby-one/400.css';
 import '@fontsource/rubik-bubbles/400.css';
 import '@fontsource/vt323/400.css';
 import '@fontsource/anton/400.css';
+import '@fontsource/inter-tight/400.css';
+import '@fontsource/inter-tight/500.css';
+import '@fontsource/inter-tight/600.css';
 import {Root} from './Root';
 
 registerRoot(Root);
