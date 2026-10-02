@@ -309,7 +309,7 @@ const End: React.FC<{fr: number}> = ({fr}) => {
       <div style={{position: 'absolute', left: 80, top: 300, opacity: Math.min(1, a * 2), fontFamily: SERIF, fontSize: 110, lineHeight: 1, color: INK}}>History rhymes.</div>
       <div style={{position: 'absolute', left: 80, top: 420, opacity: Math.min(1, b * 2), fontFamily: SERIF, fontStyle: 'italic', fontSize: 110, lineHeight: 1, color: RED}}>It doesn't promise.</div>
       <div style={{position: 'absolute', left: 80, top: 640, opacity: Math.min(1, c * 2), transform: `translateY(${(1 - Math.min(1, c)) * 30}px)`}}>
-        <Img src={staticFile('brand/logo-v3-ink.svg')} style={{width: 420, height: (420 * 28) / 139}} />
+        <Img src={staticFile('brand/logo-official-black.png')} style={{width: 420, height: (420 * 328) / 2003}} />
         <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 30, color: INK, marginTop: 24}}>Be ready this October · hotcoin.com</div>
       </div>
       <div style={{position: 'absolute', left: 80, top: 1010, width: 920, opacity: Math.min(1, c * 2) * 0.85, fontFamily: MONO, fontSize: 18, lineHeight: 1.5, color: MUTED}}>
