@@ -8,7 +8,7 @@ import {ThreeCanvas} from '@remotion/three';
 import {IN, INOUT, OUT, clamp, ease, sp} from '../alt/kit';
 import {Booth} from './Booth';
 
-export const BOOTH_LABEL = 'Booth TBA'; // set to the real booth number when confirmed
+export const BOOTH_LABEL = 'Level 5 · PB5-5 + PB5-6'; // from Hotcoin's "Singapore Incoming" key visual
 const FPS = 60, BEAT = (60 / 124) * FPS, BAR = BEAT * 4;
 const k = (beats: number) => Math.round(beats * BEAT);
 const MUSIC_START_S = 0.28 + 4 * 4 * (60 / 124); // track bar 4, so the drop (bar 8) lands on film beat 16
@@ -115,7 +115,7 @@ export const T49: React.FC = () => {
             <Rise at={DROP + k(3)} size={tall ? 104 : 92} color={LIME}>green booth.</Rise>
           </AbsoluteFill>
           <div style={{position: 'absolute', left: pad, bottom: tall ? 250 : 60, opacity: ease(f, DROP + k(6), DROP + k(6) + 14), display: 'flex', gap: 14}}>
-            {[BOOTH_LABEL, 'Marina Bay Sands'].map((c) => (
+            {['Level 5', 'PB5-5 + PB5-6'].map((c) => (
               <div key={c} style={{fontFamily: SANS, fontWeight: 500, fontSize: 30, color: WHITE, padding: '12px 24px', borderRadius: 40, border: `1.5px solid ${LIME}`, background: 'rgba(5,7,6,0.6)'}}>{c}</div>
             ))}
           </div>
@@ -141,13 +141,13 @@ export const T49: React.FC = () => {
         <AbsoluteFill style={{background: INK, alignItems: 'center', justifyContent: 'center'}}>
           <AbsoluteFill style={{background: 'radial-gradient(circle at 50% 50%, rgba(126,194,90,0.22), rgba(0,0,0,0) 55%)', opacity: ease(f, END, END + 30)}} />
           <div style={{textAlign: 'center'}}>
-            <Rise at={END + 2} size={tall ? 92 : 84}>See you in</Rise>
-            <Rise at={END + k(1)} size={tall ? 92 : 84} color={LIME}>Singapore.</Rise>
+            <Rise at={END + 2} size={tall ? 120 : 104} font={DISPLAY} h={tall ? 126 : 110}>SINGAPORE</Rise>
+            <Rise at={END + k(1)} size={tall ? 120 : 104} font={DISPLAY} h={tall ? 126 : 110}>INCOMING<span style={{color: LIME}}>.</span></Rise>
             <div style={{height: 70}} />
             <Img src={staticFile('brand/logo-official-white.png')} style={{width: 440, height: (440 * 328) / 2005, opacity: ease(f, END + k(2), END + k(2) + 16), transform: `scale(${0.94 + 0.06 * ease(f, END + k(2), END + k(2) + 20)})`}} />
             <div style={{height: 34}} />
-            <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 28, letterSpacing: 2, color: GREY, opacity: ease(f, END + k(3), END + k(3) + 14)}}>
-              TOKEN2049 · 7–8 OCT · {BOOTH_LABEL}
+            <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 28, lineHeight: 1.7, letterSpacing: 2, color: GREY, opacity: ease(f, END + k(3), END + k(3) + 14)}}>
+              HOTCOIN × TOKEN2049 · 7–8 OCT<br />MARINA BAY SANDS · {BOOTH_LABEL.toUpperCase()}
             </div>
           </div>
         </AbsoluteFill>
