@@ -142,3 +142,24 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
 - 088.jpg: Pexels photo 3790639 by Dmitry Demidov
 - 089.jpg: Pexels photo 6468225 by Tony Began
 - 090.jpg: Pexels photo 35431751 by Tolga deniz Aran
+
+## TOKEN2049 teaser (`src/t49/T49.tsx`, `src/t49/Booth.tsx`)
+**Music:** "Deep Urban" (Mixkit, free licence), 124 BPM.
+
+**Clips:** Pexels videos, fetched by `scripts/fetch-t49.mjs`:
+- mbsv: 34186550 by Madhu
+- mbs: 35061518 by Nirjhar Basak
+- bay: 33279610 by Ken Cheung
+- city: 32047106 by David Pickup
+- stage: 36408715 by Nino Souza
+- screens: 19197406 by Nino Souza
+- lights: 35451425 by JD MONTORO
+- face: 20320583 by Luis Quintero
+- audience: 11060088 by Luis Quintero
+- expo: 34804768 by Airam Dato-on
+- party: 34059053 by WeStarMoney Rec
+- concert: 13641378 by Roman Skrypnyk
+
+**Booth:** built in three.js.
+
+**Event facts:** from token2049.com and its Aug 2026 press release. TOKEN2049 appears as text only, with no event logo and no speaker likenesses.
