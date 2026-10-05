@@ -16,6 +16,7 @@ import {Guess} from './guess/Guess';
 import {GoldRush, GOLDRUSH_DURATION} from './goldrush/GoldRush';
 import {T49, T49_DURATION} from './t49/T49';
 import {TradeCarousel, TRADE_W, TRADE_H} from './trade/TradeCarousel';
+import {History, HIST_DURATION} from './hist/History';
 
 export const Root: React.FC = () => (
   <>
@@ -29,6 +30,8 @@ export const Root: React.FC = () => (
     <Composition id="Horizon-4x5" component={Horizon} durationInFrames={HORIZON_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Platform-4x5" component={Platform} durationInFrames={PLATFORM_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Launch-4x5" component={Launch} durationInFrames={LAUNCH_DURATION} fps={60} width={1080} height={1350} />
+    <Composition id="History-9x16" component={History} durationInFrames={HIST_DURATION} fps={60} width={1080} height={1920} />
+    <Composition id="History-4x5" component={History} durationInFrames={HIST_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Trade-Carousel" component={TradeCarousel} durationInFrames={1} fps={30} width={TRADE_W} height={TRADE_H} />
     <Composition id="T49-9x16" component={T49} durationInFrames={T49_DURATION} fps={60} width={1080} height={1920} />
     <Composition id="T49-4x5" component={T49} durationInFrames={T49_DURATION} fps={60} width={1080} height={1350} />

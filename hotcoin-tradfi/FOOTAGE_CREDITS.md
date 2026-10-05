@@ -163,3 +163,22 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
 **Booth:** built in three.js.
 
 **Event facts:** from token2049.com and its Aug 2026 press release. TOKEN2049 appears as text only, with no event logo and no speaker likenesses.
+
+## Hotcoin story film (`src/hist/History.tsx`)
+**Music:** "Deep Urban" (Mixkit). **Fonts:** Unbounded, Instrument Serif, JetBrains Mono (OFL).
+
+**Clips:** Pexels videos, fetched by `scripts/fetch-hist.mjs`:
+- server: 1085656 by Dima Krivoy
+- red: 38736274 by Rafael Minguet Delgado
+- screens: 39212846 by Rafael Minguet Delgado
+- dubai: 34529274 by Mohammed Resan
+- globe: 3129785 by Pressmaster
+- arc: 3125427 by Pressmaster
+- sgv: 34364038 by Şeyhmus Kino
+- mbs: 17715709 by Ray
+
+**Facts and their sources:**
+- hotcoin.com
+- CoinMarketCap / BitDegree exchange profiles: founded 2017, user base +200% in 2021–22, Dubai EMEA office in Apr 2022, AUSTRAC registration
+- TechFlow: TOKEN2049 Dubai 2025, booth M2
+- Newsfile, 7 Sep 2026: TradFi launch
