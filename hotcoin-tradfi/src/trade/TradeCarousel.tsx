@@ -2,7 +2,7 @@
 // Facts and prices from hotcoin.com (homepage and /tradFi), 4 Oct 2026:
 //   "Trade crypto, US stocks, precious metals, and more with stablecoins, all in one place."
 //   TradFi: from a minimum of 10 USDT, 24/7 trading, fees from 0; metals, commodities, forex, indices, US/JP/KR/HK stocks, bonds.
-// Stocks show as tickers only (no company logos); crypto logos are CoinGecko's.
+// Stock logos via financialmodelingprep.com image-stock; crypto logos are CoinGecko's. Gold uses a drawn Au coin.
 import React, {useEffect, useState} from 'react';
 import {AbsoluteFill, Img, continueRender, delayRender, staticFile} from 'remotion';
 
@@ -21,20 +21,20 @@ const useFonts = () => {
 type Asset = {sym: string; name: string; tag: string; price: string; chg: string; logo?: string; badge?: string};
 const MIXED: Asset[] = [
   {sym: 'BTC', name: 'Bitcoin', tag: 'Crypto', price: '86,489.4', chg: '+2.11%', logo: 'meme/logos/BTC.png'},
-  {sym: 'TSLA', name: 'Tesla', tag: 'US Stocks', price: '372.59', chg: '+0.33%'},
+  {sym: 'TSLA', logo: 'trade/logos/TSLA.png', name: 'Tesla', tag: 'US Stocks', price: '372.59', chg: '+0.33%'},
   {sym: 'XAU', name: 'Gold', tag: 'Metals', price: '4,146.44', chg: '-0.01%', badge: 'Au'},
   {sym: 'ETH', name: 'Ethereum', tag: 'Crypto', price: '2,725.87', chg: '+1.46%', logo: 'meme/logos/ETH.png'},
-  {sym: 'SPY', name: 'S&P 500 ETF', tag: 'ETFs', price: '770.95', chg: '-0.06%'},
-  {sym: 'NVDA', name: 'NVIDIA', tag: 'US Stocks', price: '235.31', chg: '+0.10%'},
+  {sym: 'SPY', logo: 'trade/logos/SPY.png', name: 'S&P 500 ETF', tag: 'ETFs', price: '770.95', chg: '-0.06%'},
+  {sym: 'NVDA', logo: 'trade/logos/NVDA.png', name: 'NVIDIA', tag: 'US Stocks', price: '235.31', chg: '+0.10%'},
   {sym: 'SOL', name: 'Solana', tag: 'Crypto', price: '121.47', chg: '+1.54%', logo: 'meme/logos/SOL.png'},
 ];
 const TRADFI: Asset[] = [
-  {sym: 'SNDK', name: 'SanDisk', tag: '20X', price: '1,727.67', chg: '+0.45%'},
-  {sym: 'NVDA', name: 'NVIDIA', tag: '10X', price: '235.31', chg: '+0.10%'},
-  {sym: 'MU', name: 'Micron Technology', tag: '10X', price: '1,075.94', chg: '+0.51%'},
-  {sym: 'TSLA', name: 'Tesla', tag: '10X', price: '372.59', chg: '+0.33%'},
+  {sym: 'SNDK', logo: 'trade/logos/SNDK.png', name: 'SanDisk', tag: '20X', price: '1,727.67', chg: '+0.45%'},
+  {sym: 'NVDA', logo: 'trade/logos/NVDA.png', name: 'NVIDIA', tag: '10X', price: '235.31', chg: '+0.10%'},
+  {sym: 'MU', logo: 'trade/logos/MU.png', name: 'Micron Technology', tag: '10X', price: '1,075.94', chg: '+0.51%'},
+  {sym: 'TSLA', logo: 'trade/logos/TSLA.png', name: 'Tesla', tag: '10X', price: '372.59', chg: '+0.33%'},
   {sym: 'XAU', name: 'Gold', tag: 'Metals', price: '4,146.44', chg: '-0.01%', badge: 'Au'},
-  {sym: 'SPY', name: 'S&P 500 ETF', tag: 'ETF', price: '770.95', chg: '-0.06%'},
+  {sym: 'SPY', logo: 'trade/logos/SPY.png', name: 'S&P 500 ETF', tag: 'ETF', price: '770.95', chg: '-0.06%'},
 ];
 
 // ---------- phone ----------
@@ -51,7 +51,11 @@ const Phone: React.FC<{x: number; y: number; rot?: number; children: React.React
   </div>
 );
 const Avatar: React.FC<{a: Asset; size?: number}> = ({a, size = 46}) => a.logo
-  ? <Img src={staticFile(a.logo)} style={{width: size, height: size, borderRadius: '50%'}} />
+  ? (a.logo.startsWith('trade/')
+    ? <div style={{width: size, height: size, borderRadius: '50%', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0}}>
+        <Img src={staticFile(a.logo)} style={{width: size * 0.66, height: size * 0.66, objectFit: 'contain'}} />
+      </div>
+    : <Img src={staticFile(a.logo)} style={{width: size, height: size, borderRadius: '50%'}} />)
   : <div style={{width: size, height: size, borderRadius: '50%', background: a.badge ? 'radial-gradient(circle at 35% 30%, #FFE9A0, #D4A93A 60%, #8C6A1C)' : '#1E2329',
       display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: size * 0.34, fontWeight: 700, color: a.badge ? '#3A2A05' : WHITE}}>{a.badge ?? a.sym.slice(0, 2)}</div>;
 const Row: React.FC<{a: Asset; hot?: boolean}> = ({a, hot}) => (
