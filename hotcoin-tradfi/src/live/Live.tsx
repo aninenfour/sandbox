@@ -18,6 +18,11 @@ export const SHOTS: Shot[] = [
   {photo: 'p8', kicker: 'ON-SITE SUPPORT', l1: 'Assist of', l2: 'the day.', sticker: [1060, 360], panel: 'left', w: 1333, h: 2000},
   {photo: 'p9', kicker: 'FOOTBALL CHALLENGE', l1: 'Prize', l2: 'secured.', sticker: [1060, 330], panel: 'left', w: 1333, h: 2000},
   {photo: 'p10', kicker: 'SCAN · CHECK IN · WIN', l1: 'Perfect', l2: 'pass.', sticker: [1250, 1110], panel: 'left'},
+  // set 3: conversations, check-ins, the challenge, the milestones wall
+  {photo: 'p11', kicker: 'REAL CONVERSATIONS', l1: 'Built for', l2: 'traders.', sticker: [800, 1150], panel: 'left'},
+  {photo: 'p12', kicker: 'CHECK IN · CLAIM REWARDS', l1: 'Good vibes', l2: 'only.', sticker: [1250, 1120], panel: 'left'},
+  {photo: 'p13', kicker: 'FOOTBALL CHALLENGE', l1: 'Play your', l2: 'way.', sticker: [1700, 260], panel: 'left'},
+  {photo: 'p14', kicker: '2017 → TOKEN2049', l1: '9 years', l2: 'in the making.', sticker: [1730, 330], panel: 'left'},
 ];
 
 const useFonts = () => {
