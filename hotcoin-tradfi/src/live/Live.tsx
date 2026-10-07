@@ -7,12 +7,17 @@ const LIME = '#B8F26A', INK = '#050706', WHITE = '#F2F3EE', RED = '#FF3B3B';
 const DISPLAY = 'Unbounded, sans-serif', MONO = '"JetBrains Mono", monospace';
 export const LIVE_W = 2000, LIVE_H = 1333;
 
-type Shot = {photo: string; kicker: string; l1: string; l2: string; sticker: [number, number]; panel: 'left' | 'right'};
+type Shot = {photo: string; kicker: string; l1: string; l2: string; sticker: [number, number]; panel: 'left' | 'right'; w?: number; h?: number};
 export const SHOTS: Shot[] = [
   {photo: 'p3', kicker: 'DAY 1 · BOOTH LIVE', l1: 'Turning 9', l2: 'at TOKEN2049.', sticker: [1080, 1060], panel: 'left'},
   {photo: 'p4', kicker: 'MEET THE SQUAD', l1: 'The green team', l2: 'is in.', sticker: [1180, 240], panel: 'left'},
   {photo: 'p5', kicker: 'FOOTBALL CHALLENGE', l1: 'Play. Score.', l2: 'Win.', sticker: [930, 1150], panel: 'left'},
   {photo: 'p6', kicker: 'LEVEL 5 · PB5-5 + PB5-6', l1: 'Find the', l2: 'green booth.', sticker: [1080, 1080], panel: 'left'},
+  // set 2: the booth crew as a football team
+  {photo: 'p7', kicker: 'MEET THE TEAM', l1: 'Our starting', l2: 'lineup.', sticker: [1250, 215], panel: 'left'},
+  {photo: 'p8', kicker: 'ON-SITE SUPPORT', l1: 'Assist of', l2: 'the day.', sticker: [1060, 360], panel: 'left', w: 1333, h: 2000},
+  {photo: 'p9', kicker: 'FOOTBALL CHALLENGE', l1: 'Prize', l2: 'secured.', sticker: [1060, 330], panel: 'left', w: 1333, h: 2000},
+  {photo: 'p10', kicker: 'SCAN · CHECK IN · WIN', l1: 'Perfect', l2: 'pass.', sticker: [1250, 1110], panel: 'left'},
 ];
 
 const useFonts = () => {
@@ -44,7 +49,7 @@ const Sticker: React.FC<{x: number; y: number}> = ({x, y}) => {
 
 export const Live: React.FC<{i: number}> = ({i}) => {
   useFonts();
-  const s = SHOTS[i], W = LIVE_W, H = LIVE_H;
+  const s = SHOTS[i], W = s.w ?? LIVE_W, H = s.h ?? LIVE_H, tall = H > W;
   return (
     <AbsoluteFill style={{background: INK}}>
       <Img src={staticFile(`live/${s.photo}.jpg`)} style={{position: 'absolute', inset: 0, width: W, height: H, filter: 'contrast(1.06) saturate(1.06)'}} />
@@ -69,7 +74,7 @@ export const Live: React.FC<{i: number}> = ({i}) => {
         <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 24, letterSpacing: 4, color: INK, background: LIME, padding: '12px 20px', clipPath: 'polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%)', paddingRight: 34}}>TOKEN2049 SINGAPORE</div>
       </div>
       <div style={{position: 'absolute', right: M + 40, top: M + 36, display: 'flex', alignItems: 'center', gap: 20}}>
-        <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 22, letterSpacing: 3, color: WHITE, opacity: 0.85}}>07—08.10.2026</div>
+        {tall ? null : <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 22, letterSpacing: 3, color: WHITE, opacity: 0.85}}>07—08.10.2026</div>}
         <Img src={staticFile('brand/logo-official-white.png')} style={{width: 230, height: (230 * 328) / 2005}} />
       </div>
       {/* vertical side label */}

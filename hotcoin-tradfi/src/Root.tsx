@@ -18,7 +18,7 @@ import {T49, T49_DURATION} from './t49/T49';
 import {TradeCarousel, TRADE_W, TRADE_H} from './trade/TradeCarousel';
 import {History, HIST_DURATION} from './hist/History';
 import {Raccoon} from './raccoon/Raccoon';
-import {Live, LIVE_W, LIVE_H} from './live/Live';
+import {Live, LIVE_W, LIVE_H, SHOTS} from './live/Live';
 import {ReplyPoster} from './promo/ReplyPoster';
 
 export const Root: React.FC = () => (
@@ -33,7 +33,7 @@ export const Root: React.FC = () => (
     <Composition id="Horizon-4x5" component={Horizon} durationInFrames={HORIZON_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Platform-4x5" component={Platform} durationInFrames={PLATFORM_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Launch-4x5" component={Launch} durationInFrames={LAUNCH_DURATION} fps={60} width={1080} height={1350} />
-    {[0, 1, 2, 3].map((i) => <Composition key={i} id={`Live-${i + 1}`} component={Live} defaultProps={{i}} durationInFrames={1} fps={30} width={LIVE_W} height={LIVE_H} />)}
+    {SHOTS.map((sh, i) => <Composition key={i} id={`Live-${i + 1}`} component={Live} defaultProps={{i}} durationInFrames={1} fps={30} width={sh.w ?? LIVE_W} height={sh.h ?? LIVE_H} />)}
     <Composition id="ReplyPoster" component={ReplyPoster} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Raccoon" component={Raccoon} durationInFrames={1} fps={30} width={1440} height={1882} />
     <Composition id="History-9x16" component={History} durationInFrames={HIST_DURATION} fps={60} width={1080} height={1920} />
