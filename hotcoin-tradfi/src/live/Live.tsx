@@ -25,7 +25,7 @@ export const SHOTS: Shot[] = [
   {photo: 'p14', kicker: '2017 → TOKEN2049', l1: '9 years', l2: 'in the making.', sticker: [1730, 330], panel: 'left'},
 ];
 
-const useFonts = () => {
+export const useFonts = () => {
   const [h] = useState(() => delayRender('fonts'));
   useEffect(() => {Promise.all(['900 96px Unbounded', '700 24px "JetBrains Mono"', '500 24px "JetBrains Mono"'].map((s) => document.fonts.load(s))).then(() => continueRender(h));}, [h]);
 };
@@ -34,7 +34,7 @@ const M = 44, N = 46; // frame margin, corner notch
 const frame = (w: number, h: number, m: number, n: number) =>
   `M ${m + n} ${m} L ${w - m} ${m} L ${w - m} ${h - m - n} L ${w - m - n} ${h - m} L ${m} ${h - m} L ${m} ${m + n} Z`;
 
-const Sticker: React.FC<{x: number; y: number}> = ({x, y}) => {
+export const Sticker: React.FC<{x: number; y: number}> = ({x, y}) => {
   const R = 118, text = 'HOTCOIN · 9 YEARS · BUILT FOR TRADERS · ';
   return (
     <div style={{position: 'absolute', left: x - R, top: y - R, width: R * 2, height: R * 2, transform: 'rotate(-14deg)', filter: 'drop-shadow(0 12px 20px rgba(0,0,0,0.45))'}}>
