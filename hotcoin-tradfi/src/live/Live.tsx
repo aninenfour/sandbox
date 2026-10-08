@@ -35,6 +35,11 @@ export const SHOTS: Shot[] = [
   {photo: 'p22', kicker: 'DAY 2 · SIGN-UPS LIVE', l1: 'The booth', l2: 'is buzzing.', sticker: [1270, 230], panel: 'left'},
   {photo: 'p23', kicker: 'NEW USERS', l1: 'Sign up.', l2: 'Trade on.', sticker: [300, 260], panel: 'right'},
   {photo: 'p24', kicker: 'DAY 2 · BOOTH LIVE', l1: 'HODL mode:', l2: 'on.', sticker: [1870, 520], panel: 'left'},
+  // set 6: Day 2, the challenge wall and the squad (badge pre-blurred)
+  {photo: 'p25', kicker: 'FOOTBALL CHALLENGE', l1: 'Football', l2: 'connects.', sticker: [1800, 380], panel: 'left'},
+  {photo: 'p26', kicker: 'THE GREEN SQUAD', l1: 'Good vibes,', l2: 'full squad.', sticker: [330, 265], panel: 'left'},
+  {photo: 'p27', kicker: 'FOOTBALL CHALLENGE', l1: 'Heads up.', l2: 'Magic on.', sticker: [300, 300], panel: 'left'},
+  {photo: 'p28', kicker: 'DAY 2 · BOOTH LIVE', l1: 'Yes, you.', l2: 'Come by.', sticker: [1040, 330], panel: 'left', w: 1333, h: 2000},
 ];
 
 export const useFonts = () => {
