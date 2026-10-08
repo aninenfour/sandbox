@@ -23,6 +23,12 @@ export const SHOTS: Shot[] = [
   {photo: 'p12', kicker: 'CHECK IN · CLAIM REWARDS', l1: 'Good vibes', l2: 'only.', sticker: [1250, 1120], panel: 'left'},
   {photo: 'p13', kicker: 'FOOTBALL CHALLENGE', l1: 'Play your', l2: 'way.', sticker: [1700, 260], panel: 'left'},
   {photo: 'p14', kicker: '2017 → TOKEN2049', l1: '9 years', l2: 'in the making.', sticker: [1730, 330], panel: 'left'},
+  // set 4: Day 2 photographer shots (attendee name badges pre-blurred in the jpgs)
+  {photo: 'p15', kicker: 'DAY 2 · BOOTH LIVE', l1: 'All in', l2: 'Hotcoin.', sticker: [1760, 960], panel: 'left'},
+  {photo: 'p16', kicker: 'GOOD TALKS ONLY', l1: 'Crypto. TradFi.', l2: 'One market.', sticker: [1780, 930], panel: 'left'},
+  {photo: 'p17', kicker: '9 YEARS OF FOCUS', l1: 'Built for', l2: 'traders.', sticker: [1830, 960], panel: 'left'},
+  {photo: 'p18', kicker: 'FOOTBALL CHALLENGE', l1: 'Play your way.', l2: 'Make it magic.', sticker: [1180, 330], panel: 'right'},
+  {photo: 'p19', kicker: 'DAY 2 · LEVEL 5', l1: 'Wave the', l2: 'green flag.', sticker: [1730, 1000], panel: 'left'},
 ];
 
 export const useFonts = () => {
@@ -54,7 +60,7 @@ export const Sticker: React.FC<{x: number; y: number}> = ({x, y}) => {
 
 export const Live: React.FC<{i: number}> = ({i}) => {
   useFonts();
-  const s = SHOTS[i], W = s.w ?? LIVE_W, H = s.h ?? LIVE_H, tall = H > W;
+  const s = SHOTS[i], W = s.w ?? LIVE_W, H = s.h ?? LIVE_H, tall = H > W, right = s.panel === 'right';
   return (
     <AbsoluteFill style={{background: INK}}>
       <Img src={staticFile(`live/${s.photo}.jpg`)} style={{position: 'absolute', inset: 0, width: W, height: H, filter: 'contrast(1.06) saturate(1.06)'}} />
@@ -87,14 +93,15 @@ export const Live: React.FC<{i: number}> = ({i}) => {
         HOTCOIN × TOKEN2049 · MARINA BAY SANDS
       </div>
       {/* headline panel with a cut corner */}
-      <div style={{position: 'absolute', left: M, bottom: M, padding: '36px 90px 40px 60px', background: INK, clipPath: 'polygon(0 0, calc(100% - 70px) 0, 100% 70px, 100% 100%, 0 100%)'}}>
+      <div style={{position: 'absolute', [right ? 'right' : 'left']: M, bottom: M, padding: right ? '36px 60px 40px 90px' : '36px 90px 40px 60px', background: INK,
+        clipPath: right ? 'polygon(70px 0, 100% 0, 100% 100%, 0 100%, 0 70px)' : 'polygon(0 0, calc(100% - 70px) 0, 100% 70px, 100% 100%, 0 100%)'}}>
         <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 24, letterSpacing: 5, color: LIME, marginBottom: 18}}>// {s.kicker}</div>
         <div style={{fontFamily: DISPLAY, fontWeight: 900, fontSize: 86, lineHeight: 0.98, letterSpacing: -3, color: WHITE, whiteSpace: 'nowrap'}}>{s.l1}</div>
         <div style={{fontFamily: DISPLAY, fontWeight: 900, fontSize: 86, lineHeight: 0.98, letterSpacing: -3, color: LIME, whiteSpace: 'nowrap'}}>{s.l2}</div>
       </div>
-      <div style={{position: 'absolute', left: M, bottom: M - 3, width: 360, height: 6, background: LIME}} />
+      <div style={{position: 'absolute', [right ? 'right' : 'left']: M, bottom: M - 3, width: 360, height: 6, background: LIME}} />
       {/* booth chip, bottom right */}
-      <div style={{position: 'absolute', right: M + 40, bottom: M + 36, fontFamily: MONO, fontWeight: 700, fontSize: 24, letterSpacing: 3, color: WHITE, background: 'rgba(5,7,6,0.75)', border: `2px solid ${LIME}`, padding: '12px 22px', borderRadius: 6}}>
+      <div style={{position: 'absolute', [right ? 'left' : 'right']: M + 40, bottom: M + 36, fontFamily: MONO, fontWeight: 700, fontSize: 24, letterSpacing: 3, color: WHITE, background: 'rgba(5,7,6,0.75)', border: `2px solid ${LIME}`, padding: '12px 22px', borderRadius: 6}}>
         📍 LEVEL 5 · PB5-5 + PB5-6
       </div>
       <Sticker x={s.sticker[0]} y={s.sticker[1]} />
