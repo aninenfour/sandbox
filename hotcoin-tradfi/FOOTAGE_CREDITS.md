@@ -182,3 +182,7 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
 - CoinMarketCap / BitDegree exchange profiles: founded 2017, user base +200% in 2021–22, Dubai EMEA office in Apr 2022, AUSTRAC registration
 - TechFlow: TOKEN2049 Dubai 2025, booth M2
 - Newsfile, 7 Sep 2026: TradFi launch
+
+## Day 2 "It's time to shine" (src/shine)
+- No photos or footage. All pixel art is drawn in code.
+- Music: "Digital Clouds" (Mixkit, track 175), Mixkit free licence.
