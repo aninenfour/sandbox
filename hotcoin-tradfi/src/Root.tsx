@@ -22,6 +22,7 @@ import {Live, LIVE_W, LIVE_H, SHOTS} from './live/Live';
 import {StoryCollage, STORIES, STORY_W, STORY_H} from './live/Story';
 import {ReplyPoster} from './promo/ReplyPoster';
 import {Shine, SHINE_DURATION} from './shine/Shine';
+import {Wrap, WRAP_DURATION} from './wrap/Wrap';
 
 export const Root: React.FC = () => (
   <>
@@ -39,6 +40,8 @@ export const Root: React.FC = () => (
     {STORIES.map((_, i) => <Composition key={'st' + i} id={`Story-${i + 1}`} component={StoryCollage} defaultProps={{i}} durationInFrames={1} fps={30} width={STORY_W} height={STORY_H} />)}
     <Composition id="Shine-9x16" component={Shine} durationInFrames={SHINE_DURATION} fps={60} width={1080} height={1920} />
     <Composition id="Shine-4x5" component={Shine} durationInFrames={SHINE_DURATION} fps={60} width={1080} height={1350} />
+    <Composition id="Wrap-9x16" component={Wrap} durationInFrames={WRAP_DURATION} fps={60} width={1080} height={1920} />
+    <Composition id="Wrap-4x5" component={Wrap} durationInFrames={WRAP_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="ReplyPoster" component={ReplyPoster} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Raccoon" component={Raccoon} durationInFrames={1} fps={30} width={1440} height={1882} />
     <Composition id="History-9x16" component={History} durationInFrames={HIST_DURATION} fps={60} width={1080} height={1920} />

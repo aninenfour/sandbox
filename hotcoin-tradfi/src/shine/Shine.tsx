@@ -16,11 +16,11 @@ export const SHINE_DURATION = s(T.end);
 const PAPER = '#E7E5E0', INK = '#161616', LIME = '#B8F26A', GREEN = '#7EC25A';
 const SANS = '"Inter Tight", sans-serif', MONO = '"JetBrains Mono", monospace';
 
-const useFonts = () => {
+export const useShineFonts = () => {
   const [h] = useState(() => delayRender('fonts'));
   useEffect(() => {Promise.all(['500 44px "Inter Tight"', '600 44px "Inter Tight"', '500 22px "JetBrains Mono"'].map((x) => document.fonts.load(x))).then(() => continueRender(h));}, [h]);
 };
-const rnd = (n: number) => {const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x);};
+export const rnd = (n: number) => {const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x);};
 
 // ---------- pixel art ----------
 const PAL: Record<string, string> = {
@@ -139,10 +139,10 @@ const ART: Record<string, string[]> = {
     'kk.....',
   ],
 };
-type ArtKey = keyof typeof ART;
+export type ArtKey = keyof typeof ART;
 
 // A pixel sprite. `build` (0..1+) assembles it pixel by pixel; each pixel pops with its own delay.
-const Pixels: React.FC<{art: ArtKey; px: number; build?: number; seed?: number}> = ({art, px, build = 1, seed = 1}) => {
+export const Pixels: React.FC<{art: ArtKey; px: number; build?: number; seed?: number}> = ({art, px, build = 1, seed = 1}) => {
   const rows = ART[art], w = rows[0].length, h = rows.length;
   const cells = useMemo(() => {
     const out: {x: number; y: number; c: string; d: number}[] = [];
@@ -160,10 +160,10 @@ const Pixels: React.FC<{art: ArtKey; px: number; build?: number; seed?: number}>
     </svg>
   );
 };
-const artSize = (art: ArtKey, px: number) => ({w: ART[art][0].length * px, h: ART[art].length * px});
+export const artSize = (art: ArtKey, px: number) => ({w: ART[art][0].length * px, h: ART[art].length * px});
 
 // ---------- type ----------
-const Words: React.FC<{text: string; at: number; out?: number; y: number; size?: number; color?: string}> = ({text, at, out, y, size = 44, color = INK}) => {
+export const Words: React.FC<{text: string; at: number; out?: number; y: number; size?: number; color?: string}> = ({text, at, out, y, size = 44, color = INK}) => {
   const f = useCurrentFrame();
   const words = text.split(' ');
   const o = out === undefined ? 1 : 1 - ease(f, s(out) - 8, s(out), IN);
@@ -178,14 +178,14 @@ const Words: React.FC<{text: string; at: number; out?: number; y: number; size?:
 };
 
 // ---------- scenes ----------
-const Paper: React.FC = () => (
+export const Paper: React.FC = () => (
   <AbsoluteFill style={{background: PAPER}}>
     <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 55%, rgba(0,0,0,0.12) 100%)'}} />
   </AbsoluteFill>
 );
 
 export const Shine: React.FC = () => {
-  useFonts();
+  useShineFonts();
   const f = useCurrentFrame();
   const {width: W, height: H} = useVideoConfig();
   const tall = H / W > 1.5;

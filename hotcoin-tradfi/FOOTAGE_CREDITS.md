@@ -186,3 +186,7 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
 ## Day 2 "It's time to shine" (src/shine)
 - No photos or footage. All pixel art is drawn in code.
 - Music: "Digital Clouds" (Mixkit, track 175), Mixkit free licence.
+
+## TOKEN2049 wrap-up (src/wrap)
+- Photos: Hotcoin's own booth photos and team selfies supplied by the Hotcoin marketing team (public/live), cropped by scripts/make-wrap.py.
+- Music: "Digital Clouds" (Mixkit, track 175), Mixkit free licence.
