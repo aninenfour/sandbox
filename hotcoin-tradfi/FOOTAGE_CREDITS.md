@@ -190,3 +190,9 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
 ## TOKEN2049 wrap-up (src/wrap)
 - Photos: Hotcoin's own booth photos and team selfies supplied by the Hotcoin marketing team (public/live), cropped by scripts/make-wrap.py.
 - Music: "Digital Clouds" (Mixkit, track 175), Mixkit free licence.
+
+## "Hotcoin in characters" (src/ascii)
+- Style reference: Cornell Venture Capital launch film by Ashton Chew (x.com/iamashtonchew/status/2108713173461160133). No footage from it is used.
+- Photos: Hotcoin's own TOKEN2049 booth photos (public/live).
+- Numbers: hotcoin.com/en_US/about (Oct 2026): 8.1M+ registered users, 120+ countries and regions, 300+ spot pairs, 500+ futures pairs, $137M+ reserves.
+- Music: "Red Lights Adhafera" (Mixkit, track 563), Mixkit free licence.

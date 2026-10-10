@@ -23,6 +23,7 @@ import {StoryCollage, STORIES, STORY_W, STORY_H} from './live/Story';
 import {ReplyPoster} from './promo/ReplyPoster';
 import {Shine, SHINE_DURATION} from './shine/Shine';
 import {Wrap, WRAP_DURATION} from './wrap/Wrap';
+import {AsciiFilm, ASCII_DURATION, ASCII_FPS} from './ascii/AsciiFilm';
 import {MemeSeason, MemeHotList} from './memes26/MemePulse';
 import {FigQueue, FigBagTweets, FigMatryoshka, FigBalloon, FigMaterials, FigVizor, FigUS, FigFaces, FigTeamPhotos, FigAdvocacy, FigSideEvents, FIG_W} from './review/Figures';
 
@@ -44,6 +45,9 @@ export const Root: React.FC = () => (
     <Composition id="Shine-4x5" component={Shine} durationInFrames={SHINE_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Wrap-9x16" component={Wrap} durationInFrames={WRAP_DURATION} fps={60} width={1080} height={1920} />
     <Composition id="Wrap-4x5" component={Wrap} durationInFrames={WRAP_DURATION} fps={60} width={1080} height={1350} />
+    <Composition id="Ascii-16x9" component={AsciiFilm} durationInFrames={ASCII_DURATION} fps={ASCII_FPS} width={1920} height={1080} defaultProps={{open: "symbol"}} />
+    <Composition id="Ascii-open-ball" component={AsciiFilm} durationInFrames={ASCII_FPS * 11} fps={ASCII_FPS} width={1920} height={1080} defaultProps={{open: "ball"}} />
+    <Composition id="Ascii-open-noise" component={AsciiFilm} durationInFrames={ASCII_FPS * 11} fps={ASCII_FPS} width={1920} height={1080} defaultProps={{open: "noise"}} />
     <Composition id="MemeSeason" component={MemeSeason} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="MemeHotList" component={MemeHotList} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Fig-queue" component={FigQueue} durationInFrames={1} fps={30} width={FIG_W} height={940} />
