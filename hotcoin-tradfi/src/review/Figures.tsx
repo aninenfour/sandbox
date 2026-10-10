@@ -304,3 +304,109 @@ export const FigUS: React.FC = () => (
     </div>
   </Frame>
 );
+
+// ---------- 8. competitor faces (name cards; no photos of real people) ----------
+const Face: React.FC<{logo?: string; brand: string; name: string; initials: string; title: string; lines: string[]; empty?: boolean}> = ({logo, brand, name, initials, title, lines, empty}) => (
+  <div style={{flex: 1, background: empty ? 'transparent' : PANEL, border: empty ? `3px dashed ${RED}` : `1px solid ${LINE}`, borderRadius: 16, padding: '26px 24px', display: 'flex', flexDirection: 'column', gap: 14}}>
+    <div style={{display: 'flex', alignItems: 'center', gap: 12}}>
+      {logo ? <Img src={staticFile(logo)} style={{width: 40, height: 40, borderRadius: 8}} /> : <Img src={staticFile('brand/symbol-official-white.png')} style={{width: 40, height: 40}} />}
+      <div style={{fontFamily: EN, fontWeight: 600, fontSize: 24}}>{brand}</div>
+    </div>
+    <div style={{width: 120, height: 120, borderRadius: 60, background: empty ? 'transparent' : '#232A31', border: empty ? `3px dashed ${RED}` : `3px solid ${LIME}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: EN, fontWeight: 600, fontSize: empty ? 64 : 42, color: empty ? RED : LIME, alignSelf: 'center', marginTop: 6}}>{initials}</div>
+    <div style={{textAlign: 'center'}}>
+      <div style={{fontFamily: EN, fontWeight: 600, fontSize: 25}}>{name}</div>
+      <div style={{fontSize: 20, color: empty ? RED : LIME, marginTop: 4}}>{title}</div>
+    </div>
+    {lines.map((l, i) => <div key={i} style={{fontSize: 18, lineHeight: 1.5, color: MUTED, borderTop: `1px solid ${LINE}`, paddingTop: 10}}>{l}</div>)}
+  </div>
+);
+export const FigFaces: React.FC = () => (
+  <Frame no="08" zh="竞品都有固定的“品牌面孔”，Hotcoin 没有" en="Competitors put named executives in front of the camera; Hotcoin has no public face">
+    <div style={{display: 'flex', gap: 22}}>
+      <Face logo="review/logo-bitget.jpg" brand="Bitget" name="Gracy Chen" initials="GC" title="CEO" lines={['TOKEN2049 迪拜 2025 主题演讲', 'Keynote, TOKEN2049 Dubai 2025']} />
+      <Face logo="review/logo-mexc.jpg" brand="MEXC" name="Vugar Usi Zade" initials="VU" title="CEO（2026 年 4 月起）" lines={['2025 年 12 月从 Bitget COO 加入 MEXC 任 COO，2026 年 4 月升任 CEO', 'Ex-Bitget COO; MEXC COO Dec 2025, CEO Apr 2026']} />
+      <Face logo="review/logo-mexc.jpg" brand="MEXC" name="Tracy Jin" initials="TJ" title="COO（2025 年报道）" lines={['TOKEN2049 迪拜 2025 圆桌发言、7 周年活动开场', 'Panel and anniversary keynote, Dubai 2025']} />
+      <Face logo="review/logo-coinw.jpg" brand="CoinW" name="Nassar Al Achkar" initials="NA" title="首席战略官 CSO" lines={['TOKEN2049 新加坡 2025 主题演讲；Sonia Shaw 任品牌布道者', 'Singapore 2025 keynote; Sonia Shaw as brand evangelist']} />
+      <Face brand="Hotcoin" name="—" initials="?" title="暂无公开面孔" lines={['没有发言人，没有团队合照', 'No spokesperson, no team photo']} empty />
+    </div>
+    <div style={{marginTop: 30}}>
+      <Takeaway zh={<>人们信任人，而不是品牌。没有面孔，看起来就像三线交易所。</>} en="People trust people, not brands. With no faces we read as a tier-3 exchange." />
+    </div>
+    <div style={{fontSize: 15, color: MUTED, marginTop: 14}}>职位以公开新闻稿为准，可能已有变动；示意卡片不使用本人照片。</div>
+  </Frame>
+);
+
+// ---------- 9. team photos at the booth ----------
+export const FigTeamPhotos: React.FC = () => (
+  <Frame no="09" zh="别的品牌都在展位前拍团队合照" en="Other brands celebrate the moment with a team photo in front of their booth">
+    <div style={{display: 'flex', gap: 26, alignItems: 'flex-start'}}>
+      <div>
+        <Shot src="review/x38.jpg" sw={900} sh={546} width={560} />
+        <div style={{fontSize: 22, marginTop: 12}}>Cardano：社区与团队大合照</div>
+      </div>
+      <div>
+        <Shot src="review/x39.jpg" sw={1280} sh={960} width={420} />
+        <div style={{fontSize: 22, marginTop: 12}}>Tangem：团队在展位前合影</div>
+      </div>
+      <div style={{flex: 1}}>
+        <div style={{height: 315, border: `3px dashed ${RED}`, borderRadius: 14, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12}}>
+          <Img src={staticFile('brand/symbol-official-white.png')} style={{width: 70, height: 70, opacity: 0.5}} />
+          <div style={{fontSize: 26, color: RED, fontWeight: 700}}>Hotcoin：没有</div>
+        </div>
+        <div style={{fontSize: 22, marginTop: 12}}>本届没有一张公司合照</div>
+      </div>
+    </div>
+    <div style={{marginTop: 34}}>
+      <Takeaway zh={<>合照是零成本的信任信号：每天一张，发在官方账号上。</>} en="A team photo is a free trust signal: one a day, posted on the official account." />
+    </div>
+  </Frame>
+);
+
+// ---------- 10. team social reach ----------
+export const FigAdvocacy: React.FC = () => {
+  const dots = Array.from({length: 100}, (_, i) => i);
+  return (
+    <Frame no="10" zh="约 100 名员工，社媒上活跃的只有 1 人" en="About 100 staff, about 30 in marketing and BD, one person active on social media">
+      <div style={{display: 'flex', gap: 60, alignItems: 'center'}}>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(10, 46px)', gap: 14}}>
+          {dots.map((i) => (
+            <div key={i} style={{width: 46, height: 46, borderRadius: 23, background: i === 0 ? LIME : i < 30 ? 'rgba(126,194,90,0.35)' : '#232A31', border: i === 0 ? `3px solid ${WHITE}` : 'none', boxShadow: i === 0 ? `0 0 20px ${LIME}` : 'none'}} />
+          ))}
+        </div>
+        <div style={{flex: 1, display: 'flex', flexDirection: 'column', gap: 26}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: 16}}><div style={{width: 30, height: 30, borderRadius: 15, background: '#232A31'}} /><div style={{fontSize: 26}}>全体员工：约 100 人</div></div>
+          <div style={{display: 'flex', alignItems: 'center', gap: 16}}><div style={{width: 30, height: 30, borderRadius: 15, background: 'rgba(126,194,90,0.35)'}} /><div style={{fontSize: 26}}>市场与 BD：至少 30 人</div></div>
+          <div style={{display: 'flex', alignItems: 'center', gap: 16}}><div style={{width: 30, height: 30, borderRadius: 15, background: LIME, boxShadow: `0 0 16px ${LIME}`}} /><div style={{fontSize: 26}}>在社媒上互动：<Hl>1 人</Hl>（偶尔几位 BD）</div></div>
+          <Takeaway zh={<>只要 5–10 位同事每天点赞、评论、转发，官方帖子就更容易起量。</>} en="With 5 to 10 colleagues engaging daily, official posts get the early push that makes them travel." />
+        </div>
+      </div>
+    </Frame>
+  );
+};
+
+// ---------- 11. side events: Luma + the TOKEN2049 app ----------
+export const FigSideEvents: React.FC = () => (
+  <Frame no="11" zh="两个 App 找到 30+ 个合作机会" en="Two apps, 30+ collaboration leads: Luma for side events, the TOKEN2049 app for meetings">
+    <div style={{display: 'flex', gap: 30, alignItems: 'flex-start'}}>
+      <Shot src="review/x40.jpg" sw={924} sh={2000} width={300} crop={[0, 1760]} boxes={[{x: 40, y: 280, w: 870, h: 820, n: 1}]} />
+      <Shot src="review/x41.jpg" sw={924} sh={2000} width={300} crop={[0, 1760]} boxes={[{x: 20, y: 310, w: 890, h: 1450, n: 2}]} />
+      <div style={{flex: 1, display: 'flex', flexDirection: 'column', gap: 24}}>
+        <Shot src="review/x42.jpg" sw={1170} sh={874} width={360} crop={[160, 760]} />
+        <Note n={1} zh={<><Hl>Luma</Hl>：大会期间每天都有大量周边活动，大多数免费参加。</>} en="Luma: many side events every day of the conference, most of them free." />
+        <Note n={2} zh={<><Hl>TOKEN2049 官方 App</Hl>：所有参会企业的联系人，可直接发消息、约会议。</>} en="TOKEN2049 app: every attending company's contacts, with messaging and meeting booking." />
+        <div style={{display: 'flex', gap: 20}}>
+          <div style={{flex: 1, background: PANEL, border: `1px solid ${LINE}`, borderRadius: 14, padding: '18px 22px'}}>
+            <div style={{fontSize: 18, color: MUTED}}>我的 KPI</div>
+            <div style={{fontFamily: EN, fontWeight: 600, fontSize: 52}}>5</div>
+            <div style={{fontSize: 18, color: MUTED}}>个合作</div>
+          </div>
+          <div style={{flex: 1, background: 'rgba(184,242,106,0.10)', border: `2px solid ${LIME}`, borderRadius: 14, padding: '18px 22px'}}>
+            <div style={{fontSize: 18, color: MUTED}}>实际找到</div>
+            <div style={{fontFamily: EN, fontWeight: 600, fontSize: 52, color: LIME}}>30+</div>
+            <div style={{fontSize: 18, color: MUTED}}>个合作机会</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Frame>
+);

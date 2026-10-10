@@ -23,7 +23,7 @@ import {StoryCollage, STORIES, STORY_W, STORY_H} from './live/Story';
 import {ReplyPoster} from './promo/ReplyPoster';
 import {Shine, SHINE_DURATION} from './shine/Shine';
 import {Wrap, WRAP_DURATION} from './wrap/Wrap';
-import {FigQueue, FigBagTweets, FigMatryoshka, FigBalloon, FigMaterials, FigVizor, FigUS, FIG_W} from './review/Figures';
+import {FigQueue, FigBagTweets, FigMatryoshka, FigBalloon, FigMaterials, FigVizor, FigUS, FigFaces, FigTeamPhotos, FigAdvocacy, FigSideEvents, FIG_W} from './review/Figures';
 
 export const Root: React.FC = () => (
   <>
@@ -50,6 +50,10 @@ export const Root: React.FC = () => (
     <Composition id="Fig-materials" component={FigMaterials} durationInFrames={1} fps={30} width={FIG_W} height={1000} />
     <Composition id="Fig-vizor" component={FigVizor} durationInFrames={1} fps={30} width={FIG_W} height={840} />
     <Composition id="Fig-us" component={FigUS} durationInFrames={1} fps={30} width={FIG_W} height={990} />
+    <Composition id="Fig-faces" component={FigFaces} durationInFrames={1} fps={30} width={FIG_W} height={960} />
+    <Composition id="Fig-teamphotos" component={FigTeamPhotos} durationInFrames={1} fps={30} width={FIG_W} height={800} />
+    <Composition id="Fig-advocacy" component={FigAdvocacy} durationInFrames={1} fps={30} width={FIG_W} height={900} />
+    <Composition id="Fig-sideevents" component={FigSideEvents} durationInFrames={1} fps={30} width={FIG_W} height={880} />
     <Composition id="ReplyPoster" component={ReplyPoster} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Raccoon" component={Raccoon} durationInFrames={1} fps={30} width={1440} height={1882} />
     <Composition id="History-9x16" component={History} durationInFrames={HIST_DURATION} fps={60} width={1080} height={1920} />
