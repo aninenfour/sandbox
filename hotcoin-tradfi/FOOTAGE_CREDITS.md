@@ -197,3 +197,4 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
 - Numbers: hotcoin.com/en_US/about (Oct 2026): 8.1M+ registered users, 120+ countries and regions, 300+ spot pairs, 500+ futures pairs, $137M+ reserves.
 - Music: "Red Lights Adhafera" (Mixkit, track 563), Mixkit free licence.
 - Features cut (src/ascii/Features.tsx): feature claims from hotcoin.com homepage, /about and /tradFi (Oct 2026): futures up to 200x; spot, margin and futures; crypto, US stocks and precious metals settled in USDT from 10 USDT; copy trading; Hotcoin Earn; buy crypto with card; P2P; Web3 wallet.
+- Snap cut (src/ascii/Snap.tsx): music "New Bass 02" (Mixkit, track 721), Mixkit free licence; cuts on its half-time beat, drop on the symbol slam.
