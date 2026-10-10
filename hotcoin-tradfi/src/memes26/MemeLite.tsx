@@ -19,15 +19,18 @@ const useFonts = () => {
 const pct = (v: number) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(1)}%`;
 const usdM = (v: number) => `$${(v / 1e6).toFixed(1)}M`;
 
-const Frame: React.FC<{page: string; children: React.ReactNode}> = ({page, children}) => {
+type Art = {src: string; right: number; top: number; size: number; rot: number; op?: number};
+const Frame: React.FC<{page: string; art?: Art; children: React.ReactNode}> = ({page, art, children}) => {
   useFonts();
   return (
     <AbsoluteFill style={{background: BG, color: INK, fontFamily: SANS, padding: '70px 76px 56px'}}>
+      {art ? <Img src={staticFile(art.src)} style={{position: 'absolute', right: art.right, top: art.top, width: art.size, height: art.size, transform: `rotate(${art.rot}deg)`, opacity: art.op ?? 0.55,
+        WebkitMaskImage: 'radial-gradient(circle at 60% 40%, #000 45%, transparent 78%)', maskImage: 'radial-gradient(circle at 60% 40%, #000 45%, transparent 78%)'}} /> : null}
       <div style={{position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
         <Img src={staticFile('brand/logo-official-black.png')} style={{width: 170, height: (170 * 328) / 2003}} />
         <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 16, letterSpacing: 2, color: INK, border: `1.5px solid ${INK}`, borderRadius: 100, padding: '8px 18px', background: BG}}>MEMECOIN PULSE · {page}</div>
       </div>
-      <div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>{children}</div>
+      <div style={{position: 'relative', flex: 1, display: 'flex', flexDirection: 'column'}}>{children}</div>
       <div style={{fontFamily: MONO, fontSize: 14, color: MUTED, letterSpacing: 0.5}}>Data: Hotcoin, CoinGecko · {data.asOf} · Not financial advice</div>
     </AbsoluteFill>
   );
@@ -40,10 +43,8 @@ export const MemeLiteSeason: React.FC = () => {
   const signals = [data.btcDom < 55, false, false, true]; // BTC dom < 55%, alt index 75+, meme vol at 2024 pace, leaders beating BTC
   const CH = 360;
   return (
-    <Frame page="1/4">
-      <Img src={staticFile('memes26/doge-engraved.png')} style={{position: 'absolute', right: -260, top: 120, width: 920, height: 920, transform: 'rotate(-12deg)', opacity: 0.55,
-        WebkitMaskImage: 'radial-gradient(circle at 60% 40%, #000 45%, transparent 78%)', maskImage: 'radial-gradient(circle at 60% 40%, #000 45%, transparent 78%)'}} />
-      <div style={{position: 'relative', marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>
+    <Frame page="1/4" art={{src: 'memes26/doge-engraved.png', right: -260, top: 120, size: 920, rot: -12}}>
+            <div style={{position: 'relative', marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>
         Meme season?<br /><span style={{color: MUTED}}>Not yet.</span>
       </div>
       <div style={{position: 'relative', marginTop: 64, display: 'flex', alignItems: 'flex-end', gap: 26}}>
@@ -80,7 +81,7 @@ export const MemeLiteHotcoin: React.FC = () => {
   const rows = data.hot;
   const max = Math.max(...rows.map((r) => r.d30));
   return (
-    <Frame page="2/4">
+    <Frame page="2/4" art={{src: 'memes26/pepe-engraved.png', right: -150, top: -110, size: 500, rot: 10, op: 0.5}}>
       <div style={{marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>The hot list</div>
       <div style={{fontSize: 28, color: MUTED, marginTop: 20}}>Top 30-day gainers among the 30 biggest memes</div>
       <div style={{display: 'flex', justifyContent: 'space-between', marginTop: 56, fontFamily: MONO, fontSize: 14, letterSpacing: 2, color: MUTED}}>
@@ -118,7 +119,7 @@ export const MemeLiteSignals: React.FC = () => {
     {label: 'PEPE & BONK vs BTC, 30d', now: `${pct((pepe.d30 + bonk.d30) / 2)}`, target: `beat BTC ${pct(data.btc30)}`, p: 1, on: true},
   ];
   return (
-    <Frame page="3/4">
+    <Frame page="3/4" art={{src: 'memes26/shib-engraved.png', right: -200, top: 40, size: 760, rot: -8, op: 0.5}}>
       <div style={{marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>4 signals<br /><span style={{color: MUTED}}>to watch.</span></div>
       <div style={{flex: 1}} />
       <div style={{display: 'flex', flexDirection: 'column', gap: 18, marginBottom: 40}}>
@@ -149,7 +150,7 @@ export const MemeLitePeak: React.FC = () => {
   const rows = data.peak;
   const CH = 600;
   return (
-    <Frame page="4/4">
+    <Frame page="4/4" art={{src: 'memes26/bonk-engraved.png', right: -150, top: -120, size: 500, rot: 8, op: 0.45}}>
       <div style={{marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>Hype fades.<br /><span style={{color: MUTED}}>Peak to now.</span></div>
       <div style={{flex: 1}} />
       <div style={{display: 'flex', alignItems: 'flex-end', gap: 14, height: CH + 120}}>
