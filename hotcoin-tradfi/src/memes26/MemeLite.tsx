@@ -23,9 +23,9 @@ const Frame: React.FC<{page: string; children: React.ReactNode}> = ({page, child
   useFonts();
   return (
     <AbsoluteFill style={{background: BG, color: INK, fontFamily: SANS, padding: '70px 76px 56px'}}>
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+      <div style={{position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
         <Img src={staticFile('brand/logo-official-black.png')} style={{width: 170, height: (170 * 328) / 2003}} />
-        <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 16, letterSpacing: 2, color: INK, border: `1.5px solid ${INK}`, borderRadius: 100, padding: '8px 18px'}}>MEMECOIN PULSE · {page}</div>
+        <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 16, letterSpacing: 2, color: INK, border: `1.5px solid ${INK}`, borderRadius: 100, padding: '8px 18px', background: BG}}>MEMECOIN PULSE · {page}</div>
       </div>
       <div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>{children}</div>
       <div style={{fontFamily: MONO, fontSize: 14, color: MUTED, letterSpacing: 0.5}}>Data: Hotcoin, CoinGecko · {data.asOf} · Not financial advice</div>
@@ -40,16 +40,18 @@ export const MemeLiteSeason: React.FC = () => {
   const signals = [data.btcDom < 55, false, false, true]; // BTC dom < 55%, alt index 75+, meme vol at 2024 pace, leaders beating BTC
   const CH = 360;
   return (
-    <Frame page="1/2">
-      <div style={{marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>
+    <Frame page="1/4">
+      <Img src={staticFile('memes26/bill-light.png')} style={{position: 'absolute', right: -300, top: -60, width: 1080, height: 1350,
+        WebkitMaskImage: 'radial-gradient(ellipse 75% 60% at 55% 30%, #000 30%, rgba(0,0,0,0.45) 58%, transparent 82%)', maskImage: 'radial-gradient(ellipse 75% 60% at 55% 30%, #000 30%, rgba(0,0,0,0.45) 58%, transparent 82%)'}} />
+      <div style={{position: 'relative', marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>
         Meme season?<br /><span style={{color: MUTED}}>Not yet.</span>
       </div>
-      <div style={{marginTop: 64, display: 'flex', alignItems: 'flex-end', gap: 26}}>
+      <div style={{position: 'relative', marginTop: 64, display: 'flex', alignItems: 'flex-end', gap: 26}}>
         <div style={{fontWeight: 600, fontSize: 150, lineHeight: 0.8, letterSpacing: -7}}>−{Math.abs(Math.round(fromAth))}%</div>
-        <div style={{fontSize: 26, color: MUTED, lineHeight: 1.25, paddingBottom: 6}}>memecoin market cap<br />vs the 2024 peak</div>
+        <div style={{fontSize: 26, color: '#4A5058', lineHeight: 1.25, paddingBottom: 6}}>memecoin market cap<br />vs the 2024 peak</div>
       </div>
       <div style={{flex: 1}} />
-      <div style={{display: 'flex', alignItems: 'flex-end', gap: 22, height: CH + 60}}>
+      <div style={{position: 'relative', display: 'flex', alignItems: 'flex-end', gap: 22, height: CH + 60}}>
         {HIST.map((d, i) => {
           const now = i === HIST.length - 1;
           return (
@@ -78,7 +80,7 @@ export const MemeLiteHotcoin: React.FC = () => {
   const rows = data.hot;
   const max = Math.max(...rows.map((r) => r.d30));
   return (
-    <Frame page="2/2">
+    <Frame page="2/4">
       <div style={{marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>The hot list</div>
       <div style={{fontSize: 28, color: MUTED, marginTop: 20}}>Top 30-day gainers among the 30 biggest memes</div>
       <div style={{display: 'flex', justifyContent: 'space-between', marginTop: 56, fontFamily: MONO, fontSize: 14, letterSpacing: 2, color: MUTED}}>
@@ -101,6 +103,75 @@ export const MemeLiteHotcoin: React.FC = () => {
         })}
       </div>
       <div style={{flex: 1}} />
+    </Frame>
+  );
+};
+
+// ---------- 3: the four signals ----------
+type Sig = {label: string; now: string; target: string; p: number; on: boolean};
+export const MemeLiteSignals: React.FC = () => {
+  const pepe = data.hot.find((r) => r.sym === 'PEPE')!, bonk = data.hot.find((r) => r.sym === 'BONK')!;
+  const sigs: Sig[] = [
+    {label: 'Bitcoin dominance', now: `${data.btcDom.toFixed(1)}%`, target: 'below 55%', p: Math.max(0, Math.min(1, (70 - data.btcDom) / (70 - 55))), on: data.btcDom < 55},
+    {label: 'Altcoin Season Index', now: '61', target: '75+', p: 61 / 75, on: false},
+    {label: 'Meme volume / day', now: `$${(data.memeVol / 1e9).toFixed(1)}B`, target: '$9.7B (2024)', p: data.memeVol / 1e9 / 9.7, on: false},
+    {label: 'PEPE & BONK vs BTC, 30d', now: `${pct((pepe.d30 + bonk.d30) / 2)}`, target: `beat BTC ${pct(data.btc30)}`, p: 1, on: true},
+  ];
+  return (
+    <Frame page="3/4">
+      <div style={{marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>4 signals<br /><span style={{color: MUTED}}>to watch.</span></div>
+      <div style={{flex: 1}} />
+      <div style={{display: 'flex', flexDirection: 'column', gap: 18, marginBottom: 40}}>
+        {sigs.map((g, i) => (
+          <div key={i} style={{borderRadius: 26, padding: '26px 30px', background: g.on ? LIME : SOFT, border: g.on ? `2px solid ${INK}` : `1px solid ${LINE}`}}>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline'}}>
+              <div style={{fontSize: 27, fontWeight: 500}}>{g.label}</div>
+              <div style={{fontFamily: MONO, fontSize: 15, letterSpacing: 1.5, fontWeight: 500, color: g.on ? INK : MUTED}}>{g.on ? 'ON' : 'NOT YET'}</div>
+            </div>
+            <div style={{display: 'flex', alignItems: 'center', gap: 24, marginTop: 14}}>
+              <div style={{width: 230, fontWeight: 600, fontSize: 52, letterSpacing: -2}}>{g.now}</div>
+              <div style={{flex: 1}}>
+                <div style={{height: 12, borderRadius: 6, background: g.on ? 'rgba(11,14,17,0.15)' : '#E2E4DF', overflow: 'hidden'}}>
+                  <div style={{width: `${Math.min(1, g.p) * 100}%`, height: '100%', borderRadius: 6, background: INK}} />
+                </div>
+                <div style={{fontSize: 19, color: g.on ? INK : MUTED, marginTop: 10}}>Season level: {g.target}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Frame>
+  );
+};
+
+// ---------- 4: from peak to now ----------
+export const MemeLitePeak: React.FC = () => {
+  const rows = data.peak;
+  const CH = 600;
+  return (
+    <Frame page="4/4">
+      <div style={{marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>Hype fades.<br /><span style={{color: MUTED}}>Peak to now.</span></div>
+      <div style={{flex: 1}} />
+      <div style={{display: 'flex', alignItems: 'flex-end', gap: 14, height: CH + 120}}>
+        {rows.map((r) => {
+          const left = 1 + r.ath / 100, best = r.ath > -50;
+          return (
+            <div key={r.id} style={{flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <div style={{fontWeight: 600, fontSize: 26, letterSpacing: -1, marginBottom: 12, color: best ? INK : RED}}>{Math.round(r.ath)}%</div>
+              <div style={{width: '100%', height: CH, borderRadius: 20, border: `1.5px dashed #CDD1CA`, position: 'relative', overflow: 'hidden'}}>
+                <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: Math.max(8, left * CH), background: best ? LIME : INK, borderTop: best ? `2px solid ${INK}` : 'none'}} />
+              </div>
+              <Img src={staticFile(r.logo)} style={{width: 64, height: 64, borderRadius: 32, border: `1px solid ${LINE}`, marginTop: 16}} />
+              <div style={{fontWeight: 600, fontSize: 19, marginTop: 8, letterSpacing: -0.3}}>{r.sym}</div>
+              <div style={{fontFamily: MONO, fontSize: 13, color: MUTED, marginTop: 2}}>{r.athDate.replace('-', '.')}</div>
+            </div>
+          );
+        })}
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: 14, marginTop: 30, marginBottom: 30, fontSize: 22, color: MUTED}}>
+        <div style={{width: 26, height: 16, border: '1.5px dashed #CDD1CA', borderRadius: 4}} /> all-time high
+        <div style={{width: 26, height: 16, background: INK, borderRadius: 4, marginLeft: 18}} /> value left today
+      </div>
     </Frame>
   );
 };

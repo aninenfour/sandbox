@@ -162,5 +162,63 @@
    "y1": -70.9165,
    "mcap": 264001884
   }
+ ],
+ "peak": [
+  {
+   "id": "melania-meme",
+   "sym": "MELANIA",
+   "logo": "memes26/melania-meme.png",
+   "ath": -99.29707,
+   "athDate": "2025-01"
+  },
+  {
+   "id": "official-trump",
+   "sym": "TRUMP",
+   "logo": "memes26/official-trump.png",
+   "ath": -97.41913,
+   "athDate": "2025-01"
+  },
+  {
+   "id": "peanut-the-squirrel",
+   "sym": "PNUT",
+   "logo": "memes26/peanut-the-squirrel.png",
+   "ath": -97.94681,
+   "athDate": "2024-11"
+  },
+  {
+   "id": "fartcoin",
+   "sym": "FARTCOIN",
+   "logo": "memes26/fartcoin.jpg",
+   "ath": -93.38731,
+   "athDate": "2025-01"
+  },
+  {
+   "id": "dogwifcoin",
+   "sym": "WIF",
+   "logo": "memes26/dogwifcoin.jpg",
+   "ath": -95.48822,
+   "athDate": "2024-03"
+  },
+  {
+   "id": "bonk",
+   "sym": "BONK",
+   "logo": "memes26/bonk.jpg",
+   "ath": -94.14926,
+   "athDate": "2024-11"
+  },
+  {
+   "id": "pudgy-penguins",
+   "sym": "PENGU",
+   "logo": "memes26/pudgy-penguins.png",
+   "ath": -87.86352,
+   "athDate": "2024-12"
+  },
+  {
+   "id": "pump-fun",
+   "sym": "PUMP",
+   "logo": "memes26/pump-fun.jpg",
+   "ath": -35.46237,
+   "athDate": "2025-09"
+  }
  ]
 }
