@@ -23,6 +23,7 @@ import {StoryCollage, STORIES, STORY_W, STORY_H} from './live/Story';
 import {ReplyPoster} from './promo/ReplyPoster';
 import {Shine, SHINE_DURATION} from './shine/Shine';
 import {Wrap, WRAP_DURATION} from './wrap/Wrap';
+import {MemeLiteSeason, MemeLiteHotcoin} from './memes26/MemeLite';
 import {SnapFilm, SNAP_DURATION, SNAP_FPS} from './ascii/Snap';
 import {FeaturesFilm, FEATURES_DURATION} from './ascii/Features';
 import {AsciiFilm, ASCII_DURATION, ASCII_FPS} from './ascii/AsciiFilm';
@@ -54,6 +55,8 @@ export const Root: React.FC = () => (
     <Composition id="Ascii-open-noise" component={AsciiFilm} durationInFrames={ASCII_FPS * 11} fps={ASCII_FPS} width={1920} height={1080} defaultProps={{open: "noise"}} />
     <Composition id="MemeSeason" component={MemeSeason} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="MemeHotList" component={MemeHotList} durationInFrames={1} fps={30} width={1080} height={1350} />
+    <Composition id="MemeLiteSeason" component={MemeLiteSeason} durationInFrames={1} fps={30} width={1080} height={1350} />
+    <Composition id="MemeLiteHotcoin" component={MemeLiteHotcoin} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Fig-queue" component={FigQueue} durationInFrames={1} fps={30} width={FIG_W} height={940} />
     <Composition id="Fig-bagtweets" component={FigBagTweets} durationInFrames={1} fps={30} width={FIG_W} height={1260} />
     <Composition id="Fig-matryoshka" component={FigMatryoshka} durationInFrames={1} fps={30} width={FIG_W} height={1100} />

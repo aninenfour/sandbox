@@ -1,0 +1,100 @@
+{
+ "asOf": "10 Oct 2026",
+ "top": [
+  {
+   "id": "dogecoin",
+   "sym": "DOGE",
+   "name": "Dogecoin",
+   "vol": 5508900.13,
+   "hc24": 1.79,
+   "d30": 2.7765,
+   "y1": -65.7184,
+   "mcap": 13455651794,
+   "logo": "memes26/dogecoin.png"
+  },
+  {
+   "id": "official-trump",
+   "sym": "TRUMP",
+   "name": "Official Trump",
+   "vol": 2105319.65,
+   "hc24": 2.48,
+   "d30": -3.4813,
+   "y1": -74.7119,
+   "mcap": 534167733,
+   "logo": "memes26/official-trump.png"
+  },
+  {
+   "id": "pudgy-penguins",
+   "sym": "PENGU",
+   "name": "Pudgy Penguins",
+   "vol": 1562220.25,
+   "hc24": 3.4,
+   "d30": 10.8571,
+   "y1": -73.5344,
+   "mcap": 522144654,
+   "logo": "memes26/pudgy-penguins.png"
+  },
+  {
+   "id": "floki",
+   "sym": "FLOKI",
+   "name": "FLOKI",
+   "vol": 1318933.75,
+   "hc24": 1.36,
+   "d30": 14.1991,
+   "y1": -70.9165,
+   "mcap": 264001884,
+   "logo": "memes26/floki.png"
+  },
+  {
+   "id": "shiba-inu",
+   "sym": "SHIB",
+   "name": "Shiba Inu",
+   "vol": 1141036.35,
+   "hc24": 1.29,
+   "d30": 7.2396,
+   "y1": -54.7299,
+   "mcap": 3212811190,
+   "logo": "memes26/shiba-inu.png"
+  },
+  {
+   "id": "pump-fun",
+   "sym": "PUMP",
+   "name": "Pump.fun",
+   "vol": 1014073.36,
+   "hc24": 3.92,
+   "d30": 45.5715,
+   "y1": 3.2135,
+   "mcap": 2633753162,
+   "logo": "memes26/pump-fun.jpg"
+  },
+  {
+   "id": "dogwifcoin",
+   "sym": "WIF",
+   "name": "dogwifhat",
+   "vol": 839333.34,
+   "hc24": 2.88,
+   "d30": 11.7082,
+   "y1": -70.3546,
+   "mcap": 217555892,
+   "logo": "memes26/dogwifcoin.jpg"
+  },
+  {
+   "id": "marscoin-4",
+   "sym": "MARSCOIN",
+   "name": "MarsCoin",
+   "vol": 630216.16,
+   "hc24": 2.63,
+   "d30": -15.7074,
+   "y1": null,
+   "mcap": 96631964,
+   "logo": "memes26/marscoin-4.png"
+  }
+ ],
+ "hcMemeVol": 18686488.03,
+ "hcMemePairs": 26,
+ "memeCap": 32625071928.798637,
+ "memeVol": 1622943365.5459077,
+ "btcDom": 59.07967136638517,
+ "total": 2813994037959.166,
+ "btc30": 7.4709
+}
