@@ -23,6 +23,7 @@ import {StoryCollage, STORIES, STORY_W, STORY_H} from './live/Story';
 import {ReplyPoster} from './promo/ReplyPoster';
 import {Shine, SHINE_DURATION} from './shine/Shine';
 import {Wrap, WRAP_DURATION} from './wrap/Wrap';
+import {FigQueue, FigBagTweets, FigMatryoshka, FigBalloon, FigMaterials, FigVizor, FigUS, FIG_W} from './review/Figures';
 
 export const Root: React.FC = () => (
   <>
@@ -42,6 +43,13 @@ export const Root: React.FC = () => (
     <Composition id="Shine-4x5" component={Shine} durationInFrames={SHINE_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Wrap-9x16" component={Wrap} durationInFrames={WRAP_DURATION} fps={60} width={1080} height={1920} />
     <Composition id="Wrap-4x5" component={Wrap} durationInFrames={WRAP_DURATION} fps={60} width={1080} height={1350} />
+    <Composition id="Fig-queue" component={FigQueue} durationInFrames={1} fps={30} width={FIG_W} height={940} />
+    <Composition id="Fig-bagtweets" component={FigBagTweets} durationInFrames={1} fps={30} width={FIG_W} height={1260} />
+    <Composition id="Fig-matryoshka" component={FigMatryoshka} durationInFrames={1} fps={30} width={FIG_W} height={1100} />
+    <Composition id="Fig-balloon" component={FigBalloon} durationInFrames={1} fps={30} width={FIG_W} height={1000} />
+    <Composition id="Fig-materials" component={FigMaterials} durationInFrames={1} fps={30} width={FIG_W} height={1000} />
+    <Composition id="Fig-vizor" component={FigVizor} durationInFrames={1} fps={30} width={FIG_W} height={840} />
+    <Composition id="Fig-us" component={FigUS} durationInFrames={1} fps={30} width={FIG_W} height={990} />
     <Composition id="ReplyPoster" component={ReplyPoster} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Raccoon" component={Raccoon} durationInFrames={1} fps={30} width={1440} height={1882} />
     <Composition id="History-9x16" component={History} durationInFrames={HIST_DURATION} fps={60} width={1080} height={1920} />
