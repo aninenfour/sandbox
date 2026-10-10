@@ -73,31 +73,32 @@ export const MemeLiteSeason: React.FC = () => {
   );
 };
 
-// ---------- 2: most traded on Hotcoin ----------
+// ---------- 2: the hot list (CoinGecko) ----------
 export const MemeLiteHotcoin: React.FC = () => {
-  const rows = data.top;
-  const max = Math.max(...rows.map((r) => r.vol));
+  const rows = data.hot;
+  const max = Math.max(...rows.map((r) => r.d30));
   return (
     <Frame page="2/2">
-      <div style={{marginTop: 64, display: 'flex', alignItems: 'flex-end', gap: 22}}>
-        <div style={{fontWeight: 600, fontSize: 132, lineHeight: 0.8, letterSpacing: -6}}>{usdM(data.hcMemeVol)}</div>
-      </div>
-      <div style={{fontSize: 28, color: MUTED, marginTop: 18}}>memecoins traded on Hotcoin, last 24h</div>
-      <div style={{display: 'flex', justifyContent: 'space-between', marginTop: 58, fontFamily: MONO, fontSize: 14, letterSpacing: 2, color: MUTED}}>
-        <span>MOST TRADED</span><span>30D</span>
+      <div style={{marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>The hot list</div>
+      <div style={{fontSize: 28, color: MUTED, marginTop: 20}}>Top 30-day gainers among the 30 biggest memes</div>
+      <div style={{display: 'flex', justifyContent: 'space-between', marginTop: 56, fontFamily: MONO, fontSize: 14, letterSpacing: 2, color: MUTED}}>
+        <span>30 DAYS</span><span>1 YEAR</span>
       </div>
       <div style={{marginTop: 14, display: 'flex', flexDirection: 'column', gap: 12}}>
-        {rows.map((r, i) => (
-          <div key={r.id} style={{display: 'flex', alignItems: 'center', gap: 20, height: 92, borderBottom: i < rows.length - 1 ? `1px solid ${LINE}` : 'none', paddingBottom: 12}}>
-            <Img src={staticFile(r.logo)} style={{width: 60, height: 60, borderRadius: 30, border: `1px solid ${LINE}`}} />
-            <div style={{width: 170, fontWeight: 600, fontSize: 31, letterSpacing: -0.5}}>{r.sym}</div>
-            <div style={{flex: 1, height: 46, position: 'relative'}}>
-              <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: `${(r.vol / max) * 100}%`, minWidth: 8, borderRadius: 12, background: i === 0 ? LIME : SOFT, border: i === 0 ? `2px solid ${INK}` : `1px solid ${LINE}`}} />
-              <div style={{position: 'absolute', left: `calc(${(r.vol / max) * 100}% + 14px)`, top: 0, bottom: 0, display: 'flex', alignItems: 'center', fontWeight: 600, fontSize: 24, ...(r.vol / max > 0.72 ? {left: 18} : {})}}>{usdM(r.vol)}</div>
+        {rows.map((r, i) => {
+          const w = Math.max(0.04, r.d30 / max);
+          return (
+            <div key={r.id} style={{display: 'flex', alignItems: 'center', gap: 20, height: 88, borderBottom: i < rows.length - 1 ? `1px solid ${LINE}` : 'none', paddingBottom: 12}}>
+              <Img src={staticFile(r.logo)} style={{width: 60, height: 60, borderRadius: 30, border: `1px solid ${LINE}`}} />
+              <div style={{width: 170, fontWeight: 600, fontSize: 31, letterSpacing: -0.5, fontFamily: `${SANS}, "Noto Sans SC"`}}>{r.sym}</div>
+              <div style={{flex: 1, height: 46, position: 'relative'}}>
+                <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: `${w * 100}%`, borderRadius: 12, background: i === 0 ? LIME : SOFT, border: i === 0 ? `2px solid ${INK}` : `1px solid ${LINE}`}} />
+                <div style={{position: 'absolute', top: 0, bottom: 0, display: 'flex', alignItems: 'center', fontWeight: 600, fontSize: 25, ...(w > 0.72 ? {left: 18} : {left: `calc(${w * 100}% + 14px)`})}}>{pct(r.d30)}</div>
+              </div>
+              <div style={{width: 120, textAlign: 'right', fontWeight: 500, fontSize: 24, color: r.y1 == null ? MUTED : r.y1 >= 0 ? GREEN : RED}}>{r.y1 == null ? '–' : pct(r.y1)}</div>
             </div>
-            <div style={{width: 120, textAlign: 'right', fontWeight: 600, fontSize: 27, color: r.d30 >= 0 ? GREEN : RED}}>{pct(r.d30)}</div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <div style={{flex: 1}} />
     </Frame>

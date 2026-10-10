@@ -96,5 +96,71 @@
  "memeVol": 1622943365.5459077,
  "btcDom": 59.07967136638517,
  "total": 2813994037959.166,
- "btc30": 7.4709
+ "btc30": 7.4709,
+ "hot": [
+  {
+   "id": "mubarak",
+   "sym": "MUBARAK",
+   "logo": "memes26/mubarak.jpg",
+   "d30": 172.857,
+   "y1": 111.6134,
+   "mcap": 74404940
+  },
+  {
+   "id": "pump-fun",
+   "sym": "PUMP",
+   "logo": "memes26/pump-fun.jpg",
+   "d30": 45.5715,
+   "y1": 3.2135,
+   "mcap": 2633753162
+  },
+  {
+   "id": "bonk",
+   "sym": "BONK",
+   "logo": "memes26/bonk.jpg",
+   "d30": 24.8655,
+   "y1": -82.4426,
+   "mcap": 300006001
+  },
+  {
+   "id": "bianrensheng",
+   "sym": "币安人生",
+   "logo": "memes26/bianrensheng.png",
+   "d30": 21.3513,
+   "y1": 153.6468,
+   "mcap": 557141816
+  },
+  {
+   "id": "pepe",
+   "sym": "PEPE",
+   "logo": "memes26/pepe.jpg",
+   "d30": 21.1928,
+   "y1": -56.558,
+   "mcap": 1696675987
+  },
+  {
+   "id": "non-playable-coin",
+   "sym": "NPC",
+   "logo": "memes26/non-playable-coin.png",
+   "d30": 19.6091,
+   "y1": 21.5613,
+   "mcap": 182053403
+  },
+  {
+   "id": "fartcoin",
+   "sym": "FARTCOIN",
+   "logo": "memes26/fartcoin.jpg",
+   "d30": 15.8116,
+   "y1": -75.2517,
+   "mcap": 163771882
+  },
+  {
+   "id": "floki",
+   "sym": "FLOKI",
+   "logo": "memes26/floki.png",
+   "d30": 14.1991,
+   "y1": -70.9165,
+   "mcap": 264001884
+  }
+ ]
 }
