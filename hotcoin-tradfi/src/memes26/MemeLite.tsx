@@ -41,8 +41,8 @@ export const MemeLiteSeason: React.FC = () => {
   const CH = 360;
   return (
     <Frame page="1/4">
-      <Img src={staticFile('memes26/bill-light.png')} style={{position: 'absolute', right: -300, top: -60, width: 1080, height: 1350,
-        WebkitMaskImage: 'radial-gradient(ellipse 75% 60% at 55% 30%, #000 30%, rgba(0,0,0,0.45) 58%, transparent 82%)', maskImage: 'radial-gradient(ellipse 75% 60% at 55% 30%, #000 30%, rgba(0,0,0,0.45) 58%, transparent 82%)'}} />
+      <Img src={staticFile('memes26/doge-engraved.png')} style={{position: 'absolute', right: -260, top: 120, width: 920, height: 920, transform: 'rotate(-12deg)', opacity: 0.55,
+        WebkitMaskImage: 'radial-gradient(circle at 60% 40%, #000 45%, transparent 78%)', maskImage: 'radial-gradient(circle at 60% 40%, #000 45%, transparent 78%)'}} />
       <div style={{position: 'relative', marginTop: 70, fontWeight: 600, fontSize: 104, lineHeight: 0.98, letterSpacing: -4.5}}>
         Meme season?<br /><span style={{color: MUTED}}>Not yet.</span>
       </div>
