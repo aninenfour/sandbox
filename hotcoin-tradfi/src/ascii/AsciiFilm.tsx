@@ -15,16 +15,16 @@ const T = {ball: 4.5, burst: 10.2, year: 11, sweep: 16.5, stats: 23, mosaic: 29.
 export const ASCII_DURATION = s(T.end);
 
 const INK = '#0B0E11', GLYPH = '#E9E8E1', LIME = '#B8F26A';
-const RAMP = ' .:-+coe8$#@';
+export const RAMP = ' .:-+coe8$#@';
 const MONO = '"JetBrains Mono", monospace', SANS = '"Inter Tight", sans-serif', DISPLAY = 'Unbounded, sans-serif';
-const rnd = (n: number) => {const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x);};
-const sm = (a: number, b: number, x: number) => {const t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t);};
+export const rnd = (n: number) => {const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x);};
+export const sm = (a: number, b: number, x: number) => {const t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t);};
 
 // ---------- luminance sources (sampled once, 480 x 270) ----------
-const LW = 480, LH = 270;
-type Lum = {v: Float32Array; g: Float32Array}; // brightness, "green" mask
-const cache = new Map<string, Lum>();
-const sample = (lum: Lum, x: number, y: number, key: 'v' | 'g' = 'v') => {
+export const LW = 480, LH = 270;
+export type Lum = {v: Float32Array; g: Float32Array}; // brightness, "green" mask
+export const cache = new Map<string, Lum>();
+export const sample = (lum: Lum, x: number, y: number, key: 'v' | 'g' = 'v') => {
   const ix = Math.floor(x * LW), iy = Math.floor(y * LH);
   if (ix < 0 || iy < 0 || ix >= LW || iy >= LH) return 0;
   return lum[key][iy * LW + ix];
@@ -65,7 +65,7 @@ const SOURCES: Record<string, [string, 'cover' | 'contain', number, boolean?]> =
   crowd: ['ascii/crowd.jpg', 'cover', 1, true],
   team: ['ascii/team.jpg', 'cover', 1, true],
 };
-const useSources = () => {
+export const useSources = () => {
   const [h] = useState(() => delayRender('ascii sources'));
   const [ready, setReady] = useState(false);
   useEffect(() => {
@@ -79,7 +79,7 @@ const useSources = () => {
 
 // text rasterised to a luminance field (per call; cheap at 480 x 270)
 const textCanvas = document.createElement('canvas'); textCanvas.width = LW; textCanvas.height = LH;
-const textLum = (text: string, px: number, weight = 800, family = DISPLAY, dx = 0): Float32Array => {
+export const textLum = (text: string, px: number, weight = 800, family = DISPLAY, dx = 0): Float32Array => {
   const ctx = textCanvas.getContext('2d', {willReadFrequently: true})!;
   ctx.fillStyle = '#000'; ctx.fillRect(0, 0, LW, LH);
   ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
@@ -91,9 +91,9 @@ const textLum = (text: string, px: number, weight = 800, family = DISPLAY, dx = 
 };
 
 // ---------- the glyph layer ----------
-type Cell = {v: number; lime?: boolean; a?: number};
-type Field = (u: number, w: number, col: number, row: number) => Cell | number;
-const Glyphs: React.FC<{cell: number; field: Field; frame: number; under?: (ctx: CanvasRenderingContext2D) => void; seedShift?: number}> = ({cell, field, frame, under, seedShift = 0}) => {
+export type Cell = {v: number; lime?: boolean; a?: number};
+export type Field = (u: number, w: number, col: number, row: number) => Cell | number;
+export const Glyphs: React.FC<{cell: number; field: Field; frame: number; under?: (ctx: CanvasRenderingContext2D) => void; seedShift?: number}> = ({cell, field, frame, under, seedShift = 0}) => {
   const ref = useRef<HTMLCanvasElement>(null);
   const {width: W, height: H} = useVideoConfig();
   useLayoutEffect(() => {
@@ -125,7 +125,7 @@ const Glyphs: React.FC<{cell: number; field: Field; frame: number; under?: (ctx:
 };
 
 // ---------- scenes ----------
-const symbolField = (scale: number, alpha = 1, cx = 0.5, cy = 0.5): Field => (u, w) => {
+export const symbolField = (scale: number, alpha = 1, cx = 0.5, cy = 0.5): Field => (u, w) => {
   const sym = cache.get('symbol')!;
   // symbol occupies the centre (contain, 0.5 box): rescale around (cx, cy)
   const x = (u - cx) / scale + 0.5, y = (w - cy) / scale + 0.5;
