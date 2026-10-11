@@ -198,3 +198,7 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
 - Music: "Red Lights Adhafera" (Mixkit, track 563), Mixkit free licence.
 - Features cut (src/ascii/Features.tsx): feature claims from hotcoin.com homepage, /about and /tradFi (Oct 2026): futures up to 200x; spot, margin and futures; crypto, US stocks and precious metals settled in USDT from 10 USDT; copy trading; Hotcoin Earn; buy crypto with card; P2P; Web3 wallet.
 - Snap cut (src/ascii/Snap.tsx): music "New Bass 02" (Mixkit, track 721), Mixkit free licence; cuts on its half-time beat, drop on the symbol slam.
+
+## iPhone Upgrade Season carousel (src/iphone)
+- Background: Pexels photos 9539616 and 6468225 (banknotes), graded green by scripts/make-iphone-bg.py.
+- iPhone + USDT render: cropped from Hotcoin's own campaign page (hotcoin.com/en_US/campaign/noticeActivity/457).
