@@ -63,18 +63,19 @@ export const Patterns: React.FC<{p: string}> = ({p}) => {
 };
 
 // Rough edges, patchy coverage and paper fibre. The seed changes on 10 fps for a gentle "boil".
-export const PrintFilters: React.FC<{p: string; seed: number}> = ({p, seed}) => (
+// k = user units per screen pixel, so the texture keeps its on-screen size when a sheet is zoomed out.
+export const PrintFilters: React.FC<{p: string; seed: number; k?: number}> = ({p, seed, k = 1}) => (
   <>
     <filter id={`${p}-rough`} x="-5%" y="-5%" width="110%" height="110%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves={2} seed={seed} result="n" />
-      <feDisplacementMap in="SourceGraphic" in2="n" scale={6} xChannelSelector="R" yChannelSelector="G" />
+      <feTurbulence type="fractalNoise" baseFrequency={0.03 / k} numOctaves={2} seed={seed} result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale={6 * k} xChannelSelector="R" yChannelSelector="G" />
     </filter>
     <filter id={`${p}-speckle`} x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves={2} seed={seed + 7} result="n" />
+      <feTurbulence type="fractalNoise" baseFrequency={0.75 / k} numOctaves={2} seed={seed + 7} result="n" />
       <feColorMatrix in="n" type="matrix" values={`0 0 0 0 0.949  0 0 0 0 0.933  0 0 0 0 0.890  7 0 0 0 -4.1`} />
     </filter>
     <filter id={`${p}-fibre`} x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.09" numOctaves={3} seed={3} result="n" />
+      <feTurbulence type="fractalNoise" baseFrequency={`${0.006 / k} ${0.09 / k}`} numOctaves={3} seed={3} result="n" />
       <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.55  0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0.9 -0.35" />
     </filter>
   </>
@@ -184,20 +185,27 @@ export const Label: React.FC<{lines: string[]; x: number; y: number; size?: numb
 );
 
 // A full print: paper, artwork with rough edges, speckled ink and fibre.
-export const Sheet: React.FC<{p: string; f: number; children: React.ReactNode}> = ({p, f, children}) => {
+// vb picks the part of the 1080x1920 drawing to show (the square cut uses its own box per print).
+export type VB = [number, number, number, number];
+export const Sheet: React.FC<{p: string; f: number; children: React.ReactNode; vb?: VB}> = ({p, f, children, vb = [0, 0, W, H]}) => {
   const seed = 1 + (Math.floor(f / 3) % 6);
+  const k = vb[2] / W;
   return (
-    <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', inset: 0, background: INK.paper}}>
+    <svg width={W} height={(W * vb[3]) / vb[2]} viewBox={vb.join(' ')} style={{position: 'absolute', inset: 0, background: INK.paper}}>
       <defs>
         <Patterns p={p} />
-        <PrintFilters p={p} seed={seed} />
+        <PrintFilters p={p} seed={seed} k={k} />
       </defs>
-      <rect width={W} height={H} filter={`url(#${p}-fibre)`} opacity={0.12} style={{mixBlendMode: 'multiply'}} />
+      <rect x={vb[0]} y={vb[1]} width={vb[2]} height={vb[3]} filter={`url(#${p}-fibre)`} opacity={0.12} style={{mixBlendMode: 'multiply'}} />
       <g filter={`url(#${p}-rough)`}>{children}</g>
-      <rect width={W} height={H} filter={`url(#${p}-speckle)`} />
+      <rect x={vb[0]} y={vb[1]} width={vb[2]} height={vb[3]} filter={`url(#${p}-speckle)`} />
     </svg>
   );
 };
+
+// Puts something drawn for the 9:16 top-left corner into the top-left corner of a view box, at the same screen size.
+export const Corner: React.FC<{vb?: VB; children: React.ReactNode}> = ({vb, children}) =>
+  vb ? <g transform={`translate(${vb[0]} ${vb[1]}) scale(${vb[2] / W})`}>{children}</g> : <>{children}</>;
 
 // Ground shadow in coarse halftone.
 export const Shadow: React.FC<{cx: number; cy: number; rx: number; ry: number; k?: number}> = ({cx, cy, rx, ry, k = 0.35}) => (

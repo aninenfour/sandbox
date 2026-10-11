@@ -1,34 +1,43 @@
 import React from 'react';
 import {staticFile} from 'remotion';
-import {Dots, INK, Label, Person, Pt, Shadow, Sheet, clamp, ease, reg, toPerson, twos} from './kit';
+import {Corner, Dots, INK, Label, Person, Pt, Shadow, Sheet, VB, clamp, ease, reg, toPerson, twos} from './kit';
 
-type S = {f: number; p: string};
+type S = {f: number; p: string; sq?: boolean};
 const GROUND = 1640;
+// Square cut: the part of each 9:16 print that the 1:1 version shows.
+const SQ: Record<string, VB> = {saving: [100, 640, 1100, 1100], trip: [-80, 400, 1320, 1320], cake: [-290, 110, 1600, 1600], run: [-200, 260, 1460, 1460]};
+// Waving hand target, shared by the first and last prints.
+const waveHand = (x: number, y: number, s: number, t: number): Pt => {
+  const w = Math.sin(t / 5) * 40;
+  return toPerson(x, y, s, -1, [x - 371 * s - w * 0.65 * s, y - 580 * s + w * 0.32 * s]);
+};
 
 // 0 · Title print: the title opens alone in the middle of the page, then settles into its corner
 // while the subtitle, the halftone sun and the waving person print in under it.
-export const Intro: React.FC<S> = ({f, p}) => {
+export const Intro: React.FC<S> = ({f, p, sq}) => {
   const t = twos(f);
-  const x = 760, y = GROUND - 250, s = 0.62;
-  const wave = Math.sin(t / 5) * 40;
-  // Title block centre in its final spot is about (434, 320); it starts on the page centre, a little larger.
+  const L = sq
+    ? {title: [72, 200, 120], c: [349, 216], start: [540, 540], sub: [76, 400, 34], sun: [300, 690, 175], x: 840, feet: 1005, s: 0.45}
+    : {title: [84, 300, 150], c: [434, 320], start: [540, 900], sub: [88, 600, 40], sun: [410, 1020, 230], x: 760, feet: 1595, s: 0.62};
+  const {x, s} = L, y = L.feet - 330 * s;
   const m = ease((t - 34) / 26);
   const k = 1.18 + (1 - 1.18) * m;
-  const cx = 540 + (434 - 540) * m, cy = 900 + (320 - 900) * m;
+  const cx = L.start[0] + (L.c[0] - L.start[0]) * m, cy = L.start[1] + (L.c[1] - L.start[1]) * m;
   const rest = ease((t - 54) / 14);
+  const [sx, sy, r] = L.sun;
   return (
-    <Sheet p={p} f={f}>
-      <g transform={`translate(${cx} ${cy}) scale(${k}) translate(-434 -320)`}>
-        <Label lines={['WHY WE', 'TRADE']} x={84} y={300} size={150} />
+    <Sheet p={p} f={f} vb={sq ? [0, 0, 1080, 1080] : undefined}>
+      <g transform={`translate(${cx} ${cy}) scale(${k}) translate(${-L.c[0]} ${-L.c[1]})`}>
+        <Label lines={['WHY WE', 'TRADE']} x={L.title[0]} y={L.title[1]} size={L.title[2]} />
       </g>
       <g opacity={rest}>
-        <text x={88} y={600} fontFamily='"Archivo Black", sans-serif' fontSize={40} fill={INK.pine} transform={reg('pine')}>a few small reasons</text>
-        <Dots box={[150, 760, 520, 520]} ink="green" cell={16} dens={(px, py) => 0.85 * clamp(1.15 - Math.hypot(px - 410, py - 1020) / 230)} />
-        <Shadow cx={x + 10} cy={GROUND - 30} rx={170} ry={26} />
+        <text x={L.sub[0]} y={L.sub[1]} fontFamily='"Archivo Black", sans-serif' fontSize={L.sub[2]} fill={INK.pine} transform={reg('pine')}>a few small reasons</text>
+        <Dots box={[sx - 1.13 * r, sy - 1.13 * r, 2.26 * r, 2.26 * r]} ink="green" cell={16} dens={(px, py) => 0.85 * clamp(1.15 - Math.hypot(px - sx, py - sy) / r)} />
+        <Shadow cx={x + 10} cy={L.feet + 15} rx={275 * s} ry={42 * s} />
       </g>
       <g opacity={rest} transform={`translate(${(1 - rest) * 60} 0)`}>
         <Person x={x} y={y} s={s} dir={-1} p={p} pose={{
-          handB: [-40, 20], bendB: -1, handF: toPerson(x, y, s, -1, [x - 230 - wave * 0.4, y - 360 + wave * 0.2]), bendF: 1,
+          handB: [-40, 20], bendB: -1, handF: waveHand(x, y, s, t), bendF: 1,
           footB: [-40, 330], footF: [60, 330], breathe: Math.sin(t / 9),
         }} />
       </g>
@@ -37,7 +46,8 @@ export const Intro: React.FC<S> = ({f, p}) => {
 };
 
 // 1 · SAVING UP: a normal coin into a piggy bank the size of a car.
-export const Saving: React.FC<S> = ({f, p}) => {
+export const Saving: React.FC<S> = ({f, p, sq}) => {
+  const vb = sq ? SQ.saving : undefined;
   const t = twos(f);
   const drop = ease((t - 42) / 14);
   const squash = t > 56 ? 1 - 0.025 * Math.sin(clamp((t - 56) / 16) * Math.PI) : 1;
@@ -45,8 +55,8 @@ export const Saving: React.FC<S> = ({f, p}) => {
   const slot: Pt = [560, 1012];
   const handW: Pt = t < 56 ? [slot[0] - 6, slot[1] - 92 + Math.sin(t / 6) * 6] : [slot[0] - 40, slot[1] - 40 + ease((t - 56) / 20) * 120];
   return (
-    <Sheet p={p} f={f}>
-      <Label lines={['SAVING', 'UP']} x={84} y={170} />
+    <Sheet p={p} f={f} vb={vb}>
+      <Corner vb={vb}><Label lines={['SAVING', 'UP']} x={84} y={170} /></Corner>
       <Shadow cx={760} cy={GROUND + 6} rx={520} ry={44} />
       <g transform={`translate(0 ${GROUND}) scale(1 ${squash}) translate(0 ${-GROUND})`}>
         {/* stubby legs behind the body */}
@@ -90,15 +100,16 @@ export const Saving: React.FC<S> = ({f, p}) => {
 };
 
 // 2 · THE TRIP: a suitcase taller than a door.
-export const Trip: React.FC<S> = ({f, p}) => {
+export const Trip: React.FC<S> = ({f, p, sq}) => {
+  const vb = sq ? SQ.trip : undefined;
   const t = twos(f);
   const tug = Math.sin(t / 7);
   const bx = 8 * tug;
   const x = 230, y = GROUND - 282, s = 0.84;
   const grip: Pt = [430 + bx, 1060];
   return (
-    <Sheet p={p} f={f}>
-      <Label lines={['THE', 'TRIP']} x={84} y={170} />
+    <Sheet p={p} f={f} vb={vb}>
+      <Corner vb={vb}><Label lines={['THE', 'TRIP']} x={84} y={170} /></Corner>
       <Shadow cx={780 + bx} cy={GROUND + 6} rx={430} ry={40} />
       <Shadow cx={x + 30} cy={GROUND + 6} rx={170} ry={26} />
       <g transform={`translate(${bx} 0) rotate(${tug * 0.6} 800 ${GROUND})`}>
@@ -135,7 +146,8 @@ export const Trip: React.FC<S> = ({f, p}) => {
 };
 
 // 3 · FOR THEM: a birthday cake as wide as the room, carried overhead.
-export const ForThem: React.FC<S> = ({f, p}) => {
+export const ForThem: React.FC<S> = ({f, p, sq}) => {
+  const vb = sq ? SQ.cake : undefined;
   const t = twos(f);
   const wob = Math.sin(t / 8) * 1.6;
   const flick = 1 + 0.12 * Math.sin(t * 1.3) + 0.06 * Math.sin(t * 2.1);
@@ -146,8 +158,8 @@ export const ForThem: React.FC<S> = ({f, p}) => {
     return [560 + dx * Math.cos(a) - dy * Math.sin(a), 1000 + dx * Math.sin(a) + dy * Math.cos(a)];
   };
   return (
-    <Sheet p={p} f={f}>
-      <Label lines={['FOR', 'THEM']} x={84} y={170} />
+    <Sheet p={p} f={f} vb={vb}>
+      <Corner vb={vb}><Label lines={['FOR', 'THEM']} x={84} y={170} /></Corner>
       <Shadow cx={x + 10} cy={GROUND + 6} rx={260} ry={30} />
       <g transform={`rotate(${wob} 560 1000)`}>
         {/* candle + flame */}
@@ -177,7 +189,8 @@ export const ForThem: React.FC<S> = ({f, p}) => {
 };
 
 // 4 · THE LONG RUN: leaning on an hourglass taller than a house, sand running.
-export const LongRun: React.FC<S & {len?: number}> = ({f, p, len = 120}) => {
+export const LongRun: React.FC<S & {len?: number}> = ({f, p, sq, len = 120}) => {
+  const vb = sq ? SQ.run : undefined;
   const t = twos(f);
   const k = clamp(t / len);
   const x = 330, y = GROUND - 70, s = 0.84;
@@ -188,8 +201,8 @@ export const LongRun: React.FC<S & {len?: number}> = ({f, p, len = 120}) => {
   const topLevel = 640 + k * 220; // sand surface sinks
   const pile = 120 + k * 180; // pile grows
   return (
-    <Sheet p={p} f={f}>
-      <Label lines={['THE', 'LONG RUN']} x={84} y={170} />
+    <Sheet p={p} f={f} vb={vb}>
+      <Corner vb={vb}><Label lines={['THE', 'LONG RUN']} x={84} y={170} /></Corner>
       <Shadow cx={cx} cy={GROUND + 6} rx={420} ry={40} />
       <clipPath id={`${p}-top`}><path d={bulb(top + 60, neck, true)} /></clipPath>
       <clipPath id={`${p}-bot`}><path d={bulb(neck, bot - 60, false)} /></clipPath>
@@ -221,26 +234,28 @@ export const LongRun: React.FC<S & {len?: number}> = ({f, p, len = 120}) => {
 };
 
 // 5 · Close: the line, the question, and the logo on a tiny black label.
-export const Outro: React.FC<S> = ({f, p}) => {
+export const Outro: React.FC<S> = ({f, p, sq}) => {
   const t = twos(f);
   const a = ease((t - 24) / 16);
-  const x = 780, y = GROUND - 250, s = 0.62;
-  const wave = Math.sin(t / 5) * 40;
+  const L = sq
+    ? {label: [72, 190, 84], q: [74, 500, 52, 60], x: 850, feet: 1000, s: 0.42, logo: [72, 960, 0.8]}
+    : {label: [84, 360, 104], q: [88, 760, 64, 74], x: 780, feet: 1595, s: 0.62, logo: [84, GROUND + 70, 1]};
+  const {x, s} = L, y = L.feet - 330 * s;
   return (
-    <Sheet p={p} f={f}>
-      <Label lines={['EVERYONE', 'TRADES FOR', 'SOMETHING.']} x={84} y={360} size={104} />
+    <Sheet p={p} f={f} vb={sq ? [0, 0, 1080, 1080] : undefined}>
+      <Label lines={['EVERYONE', 'TRADES FOR', 'SOMETHING.']} x={L.label[0]} y={L.label[1]} size={L.label[2]} />
       <g opacity={a}>
-        <text x={88} y={760} fontFamily='"Archivo Black", sans-serif' fontSize={64} fill={INK.pine} transform={reg('pine')}>
-          <tspan x={88}>what&apos;s your reason</tspan>
-          <tspan x={88} dy={74}>to trade?</tspan>
+        <text x={L.q[0]} y={L.q[1]} fontFamily='"Archivo Black", sans-serif' fontSize={L.q[2]} fill={INK.pine} transform={reg('pine')}>
+          <tspan x={L.q[0]}>what&apos;s your reason</tspan>
+          <tspan x={L.q[0]} dy={L.q[3]}>to trade?</tspan>
         </text>
       </g>
-      <Shadow cx={x + 10} cy={GROUND - 30} rx={170} ry={26} />
+      <Shadow cx={x + 10} cy={L.feet + 15} rx={275 * s} ry={42 * s} />
       <Person x={x} y={y} s={s} dir={-1} p={p} pose={{
-        handB: [-40, 20], bendB: -1, handF: toPerson(x, y, s, -1, [x - 230 - wave * 0.4, y - 360 + wave * 0.2]), bendF: 1,
+        handB: [-40, 20], bendB: -1, handF: waveHand(x, y, s, t), bendF: 1,
         footB: [-40, 330], footF: [60, 330], breathe: Math.sin(t / 9),
       }} />
-      <g transform={`translate(84 ${GROUND + 70})`}>
+      <g transform={`translate(${L.logo[0]} ${L.logo[1]}) scale(${L.logo[2]})`}>
         <rect width={300} height={84} rx={14} fill={INK.black} />
         <image href={staticFile('brand/logo.png')} x={26} y={20} width={248} height={47.6} />
       </g>
