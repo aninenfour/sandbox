@@ -230,7 +230,10 @@ export const Outro: React.FC<S> = ({f, p}) => {
     <Sheet p={p} f={f}>
       <Label lines={['EVERYONE', 'TRADES FOR', 'SOMETHING.']} x={84} y={360} size={104} />
       <g opacity={a}>
-        <text x={88} y={760} fontFamily='"Archivo Black", sans-serif' fontSize={64} fill={INK.pine} transform={reg('pine')}>what&apos;s yours?</text>
+        <text x={88} y={760} fontFamily='"Archivo Black", sans-serif' fontSize={64} fill={INK.pine} transform={reg('pine')}>
+          <tspan x={88}>what&apos;s your reason</tspan>
+          <tspan x={88} dy={74}>to trade?</tspan>
+        </text>
       </g>
       <Shadow cx={x + 10} cy={GROUND - 30} rx={170} ry={26} />
       <Person x={x} y={y} s={s} dir={-1} p={p} pose={{
