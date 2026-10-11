@@ -8,6 +8,7 @@ import {Orbit, ORBIT_DURATION} from './alt/Orbit';
 import {Horizon, HORIZON_DURATION} from './alt/Horizon';
 import {Platform, PLATFORM_DURATION} from './platform/Platform';
 import {Launch, LAUNCH_DURATION} from './v2/Launch';
+import {WhyWeTrade, WWT_DURATION} from './riso/WhyWeTrade';
 
 export const Root: React.FC = () => (
   <>
@@ -21,5 +22,6 @@ export const Root: React.FC = () => (
     <Composition id="Horizon-4x5" component={Horizon} durationInFrames={HORIZON_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Platform-4x5" component={Platform} durationInFrames={PLATFORM_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="Launch-4x5" component={Launch} durationInFrames={LAUNCH_DURATION} fps={60} width={1080} height={1350} />
+    <Composition id="WhyWeTrade-9x16" component={WhyWeTrade} durationInFrames={WWT_DURATION} fps={30} width={1080} height={1920} defaultProps={{music: 'music/walking-in-the-park.mp3', musicFrom: 0}} />
   </>
 );
