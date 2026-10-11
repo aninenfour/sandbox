@@ -8,7 +8,7 @@ import {ForThem, Intro, LongRun, Outro, Saving, Trip} from './scenes';
 const FPS = 30;
 const SLIDE = 14;
 const PRINTS: {C: React.FC<{f: number; p: string; len?: number}>; len: number}[] = [
-  {C: Intro, len: 75},
+  {C: Intro, len: 105},
   {C: Saving, len: 120},
   {C: Trip, len: 115},
   {C: ForThem, len: 115},

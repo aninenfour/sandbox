@@ -5,21 +5,33 @@ import {Dots, INK, Label, Person, Pt, Shadow, Sheet, clamp, ease, reg, toPerson,
 type S = {f: number; p: string};
 const GROUND = 1640;
 
-// 0 · Title print: a small person waves under the title.
+// 0 · Title print: the title opens alone in the middle of the page, then settles into its corner
+// while the subtitle, the halftone sun and the waving person print in under it.
 export const Intro: React.FC<S> = ({f, p}) => {
   const t = twos(f);
   const x = 760, y = GROUND - 250, s = 0.62;
   const wave = Math.sin(t / 5) * 40;
+  // Title block centre in its final spot is about (434, 320); it starts on the page centre, a little larger.
+  const m = ease((t - 34) / 26);
+  const k = 1.18 + (1 - 1.18) * m;
+  const cx = 540 + (434 - 540) * m, cy = 900 + (320 - 900) * m;
+  const rest = ease((t - 54) / 14);
   return (
     <Sheet p={p} f={f}>
-      <Label lines={['WHY WE', 'TRADE']} x={84} y={300} size={150} />
-      <text x={88} y={600} fontFamily='"Archivo Black", sans-serif' fontSize={40} fill={INK.pine} transform={reg('pine')}>a few small reasons</text>
-      <Dots box={[150, 760, 520, 520]} ink="green" cell={16} dens={(px, py) => 0.85 * clamp(1.15 - Math.hypot(px - 410, py - 1020) / 230)} />
-      <Shadow cx={x + 10} cy={GROUND - 30} rx={170} ry={26} />
-      <Person x={x} y={y} s={s} dir={-1} p={p} pose={{
-        handB: [-40, 20], bendB: -1, handF: toPerson(x, y, s, -1, [x - 230 - wave * 0.4, y - 360 + wave * 0.2]), bendF: 1,
-        footB: [-40, 330], footF: [60, 330], breathe: Math.sin(t / 9),
-      }} />
+      <g transform={`translate(${cx} ${cy}) scale(${k}) translate(-434 -320)`}>
+        <Label lines={['WHY WE', 'TRADE']} x={84} y={300} size={150} />
+      </g>
+      <g opacity={rest}>
+        <text x={88} y={600} fontFamily='"Archivo Black", sans-serif' fontSize={40} fill={INK.pine} transform={reg('pine')}>a few small reasons</text>
+        <Dots box={[150, 760, 520, 520]} ink="green" cell={16} dens={(px, py) => 0.85 * clamp(1.15 - Math.hypot(px - 410, py - 1020) / 230)} />
+        <Shadow cx={x + 10} cy={GROUND - 30} rx={170} ry={26} />
+      </g>
+      <g opacity={rest} transform={`translate(${(1 - rest) * 60} 0)`}>
+        <Person x={x} y={y} s={s} dir={-1} p={p} pose={{
+          handB: [-40, 20], bendB: -1, handF: toPerson(x, y, s, -1, [x - 230 - wave * 0.4, y - 360 + wave * 0.2]), bendF: 1,
+          footB: [-40, 330], footF: [60, 330], breathe: Math.sin(t / 9),
+        }} />
+      </g>
     </Sheet>
   );
 };
