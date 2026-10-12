@@ -25,12 +25,15 @@ import { EyeLab, EYE_TOTAL } from './lab/EyeLab';
 import { real } from './notebook/time';
 import { Ep13, EP13_TOTAL } from './ep13/Ep13';
 import { Ep14, EP14_TOTAL } from './ep14/Ep14';
-import { Thumb14A, Thumb14B } from './thumbs/Thumbs14';
+import { Thumb14A, Thumb14AV, Thumb14B, Thumb14BV } from './thumbs/Thumbs14';
 
-// Two thumbnails per release (A/B), 1920x1080, exported to 1280x720 JPG
+// Two thumbnails per release (A/B), each in 16:9 (1920x1080, exported to
+// 1280x720) and 9:16 (1080x1920)
 const THUMBS = [
-  { id: 'thumb-014-a', component: Thumb14A },
-  { id: 'thumb-014-b', component: Thumb14B },
+  { id: 'thumb-014-a-16x9', component: Thumb14A, width: 1920, height: 1080 },
+  { id: 'thumb-014-b-16x9', component: Thumb14B, width: 1920, height: 1080 },
+  { id: 'thumb-014-a-9x16', component: Thumb14AV, width: 1080, height: 1920 },
+  { id: 'thumb-014-b-9x16', component: Thumb14BV, width: 1080, height: 1920 },
 ];
 
 // FILE 013 onward: bespoke notebook-look episodes, timed to the voiceover
@@ -50,7 +53,7 @@ const EPISODES: EpisodeScript[] = [ep01, ep02, ep03, ep04, ep05, ep06, ep07, ep0
 export const RemotionRoot: React.FC = () => (
   <>
     {THUMBS.map((t) => (
-      <Still key={t.id} id={t.id} component={t.component} width={1920} height={1080} />
+      <Still key={t.id} id={t.id} component={t.component} width={t.width} height={t.height} />
     ))}
     {NOTEBOOK_EPISODES.map((ep) =>
       (['vertical', 'horizontal'] as const).map((fm) => (
