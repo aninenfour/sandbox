@@ -62,6 +62,8 @@ export const Root: React.FC = () => (
     <Composition id="MemeLiteSignals" component={MemeLiteSignals} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="MemeLitePeak" component={MemeLitePeak} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="ReserveCard" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} />
+    <Composition id="ReserveCard-zh" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "zh"}} />
+    <Composition id="ReserveCard-vi" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "vi"}} />
     {[IPhone1, IPhone2, IPhone3, IPhone4].map((C, i) => <Composition key={"iph" + i} id={`IPhone-${i + 1}`} component={C} durationInFrames={1} fps={30} width={1080} height={1350} />)}
     <Composition id="Fig-queue" component={FigQueue} durationInFrames={1} fps={30} width={FIG_W} height={940} />
     <Composition id="Fig-bagtweets" component={FigBagTweets} durationInFrames={1} fps={30} width={FIG_W} height={1260} />
