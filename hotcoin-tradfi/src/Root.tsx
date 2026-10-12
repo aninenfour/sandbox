@@ -24,6 +24,7 @@ import {ReplyPoster} from './promo/ReplyPoster';
 import {Shine, SHINE_DURATION} from './shine/Shine';
 import {Wrap, WRAP_DURATION} from './wrap/Wrap';
 import {ReserveCard} from './reserve/Reserve';
+import {CollabWrap, WRAP2_DURATION, WRAP2_FPS} from './wrap2/CollabWrap';
 import {IPhone1, IPhone2, IPhone3, IPhone4} from './iphone/IPhoneSeason';
 import {MemeLiteSeason, MemeLiteHotcoin, MemeLiteSignals, MemeLitePeak} from './memes26/MemeLite';
 import {SnapFilm, SNAP_DURATION, SNAP_FPS} from './ascii/Snap';
@@ -61,6 +62,7 @@ export const Root: React.FC = () => (
     <Composition id="MemeLiteHotcoin" component={MemeLiteHotcoin} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="MemeLiteSignals" component={MemeLiteSignals} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="MemeLitePeak" component={MemeLitePeak} durationInFrames={1} fps={30} width={1080} height={1350} />
+    <Composition id="CollabWrap-16x9" component={CollabWrap} durationInFrames={WRAP2_DURATION} fps={WRAP2_FPS} width={1920} height={1080} />
     <Composition id="ReserveCard" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} />
     <Composition id="ReserveCard-zh" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "zh"}} />
     <Composition id="ReserveCard-vi" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "vi"}} />

@@ -202,3 +202,12 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
 ## iPhone Upgrade Season carousel (src/iphone)
 - Background: Pexels photos 9539616 and 6468225 (banknotes), graded green by scripts/make-iphone-bg.py.
 - iPhone + USDT render: cropped from Hotcoin's own campaign page (hotcoin.com/en_US/campaign/noticeActivity/457).
+
+## TOKEN2049 collab wrap (`src/wrap2/CollabWrap.tsx`)
+- Music: "Deep Urban" (Mixkit), Mixkit free licence. The drop lands as the logo mosaic falls away.
+- Photos: Hotcoin's own booth photos, with attendee badges blurred. The logo mosaic is built the same way as in the Snap cut.
+- Brand logos are each brand's own site icon, from:
+  - cointelegraph.com, blockchain-life.com, cointraffic.io, eightcap.com, hypermid.io, magnetto.com, melbicom.net, nium.com, sbivc.co.jp, scorechain.com, similarweb.com, taskon.xyz and token2049.com.
+  - LALIGA: assets.laliga.com.
+  - BeInCrypto: its site icon, fetched through Google's favicon service because the site blocks direct requests.
+- MediaMetriqa, Sujal Jethwani, BROIDR, 937 Studio and CardsPro appear as names only, because no clean official icon was available.
