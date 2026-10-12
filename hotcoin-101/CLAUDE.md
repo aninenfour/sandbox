@@ -8,12 +8,16 @@ Read this before touching anything. Every rule below came from real feedback.
 
 ## Deliverables per episode
 
-Exactly four files, nothing else:
+Exactly six files, nothing else:
 
 1. `hotcoin-101-epNN-<slug>-9x16.mp4` · 60fps, with voiceover and music (from FILE 013; 001 to 012 were silent)
 2. `hotcoin-101-epNN-<slug>-16x9.mp4` · 60fps, with voiceover and music
 3. `hotcoin-101-epNN-voiceover.md` — only the copy-paste block, no timecodes, no direction notes
 4. `hotcoin-101-epNN-posts.md` — X (main post + reply), Instagram (caption + first-comment hashtags), LinkedIn, Telegram, YouTube (16:9 title, Shorts title under 40 chars, description with footer, tags, pinned comment)
+5. `hotcoin-101-epNN-thumb-a.jpg` · 1280x720 thumbnail, variant A
+6. `hotcoin-101-epNN-thumb-b.jpg` · 1280x720 thumbnail, variant B
+
+**Thumbnails (from FILE 014):** two variants per release for A/B testing, built as `<Still>` compositions (`src/thumbs/ThumbsNN.tsx`, ids `thumb-NNN-a` / `-b`, 1920x1080) and exported to 1280x720 JPG well under 2 MB. Same notebook look. Make the two genuinely different: one curiosity angle (a question about the topic), one drama or number angle. At most five words of big type, the narrator large with a strong mood, the small lockup and "101 · FILE NNN" top left. Numbers follow the same rule as the video: defensible, or not shown.
 
 From FILE 013 the videos ship finished, with voice and a quiet music bed.
 

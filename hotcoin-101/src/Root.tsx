@@ -1,5 +1,5 @@
 import React from 'react';
-import { Composition } from 'remotion';
+import { Composition, Still } from 'remotion';
 import { Episode, durationOf, EpisodeScript } from './Episode';
 import { FORMATS, SERIES } from './design/tokens';
 import { ep01 } from './episodes/ep01-history-of-investment';
@@ -25,6 +25,13 @@ import { EyeLab, EYE_TOTAL } from './lab/EyeLab';
 import { real } from './notebook/time';
 import { Ep13, EP13_TOTAL } from './ep13/Ep13';
 import { Ep14, EP14_TOTAL } from './ep14/Ep14';
+import { Thumb14A, Thumb14B } from './thumbs/Thumbs14';
+
+// Two thumbnails per release (A/B), 1920x1080, exported to 1280x720 JPG
+const THUMBS = [
+  { id: 'thumb-014-a', component: Thumb14A },
+  { id: 'thumb-014-b', component: Thumb14B },
+];
 
 // FILE 013 onward: bespoke notebook-look episodes, timed to the voiceover
 const NOTEBOOK_EPISODES = [
@@ -42,6 +49,9 @@ const EPISODES: EpisodeScript[] = [ep01, ep02, ep03, ep04, ep05, ep06, ep07, ep0
 
 export const RemotionRoot: React.FC = () => (
   <>
+    {THUMBS.map((t) => (
+      <Still key={t.id} id={t.id} component={t.component} width={1920} height={1080} />
+    ))}
     {NOTEBOOK_EPISODES.map((ep) =>
       (['vertical', 'horizontal'] as const).map((fm) => (
         <Composition
