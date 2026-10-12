@@ -23,6 +23,7 @@ import {StoryCollage, STORIES, STORY_W, STORY_H} from './live/Story';
 import {ReplyPoster} from './promo/ReplyPoster';
 import {Shine, SHINE_DURATION} from './shine/Shine';
 import {Wrap, WRAP_DURATION} from './wrap/Wrap';
+import {ReserveCard} from './reserve/Reserve';
 import {IPhone1, IPhone2, IPhone3, IPhone4} from './iphone/IPhoneSeason';
 import {MemeLiteSeason, MemeLiteHotcoin, MemeLiteSignals, MemeLitePeak} from './memes26/MemeLite';
 import {SnapFilm, SNAP_DURATION, SNAP_FPS} from './ascii/Snap';
@@ -60,6 +61,7 @@ export const Root: React.FC = () => (
     <Composition id="MemeLiteHotcoin" component={MemeLiteHotcoin} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="MemeLiteSignals" component={MemeLiteSignals} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="MemeLitePeak" component={MemeLitePeak} durationInFrames={1} fps={30} width={1080} height={1350} />
+    <Composition id="ReserveCard" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} />
     {[IPhone1, IPhone2, IPhone3, IPhone4].map((C, i) => <Composition key={"iph" + i} id={`IPhone-${i + 1}`} component={C} durationInFrames={1} fps={30} width={1080} height={1350} />)}
     <Composition id="Fig-queue" component={FigQueue} durationInFrames={1} fps={30} width={FIG_W} height={940} />
     <Composition id="Fig-bagtweets" component={FigBagTweets} durationInFrames={1} fps={30} width={FIG_W} height={1260} />
