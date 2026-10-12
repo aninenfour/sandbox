@@ -1,0 +1,127 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 8.32,
+ "words": [
+  {
+   "word": "A",
+   "start": 0.0,
+   "end": 0.16,
+   "at": 0.0,
+   "until": 4.8
+  },
+  {
+   "word": "stablecoin",
+   "start": 0.206,
+   "end": 0.72,
+   "at": 6.2,
+   "until": 21.6
+  },
+  {
+   "word": "is",
+   "start": 0.773,
+   "end": 0.88,
+   "at": 23.2,
+   "until": 26.4
+  },
+  {
+   "word": "basically",
+   "start": 0.928,
+   "end": 1.36,
+   "at": 27.8,
+   "until": 40.8
+  },
+  {
+   "word": "a",
+   "start": 1.4,
+   "end": 1.44,
+   "at": 42.0,
+   "until": 43.2
+  },
+  {
+   "word": "promise,",
+   "start": 1.52,
+   "end": 2.64,
+   "at": 45.6,
+   "until": 79.2
+  },
+  {
+   "word": "one",
+   "start": 2.7,
+   "end": 2.88,
+   "at": 81.0,
+   "until": 86.4
+  },
+  {
+   "word": "coin,",
+   "start": 2.976,
+   "end": 3.6,
+   "at": 89.3,
+   "until": 108.0
+  },
+  {
+   "word": "one",
+   "start": 3.66,
+   "end": 3.84,
+   "at": 109.8,
+   "until": 115.2
+  },
+  {
+   "word": "dollar,",
+   "start": 3.909,
+   "end": 4.64,
+   "at": 117.3,
+   "until": 139.2
+  },
+  {
+   "word": "so",
+   "start": 4.88,
+   "end": 5.36,
+   "at": 146.4,
+   "until": 160.8
+  },
+  {
+   "word": "the",
+   "start": 5.38,
+   "end": 5.44,
+   "at": 161.4,
+   "until": 163.2
+  },
+  {
+   "word": "real",
+   "start": 5.488,
+   "end": 5.68,
+   "at": 164.6,
+   "until": 170.4
+  },
+  {
+   "word": "question",
+   "start": 5.733,
+   "end": 6.16,
+   "at": 172.0,
+   "until": 184.8
+  },
+  {
+   "word": "is",
+   "start": 6.293,
+   "end": 6.56,
+   "at": 188.8,
+   "until": 196.8
+  },
+  {
+   "word": "who's",
+   "start": 6.72,
+   "end": 7.28,
+   "at": 201.6,
+   "until": 218.4
+  },
+  {
+   "word": "promising.",
+   "start": 7.344,
+   "end": 8.32,
+   "at": 220.3,
+   "until": 249.6
+  }
+ ],
+ "tempo": 1.0
+}

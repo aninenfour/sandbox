@@ -24,9 +24,13 @@ import { StyleLab, LAB_TOTAL } from './lab/StyleLab';
 import { EyeLab, EYE_TOTAL } from './lab/EyeLab';
 import { real } from './notebook/time';
 import { Ep13, EP13_TOTAL } from './ep13/Ep13';
+import { Ep14, EP14_TOTAL } from './ep14/Ep14';
 
 // FILE 013 onward: bespoke notebook-look episodes, timed to the voiceover
-const NOTEBOOK_EPISODES = [{ slug: 'paper-money-invented-twice', component: Ep13, units: EP13_TOTAL }];
+const NOTEBOOK_EPISODES = [
+  { slug: 'paper-money-invented-twice', component: Ep13, units: EP13_TOTAL },
+  { slug: 'stablecoins-explained', component: Ep14, units: EP14_TOTAL },
+];
 
 // Notebook look (FILE 013 onward) sign-off comps
 const LABS = [
