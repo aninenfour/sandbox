@@ -227,3 +227,19 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 - **Globe land shapes:** Natural Earth via world-atlas@2.0.2 (public domain).
 - **Sound effects:** Mixkit typewriter effects 1372, 1365, 1119, 1380 and 1385 (Mixkit free licence).
 - **Music:** "New Bass 02" (Mixkit, track 721), starting on its drop.
+
+## Hunt brothers trailer (`src/hunt/HuntTrailer.tsx`, 9:16)
+All footage is pulled by `scripts/fetch-hunt.mjs` into `public/hunt/raw` (git-ignored), then cut into `public/hunt/clips` with ffmpeg.
+
+| Shots | Source | Licence |
+|---|---|---|
+| Trading floor, quote boards, clock, "Dallas" phone, BUY/SELL slips, TAPE DELAY board, trader close-ups | *The Big Board* (NYSE film), Internet Archive `big_board` (Prelinger) | Marked public domain; confirm before paid media |
+| Texas oil-field map, derricks | *The Southwestern States* (Encyclopaedia Britannica Films, 1953), Internet Archive `Southwestern_2` (Prelinger) | Marked public domain; confirm before paid media |
+| Silver coins (31128, 30690), molten metal in a foundry (20906, 20977) | Mixkit | Mixkit free licence |
+| Music: "Silent Descent" by Eugenio Mininni | Mixkit (assets.mixkit.co/music/614) | Mixkit free licence |
+| Scratch narration | Kokoro TTS v1.0, voice `am_michael` (`scripts/make-hunt-vo.py`) | Apache 2.0; replace with the host's recording |
+| Whooshes, swells, hits | `scripts/make-foley.py` (synthesised) + uisfx `mechanical` (CC0) | |
+| US map | us-atlas 3.0.1 (Natural Earth / US Census), pre-projected paths in `src/hunt/usmap.json` | Public domain |
+
+The Tiffany & Co. advert is rebuilt as a graphic (headline word only), not reproduced. No photos of the Hunt brothers are used.
+**Facts:** Wikipedia "Silver Thursday" and "Nelson Bunker Hunt", Britannica "Silver Thursday" (prices, ~195M oz with partners, COMEX rules of 7 and 21 Jan 1980, the 26 Mar 1980 NYT ad, the 27 Mar 1980 close of $10.80).
