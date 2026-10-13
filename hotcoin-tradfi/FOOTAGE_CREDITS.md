@@ -210,7 +210,10 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
   - cointelegraph.com, blockchain-life.com, cointraffic.io, eightcap.com, hypermid.io, magnetto.com, melbicom.net, nium.com, sbivc.co.jp, scorechain.com, similarweb.com, taskon.xyz and token2049.com.
   - LALIGA: assets.laliga.com.
   - BeInCrypto: its site icon, fetched through Google's favicon service because the site blocks direct requests.
-- MediaMetriqa, Sujal Jethwani, BROIDR, 937 Studio and CardsPro appear as names only, because no clean official icon was available.
+- 937 Studio: profile picture from its official X account (@call937).
+- CardsPro: site icon (favicon.svg) from cardspro.com.
+- BROIDR: site icon from broidr.com.
+- MediaMetriqa: its site logo is a text wordmark, captured from the header of mediametriqa.com.
 
 ## gm clip (`src/gm/GM.tsx`)
 All archival footage is public domain. It was found via movingimagearchive.com, and the archive marks each film's rights as public domain:

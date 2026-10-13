@@ -21,12 +21,12 @@ const sm = (a: number, b: number, x: number) => {const k = Math.max(0, Math.min(
 const rnd = (n: number) => {const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x);};
 const kick = (t: number) => Math.exp(-((t / BEAT) % 1) * 7);
 
-type Brand = {name: string; logo?: string; bg?: string; pad?: number};
+type Brand = {name: string; logo?: string; bg?: string; pad?: number; wordmark?: string};
 const GROUPS: {label: string; brands: Brand[]}[] = [
-  {label: 'MEDIA & CREATORS', brands: [{name: 'Cointelegraph', logo: 'cointelegraph'}, {name: 'BeInCrypto', logo: 'beincrypto'}, {name: 'MediaMetriqa'}, {name: 'Sujal Jethwani'}]},
+  {label: 'MEDIA & CREATORS', brands: [{name: 'Cointelegraph', logo: 'cointelegraph'}, {name: 'BeInCrypto', logo: 'beincrypto'}, {name: 'MediaMetriqa', wordmark: 'mediametriqa-wordmark'}]},
   {label: 'GROWTH & ADS', brands: [{name: 'Magnetto', logo: 'magnetto'}, {name: 'Cointraffic', logo: 'cointraffic'}, {name: 'TaskOn', logo: 'taskon'}, {name: 'Similarweb', logo: 'similarweb', bg: '#fff'}]},
-  {label: 'SPORTS, EVENTS & CREATIVE', brands: [{name: 'LALIGA', logo: 'laliga', bg: '#fff', pad: 7}, {name: 'Blockchain Life', logo: 'blockchainlife', bg: '#0d1b2a'}, {name: 'BROIDR'}, {name: '937 Studio'}]},
-  {label: 'PAYMENTS & INFRA', brands: [{name: 'Nium', logo: 'nium'}, {name: 'Hypermid', logo: 'hypermid', bg: '#fff', pad: 6}, {name: 'CardsPro'}, {name: 'Melbicom', logo: 'melbicom', bg: '#fff', pad: 9}]},
+  {label: 'SPORTS, EVENTS & CREATIVE', brands: [{name: 'LALIGA', logo: 'laliga', bg: '#fff', pad: 7}, {name: 'Blockchain Life', logo: 'blockchainlife', bg: '#0d1b2a'}, {name: 'BROIDR', logo: 'broidr'}, {name: '937 Studio', logo: '937studio'}]},
+  {label: 'PAYMENTS & INFRA', brands: [{name: 'Nium', logo: 'nium'}, {name: 'Hypermid', logo: 'hypermid', bg: '#fff', pad: 6}, {name: 'CardsPro', logo: 'cardspro'}, {name: 'Melbicom', logo: 'melbicom', bg: '#fff', pad: 9}]},
   {label: 'TRADING & COMPLIANCE', brands: [{name: 'Scorechain', logo: 'scorechain', bg: '#fff', pad: 4}, {name: 'Eightcap', logo: 'eightcap', bg: '#fff', pad: 9}, {name: 'SBI VC Trade', logo: 'sbivc', bg: '#fff'}, {name: 'TOKEN2049', logo: 'token2049', bg: '#fff'}]},
 ];
 const FLASH = ['live/p4.jpg', 'live/p6.jpg', 'live/p11.jpg', 'live/p17.jpg', 'live/p14.jpg', 'live/p24.jpg', 'live/p26.jpg', 'ascii/hero2.jpg'];
@@ -176,7 +176,14 @@ const Grid: React.FC<{t: number}> = ({t}) => {
                   background: 'linear-gradient(160deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05))', border: '1px solid rgba(255,255,255,0.16)',
                   boxShadow: '0 20px 40px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.18)',
                   opacity: p, transform: `translateY(${(1 - p) * 36}px) scale(${0.94 + 0.06 * p})`, filter: `blur(${(1 - p) * 8}px)`}}>
-                  <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 31, letterSpacing: -0.7, whiteSpace: 'nowrap', color: WHITE, lineHeight: 1.1}}>{b.name}</div>
+                  {b.wordmark ? (
+                    // brand's own wordmark (their site logo is a wordmark only), shown on white
+                    <div style={{background: '#fff', borderRadius: 16, padding: '14px 18px', display: 'flex', alignItems: 'center'}}>
+                      <Img src={staticFile(`wrap2/logos/${b.wordmark}.png`)} style={{height: 34, width: (34 * 606) / 99}} />
+                    </div>
+                  ) : (
+                    <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 31, letterSpacing: -0.7, whiteSpace: 'nowrap', color: WHITE, lineHeight: 1.1}}>{b.name}</div>
+                  )}
                   {b.logo ? <Chip b={b} size={72} /> : null}
                 </div>
               );
