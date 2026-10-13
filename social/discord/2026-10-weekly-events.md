@@ -1,7 +1,8 @@
 <!-- Message 1 of 2 -->
 # 🔥 Hotcoin Weekly Community Events
 Hey, Hotcoiners! 👋
-We've got new activities coming to the community: take part, connect with other members, learn about crypto and compete for rewards.
+This week's community events are live! Take part, connect with other members, learn about crypto and compete for rewards.
+📍 **Today is Day 2:** the Crypto Knowledge Quiz starts at 2:00 PM UTC (<t:1791986400:R>).
 
 ## 📅 6-Day Weekly Events
 A six-day weekly programme to make the community more active, interactive and rewarding.
