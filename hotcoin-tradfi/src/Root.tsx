@@ -25,6 +25,7 @@ import {Shine, SHINE_DURATION} from './shine/Shine';
 import {Wrap, WRAP_DURATION} from './wrap/Wrap';
 import {ReserveCard} from './reserve/Reserve';
 import {CollabWrap, WRAP2_DURATION, WRAP2_FPS} from './wrap2/CollabWrap';
+import {R10Teaser, R10_DURATION, R10_FPS} from './r10/R10Teaser';
 import {ChainBase, ChainDex, ChainStables, ChainPeak} from './chains26/ChainPulse';
 import {GMFilm, GM_DURATION, GM_FPS} from './gm/GM';
 import {IPhone1, IPhone2, IPhone3, IPhone4} from './iphone/IPhoneSeason';
@@ -70,6 +71,7 @@ export const Root: React.FC = () => (
     <Composition id="ChainDex" component={ChainDex} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="ChainStables" component={ChainStables} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="ChainPeak" component={ChainPeak} durationInFrames={1} fps={30} width={1080} height={1350} />
+    <Composition id="R10Teaser" component={R10Teaser} durationInFrames={R10_DURATION} fps={R10_FPS} width={1920} height={1080} />
     <Composition id="ReserveCard" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} />
     <Composition id="ReserveCard-zh" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "zh"}} />
     <Composition id="ReserveCard-vi" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "vi"}} />
