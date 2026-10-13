@@ -33,10 +33,12 @@ import {FeaturesFilm, FEATURES_DURATION} from './ascii/Features';
 import {AsciiFilm, ASCII_DURATION, ASCII_FPS} from './ascii/AsciiFilm';
 import {MemeSeason, MemeHotList} from './memes26/MemePulse';
 import {HuntTrailer, HUNT_DURATION, HUNT_FPS} from './hunt/HuntTrailer';
+import {HuntBoard, BOARD_DURATION, BOARD_FPS} from './hunt/Board';
 import {FigQueue, FigBagTweets, FigMatryoshka, FigBalloon, FigMaterials, FigVizor, FigUS, FigFaces, FigTeamPhotos, FigAdvocacy, FigSideEvents, FIG_W} from './review/Figures';
 
 export const Root: React.FC = () => (
   <>
+    <Composition id="Hunt-Board-Test-9x16" component={HuntBoard} durationInFrames={BOARD_DURATION} fps={BOARD_FPS} width={1080} height={1920} />
     <Composition id="Hunt-Trailer-9x16" component={HuntTrailer} durationInFrames={HUNT_DURATION} fps={HUNT_FPS} width={1080} height={1920} />
     <Composition id="TradFi-4x5" component={Film} durationInFrames={DURATION} fps={60} width={1080} height={1350} defaultProps={{square: false}} />
     <Composition id="TradFi-9x16" component={Film} durationInFrames={DURATION} fps={60} width={1080} height={1920} defaultProps={{square: false}} />
