@@ -29,12 +29,23 @@ h1{font-family:Unbounded;font-weight:900;letter-spacing:-1px;line-height:1.02}
 .blue{background:linear-gradient(transparent 58%,#BFD3FF 58%,#BFD3FF 92%,transparent 92%);padding:0 6px;margin:0 -6px}
 .tag.b{background:var(--blue);color:#fff}
 .mono{font-family:'JetBrains Mono'}
+.gi{flex:none;border-radius:22%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 6px 18px rgba(11,14,17,.14)}
+.gi.ef{background:radial-gradient(80% 80% at 30% 25%,#3B1BD1,#14066E)}
+.gi.dls{background:linear-gradient(135deg,#1240E6 0%,#5B1FC4 55%,#E0185E 100%);flex-direction:column;line-height:.9}
+.gi.dls span{font-family:Unbounded;font-weight:900;color:#fff;letter-spacing:-.02em;transform:skew(-8deg)}
+.gi.dls i{font-style:normal;font-family:Unbounded;font-weight:800;color:rgba(255,255,255,.85);margin-top:.25em}
+
 `;
 const shell = (tag, page, body) => `<!doctype html><html><head><meta charset="utf-8"><style>${css}</style></head><body><div class="s"><div class="bg1"></div><div class="bg2"></div><div class="grain"></div>
 <div class="top"><div class="tag ${tag.startsWith('SEPARATE')?'b':''}">${tag}</div><img class="logo" src="${LOGO}"></div>
 <div class="body">${body}</div>
 <div class="foot"><span><b>discord.gg/hotcoin</b> · all times UTC</span><span>${page}</span></div></div></body></html>`;
 
+
+// ---------- game marks ----------
+let _gid = 0;
+const efMark = (s) => { const id = 'efm' + (_gid++); return `<div class="gi ef" style="width:${s}px;height:${s}px"><svg viewBox="-130 -130 260 260" width="${s*0.78}" height="${s*0.78}"><defs><mask id="${id}"><circle r="100" fill="#fff"/><circle r="65" fill="#000"/><rect x="-100" y="-43" width="200" height="86" fill="#000"/><rect x="-100" y="-20" width="200" height="40" fill="#fff"/></mask></defs><circle r="122" fill="none" stroke="#FF2BD6" stroke-width="10"/><circle r="100" fill="#fff" mask="url(#${id})"/></svg></div>`; };
+const dlsMark = (s) => `<div class="gi dls" style="width:${s}px;height:${s}px"><span style="font-size:${s*0.30}px">DLS</span><i style="font-size:${s*0.15}px">26</i></div>`;
 // ---------- 1. calendar ----------
 const days = [
   {d:'MON',n:12,tag:'DAY 1',t:'Engagement Challenge kicks off',s:'+ Monday AMA & Trading Session',time:'',state:'done'},
@@ -82,14 +93,14 @@ const cal = shell('HOTCOIN COMMUNITY · WEEKLY EVENTS','1 / 4',`
 .gm span{display:inline-block;background:var(--bluet);border-radius:8px;padding:4px 10px}
 .today .gm span{background:#fff}
 .chk{font-size:15px;letter-spacing:2px;color:var(--green)}
-.legend{margin-top:auto;margin-bottom:22px;display:flex;gap:30px;font-size:19px;color:var(--muted);font-weight:500}
+.legend{margin-top:auto;margin-bottom:22px;display:flex;align-items:center;gap:26px;font-size:19px;color:var(--muted);font-weight:500}
 .legend b{color:var(--white);font-weight:600}
 .dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:10px;vertical-align:1px}
 </style>
 <div class="hd"><h1>This week<br>at <span class="lime">Hotcoin</span></h1><div class="sub">OCT 12 – 18, 2026<br>ALL TIMES UTC</div></div>
 <div class="cols"><span>DATE</span><span>EVENT</span><span>TIME</span><span style="color:var(--blue)">GAMES</span></div>
 <div class="rows">${days.map(row).join('')}</div>
-<div class="legend"><span><span class="dot" style="background:var(--green)"></span><b>6-day programme</b> · Engagement Challenge daily</span><span><span class="dot" style="background:var(--blue)"></span><b>Separate:</b> DLS & eFootball, daily 20:00</span></div>
+<div class="legend"><span><span class="dot" style="background:var(--green)"></span><b>6-day programme</b> · Engagement Challenge daily</span><span style="display:flex;align-items:center;gap:8px"><span class="dot" style="background:var(--blue);margin-right:2px"></span>${dlsMark(30)}${efMark(30)}<b>Separate:</b> DLS & eFootball, daily 20:00</span></div>
 `);
 
 // ---------- 2. engagement + rewards ----------
@@ -124,13 +135,15 @@ const tour = shell('SEPARATE EVENT · MOBILE GAMES','3 / 4',`
 h1.big{font-size:84px;margin:56px 0 18px}
 .lead{font-size:28px;color:var(--muted);font-weight:500;line-height:1.35}
 .cards{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.c{position:relative;padding:34px 32px 30px;border-radius:20px;background:var(--bluet);border:1px solid #D3E0FF;overflow:hidden;height:330px;display:flex;flex-direction:column}
+.c{position:relative;padding:34px 32px 30px;border-radius:20px;background:var(--bluet);border:1px solid #D3E0FF;overflow:hidden;height:380px;display:flex;flex-direction:column}
 .c .k{font-family:'JetBrains Mono';font-size:16px;letter-spacing:3px;color:var(--blue);font-weight:700}
-.c .n{font-family:Unbounded;font-weight:900;font-size:58px;margin-top:14px;line-height:1}
+.c .n{font-family:Unbounded;font-weight:900;font-size:56px;margin-top:26px;line-height:1}
 .c .f{font-size:22px;color:var(--muted);margin-top:12px;font-weight:500}
 .c .p{margin-top:auto;display:flex;align-items:baseline;gap:14px}
 .c .p b{font-family:Unbounded;font-weight:900;font-size:64px;color:var(--blue)}
 .c .p span{font-size:21px;font-weight:600;line-height:1.25}
+.c .hdr{display:flex;align-items:center;gap:20px}
+.c .hdr .f{margin-top:6px}
 .c .pitch{position:absolute;right:-40px;top:-40px;width:220px;height:220px;border:2px solid rgba(37,99,235,.16);border-radius:50%}
 .c .pitch:after{content:'';position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px;border:2px solid rgba(37,99,235,.16);border-radius:50%}
 .when{margin-top:auto;margin-bottom:30px;display:flex;align-items:center;gap:28px;padding:24px 32px;border-radius:18px;background:var(--blue);color:#fff}
@@ -141,8 +154,8 @@ h1.big{font-size:84px;margin:56px 0 18px}
 <h1 class="big">Game<br><span class="blue">Tournaments</span></h1>
 <div class="lead">Challenge fellow Hotcoiners and fight for the title.</div>
 <div class="cards">
- <div class="c"><div class="pitch"></div><div class="k">TOURNAMENT 01</div><div class="n">DLS</div><div class="f">Dream League Soccer</div><div class="p"><b>$10</b><span>Futures voucher<br>to the winner</span></div></div>
- <div class="c"><div class="pitch"></div><div class="k">TOURNAMENT 02</div><div class="n">eFootball</div><div class="f">Mobile football</div><div class="p"><b>$10</b><span>Futures voucher<br>to the winner</span></div></div>
+ <div class="c"><div class="hdr">${dlsMark(96)}<div><div class="k">TOURNAMENT 01</div><div class="f">Dream League Soccer</div></div></div><div class="n">DLS</div><div class="p"><b>$10</b><span>Futures voucher<br>to the winner</span></div></div>
+ <div class="c"><div class="hdr">${efMark(96)}<div><div class="k">TOURNAMENT 02</div><div class="f">Konami · mobile</div></div></div><div class="n">eFootball</div><div class="p"><b>$10</b><span>Futures voucher<br>to the winner</span></div></div>
 </div>
 <div class="when"><div class="t">20:00</div><div class="d">Every day, UTC, until the tournament ends<span>Registration & match rules announced separately</span></div></div>
 `);
