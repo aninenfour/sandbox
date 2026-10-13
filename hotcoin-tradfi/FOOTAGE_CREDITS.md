@@ -211,3 +211,16 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
   - LALIGA: assets.laliga.com.
   - BeInCrypto: its site icon, fetched through Google's favicon service because the site blocks direct requests.
 - MediaMetriqa, Sujal Jethwani, BROIDR, 937 Studio and CardsPro appear as names only, because no clean official icon was available.
+
+## gm clip (`src/gm/GM.tsx`)
+All archival footage is public domain. It was found via movingimagearchive.com, and the archive marks each film's rights as public domain:
+- **Hands typing and the G/H/B/M key close-up:** "Basic Typing, Part I: Methods (Part II)" (1944), Prelinger Archives, archive.org/details/basic_typing_2 (Public Domain Mark). Cropped so the typewriter's maker label stays out of frame.
+- **Glowing-line clips** (Glowing Lines collection, curated by Cova):
+  - "A Traveler Meets Air Traffic Control" (1963, FAA): radar shot and green network shot.
+  - "Electronics at Work" (Prelinger): sine waves.
+  - "Mobile Lab: Any Questions?": lissajous pattern.
+  - "Space Shuttle: A Remarkable Flying Machine" (NASA / U.S. Government Films): world-map flash.
+- **Keycaps, terminal, matrix rain and dot globe:** drawn in code. The G and M keycap shots are drawn, not archival.
+- **Globe land shapes:** Natural Earth via world-atlas@2.0.2 (public domain).
+- **Sound effects:** Mixkit typewriter effects 1372, 1365, 1119, 1380 and 1385 (Mixkit free licence).
+- **Music:** "New Bass 02" (Mixkit, track 721), starting on its drop.
