@@ -1,0 +1,116 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- 1280x720 YouTube thumbnail stage. Pick the design with ?t=silver|coffee|gold, render with:
+     chrome --headless --window-size=1280,720 --screenshot=out.png "file://.../thumb.html?t=silver" -->
+<style>
+@font-face{font-family:Anton;src:url(assets/anton-latin-400-normal.woff2)}
+@font-face{font-family:Marker;src:url(assets/permanent-marker-latin-400-normal.woff2)}
+@font-face{font-family:Mono;src:url(assets/ibm-plex-mono-latin-600-normal.woff2)}
+:root{--red:#E3262F;--ink:#0B0E11;--paper:#F1EFE8;--green:#7EC25A}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1280px;height:720px;overflow:hidden;background:var(--ink)}
+.stage{position:relative;width:1280px;height:720px;overflow:hidden;background:var(--ink)}
+.layer{position:absolute;inset:0}
+.bg{background-size:cover;background-position:center}
+svg{position:absolute;inset:0;width:1280px;height:720px;overflow:visible}
+.host{position:absolute;height:860px;bottom:-150px;
+  filter:drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 24px 40px rgba(0,0,0,.65))}
+.head{position:absolute;left:44px;top:34px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.w{font:400 112px/0.92 Anton,Impact,sans-serif;text-transform:uppercase;color:#fff;letter-spacing:.5px;
+  text-shadow:0 5px 0 rgba(0,0,0,.55),0 0 30px rgba(0,0,0,.5)}
+.box{background:var(--red);padding:6px 18px 2px;transform:rotate(-1.5deg);box-shadow:0 8px 0 rgba(0,0,0,.45);text-shadow:none}
+.tag{position:absolute;font:600 22px/1 Mono,monospace;letter-spacing:2px;color:#fff;background:var(--ink);padding:9px 12px;text-transform:uppercase}
+.tag b{color:var(--green);font-weight:600}
+.mk{font-family:Marker,cursive;fill:#fff;paint-order:stroke;stroke:rgba(0,0,0,.75);stroke-width:7px;stroke-linejoin:round}
+.grain{background:url(assets/grain.png);mix-blend-mode:overlay;opacity:.35}
+</style>
+<script src="assets/d3.min.js"></script>
+<script src="assets/topojson.min.js"></script>
+</head><body><div class="stage" id="s"></div>
+<script>
+const T=new URLSearchParams(location.search).get('t')||'silver';
+const S=document.getElementById('s');
+const el=(h)=>{const d=document.createElement('div');d.innerHTML=h.trim();const n=d.firstChild;S.appendChild(n);return n};
+const svgEl=()=>{const n=document.createElementNS('http://www.w3.org/2000/svg','svg');n.setAttribute('viewBox','0 0 1280 720');S.appendChild(n);return d3.select(n)};
+// marker-pen path: a smooth curve with slight wobble so it reads as hand-drawn
+const pen=(pts,amp=2.5,seed=7)=>{let r=seed;const rnd=()=>((r=(r*9301+49297)%233280)/233280-.5)*2*amp;
+  return d3.line().curve(d3.curveCatmullRom.alpha(.6))(pts.map(([x,y])=>[x+rnd(),y+rnd()]))};
+const ring=(cx,cy,rx,ry)=>{const p=[];for(let a=-0.4;a<=Math.PI*2+0.5;a+=0.25)p.push([cx+Math.cos(a)*rx*(1+0.04*Math.sin(a*3)),cy+Math.sin(a)*ry*(1+0.05*Math.cos(a*2))]);return pen(p,2,3)};
+const grain=()=>el('<div class="layer grain"></div>');
+const host=(name,side,x)=>{const i=el(`<img class="host" src="assets/${name}.png">`);i.style[side]=x+'px';return i};
+const head=(lines)=>el(`<div class="head">${lines.map(([t,red])=>`<div class="w${red?' box':''}">${t}</div>`).join('')}</div>`);
+const done=()=>document.fonts.ready.then(()=>{document.body.dataset.ready=1});
+
+async function silver(){
+  el('<div class="layer bg" style="background-image:url(assets/silver.jpg);background-position:30% 60%;filter:grayscale(.6) contrast(1.15) brightness(.55)"></div>');
+  el('<div class="layer" style="background:linear-gradient(90deg,rgba(11,14,17,.92) 0%,rgba(11,14,17,.55) 45%,rgba(11,14,17,.1) 75%)"></div>');
+  const g=svgEl();
+  // Silver, USD/oz, Jan 1979 to Mar 1980 (approximate monthly path; endpoints $6 and the ~$50 Jan 1980 peak are the cited figures)
+  const data=[6,6.3,7.4,7.6,8.3,8.6,9.2,9.6,11.5,16.5,17,19,28,49.5,35,21.6,10.8];
+  const x=d3.scaleLinear([0,data.length-1],[70,680]), y=d3.scaleLinear([0,52],[618,300]);
+  const pts=data.map((v,i)=>[x(i),y(v)]);
+  // the peak point sits at index 13
+  g.append('path').attr('d',d3.area().curve(d3.curveMonotoneX).x(d=>d[0]).y0(720).y1(d=>d[1])(pts)).attr('fill','rgba(227,38,47,.18)');
+  g.append('path').attr('d',pen(pts,1.5)).attr('fill','none').attr('stroke','#000').attr('stroke-opacity',.55).attr('stroke-width',22).attr('stroke-linecap','round').attr('stroke-linejoin','round');
+  g.append('path').attr('d',pen(pts,1.5)).attr('fill','none').attr('stroke','var(--red)').attr('stroke-width',12).attr('stroke-linecap','round').attr('stroke-linejoin','round');
+  const [px,py]=pts[13];
+  g.append('path').attr('d',ring(px,py-4,62,44)).attr('fill','none').attr('stroke','#fff').attr('stroke-width',7).attr('stroke-linecap','round');
+  g.append('text').attr('class','mk').attr('x',px-215).attr('y',py+52).attr('font-size',84).text('$50');
+  g.append('text').attr('class','mk').attr('x',pts[0][0]-14).attr('y',pts[0][1]-26).attr('font-size',64).text('$6');
+  head([['Two brothers',0],['cornered silver',1]]);
+  el('<div class="tag" style="left:44px;bottom:36px"><b>●</b> Texas · 1979–80</div>');
+  host('host-shocked','right',-90);
+  grain(); done();
+}
+
+async function coffee(){
+  el('<div class="layer bg" style="background-image:url(assets/coffee2.jpg);background-position:70% 55%;filter:saturate(1.15) contrast(1.1) brightness(.62)"></div>');
+  el('<div class="layer" style="background:linear-gradient(90deg,rgba(11,14,17,.9) 0%,rgba(11,14,17,.5) 50%,rgba(11,14,17,.15) 80%)"></div>');
+  const topo=await (await fetch('assets/countries-50m.json')).json();
+  const land=topojson.feature(topo,topo.objects.countries);
+  const brazil=land.features.find(f=>f.id==='076');
+  const proj=d3.geoMercator().fitExtent([[300,250],[660,622]],brazil);
+  const path=d3.geoPath(proj); const g=svgEl();
+  const sa=land.features.filter(f=>{const c=d3.geoCentroid(f);return c[0]>-90&&c[0]<-30&&c[1]<15});
+  g.append('g').selectAll('path').data(sa).join('path').attr('d',path).attr('fill','rgba(241,239,232,.16)').attr('stroke','rgba(241,239,232,.45)').attr('stroke-width',1.2);
+  g.append('path').attr('d',path(brazil)).attr('fill','none').attr('stroke','#000').attr('stroke-opacity',.6).attr('stroke-width',14);
+  g.append('path').attr('d',path(brazil)).attr('fill','var(--red)').attr('stroke','#fff').attr('stroke-width',3);
+  // coffee belt: Minas Gerais / São Paulo
+  const [mx,my]=proj([-45.5,-19.5]);
+  g.append('path').attr('d',ring(mx,my+6,58,40)).attr('fill','none').attr('stroke','#fff').attr('stroke-width',6).attr('stroke-linecap','round');
+  g.append('path').attr('d',pen([[mx-170,my+92],[mx-110,my+66],[mx-62,my+30]],1.2)).attr('fill','none').attr('stroke','#fff').attr('stroke-width',6).attr('stroke-linecap','round');
+  g.append('path').attr('d',pen([[mx-90,my+28],[mx-62,my+30],[mx-74,my+56]],0.5)).attr('fill','none').attr('stroke','#fff').attr('stroke-width',6).attr('stroke-linecap','round').attr('stroke-linejoin','round');
+  g.append('text').attr('class','mk').attr('x',mx-360).attr('y',my+122).attr('font-size',54).text('DROUGHT');
+  head([['Coffee',0],['doubled',1]]);
+  el('<div class="tag" style="left:44px;bottom:36px"><b>●</b> Arabica · record $4.41/lb</div>');
+  host('host-thinking','right',-70);
+  grain(); done();
+}
+
+async function gold(){
+  el('<div class="layer" style="background:#0d1013"></div>');
+  const topo=await (await fetch('assets/countries-50m.json')).json();
+  const land=topojson.feature(topo,topo.objects.countries);
+  // fixed scale; anchor Poland (19E, 52N) at (170,400) so it sits clear of the headline
+  const proj=d3.geoNaturalEarth1().rotate([-60,0]).scale(300).translate([0,0]);
+  {const [ax,ay]=proj([19,52]);proj.translate([170-ax,400-ay]);}
+  const path=d3.geoPath(proj); const g=svgEl();
+  g.append('g').selectAll('path').data(land.features).join('path').attr('d',path).attr('fill','#363c43').attr('stroke','#0d1013').attr('stroke-width',.8);
+  const hot={'156':'CHINA','616':'POLAND'};
+  const hl=land.features.filter(f=>hot[f.id]);
+  g.append('g').selectAll('path').data(hl).join('path').attr('d',path).attr('fill','none').attr('stroke','#000').attr('stroke-opacity',.6).attr('stroke-width',12);
+  g.append('g').selectAll('path').data(hl).join('path').attr('d',path).attr('fill','var(--red)').attr('stroke','#fff').attr('stroke-width',2.5);
+  const [cx,cy]=path.centroid(hl.find(f=>f.id==='156')), [pxx,pyy]=path.centroid(hl.find(f=>f.id==='616'));
+  g.append('path').attr('d',ring(pxx,pyy,38,30)).attr('fill','none').attr('stroke','#fff').attr('stroke-width',5).attr('stroke-linecap','round');
+  g.append('text').attr('class','mk').attr('x',pxx-80).attr('y',pyy+82).attr('font-size',48).text('POLAND');
+  g.append('text').attr('class','mk').attr('x',cx-60).attr('y',cy+16).attr('font-size',54).text('CHINA');
+  // gold bars rising from the bottom edge
+  el('<div class="layer" style="top:auto;height:230px;background:url(assets/gold.jpg) 40% 30%/cover;-webkit-mask-image:linear-gradient(0deg,#000 30%,transparent);filter:brightness(.75) saturate(1.1)"></div>');
+  el('<div class="layer" style="background:linear-gradient(90deg,rgba(13,16,19,.85) 0%,rgba(13,16,19,.15) 50%,transparent 70%)"></div>');
+  head([['Countries are',0],['hoarding gold',1]]);
+  el('<div class="tag" style="left:44px;bottom:36px"><b>●</b> 1,000+ tonnes a year</div>');
+  host('host-side','right',-120);
+  grain(); done();
+}
+({silver,coffee,gold})[T]();
+</script></body></html>
