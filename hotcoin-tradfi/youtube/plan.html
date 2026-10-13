@@ -102,7 +102,6 @@ footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--rule);font-si
       <li><b>Hotcoin 101 is in a format YouTube has nowhere to show.</b> The episodes are horizontal and about 60 seconds long. That is too short for the long-form feed, and horizontal video can't go into the Shorts feed.</li>
       <li><b>Educational and story content beats brand content about 3 to 1.</b> The older educational Shorts have a median of 87 views. The newest 50 brand and campaign Shorts have a median of 28.</li>
       <li><b>The fix:</b> launch two long-form series, <i>Bubble Files</i> (money history) and <i>Price Tag</i> (the economics of everyday things), plus a Sunday 101 compilation. The Tulip Mania 101 already shows the style works.</li>
-      <li><b>Posting:</b> keep Publer. Connect the YouTube channel to the Hotcoin workspace (it isn't connected yet), and Claude can schedule every upload with its title, description, tags and custom thumbnail.</li>
     </ol>
   </div>
 
@@ -114,7 +113,6 @@ footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--rule);font-si
     <div class="stat"><b>48</b><span>median views per Short</span></div>
     <div class="stat"><b>28</b><span>total views on 14 TOKEN2049 clips</span></div>
   </div>
-  <p class="note">Public counts read from the channel on 13 Oct 2026. Studio analytics (CTR, retention, traffic sources) weren't available, so check the claims below against Studio before acting on them. The full upload list is saved in <code>youtube/snapshot-2026-10-13.json</code> as a baseline.</p>
 
   <h3>What worked</h3>
   <div class="tbl"><table>
@@ -146,7 +144,8 @@ footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--rule);font-si
   <div class="tbl"><table>
     <thead><tr><th>When</th><th>Fix</th><th>How</th></tr></thead>
     <tbody>
-      <tr><td><span class="pill p0">This week</span></td><td><b>Get event clips off the Videos tab</b></td><td>Cut the 14 TOKEN2049 clips into one 2–3 minute vertical recap and post it as a Short. Set the single clips to Unlisted. They stay in the playlist and their links keep working. Rule from now on: event and campaign clips go to Shorts and Community, never to the Videos tab.</td></tr>
+      <tr><td><span class="pill p0">This week</span></td><td><b>Post everything under 1 minute as a vertical Short</b></td><td>Anything shorter than a minute (event clips, campaign teasers, 101 episodes, brand spots) is exported 9:16 and uploaded as a Short only, never as a horizontal video. Shorts live on their own tab, so the Videos tab keeps only long-form episodes. Re-upload the existing horizontal short clips as vertical Shorts, then unlist the horizontal versions.</td></tr>
+      <tr><td><span class="pill p0">This week</span></td><td><b>Get event clips off the Videos tab</b></td><td>Cut the 14 TOKEN2049 clips into one 2–3 minute vertical recap and post it as a Short. Set the single clips to Unlisted. They stay in the playlist and their links keep working.</td></tr>
       <tr><td><span class="pill p0">This week</span></td><td><b>Give Hotcoin 101 a format YouTube can show</b></td><td>Export every 101 episode as 9:16 and upload it as a Short (Shorts can now run up to 3 minutes). Keep the horizontal masters for the Sunday compilation (section 4).</td></tr>
       <tr><td><span class="pill p0">This week</span></td><td><b>Rewrite the channel page for strangers</b></td><td>Banner: change "9 Years of Focus" to a promise and a schedule, for example <i>"Money stories, explained. New episodes Tue · Thu · Sun."</i> Description: open with what the viewer gets; company facts go last. Home tab: a channel trailer for non-subscribers, then shelves in this order: Bubble Files, Price Tag, Hotcoin 101.</td></tr>
       <tr><td><span class="pill p1">This month</span></td><td><b>Separate the two languages</b></td><td>Stop uploading every video twice. Best option: a separate Hotcoin 中文 channel, since the Chinese tutorials already get more views than the English ones. If that's not possible, upload once and add the Chinese title and description in Studio → Languages.</td></tr>
@@ -269,27 +268,10 @@ footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--rule);font-si
     <div><b>Voiceover</b><span class="who">Team</span><br>One consistent human narrator, about 20 minutes of recording per episode. This matters most for quality: a synthetic voice over 12 minutes loses people, and YouTube is pushing back on mass-produced AI channels. The repo's Kokoro voice is fine for draft cuts.</div>
     <div><b>Edit</b><span class="who">Claude</span><br>Remotion, the same pipeline as the 101s and Uptober: archive images (credited in FOOTAGE_CREDITS), charts, maps, and the file-style typography.</div>
     <div><b>Thumbnail ×3 and a Short trailer</b><span class="who">Claude</span><br>Rendered from the episode itself.</div>
-    <div><b>Schedule</b><span class="who">Claude, via Publer</span><br>Uploaded as a draft with title, description, chapters, tags and thumbnail. You approve it in the Publer calendar, and it publishes at the set time.</div>
+    <div><b>Schedule</b><span class="who">Claude</span><br>Uploaded as a scheduled draft with title, description, chapters, tags and thumbnail. You approve it before it goes live.</div>
   </div>
 
-  <h2>6. Posting without the manual work</h2>
-  <p><b>Recommendation: Publer.</b> Your Hotcoin workspace already has Facebook, Instagram, LinkedIn and X connected. <span class="bad">YouTube is not connected yet.</span> Once it is, Claude can do the whole upload from a session:</p>
-  <ul class="tight">
-    <li>Long videos and Shorts, uploaded from the rendered file</li>
-    <li>Title, description (with chapters), tags, category and privacy</li>
-    <li>Custom thumbnail</li>
-    <li>A scheduled publish time, or a draft for you to approve first</li>
-  </ul>
-  <p><b>Two gaps.</b> Publer's API docs don't cover <i>playlists</i> or the <i>made for kids</i> flag. Set "Not made for kids" once in YouTube Studio → Settings → Upload defaults. Adding each episode to its playlist is a 10-second manual step, or Claude can do it with Claude in Chrome if you use it.</p>
-  <p><b>Why not upload straight through the YouTube API?</b> It would cover playlists too, but Google locks every upload from a new, unaudited API project to Private until the project passes a compliance audit. That paperwork isn't worth it while Publer already works.</p>
-  <h3>To connect YouTube in Publer</h3>
-  <ol>
-    <li>In Publer, open the Hotcoin workspace → Add account → YouTube.</li>
-    <li>Sign in with the Google account that owns or manages @hotcoinglobal and choose the Hotcoin channel.</li>
-    <li>Tell Claude when it's done. Claude will check the connection and schedule a test upload as Private.</li>
-  </ol>
-
-  <h2>7. Decisions needed from you</h2>
+  <h2>6. Decisions needed from you</h2>
   <div class="tbl"><table>
     <thead><tr><th>Decision</th><th>Recommended</th></tr></thead>
     <tbody>
@@ -303,9 +285,7 @@ footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--rule);font-si
   </table></div>
 
   <footer>
-    Sources: public channel data for @hotcoinglobal, read 13 Oct 2026 (baseline in <code>hotcoin-tradfi/youtube/snapshot-2026-10-13.json</code>);
-    the Publer API docs on YouTube video posts;
-    <a href="https://developers.google.com/youtube/v3/docs/videos/insert" target="_blank" rel="noopener">YouTube Data API: videos.insert</a> (private lock on unaudited projects);
+    Sources: public channel data for @hotcoinglobal, read 13 Oct 2026;
     <a href="https://www.tubefilter.com/?p=187324" target="_blank" rel="noopener">Tubefilter on Test &amp; Compare</a>.
   </footer>
 </div>
