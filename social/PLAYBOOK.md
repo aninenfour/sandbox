@@ -23,6 +23,7 @@ Publer shows times in UTC+8. The audience for the main slots is the Americas (US
 | Americas lunch | 12:30 PM | 12:30 AM next day |
 | US pre-close | 3:50 PM | 3:50 AM next day |
 | Asia afternoon (extra) | 2–7 AM | 2–7 PM |
+| Early slot (used from Oct 13) | 7:00 AM | 7:00 PM same day |
 
 Always check the current date in **both** zones (`TZ=Asia/Shanghai date`,
 `TZ=America/New_York date`) and label every post with both.
@@ -38,6 +39,12 @@ Always check the current date in **both** zones (`TZ=Asia/Shanghai date`,
   `☐/☑` checklists, `✓` lists, `> terminal` lines, `→` arrows, plain lines.
 - Only state Hotcoin facts that are verified (own posts, press releases). Don't claim a
   coin is listed on Hotcoin unless confirmed. Don't invent promos.
+- **No "gm" posts.** The user rejected them (Oct 13). Avoid generic motivational lines that read
+  like filler ("your plan shouldn't change every time a number does" was called weird).
+- **ASCII art for X:** use braille characters (U+2800 block); they stay aligned in X's proportional
+  font, unlike spaces or box drawing. Generate them with a script, never by hand. X counts each braille
+  character as 2, so art posts run over 280 and rely on the account's long-post support. Charts must
+  tell an obvious story (e.g. buy at 8:29 → parabolic dump at 8:30). Plain emoji grids were "too simple".
 - Memecoin posts: use the current narrative (late Sep 2026: "rotating, not rallying")
   and several cashtags.
 
@@ -49,6 +56,10 @@ Always check the current date in **both** zones (`TZ=Asia/Shanghai date`,
 - 2026-10-02: TOKEN2049 packing list (67 RSVPs, #TOKEN2049Singapore) · memes rotating
   ($PENGU $FARTCOIN $PEPE $DOGE $MARSCOIN) · uptober progress day 2/31 · weekend checklist ☐☑ ·
   wall street logging off for the weekend
+
+- 2026-10-13 → 10-16: see `queue-2026-10-13.md` (CPI week: ETF outflows/range question, CPI-day preview,
+  braille buy-the-top crash, braille zoom-out mountain, sideways ○◉ poll, Fed two-weeks-out, weekly
+  check-in, weekend ☐☑ plans)
 
 ## What performed
 
