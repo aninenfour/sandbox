@@ -214,6 +214,7 @@ Music: "Head Bang" (Mixkit, free licence). Images are graded and strobed behind 
 - CardsPro: site icon (favicon.svg) from cardspro.com.
 - BROIDR: site icon from broidr.com.
 - MediaMetriqa: its site logo is a text wordmark, captured from the header of mediametriqa.com.
+- Global Blockchain Show: site icon from globalblockchainshow.com.
 
 ## gm clip (`src/gm/GM.tsx`)
 All archival footage is public domain. It was found via movingimagearchive.com, and the archive marks each film's rights as public domain:

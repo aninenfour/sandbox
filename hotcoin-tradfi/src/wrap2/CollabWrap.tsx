@@ -23,7 +23,7 @@ const kick = (t: number) => Math.exp(-((t / BEAT) % 1) * 7);
 
 type Brand = {name: string; logo?: string; bg?: string; pad?: number; wordmark?: string};
 const GROUPS: {label: string; brands: Brand[]}[] = [
-  {label: 'MEDIA & CREATORS', brands: [{name: 'Cointelegraph', logo: 'cointelegraph'}, {name: 'BeInCrypto', logo: 'beincrypto'}, {name: 'MediaMetriqa', wordmark: 'mediametriqa-wordmark'}]},
+  {label: 'MEDIA & CREATORS', brands: [{name: 'Cointelegraph', logo: 'cointelegraph'}, {name: 'BeInCrypto', logo: 'beincrypto'}, {name: 'MediaMetriqa', wordmark: 'mediametriqa-wordmark'}, {name: 'Global Blockchain Show', logo: 'globalblockchainshow', bg: '#fff', pad: 9}]},
   {label: 'GROWTH & ADS', brands: [{name: 'Magnetto', logo: 'magnetto'}, {name: 'Cointraffic', logo: 'cointraffic'}, {name: 'TaskOn', logo: 'taskon'}, {name: 'Similarweb', logo: 'similarweb', bg: '#fff'}]},
   {label: 'SPORTS, EVENTS & CREATIVE', brands: [{name: 'LALIGA', logo: 'laliga', bg: '#fff', pad: 7}, {name: 'Blockchain Life', logo: 'blockchainlife', bg: '#0d1b2a'}, {name: 'BROIDR', logo: 'broidr'}, {name: '937 Studio', logo: '937studio'}]},
   {label: 'PAYMENTS & INFRA', brands: [{name: 'Nium', logo: 'nium'}, {name: 'Hypermid', logo: 'hypermid', bg: '#fff', pad: 6}, {name: 'CardsPro', logo: 'cardspro'}, {name: 'Melbicom', logo: 'melbicom', bg: '#fff', pad: 9}]},
@@ -182,7 +182,7 @@ const Grid: React.FC<{t: number}> = ({t}) => {
                       <Img src={staticFile(`wrap2/logos/${b.wordmark}.png`)} style={{height: 34, width: (34 * 606) / 99}} />
                     </div>
                   ) : (
-                    <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 31, letterSpacing: -0.7, whiteSpace: 'nowrap', color: WHITE, lineHeight: 1.1}}>{b.name}</div>
+                    <div style={{fontFamily: SANS, fontWeight: 600, fontSize: b.name.length > 16 ? 28 : 31, letterSpacing: -0.7, whiteSpace: b.name.length > 16 ? 'normal' : 'nowrap', color: WHITE, lineHeight: 1.1}}>{b.name}</div>
                   )}
                   {b.logo ? <Chip b={b} size={72} /> : null}
                 </div>
