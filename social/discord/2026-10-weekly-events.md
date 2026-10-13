@@ -6,11 +6,13 @@ We've got new activities coming to the community: take part, connect with other 
 ## 📅 6-Day Weekly Events
 A six-day weekly programme to make the community more active, interactive and rewarding.
 
-**🟩 Day 1 · Hotcoin Engagement Challenge**
+**🟩 Every day · Hotcoin Engagement Challenge**
 - Sign up on the Hotcoin platform
 - Engage with our official Hotcoin X posts every week
 - Send at least **50 meaningful messages** per week here on Discord
 - Stay active and join community activities
+
+🕑 **Days 2–6 start at 2:00 PM UTC** (<t:1791986400:t> your time)
 
 **🧠 Day 2 · Crypto Knowledge Quiz**
 Test your knowledge of crypto, blockchain, spot trading and futures trading.

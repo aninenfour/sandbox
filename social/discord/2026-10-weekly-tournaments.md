@@ -11,7 +11,7 @@ Step onto the pitch, challenge fellow Hotcoiners and fight for the championship!
 > 💵 **Prize:** $10 for the winner
 
 ## 📌 Good to know
-- Both tournaments run **every week**
-- Schedules, registration and match rules will be announced separately. Stay tuned!
+- Matches every day at **8:00 PM UTC** (<t:1792008000:t> your time) until the tournament ends
+- Registration details and match rules will be announced separately. Stay tuned!
 
 -# Invite your friends: https://discord.gg/hotcoin
