@@ -22,6 +22,7 @@ import '@fontsource/anton/400.css';
 import '@fontsource/inter-tight/400.css';
 import '@fontsource/inter-tight/500.css';
 import '@fontsource/inter-tight/600.css';
+import '@fontsource/inter-tight/700.css';
 import '@fontsource/montserrat/800.css';
 import '@fontsource/unbounded/800.css';
 import '@fontsource/unbounded/900.css';

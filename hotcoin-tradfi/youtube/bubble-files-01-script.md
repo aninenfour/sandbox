@@ -74,7 +74,7 @@ So it's 1980 and two brothers basically own the silver market. Could anyone pull
 
 *A green bar starts filling along the bottom of the frame. It ends exactly when the ad ends. The paper slides in and the 101 dot narrator lands on it, curious.*
 
-Would the Hunts get away with it today? Honestly, nobody knows. But you don't need a billion dollars and a private jet to trade silver anymore. On Hotcoin you can trade silver with USDT, right next to gold, US stocks and over five hundred cryptos, on your phone or your laptop. Link's in the description.
+Would the Hunts get away with it today? Nobody knows. But you don't need a private jet to trade silver anymore. On Hotcoin it's right there with USDT, next to gold, US stocks and five hundred plus cryptos. Link's below.
 
 *On screen: the real XAG/USDT market on Hotcoin, phone and laptop. Small line: "Futures trading involves risk." The dot winks and the bar completes.*
 
