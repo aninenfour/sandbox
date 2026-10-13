@@ -8,6 +8,8 @@ const SCR = process.argv[2];
 const LOGO = 'file://' + ROOT + '/hotcoin-tradfi/public/brand/logo-official-black.png';
 const GRAIN = 'file://' + ROOT + '/hotcoin-tradfi/public/grain.png';
 
+const DISCORD_PATH = 'M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z';
+const discordMark = (s, c = '#5865F2') => `<svg viewBox="0 0 24 24" width="${s}" height="${s}" style="flex:none;display:inline-block"><path fill="${c}" d="${DISCORD_PATH}"/></svg>`;
 const css = `
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=block');
 :root{--ink:#0B0E11;--panel:#F4F5F2;--line:#E3E6E0;--lime:#B8F26A;--green:#2F9E44;--white:#0B0E11;--muted:#6B7280;--blue:#2563EB;--bluet:#EAF0FF}
@@ -39,7 +41,7 @@ h1{font-family:Unbounded;font-weight:900;letter-spacing:-1px;line-height:1.02}
 const shell = (tag, page, body) => `<!doctype html><html><head><meta charset="utf-8"><style>${css}</style></head><body><div class="s"><div class="bg1"></div><div class="bg2"></div><div class="grain"></div>
 <div class="top"><div class="tag ${tag.startsWith('SEPARATE')?'b':''}">${tag}</div><img class="logo" src="${LOGO}"></div>
 <div class="body">${body}</div>
-<div class="foot"><span><b>discord.gg/hotcoin</b> · all times UTC</span><span>${page}</span></div></div></body></html>`;
+<div class="foot"><span style="display:flex;align-items:center;gap:10px">${discordMark(22)}<b>discord.gg/hotcoin</b> · all times UTC</span><span>${page}</span></div></div></body></html>`;
 
 
 // ---------- game marks ----------
@@ -71,7 +73,8 @@ const row = (x) => {
 const cal = shell('HOTCOIN COMMUNITY · WEEKLY EVENTS','1 / 4',`
 <style>
 .hd{display:flex;justify-content:space-between;align-items:flex-end;margin:34px 0 22px}
-.hd h1{font-size:60px}
+.hd h1{font-size:54px}
+.dline{display:inline-flex;align-items:center;gap:16px;margin-top:6px}
 .hd .sub{font-family:'JetBrains Mono';font-size:20px;color:var(--muted);text-align:right;line-height:1.5}
 .cols{display:grid;grid-template-columns:118px 1fr 120px 120px;padding:0 22px 10px;font-family:'JetBrains Mono';font-size:14px;letter-spacing:2px;color:var(--muted)}
 .cols span:nth-child(3),.cols span:nth-child(4){text-align:right}
@@ -97,7 +100,7 @@ const cal = shell('HOTCOIN COMMUNITY · WEEKLY EVENTS','1 / 4',`
 .legend b{color:var(--white);font-weight:600}
 .dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:10px;vertical-align:1px}
 </style>
-<div class="hd"><h1>This week<br>at <span class="lime">Hotcoin</span></h1><div class="sub">OCT 12 – 18, 2026<br>ALL TIMES UTC</div></div>
+<div class="hd"><h1>This week on<br><span class="dline">${discordMark(58)}<span><span class="lime">Hotcoin</span> Discord</span></span></h1><div class="sub">OCT 12 – 18, 2026<br>ALL TIMES UTC</div></div>
 <div class="cols"><span>DATE</span><span>EVENT</span><span>TIME</span><span style="color:var(--blue)">GAMES</span></div>
 <div class="rows">${days.map(row).join('')}</div>
 <div class="legend"><span><span class="dot" style="background:var(--green)"></span><b>6-day programme</b> · Engagement Challenge daily</span><span style="display:flex;align-items:center;gap:8px"><span class="dot" style="background:var(--blue);margin-right:2px"></span>${dlsMark(30)}${efMark(30)}<b>Separate:</b> DLS & eFootball, daily 20:00</span></div>
