@@ -33,5 +33,5 @@ The final challenge. We review participation and announce the **top 5 winners**.
 Bring your questions, share insights and learn alongside fellow Hotcoiners.
 
 ## 💰 Weekly Rewards
-> 🥇 **Top 5 participants get $10 each**
-> **$50** in rewards every week
+> 🥇 **Top 5 participants get a $10 Futures voucher each**
+> **$50** in Futures vouchers every week
