@@ -403,12 +403,12 @@ const SHOTS: Shot[] = [
   {at: T.rules.s, el: (d) => <Card src="agBoard" dur={d} filter="grayscale(1) contrast(1.3)" tilt={1.2} />},
   {at: T.rules.s + 0.95, el: (d) => <><Full src="floorWide" dur={d} filter="grayscale(1) contrast(1.3) brightness(0.8)" /><StampAt at={T.rules.s + 1.15} /></>},
   {at: T.march.s - 0.15, el: (d) => <Calendar dur={d} />},
-  {at: T.ten.s, el: (d) => <Card src="sellSlip" dur={d} filter="grayscale(1) contrast(1.35)" tilt={-2} />},
+  {at: T.ten.s, el: (d) => <Card src="sellSlip" dur={d} rate={0.3} filter="grayscale(1) contrast(1.35)" tilt={-2} />},
   {at: T.ten.s + 0.55, el: (d) => <ChartCrash dur={d} />},
   {at: T.ten.e + 0.25, el: (d) => <Card src="tapeDelay" dur={d} filter="grayscale(1) contrast(1.5) brightness(1.1)" />},
   {at: T.thursday.s - 0.12, el: (d) => <><Full src="molten" dur={d} rate={0.6} filter="grayscale(1) contrast(1.4) brightness(1.05)" /><AbsoluteFill style={{background: 'rgba(11,14,17,.35)'}} /><TitleNow /></>},
   {at: T.how.s, el: (d) => <HostShot dur={d} />},
-  {at: T.lost.s, el: (d) => <Card src="headDown" dur={d} filter="grayscale(1) contrast(1.25)" tilt={-1} />},
+  {at: T.lost.s, el: (d) => <Card src="headDown" dur={d} rate={0.65} filter="grayscale(1) contrast(1.25)" tilt={-1} />},
   {at: END_AT, el: () => <EndCard />},
 ];
 
