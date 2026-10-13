@@ -1,0 +1,311 @@
+<title>Hotcoin YouTube Reset</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: one reading column on Hotcoin "paper", brand ink/green/red, wide tables scroll inside their own frame */
+:root{
+  --paper:#F1EFE8; --surface:#FAF9F5; --ink:#0B0E11; --muted:#5B5F57; --rule:#D9D5C9;
+  --green:#4F8F2F; --green-soft:#E3EED9; --red:#C9283E; --red-soft:#F7DEE1;
+  --thumb-ink:#0B0E11; --thumb-green:#7EC25A; --thumb-paper:#F1EFE8; --thumb-red:#F6465D;
+  --display:"Archivo Black", "Arial Black", Impact, sans-serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0E1113; --surface:#161A1D; --ink:#ECEAE3; --muted:#A3A79D; --rule:#2A2F2C;
+  --green:#8FD068; --green-soft:#1C2A17; --red:#FF6B7E; --red-soft:#33181D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0E1113; --surface:#161A1D; --ink:#ECEAE3; --muted:#A3A79D; --rule:#2A2F2C;
+  --green:#8FD068; --green-soft:#1C2A17; --red:#FF6B7E; --red-soft:#33181D; color-scheme:dark}
+
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--body);}
+.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:40px 80px}
+h1,h2,h3{text-wrap:balance;margin:0}
+h1{font:400 clamp(34px,6vw,54px)/1.02 var(--display);letter-spacing:-.01em}
+h2{font:400 26px/1.15 var(--display);margin-top:64px;padding-top:20px;border-top:2px solid var(--ink)}
+h3{font:600 18px/1.3 var(--body);margin-top:32px}
+p,li{max-width:68ch}
+p{margin:12px 0}
+.eyebrow{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{font:italic 400 24px/1.35 var(--serif);margin:18px 0 0;max-width:40ch}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:18px}
+.verdict{margin-top:32px;background:var(--surface);border:1px solid var(--rule);padding:20px 22px}
+.verdict ol{margin:8px 0 0;padding-left:20px;display:grid;gap:8px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:20px}
+.stat{background:var(--surface);padding:14px 16px;min-width:0}
+@media (max-width:520px){.stats{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:1/-1}}
+.stat b{display:block;font:400 28px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted);line-height:1.4;display:block;margin-top:4px}
+.tbl{overflow-x:auto;margin-top:16px;border:1px solid var(--rule);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font:500 11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.pill{display:inline-block;font:500 11px/1 var(--mono);letter-spacing:.05em;padding:4px 7px;text-transform:uppercase;white-space:nowrap}
+.p0{background:var(--red-soft);color:var(--red)}
+.p1{background:var(--green-soft);color:var(--green)}
+.p2{background:transparent;color:var(--muted);border:1px solid var(--rule)}
+.good{color:var(--green);font-weight:600}
+.bad{color:var(--red);font-weight:600}
+.note{font-size:14px;color:var(--muted)}
+code{font:13px var(--mono);background:var(--surface);border:1px solid var(--rule);padding:1px 5px}
+
+/* thumbnails */
+.thumbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:18px}
+figure{margin:0;min-width:0}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.45}
+.t{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;container-type:inline-size;background:var(--thumb-ink);color:var(--thumb-paper)}
+.t img{width:100%;height:100%;object-fit:cover;display:block}
+.t .badge{position:absolute;left:4cqw;top:4cqw;font:500 3.6cqw/1 var(--mono);letter-spacing:.06em;background:var(--thumb-green);color:var(--thumb-ink);padding:1.4cqw 2cqw}
+.t .big{position:absolute;left:4cqw;bottom:5cqw;font:400 10.5cqw/.92 var(--display);text-transform:uppercase;letter-spacing:-.01em;max-width:58%}
+.t .big em{font-style:normal;color:var(--thumb-green)}
+.t .obj{position:absolute;right:3cqw;top:50%;transform:translateY(-50%);font-size:34cqw;line-height:1}
+.t.price{background:var(--thumb-paper);color:var(--thumb-ink)}
+.t.price .tag{position:absolute;right:5cqw;top:14cqw;background:var(--thumb-red);color:#fff;font:400 9cqw/1 var(--display);padding:2.4cqw 3.4cqw;transform:rotate(-7deg)}
+.t.price .obj{right:auto;left:52%;font-size:30cqw;top:58%}
+.t.price .big{color:var(--thumb-ink)}
+.t.price .big em{color:var(--thumb-red)}
+.t .line{position:absolute;inset:auto 0 0 0;height:40%}
+.t.price .badge{background:var(--thumb-ink);color:var(--thumb-paper)}
+.t.mini .big{font-size:9cqw}
+.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:18px}
+.size-test{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;margin-top:12px}
+.size-test .t{width:168px}
+
+.slate td:first-child{font-family:var(--mono);color:var(--muted);width:2.5em}
+.week{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:16px}
+.day{background:var(--surface);border:1px solid var(--rule);padding:14px 16px;min-width:0}
+.day b{font:400 18px/1.2 var(--display);display:block;margin-top:2px}
+.day p{font-size:14px;margin:6px 0 0}
+ul.tight{padding-left:20px;display:grid;gap:6px}
+.flow{display:grid;gap:0;margin-top:16px;border-left:2px solid var(--green);padding-left:18px}
+.flow div{padding:8px 0}
+.flow b{font-weight:600}
+.who{font:500 11px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-left:6px}
+a{color:var(--green)}
+a:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">YouTube · @hotcoinglobal · audit as of 13 Oct 2026</div>
+  <h1>Hotcoin YouTube Reset</h1>
+  <p class="lede">The channel needs fewer uploads, one clear reason to watch, and two long series people can put on while they eat.</p>
+  <div class="meta eyebrow"><span>Scope: channel audit, long-form series, thumbnails, posting</span><span>Goal: views, not revenue</span></div>
+
+  <div class="verdict">
+    <div class="eyebrow">The short version</div>
+    <ol>
+      <li><b>The channel is flooded with clips nobody chose to watch.</b> 14 TOKEN2049 clips went up in 6 days and earned 28 views between them. They now cover the top of the Videos tab, so they are the first thing a visitor sees.</li>
+      <li><b>Hotcoin 101 is in a format YouTube has nowhere to show.</b> The episodes are horizontal and about 60 seconds long. That is too short for the long-form feed, and horizontal video can't go into the Shorts feed.</li>
+      <li><b>Educational and story content beats brand content about 3 to 1.</b> The older educational Shorts have a median of 87 views. The newest 50 brand and campaign Shorts have a median of 28.</li>
+      <li><b>The fix:</b> launch two long-form series, <i>Bubble Files</i> (money history) and <i>Price Tag</i> (the economics of everyday things), plus a Sunday 101 compilation. The Tulip Mania 101 already shows the style works.</li>
+      <li><b>Posting:</b> keep Publer. Connect the YouTube channel to the Hotcoin workspace (it isn't connected yet), and Claude can schedule every upload with its title, description, tags and custom thumbnail.</li>
+    </ol>
+  </div>
+
+  <h2>1. Where the channel stands</h2>
+  <div class="stats">
+    <div class="stat"><b>1.09K</b><span>subscribers</span></div>
+    <div class="stat"><b>222</b><span>uploads: 70 videos, 152 Shorts</span></div>
+    <div class="stat"><b>25</b><span>median views per video (Videos tab)</span></div>
+    <div class="stat"><b>48</b><span>median views per Short</span></div>
+    <div class="stat"><b>28</b><span>total views on 14 TOKEN2049 clips</span></div>
+  </div>
+  <p class="note">Public counts read from the channel on 13 Oct 2026. Studio analytics (CTR, retention, traffic sources) weren't available, so check the claims below against Studio before acting on them. The full upload list is saved in <code>youtube/snapshot-2026-10-13.json</code> as a baseline.</p>
+
+  <h3>What worked</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Upload</th><th>Format</th><th style="text-align:right">Views</th><th>Why it worked</th></tr></thead>
+    <tbody>
+      <tr><td>Spot Trading vs. Futures Trading: What's the Difference?</td><td>Short, 2024</td><td class="n">12,000</td><td>A real question people search for, answered plainly</td></tr>
+      <tr><td>Every trader's alarm clock setup be like…</td><td>Short, meme</td><td class="n">2,100</td><td>A feeling every trader knows; no product shown</td></tr>
+      <tr><td>Should I give up trading and…</td><td>Short, meme</td><td class="n">1,600</td><td>Same: relatable, no product</td></tr>
+      <tr><td>Imagine losing a Bitcoin wallet worth $250 million…</td><td>Short, story</td><td class="n">833</td><td>A story with a hook in the first line</td></tr>
+      <tr><td>Top Flexes in Crypto History / Bitcoin was $1 in 2010</td><td>Short, history</td><td class="n">450–700</td><td>Money history that anyone recognises</td></tr>
+      <tr><td>如何设置理财赚币 (How to set up Wealth Earn, Chinese)</td><td>Video, tutorial</td><td class="n">555</td><td>The Chinese audience searches for how-tos</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>What didn't</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Upload</th><th>Format</th><th style="text-align:right">Views</th><th>Problem</th></tr></thead>
+    <tbody>
+      <tr><td>14 TOKEN2049 booth clips ("We're here. 🟩", "Found us yet? 👀"…)</td><td>Video, 20–40 s</td><td class="n">0–9 each</td><td>Made for people at the booth. On YouTube, titles like these give a stranger no reason to click.</td></tr>
+      <tr><td>What a Candlestick Actually Tells You</td><td>Video, 1:04 (101)</td><td class="n">1</td><td>Horizontal 1-minute video: too short for the long-form feed, and not eligible for Shorts</td></tr>
+      <tr><td>Position Sizing Beats Prediction</td><td>Video, 0:57 (101)</td><td class="n">4</td><td>Same. Good script, but the thumbnail is small serif text on beige</td></tr>
+      <tr><td>Product tutorials (Copy Trading, Demo Trading, Help Center…)</td><td>Video, 2 min, EN and CN copies</td><td class="n">15–50</td><td>Each one is uploaded twice (EN and CN), which splits views and confuses who the channel is for</td></tr>
+      <tr><td>Campaign Shorts ("Sail beyond with #hotcoin", "Explore more at Hotcoin")</td><td>Short</td><td class="n">1–30</td><td>These are ads, and viewers scroll past ads</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>2. What to fix on the channel</h2>
+  <p>Ordered by impact. Nothing here deletes anything.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>When</th><th>Fix</th><th>How</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill p0">This week</span></td><td><b>Get event clips off the Videos tab</b></td><td>Cut the 14 TOKEN2049 clips into one 2–3 minute vertical recap and post it as a Short. Set the single clips to Unlisted. They stay in the playlist and their links keep working. Rule from now on: event and campaign clips go to Shorts and Community, never to the Videos tab.</td></tr>
+      <tr><td><span class="pill p0">This week</span></td><td><b>Give Hotcoin 101 a format YouTube can show</b></td><td>Export every 101 episode as 9:16 and upload it as a Short (Shorts can now run up to 3 minutes). Keep the horizontal masters for the Sunday compilation (section 4).</td></tr>
+      <tr><td><span class="pill p0">This week</span></td><td><b>Rewrite the channel page for strangers</b></td><td>Banner: change "9 Years of Focus" to a promise and a schedule, for example <i>"Money stories, explained. New episodes Tue · Thu · Sun."</i> Description: open with what the viewer gets; company facts go last. Home tab: a channel trailer for non-subscribers, then shelves in this order: Bubble Files, Price Tag, Hotcoin 101.</td></tr>
+      <tr><td><span class="pill p1">This month</span></td><td><b>Separate the two languages</b></td><td>Stop uploading every video twice. Best option: a separate Hotcoin 中文 channel, since the Chinese tutorials already get more views than the English ones. If that's not possible, upload once and add the Chinese title and description in Studio → Languages.</td></tr>
+      <tr><td><span class="pill p1">This month</span></td><td><b>Write titles for curious strangers</b></td><td>Drop the "| Hotcoin Exchange" and "| Hotcoin Global" suffixes. They use up title space and read like an ad. The channel name is already shown under every video.</td></tr>
+      <tr><td><span class="pill p1">This month</span></td><td><b>Fix the thumbnails</b></td><td>See section 4. Current 101 thumbnails are unreadable at phone size.</td></tr>
+      <tr><td><span class="pill p1">This month</span></td><td><b>Clean up playlists</b></td><td>Rename "Hotcoin x ?" and merge the duplicate tutorial playlists. Create the series playlists before episode 1 goes up, so each episode can auto-play into the next.</td></tr>
+      <tr><td><span class="pill p2">Ongoing</span></td><td><b>Make Shorts trailers for the long videos</b></td><td>Cut a 45–60 s hook from every long episode, post it as a Short, and set the full episode as its Related Video. Shorts then send viewers to the long videos.</td></tr>
+      <tr><td><span class="pill p2">Ongoing</span></td><td><b>Check the comment section on "How to Set Up Wealth Earn"</b></td><td>It has 175 comments on 282 views, which is unusual. If those comments came from a giveaway or bought engagement, they distort the signals YouTube uses to rank the video. Find out before running anything similar.</td></tr>
+      <tr><td><span class="pill p2">Ongoing</span></td><td><b>Post on fixed days</b></td><td>Two or three long videos a week on the same days, every week. A predictable schedule matters more than a high volume.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>3. The long-form series</h2>
+  <p>Brief: broad, recognisable, something people put on while eating. That is lean-back viewing, often on a TV, so the episodes are 10–14 minute stories with large on-screen type, chapters, and a narrator who does most of the work. Both series sit next to what Hotcoin sells (crypto, gold, US stocks) without being about Hotcoin. Each episode ends with a 20-second lesson in the 101 style, then a tease for the next episode.</p>
+
+  <h3>Series A · Bubble Files</h3>
+  <p><b>Famous manias, crashes, heists and frauds, told as stories.</b> This genre already does well on YouTube (Magnates Media, Patrick Boyle, Bloomberg Originals). The Tulip Mania 101 is a ready pilot, and it already uses the paper "case file" look, so the two series feel related. Every story carries a trading lesson (leverage, position sizing, custody), so the brand fit comes from the story itself.</p>
+  <div class="tbl slate"><table>
+    <thead><tr><th>#</th><th>Episode title</th><th>Thumbnail text</th><th>Lesson at the end</th></tr></thead>
+    <tbody>
+      <tr><td>01</td><td>Tulip Mania: The Flower That Cost More Than a House</td><td>ONE BULB. ONE HOUSE.</td><td>Futures before futures existed</td></tr>
+      <tr><td>02</td><td>The Man Who Paid 10,000 Bitcoin for Two Pizzas</td><td>THE MOST EXPENSIVE PIZZA</td><td>Opportunity cost</td></tr>
+      <tr><td>03</td><td>The Hunt Brothers Tried to Buy All the Silver on Earth</td><td>THEY BOUGHT ALL THE SILVER</td><td>Leverage and margin calls</td></tr>
+      <tr><td>04</td><td>Isaac Newton Lost a Fortune in the South Sea Bubble</td><td>EVEN NEWTON LOST</td><td>FOMO has always existed</td></tr>
+      <tr><td>05</td><td>One Trader Sank a 233-Year-Old Bank</td><td>ONE GUY. ONE BANK.</td><td>Position sizing (links to the 101)</td></tr>
+      <tr><td>06</td><td>Mt. Gox: The Exchange That Lost 850,000 Bitcoin</td><td>850,000 BTC. GONE.</td><td>Proof of reserves</td></tr>
+      <tr><td>07</td><td>Japan 1989: When Tokyo Was Worth More Than America</td><td>TOKYO &gt; USA?</td><td>What a bubble looks like from inside</td></tr>
+      <tr><td>08</td><td>GameStop: The Week the Internet Beat Wall Street</td><td>REDDIT VS WALL ST</td><td>Short squeezes, explained</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Series B · Price Tag</h3>
+  <p><b>Why everyday things cost what they cost.</b> These are topics people already wonder about, the titles name things everyone recognises, and the explainer format is a natural home for gold, stocks and Bitcoin. It also fits the brief literally: several episodes are about food.</p>
+  <div class="tbl slate"><table>
+    <thead><tr><th>#</th><th>Episode title</th><th>Thumbnail text</th><th>Link to Hotcoin markets</th></tr></thead>
+    <tbody>
+      <tr><td>01</td><td>Why Gold Keeps Breaking Records</td><td>WHO'S BUYING ALL THE GOLD?</td><td>Gold</td></tr>
+      <tr><td>02</td><td>The Big Mac Index: What a Burger Says About Your Money</td><td>ONE BURGER, 50 PRICES</td><td>Currencies, stablecoins</td></tr>
+      <tr><td>03</td><td>Who Actually Paid for the 2026 World Cup?</td><td>THE $___ WORLD CUP</td><td>Ties to the World Cup campaign</td></tr>
+      <tr><td>04</td><td>Why Your Coffee Costs So Much Now</td><td>WHY IS COFFEE $7?</td><td>Commodities</td></tr>
+      <tr><td>05</td><td>How Nvidia Got Bigger Than Entire Countries</td><td>NVIDIA &gt; GERMANY?</td><td>US stocks with USDT</td></tr>
+      <tr><td>06</td><td>Why Concert Tickets Cost $800 Now</td><td>$800 FOR THIS SEAT?</td><td>Supply, demand, dynamic pricing</td></tr>
+      <tr><td>07</td><td>Why Apple Never Puts the iPhone on Sale</td><td>APPLE NEVER DISCOUNTS</td><td>US stocks</td></tr>
+      <tr><td>08</td><td>Where Does a Bitcoin Actually Live?</td><td>WHERE IS YOUR BITCOIN?</td><td>Custody and reserves</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Fact-check every figure in titles and thumbnails just before publishing. Prices and rankings (World Cup costs, Nvidia vs countries) change, so the slate leaves those numbers open on purpose.</p>
+
+  <h3>Series C · Hotcoin 101, Sunday edition</h3>
+  <p>Five 101 episodes stitched into one 8–10 minute video, for example <i>"Crypto in 10 Minutes: Blockchains, Exchanges, Candles and Slang"</i>, with chapters. It costs almost nothing to make, gives the existing 101s a long-form home, and gets search traffic for beginner questions.</p>
+
+  <h3>Episode shape (Bubble Files and Price Tag)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Time</th><th>Part</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td class="n">0:00</td><td>Cold open</td><td>Start in the middle of the most dramatic moment. No logo, no intro.</td></tr>
+      <tr><td class="n">0:30</td><td>The question</td><td>One line that makes the viewer need the answer: "How does a flower end up worth a house?"</td></tr>
+      <tr><td class="n">1:00</td><td>Act 1: setup</td><td>The world, the people, the money</td></tr>
+      <tr><td class="n">4:00</td><td>Act 2: the mania</td><td>The climb, told with charts and archive images</td></tr>
+      <tr><td class="n">8:00</td><td>Act 3: the break</td><td>The crash or the twist</td></tr>
+      <tr><td class="n">11:00</td><td>The lesson</td><td>20 seconds in the 101 file style, then a soft Hotcoin mention</td></tr>
+      <tr><td class="n">11:30</td><td>Next time</td><td>Tease the next episode, with an end screen linking to it</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>4. Thumbnails</h2>
+  <p>Most people decide whether to click from a thumbnail about 168 pixels wide on a phone. The current 101 thumbnails look great at full size, but at that width they're small serif text on beige and can't be read. The new rule: <b>one object, at most four words, high contrast, and the series badge in the same place every time.</b></p>
+  <div class="cmp">
+    <figure>
+      <div class="t"><img src="data:image/jpeg;base64,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" alt="Current Tulip Mania thumbnail: small serif text on a beige paper card"></div>
+      <figcaption><span class="bad">Now.</span> A sentence in small serif type. At phone size it reads as an empty beige card.</figcaption>
+    </figure>
+    <figure>
+      <div class="t" role="img" aria-label="Proposed Bubble Files thumbnail: tulip on ink with the words One bulb, one house">
+        <span class="badge">BUBBLE FILES</span>
+        <span class="obj" aria-hidden="true">🌷</span>
+        <span class="big">One bulb.<br><em>One house.</em></span>
+      </div>
+      <figcaption><span class="good">Proposed.</span> One object, four words, and the green series badge top left. In production the emoji is replaced by a real photo or a still from the episode.</figcaption>
+    </figure>
+  </div>
+  <p class="note">Below: the same proposed templates at actual phone size, 168 px wide.</p>
+  <div class="size-test">
+    <div class="t mini" role="img" aria-label="Bubble Files thumbnail at phone size"><span class="badge">BUBBLE FILES</span><span class="obj" aria-hidden="true">🍕</span><span class="big">Most<br><em>expensive</em><br>pizza</span></div>
+    <div class="t price mini" role="img" aria-label="Price Tag thumbnail at phone size"><span class="badge">PRICE TAG</span><span class="tag">$7?</span><span class="obj" aria-hidden="true">☕</span><span class="big">Why is<br><em>coffee</em></span></div>
+    <div class="t mini" role="img" aria-label="Current Position Sizing thumbnail at phone size"><img src="data:image/jpeg;base64,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" alt=""></div>
+  </div>
+  <p class="note">The third one is the current Position Sizing thumbnail at the same size.</p>
+
+  <h3>Series templates</h3>
+  <div class="thumbs">
+    <figure>
+      <div class="t" role="img" aria-label="Bubble Files template: ink background, green badge, large uppercase words, object on the right">
+        <span class="badge">BUBBLE FILES</span><span class="obj" aria-hidden="true">🥈</span><span class="big">They bought<br><em>all the silver</em></span>
+      </div>
+      <figcaption><b>Bubble Files.</b> Ink background with an archive photo, green badge, and the hook word in green. The mood is drama and history.</figcaption>
+    </figure>
+    <figure>
+      <div class="t price" role="img" aria-label="Price Tag template: paper background, red price sticker, object in the middle">
+        <span class="badge">PRICE TAG</span><span class="tag">GOLD</span><span class="obj" aria-hidden="true">🪙</span><span class="big">Who's<br>buying<br><em>it all?</em></span>
+      </div>
+      <figcaption><b>Price Tag.</b> Paper background and a red price sticker. Bright and everyday, so the two series are easy to tell apart in the feed.</figcaption>
+    </figure>
+  </div>
+  <ul class="tight">
+    <li>Use Studio's <b>Test &amp; Compare</b> on every long video: upload 3 thumbnails (and 3 titles if your channel has the option) and YouTube picks the winner by watch time. Availability varies by channel, so check under the video's Thumbnail section in Studio.</li>
+    <li>Claude can render thumbnails from the same Remotion project as the episodes (<code>remotion still</code>), so each video ships with 3 variants.</li>
+  </ul>
+
+  <h2>5. Weekly rhythm and who does what</h2>
+  <div class="week">
+    <div class="day"><span class="eyebrow">Tuesday</span><b>Bubble Files</b><p>10–14 min story, plus a Short trailer the same day</p></div>
+    <div class="day"><span class="eyebrow">Thursday</span><b>Price Tag</b><p>8–12 min explainer, plus a Short trailer</p></div>
+    <div class="day"><span class="eyebrow">Sunday</span><b>101 Sunday</b><p>8–10 min compilation; optional if the week is busy</p></div>
+    <div class="day"><span class="eyebrow">Daily</span><b>101 Shorts</b><p>Vertical re-exports of the existing 101s and the trailers</p></div>
+  </div>
+
+  <div class="flow">
+    <div><b>Research and script</b><span class="who">Claude</span><br>Sourced script with a fact list and timing, about 1,600 words for 11 minutes. You approve it.</div>
+    <div><b>Voiceover</b><span class="who">Team</span><br>One consistent human narrator, about 20 minutes of recording per episode. This matters most for quality: a synthetic voice over 12 minutes loses people, and YouTube is pushing back on mass-produced AI channels. The repo's Kokoro voice is fine for draft cuts.</div>
+    <div><b>Edit</b><span class="who">Claude</span><br>Remotion, the same pipeline as the 101s and Uptober: archive images (credited in FOOTAGE_CREDITS), charts, maps, and the file-style typography.</div>
+    <div><b>Thumbnail ×3 and a Short trailer</b><span class="who">Claude</span><br>Rendered from the episode itself.</div>
+    <div><b>Schedule</b><span class="who">Claude, via Publer</span><br>Uploaded as a draft with title, description, chapters, tags and thumbnail. You approve it in the Publer calendar, and it publishes at the set time.</div>
+  </div>
+
+  <h2>6. Posting without the manual work</h2>
+  <p><b>Recommendation: Publer.</b> Your Hotcoin workspace already has Facebook, Instagram, LinkedIn and X connected. <span class="bad">YouTube is not connected yet.</span> Once it is, Claude can do the whole upload from a session:</p>
+  <ul class="tight">
+    <li>Long videos and Shorts, uploaded from the rendered file</li>
+    <li>Title, description (with chapters), tags, category and privacy</li>
+    <li>Custom thumbnail</li>
+    <li>A scheduled publish time, or a draft for you to approve first</li>
+  </ul>
+  <p><b>Two gaps.</b> Publer's API docs don't cover <i>playlists</i> or the <i>made for kids</i> flag. Set "Not made for kids" once in YouTube Studio → Settings → Upload defaults. Adding each episode to its playlist is a 10-second manual step, or Claude can do it with Claude in Chrome if you use it.</p>
+  <p><b>Why not upload straight through the YouTube API?</b> It would cover playlists too, but Google locks every upload from a new, unaudited API project to Private until the project passes a compliance audit. That paperwork isn't worth it while Publer already works.</p>
+  <h3>To connect YouTube in Publer</h3>
+  <ol>
+    <li>In Publer, open the Hotcoin workspace → Add account → YouTube.</li>
+    <li>Sign in with the Google account that owns or manages @hotcoinglobal and choose the Hotcoin channel.</li>
+    <li>Tell Claude when it's done. Claude will check the connection and schedule a test upload as Private.</li>
+  </ol>
+
+  <h2>7. Decisions needed from you</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Decision</th><th>Recommended</th></tr></thead>
+    <tbody>
+      <tr><td>Unlist the 14 TOKEN2049 clips and replace them with one recap Short?</td><td>Yes</td></tr>
+      <tr><td>Separate Chinese channel, or translated titles on one channel?</td><td>Separate channel</td></tr>
+      <tr><td>Which series first?</td><td>Bubble Files, using Tulip Mania as episode 1</td></tr>
+      <tr><td>Who narrates?</td><td>One person on the team, with a decent USB mic</td></tr>
+      <tr><td>Two or three long uploads a week?</td><td>Start with two (Tue and Thu) for four weeks; add Sunday once the pipeline is steady</td></tr>
+      <tr><td>What does success look like after 4 weeks?</td><td>Each long episode passes 100 views in its first week, with thumbnail CTR of 4% or more and average view duration of 35% or more, read in Studio</td></tr>
+    </tbody>
+  </table></div>
+
+  <footer>
+    Sources: public channel data for @hotcoinglobal, read 13 Oct 2026 (baseline in <code>hotcoin-tradfi/youtube/snapshot-2026-10-13.json</code>);
+    the Publer API docs on YouTube video posts;
+    <a href="https://developers.google.com/youtube/v3/docs/videos/insert" target="_blank" rel="noopener">YouTube Data API: videos.insert</a> (private lock on unaudited projects);
+    <a href="https://www.tubefilter.com/?p=187324" target="_blank" rel="noopener">Tubefilter on Test &amp; Compare</a>.
+  </footer>
+</div>
