@@ -2,7 +2,7 @@
 # 🔥 Hotcoin Weekly Community Events
 Hey, Hotcoiners! 👋
 This week's community events are live! Take part, connect with other members, learn about crypto and compete for rewards.
-📍 **Today is Day 2:** the Crypto Knowledge Quiz starts at 2:00 PM UTC (<t:1791986400:R>).
+📍 **Today is Day 2:** the Crypto Knowledge Quiz starts at 2:00 PM UTC (<t:1791900000:R>).
 
 ## 📅 6-Day Weekly Events
 A six-day weekly programme to make the community more active, interactive and rewarding.
@@ -13,7 +13,7 @@ A six-day weekly programme to make the community more active, interactive and re
 - Send at least **50 meaningful messages** per week here on Discord
 - Stay active and join community activities
 
-🕑 **Days 2–6 start at 2:00 PM UTC** (<t:1791986400:t> your time)
+🕑 **Days 2–6 start at 2:00 PM UTC** (<t:1791900000:t> your time)
 
 **🧠 Day 2 · Crypto Knowledge Quiz**
 Test your knowledge of crypto, blockchain, spot trading and futures trading.
