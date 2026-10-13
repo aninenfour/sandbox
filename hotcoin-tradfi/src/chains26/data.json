@@ -1,0 +1,191 @@
+{
+ "asOf": "13 Oct 2026",
+ "tvlTotal": 92119524188.09843,
+ "stableTotal": 306037924815.4983,
+ "ytd": [
+  {
+   "name": "Ethereum",
+   "logo": "ethereum",
+   "now": 51486216812,
+   "ytd": -24.6204180090542
+  },
+  {
+   "name": "Base",
+   "logo": "base",
+   "now": 6249730131,
+   "ytd": 40.35956468730606
+  },
+  {
+   "name": "Solana",
+   "logo": "solana",
+   "now": 6073993263,
+   "ytd": -25.533861722105943
+  },
+  {
+   "name": "Tron",
+   "logo": "tron",
+   "now": 5604939733,
+   "ytd": 27.54793241511151
+  },
+  {
+   "name": "BSC",
+   "logo": "binancecoin",
+   "now": 5410360367,
+   "ytd": -18.040076107460624
+  },
+  {
+   "name": "Bitcoin",
+   "logo": "bitcoin",
+   "now": 4479968954,
+   "ytd": -34.01988856375922
+  }
+ ],
+ "baseAth": {
+  "peak": 6473712682,
+  "date": "2026-10-05"
+ },
+ "dex": [
+  {
+   "name": "Solana",
+   "logo": "solana",
+   "v": 80627126283.89998
+  },
+  {
+   "name": "Ethereum",
+   "logo": "ethereum",
+   "v": 42844758507.12
+  },
+  {
+   "name": "Robinhood Chain",
+   "logo": "robinhood",
+   "v": 40261480716.85001
+  },
+  {
+   "name": "Base",
+   "logo": "base",
+   "v": 29954881045.76
+  },
+  {
+   "name": "BSC",
+   "logo": "binancecoin",
+   "v": 29409857824.769993
+  },
+  {
+   "name": "Hyperliquid",
+   "logo": "hyperliquid",
+   "v": 9807737745.400002
+  }
+ ],
+ "dexTotal": 286917241798.61,
+ "stables": [
+  {
+   "name": "Ethereum",
+   "logo": "ethereum",
+   "v": 145431244481.55536
+  },
+  {
+   "name": "Tron",
+   "logo": "tron",
+   "v": 94716231513.58447
+  },
+  {
+   "name": "Solana",
+   "logo": "solana",
+   "v": 15914443763.027052
+  },
+  {
+   "name": "BSC",
+   "logo": "binancecoin",
+   "v": 13803904046.886305
+  },
+  {
+   "name": "Hyperliquid",
+   "logo": "hyperliquid",
+   "v": 7157157150.488141
+  }
+ ],
+ "tronTvlShare": 6.084421063177985,
+ "fees1y": [
+  {
+   "name": "Tron",
+   "logo": "tron",
+   "v": 343545940
+  },
+  {
+   "name": "Solana",
+   "logo": "solana",
+   "v": 238582449
+  },
+  {
+   "name": "BSC",
+   "logo": "binancecoin",
+   "v": 185900447
+  },
+  {
+   "name": "Ethereum",
+   "logo": "ethereum",
+   "v": 183074070
+  }
+ ],
+ "peak": [
+  {
+   "name": "Monad",
+   "logo": "monad",
+   "ath": 0.0,
+   "athDate": "2026-10",
+   "first": "2025-11"
+  },
+  {
+   "name": "Robinhood",
+   "logo": "robinhood",
+   "ath": -0.35242843456007034,
+   "athDate": "2026-10",
+   "first": "2026-07"
+  },
+  {
+   "name": "Base",
+   "logo": "base",
+   "ath": -3.459877847572357,
+   "athDate": "2026-10",
+   "first": "2023-07"
+  },
+  {
+   "name": "Hyperliquid",
+   "logo": "hyperliquid",
+   "ath": -61.41169046216124,
+   "athDate": "2025-09",
+   "first": "2024-12"
+  },
+  {
+   "name": "Arbitrum",
+   "logo": "arbitrum",
+   "ath": -67.07583722557051,
+   "athDate": "2025-10",
+   "first": "2021-08"
+  },
+  {
+   "name": "Sui",
+   "logo": "sui",
+   "ath": -80.31461966765939,
+   "athDate": "2025-10",
+   "first": "2023-05"
+  },
+  {
+   "name": "Plasma",
+   "logo": "plasma",
+   "ath": -91.33858588316917,
+   "athDate": "2025-10",
+   "first": "2025-09"
+  },
+  {
+   "name": "Aptos",
+   "logo": "aptos",
+   "ath": -96.19340959935386,
+   "athDate": "2024-12",
+   "first": "2022-10"
+  }
+ ],
+ "monadYtd": 329.08740897314095,
+ "rhFirst": "2026-07-02",
+ "rhTvl": 1053910287
+}

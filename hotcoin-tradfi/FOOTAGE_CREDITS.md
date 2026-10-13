@@ -228,3 +228,10 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 - **Globe land shapes:** Natural Earth via world-atlas@2.0.2 (public domain).
 - **Sound effects:** Mixkit typewriter effects 1372, 1365, 1119, 1380 and 1385 (Mixkit free licence).
 - **Music:** "New Bass 02" (Mixkit, track 721), starting on its drop.
+
+## Chain Pulse carousel (`src/chains26/ChainPulse.tsx`)
+- **Data:** DefiLlama, pulled 13 Oct 2026. Covers chain TVL and its history, DEX volume by chain over 30 days, stablecoins by chain, and chain fees over 12 months.
+- **Logos:**
+  - Token logos come from CoinGecko.
+  - Base, Robinhood and Arc icons come from their own sites (base.org favicon, robinhood.com, arc.network).
+- **Engraved coin art:** ETH, SOL, TRX and MON, made from the CoinGecko logos.
