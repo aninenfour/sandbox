@@ -1,0 +1,345 @@
+<title>Bubble Files Channel Kit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@500;600&family=Inter+Tight:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one long dossier column, the channel's own dark look (same ink, red and paper as the videos). Single dark theme on purpose. */
+:root {
+  --ink: #0E0F11; --panel: #17191D; --line: #2A2D33;
+  --fg: #ECEAE4; --muted: #A3A7AE; --red: #E3262F; --red-soft: rgba(227,38,47,.14); --paper: #F2EEE6;
+  --display: Anton, Impact, "Arial Narrow", sans-serif;
+  --body: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--ink); color: var(--fg); font: 400 16px/1.6 var(--body); }
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 40px 96px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 72px; }
+h1, h2 { font-family: var(--display); font-weight: 400; letter-spacing: .02em; text-transform: uppercase; text-wrap: balance; margin: 0; line-height: 1; }
+h1 { font-size: clamp(56px, 11vw, 112px); }
+h2 { font-size: clamp(34px, 6vw, 52px); }
+h3 { font: 600 19px/1.3 var(--body); margin: 0; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--fg); text-decoration-color: var(--red); text-underline-offset: 3px; }
+.kicker { font: 600 13px var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--red); }
+.muted { color: var(--muted); }
+section { display: flex; flex-direction: column; gap: 22px; }
+.head { display: flex; flex-direction: column; gap: 10px; }
+.hero { display: grid; grid-template-columns: 180px 1fr; gap: 32px; align-items: center; }
+.hero img { width: 180px; height: 180px; border-radius: 50%; }
+.hero .lede { font-size: 19px; color: var(--muted); margin-top: 16px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.facts div { background: var(--panel); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.facts b { font: 500 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.facts span { font: 600 18px var(--body); overflow-wrap: anywhere; }
+.art { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+figure { margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+figure img { width: 100%; display: block; border: 1px solid var(--line); }
+figcaption { font: 500 13px/1.5 var(--mono); color: var(--muted); }
+figcaption b { color: var(--fg); font-weight: 600; }
+.wide { grid-column: 1 / -1; }
+.chk { background: repeating-conic-gradient(#22252a 0% 25%, #1a1c20 0% 50%) 50% / 20px 20px; padding: 28px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; }
+.chk img { border: 0; width: auto; max-width: 100%; }
+.paperbg { background: var(--paper); }
+.copy { position: relative; border: 1px solid var(--line); background: var(--panel); }
+.copy header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.copy header span { font: 600 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.copy pre { margin: 0; padding: 16px; white-space: pre-wrap; overflow-wrap: anywhere; font: 400 14.5px/1.6 var(--mono); color: var(--fg); max-height: 520px; overflow: auto; }
+button { font: 600 13px var(--body); color: var(--ink); background: var(--fg); border: 0; padding: 7px 14px; cursor: pointer; }
+button:hover { background: #fff; }
+button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+button.done { background: var(--red); color: #fff; }
+.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 54px 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.steps li::before { content: counter(s, decimal-leading-zero); font: 400 30px/1 var(--display); color: var(--red); }
+.steps li > div { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.steps .where { font: 500 13px var(--mono); color: var(--muted); }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.cols > div { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.rule { border-left: 3px solid var(--red); padding-left: 16px; display: flex; flex-direction: column; gap: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; padding: 11px 12px 11px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+td.t { font-variant-numeric: tabular-nums; font-family: var(--mono); white-space: nowrap; color: var(--muted); }
+.scroll { overflow-x: auto; }
+.pill { display: inline-block; font: 600 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; background: var(--red-soft); color: #ff8a8f; white-space: nowrap; }
+.pill.go { background: rgba(126,194,90,.14); color: #a5dc86; }
+ul.plain { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; max-width: 72ch; }
+.sources { font-size: 14px; }
+@media (max-width: 640px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero img { width: 120px; height: 120px; }
+  .art { grid-template-columns: 1fr; }
+  .steps li { grid-template-columns: 40px 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) { button { transition: background .15s; } }
+</style>
+
+<div class="wrap">
+
+  <section class="hero">
+    <img src="profile-800.jpg" alt="Bubble Files profile picture: a red bubble with a price line that spikes up and pops out of the top">
+    <div>
+      <div class="kicker">Channel kit · v1 · 14 Oct 2026</div>
+      <h1>Bubble Files</h1>
+      <p class="lede">Everything to launch the channel: name, logo, banner, the text to paste into YouTube Studio, the Episode 01 upload pack, and the plan for getting views.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div class="kicker">Identity</div><h2>Name and positioning</h2></div>
+    <div class="facts">
+      <div><b>Channel name</b><span>Bubble Files</span></div>
+      <div><b>Handle</b><span>@bubblefiles</span></div>
+      <div><b>Handle check</b><span>No channel at youtube.com/@bubblefiles on 14 Oct 2026</span></div>
+      <div><b>Tagline</b><span>The wildest money stories in history</span></div>
+    </div>
+    <p>The name is the show. "Bubble" says money and mania at a glance, and "Files" says real cases and real evidence, which is what the archive footage, documents and charts deliver. It stretches to every episode on the list below: bubbles, crashes, squeezes and schemes. There's no brand name in it, so it reads like an independent show on the same shelf as Johnny Harris, MagnatesMedia and How Money Works.</p>
+    <p class="muted">Backups if the handle is taken by the time you claim it: @bubblefilesshow, @bubblefilesyt. Claim the handle first, before anything else.</p>
+  </section>
+
+  <section>
+    <div class="head"><div class="kicker">Logo and art</div><h2>The mark</h2></div>
+    <p>A red bubble with a price line inside it: a slow climb, the mania, a peak that breaks through the top and pops, then the crash. That's every episode in one shape. It uses the same red, ink and Anton type as the videos, so the channel page, thumbnails and videos look like one show.</p>
+    <div class="art">
+      <figure>
+        <img src="profile-800.jpg" alt="Profile picture 800 by 800">
+        <figcaption><b>profile-800.jpg</b> · profile picture, 800 × 800. YouTube crops it to a circle and shows it at 98 px.</figcaption>
+      </figure>
+      <figure>
+        <img src="profile-sizes-preview.jpg" alt="The profile picture shown as circles at 160, 98, 48 and 24 pixels on white and dark backgrounds">
+        <figcaption><b>Size check</b> · it still reads at 24 px, which is how it shows next to every video in the feed.</figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="banner-preview.jpg" alt="Channel banner: Bubble Files wordmark with tagline and a red bubble chart running across the width">
+        <figcaption><b>banner-2560x1440.jpg</b> · banner, 2560 × 1440, 1.2 MB (YouTube's limit is 6 MB). TVs show the full image; desktops and phones show only the middle strip.</figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="banner-phone-preview.jpg" alt="The middle strip of the banner as phones show it">
+        <figcaption><b>What phones show</b> · the centre safe area. The logo, name, tagline and schedule all sit inside it.</figcaption>
+      </figure>
+      <figure>
+        <div class="chk"><img src="watermark-150.png" alt="Watermark: the bubble mark on transparent background" style="width:120px"></div>
+        <figcaption><b>watermark-150.png</b> · 150 × 150, transparent. Sits bottom-right on every video, and clicking it subscribes the viewer.</figcaption>
+      </figure>
+      <figure>
+        <div class="chk"><img src="wordmark-white.png" alt="Bubble Files wordmark in white"></div>
+        <figcaption><b>wordmark-white.png</b> · for thumbnails, Shorts end frames and socials on dark backgrounds.</figcaption>
+      </figure>
+      <figure class="wide">
+        <div class="chk paperbg"><img src="wordmark-ink.png" alt="Bubble Files wordmark in dark ink for light backgrounds"></div>
+        <figcaption><b>wordmark-ink.png</b> · the same for light backgrounds.</figcaption>
+      </figure>
+    </div>
+    <p class="muted">The art is code, so changing a colour or the tagline is a one-line edit and a re-render (<code>youtube/channel/brand.html</code> and <code>render.sh</code> in the repo).</p>
+  </section>
+
+  <section>
+    <div class="head"><div class="kicker">Channel text</div><h2>Paste into YouTube Studio</h2></div>
+
+    <div class="copy"><header><span>Channel description · Customization › Profile</span><button data-copy="desc">Copy</button></header>
+<pre id="desc">Bubble Files tells the wildest money stories in history. Manias, crashes, market squeezes and schemes: two Texas brothers who tried to corner the world's silver, a flower that cost more than a house, and the people who made and lost fortunes overnight.
+
+Every episode is a story you can watch over dinner, built from real archive footage, maps and charts. No jargon and no lectures. Just what happened, why it happened, and what it tells us about money today.
+
+New story every week. Subscribe so you don't miss the next one.
+
+Bubble Files is made with support from Hotcoin.</pre></div>
+
+    <div class="copy"><header><span>Channel keywords · Settings › Channel › Basic info</span><button data-copy="kw">Copy</button></header>
+<pre id="kw">"financial history" "economic history" "market crash" "stock market history" "financial bubbles" "money stories" "business documentary" "market manipulation" "history documentary" "finance explained" "silver" "hunt brothers" "tulip mania" "bubble files"</pre></div>
+
+    <div class="cols">
+      <div class="copy"><header><span>Playlists to create</span><button data-copy="pl">Copy</button></header>
+<pre id="pl">Bubbles & Crashes
+Squeezes & Schemes
+Bubble Files in 60 Seconds (Shorts)</pre></div>
+      <div class="copy"><header><span>Links · Customization › Profile › Links</span><button data-copy="links">Copy</button></header>
+<pre id="links">Hotcoin (sponsor) → your tracked Hotcoin link
+Instagram / TikTok → if you post the Shorts there too</pre></div>
+    </div>
+
+    <div class="copy"><header><span>Upload defaults: description · Settings › Upload defaults</span><button data-copy="defdesc">Copy</button></header>
+<pre id="defdesc">[Two-line hook with the main names and the year]
+
+Chapters
+0:00
+
+Sponsor
+This video includes a paid promotion for Hotcoin. Trade silver, gold, US stocks and 500+ cryptocurrencies: [tracked link]
+Futures trading involves risk.
+
+Sources
+-
+
+Footage: Prelinger Archives (Internet Archive), Mixkit. Photos used for commentary and criticism.
+
+New story every week. Subscribe: https://www.youtube.com/@bubblefiles?sub_confirmation=1
+
+#history #finance #documentary</pre></div>
+  </section>
+
+  <section>
+    <div class="head"><div class="kicker">How to make it</div><h2>Set up the channel</h2></div>
+    <p>About 30 minutes, in this order. Do it from the company Google account so the channel never depends on one person's login. That avoids the Publer problem you had with the current channel.</p>
+    <ol class="steps">
+      <li><div><h3>Create the channel as a Brand Account</h3><p>Signed in as the company account: youtube.com › profile picture › Create a channel. Enter "Bubble Files" as the name. Using a custom name makes it a Brand Account that more than one person can manage.</p><span class="where">youtube.com › Create a channel</span></div></li>
+      <li><div><h3>Claim the handle</h3><p>Set the handle to @bubblefiles straight away.</p><span class="where">Studio › Customization › Basic info › Handle</span></div></li>
+      <li><div><h3>Verify with a phone number</h3><p>This unlocks custom thumbnails and videos longer than 15 minutes. Without it, you can't upload the Ep01 thumbnail.</p><span class="where">youtube.com/verify</span></div></li>
+      <li><div><h3>Add the team</h3><p>Invite the people who upload as Managers or Editors, rather than sharing a password.</p><span class="where">Studio › Settings › Permissions</span></div></li>
+      <li><div><h3>Upload the art</h3><p>Profile picture: profile-800.jpg. Banner: banner-2560x1440.jpg. Watermark: watermark-150.png, set to "Entire video".</p><span class="where">Studio › Customization › Branding</span></div></li>
+      <li><div><h3>Paste the channel text</h3><p>The description and links from above. Then the keywords, set the country, and set the audience to "No, this channel is not made for kids".</p><span class="where">Studio › Customization › Basic info · Settings › Channel</span></div></li>
+      <li><div><h3>Set upload defaults</h3><p>Paste the default description. Category: Education. Language: English. Visibility: Private, so nothing goes live by accident.</p><span class="where">Studio › Settings › Upload defaults</span></div></li>
+      <li><div><h3>Create the three playlists</h3><p>Ep01 goes into Squeezes & Schemes.</p><span class="where">Studio › Content › Playlists</span></div></li>
+      <li><div><h3>Upload Episode 01 with the pack below</h3><p>Then set the channel layout: Ep01 as the featured video for returning subscribers, and the Shorts shelf underneath.</p><span class="where">Studio › Customization › Layout</span></div></li>
+      <li><div><h3>Connect the channel to Publer</h3><p>Because the channel sits under the company account, it shows up when you connect YouTube in Publer. Use Publer to schedule the Shorts across YouTube, TikTok and Instagram.</p><span class="where">Publer › Add account › YouTube</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="head"><div class="kicker">Episode 01</div><h2>Upload pack</h2></div>
+    <div class="art">
+      <figure class="wide">
+        <img src="ep01-thumbnail-1280x720.jpg" alt="Episode 01 thumbnail: silver bars and the host, headline about two Texas brothers and the world's silver">
+        <figcaption><b>ep01-thumbnail-1280x720.jpg</b> · the thumbnail from the plan, 300 KB (limit 2 MB).</figcaption>
+      </figure>
+    </div>
+
+    <div class="copy"><header><span>Title · recommended</span><button data-copy="t1">Copy</button></header>
+<pre id="t1">Two Texas Brothers Tried to Corner the World's Silver</pre></div>
+    <p class="muted">If Studio offers Test & Compare on your channel, test the recommended title against these two. YouTube picks the winner by watch time. It's still rolling out, so a new channel may not have it yet.</p>
+    <div class="cols">
+      <div class="copy"><header><span>Title · test B</span><button data-copy="t2">Copy</button></header><pre id="t2">The Brothers Who Tried to Buy All the Silver on Earth</pre></div>
+      <div class="copy"><header><span>Title · test C</span><button data-copy="t3">Copy</button></header><pre id="t3">How Two Brothers Lost Over $1 Billion Cornering Silver</pre></div>
+    </div>
+
+    <div class="copy"><header><span>Description</span><button data-copy="d1">Copy</button></header>
+<pre id="d1">In January 1980 silver hit $50 an ounce, and people were melting down their grandma's forks to sell them. The buyers? Nelson Bunker Hunt and Herbert Hunt, two Texas oil brothers who tried to corner the world's silver market, until Silver Thursday wiped out more than a billion dollars.
+
+This is the story of the Hunt brothers, the 1980 silver squeeze, and how the people who run the market changed the rules.
+
+Chapters
+0:00 Silver hits $50
+0:27 Who were the Hunt brothers?
+1:35 Why silver?
+2:22 The squeeze
+3:35 Sponsor: Hotcoin
+3:55 The rules change
+4:55 Silver Thursday
+5:57 The aftermath
+6:38 So what is the lesson?
+
+Sponsor
+This video includes a paid promotion for Hotcoin. Trade silver (XAG/USDT), gold, US stocks and 500+ cryptocurrencies: [tracked link]
+Futures trading involves risk.
+
+Sources
+- Wikipedia: "Silver Thursday", "Nelson Bunker Hunt"
+- Encyclopaedia Britannica: "Silver Thursday"
+- Fortune, 28 July 1980 (families selling silverware)
+- Christian Science Monitor, 1 May 1980 (the Fed and lending to speculators)
+Prices between the dates marked on the charts are approximate.
+
+Footage: Prelinger Archives (Internet Archive), Mixkit. Photos used for commentary and criticism.
+
+New story every week. Subscribe: https://www.youtube.com/@bubblefiles?sub_confirmation=1
+
+#history #silver #finance</pre></div>
+
+    <div class="cols">
+      <div class="copy"><header><span>Tags</span><button data-copy="tags">Copy</button></header>
+<pre id="tags">hunt brothers, silver thursday, hunt brothers silver, 1980 silver crash, nelson bunker hunt, cornering the silver market, silver squeeze, market manipulation, financial history, economic history, silver price history, history documentary, bubble files</pre></div>
+      <div class="copy"><header><span>Pinned comment</span><button data-copy="pin">Copy</button></header>
+<pre id="pin">Genius or greed? The Hunts were right about inflation and still lost everything. Would you have sold your silver at $50, or held on?</pre></div>
+    </div>
+
+    <div class="scroll"><table>
+      <thead><tr><th>Setting</th><th>Value</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Paid promotion</td><td><span class="pill go">Tick it</span></td><td>The video contains a Hotcoin ad. YouTube shows a small "Includes paid promotion" note, and it keeps the channel honest.</td></tr>
+        <tr><td>Altered or synthetic content</td><td><span class="pill">No</span></td><td>YouTube's help page lists realistic fakes of real people, places or events. Our footage is real and unaltered, and the narrator is a synthetic voice that doesn't imitate anyone. If that ever changes, say Yes.</td></tr>
+        <tr><td>Audience</td><td>Not made for kids</td><td>Keeps comments and the end screen working.</td></tr>
+        <tr><td>Subtitles</td><td>Upload bubble-files-01.en.srt "with timing"</td><td>Accurate captions help viewers who watch muted, and they help auto-translation.</td></tr>
+        <tr><td>Category · language</td><td>Education · English</td><td></td></tr>
+        <tr><td>End screen</td><td>Subscribe element + "Best for viewer" video</td><td>The last 10 seconds are the thank-you card, which leaves room for both.</td></tr>
+        <tr><td>Playlist</td><td>Squeezes & Schemes</td><td></td></tr>
+        <tr><td>Publish time</td><td>Tue to Thu, 14:00 to 16:00 New York time, to start</td><td>A starting guess for an English-speaking audience. After about five uploads, switch to the times in Analytics › Audience › "When your viewers are on YouTube".</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <div class="head"><div class="kicker">Virality</div><h2>How it gets views</h2></div>
+    <p>A new channel has no subscribers to push to, so YouTube tests each video on small groups of strangers and widens the test when they click and keep watching. Two numbers decide everything: how many people click (CTR) and how long they stay. The plan is built around those two.</p>
+    <div class="cols">
+      <div class="rule"><h3>Packaging before the script</h3><p>Write the title and draw the thumbnail before writing the episode. If the idea doesn't fit in six words and one image, it won't get clicked. Use a face, one object and one number, and keep the thumbnail to five words or fewer.</p></div>
+      <div class="rule"><h3>The first 30 seconds</h3><p>Open at the most dramatic moment, then promise the rest. Ep01 opens on grandma's forks being melted at $50 an ounce. Most viewers decide in the first half minute.</p></div>
+      <div class="rule"><h3>Three Shorts per episode</h3><p>Cut three vertical Shorts from every episode and attach each to the full video with Studio's "Related video" link. Post them over the week after the episode. Shorts reach people who don't know the channel yet.</p></div>
+      <div class="rule"><h3>The first hour</h3><p>Pin the comment, reply to every early comment, and share in the team's own channels. Don't buy views or subscribers: viewers who don't watch tell YouTube the video is weak.</p></div>
+      <div class="rule"><h3>Read it at 48 hours</h3><p>Check CTR and average view duration in Analytics. If CTR is low but people who click stay, change the thumbnail; the story is fine. If people leave early, check where in the retention graph they drop and fix that in the next script.</p></div>
+      <div class="rule"><h3>Same look every time</h3><p>Use the same thumbnail style, the same red and the same series title card, so someone who liked one episode recognises the next one in their feed.</p></div>
+    </div>
+
+    <div class="scroll"><table>
+      <thead><tr><th>Ep01 Short</th><th>Cut</th><th>Hook line on screen</th></tr></thead>
+      <tbody>
+        <tr><td>Grandma's forks</td><td class="t">0:00 – 0:26</td><td>In 1980 people melted their grandma's forks. Here's why.</td></tr>
+        <tr><td>Silver Thursday</td><td class="t">5:11 – 5:35</td><td>Half of it, gone in one day</td></tr>
+        <tr><td>The 45-year footnote</td><td class="t">6:57 – 7:13</td><td>Silver took 45 years to get back to this price</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <div class="head"><div class="kicker">What's next</div><h2>The next ten files</h2></div>
+    <p>Picked for stories people already half-know, a visual hook and one big number. They're in a suggested order, but none is promised on screen, so you can change it any time.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Story</th><th>Working title</th><th>The hook</th></tr></thead>
+      <tbody>
+        <tr><td>Tulip Mania, 1637</td><td>The Flower That Cost More Than a House</td><td>Was it as crazy as the legend says? (Historians argue it wasn't.)</td></tr>
+        <tr><td>South Sea Bubble, 1720</td><td>Isaac Newton Lost a Fortune in This Bubble</td><td>The smartest man alive bought the top</td></tr>
+        <tr><td>John Law, 1720</td><td>The Gambler Who Ran France's Money</td><td>A convicted killer invents paper money for a king</td></tr>
+        <tr><td>Japan, 1989</td><td>When Tokyo Was Worth More Than All of America</td><td>The Imperial Palace grounds, valued above California</td></tr>
+        <tr><td>Salad Oil Scandal, 1963</td><td>The Fake Oil That Fooled American Express</td><td>Tanks full of water with oil floating on top</td></tr>
+        <tr><td>Onion futures, 1958</td><td>Why You Still Can't Trade Onions in America</td><td>Two traders broke a market so badly Congress banned it</td></tr>
+        <tr><td>LTCM, 1998</td><td>The Nobel Geniuses Who Almost Broke Wall Street</td><td>Two Nobel winners, one bailout</td></tr>
+        <tr><td>Barings, 1995</td><td>One Trader Sank a 233-Year-Old Bank</td><td>Account 88888, hidden losses that grew to more than the bank was worth</td></tr>
+        <tr><td>Dot-com, 2000</td><td>The Sock Puppet That Became a Dot-com Disaster</td><td>Pets.com, a Super Bowl ad, and a shutdown months after the IPO</td></tr>
+        <tr><td>GameStop, 2021</td><td>The Reddit Squeeze, Explained by History</td><td>The Hunts' squeeze, replayed with an app</td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted">Check each fact against at least two sources before scripting, like we did for Ep01. The hooks above are the angle, not finished claims.</p>
+  </section>
+
+  <section>
+    <div class="head"><div class="kicker">Rules</div><h2>Stay safe</h2></div>
+    <ul class="plain">
+      <li>Tick "Includes paid promotion" on every video with the Hotcoin read, and keep the sponsor line in the description. Don't hide that Hotcoin is behind the channel: being found out later costs more trust than any saving.</li>
+      <li>Keep "Futures trading involves risk" in the ad. Some countries (the UK among them) restrict promoting crypto and crypto futures, so check with legal before running paid promotion of these videos.</li>
+      <li>Ep01 uses news photos of the Hunts under fair use and archive films marked public domain. Two films have unclear licence records (the 1958 Hostess outtakes and The Southwestern States); check them before any paid boost. The full list is in FOOTAGE_CREDITS.md.</li>
+      <li>Never use a real person's voice or make it look like someone said something they didn't. That would need YouTube's AI disclosure, and it's the fastest way to lose trust.</li>
+    </ul>
+  </section>
+
+  <section class="sources">
+    <div class="head"><div class="kicker">Sources</div></div>
+    <ul class="plain muted">
+      <li><a href="https://support.google.com/youtube/answer/10456525" target="_blank" rel="noopener">YouTube Help: Manage your channel branding</a> (banner 2048 × 1152 minimum, 2560 × 1440 recommended, 6 MB, safe area; watermark 150 × 150)</li>
+      <li><a href="https://support.google.com/youtube/answer/14328491" target="_blank" rel="noopener">YouTube Help: Disclosing altered or synthetic content</a></li>
+      <li><a href="https://www.tubefilter.com/?p=187324" target="_blank" rel="noopener">Tubefilter: YouTube expands Test & Compare to titles</a>, <a href="https://routenote.com/blog/youtube-expand-test-compare-how-to-use-it/" target="_blank" rel="noopener">RouteNote: how Test & Compare picks a winner</a></li>
+      <li><a href="https://searchengineland.com/youtube-enables-linking-shorts-long-form-videos-430655" target="_blank" rel="noopener">Search Engine Land: linking Shorts to long-form videos</a></li>
+    </ul>
+  </section>
+
+</div>
+
+<script>
+document.querySelectorAll('button[data-copy]').forEach((b) => {
+  b.addEventListener('click', () => {
+    const el = document.getElementById(b.dataset.copy);
+    const done = () => { b.textContent = 'Copied'; b.classList.add('done'); setTimeout(() => { b.textContent = 'Copy'; b.classList.remove('done'); }, 1600); };
+    const select = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press Ctrl+C'; };
+    try { navigator.clipboard.writeText(el.innerText).then(done, select); } catch (e) { select(); }
+  });
+});
+</script>

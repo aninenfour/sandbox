@@ -1,0 +1,77 @@
+<!doctype html>
+<!-- Bubble Files channel art. Each design renders at its own size: brand.html?d=<design>.
+     Rendered to PNG by render.sh. Colours match the video: ink, one red, paper, silver. -->
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: Anton; src: url(assets/anton-latin-400-normal.woff2); }
+@font-face { font-family: Plex; src: url(assets/ibm-plex-mono-latin-600-normal.woff2); font-weight: 600; }
+@font-face { font-family: Inter; src: url(assets/inter-tight-latin-700-normal.woff2); font-weight: 700; }
+@font-face { font-family: Inter; src: url(assets/inter-tight-latin-600-normal.woff2); font-weight: 600; }
+:root { --ink: #0E0F11; --red: #E3262F; --paper: #F2EEE6; --silver: #C9CED3; }
+html, body { margin: 0; padding: 0; background: transparent; }
+.c { position: relative; overflow: hidden; }
+.grain { position: absolute; inset: 0; background: url(assets/grain.png); opacity: .18; mix-blend-mode: screen; pointer-events: none; }
+.vig { position: absolute; inset: 0; background: radial-gradient(90% 80% at 50% 45%, #24272c 0%, var(--ink) 75%); }
+</style></head>
+<body>
+<script>
+const d = new URLSearchParams(location.search).get('d') || 'pfp';
+// The mark: a red bubble, and a price line that climbs inside it and bursts out through the top.
+// Drawn in a 100x100 box so it scales to any size.
+const mark = (stroke = '#fff', fill = 'var(--red)', bg = null, burst = stroke) => `
+  <svg viewBox="0 0 100 100" width="100%" height="100%" style="overflow:visible">
+    ${bg ? `<rect width="100" height="100" fill="${bg}"/>` : ''}
+    <circle cx="50" cy="54" r="38" fill="${fill}"/>
+    <!-- a bubble chart: slow climb, mania, the pop at the top, the crash -->
+    <path d="M17 70 L30 63 L38 66 L49 48 L57 9 L65 60 L74 66 L84 64" fill="none" stroke="${stroke}" stroke-width="7.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g stroke="${burst}" stroke-width="3.6" stroke-linecap="round">
+      <path d="M47 3 L42 -2"/><path d="M57 -3 L57 -9"/><path d="M67 3 L72 -2"/>
+    </g>
+  </svg>`;
+const html = {
+  // profile picture, 800x800 (YouTube shows it as a circle at 98px)
+  pfp: `<div class="c" style="width:800px;height:800px;background:var(--ink)">
+      <div class="vig"></div>
+      <div style="position:absolute;left:60px;top:100px;width:680px;height:680px">${mark()}</div>
+      <div class="grain"></div></div>`,
+  // the same mark, preview of how it reads tiny and round
+  pfpSmall: `<div style="display:flex;gap:40px;align-items:center;padding:30px;background:#fff;width:640px">
+      ${[160, 98, 48, 24].map((s) => `<img src="out/profile-800.png" style="width:${s}px;height:${s}px;border-radius:50%">`).join('')}
+      <div style="display:flex;gap:40px;align-items:center;padding:30px;background:#0f0f0f">${[98, 48, 24].map((s) => `<img src="out/profile-800.png" style="width:${s}px;height:${s}px;border-radius:50%">`).join('')}</div></div>`,
+  // watermark, 150x150 transparent: shown bottom-right of every video, links to Subscribe
+  watermark: `<div style="width:150px;height:150px;position:relative">
+      <div style="position:absolute;inset:14px">${mark('#fff', 'var(--red)')}</div></div>`,
+  // horizontal wordmark for thumbnails, end cards and socials, transparent
+  wordmark: `<div style="display:flex;align-items:center;gap:34px;padding:70px 30px 30px 10px;width:max-content">
+      <div style="width:190px;height:190px">${mark()}</div>
+      <div style="font:400 168px/1 Anton;color:#fff;letter-spacing:4px">BUBBLE FILES</div></div>`,
+  // same, for light backgrounds
+  wordmarkDark: `<div style="display:flex;align-items:center;gap:34px;padding:70px 30px 30px 10px;width:max-content">
+      <div style="width:190px;height:190px">${mark('#fff', 'var(--red)', null, 'var(--ink)')}</div>
+      <div style="font:400 168px/1 Anton;color:var(--ink);letter-spacing:4px">BUBBLE FILES</div></div>`,
+  // banner, 2560x1440. Everything that matters sits in the centre safe area (1546x423 at this size).
+  banner: `<div class="c" style="width:2560px;height:1440px;background:var(--ink)">
+      <div class="vig"></div>
+      <svg width="2560" height="1440" style="position:absolute;inset:0">
+        <!-- the bubble chart, running the full width: slow climb, mania, pop, long tail -->
+        <path d="M0 925 L300 918 L560 926 L820 912 L1100 920 L1400 905 L1700 905 L1900 880 L2020 830 L2100 780 L2160 700 L2210 590 L2240 545 L2275 640 L2310 860 L2380 890 L2560 885"
+          fill="none" stroke="var(--red)" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" opacity=".55"/>
+        <path d="M0 925 L300 918 L560 926 L820 912 L1100 920 L1400 905 L1700 905 L1900 880 L2020 830 L2100 780 L2160 700 L2210 590 L2240 545 L2275 640 L2310 860 L2380 890 L2560 885 L2560 1440 L0 1440 Z"
+          fill="rgba(227,38,47,.07)"/>
+        ${[620, 720, 820].map((y) => `<line x1="0" x2="2560" y1="${y}" y2="${y}" stroke="rgba(255,255,255,.05)" stroke-width="2"/>`).join('')}
+      </svg>
+      <div style="position:absolute;left:507px;top:509px;width:1546px;height:423px;display:flex;align-items:center;justify-content:center;gap:56px">
+        <div style="width:250px;height:250px;flex:none">${mark()}</div>
+        <div>
+          <div style="font:400 196px/0.95 Anton;color:#fff;letter-spacing:6px">BUBBLE FILES</div>
+          <div style="font:600 44px Inter;color:var(--silver);letter-spacing:3px;margin-top:22px">THE WILDEST MONEY STORIES IN HISTORY</div>
+          <div style="display:inline-block;margin-top:22px;background:var(--red);color:#fff;font:600 30px Plex;letter-spacing:6px;padding:10px 20px">NEW STORY EVERY WEEK</div>
+        </div>
+      </div>
+      <div class="grain"></div></div>`,
+  // banner as it shows on a phone: only the centre safe strip
+  bannerSafe: `<div style="width:1546px;height:423px;overflow:hidden;position:relative"><img src="out/banner-2560x1440.png" style="position:absolute;left:-507px;top:-509px"></div>`,
+};
+document.body.innerHTML = html[d];
+</script>
+</body></html>
