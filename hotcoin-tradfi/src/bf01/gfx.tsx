@@ -166,7 +166,7 @@ export const BigNumber: React.FC<{value: number; prefix?: string; suffix?: strin
       <div style={{position: 'absolute', left: 0, right: 0, top: y, textAlign: 'center', font: `400 200px/1 ${ANTON}`, color: '#fff', fontVariantNumeric: 'tabular-nums', textShadow: '0 10px 40px rgba(0,0,0,.6)', opacity: lin(fr, at - 4, at)}}>
         {prefix}{v.toLocaleString('en-US')}{suffix}
       </div>
-      {label && <div style={{position: 'absolute', left: 0, right: 0, top: y + 220, display: 'flex', justifyContent: 'center'}}><Tag text={label} sub={sub} x={0} y={0} at={at + 10} size={36} /></div>}
+      {label && <div style={{position: 'absolute', left: 0, right: 0, top: y + 220, display: 'flex', justifyContent: 'center'}}><Tag text={label} sub={sub} x={0} y={0} at={at + 10} size={36} inline /></div>}
     </>
   );
 };

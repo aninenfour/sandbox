@@ -63,7 +63,7 @@ export const BF01Part3: React.FC = () => {
         <Print img="bf01/photos/bunker-sworn.jpg" x={700} y={520} w={470} h={580} tilt={-2.5} at={0} from="left" objectPosition="40% 30%" />
         <Print img="bf01/photos/herbert-sworn.jpg" x={1220} y={560} w={470} h={580} tilt={2.2} at={8} from="right" objectPosition="45% 30%" />
         <Tag text="The Hunts' whole plan" sub="Keep buying" x={140} y={130} at={rel(a(7), a(6))} size={40} />
-        <Stamp text="NOT ALLOWED" sub="FROM 21 JAN 1980" x={660} y={420} at={rel(a(8), a(6)) + 34} />
+        <Stamp text="NOT ALLOWED" sub="FROM 21 JAN 1980" x={680} y={700} at={rel(a(8), a(6)) + 34} />
       </>}</Shot>
       <Shot from={a(9)} to={a(11)}>{(dur) => <>
         <Chart data={SLIDE} t0={13} t1={24} vMax={55} toIndex={5} a={8} b={dur - 40}
@@ -97,7 +97,7 @@ export const BF01Part3: React.FC = () => {
         <Paper />
         <Doc kicker="How a margin call works" title="The price falls. Your broker calls. Pay up, or get sold out."
           lines={['Price drops: your loan is less covered', 'Broker asks for more cash']} mark={1} markAt={rel(b(2), b(1)) - 6}
-          stamp={<Stamp text="MARGIN CALL" sub="PAY UP" x={720} y={290} at={rel(b(2), b(1)) + 6} />} />
+          stamp={<Stamp text="MARGIN CALL" sub="PAY UP" x={780} y={380} at={rel(b(2), b(1)) + 6} />} />
       </Push>}</Shot>
       <Shot from={b(3)} to={b(4)}>{(dur) => <>
         <Chart data={SLIDE} t0={13} t1={90} vMax={55} fromIndex={5} toIndex={11} a={6} b={dur - 8}
@@ -145,7 +145,7 @@ export const BF01Part3: React.FC = () => {
         <Paper />
         <Doc kicker="Bank loan · 1980" title="About $1 billion to Placid Oil, so the Hunts can pay what they owe"
           lines={['Lenders: a group of U.S. banks', 'Condition: none of it back into silver']} mark={1} markAt={rel(c(1), loanDoc) + 30}
-          stamp={<Stamp text="$1.1 BILLION" sub="LOAN · PLACID OIL" x={760} y={320} at={rel(c(0) + 6.2, loanDoc)} />} />
+          stamp={<Stamp text="$1.1 BILLION" sub="LOAN · PLACID OIL" x={780} y={390} at={rel(c(0) + 6.2, loanDoc)} />} />
       </Push>}</Shot>
       <Shot from={c(2)} to={c(3)}>{(dur) => <Foot src="bf01/clips/sellWrite.mp4" dur={dur} grade="bw" from={1.04} to={1.1} />}</Shot>
       <Shot from={c(3)} to={c(4)}>{() => (
@@ -157,13 +157,13 @@ export const BF01Part3: React.FC = () => {
       <Shot from={c(3)} to={c(4)} hard>{() => <>
         <Tag text="Minpeco · Peru" sub="Sues the Hunts" x={lima[0] + 50} y={lima[1] - 30} at={22} size={36} dark />
         <Tag text="New York" sub="Federal court" x={ny[0] + 50} y={ny[1] - 60} at={56} size={36} dark />
-        <Stamp text="LIABLE" sub="JURY VERDICT · 1988" x={1100} y={640} at={rel(c(3) + 4.6, c(3))} />
+        <Stamp text="LIABLE" sub="JURY VERDICT · 1988" x={1180} y={760} at={rel(c(3) + 4.6, c(3))} />
       </>}</Shot>
       <Shot from={c(4)} to={c(5)}>{(dur) => <Push dur={dur}>
         <Paper />
         <Doc kicker="U.S. Bankruptcy Court · 1988" title="Nelson Bunker Hunt and W. Herbert Hunt file for bankruptcy"
           lines={['Chapter 11', 'Among the biggest personal bankruptcies in U.S. history']} mark={1} markAt={f(2.6)}
-          stamp={<Stamp text="BANKRUPT" sub="1988" x={860} y={300} at={f(1.2)} />} />
+          stamp={<Stamp text="BANKRUPT" sub="1988" x={880} y={380} at={f(1.2)} />} />
       </Push>}</Shot>
       <Shot from={c(5)} to={c(6)}>{(dur) => <>
         <Foot src="bf01/clips/hooves.mp4" dur={dur} trim={4} grade="bw" from={1.02} to={1.08} />
@@ -268,7 +268,7 @@ const ChapterTitle: React.FC<{dur: number; kicker: string; title: string}> = ({d
       <Foot src="hunt/clips/molten3.mp4" dur={dur} grade="silver" rate={0.5} from={1.08} to={1.14} />
       <AbsoluteFill style={{background: 'rgba(14,15,17,.62)'}} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 400, textAlign: 'center'}}>
-        <div style={{font: `500 32px ${MONO}`, letterSpacing: 14, color: RED, opacity: lin(fr, 2, 10)}}>{kicker}</div>
+        <div style={{font: `500 32px ${MONO}`, letterSpacing: 14, color: SILVER, opacity: lin(fr, 2, 10)}}>{kicker}</div>
         <div style={{font: `400 200px/1 ${ANTON}`, color: '#fff', letterSpacing: 6, marginTop: 24, opacity: lin(fr, 4, 12), transform: `scale(${1.08 - 0.08 * ease(lin(fr, 4, 30))})`}}>{title}</div>
       </div>
     </AbsoluteFill>

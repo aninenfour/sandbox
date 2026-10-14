@@ -84,13 +84,13 @@ export const Print: React.FC<{img?: string; video?: string; x: number; y: number
   );
 };
 // Clean label: white slab, black type, wipes on from the left.
-export const Tag: React.FC<{text: string; x: number; y: number; at?: number; size?: number; dark?: boolean; sub?: string}> = ({text, x, y, at = 0, size = 34, dark, sub}) => {
+export const Tag: React.FC<{text: string; x: number; y: number; at?: number; size?: number; dark?: boolean; sub?: string; inline?: boolean}> = ({text, x, y, at = 0, size = 34, dark, sub, inline}) => {
   const fr = useCurrentFrame();
   const p = fr < at ? 0 : ease(lin(fr, at, at + 12));
   return (
-    <div style={{position: 'absolute', left: x, top: y, clipPath: `inset(0 ${100 - p * 100}% 0 0)`}}>
-      <div style={{background: dark ? INK : '#fff', color: dark ? '#fff' : INK, font: `600 ${size}px/1 ${SANS}`, letterSpacing: 1.5, textTransform: 'uppercase', padding: `${size * 0.42}px ${size * 0.6}px`, whiteSpace: 'nowrap'}}>{text}</div>
-      {sub && <div style={{background: RED, color: '#fff', font: `500 ${size * 0.62}px/1 ${MONO}`, letterSpacing: 2, padding: `${size * 0.3}px ${size * 0.6}px`, display: 'inline-block', textTransform: 'uppercase'}}>{sub}</div>}
+    <div style={{position: inline ? 'relative' : 'absolute', left: inline ? 0 : x, top: inline ? 0 : y, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', clipPath: p >= 1 ? undefined : `inset(0 ${100 - p * 100}% -40% 0)`}}>
+      <div style={{background: dark ? INK : '#fff', color: dark ? '#fff' : INK, font: `600 ${size}px/1 ${SANS}`, letterSpacing: 1.5, textTransform: 'uppercase', padding: `${size * 0.42}px ${size * 0.6}px`, whiteSpace: 'nowrap', alignSelf: 'stretch'}}>{text}</div>
+      {sub && <div style={{background: RED, color: '#fff', font: `500 ${size * 0.62}px/1 ${MONO}`, letterSpacing: 2, padding: `${size * 0.3}px ${size * 0.6}px`, textTransform: 'uppercase', whiteSpace: 'nowrap', flexShrink: 0}}>{sub}</div>}
     </div>
   );
 };
@@ -111,7 +111,7 @@ export const Stamp: React.FC<{text: string; sub: string; x: number; y: number; a
   if (fr < at) return null;
   const p = sp(fr - at, 12, 260);
   return (
-    <div style={{position: 'absolute', left: x, top: y, transform: `rotate(-7deg) scale(${1.6 - 0.6 * p})`, opacity: Math.min(1, p * 2), border: `8px solid ${RED}`, color: RED, padding: '14px 26px', textAlign: 'center', background: 'rgba(14,15,17,.35)'}}>
+    <div style={{position: 'absolute', left: x, top: y, width: 'max-content', whiteSpace: 'nowrap', transform: `rotate(-7deg) scale(${1.6 - 0.6 * p})`, opacity: Math.min(1, p * 2), border: `8px solid ${RED}`, color: RED, padding: '14px 26px', textAlign: 'center', background: 'rgba(14,15,17,.35)'}}>
       <div style={{font: `400 92px/1 ${ANTON}`, letterSpacing: 3}}>{text}</div>
       <div style={{font: `500 26px ${MONO}`, letterSpacing: 6, marginTop: 6}}>{sub}</div>
     </div>
