@@ -21,22 +21,25 @@ const STEPS: [string, string, string, boolean][] = [
 export const EthMaintenance: React.FC = () => {
   useFonts();
   return (
-    <AbsoluteFill style={{background: BG, color: INK, fontFamily: SANS, padding: '64px 80px 52px'}}>
+    <AbsoluteFill style={{background: BG, color: INK, fontFamily: SANS, padding: '64px 80px 64px'}}>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
         <Img src={staticFile('brand/logo-official-black.png')} style={{width: 180, height: (180 * 328) / 2003}} />
-        <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 16, letterSpacing: 2, border: `1.5px solid ${INK}`, borderRadius: 100, padding: '8px 18px'}}>SERVICE NOTICE · 15 OCT 2026</div>
       </div>
-      <div style={{flex: 1, display: 'flex', gap: 70, marginTop: 50}}>
-        <div style={{width: 640, display: 'flex', flexDirection: 'column'}}>
-          <Img src={staticFile('chains26/ethereum.png')} style={{width: 84, height: 84, borderRadius: 42, border: `1px solid ${LINE}`}} />
-          <div style={{fontWeight: 600, fontSize: 92, lineHeight: 0.98, letterSpacing: -4, marginTop: 34}}>ETH wallet<br /><span style={{color: MUTED}}>maintenance.</span></div>
+      <div style={{flex: 1, display: 'flex', gap: 60, marginTop: 20}}>
+        <div style={{width: 680, display: 'flex', flexDirection: 'column'}}>
           <div style={{flex: 1}} />
-          <div style={{display: 'inline-flex', alignSelf: 'flex-start', alignItems: 'center', gap: 14, background: LIME, border: `2px solid ${INK}`, borderRadius: 100, padding: '14px 26px'}}>
+          <div style={{fontWeight: 600, fontSize: 96, lineHeight: 0.96, letterSpacing: -4.2}}>Important<br /><span style={{color: MUTED}}>announcement.</span></div>
+          <div style={{display: 'flex', alignItems: 'center', gap: 16, marginTop: 34}}>
+            <Img src={staticFile('chains26/ethereum.png')} style={{width: 52, height: 52, borderRadius: 26, border: `1px solid ${LINE}`}} />
+            <span style={{fontWeight: 600, fontSize: 34, letterSpacing: -0.8}}>ETH network wallet maintenance</span>
+          </div>
+          <div style={{display: 'inline-flex', marginTop: 34, alignSelf: 'flex-start', alignItems: 'center', gap: 14, background: LIME, border: `2px solid ${INK}`, borderRadius: 100, padding: '14px 26px'}}>
             <span style={{width: 14, height: 14, borderRadius: 7, background: GREEN, border: `1.5px solid ${INK}`}} />
             <span style={{fontWeight: 600, fontSize: 28}}>Trading is not affected</span>
           </div>
+          <div style={{flex: 1}} />
         </div>
-        <div style={{flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
+        <div style={{flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
           <div style={{fontFamily: MONO, fontSize: 15, letterSpacing: 2, color: MUTED, marginBottom: 14}}>15 OCT 2026 · UTC+8</div>
           {STEPS.map(([t, a, b, hot], i) => (
             <div key={t} style={{display: 'flex', alignItems: 'center', gap: 26, padding: '22px 26px', marginBottom: i < 2 ? 12 : 0, borderRadius: 22,
@@ -49,10 +52,6 @@ export const EthMaintenance: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
-      <div style={{display: 'flex', justifyContent: 'space-between', marginTop: 34, paddingTop: 22, borderTop: `1px solid ${LINE}`, fontFamily: MONO, fontSize: 15, color: MUTED}}>
-        <span>Transfers sent during the pause are delayed, not lost, and credited once the network is stable.</span>
-        <span>hotcoin.com</span>
       </div>
     </AbsoluteFill>
   );
