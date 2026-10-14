@@ -118,7 +118,8 @@ export const Chart: React.FC<{
   data: Series; t0: number; t1: number; vMax: number; a: number; b: number; p0?: number; p1?: number; years?: number[];
   labels?: {t: number; v: number; text: string; at: number; side?: 'l' | 'r'; ring?: boolean}[]; title?: string; ticks?: number[]; counter?: boolean;
   fromIndex?: number; toIndex?: number; // draw between these data points instead of p0/p1
-}> = ({data, t0, t1, vMax, a, b, p0: p0In = 0, p1: p1In = 1, years = [], labels = [], title = 'SILVER · US DOLLARS PER OUNCE', ticks = [10, 20, 30, 40, 50], counter, fromIndex, toIndex}) => {
+  xLabels?: {t: number; text: string}[]; refs?: {v: number; text: string}[];
+}> = ({data, t0, t1, vMax, a, b, p0: p0In = 0, p1: p1In = 1, years = [], labels = [], title = 'SILVER · US DOLLARS PER OUNCE', ticks = [10, 20, 30, 40, 50], counter, fromIndex, toIndex, xLabels = [], refs = []}) => {
   const fr = useCurrentFrame();
   const X = (t: number) => 230 + ((t - t0) / (t1 - t0)) * 1420, Y = (v: number) => 930 - (v / vMax) * 720;
   const pts = data.map(([t, v]) => [X(t), Y(v)] as Pt);
@@ -142,12 +143,14 @@ export const Chart: React.FC<{
       <svg width={1920} height={1080} style={{position: 'absolute', inset: 0}}>
         {ticks.map((v) => <g key={v}><line x1={230} x2={1650} y1={Y(v)} y2={Y(v)} stroke="rgba(255,255,255,.07)" strokeWidth={2} /><text x={1672} y={Y(v) + 9} fill="rgba(255,255,255,.4)" style={{font: `500 24px ${MONO}`}}>${v}</text></g>)}
         {years.map((y) => <text key={y} x={X(y) - 30} y={985} fill="rgba(255,255,255,.4)" style={{font: `500 24px ${MONO}`}}>{y}</text>)}
+        {xLabels.map((l) => <text key={l.text} x={X(l.t)} y={985} textAnchor="middle" fill="rgba(255,255,255,.4)" style={{font: `500 24px ${MONO}`}}>{l.text}</text>)}
+        {refs.map((r) => <g key={r.v}><line x1={230} x2={1650} y1={Y(r.v)} y2={Y(r.v)} stroke="rgba(255,255,255,.45)" strokeWidth={2} strokeDasharray="10 10" /><text x={236} y={Y(r.v) - 12} fill="rgba(255,255,255,.6)" style={{font: `500 22px ${MONO}`}}>{r.text}</text></g>)}
         <path d={`${d} L${tip[0]},930 L${pts[0][0]},930 Z`} fill="rgba(227,38,47,.08)" />
         <path d={d} fill="none" stroke={RED} strokeWidth={9} strokeLinecap="round" strokeLinejoin="round" />
         <circle cx={tip[0]} cy={tip[1]} r={10} fill="#fff" />
         {labels.filter((l) => l.ring).map((l, i) => <Ring key={i} cx={X(l.t)} cy={Y(l.v)} rx={54} ry={42} at={l.at} color="#fff" width={5} />)}
       </svg>
-      {labels.map((l, i) => <Tag key={i} text={l.text} x={l.side === 'l' ? X(l.t) - 420 : X(l.t) + 30} y={Y(l.v) - 22} at={l.at} size={30} />)}
+      {labels.filter((l) => l.text).map((l, i) => <Tag key={i} text={l.text} x={l.side === 'l' ? X(l.t) - 420 : X(l.t) + 30} y={Y(l.v) - 22} at={l.at} size={30} />)}
       <div style={{position: 'absolute', left: 230, top: 90, font: `500 26px ${MONO}`, letterSpacing: 5, color: SILVER}}>{title}</div>
       {counter && <div style={{position: 'absolute', left: 224, top: 130, font: `400 130px/1 ${ANTON}`, color: '#fff', fontVariantNumeric: 'tabular-nums'}}>${val.toFixed(2)}</div>}
     </AbsoluteFill>

@@ -243,3 +243,25 @@ All footage is pulled by `scripts/fetch-hunt.mjs` into `public/hunt/raw` (git-ig
 
 The Tiffany & Co. advert is rebuilt as a graphic (headline word only), not reproduced. No photos of the Hunt brothers are used.
 **Facts:** Wikipedia "Silver Thursday" and "Nelson Bunker Hunt", Britannica "Silver Thursday" (prices, ~195M oz with partners, COMEX rules of 7 and 21 Jan 1980, the 26 Mar 1980 NYT ad, the 27 Mar 1980 close of $10.80).
+
+## Bubble Files 01 · The Hunt brothers (`src/bf01`, 16:9 long-form)
+Raw files live in `public/bf01/raw` and `public/hunt/raw` (git-ignored) and are cut into `public/bf01/clips` with ffmpeg.
+
+| Shots | Source | Licence |
+|---|---|---|
+| Trading floor aerials, NYSE exterior, quote boards, ticker tape, phones, buy/sell slips, trader close-ups | *The Big Board* (NYSE film), Internet Archive `big_board` (Prelinger) | Marked public domain; confirm before paid media |
+| Oil fields, Texas map | *The Southwestern States* (1953), Internet Archive `Southwestern_2` (Prelinger) | Marked public domain, but the print reads "Copyright MCMLIII": confirm before paid media |
+| Bank exterior, savings window, cheque, coins, dollar counting, U.S. Mint | *What Is Money?* (Coronet, 1947), Internet Archive `WhatIsMo1947` (Prelinger) | Public domain (Prelinger) |
+| Treasury building, banknote presses | *Doubtful Dollars*, Internet Archive `doubtful_dollars` (Prelinger) | Public domain (Prelinger) |
+| Sahara map, dunes, desert trail | *Wheels Across Africa* (1936), Internet Archive `WheelsAc1936` (Prelinger) | Public domain (Prelinger) |
+| Silverware, silver chest, polishing | *How To Be A Successful Hostess* outtakes (1958), Internet Archive (Prelinger) | Licence field blank: confirm before paid media |
+| Jet, Alps, cowboys, vault, horses' hooves, Saudi flag, silver coins (Mixkit 7138, 4283, 4396, 1150, 1156, 24604, 14899, 33803, 31128, 30690) | Mixkit | Mixkit free licence |
+| Gold and silver bars (photos) | Unsplash | Unsplash licence |
+| Bunker and Herbert Hunt sworn in (1980 House hearing), Bunker Hunt 1985 (Lexington Herald-Leader archive), H. L. Hunt 1965, Nixon portrait | ABA Journal, kentucky.com, Wikimedia Commons | News photos used under fair use (commentary, small crops); Nixon portrait public domain |
+| Hotcoin XAG/USDT screen | Hotcoin website (own brand) | |
+| Music: Mixkit tracks 614 "Silent Descent", 188, 184, 565, and the 101 series bed | Mixkit | Mixkit free licence |
+| Narration | Kokoro TTS v1.0, voice `bm_fable` (`scripts/make-bf01-vo.py`) | Apache 2.0 |
+| Maps | world-atlas / us-atlas (Natural Earth, US Census), pre-projected in `src/bf01/*.json` | Public domain |
+
+The Tiffany & Co. advert and all documents (COMEX notice, margin call, loan, bankruptcy) are rebuilt as graphics, not facsimiles. Prices between the marked dates on the 1980 and 1975 to 2026 charts are approximate and the charts say so.
+**Facts:** see the source list at the end of `youtube/bubble-files-01-script.md`.
