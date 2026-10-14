@@ -11,8 +11,8 @@ import US from './us.json';
 import AF from './africa.json';
 
 export const FPS = 30;
-const INK = '#0E0F11', PAPER = '#F2EEE6', RED = '#E3262F', LAND = '#2B3036', LAND_EDGE = '#14171A', SILVER = '#C9CED3';
-const ANTON = 'Anton, Impact, sans-serif', SANS = '"Inter Tight", system-ui, sans-serif', MONO = '"IBM Plex Mono", monospace', MARKER = 'BFMarker, cursive';
+export const INK = '#0E0F11', PAPER = '#F2EEE6', RED = '#E3262F', LAND = '#2B3036', LAND_EDGE = '#14171A', SILVER = '#C9CED3';
+export const ANTON = 'Anton, Impact, sans-serif', SANS = '"Inter Tight", system-ui, sans-serif', MONO = '"IBM Plex Mono", monospace', MARKER = 'BFMarker, cursive';
 
 // ---------- timeline ----------
 const CO = TL[0], C1 = TL[1];
@@ -22,14 +22,14 @@ const END = C1_AT + C1.dur + 1.2;
 export const PART1_DURATION = Math.round(END * FPS);
 const co = (i: number) => CO.sentences[i].start;
 const c1 = (i: number) => C1_AT + C1.sentences[i].start;
-const f = (s: number) => Math.round(s * FPS);
+export const f = (s: number) => Math.round(s * FPS);
 
 // ---------- helpers ----------
-const sp = (fr: number, damping = 18, stiffness = 120) => spring({frame: fr, fps: FPS, config: {damping, stiffness}});
-const lin = (fr: number, a: number, b: number, x = 0, y = 1) => interpolate(fr, [a, b], [x, y], clamp);
-const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+export const sp = (fr: number, damping = 18, stiffness = 120) => spring({frame: fr, fps: FPS, config: {damping, stiffness}});
+export const lin = (fr: number, a: number, b: number, x = 0, y = 1) => interpolate(fr, [a, b], [x, y], clamp);
+export const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
-const useFonts = () => {
+export const useFonts = () => {
   const [h] = useState(() => delayRender('bf01 fonts'));
   useEffect(() => {
     const face = new FontFace('BFMarker', `url(${staticFile('hunt/fonts/marker.woff2')})`);
@@ -38,15 +38,15 @@ const useFonts = () => {
 };
 
 // ---------- building blocks ----------
-type Grade = 'bw' | 'silver' | 'warm' | 'natural';
-const GRADES: Record<Grade, string> = {
+export type Grade = 'bw' | 'silver' | 'warm' | 'natural';
+export const GRADES: Record<Grade, string> = {
   bw: 'grayscale(1) contrast(1.18) brightness(1.02)',
   silver: 'grayscale(0.85) contrast(1.25) brightness(1.05)',
   warm: 'sepia(0.25) contrast(1.1) saturate(0.9)',
   natural: 'contrast(1.06) saturate(0.95)',
 };
 // Full-screen footage with a slow push. `crop` scales past film-gate edges on archive transfers.
-const Foot: React.FC<{src: string; dur: number; trim?: number; grade?: Grade; from?: number; to?: number; crop?: number; rate?: number; origin?: string}> = ({src, dur, trim = 0, grade = 'natural', from = 1.0, to = 1.06, crop = 1, rate = 1, origin = '50% 50%'}) => {
+export const Foot: React.FC<{src: string; dur: number; trim?: number; grade?: Grade; from?: number; to?: number; crop?: number; rate?: number; origin?: string}> = ({src, dur, trim = 0, grade = 'natural', from = 1.0, to = 1.06, crop = 1, rate = 1, origin = '50% 50%'}) => {
   const fr = useCurrentFrame();
   const s = (from + (to - from) * ease(lin(fr, 0, dur))) * crop;
   return (
@@ -57,16 +57,16 @@ const Foot: React.FC<{src: string; dur: number; trim?: number; grade?: Grade; fr
   );
 };
 // A blurred, darkened copy of a clip as a backdrop for prints and maps.
-const Backdrop: React.FC<{src: string; trim?: number; dark?: number}> = ({src, trim = 0, dark = 0.32}) => (
+export const Backdrop: React.FC<{src: string; trim?: number; dark?: number}> = ({src, trim = 0, dark = 0.32}) => (
   <AbsoluteFill style={{background: INK, overflow: 'hidden'}}>
     <OffthreadVideo src={staticFile(src)} trimBefore={Math.round(trim * FPS)} muted style={{width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.15)', filter: `grayscale(1) blur(18px) brightness(${dark})`}} />
   </AbsoluteFill>
 );
-const Paper: React.FC = () => (
+export const Paper: React.FC = () => (
   <AbsoluteFill style={{background: `radial-gradient(90% 80% at 50% 45%, #24272c 0%, ${INK} 75%)`}} />
 );
 // A framed print: photo (or footage) with a paper border and a soft shadow. It settles in, then stays still.
-const Print: React.FC<{img?: string; video?: string; x: number; y: number; w: number; h: number; tilt?: number; at?: number; from?: 'up' | 'down' | 'left' | 'right'; objectPosition?: string; grade?: string; zoom?: number}> = ({img, video, x, y, w, h, tilt = 0, at = 0, from = 'up', objectPosition = '50% 30%', grade = 'grayscale(1) contrast(1.12)', zoom = 0.04}) => {
+export const Print: React.FC<{img?: string; video?: string; x: number; y: number; w: number; h: number; tilt?: number; at?: number; from?: 'up' | 'down' | 'left' | 'right'; objectPosition?: string; grade?: string; zoom?: number}> = ({img, video, x, y, w, h, tilt = 0, at = 0, from = 'up', objectPosition = '50% 30%', grade = 'grayscale(1) contrast(1.12)', zoom = 0.04}) => {
   const fr = useCurrentFrame();
   const p = fr < at ? 0 : sp(fr - at, 20, 110);
   const off = (1 - p) * 140;
@@ -84,7 +84,7 @@ const Print: React.FC<{img?: string; video?: string; x: number; y: number; w: nu
   );
 };
 // Clean label: white slab, black type, wipes on from the left.
-const Tag: React.FC<{text: string; x: number; y: number; at?: number; size?: number; dark?: boolean; sub?: string}> = ({text, x, y, at = 0, size = 34, dark, sub}) => {
+export const Tag: React.FC<{text: string; x: number; y: number; at?: number; size?: number; dark?: boolean; sub?: string}> = ({text, x, y, at = 0, size = 34, dark, sub}) => {
   const fr = useCurrentFrame();
   const p = fr < at ? 0 : ease(lin(fr, at, at + 12));
   return (
@@ -95,18 +95,18 @@ const Tag: React.FC<{text: string; x: number; y: number; at?: number; size?: num
   );
 };
 // Hand-drawn marker ring that draws on.
-const ringPath = (cx: number, cy: number, rx: number, ry: number) => {
+export const ringPath = (cx: number, cy: number, rx: number, ry: number) => {
   const p: string[] = [];
   for (let i = 0; i <= 32; i++) { const a = -0.6 + (i / 32) * (Math.PI * 2 + 0.8); const w = 1 + 0.045 * Math.sin(a * 3) + 0.03 * Math.cos(a * 5); p.push(`${i ? 'L' : 'M'}${(cx + Math.cos(a) * rx * w).toFixed(1)},${(cy + Math.sin(a) * ry * w).toFixed(1)}`); }
   return p.join(' ');
 };
-const Ring: React.FC<{cx: number; cy: number; rx: number; ry: number; at?: number; color?: string; width?: number}> = ({cx, cy, rx, ry, at = 0, color = RED, width = 7}) => {
+export const Ring: React.FC<{cx: number; cy: number; rx: number; ry: number; at?: number; color?: string; width?: number}> = ({cx, cy, rx, ry, at = 0, color = RED, width = 7}) => {
   const fr = useCurrentFrame();
   const p = ease(lin(fr, at, at + 14));
   if (p <= 0) return null;
   return <path d={ringPath(cx, cy, rx, ry)} fill="none" stroke={color} strokeWidth={width} strokeLinecap="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - p} />;
 };
-const Stamp: React.FC<{text: string; sub: string; x: number; y: number; at: number}> = ({text, sub, x, y, at}) => {
+export const Stamp: React.FC<{text: string; sub: string; x: number; y: number; at: number}> = ({text, sub, x, y, at}) => {
   const fr = useCurrentFrame();
   if (fr < at) return null;
   const p = sp(fr - at, 12, 260);
@@ -118,15 +118,17 @@ const Stamp: React.FC<{text: string; sub: string; x: number; y: number; at: numb
   );
 };
 // Fades a shot in over the previous one (soft cut), unless `hard`.
-const Shot: React.FC<{from: number; to: number; hard?: boolean; children: (dur: number) => React.ReactNode}> = ({from, to, hard, children}) => {
+export const Shot: React.FC<{from: number; to: number; hard?: boolean; children: (dur: number) => React.ReactNode}> = ({from, to, hard, children}) => {
   const d = f(to) - f(from);
   return (
     <Sequence from={f(from)} durationInFrames={d}>
-      <FadeIn hard={hard}>{children(d)}</FadeIn>
+      <FadeIn hard={hard}><ShotBody render={children} d={d} /></FadeIn>
     </Sequence>
   );
 };
-const FadeIn: React.FC<{hard?: boolean; children: React.ReactNode}> = ({hard, children}) => {
+// Renders the shot's contents inside its Sequence, so useCurrentFrame() in them counts from the shot's start.
+const ShotBody: React.FC<{render: (dur: number) => React.ReactNode; d: number}> = ({render, d}) => <>{render(d)}</>;
+export const FadeIn: React.FC<{hard?: boolean; children: React.ReactNode}> = ({hard, children}) => {
   const fr = useCurrentFrame();
   return <AbsoluteFill style={{opacity: hard ? 1 : lin(fr, 0, 9)}}>{children}</AbsoluteFill>;
 };
@@ -257,7 +259,7 @@ const TitleCard: React.FC = () => {
     </AbsoluteFill>
   );
 };
-const Counter: React.FC<{from: number; to: number; at: number; len: number}> = ({from, to, at, len}) => {
+export const Counter: React.FC<{from: number; to: number; at: number; len: number}> = ({from, to, at, len}) => {
   const fr = useCurrentFrame();
   const v = from + (to - from) * ease(lin(fr, at, at + len));
   return (
