@@ -45,10 +45,10 @@ export const PolicyMoney: React.FC = () => {
   return (
     <Frame page="1/4" source="Data: OpenSecrets and Breadcrumbs via CNBC (2020 to 2024 industry giving), Fairshake filings via The Block (2026)"
       art={{src: 'policy26/bitcoin-engraved.png', right: -260, top: 90, size: 860, rot: -10}}>
-      <Title a="Crypto bought" b="a seat." />
+      <Title a="Crypto money in" b="US elections." />
       <div style={{position: 'relative', marginTop: 50, display: 'flex', alignItems: 'flex-end', gap: 26}}>
         <div style={{fontWeight: 600, fontSize: 150, lineHeight: 0.8, letterSpacing: -7}}>13×</div>
-        <div style={{fontSize: 26, color: BODY, lineHeight: 1.25, paddingBottom: 6}}>more crypto money in US<br />elections, 2020 to 2024</div>
+        <div style={{fontSize: 26, color: BODY, lineHeight: 1.25, paddingBottom: 6}}>growth from 2020 to 2024.<br />Crypto is now a top donor.</div>
       </div>
       <div style={{flex: 1}} />
       <Kicker>POLITICAL MONEY PER ELECTION CYCLE</Kicker>
