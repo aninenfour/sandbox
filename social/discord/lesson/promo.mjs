@@ -16,7 +16,7 @@ const T = {
   en: {
     tag: 'HOTCOIN DISCORD · WEEKLY LESSON', h1: 'Trading Lesson<br>with <span class="hl">Mellst</span>',
     lead: 'Learn live, watch real trades and win trial vouchers.',
-    prize: '5 lucky viewers', amt: '$5', amtNote: 'trial voucher each', up: '<b>$10</b> if your UID traded in the last 7 days',
+    prize: '5 lucky viewers', amt: '$5', amtNote: 'trial voucher each', up: '<b>$10</b>', upK: 'UPGRADE', upT: 'if your UID traded on Hotcoin<br>in the last 7 days',
     howT: 'HOW TO WIN',
     how: ['Join the live lesson in <b>Hotcoin Stage</b>', 'Have a valid <b>Hotcoin UID</b>', 'Post your screenshot on X and tag <b>@hotcoinglobal</b>'],
     host: 'HOST', fine: 'Winners picked at random by the host. Vouchers land within 48 working hours, are valid 48 h, and positions auto-close within 24 h.',
@@ -25,7 +25,7 @@ const T = {
   cn: {
     tag: 'HOTCOIN DISCORD · 每周交易课堂', h1: 'Mellst<br><span class="hl">交易课堂</span>',
     lead: '直播学交易，看实盘演示，赢取合约体验金。',
-    prize: '5 位幸运观众', amt: '5 USDT', amtNote: '体验金 / 人', up: '近 7 天有交易记录的 UID 升级为 <b>10 USDT</b>',
+    prize: '5 位幸运观众', amt: '5 USDT', amtNote: '体验金 / 人', up: '<b>10 USDT</b>', upK: '升级', upT: '近 7 天在 Hotcoin<br>有交易记录的 UID',
     howT: '参与方式',
     how: ['在 <b>Hotcoin Stage</b> 参加直播课程', '拥有有效的 <b>Hotcoin UID</b>', '在 X 发布参与截图并 <b>@hotcoinglobal</b>'],
     host: '主讲人', fine: '获奖者由主讲人随机抽取。体验金于 48 个工作小时内发放，有效期 48 小时，仓位将在 24 小时内自动平仓。',
@@ -49,15 +49,21 @@ body{width:1080px;height:1080px;background:#fff;color:var(--ink);font-family:${L
 h1{font-family:${L.hfont},'Noto Sans SC';font-weight:900;font-size:${L.hsize}px;line-height:1.04;letter-spacing:-1px;margin-top:38px}
 .hl{background:linear-gradient(transparent 58%,var(--lime) 58%,var(--lime) 92%,transparent 92%);padding:0 6px;margin:0 -6px}
 .lead{font-size:27px;color:var(--muted);font-weight:500;margin-top:16px}
-.row{display:flex;gap:24px;margin-top:34px}
+.row{display:flex;gap:24px;margin-top:30px}
 .left{flex:1;display:flex;flex-direction:column;gap:18px}
 .prize{background:var(--lime);border-radius:18px;padding:22px 26px}
 .prize .k{font-family:'JetBrains Mono','Noto Sans SC';font-weight:700;font-size:16px;letter-spacing:2px}
 .prize .a{display:flex;align-items:baseline;gap:14px;margin-top:6px}
 .prize .a b{font-family:Unbounded,'Noto Sans SC';font-weight:900;font-size:66px;line-height:1}
 .prize .a span{font-size:22px;font-weight:700}
-.prize .u{font-size:19px;font-weight:600;margin-top:10px}
+.up{display:flex;align-items:center;gap:16px;margin-top:16px;background:var(--ink);color:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 8px 22px rgba(11,14,17,.25)}
+.cr{flex:none;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#FFE27A,#F5B700);display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 0 0 3px rgba(255,214,77,.35)}
+.ut{flex:1}
+.uk{font-family:'JetBrains Mono','Noto Sans SC';font-weight:700;font-size:14px;letter-spacing:3px;color:#FFD54D}
+.uv{font-size:18px;font-weight:600;line-height:1.3;margin-top:3px;color:#E9ECEF}
+.ua b{font-family:Unbounded,'Noto Sans SC';font-weight:900;font-size:44px;color:#FFD54D;white-space:nowrap}
 .how{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px 24px}
+.host{align-self:stretch}
 .how .k{font-family:'JetBrains Mono','Noto Sans SC';font-weight:700;font-size:15px;letter-spacing:2px;color:var(--green)}
 .st{display:flex;align-items:center;gap:14px;font-size:21px;font-weight:500;margin-top:12px;line-height:1.3}
 .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--lime);font-family:'JetBrains Mono';font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center}
@@ -75,7 +81,7 @@ h1{font-family:${L.hfont},'Noto Sans SC';font-weight:900;font-size:${L.hsize}px;
  <div class="lead">${L.lead}</div>
  <div class="row">
   <div class="left">
-   <div class="prize"><div class="k">${L.prize}</div><div class="a"><b>${L.amt}</b><span>${L.amtNote}</span></div><div class="u">${L.up}</div></div>
+   <div class="prize"><div class="k">${L.prize}</div><div class="a"><b>${L.amt}</b><span>${L.amtNote}</span></div><div class="up"><span class="cr">👑</span><div class="ut"><div class="uk">${L.upK}</div><div class="uv">${L.upT}</div></div><div class="ua">${L.up}</div></div></div>
    <div class="how"><div class="k">${L.howT}</div>${L.how.map((h, i) => `<div class="st"><span class="n">${i + 1}</span><span>${h}</span></div>`).join('')}</div>
   </div>
   <div class="host"><img src="${HOST}"><span class="lb">${L.host} · MELLST</span></div>
