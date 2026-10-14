@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#000;overflow:hidden}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+// Stack of bullion bars, rendered as a grayscale light study (black background). art2/glyphs.py turns it into glyph art.
+import * as THREE from 'three';
+const q = new URLSearchParams(location.search);
+const W = +(q.get('w') || 1080), H = +(q.get('h') || 1350);
+const renderer = new THREE.WebGLRenderer({antialias: true, preserveDrawingBuffer: true});
+renderer.setPixelRatio(1); renderer.setSize(W, H); renderer.setClearColor(0x000000, 1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(32, W / H, 0.1, 100);
+camera.position.set(6.8, 5.0, 11.5); camera.lookAt(0.2, -0.35, 0);
+
+// a bullion bar: trapezoid profile (wide base, narrow top) extruded along its length, softly bevelled
+const bar = () => {
+  const s = new THREE.Shape();
+  s.moveTo(-1.0, 0); s.lineTo(1.0, 0); s.lineTo(0.78, 0.62); s.lineTo(-0.78, 0.62); s.closePath();
+  const g = new THREE.ExtrudeGeometry(s, {depth: 2.6, bevelEnabled: true, bevelThickness: 0.08, bevelSize: 0.06, bevelSegments: 5});
+  g.translate(0, 0, -1.3);
+  return g;
+};
+const mat = new THREE.MeshStandardMaterial({color: 0xffffff, roughness: 0.55, metalness: 0.0});
+const geo = bar();
+[[-1.12, 0, 0, 0], [1.12, 0, 0, 0], [0, 0.72, 0, 0.18]].forEach(([x, y, z, r]) => {
+  const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.rotation.y = r; scene.add(m);
+});
+const key = new THREE.DirectionalLight(0xffffff, 3.0); key.position.set(0.3, 10, 0.6); scene.add(key);
+const front = new THREE.DirectionalLight(0xffffff, 0.9); front.position.set(1, 0.4, 8); scene.add(front);
+scene.add(new THREE.AmbientLight(0xffffff, 0.02));
+renderer.render(scene, camera);
+document.title = 'ready';
+</script>
+</body></html>

@@ -249,3 +249,12 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
   - House passage, 294-134, 17 Jul 2025.
   - Ethics as the main sticking point: DLA Piper, CoinDesk, Paul Hastings.
 - **Engraved BTC coin art:** made from the CoinGecko logo.
+
+## Style 2 test posts (`src/style2/Style2.tsx`, `art2/`)
+- **Art:** all original. Three.js renders (`art2/tile.html`, `art2/bars3d.html`, `art2/hourglass.html`) are rendered headless by `art2/shoot.js`, and the backdrops are composited by `art2/compose_*.py`.
+- **Hotcoin symbol geometry:** traced from the official symbol PNG (`art2/symbol-shapes.json`).
+- **Engraving font:** three.js bundled Helvetiker Bold typeface (MIT).
+- **Facts:**
+  - Founded 2017; TradFi (crypto, US stocks and precious metals with stablecoins): hotcoin.com.
+  - FOMC 28 Oct and 9 Dec 2026: Chicago Fed calendar.
+  - US midterms 3 Nov 2026; new Congress 3 Jan 2027.

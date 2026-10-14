@@ -1,0 +1,63 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent;overflow:hidden}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+// Hotcoin symbol as a glossy app-tile object: black clearcoat tile, extruded white slash, raised lime dot.
+// Rendered on transparent background; the moody backdrop is composited afterwards (art2/compose.py).
+import * as THREE from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+
+const q = new URLSearchParams(location.search);
+const W = +(q.get('w') || 1080), H = +(q.get('h') || 1350), DPR = +(q.get('dpr') || 2);
+const rx = +(q.get('rx') || 14), ry = +(q.get('ry') || -24), rz = +(q.get('rz') || -7);
+const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, preserveDrawingBuffer: true});
+renderer.setPixelRatio(DPR); renderer.setSize(W, H); renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const pm = new THREE.PMREMGenerator(renderer);
+scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.55;
+
+const camera = new THREE.PerspectiveCamera(30, W / H, 0.1, 100);
+camera.position.set(0, 0, +(q.get('cz') || 12.5));
+
+const group = new THREE.Group();
+scene.add(group);
+const tile = new THREE.Mesh(new RoundedBoxGeometry(3.2, 3.2, 0.42, 10, 0.62),
+  new THREE.MeshPhysicalMaterial({color: 0x07090a, roughness: 0.32, metalness: 0.0, clearcoat: 1, clearcoatRoughness: 0.08, sheen: 0.2, sheenColor: new THREE.Color(0x2a3a1a)}));
+group.add(tile);
+
+const shapes = await (await fetch('/art2/symbol-shapes.json')).json();
+const S = 2.05;
+const extrude = {depth: 0.09, bevelEnabled: true, bevelThickness: 0.035, bevelSize: 0.022, bevelSegments: 6, curveSegments: 4};
+shapes.forEach((sh) => {
+  const s = new THREE.Shape(sh.pts.map(([x, y]) => new THREE.Vector2(x * S, y * S)));
+  const isDot = sh.area < 0.2;
+  const g = new THREE.ExtrudeGeometry(s, isDot ? {...extrude, depth: 0.16} : extrude);
+  const m = isDot
+    ? new THREE.MeshPhysicalMaterial({color: 0x9fe04a, emissive: 0x3d6b12, emissiveIntensity: 0.35, roughness: 0.3, clearcoat: 1, clearcoatRoughness: 0.1})
+    : new THREE.MeshPhysicalMaterial({color: 0xf3f4ef, roughness: 0.42, metalness: 0.0, clearcoat: 0.6, clearcoatRoughness: 0.25});
+  const mesh = new THREE.Mesh(g, m);
+  mesh.position.z = 0.21;
+  group.add(mesh);
+});
+group.rotation.set(THREE.MathUtils.degToRad(rx), THREE.MathUtils.degToRad(ry), THREE.MathUtils.degToRad(rz));
+group.position.set(+(q.get('x') || 0.15), +(q.get('y') || -0.1), 0);
+
+// light: cool white key from upper left, strong lime rim from the right, deep green bounce from below
+const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(-4, 5, 6); scene.add(key);
+const rim = new THREE.PointLight(0xb8f26a, 90, 40, 1.4); rim.position.set(5.5, 2.5, -2.5); scene.add(rim);
+const rim2 = new THREE.PointLight(0x4f9a2a, 55, 40, 1.4); rim2.position.set(-4.5, -4, -1.5); scene.add(rim2);
+const fill = new THREE.DirectionalLight(0xb8f26a, 0.35); fill.position.set(3, -2, 5); scene.add(fill);
+const top = new THREE.SpotLight(0xffffff, 60, 30, 0.5, 0.8); top.position.set(1, 6, 4); top.target = group; scene.add(top);
+
+renderer.render(scene, camera);
+document.title = 'ready';
+</script>
+</body></html>

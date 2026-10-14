@@ -1,0 +1,63 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent;overflow:hidden}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+// "Next 90 days" still: a glass hourglass with lime sand mid-fall, black frame, lime rim light.
+import * as THREE from 'three';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const q = new URLSearchParams(location.search);
+const W = +(q.get('w') || 1080), H = +(q.get('h') || 1350), DPR = +(q.get('dpr') || 2);
+const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, preserveDrawingBuffer: true});
+renderer.setPixelRatio(DPR); renderer.setSize(W, H); renderer.setClearColor(0, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.8;
+const camera = new THREE.PerspectiveCamera(28, W / H, 0.1, 100);
+camera.position.set(0, 1.2, 17.5); camera.lookAt(-0.9, -0.6, 0);
+
+const G = new THREE.Group(); scene.add(G);
+// glass profile: two bulbs joined at a narrow neck
+const prof = [];
+for (let i = 0; i <= 80; i++) {
+  const t = i / 80, y = -2.2 + 4.4 * t, u = Math.abs(y) / 2.2;
+  const r = 0.08 + 1.18 * Math.pow(Math.sin(Math.min(1, u) * Math.PI * 0.5), 0.9) * (1 - 0.12 * Math.pow(u, 6));
+  prof.push(new THREE.Vector2(r, y));
+}
+const glass = new THREE.Mesh(new THREE.LatheGeometry(prof, 96), new THREE.MeshPhysicalMaterial({
+  color: 0xffffff, transmission: 1, thickness: 0.35, ior: 1.45, roughness: 0.04, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.02,
+  attenuationColor: new THREE.Color(0xdff7c8), attenuationDistance: 6, side: THREE.DoubleSide, transparent: true}));
+G.add(glass);
+const sandMat = new THREE.MeshPhysicalMaterial({color: 0x8fd93a, emissive: 0x2f5a0c, emissiveIntensity: 0.4, roughness: 0.9});
+// sand left in the top bulb: a cone resting on the neck
+const top = [];
+for (let i = 0; i <= 30; i++) { const t = i / 30; top.push(new THREE.Vector2(0.06 + 0.98 * t, 0.12 + 0.95 * t)); }
+top.push(new THREE.Vector2(0.0, 1.07 + 0.0));
+G.add(new THREE.Mesh(new THREE.LatheGeometry([new THREE.Vector2(0, 0.12), ...top], 96), sandMat));
+// pile in the bottom bulb
+const pile = [new THREE.Vector2(0, -1.22)];
+for (let i = 0; i <= 30; i++) { const t = i / 30; pile.push(new THREE.Vector2(1.12 * t, -1.22 - 0.8 * Math.pow(t, 1.35))); }
+pile.push(new THREE.Vector2(0, -2.05));
+G.add(new THREE.Mesh(new THREE.LatheGeometry(pile, 96), sandMat));
+// falling stream
+const stream = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.028, 1.22, 16), new THREE.MeshBasicMaterial({color: 0xd8ff9e}));
+stream.position.y = -0.55; G.add(stream);
+// frame: caps and three posts, black clearcoat
+const fm = new THREE.MeshPhysicalMaterial({color: 0x080a09, roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.08});
+[2.32, -2.32].forEach((y) => { const c = new THREE.Mesh(new THREE.CylinderGeometry(1.62, 1.62, 0.24, 96), fm); c.position.y = y; G.add(c); });
+for (let k = 0; k < 3; k++) {
+  const a = (k / 3) * Math.PI * 2 + 0.5;
+  const p = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 4.5, 24), fm); p.position.set(Math.cos(a) * 1.42, 0, Math.sin(a) * 1.42); G.add(p);
+}
+G.rotation.set(0.12, 0.4, -0.13);
+const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(-4, 6, 6); scene.add(key);
+const rim = new THREE.PointLight(0xb8f26a, 160, 40, 1.4); rim.position.set(5, 2, -4); scene.add(rim);
+const rim2 = new THREE.PointLight(0x5fae3a, 90, 40, 1.4); rim2.position.set(-5, -2, -3); scene.add(rim2);
+const glow = new THREE.PointLight(0xb8f26a, 12, 6, 1.5); glow.position.set(0, -1.4, 0.4); G.add(glow);
+renderer.render(scene, camera);
+document.title = 'ready';
+</script>
+</body></html>
