@@ -142,9 +142,9 @@ So what's the lesson here? Honestly, it's not that silver is bad. The Hunts were
 
 And here's a wild footnote. It took silver about forty-five years to get back above fifty dollars. That finally happened in 2025. And adjusted for inflation, the Hunts' fifty-dollar silver would be something like two hundred dollars today.
 
-So were they geniuses who got stopped, or two guys who flew way too close to the sun? Let me know in the comments. And next time, a flower that once cost more than a house. See you there.
+So were they geniuses who got stopped, or two guys who flew way too close to the sun? Let me know in the comments. Thanks for watching. And if you want more stories like this, and to learn a bit about money along the way, hit subscribe.
 
-*End card: BUBBLE FILES · next episode, Tulip Mania. Hotcoin lockup.*
+*End card: Thanks for watching · Subscribe for more stories. No brand logo.*
 
 ---
 

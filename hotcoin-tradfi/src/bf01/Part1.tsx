@@ -252,7 +252,7 @@ const TitleCard: React.FC = () => {
       <Foot src="bf01/clips/coinsBlack.mp4" dur={f(TITLE_LEN)} trim={9} grade="bw" from={1.1} to={1.16} />
       <AbsoluteFill style={{background: 'rgba(14,15,17,.55)'}} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 380, textAlign: 'center'}}>
-        <div style={{font: `500 30px ${MONO}`, letterSpacing: 14, color: '#7EC25A', opacity: lin(fr, 2, 10)}}>BUBBLE FILES · 01</div>
+        <div style={{font: `500 30px ${MONO}`, letterSpacing: 14, color: SILVER, opacity: lin(fr, 2, 10)}}>BUBBLE FILES · 01</div>
         <div style={{font: `400 170px/1 ${ANTON}`, color: '#fff', letterSpacing: 4, marginTop: 24, opacity: lin(fr, 8, 18), transform: `translateY(${(1 - ease(lin(fr, 8, 22))) * 30}px)`}}>THE HUNT BROTHERS</div>
         <div style={{font: `600 34px ${SANS}`, color: SILVER, letterSpacing: 6, marginTop: 26, opacity: lin(fr, 18, 28)}}>THE PLAN TO CORNER THE WORLD'S SILVER</div>
       </div>

@@ -33,9 +33,18 @@ def chapters(md):
 # sentence ends, but not after initials like H.L.
 SPLIT = re.compile(r'(?<=[.?!])(?<![A-Z]\.[A-Z]\.)\s+')
 
+ONES = 'zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split()
+TENS = 'x x twenty thirty forty fifty sixty seventy eighty ninety'.split()
+def two(n):
+    return ONES[n] if n < 20 else TENS[n // 10] + ('-' + ONES[n % 10] if n % 10 else '')
+def year(m):
+    # read years the way people say them: 1988 -> nineteen eighty-eight, 2025 -> twenty twenty-five
+    hi, lo = int(m.group(1)), int(m.group(2))
+    return two(hi) + ' ' + ('hundred' if lo == 0 else 'oh ' + ONES[lo] if lo < 10 else two(lo))
+
 def say(text):
     for a, b in SAY.items(): text = text.replace(a, b)
-    return text
+    return re.sub(r'\b(19|20)(\d\d)\b', year, text)
 
 def take(text):
     words = len(text.split())

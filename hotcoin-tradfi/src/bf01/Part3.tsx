@@ -6,7 +6,7 @@
 // ~$1.1B bank loan to Placid Oil; Minpeco verdict (New York, 1988); bankruptcy 1988; 1989 settlement and trading ban;
 // silver back above $50 in Oct 2025, record ~$65.63 in Dec 2025. In-between prices on the charts are approximate.
 import React from 'react';
-import {AbsoluteFill, Audio, Img, Sequence, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {AnimatedGrain} from '../alt/kit';
 import {ANTON, Backdrop, FPS, Foot, INK, MONO, Paper, Print, RED, SANS, SILVER, Shot, Stamp, Tag, ease, f, lin, useFonts} from './Part1';
 import {Advert, BigNumber, Calendar, Chart, Doc, Pin, Route, Still, Ticker, W, WorldMap} from './gfx';
@@ -17,7 +17,7 @@ const CH4_AT = 0.6;
 const CH5_AT = CH4_AT + C4.dur + 0.5;
 const CH6_AT = CH5_AT + C5.dur + 1.6; // hold the SILVER THURSDAY title
 const CH7_AT = CH6_AT + C6.dur + 0.5;
-const END = CH7_AT + C7.dur + 6;
+const END = CH7_AT + C7.dur + 4;
 export const PART3_DURATION = Math.round(END * FPS);
 const a = (i: number) => CH4_AT + C4.sentences[i].start;
 const b = (i: number) => CH5_AT + C5.sentences[i].start;
@@ -184,8 +184,9 @@ export const BF01Part3: React.FC = () => {
         <Foot src="bf01/clips/dollarCount.mp4" dur={dur} grade="bw" from={1.02} to={1.08} />
         <Tag text="Inflation" sub="They were right about it" x={140} y={140} at={10} size={46} />
       </>}</Shot>
-      <Shot from={d(3)} to={d(4)}>{() => <TwoWords first="SIZE" second="DEBT" firstAt={f(1.15)} secondAt={f(1.75)} />}</Shot>
-      <Shot from={d(4)} to={d(5)}>{() => <>
+      {/* hold the two words through the start of the next sentence so they can be read */}
+      <Shot from={d(3)} to={d(4) + 3}>{() => <TwoWords first="SIZE" second="DEBT" firstAt={f(1.1)} secondAt={f(1.7)} />}</Shot>
+      <Shot from={d(4) + 3} to={d(5)}>{() => <>
         <Backdrop src="hunt/clips/floorWide.mp4" />
         <Print img="bf01/photos/aba-silver.jpg" x={960} y={540} w={1180} h={782} tilt={-1.2} at={0} from="down" objectPosition="50% 50%" zoom={0.08} />
       </>}</Shot>
@@ -208,7 +209,7 @@ export const BF01Part3: React.FC = () => {
         <AbsoluteFill style={{background: 'linear-gradient(transparent 55%, rgba(0,0,0,.6))'}} />
         <Tag text="Geniuses, or too close to the sun?" sub="Tell us in the comments" x={140} y={820} at={rel(d(10), d(9))} size={44} />
       </>}</Shot>
-      <Shot from={d(11)} to={END}>{(dur) => <EndCard dur={dur} />}</Shot>
+      <Shot from={d(11)} to={END}>{(dur) => <EndCard dur={dur} subAt={rel(d(12) + 1.2, d(11))} />}</Shot>
 
       <AbsoluteFill style={{background: 'radial-gradient(120% 90% at 50% 50%, transparent 60%, rgba(0,0,0,.45) 100%)', pointerEvents: 'none'}} />
       <AnimatedGrain f={fr * 2} opacity={0.22} />
@@ -243,6 +244,8 @@ export const BF01Part3: React.FC = () => {
       ))}
       <Sequence from={f(crash)} layout="none"><Audio src={staticFile('sfx/foley/hit.wav')} volume={0.7} /></Sequence>
       <Sequence from={f(b(13))} layout="none"><Audio src={staticFile('sfx/foley/hit.wav')} volume={0.6} /></Sequence>
+      {/* subscribe button click on the end card (subAt + 40 frames) */}
+      <Sequence from={f(d(12) + 1.2) + 40} layout="none"><Audio src={staticFile('sfx/mechanical/press.mp3')} volume={0.5} /></Sequence>
     </AbsoluteFill>
   );
 };
@@ -290,17 +293,30 @@ const TwoWords: React.FC<{first: string; second: string; firstAt: number; second
   );
 };
 
-const EndCard: React.FC<{dur: number}> = ({dur}) => {
+// Thanks for watching, then a subscribe button that gets clicked. No brand on the end card.
+const EndCard: React.FC<{dur: number; subAt: number}> = ({dur, subAt}) => {
   const fr = useCurrentFrame();
+  const pop = fr < subAt ? 0 : ease(lin(fr, subAt, subAt + 12));
+  const clickAt = subAt + 40;
+  const clicked = fr >= clickAt;
+  const cur = ease(lin(fr, subAt + 14, clickAt));
+  const press = fr >= clickAt && fr < clickAt + 6 ? 0.94 : 1;
   return (
     <AbsoluteFill>
       <Paper />
-      <div style={{position: 'absolute', left: 0, right: 0, top: 300, textAlign: 'center', transform: `scale(${1 + 0.03 * ease(lin(fr, 0, dur))})`}}>
-        <div style={{font: `500 32px ${MONO}`, letterSpacing: 14, color: '#7EC25A', opacity: lin(fr, 4, 12)}}>BUBBLE FILES · NEXT EPISODE</div>
-        <div style={{font: `400 210px/1 ${ANTON}`, color: '#fff', letterSpacing: 6, marginTop: 30, opacity: lin(fr, 10, 20), transform: `translateY(${(1 - ease(lin(fr, 10, 26))) * 30}px)`}}>TULIP MANIA</div>
-        <div style={{font: `600 38px ${SANS}`, color: SILVER, letterSpacing: 4, marginTop: 30, opacity: lin(fr, 24, 34)}}>A FLOWER THAT ONCE COST MORE THAN A HOUSE</div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 290, textAlign: 'center', transform: `scale(${1 + 0.03 * ease(lin(fr, 0, dur))})`}}>
+        <div style={{font: `400 160px/1 ${ANTON}`, color: '#fff', letterSpacing: 6, opacity: lin(fr, 6, 16), transform: `translateY(${(1 - ease(lin(fr, 6, 22))) * 30}px)`}}>THANKS FOR WATCHING</div>
+        <div style={{font: `600 38px ${SANS}`, color: SILVER, letterSpacing: 4, marginTop: 34, opacity: lin(fr, subAt - 10, subAt)}}>MORE STORIES FROM THE HISTORY OF MONEY</div>
       </div>
-      <Img src={staticFile('brand/hotcoin-lockup-dark.png')} style={{position: 'absolute', left: 960 - 150, top: 900, width: 300, opacity: lin(fr, 40, 54)}} />
+      <div style={{position: 'absolute', left: 960, top: 780, translate: '-50% 0', opacity: pop, transform: `scale(${(0.8 + 0.2 * pop) * press})`,
+        background: clicked ? '#3a3d42' : RED, color: clicked ? '#cfd2d6' : '#fff', borderRadius: 60, padding: '26px 64px', font: `700 44px ${SANS}`, letterSpacing: 3, whiteSpace: 'nowrap'}}>
+        {clicked ? 'SUBSCRIBED' : 'SUBSCRIBE'}
+      </div>
+      {pop > 0 && fr < clickAt + 30 && (
+        <svg width={60} height={70} viewBox="0 0 24 28" style={{position: 'absolute', left: 1260 - 200 * cur, top: 980 - 120 * cur, opacity: 1 - lin(fr, clickAt + 16, clickAt + 30)}}>
+          <path d="M2 1 L2 22 L7.5 17 L11 25 L14.5 23.5 L11 15.8 L18 15.8 Z" fill="#fff" stroke="#000" strokeWidth={1.4} strokeLinejoin="round" />
+        </svg>
+      )}
       <AbsoluteFill style={{background: INK, opacity: lin(fr, dur - 30, dur)}} />
     </AbsoluteFill>
   );
