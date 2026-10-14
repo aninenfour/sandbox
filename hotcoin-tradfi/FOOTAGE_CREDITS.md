@@ -235,3 +235,17 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
   - Token logos come from CoinGecko.
   - Base, Robinhood and Arc icons come from their own sites (base.org favicon, robinhood.com, arc.network).
 - **Engraved coin art:** ETH, SOL, TRX and MON, made from the CoinGecko logos.
+
+## Policy Pulse carousel (`src/policy26/PolicyPulse.tsx`)
+- **Political money by cycle:**
+  - 2020 to 2024 industry giving: OpenSecrets and Breadcrumbs, reported by CNBC on 17 Sep 2024.
+  - 2026: Fairshake cash on hand of $193M, reported by The Block and Cointelegraph in Jan 2026.
+- **BTC daily closes:** Coinbase Exchange public candles.
+  - Causes behind each year's top 5 moves come from contemporaneous news coverage.
+- **Odds:** Polymarket, "Clarity Act (H.R.3633) signed into law in 2026?", daily history from clob.polymarket.com.
+- **Votes:**
+  - Senate cloture on H.R.3633, 49-50, 15 Sep 2026.
+  - Senate Banking markup, 15-9, 14 May 2026.
+  - House passage, 294-134, 17 Jul 2025.
+  - Ethics as the main sticking point: DLA Piper, CoinDesk, Paul Hastings.
+- **Engraved BTC coin art:** made from the CoinGecko logo.
