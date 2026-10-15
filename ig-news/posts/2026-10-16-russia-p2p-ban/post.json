@@ -1,0 +1,106 @@
+{
+ "type": "news",
+ "slides": [
+  {
+   "kind": "cover",
+   "photo": "moscow.jpg",
+   "photo_pos": "60% 40%",
+   "insets": [
+    {
+     "src": "flag-ru.svg",
+     "pos": "tr",
+     "size": 230
+    },
+    {
+     "src": "btc.svg",
+     "pos": "tl",
+     "size": 210,
+     "bg": "#fff",
+     "fit": "80%"
+    }
+   ],
+   "headline": [
+    {
+     "t": "Russia just set",
+     "c": "ink",
+     "max": 70
+    },
+    {
+     "t": "an expiry date on",
+     "c": "green",
+     "max": 78
+    },
+    {
+     "t": "peer-to-peer crypto",
+     "c": "ink",
+     "max": 70
+    },
+    {
+     "t": "July 1, 2027",
+     "c": "ink",
+     "max": 96
+    },
+    {
+     "t": "then only licensed rails",
+     "c": "red",
+     "max": 64
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "tag": "WHAT HAPPENED",
+   "paras": [
+    "On Oct 12, the Bank of Russia confirmed in an updated FAQ that direct crypto trades between individuals stay legal <g>only until July 1, 2027.</g>",
+    "<u>After that, every trade has to go through a broker or exchange on the central bank's register.</u>",
+    "The rules come from Russia's new crypto law, which took effect on Sept 1."
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "Jul 1, '27",
+      "l": "cut-off for direct P2P trades"
+     },
+     {
+      "v": "₽300K",
+      "l": "yearly buy cap for non-qualified investors (~$3,600)"
+     },
+     {
+      "v": "3",
+      "l": "coins they can buy: BTC, ETH, USDT"
+     }
+    ]
+   },
+   "source": "Bank of Russia FAQ via Decrypt, Cointelegraph"
+  },
+  {
+   "kind": "text",
+   "tag": "WHY IT MATTERS",
+   "paras": [
+    "Since Binance sold its Russian business in 2023, P2P has been a go-to way to get stablecoins: <g>wire rubles to a seller's card, receive USDT.</g>",
+    "The new rules also block moving crypto from a licensed account to <r>your own wallet.</r>",
+    "Paying for goods and services in crypto stays banned. Foreign trade settlements in crypto are allowed.",
+    "And the banks are moving in: <g>Sberbank</g> joined the central bank's register on Oct 12."
+   ]
+  },
+  {
+   "kind": "text",
+   "tag": "THE CATCH",
+   "paras": [
+    "Industry voices say P2P is <g>harder to shut down</g> than any exchange, and that the rules may be tough to enforce.",
+    "<u>The goal is clear: every ruble-to-crypto trade on rails the state can see.</u>",
+    "<r>The open question: do users move onto licensed rails, or further off the grid?</r>"
+   ],
+   "media": {
+    "type": "image",
+    "src": "moscow.jpg",
+    "h": 380,
+    "pos": "35% 45%"
+   }
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}

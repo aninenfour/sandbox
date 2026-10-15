@@ -1,0 +1,105 @@
+{
+ "type": "news",
+ "slides": [
+  {
+   "kind": "cover",
+   "photo": "intro.jpg",
+   "photo_pos": "50% 50%",
+   "photo_size": "auto 112%",
+   "insets": [
+    {
+     "src": "ledger-mark.svg",
+     "pos": "tr",
+     "size": 230
+    }
+   ],
+   "headline": [
+    {
+     "t": "Ledger's answer to",
+     "c": "ink",
+     "max": 70
+    },
+    {
+     "t": "tampered wallets",
+     "c": "green",
+     "max": 80
+    },
+    {
+     "t": "is an Android",
+     "c": "ink",
+     "max": 70
+    },
+    {
+     "t": "$849 phone",
+     "c": "ink",
+     "max": 96
+    },
+    {
+     "t": "that ships in 2027",
+     "c": "red",
+     "max": 66
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "tag": "WHAT HAPPENED",
+   "paras": [
+    "Ledger's security team found a <g>hidden implant</g> inside hardware wallets sold through CryptoBilis, a reseller in Southeast Asia.",
+    "<u>It read the recovery phrase off the screen during setup and sent it out over a mobile network.</u>",
+    "On-chain researchers link it to <r>more than $86M</r> in suspected losses. Ledger hasn't confirmed that figure, and asked resellers in Southeast Asia and Hong Kong to pull its devices."
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "$86M+",
+      "l": "suspected losses (unconfirmed)"
+     },
+     {
+      "v": "$849",
+      "l": "price of Ledger's new Atom device"
+     },
+     {
+      "v": "Oct 15",
+      "l": "Atom unveiled at Op3n, Paris"
+     }
+    ]
+   },
+   "source": "The Block, Decrypt, Cointelegraph"
+  },
+  {
+   "kind": "text",
+   "tag": "MEET ATOM",
+   "paras": [
+    "Days later, Ledger unveiled <g>Atom</g>: an Android touchscreen device with Ledger OS on a secure element.",
+    "→ Android apps kept apart from wallet signing<br>→ Tamper sensors that work even when it's off<br>→ Physical switch for camera &amp; mic<br>→ Solana's Seeker app preinstalled"
+   ],
+   "media": {
+    "type": "image",
+    "src": "og_lp_atom.jpg",
+    "h": 360,
+    "pos": "40% 50%"
+   }
+  },
+  {
+   "kind": "text",
+   "tag": "THE CATCH",
+   "paras": [
+    "Founder's Edition: <g>$849</g>. Regular price: $899.",
+    "Deliveries start in <r>summer 2027</r>, pending certification, and only through Ledger's own website.",
+    "<u>So the device built to stop this attack arrives next year.</u>",
+    "Until then, the oldest rule in self-custody still applies: buy hardware only from the official store, and never use a device that arrives with a recovery phrase already set."
+   ],
+   "media": {
+    "type": "image",
+    "src": "og_home.jpg",
+    "h": 330,
+    "pos": "50% 50%"
+   }
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}

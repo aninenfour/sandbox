@@ -59,7 +59,7 @@ body{font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;color:#ff
 .lbl{position:absolute;left:62px;top:150px;background:%(g)s;color:#111;font-size:30px;font-weight:500;padding:8px 92px 8px 92px;letter-spacing:.01em}
 .body{position:absolute;left:62px;right:70px;top:240px;font-size:40px;line-height:1.38;font-weight:400;z-index:2}
 .body p{margin-bottom:34px}
-.deco{position:absolute;right:-330px;top:330px;width:760px;height:760px;border-radius:50%%;background-size:cover;background-position:center;opacity:.32;z-index:1}
+.deco{position:absolute;right:-330px;top:330px;width:760px;height:760px;border-radius:50%%;background-size:cover;background-position:center;opacity:.18;z-index:1}
 .dphoto{position:absolute;right:0;top:0;width:430px;height:430px;background-size:cover;background-position:center;filter:grayscale(1) contrast(1.05);z-index:1;border-bottom-left-radius:60px;-webkit-mask-image:linear-gradient(200deg,#000 55%%,transparent 100%%)}
 .card{position:absolute;left:62px;right:42px;bottom:190px;border-radius:30px;overflow:hidden;background-size:cover;background-position:center;z-index:2;border:1px solid #333}
 .stats{position:absolute;left:62px;right:62px;bottom:170px;display:grid;gap:22px;z-index:2}
