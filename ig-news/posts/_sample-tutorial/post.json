@@ -1,0 +1,12 @@
+{"type":"tutorial","slides":[
+ {"kind":"tcover","chip":"Stablecoins 101","title":"How a <span class='hl2'>stablecoin</span> actually stays at $1","sub":"Reserves, redemptions and regulators, explained in 5 slides.","sub_top":610,"hero":"usdc.svg","hero_bg":"#fff","hero_fit":"80%",
+  "chapters":["What backs it","A short history","Who's winning","How it can break"]},
+ {"kind":"tslide","num":"01","of":"1/5","title":"What backs <span class='g'>$1</span>","paras":["Every regulated stablecoin is a claim on <g>cash and short-term bonds</g> held by the issuer.","You can redeem 1 token for $1. That promise is what holds the peg."],
+  "visual":{"type":"donut","title":"Example reserve mix (illustrative)","center":"$1","items":[{"l":"T-bills","v":80,"txt":"80%"},{"l":"Cash at banks","v":15,"txt":"15%"},{"l":"Repo","v":5,"txt":"5%"}]}},
+ {"kind":"tslide","num":"02","of":"2/5","title":"A short history","paras":[],"body_top":380,
+  "visual":{"type":"timeline","items":[{"y":"2014","t":"Tether launches USDT"},{"y":"2018","t":"USDC launches via Circle & Coinbase"},{"y":"2022","t":"TerraUSD <r>collapses</r>; algorithmic pegs lose trust"},{"y":"2024","t":"EU <g>MiCA</g> stablecoin rules take effect"},{"y":"2025","t":"US passes the GENIUS Act"},{"y":"2026","t":"USDC named EU's first <g>significant</g> e-money token"}]}},
+ {"kind":"tslide","num":"03","of":"3/5","title":"Supply trend (sample data)","paras":["Template test: line chart with highlighted points."],
+  "visual":{"type":"line","title":"Circulation, $B (sample)","series":[44,52,55,60,61,70,77,73.3],"labels":["Q3 24","Q1 25","Q3 25","Q1 26","Q2 26"],"fmt":"${:,.1f}B","marks":[{"i":6,"text":"peak"}]},"source":"sample"},
+ {"kind":"tslide","num":"04","of":"4/5","title":"Flows this week (sample)","paras":["Template test: bars with negatives and a table."],
+  "visual":{"type":"bars","title":"Net flows, $M (sample)","items":[{"l":"Fund A","v":104,"txt":"+$104M"},{"l":"Fund B","v":38,"txt":"+$38M"},{"l":"Fund C","v":-61,"txt":"-$61M"},{"l":"Fund D","v":-150,"txt":"-$150M"}]}},
+ {"kind":"end"}]}

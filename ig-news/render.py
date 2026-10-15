@@ -157,9 +157,13 @@ FIT_JS = """
     while (tot() > panel.clientHeight - 44 && k++ < 40) lines.forEach(l => l.style.fontSize = (parseFloat(l.style.fontSize)*0.98)+'px'); }
   for (const b of document.querySelectorAll('.fitbody')) {
     const lim = +b.dataset.bottom; let fs = parseFloat(getComputedStyle(b).fontSize);
-    const blockers = [...document.querySelectorAll('.card,.stats')].map(e => e.getBoundingClientRect().top - 30);
+    const blockers = [...document.querySelectorAll('.card,.stats,.vis,.wev')].map(e => e.getBoundingClientRect().top - 30);
     const bottom = Math.min(lim, ...blockers);
     while (b.getBoundingClientRect().bottom > bottom && fs > 24) { fs -= 1; b.style.fontSize = fs + 'px'; }
+  }
+  for (const el of document.querySelectorAll('[data-maxh]')) {
+    let fs = parseFloat(getComputedStyle(el).fontSize);
+    while (el.offsetHeight > +el.dataset.maxh && fs > 40) { fs -= 2; el.style.fontSize = fs + 'px'; }
   }
   const over = [...document.querySelectorAll('.fitbody')].some(b => b.getBoundingClientRect().bottom > 1250);
   return over;
