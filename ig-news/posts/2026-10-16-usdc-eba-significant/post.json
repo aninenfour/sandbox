@@ -1,0 +1,98 @@
+{
+ "type": "news",
+ "slides": [
+  {
+   "kind": "cover",
+   "photo": "allaire.jpg",
+   "photo_pos": "50% 28%",
+   "insets": [
+    {
+     "src": "usdc.svg",
+     "pos": "tl",
+     "size": 250,
+     "bg": "#fff",
+     "fit": "84%"
+    },
+    {
+     "src": "flag-eu.svg",
+     "pos": "tr",
+     "size": 250
+    }
+   ],
+   "headline": [
+    {
+     "t": "Europe just gave USDC",
+     "c": "ink",
+     "max": 66
+    },
+    {
+     "t": "a title no other",
+     "c": "green",
+     "max": 74
+    },
+    {
+     "t": "stablecoin has",
+     "c": "ink",
+     "max": 66
+    },
+    {
+     "t": "“Significant”",
+     "c": "ink",
+     "max": 92
+    },
+    {
+     "t": "and it comes with a catch",
+     "c": "red",
+     "max": 62
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "tag": "WHAT HAPPENED",
+   "deco": "usdc.svg",
+   "deco_fit": "contain",
+   "paras": [
+    "On Oct 14, the European Banking Authority classified Circle's EU-issued USDC as a <g>“significant” e-money token</g> under MiCA.",
+    "<u>It's the first of 45 e-money tokens notified in the EU to get that label.</u>",
+    "Not a new licence. Not a penalty. Just a <g>much bigger regulator watching.</g>"
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "$73.3B",
+      "l": "USDC in circulation (end of June)"
+     },
+     {
+      "v": "63%",
+      "l": "of stablecoin transaction volume in Q1"
+     },
+     {
+      "v": "1 of 45",
+      "l": "EU e-money tokens rated “significant”"
+     }
+    ]
+   },
+   "source": "EBA, Circle, Visa Onchain Analytics"
+  },
+  {
+   "kind": "text",
+   "tag": "THE CATCH",
+   "photo": "allaire.jpg",
+   "photo_pos": "46% 40%",
+   "body_right": 330,
+   "paras": [
+    "From <g>Nov 12</g>, the EBA takes direct control of USDC's:",
+    "→ Own funds<br>→ Reserve assets<br>→ Liquidity<br>→ Recovery &amp; redemption plans",
+    "France's ACPR, which licensed Circle in 2024, keeps governance and fit-and-proper checks.",
+    "<r>Get big enough, and the EU's top banking watchdog moves in.</r>",
+    "The label is reviewed every year, and covers USDC only, not Circle's euro coin EURC."
+   ],
+   "photo_size": "290%"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
