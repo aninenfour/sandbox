@@ -1,3 +1,54 @@
 [
- {"id": "2026-10-16-usdc-eba-significant", "type": "news", "slot": "2026-10-16T00:30:00+08:00", "title": "Europe just gave USDC a title no other stablecoin has", "score": 10, "sources": ["https://www.tradingview.com/news/financemagnates:b924f8108094b:0-eu-banking-regulator-takes-over-key-oversight-of-circle-s-usdc-stablecoin/", "https://www.finextra.com/pressarticle/111262/eba-classifies-usdc-as-significant-e-money-token-under-mica"], "status": "scheduled", "note": "manual test run, outside regular slots"}
+ {
+  "id": "2026-10-16-usdc-eba-significant",
+  "type": "news",
+  "slot": "2026-10-16T00:30:00+08:00",
+  "title": "Europe just gave USDC a title no other stablecoin has",
+  "score": 10,
+  "sources": [
+   "https://www.tradingview.com/news/financemagnates:b924f8108094b:0-eu-banking-regulator-takes-over-key-oversight-of-circle-s-usdc-stablecoin/",
+   "https://www.finextra.com/pressarticle/111262/eba-classifies-usdc-as-significant-e-money-token-under-mica"
+  ],
+  "status": "scheduled",
+  "note": "manual test run, outside regular slots"
+ },
+ {
+  "id": "2026-10-16-ledger-atom",
+  "type": "news",
+  "slot": "2026-10-16T11:00:00+08:00",
+  "title": "Ledger's answer to tampered wallets is an $849 phone that ships in 2027",
+  "score": 11,
+  "sources": [
+   "https://www.theblock.co/news/business/2026-10-15-ledger-atom-solana-mobile-418644",
+   "https://decrypt.co/381023/ledger-announces-atom-touchscreen-android-device",
+   "https://cointelegraph.com/news/ledger-new-hardware-device-asia-wallet-tampering"
+  ],
+  "status": "scheduled",
+  "note": "images: Ledger official"
+ },
+ {
+  "id": "2026-10-16-russia-p2p-ban",
+  "type": "news",
+  "slot": "2026-10-16T16:00:00+08:00",
+  "title": "Russia just set an expiry date on peer-to-peer crypto: July 1, 2027",
+  "score": 10,
+  "sources": [
+   "https://decrypt.co/381079/russia-ban-peer-to-peer-bitcoin-trading",
+   "https://cointelegraph.com/news/russia-ban-p2p-crypto-trades-july-2027"
+  ],
+  "status": "scheduled",
+  "note": "photo: Michael Parulava / Unsplash"
+ },
+ {
+  "id": "2026-10-16-msci-strategy",
+  "type": "news",
+  "slot": null,
+  "title": "MSCI finalizes non-operating company rules (Strategy at risk)",
+  "score": 12,
+  "sources": [
+   "https://www.theblock.co/news/business/2026-10-15-msci-rules-could-exclude-strategy-mstr-from-indexes-418729"
+  ],
+  "status": "skipped",
+  "note": "only one outlet reports the finalization; no MSCI results announcement yet. Revisit when MSCI publishes or a 2nd outlet confirms; affected list due Nov 11"
+ }
 ]
