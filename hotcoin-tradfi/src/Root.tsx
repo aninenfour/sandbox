@@ -26,6 +26,9 @@ import {Wrap, WRAP_DURATION} from './wrap/Wrap';
 import {ReserveCard} from './reserve/Reserve';
 import {CollabWrap, WRAP2_DURATION, WRAP2_FPS} from './wrap2/CollabWrap';
 import {PhoneShot} from './promo4/PhoneShot';
+import {LeaderboardShot} from './promo4/LeaderboardShot';
+import {ChartShot} from './promo4/ChartShot';
+import {CoinShot} from './promo4/CoinShot';
 import {GuessMeme3D} from './guess2/GuessMeme3D';
 import {GuessMeme} from './guess2/GuessMeme';
 import {EthMaintenance, ZanoResume} from './notice/Notice';
@@ -89,7 +92,10 @@ export const Root: React.FC = () => (
     <Composition id="GuessMeme" component={GuessMeme} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="GuessMeme3D" component={GuessMeme3D} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="ZanoResume" component={ZanoResume} durationInFrames={1} fps={30} width={1600} height={900} />
+    <Composition id="P4Coin" component={CoinShot} durationInFrames={300} fps={60} width={1920} height={1080} />
     <Composition id="P4Phone" component={PhoneShot} durationInFrames={300} fps={60} width={1920} height={1080} />
+    <Composition id="P4Leaders" component={LeaderboardShot} durationInFrames={300} fps={60} width={1920} height={1080} />
+    <Composition id="P4Chart" component={ChartShot} durationInFrames={300} fps={60} width={1920} height={1080} />
     <Composition id="ReserveCard" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} />
     <Composition id="ReserveCard-zh" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "zh"}} />
     <Composition id="ReserveCard-vi" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "vi"}} />

@@ -262,3 +262,10 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 ## Guess the meme card (`src/guess2/GuessMeme.tsx`)
 - **Silhouette:** traced from the PENGU (Pudgy Penguins) logo on CoinGecko. Only the outline and flipper lines are shown.
 - **Pick:** PENGU was trending on CoinGecko on 15 Oct 2026.
+
+## Product promo shots (`src/promo4/`, `promo4/coin.html`)
+- **Coin logos:** CoinGecko (BTC, ETH, SOL, BNB, XRP, USDT, DOGE, TRX). The Hotcoin coin face uses the official symbol.
+- **3D coin:** original three.js scene, rendered frame by frame with accumulation motion blur (`promo4/frames.js`).
+- **App market rows:** Hotcoin public spot tickers (api.hotcoinfin.com), 15 Oct 2026. The balance and order on the phone are demo values.
+- **BTC chart:** Coinbase daily closes, 17 Jun to 14 Oct 2026.
+- **Copy-trading leaderboard:** the traders, avatars and figures are illustrative, and the shot says so on screen.

@@ -197,7 +197,7 @@ const Scene: React.FC = () => {
             <Img src={staticFile('promo4/coins/bitcoin.png')} style={{width: 54, height: 54, borderRadius: 27}} />
             <div style={{fontSize: 52, fontWeight: 600, letterSpacing: -2}}>+0.0500 <span style={{fontSize: 30, color: '#9AA09C'}}>BTC</span></div>
           </div>
-          <div style={{fontSize: 20, color: '#9AA09C', marginTop: 10, fontFamily: APPFONT}}>Spot · BTC/USDT · filled in 0.03s</div>
+          <div style={{fontSize: 20, color: '#9AA09C', marginTop: 10, fontFamily: APPFONT}}>Spot · BTC/USDT · market order</div>
         </div>
       )}
       <Grain o={0.06} />
