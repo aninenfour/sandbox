@@ -27,7 +27,7 @@ import {ReserveCard} from './reserve/Reserve';
 import {CollabWrap, WRAP2_DURATION, WRAP2_FPS} from './wrap2/CollabWrap';
 import {GuessMeme3D} from './guess2/GuessMeme3D';
 import {GuessMeme} from './guess2/GuessMeme';
-import {EthMaintenance} from './notice/Notice';
+import {EthMaintenance, ZanoResume} from './notice/Notice';
 import {Style2Logo, Style2TradFi, Style2Next90} from './style2/Style2';
 import {PolicyMoney, PolicyMoves, PolicyOdds, PolicyVote} from './policy26/PolicyPulse';
 import {R10Teaser, R10_DURATION, R10_FPS} from './r10/R10Teaser';
@@ -87,6 +87,7 @@ export const Root: React.FC = () => (
     <Composition id="EthMaintenance" component={EthMaintenance} durationInFrames={1} fps={30} width={1600} height={900} />
     <Composition id="GuessMeme" component={GuessMeme} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="GuessMeme3D" component={GuessMeme3D} durationInFrames={1} fps={30} width={1080} height={1080} />
+    <Composition id="ZanoResume" component={ZanoResume} durationInFrames={1} fps={30} width={1600} height={900} />
     <Composition id="ReserveCard" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} />
     <Composition id="ReserveCard-zh" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "zh"}} />
     <Composition id="ReserveCard-vi" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "vi"}} />
