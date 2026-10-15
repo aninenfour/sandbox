@@ -258,3 +258,7 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
   - Founded 2017; TradFi (crypto, US stocks and precious metals with stablecoins): hotcoin.com.
   - FOMC 28 Oct and 9 Dec 2026: Chicago Fed calendar.
   - US midterms 3 Nov 2026; new Congress 3 Jan 2027.
+
+## Guess the meme card (`src/guess2/GuessMeme.tsx`)
+- **Silhouette:** traced from the PENGU (Pudgy Penguins) logo on CoinGecko. Only the outline and flipper lines are shown.
+- **Pick:** PENGU was trending on CoinGecko on 15 Oct 2026.

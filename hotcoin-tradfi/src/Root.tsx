@@ -25,6 +25,7 @@ import {Shine, SHINE_DURATION} from './shine/Shine';
 import {Wrap, WRAP_DURATION} from './wrap/Wrap';
 import {ReserveCard} from './reserve/Reserve';
 import {CollabWrap, WRAP2_DURATION, WRAP2_FPS} from './wrap2/CollabWrap';
+import {GuessMeme} from './guess2/GuessMeme';
 import {EthMaintenance} from './notice/Notice';
 import {Style2Logo, Style2TradFi, Style2Next90} from './style2/Style2';
 import {PolicyMoney, PolicyMoves, PolicyOdds, PolicyVote} from './policy26/PolicyPulse';
@@ -83,6 +84,7 @@ export const Root: React.FC = () => (
     <Composition id="Style2TradFi" component={Style2TradFi} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2Next90" component={Style2Next90} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="EthMaintenance" component={EthMaintenance} durationInFrames={1} fps={30} width={1600} height={900} />
+    <Composition id="GuessMeme" component={GuessMeme} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="ReserveCard" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} />
     <Composition id="ReserveCard-zh" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "zh"}} />
     <Composition id="ReserveCard-vi" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "vi"}} />
