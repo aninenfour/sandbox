@@ -92,10 +92,10 @@ export const Root: React.FC = () => (
     <Composition id="GuessMeme" component={GuessMeme} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="GuessMeme3D" component={GuessMeme3D} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="ZanoResume" component={ZanoResume} durationInFrames={1} fps={30} width={1600} height={900} />
-    <Composition id="P4Coin" component={CoinShot} durationInFrames={300} fps={60} width={1920} height={1080} />
-    <Composition id="P4Phone" component={PhoneShot} durationInFrames={300} fps={60} width={1920} height={1080} />
-    <Composition id="P4Leaders" component={LeaderboardShot} durationInFrames={300} fps={60} width={1920} height={1080} />
-    <Composition id="P4Chart" component={ChartShot} durationInFrames={300} fps={60} width={1920} height={1080} />
+    <Composition id="P4Coin" component={CoinShot} durationInFrames={410} fps={60} width={1920} height={1080} />
+    <Composition id="P4Phone" component={PhoneShot} durationInFrames={400} fps={60} width={1920} height={1080} />
+    <Composition id="P4Leaders" component={LeaderboardShot} durationInFrames={400} fps={60} width={1920} height={1080} />
+    <Composition id="P4Chart" component={ChartShot} durationInFrames={400} fps={60} width={1920} height={1080} />
     <Composition id="ReserveCard" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} />
     <Composition id="ReserveCard-zh" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "zh"}} />
     <Composition id="ReserveCard-vi" component={ReserveCard} durationInFrames={1} fps={30} width={1600} height={900} defaultProps={{lang: "vi"}} />

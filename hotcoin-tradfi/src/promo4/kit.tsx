@@ -58,3 +58,9 @@ export const Sparkle: React.FC<{x: number; y: number; s: number; f: number; at: 
 
 export const clampv = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 export const ip = interpolate;
+
+// Every shot opens on its phrase, big and centred, for INTRO frames; the shot itself starts after it.
+export const INTRO = 80;
+export const IntroWord: React.FC<{f: number; text: string; color?: string; size?: number}> = ({f, text, color = WHITE, size = 168}) => (
+  <Word f={f} at={4} until={INTRO - 16} text={text} color={color} size={size} x={960} y={540} />
+);

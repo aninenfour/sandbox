@@ -5,7 +5,7 @@ import React from 'react';
 import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
 import {CameraMotionBlur} from '@remotion/motion-blur';
 import data from './data.json';
-import {APPFONT, DOWN, Grain, INK, LIME, Rings, SANS, Sparkle, UP, WHITE, Word, cl, fmt, io, ip, lerp, out, sp, useFonts} from './kit';
+import {APPFONT, DOWN, Grain, INK, INTRO, LIME, Rings, SANS, Sparkle, UP, WHITE, cl, fmt, io, ip, lerp, out, sp, useFonts} from './kit';
 
 const SW = 390, SH = 844; // logical iPhone screen
 const BG = '#0B0B0C', CARD = '#151618', LINE = '#26272B', MUTE = '#8E9199';
@@ -154,13 +154,24 @@ const IPhone: React.FC<{k: number; children: React.ReactNode}> = ({k, children})
   );
 };
 
+// "in your pocket." opens big in the centre, then slides left and shrinks to make room for the phone.
+const Phrase: React.FC<{g: number}> = ({g}) => {
+  const a = out((g - 4) / 16), m = io((g - (INTRO - 22)) / 34), b = io((g - (INTRO + 128)) / 14);
+  if (g < 2 || b >= 1) return null;
+  const size = lerp(168, 104, m);
+  return (
+    <div style={{position: 'absolute', left: lerp(960, 110, m), top: 540, transform: `translate(${-50 * (1 - m)}%, -50%) translateY(${(1 - a) * 30 - b * 20}px)`,
+      fontFamily: SANS, fontWeight: 600, fontSize: size, letterSpacing: -size * 0.045 + (1 - a) * 8, color: INK, whiteSpace: 'nowrap', opacity: a * (1 - b), filter: `blur(${(1 - a) * 14 + b * 16}px)`}}>in your pocket.</div>
+  );
+};
+
 const Scene: React.FC = () => {
-  const f = useCurrentFrame();
+  const g = useCurrentFrame(), f = g - INTRO;
   // phone flight
   const enter = sp(f - 2, 17, 95, 1.1);
   const swing = io((f - 150) / 36), pop = io((f - 236) / 30);
   const rx = lerp(58, 12, enter) - 4 * pop, ry = lerp(-42, -20, enter) + 36 * swing - 6 * pop, rz = lerp(14, -3, enter) + 4 * swing;
-  const tx = lerp(420, 120, enter) - 330 * swing + 40 * pop, ty = lerp(1100, 0, enter), tz = -180 * pop;
+  const tx = lerp(420, 270, enter) - 330 * swing + 40 * pop, ty = lerp(1100, 0, enter), tz = -180 * pop;
   const toDetail = io((f - 156) / 20);
   const buy = ip(f, [228, 232, 238], [0, 1, 0], cl);
   // filled-order card flying out of the screen
@@ -169,7 +180,7 @@ const Scene: React.FC = () => {
   return (
     <AbsoluteFill style={{background: `radial-gradient(ellipse 80% 90% at ${lerp(60, 40, swing)}% 55%, #E9FCD0 0%, #C6F28C 38%, #8FD84E 75%, #5BAA2E 100%)`, overflow: 'hidden'}}>
       <Rings cx={lerp(1150, 830, swing)} cy={540} color="rgba(255,255,255,0.55)" base={330} t={bgT} />
-      <Word f={f} at={60} until={140} text="in your pocket." color={INK} size={128} x={lerp(140, 140, 0)} y={540} align="left" />
+      <Phrase g={g} />
       <Sparkle x={1580} y={250} s={70} f={f} at={250} />
       <Sparkle x={1660} y={330} s={30} f={f} at={258} />
       <div style={{position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, perspective: 2400, perspectiveOrigin: '50% 45%'}}>

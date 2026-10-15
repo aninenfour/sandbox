@@ -4,7 +4,7 @@ import React from 'react';
 import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
 import {CameraMotionBlur} from '@remotion/motion-blur';
 import data from './data.json';
-import {Grain, LIME, MONO, SANS, Sparkle, UP, WHITE, Word, fmt, io, lerp, out, useFonts} from './kit';
+import {Grain, INTRO, IntroWord, LIME, MONO, SANS, Sparkle, UP, WHITE, fmt, io, lerp, out, useFonts} from './kit';
 
 const PW = 2400, PH = 1100; // panel size (px, panel space)
 const PAD = {l: 120, r: 260, t: 150, b: 150};
@@ -23,7 +23,7 @@ const at = (t: number) => {
 };
 
 const Scene: React.FC = () => {
-  const f = useCurrentFrame();
+  const g = useCurrentFrame(), f = g - INTRO;
   const p = io((f - 6) / 168) * 0.25 + out((f - 6) / 168) * 0.75; // draw progress
   const tIdx = p * (N - 1);
   const tip = at(tIdx);
@@ -34,14 +34,14 @@ const Scene: React.FC = () => {
   // camera: ride the tip, then pull back to the whole panel
   const back = io((f - 150) / 80);
   const ox = lerp(tip.x, PW / 2 + 40, back), oy = lerp(tip.y, PH / 2, back);
-  const sx = lerp(1180, 960, back), sy = lerp(600, 585, back);
+  const sx = lerp(1180, 960, back), sy = lerp(600, 610, back);
   const scale = lerp(1.9, 0.6, back) + 0.03 * (f / 300);
   const rx = lerp(58, 30, back), rz = lerp(-14, -7, back), ry = lerp(-10, 0, back);
   return (
     <AbsoluteFill style={{background: 'radial-gradient(ellipse 90% 70% at 55% 75%, #12210B 0%, #07100A 45%, #040605 100%)', overflow: 'hidden', fontFamily: SANS, color: WHITE}}>
       <div style={{position: 'absolute', inset: 0, perspective: 1800, perspectiveOrigin: '50% 35%'}}>
         <div style={{position: 'absolute', left: sx - ox, top: sy - oy, width: PW, height: PH, transformOrigin: `${ox}px ${oy}px`,
-          transform: `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scale(${scale})`, borderRadius: 48,
+          transform: `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scale(${scale})`, borderRadius: 48, opacity: out(f / 14),
           background: 'linear-gradient(160deg, rgba(30,40,30,0.75) 0%, rgba(10,14,11,0.9) 60%)', border: '1.5px solid rgba(184,242,106,0.16)', boxShadow: '0 0 0 1px rgba(0,0,0,0.6), 0 80px 160px rgba(0,0,0,0.6)'}}>
           <svg width={PW} height={PH} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
             <defs>
@@ -95,7 +95,7 @@ const Scene: React.FC = () => {
 
 // HUD and type sit outside the motion blur so the counters stay crisp.
 const Hud: React.FC = () => {
-  const f = useCurrentFrame();
+  const g = useCurrentFrame(), f = g - INTRO;
   const p = io((f - 6) / 168) * 0.25 + out((f - 6) / 168) * 0.75;
   const tip = at(p * (N - 1));
   const chg = (tip.v / btc[0][1] - 1) * 100;
@@ -113,7 +113,7 @@ const Hud: React.FC = () => {
         <div style={{fontSize: 36, fontWeight: 600, color: chg >= 0 ? UP : '#F6465D', marginTop: 12}}>{chg >= 0 ? '+' : ''}{chg.toFixed(2)}% <span style={{color: 'rgba(255,255,255,0.45)', fontWeight: 500}}>since {fmtDate(btc[0][0])}</span></div>
       </div>
       <Img src={staticFile('brand/logo-official-white.png')} style={{position: 'absolute', right: 96, top: 98, width: 220, height: (220 * 328) / 2005, opacity: hud * 0.95}} />
-      <Word f={f} at={214} until={300} text="see every move." color={WHITE} size={112} x={960} y={985} />
+      <IntroWord f={g} text="see every move." />
       <Sparkle x={1500} y={300} s={56} f={f} at={176} color={LIME} />
       <Sparkle x={1556} y={350} s={22} f={f} at={182} />
       <div style={{position: 'absolute', right: 96, bottom: 40, fontFamily: MONO, fontSize: 15, color: 'rgba(255,255,255,0.35)', opacity: reveal}}>BTC daily closes, Coinbase, 17 Jun to 14 Oct 2026</div>

@@ -3,7 +3,7 @@
 import React from 'react';
 import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
 import {CameraMotionBlur} from '@remotion/motion-blur';
-import {GREEN, Grain, INK, LIME, Rings, SANS, MONO, Sparkle, UP, WHITE, Word, cl, fmt, io, ip, lerp, out, sp, useFonts} from './kit';
+import {GREEN, Grain, INK, INTRO, IntroWord, LIME, Rings, SANS, MONO, Sparkle, UP, WHITE, cl, fmt, io, ip, lerp, out, sp, useFonts} from './kit';
 
 const MUTE = '#7C837D', LINE = 'rgba(11,14,17,0.08)';
 type T = {name: string; tag: string; roi0: number; roi1: number; win: number; copiers: number; av: [string, string, string]; seed: number};
@@ -83,7 +83,7 @@ const RowBody: React.FC<{t: T; rank: number; roi: number; k: number; f: number; 
 const RH = 112, CW = 1180;
 
 const Scene: React.FC = () => {
-  const f = useCurrentFrame();
+  const g = useCurrentFrame(), f = g - INTRO;
   const enter = sp(f - 2, 16, 90, 1);
   const swap = io((f - 62) / 44); // #3 climbs to #1
   const lift = io((f - 128) / 34); // hero row lifts out toward camera
@@ -107,7 +107,7 @@ const Scene: React.FC = () => {
       <div style={{position: 'absolute', inset: 0, perspective: 2200, perspectiveOrigin: '50% 40%'}}>
         {/* the board */}
         <div style={{position: 'absolute', left: 960 - CW / 2, top: 170 + ty, width: CW, transform: `rotateX(${rx}deg) rotateY(${ry}deg) scale(${boardScale})`, transformOrigin: '50% 30%',
-          filter: `blur(${lift * 8}px)`, opacity: 1 - 0.5 * lift}}>
+          filter: `blur(${lift * 8}px)`, opacity: f < 0 ? 0 : 1 - 0.5 * lift}}>
           <div style={{borderRadius: 40, background: 'rgba(255,255,255,0.78)', border: '1px solid rgba(255,255,255,0.9)', boxShadow: '0 60px 120px rgba(40,70,20,0.18), 0 8px 24px rgba(40,70,20,0.08)', padding: '30px 0 24px', backdropFilter: 'blur(20px)'}}>
             <div style={{display: 'flex', alignItems: 'center', padding: '0 34px 22px', borderBottom: `1px solid ${LINE}`}}>
               <Img src={staticFile('brand/logo-official-black.png')} style={{height: 26, width: (26 * 2003) / 328}} />
@@ -137,7 +137,7 @@ const Scene: React.FC = () => {
         {/* hero row lifted out, toward camera */}
         {lift > 0.02 && (() => {
           const s = lerp(boardScale, 1.55, lift);
-          const top = lerp(170 + ty + 30 + 22 + 50 + 10, 560, lift);
+          const top = lerp(170 + ty + 30 + 22 + 50 + 10, 488, lift);
           return (
             <div style={{position: 'absolute', left: 960 - (CW - 28) / 2, top, width: CW - 28, height: RH - 8, transform: `rotateX(${lerp(rx, 0, lift)}deg) rotateY(${lerp(ry, 0, lift)}deg) scale(${s})`, transformOrigin: '50% 50%',
               borderRadius: 26, background: '#FFFFFF', boxShadow: `0 ${50 * lift}px ${100 * lift}px rgba(30,60,10,0.28), 0 0 0 ${2 * lift}px ${LIME}`}}>
@@ -151,10 +151,10 @@ const Scene: React.FC = () => {
           );
         })()}
       </div>
-      <Word f={f} at={150} until={292} text="copy the best." color={INK} size={150} x={960} y={300} />
+      <IntroWord f={g} text="copy the best." color={INK} />
       <Sparkle x={150} y={470} s={64} f={f} at={204} color={LIME} />
       <Sparkle x={215} y={420} s={26} f={f} at={210} color={INK} />
-      <div style={{position: 'absolute', left: 60, bottom: 40, fontFamily: MONO, fontSize: 15, color: MUTE, opacity: 0.8}}>Illustrative traders and figures. Past performance does not guarantee future results.</div>
+      <div style={{position: 'absolute', left: 60, bottom: 40, fontFamily: MONO, fontSize: 15, color: MUTE, opacity: 0.8 * out(f / 20)}}>Illustrative traders and figures. Past performance does not guarantee future results.</div>
       <Grain o={0.05} />
     </AbsoluteFill>
   );
