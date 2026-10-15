@@ -1,0 +1,133 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent;overflow:hidden}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+// Shot 1 "coin": Hotcoin coin flies in spinning, hero hold with a light sweep, whip, then a fanned row of real coins
+// rolls in. Rendered frame by frame (window.renderFrame) with accumulation motion blur; transparent background.
+import * as THREE from 'three';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+
+const q = new URLSearchParams(location.search);
+const W = +(q.get('w') || 1920), H = +(q.get('h') || 1080), FPS = 60, SUB = +(q.get('sub') || 8);
+const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, preserveDrawingBuffer: true, premultipliedAlpha: false});
+renderer.setPixelRatio(1); renderer.setSize(W, H); renderer.setClearColor(0, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.03).texture;
+scene.environmentIntensity = 0.75;
+const camera = new THREE.PerspectiveCamera(30, W / H, 0.1, 200);
+
+// ---------- textures ----------
+const loadImg = (src) => new Promise((r) => { const i = new Image(); i.onload = () => r(i); i.src = src; });
+const canvasTex = (draw, size = 1024) => { const c = document.createElement('canvas'); c.width = c.height = size; draw(c.getContext('2d'), size); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t; };
+const sym = await loadImg('/public/brand/symbol-official-white.png');
+const hotFace = canvasTex((g, S) => {
+  const gr = g.createRadialGradient(S * 0.4, S * 0.35, 0, S / 2, S / 2, S / 2);
+  gr.addColorStop(0, '#1c2124'); gr.addColorStop(1, '#050606');
+  g.fillStyle = gr; g.beginPath(); g.arc(S / 2, S / 2, S / 2, 0, 7); g.fill();
+  // engraved rings
+  g.strokeStyle = 'rgba(184,242,106,0.55)'; g.lineWidth = S * 0.006; g.beginPath(); g.arc(S / 2, S / 2, S * 0.44, 0, 7); g.stroke();
+  g.strokeStyle = 'rgba(255,255,255,0.12)'; g.lineWidth = S * 0.003; g.beginPath(); g.arc(S / 2, S / 2, S * 0.36, 0, 7); g.stroke();
+  // rim text
+  g.fillStyle = 'rgba(244,246,241,0.75)'; g.font = `600 ${S * 0.036}px "Helvetica Neue", Arial`; g.textAlign = 'center'; g.textBaseline = 'middle';
+  const txt = 'HOTCOIN  ·  BUILT FOR TRADERS  ·  SINCE 2017  ·  ';
+  const R = S * 0.4; const step = (Math.PI * 2) / txt.length;
+  for (let i = 0; i < txt.length; i++) { const a = -Math.PI / 2 + i * step; g.save(); g.translate(S / 2 + R * Math.cos(a), S / 2 + R * Math.sin(a)); g.rotate(a + Math.PI / 2); g.fillText(txt[i], 0, 0); g.restore(); }
+  const k = S * 0.5; g.drawImage(sym, S / 2 - k / 2, S / 2 - k / 2, k, k);
+});
+const logoFace = async (file, bg) => { const im = await loadImg(file); return canvasTex((g, S) => {
+  g.fillStyle = bg; g.beginPath(); g.arc(S / 2, S / 2, S / 2, 0, 7); g.fill();
+  g.save(); g.beginPath(); g.arc(S / 2, S / 2, S * 0.4, 0, 7); g.clip(); g.drawImage(im, S * 0.1, S * 0.1, S * 0.8, S * 0.8); g.restore();
+  g.strokeStyle = 'rgba(0,0,0,0.12)'; g.lineWidth = S * 0.012; g.beginPath(); g.arc(S / 2, S / 2, S * 0.445, 0, 7); g.stroke();
+}, 512); };
+const reed = canvasTex((g, S) => { g.fillStyle = '#808080'; g.fillRect(0, 0, S, S); for (let i = 0; i < 180; i++) { const x = (i / 180) * S; const gr = g.createLinearGradient(x, 0, x + S / 180, 0); gr.addColorStop(0, '#202020'); gr.addColorStop(0.5, '#ffffff'); gr.addColorStop(1, '#202020'); g.fillStyle = gr; g.fillRect(x, 0, S / 180, S); } }, 1024);
+reed.wrapS = THREE.RepeatWrapping; reed.colorSpace = THREE.NoColorSpace;
+
+// ---------- coin geometry ----------
+const R = 1, T = 0.17, B = 0.05;
+const rimProfile = () => { const p = []; const n = 10;
+  p.push(new THREE.Vector2(R * 0.9, T / 2)); p.push(new THREE.Vector2(R - B, T / 2));
+  for (let i = 0; i <= n; i++) { const a = Math.PI / 2 - (i / n) * Math.PI; p.push(new THREE.Vector2(R - B + B * Math.cos(a), (T / 2 - B) * Math.sin(a) / Math.abs(Math.sin(a) || 1) * Math.min(1, Math.abs(Math.sin(a)) * 3) + 0)); }
+  p.push(new THREE.Vector2(R - B, -T / 2)); p.push(new THREE.Vector2(R * 0.9, -T / 2)); return p; };
+const rimGeo = new THREE.LatheGeometry(rimProfile(), 160);
+const faceGeo = new THREE.CircleGeometry(R * 0.955, 128);
+const makeCoin = (faceTex, edgeColor, metal = 1) => {
+  const g = new THREE.Group();
+  const edge = new THREE.Mesh(rimGeo, new THREE.MeshPhysicalMaterial({color: edgeColor, metalness: metal, roughness: 0.28, bumpMap: reed, bumpScale: 1.5, clearcoat: 0.6}));
+  edge.rotation.x = Math.PI / 2; g.add(edge);
+  const fm = new THREE.MeshPhysicalMaterial({map: faceTex, roughness: 0.32, metalness: 0.15, clearcoat: 1, clearcoatRoughness: 0.12});
+  const f1 = new THREE.Mesh(faceGeo, fm); f1.position.z = T / 2 + 0.001; g.add(f1);
+  const f2 = new THREE.Mesh(faceGeo, fm); f2.position.z = -T / 2 - 0.001; f2.rotation.y = Math.PI; g.add(f2);
+  scene.add(g); return g;
+};
+const hot = makeCoin(hotFace, 0xb8f26a, 0.9);
+const LIST = [['bitcoin', '#ffffff'], ['ethereum', '#ffffff'], ['solana', '#0b0e11'], ['binancecoin', '#ffffff'], ['ripple', '#23292f'], ['tether', '#ffffff'], ['dogecoin', '#ffffff']];
+const row = [];
+for (const [id, bg] of LIST) row.push(makeCoin(await logoFace(`/public/promo4/coins/${id}.png`, bg), 0xd9dcd6, 1));
+const hot2 = makeCoin(hotFace, 0xb8f26a, 0.9);
+
+// ---------- lights ----------
+const key = new THREE.DirectionalLight(0xffffff, 2.0); key.position.set(-3, 4, 6); scene.add(key);
+const sweep = new THREE.PointLight(0xffffff, 0, 30, 1.2); scene.add(sweep);
+const limeRim = new THREE.PointLight(0xb8f26a, 40, 30, 1.4); limeRim.position.set(4, 1, -2); scene.add(limeRim);
+
+// ---------- timeline ----------
+const cl = (x) => Math.max(0, Math.min(1, x));
+const eOut = (x) => 1 - Math.pow(1 - cl(x), 4), eIn = (x) => Math.pow(cl(x), 3), eIO = (x) => { x = cl(x); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+const lerp = (a, b, t) => a + (b - a) * t;
+const pose = (t) => {
+  // A: fly in 0-0.8s, B: hero 0.8-2.3s, C: whip 2.3-2.65s, D: coin row 2.5-5s
+  const a = eOut(t / 0.8), push = eIO((t - 0.8) / 1.5);
+  camera.position.set(0, 0, 4.7 - 0.55 * push); camera.lookAt(0, 0, 0);
+  hot.visible = t < 2.7;
+  hot.position.set(lerp(1.6, 0.2, a), lerp(-0.9, 0.0, a), lerp(-26, 0, a));
+  hot.rotation.set(lerp(0.9, 0.16, a) - 0.05 * push, -0.62 + (1 - a) * Math.PI * 5 + 0.22 * push, lerp(-0.5, -0.1, a));
+  sweep.position.set(lerp(-3.5, 3.5, eIO((t - 0.85) / 1.2)), 1.2, 2.2); sweep.intensity = t > 0.8 && t < 2.4 ? 45 : 0;
+  const w = eIn((t - 2.3) / 0.35);
+  if (t > 2.3) { hot.rotation.y += w * Math.PI * 2.2; hot.position.x -= w * 5; camera.position.x = w * 2.5; }
+  const n = row.length + 1;
+  [...row, hot2].forEach((c, i) => {
+    c.visible = t > 2.45;
+    const isHot = i === n - 1;
+    const k = eOut((t - 2.5 - i * 0.065) / 0.85);
+    const x = isHot ? 2.75 : -3.85 + i * 0.97, z = isHot ? 0.9 : -i * 0.02;
+    c.position.set(lerp(x + 10, x, k), isHot ? 0.02 : -0.05, z);
+    c.rotation.set(0.06, (isHot ? -0.42 : -0.78) - (1 - k) * 0.5, (1 - k) * Math.PI * 4);
+    c.scale.setScalar(isHot ? 1.3 : 1.0);
+  });
+  if (t > 2.45) { const d = eOut((t - 2.45) / 2.5), e = eOut((t - 2.45) / 0.7); camera.position.set(lerp(2.5, 0.0, e), lerp(0.5, 0.2, d), lerp(9.6, 8.6, d)); camera.lookAt(lerp(0.6, -0.15, d), 0, 0); }
+};
+
+// ---------- accumulation motion blur ----------
+const rtOpts = {type: THREE.HalfFloatType, samples: 4};
+const rtSub = new THREE.WebGLRenderTarget(W, H, rtOpts), rtAcc = new THREE.WebGLRenderTarget(W, H, {type: THREE.HalfFloatType});
+const quadCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+const addMat = new THREE.ShaderMaterial({uniforms: {tex: {value: null}, w: {value: 1}}, transparent: true, blending: THREE.AdditiveBlending, depthTest: false,
+  vertexShader: 'varying vec2 vUv; void main(){vUv=uv; gl_Position=vec4(position.xy,0.,1.);}',
+  fragmentShader: 'uniform sampler2D tex; uniform float w; varying vec2 vUv; void main(){gl_FragColor=texture2D(tex,vUv)*w;}'});
+const outMat = new THREE.ShaderMaterial({uniforms: {tex: {value: rtAcc.texture}}, transparent: true, depthTest: false,
+  vertexShader: 'varying vec2 vUv; void main(){vUv=uv; gl_Position=vec4(position.xy,0.,1.);}',
+  fragmentShader: 'uniform sampler2D tex; varying vec2 vUv; void main(){vec4 c=texture2D(tex,vUv); gl_FragColor=vec4(c.a>0.001?c.rgb/c.a:vec3(0.),c.a);\n#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}'});
+const quad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), addMat); const qScene = new THREE.Scene(); qScene.add(quad);
+window.renderFrame = (f, shutter = 0.5) => {
+  renderer.setRenderTarget(rtAcc); renderer.setClearColor(0, 0); renderer.clear();
+  for (let s = 0; s < SUB; s++) {
+    pose((f + (s / SUB - 0.5) * shutter) / FPS);
+    renderer.setRenderTarget(rtSub); renderer.setClearColor(0, 0); renderer.clear(); renderer.render(scene, camera);
+    // premultiply so transparent edges average correctly
+    quad.material = addMat; addMat.uniforms.tex.value = rtSub.texture; addMat.uniforms.w.value = 1 / SUB;
+    addMat.fragmentShader = addMat.fragmentShader; renderer.setRenderTarget(rtAcc); renderer.autoClear = false; renderer.render(qScene, quadCam); renderer.autoClear = true;
+  }
+  quad.material = outMat; renderer.setRenderTarget(null); renderer.setClearColor(0, 0); renderer.clear(); renderer.render(qScene, quadCam);
+  return true;
+};
+addMat.fragmentShader = 'uniform sampler2D tex; uniform float w; varying vec2 vUv; void main(){vec4 c=texture2D(tex,vUv); gl_FragColor=vec4(c.rgb*c.a, c.a)*w;}';
+addMat.blending = THREE.CustomBlending; addMat.blendEquation = THREE.AddEquation;
+addMat.blendSrc = THREE.OneFactor; addMat.blendDst = THREE.OneFactor; addMat.blendSrcAlpha = THREE.OneFactor; addMat.blendDstAlpha = THREE.OneFactor;
+addMat.needsUpdate = true; outMat.blending = THREE.NoBlending; outMat.needsUpdate = true;
+document.title = 'ready';
+</script>
+</body></html>
