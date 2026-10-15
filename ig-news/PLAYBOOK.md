@@ -17,7 +17,7 @@ Daily target per UTC+8 day: **2 news + 1 tutorial** (max 3 IG posts from this de
 On **Sunday**, the tutorial slot is replaced by the **Weekly preview** (next Mon–Sun).
 
 1. Read `ig-news/state/log.json` (everything this desk already made, with slot times).
-2. Call Publer `get_recent_posts` (days 2, limit 60) to see what Hotcoin published on every channel; the log covers what this desk has scheduled. Never cover a story Hotcoin already posted on any channel in the last 48 h.
+2. Call Publer `list_publer_posts` with `from` = yesterday, `to` = tomorrow (UTC+8 dates), `states: ["published","scheduled","failed"]`, limit 60, to see what Hotcoin published or queued on every channel. (`get_recent_posts` stops at the server's UTC date and misses today's UTC+8 posts.) The log covers what this desk has scheduled. Never cover a story Hotcoin already posted on any channel in the last 48 h.
 3. Work out which slots of **today and tomorrow** are still open:
    - News A **11:00**, News B **16:00**, Tutorial/Weekly **19:00**. (Monday 19:00 is the best slot of the week: put the strongest piece there.)
    - Don't stack within 2 h of Hotcoin's own Daily News (~13:00) or Top Gainers (~20:30) posts. The slots above already avoid them.
