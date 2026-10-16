@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render a Hotcoin IG carousel from posts/<id>/post.json into media/<id>/NN.jpg (1080x1350).
+"""Render a Hotcoin IG carousel from posts/<id>/post.json into media/<id>/NN.jpg (4:5, rendered at 2x = 2160x2700).
 
 Usage: python3 ig-news/render.py posts/2026-10-16-usdc-eba
 Also writes media/<id>/story.jpg (1080x1920 Instagram Story announcing the post).
@@ -197,7 +197,7 @@ def main():
     files = []
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
-        pg = b.new_page(viewport={'width': W, 'height': HGT})
+        pg = b.new_page(viewport={'width': W, 'height': HGT}, device_scale_factor=2)  # 2160x2700 output: sharp text on zoom
         for n, s in enumerate(spec['slides'], 1):
             body = KINDS[s['kind']](s, post_dir)
             pg.set_content(f'<!doctype html><html><head><meta charset="utf-8"><style>{css}</style></head><body>{body}</body></html>')
@@ -206,7 +206,7 @@ def main():
             if pg.evaluate(FIT_JS):
                 print(f'WARNING slide {n}: body text overflows into footer — shorten copy', file=sys.stderr)
             f = out / f'{n:02d}.jpg'
-            pg.screenshot(path=str(f), type='jpeg', quality=93)
+            pg.screenshot(path=str(f), type='jpeg', quality=95)
             files.append(f)
         story = out / 'story.jpg'
         cta.render_story(pg, css, files[0], story, globals())
