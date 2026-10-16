@@ -85,6 +85,8 @@ Publer:
 2. `submit_publer_posts` with `when: "schedule"`, one post: `platform: "instagram"`, `account`: the Hotcoin Exchange IG id from `lookup_publer_accounts` (platform instagram), `post_type: "photo"` (multiple media = carousel), `media_ids`, `caption`, `first_comment`, `scheduled_for: "<date>T<slot>:00+08:00"`.
 3. **Story**: a second `submit_publer_posts` call, `when: "schedule"`, `platform: "instagram"`, same account, `post_type: "story"`, `media_ids: [<story id>]`, `caption: "New post: <short headline>"`, `scheduled_for` = the post's slot **+5 min**.
 Instagram only (feed + Story). Don't cross-post unless the user asks.
+**Fixing a scheduled post:** `update_publer_post` changes captions but does NOT swap media. To replace images, move the old post to a draft with `change_publer_post_state` (state `draft`) and schedule a fresh one. Never delete posts without the user's yes.
+Slides render at 2x (2160x2700, Story 2160x3840) so text stays sharp when zoomed; keep it that way.
 
 ## 9. Log
 Append to `ig-news/state/log.json`: `{"id","type","slot","title","score","sources":[...],"status":"scheduled|skipped","note"}`; commit and push. Finish with a 3-line summary: what was scheduled (slot + headline), what was skipped and why.
