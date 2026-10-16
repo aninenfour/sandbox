@@ -35,7 +35,8 @@ body{font-family:'Inter Display','Inter',sans-serif;-webkit-font-smoothing:antia
 .bg:after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 40% at 50% 46%,rgba(0,0,0,.38),rgba(0,0,0,0) 75%),linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.12) 50%,rgba(0,0,0,.45) 100%)}
 .tx{position:absolute;left:70px;right:70px;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff}
 .t{font-weight:800;font-size:100px;line-height:1.08;letter-spacing:-.01em;-webkit-text-stroke:3px rgba(0,0,0,.85);paint-order:stroke fill;text-shadow:0 6px 28px rgba(0,0,0,.55)}
-.hook .t{font-size:112px}
+.hook .t{font-size:118px}
+.num.tag{font-size:44px;letter-spacing:.06em;padding:10px 30px}
 .num{display:inline-block;font-weight:800;font-size:60px;color:#0A0A0A;background:#7EC25A;border-radius:18px;padding:4px 26px;margin-bottom:34px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .sub{margin-top:36px;font-family:'Inter';font-weight:600;font-size:50px;line-height:1.3;-webkit-text-stroke:2px rgba(0,0,0,.8);paint-order:stroke fill;text-shadow:0 4px 18px rgba(0,0,0,.6)}
 .wm{position:absolute;right:56px;bottom:150px;display:flex;align-items:center;gap:14px;font-family:'Inter';font-weight:700;font-size:30px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
@@ -55,6 +56,8 @@ def text_html(s, sym):
         return ''
     lines = '<br>'.join(H.escape(x) for x in s['text'].split('\n'))
     num = f'<div class="num">{H.escape(s["num"])}</div>' if s.get('num') else ''
+    if s.get('hook') and s.get('tag'):
+        num = f'<div class="num tag">{H.escape(s["tag"])}</div>'
     sub = f'<div class="sub">{H.escape(s["sub"])}</div>' if s.get('sub') else ''
     swipe = '<div class="swipe">Watch till the end 👇</div>' if s.get('hook') else ''
     return (f'<div class="tx {"hook" if s.get("hook") else ""}">{num}<div class="t">{lines}</div>{sub}</div>{swipe}'
@@ -113,7 +116,8 @@ def main():
         frames = int(durs[i] * FPS)
         z = '1.0+0.07*on/%d' % frames if i % 2 == 0 else '1.07-0.07*on/%d' % frames  # alternate zoom in / out
         fc.append(f'[{2*i}:v]scale=2160:3840,zoompan=z=\'{z}\':d={frames}:x=\'iw/2-(iw/zoom/2)\':y=\'ih/2-(ih/zoom/2)\':s={W}x{HH}:fps={FPS},setsar=1[b{i}]')
-        fc.append(f'[{2*i+1}:v]format=rgba,fps={FPS},fade=t=in:st=0.12:d=0.3:alpha=1,setsar=1[t{i}]')
+        fade = '' if i == 0 else 'fade=t=in:st=0.12:d=0.3:alpha=1,'  # slide 1 text is visible from frame 0 = the Reel cover
+        fc.append(f'[{2*i+1}:v]format=rgba,fps={FPS},{fade}setsar=1[t{i}]')
         fc.append(f'[b{i}][t{i}]overlay=0:0:shortest=1,format=yuv420p,trim=duration={durs[i]},setpts=PTS-STARTPTS[s{i}]')
     last = 's0'
     for i in range(1, n):
@@ -125,8 +129,8 @@ def main():
     cmd += ['-filter_complex', ';'.join(fc), '-map', f'[{last}]', '-map', '[a]', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19',
             '-pix_fmt', 'yuv420p', '-r', str(FPS), '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', f'{total:.3f}', str(mp4)]
     subprocess.run(cmd, check=True)
-    # cover = first slide composited (for previews / Publer thumbnail)
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', '1.0', '-i', str(mp4), '-frames:v', '1', '-q:v', '2', str(out / 'cover.jpg')], check=True)
+    # cover = frame 0 (Instagram's default Reel cover); check it before scheduling
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(mp4), '-frames:v', '1', '-q:v', '2', str(out / 'cover.jpg')], check=True)
     print(mp4.relative_to(ROOT.parent), f'{total:.1f}s'); print(track[1])
 
 

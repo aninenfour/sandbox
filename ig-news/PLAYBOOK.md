@@ -75,7 +75,8 @@ A ~20 s photo slideshow video with IG-style text and music. Topic rotates (check
 - 6–8 slides: hook (≤ 6 words per line, 2 lines, `"hook": true`) → 4–6 numbered points (`num`, `text` ≤ 2 short lines, `sub` ≤ 12 words) → `{"kind": "cta"}`.
 - Photos: real photos, one per slide, portrait (Unsplash `search_photos` with `orientation: "portrait"`, `per_page: 3`; or Commons/press for a ticker's company/person). Download with `tools/get_image.py`.
 - Music: `python3 ig-news/tools/music.py pick` → id (least recently used hip-hop/lo-fi track, Mixkit free licence). Credit it in the first comment.
-- Build: `python3 ig-news/reel.py ig-news/posts/<date>-reel-<slug>` → `media/<id>/reel.mp4`. Grab 3 frames with ffmpeg and look at them.
+- Build: `python3 ig-news/reel.py ig-news/posts/<date>-reel-<slug>` → `media/<id>/reel.mp4` + `cover.jpg`. Grab 3 frames with ffmpeg and look at them.
+- **Thumbnail = frame 0** (Instagram's default Reel cover; Publer's tools can't attach a custom one). The hook slide's text is visible from frame 0, with a `"tag"` pill (e.g. "SAVE THIS 📌"). Always Read `cover.jpg` before scheduling: bright, relevant photo, hook fully readable, text inside the middle 3:4 area (y 240–1680) so the profile-grid crop keeps it.
 - Numbers in a rule must be correct (e.g. 10 losses at 1% leaves 0.99^10 ≈ 90%). Ticker reviews: verify every figure; no price targets.
 - Publer: upload the mp4 with `upload_publer_media_from_url` (single `url`), then `submit_publer_posts` twice: Instagram `post_type: "reel"` and Facebook `post_type: "reel"` (same `media_id`, 21:30, FB follow line @HotcoinExchange). Caption: hook + the numbered points as emoji list + "Save this 📌" + follow block + hashtags. No Story for Reels.
 
