@@ -1,0 +1,40 @@
+{
+ "type": "news",
+ "slides": [
+  {"kind": "cover", "photo": "saylor.jpg", "photo_pos": "50% 22%",
+   "insets": [{"src": "msci.png", "pos": "tl", "size": 220, "bg": "#fff", "fit": "72%"}, {"src": "mstr.png", "pos": "tr", "size": 220, "bg": "#fff", "fit": "72%"}],
+   "headline": [
+     {"t": "MSCI may kick out", "c": "ink", "max": 76},
+     {"t": "Saylor's Strategy", "c": "green", "max": 80},
+     {"t": "and that could mean", "c": "ink", "max": 68},
+     {"t": "$2.8B", "c": "ink", "max": 104},
+     {"t": "in forced selling", "c": "red", "max": 70}
+   ]},
+  {"kind": "text", "tag": "WHAT HAPPENED",
+   "paras": [
+     "MSCI just finalized rules that make companies that mostly hold investments, rather than run a business, <g>ineligible for its global indexes.</g>",
+     "<u>In MSCI's own test run on May data, Strategy, Metaplanet and Yellow Cake were flagged for removal.</u>",
+     "Bitcoin treasury companies get no special treatment anymore: from the November review, they face the same test."
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "Nov 11", "l": "final list of affected companies"},
+     {"v": "Nov 30", "l": "changes take effect at the close"},
+     {"v": "4 of 5", "l": "ratios a company must fail to be out"}
+   ]},
+   "source": "MSCI via CoinDesk, The Block"},
+  {"kind": "text", "tag": "HOW THE TEST WORKS",
+   "paras": [
+     "<g>Step 1:</g> does the company have real operating assets, tied to an actual business?",
+     "<g>Step 2:</g> if not, MSCI checks 5 ratios covering expenses, cash flow, asset-value swings and reliance on outside financing. <u>Fail 4 of 5 and you're ineligible.</u>",
+     "There's a buffer: a current member is only removed if it fails in <g>both</g> of its last two annual filings."
+   ]},
+  {"kind": "text", "tag": "THE CATCH",
+   "paras": [
+     "JPMorgan estimates exclusion could force about <r>$2.8B</r> of index-fund selling in MSTR stock.",
+     "<u>That selling hits the shares, not Strategy's bitcoin.</u>",
+     "Saylor argues Strategy is an operating company with a software business and a bitcoin treasury, not a fund.",
+     "MSTR closed Thursday about <r>72% below</r> its November 2024 record."
+   ]},
+  {"kind": "end"}
+ ]
+}
