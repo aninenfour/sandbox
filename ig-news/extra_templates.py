@@ -89,7 +89,7 @@ def svg_line(v):
     return f'''<svg width="100%" viewBox="0 0 {w} {h}"><defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{col}" stop-opacity=".35"/><stop offset="1" stop-color="{col}" stop-opacity="0"/></linearGradient></defs>
 {grid}<path d="{area}" fill="url(#ga)"/><polyline points="{pts}" fill="none" stroke="{col}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="{X(n-1):.1f}" cy="{Y(ys[-1]):.1f}" r="10" fill="{col}"/><text x="{X(n-1)+18:.0f}" y="{Y(ys[-1])+9:.0f}" font-size="28" font-weight="800" fill="#0E1012">{_esc(v.get("last_label", fmt.format(ys[-1])))}</text>
-<text x="{w-100}" y="{Y(hi-pad)+8:.0f}" font-size="20" fill="#8a9095">{_esc(fmt.format(hi-pad))}</text><text x="{w-100}" y="{Y(lo+pad)+8:.0f}" font-size="20" fill="#8a9095">{_esc(fmt.format(lo+pad))}</text>{marks}{lab}</svg>'''
+{'' if abs(Y(ys[-1]) - Y(hi-pad)) < 44 else f'<text x="{w-100}" y="{Y(hi-pad)+8:.0f}" font-size="20" fill="#8a9095">{_esc(fmt.format(hi-pad))}</text>'}<text x="{w-100}" y="{Y(lo+pad)+8:.0f}" font-size="20" fill="#8a9095">{_esc(fmt.format(lo+pad))}</text>{marks}{lab}</svg>'''
 
 
 def svg_bars(v):

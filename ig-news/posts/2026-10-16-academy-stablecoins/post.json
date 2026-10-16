@@ -1,0 +1,295 @@
+{
+ "type": "tutorial",
+ "slides": [
+  {
+   "kind": "tcover",
+   "chip": "Stablecoins 101",
+   "title": "Why <span class='hl2'>$306B</span> sits in coins that never move",
+   "sub": "Who issues them, where they live, and why regulators just moved in.",
+   "sub_top": 600,
+   "hero": "logos/USDT.svg",
+   "hero_bg": "#fff",
+   "hero_fit": "62%",
+   "chapters": [
+    "What they are",
+    "Who's biggest",
+    "16x in six years",
+    "Where they live",
+    "Why regulators care"
+   ]
+  },
+  {
+   "kind": "tslide",
+   "num": "01",
+   "of": "1/5",
+   "title": "A dollar, <span class='g'>on-chain</span>",
+   "body_top": 390,
+   "paras": [
+    "A stablecoin is a token that tracks $1. Most are backed by <g>cash and short-term government bonds</g> held by the issuer.",
+    "Traders use them to park profits, move money between exchanges in minutes, and price almost every crypto pair."
+   ],
+   "visual": {
+    "type": "stats",
+    "title": "Stablecoin market today",
+    "cols": 3,
+    "items": [
+     {
+      "v": "$306B",
+      "l": "USD stablecoins in circulation",
+      "color": "#3E8E1E"
+     },
+     {
+      "v": "423",
+      "l": "stablecoins tracked"
+     },
+     {
+      "v": "84%",
+      "l": "held in just USDT + USDC"
+     }
+    ]
+   },
+   "source": "DefiLlama, Oct 16, 2026"
+  },
+  {
+   "kind": "tslide",
+   "num": "02",
+   "of": "2/5",
+   "title": "Two coins rule",
+   "body_top": 390,
+   "paras": [
+    "<g>Tether's USDT</g> is bigger than every other stablecoin combined. <g>Circle's USDC</g> is the regulated No. 2."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Circulating supply, $B",
+    "row": 70,
+    "items": [
+     {
+      "l": "USDT",
+      "v": 183.5,
+      "txt": "$183.5B"
+     },
+     {
+      "l": "USDC",
+      "v": 72.7,
+      "txt": "$72.7B"
+     },
+     {
+      "l": "USDS (Sky)",
+      "v": 7.1,
+      "txt": "$7.1B"
+     },
+     {
+      "l": "DAI",
+      "v": 4.7,
+      "txt": "$4.7B"
+     },
+     {
+      "l": "USDe (Ethena)",
+      "v": 4.7,
+      "txt": "$4.7B"
+     },
+     {
+      "l": "USD1",
+      "v": 4.1,
+      "txt": "$4.1B"
+     },
+     {
+      "l": "PYUSD (PayPal)",
+      "v": 2.8,
+      "txt": "$2.8B"
+     }
+    ]
+   },
+   "source": "DefiLlama, Oct 16, 2026"
+  },
+  {
+   "kind": "tslide",
+   "num": "03",
+   "of": "3/5",
+   "title": "16x in six years",
+   "body_top": 390,
+   "paras": [
+    "From <g>$19B</g> in Oct 2020 to <g>$306B</g> today. The big dip: 2022, when TerraUSD broke its peg and the bear market drained supply."
+   ],
+   "visual": {
+    "type": "line",
+    "title": "Total USD stablecoin supply, $B",
+    "h": 340,
+    "series": [
+     19.2,
+     21.2,
+     24.0,
+     27.4,
+     37.2,
+     52.1,
+     63.8,
+     84.9,
+     105.7,
+     110.1,
+     114.1,
+     118.5,
+     127.1,
+     131.7,
+     149.1,
+     161.9,
+     173.7,
+     183.4,
+     186.6,
+     187.1,
+     159.3,
+     152.7,
+     152.8,
+     152.4,
+     148.2,
+     145.2,
+     140.9,
+     137.4,
+     136.7,
+     134.5,
+     131.2,
+     129.9,
+     128.9,
+     127.1,
+     125.2,
+     124.9,
+     123.6,
+     123.9,
+     127.9,
+     129.8,
+     134.7,
+     140.7,
+     149.8,
+     159.3,
+     160.1,
+     160.5,
+     163.6,
+     169.2,
+     171.5,
+     171.8,
+     192.7,
+     203.2,
+     216.8,
+     224.4,
+     233.1,
+     240.1,
+     244.9,
+     251.1,
+     264.0,
+     281.0,
+     296.0,
+     304.3,
+     303.0,
+     303.7,
+     300.6,
+     304.3,
+     309.2,
+     312.7,
+     312.1,
+     303.4,
+     298.6,
+     302.1,
+     305.8
+    ],
+    "labels": [
+     "Oct '20",
+     "Oct '22",
+     "Oct '24",
+     "Oct '26"
+    ],
+    "fmt": "${:,.0f}B",
+    "last_label": "$306B",
+    "color": "#3E8E1E",
+    "marks": [
+     {
+      "i": 19,
+      "text": "Terra crash"
+     }
+    ]
+   },
+   "source": "DefiLlama"
+  },
+  {
+   "kind": "tslide",
+   "num": "04",
+   "of": "4/5",
+   "title": "Where they live",
+   "body_top": 390,
+   "paras": [
+    "Ethereum and Tron hold almost <g>80%</g> of all stablecoins. Tron is the go-to rail for cheap USDT transfers."
+   ],
+   "visual": {
+    "type": "donut",
+    "title": "Stablecoins by chain",
+    "center": "Share",
+    "items": [
+     {
+      "l": "Ethereum",
+      "v": 47.6,
+      "txt": "48%"
+     },
+     {
+      "l": "Tron",
+      "v": 31.3,
+      "txt": "31%"
+     },
+     {
+      "l": "Solana",
+      "v": 5.2,
+      "txt": "5%"
+     },
+     {
+      "l": "BNB Chain",
+      "v": 4.3,
+      "txt": "4%"
+     },
+     {
+      "l": "Other chains",
+      "v": 11.6,
+      "txt": "12%"
+     }
+    ]
+   },
+   "source": "DefiLlama, Oct 16, 2026"
+  },
+  {
+   "kind": "tslide",
+   "num": "05",
+   "of": "5/5",
+   "title": "Why regulators moved in",
+   "body_top": 380,
+   "paras": [
+    "The bigger stablecoins get, the more they look like banks. Since 2022, rule-makers have been <g>catching up</g>:"
+   ],
+   "visual": {
+    "type": "timeline",
+    "items": [
+     {
+      "y": "2022",
+      "t": "TerraUSD <r>collapses</r>; algorithmic pegs lose trust"
+     },
+     {
+      "y": "2024",
+      "t": "EU <g>MiCA</g> stablecoin rules apply (June 30)"
+     },
+     {
+      "y": "2025",
+      "t": "US signs the <g>GENIUS Act</g> for payment stablecoins (July)"
+     },
+     {
+      "y": "2026",
+      "t": "Russia: direct P2P crypto trades end July 1, 2027"
+     },
+     {
+      "y": "2026",
+      "t": "EU names USDC its first <g>“significant”</g> e-money token (Oct 14)"
+     }
+    ]
+   },
+   "source": "EBA, Bank of Russia, public records"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
