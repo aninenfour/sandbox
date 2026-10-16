@@ -50,5 +50,15 @@
   ],
   "status": "skipped",
   "note": "only one outlet reports the finalization; no MSCI results announcement yet. Revisit when MSCI publishes or a 2nd outlet confirms; affected list due Nov 11"
+ },
+ {
+  "id": "2026-10-16-reel-5-rules",
+  "type": "reel",
+  "slot": "2026-10-16T21:30:00+08:00",
+  "title": "5 trading rules pros never break",
+  "score": null,
+  "sources": [],
+  "status": "scheduled",
+  "note": "IG reel + FB reel; music Mixkit 738 'Hip Hop 02' by Lily J; photos Unsplash"
  }
 ]

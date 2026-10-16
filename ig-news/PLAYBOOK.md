@@ -13,7 +13,7 @@ TZ=Asia/Shanghai date
 Chromium is preloaded at `/opt/pw-browsers/chromium` (render.py uses it; never run `playwright install`).
 
 ## 1. Decide what this run should post
-Daily target per UTC+8 day: **2 news + 1 tutorial** (max 3 IG posts from this desk per day).
+Daily target per UTC+8 day: **2 news + 1 tutorial + 1 Reel** (the Reel is built by the 15:40 run for the **21:30** slot; see §7b).
 On **Sunday**, the tutorial slot is replaced by the **Weekly preview** (next Mon–Sun).
 
 1. Read `ig-news/state/log.json` (everything this desk already made, with slot times) and `ig-news/STYLE_NOTES.md` (the current lessons from the daily review; follow them).
@@ -68,6 +68,16 @@ Put the data source on each chart slide (`source`).
 
 ## 7. Weekly preview (Sundays, 19:00 slot)
 `wcover` (B&W photo of the week's biggest name + "What's on this week" + date range) → one `wday` per day that has events (day name + date; 1–3 events each with UTC+8 time and a badge: `HIGH IMPACT` (c: "hi") for CPI/FOMC/jobs, `UNLOCK`, `LISTING` (c: "gr") for Hotcoin listings, `EARNINGS`, `UPGRADE`) → `end`. Use a different `bg` gradient per day. Sources: economic calendar (WebSearch), token-unlock trackers, Hotcoin's own listing posts on Publer.
+
+## 7b. Daily Reel (21:30 slot, made by the 15:40 run)
+A ~20 s photo slideshow video with IG-style text and music. Topic rotates (check `log.json`, don't repeat a topic within 14 days):
+**trading rule / habit** (e.g. "5 trading rules pros never break"), **ticker review** (one coin or stock: what it is, 3 facts, recent move with real numbers from Hotcoin's ticker / CoinGecko / Yahoo), **myth vs fact**, **mistakes beginners make**.
+- 6–8 slides: hook (≤ 6 words per line, 2 lines, `"hook": true`) → 4–6 numbered points (`num`, `text` ≤ 2 short lines, `sub` ≤ 12 words) → `{"kind": "cta"}`.
+- Photos: real photos, one per slide, portrait (Unsplash `search_photos` with `orientation: "portrait"`, `per_page: 3`; or Commons/press for a ticker's company/person). Download with `tools/get_image.py`.
+- Music: `python3 ig-news/tools/music.py pick` → id (least recently used hip-hop/lo-fi track, Mixkit free licence). Credit it in the first comment.
+- Build: `python3 ig-news/reel.py ig-news/posts/<date>-reel-<slug>` → `media/<id>/reel.mp4`. Grab 3 frames with ffmpeg and look at them.
+- Numbers in a rule must be correct (e.g. 10 losses at 1% leaves 0.99^10 ≈ 90%). Ticker reviews: verify every figure; no price targets.
+- Publer: upload the mp4 with `upload_publer_media_from_url` (single `url`), then `submit_publer_posts` twice: Instagram `post_type: "reel"` and Facebook `post_type: "reel"` (same `media_id`, 21:30, FB follow line @HotcoinExchange). Caption: hook + the numbered points as emoji list + "Save this 📌" + follow block + hashtags. No Story for Reels.
 
 ## 8. Render, check, host, schedule
 ```bash
