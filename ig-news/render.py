@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Render a Hotcoin IG carousel from posts/<id>/post.json into media/<id>/NN.jpg (1080x1350).
 
-Usage: python3 ig-news/render.py posts/2026-10-16-usdc-eba [--png]
+Usage: python3 ig-news/render.py posts/2026-10-16-usdc-eba
+Also writes media/<id>/story.jpg (1080x1920 Instagram Story announcing the post).
 Slide kinds: cover, text, end (news) · tcover, tslide (tutorial) · wcover, wday (weekly).
 Inline markup in "html" fields: <g>green</g> <r>red</r> <u>underlined</u> <b>bold</b> <q>quote</q>.
 """
@@ -186,6 +187,9 @@ def main():
         css += extra_templates.CSS
     except ImportError:
         pass
+    import cta  # CTA end card + Story frame
+    KINDS['end'] = cta.s_end(globals())
+    css += cta.CSS.replace('GRAIN', uri(str(grain), ROOT) if grain.exists() else '')
     out = ROOT / 'media' / post_dir.name
     out.mkdir(parents=True, exist_ok=True)
     for old in out.glob('*.jpg'):
@@ -204,6 +208,9 @@ def main():
             f = out / f'{n:02d}.jpg'
             pg.screenshot(path=str(f), type='jpeg', quality=93)
             files.append(f)
+        story = out / 'story.jpg'
+        cta.render_story(pg, css, files[0], story, globals())
+        files.append(story)
         b.close()
     print('\n'.join(str(f.relative_to(ROOT.parent)) for f in files))
 
