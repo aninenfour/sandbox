@@ -39,8 +39,14 @@ Every number, date, name and quote must match **two independent sources** (or on
 Voice: confident, plain English, slightly provocative hook, no hype words ("moon", "huge"), no price predictions, no trading advice.
 - **Slide 1 cover**: 4–5 headline lines in the house pattern: ink / **green** / ink / **ink big** (1–3 words) / **red** (twist). Each line ≤ 26 chars. Example: `Europe just gave USDC` / `a title no other` / `stablecoin has` / `"Significant"` / `and it comes with a catch`.
 - **Slides 2–3**: tag label (WHAT HAPPENED / WHY IT MATTERS / THE CATCH / COMMON BELIEF / BY THE NUMBERS) and 3–5 short paragraphs, ≤ 70 words per slide. Use `<g>` for the key fact, `<u>` for the one line to remember, `<r>` for the twist. Add a `stats` row (3 tiles) or an image card when there's a number or a second photo worth showing.
-- **Last slide**: `{"kind": "end"}`.
-- **Caption**: hook line + 👇, 2 emoji-led fact lines, a question to drive comments, 4–5 hashtags ending in `#Hotcoin`. ≤ 900 chars.
+- **Last slide**: `{"kind": "end"}`: the CTA card ("Claim your welcome bonus", register via link in bio, Hotcoin app with live prices). Same on every post type. Never invent bonus amounts or terms.
+- **Caption**: hook line + 👇, 2 emoji-led fact lines, a question to drive comments, then this exact block, then 4–5 hashtags ending in `#Hotcoin`. ≤ 900 chars.
+  ```
+  .
+  Follow @hotcoinex for more updates about finance and trading
+  .
+  #Tag1 #Tag2 #Tag3 #Hotcoin
+  ```
 - **First comment**: `Sources: …` + `Photo: <credit>` + `Not financial advice.`
 
 ## 5. Photos (real photos, always)
@@ -66,7 +72,7 @@ Put the data source on each chart slide (`source`).
 ## 8. Render, check, host, schedule
 ```bash
 P=ig-news/posts/<YYYY-MM-DD>-<slug>          # post.json + photos live here
-python3 ig-news/render.py $P                 # -> ig-news/media/<id>/NN.jpg; warnings = shorten copy
+python3 ig-news/render.py $P                 # -> ig-news/media/<id>/NN.jpg + story.jpg (1080x1920); warnings = shorten copy
 ```
 **Look at every slide** (Read the JPGs). Fix anything clipped, overlapping a face, or unreadable, then re-render.
 Then commit and push, and use the commit-pinned raw URLs:
@@ -75,9 +81,10 @@ git add ig-news && git commit -m "IG news: <slug>" && git push origin claude/ig-
 SHA=$(git rev-parse HEAD)   # URL: https://raw.githubusercontent.com/aninenfour/sandbox/$SHA/ig-news/media/<id>/01.jpg
 ```
 Publer:
-1. `upload_publer_media_from_url` with `urls: [...]` (all slides, in order) → `media_ids`.
+1. `upload_publer_media_from_url` with `urls: [...]` (all slides in order, then `story.jpg` last) → `media_ids` (the last id is the Story).
 2. `submit_publer_posts` with `when: "schedule"`, one post: `platform: "instagram"`, `account`: the Hotcoin Exchange IG id from `lookup_publer_accounts` (platform instagram), `post_type: "photo"` (multiple media = carousel), `media_ids`, `caption`, `first_comment`, `scheduled_for: "<date>T<slot>:00+08:00"`.
-Instagram only. Don't cross-post unless the user asks.
+3. **Story**: a second `submit_publer_posts` call, `when: "schedule"`, `platform: "instagram"`, same account, `post_type: "story"`, `media_ids: [<story id>]`, `caption: "New post: <short headline>"`, `scheduled_for` = the post's slot **+5 min**.
+Instagram only (feed + Story). Don't cross-post unless the user asks.
 
 ## 9. Log
 Append to `ig-news/state/log.json`: `{"id","type","slot","title","score","sources":[...],"status":"scheduled|skipped","note"}`; commit and push. Finish with a 3-line summary: what was scheduled (slot + headline), what was skipped and why.
