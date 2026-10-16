@@ -1,1 +1,3 @@
 __pycache__/
+media/*/reel_frames/
+assets/music/*.mp3

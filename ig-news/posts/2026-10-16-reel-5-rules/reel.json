@@ -1,0 +1,10 @@
+{"music": "738",
+ "slides": [
+  {"photo": "p1.jpg", "pos": "50% 40%", "hook": true, "text": "5 trading rules\npros never break"},
+  {"photo": "p2.jpg", "pos": "50% 50%", "num": "1", "text": "Risk 1% per trade.\nMax 2%.", "sub": "10 losses in a row at 1%? You still keep ~90%."},
+  {"photo": "p3.jpg", "pos": "50% 45%", "num": "2", "text": "Set your stop\nbefore you enter", "sub": "Decide where you're wrong before the market does."},
+  {"photo": "p4.jpg", "pos": "50% 40%", "num": "3", "text": "No revenge\ntrades", "sub": "A loss is a cost, not a debt to win back."},
+  {"photo": "p5.jpg", "pos": "50% 50%", "num": "4", "text": "Bigger candles,\nsmaller size", "sub": "When volatility rises, cut your position."},
+  {"photo": "p6.jpg", "pos": "50% 50%", "num": "5", "text": "Write every\ntrade down", "sub": "Your journal is the cheapest coach you'll ever have."},
+  {"kind": "cta"}
+ ]}
