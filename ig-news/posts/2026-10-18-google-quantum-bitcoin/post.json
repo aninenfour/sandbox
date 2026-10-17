@@ -1,0 +1,45 @@
+{
+ "type": "news",
+ "slides": [
+  {"kind": "cover", "photo": "qc.jpg", "photo_pos": "50% 30%",
+   "insets": [
+    {"src": "google-g.svg", "pos": "tl", "size": 220, "bg": "#fff", "fit": "60%"},
+    {"src": "btc.svg", "pos": "tr", "size": 220, "bg": "#fff", "fit": "72%"}
+   ],
+   "headline": [
+    {"t": "Google's quantum chip", "c": "ink", "max": 74},
+    {"t": "just cut errors 40x", "c": "green", "max": 80},
+    {"t": "so is your Bitcoin", "c": "ink", "max": 72},
+    {"t": "SAFE?", "c": "ink", "max": 110},
+    {"t": "for now, yes", "c": "red", "max": 74}
+   ]},
+  {"kind": "text", "tag": "WHAT HAPPENED",
+   "paras": ["Google Quantum AI published new results in <g>Science</g> this week, run on its Willow chip.",
+             "A method called \"magic state cultivation\" made a key ingredient for big quantum calculations <g>about 40x less error-prone</g>.",
+             "<u>Making these \"magic states\" can eat up to 95% of a quantum computer's capacity, so this is a real bottleneck.</u>"],
+   "media": {"type": "stats", "items": [
+     {"v": "40x", "l": "fewer errors in magic states"},
+     {"v": "99.99%", "l": "fidelity of the states that passed"},
+     {"v": "54/105", "l": "Willow qubits used"}]},
+   "source": "Google Quantum AI via CoinDesk, Decrypt"},
+  {"kind": "text", "tag": "WHY BITCOIN CARES",
+   "paras": ["Bitcoin wallets are locked with elliptic-curve cryptography. A big enough quantum computer could work out a <r>private key from a public key</r>.",
+             "Google estimated in March that this would take <g>fewer than 500,000 physical qubits</g>.",
+             "<u>The oldest coins, from Satoshi's era, have had their public keys exposed since they were mined.</u>"],
+   "media": {"type": "stats", "items": [
+     {"v": "<500K", "l": "qubits to break BTC keys (Google est.)"},
+     {"v": "105", "l": "qubits on Willow today"},
+     {"v": "1994", "l": "year Shor's algorithm was published"}]},
+   "source": "CoinDesk, Decrypt"},
+  {"kind": "text", "tag": "THE CATCH",
+   "paras": ["Only about <r>8 in 100</r> attempts pass Google's checks. The rest get thrown away.",
+             "<u>This does not make an attack on Bitcoin 40x cheaper.</u>",
+             "Cracking RSA-2048 would need magic states about <g>a million times cleaner</g> than today's. Nobody has run Shor's algorithm against Bitcoin."],
+   "media": {"type": "stats", "items": [
+     {"v": "8%", "l": "of attempts kept"},
+     {"v": "~1M×", "l": "cleaner states needed for RSA-2048"},
+     {"v": "0", "l": "Bitcoin keys broken by quantum so far"}]},
+   "source": "CoinDesk, Decrypt"},
+  {"kind": "end"}
+ ]
+}
