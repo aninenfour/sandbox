@@ -1,0 +1,10 @@
+{"music": "400",
+ "slides": [
+  {"photo": "p3.jpg", "pos": "50% 40%", "hook": true, "tag": "SAVE THIS 📌", "text": "5 mistakes that\nwreck new traders"},
+  {"photo": "p6.jpg", "pos": "60% 50%", "num": "1", "text": "All-in on\none coin", "sub": "No single trade should be able to sink you."},
+  {"photo": "p1.jpg", "pos": "30% 50%", "num": "2", "text": "Leverage\ntoo early", "sub": "At 10x, a ~10% move against you can wipe out the position."},
+  {"photo": "p4.jpg", "pos": "60% 50%", "num": "3", "text": "Buying after\nthe pump", "sub": "If everyone's already talking about it, you're late."},
+  {"photo": "p5.jpg", "pos": "50% 30%", "num": "4", "shift": 260, "text": "No exit plan", "sub": "Set your take-profit and stop before you enter."},
+  {"photo": "p2.jpg", "pos": "50% 50%", "num": "5", "text": "Revenge\ntrading", "sub": "After a loss, step away. Don't double down."},
+  {"kind": "cta"}
+ ]}

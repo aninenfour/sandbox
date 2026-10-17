@@ -7,7 +7,7 @@ reel.json:
 {"music": "<mixkit id>",                         # from tools/music.py pick / list
  "slides": [
    {"photo": "a.jpg", "pos": "50% 40%", "text": "5 trading rules\\npros never break", "hook": true},
-   {"photo": "b.jpg", "num": "1", "text": "Risk 1–2% per trade", "sub": "Ten losses in a row still leaves you ~90%"},
+   {"photo": "b.jpg", "num": "1", "text": "Risk 1–2% per trade", "sub": "Ten losses in a row still leaves you ~90%", "shift": 220},
    ...,
    {"kind": "cta"}                                  # last slide: Hotcoin app + link in bio
  ]}
@@ -60,7 +60,8 @@ def text_html(s, sym):
         num = f'<div class="num tag">{H.escape(s["tag"])}</div>'
     sub = f'<div class="sub">{H.escape(s["sub"])}</div>' if s.get('sub') else ''
     swipe = '<div class="swipe">Watch till the end 👇</div>' if s.get('hook') else ''
-    return (f'<div class="tx {"hook" if s.get("hook") else ""}">{num}<div class="t">{lines}</div>{sub}</div>{swipe}'
+    shift = f' style="transform:translateY({int(s["shift"])}px)"' if s.get('shift') else ''  # move text off the photo's subject
+    return (f'<div class="tx {"hook" if s.get("hook") else ""}"{shift}>{num}<div class="t">{lines}</div>{sub}</div>{swipe}'
             f'<div class="wm"><i><img src="{sym}"></i>@hotcoinex</div>')
 
 
