@@ -75,5 +75,20 @@
   ],
   "status": "scheduled",
   "note": "built by 23:40 run for 11:00 but scheduling was interrupted by worker restarts; scheduled at 16:30 by the Sat 15:40 run (IG + FB 16:30, Story 16:35). Cover photo NYSE (Unsplash) since Wikimedia rate-limited."
+ },
+ {
+  "id": "2026-10-17-reel-5-mistakes",
+  "type": "reel",
+  "slot": "2026-10-17T21:30:00+08:00",
+  "hook": "5 mistakes that wreck new traders",
+  "topic": "mistakes beginners make",
+  "music": "400",
+  "channels": [
+   "instagram reel 21:30",
+   "facebook reel 21:30",
+   "instagram story 21:35"
+  ],
+  "publer_media_id": "6ad3322dcae398aa7d0ff701",
+  "commit": "ace9b92"
  }
 ]
