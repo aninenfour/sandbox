@@ -1,0 +1,36 @@
+{
+ "type": "news",
+ "slides": [
+  {"kind": "cover", "photo": "istanbul.jpg", "photo_pos": "50% 55%",
+   "insets": [
+    {"src": "flag-tr.svg", "pos": "tr", "size": 230},
+    {"src": "hex.svg", "pos": "tl", "size": 210, "bg": "#fff", "fit": "70%"}
+   ],
+   "headline": [
+    {"t": "HEX founder", "c": "ink", "max": 84},
+    {"t": "Richard Heart", "c": "green", "max": 90},
+    {"t": "arrested in Turkey with", "c": "ink", "max": 66},
+    {"t": "$7.15M", "c": "ink", "max": 110},
+    {"t": "in cash seized", "c": "red", "max": 76}
+   ]},
+  {"kind": "text", "tag": "WHAT HAPPENED",
+   "paras": ["Turkey's Justice Minister confirmed on Saturday that HEX and PulseChain founder <g>Richard Heart</g> was arrested in Istanbul.",
+             "Police and Turkish intelligence detained him and his wife on Oct 14 in the Beşiktaş district. <u>Searches of 15 addresses followed.</u>",
+             "Police also seized rifles, unlicensed pistols and 1,400 rounds of ammunition."],
+   "media": {"type": "stats", "items": [
+     {"v": "$7.15M", "l": "cash seized"},
+     {"v": "6", "l": "cold wallets seized"},
+     {"v": "15", "l": "addresses searched"}]},
+   "source": "Turkish Justice Ministry via The Block, Decrypt"},
+  {"kind": "text", "tag": "WHY HE WAS WANTED",
+   "paras": ["Interpol issued a <g>Red Notice</g> in December 2024 at Finland's request, over suspected <r>aggravated tax fraud</r> and assault.",
+             "In the US, the SEC sued him in 2023 over <g>$1B+</g> in unregistered crypto offerings. <u>A judge dismissed that case in February 2025.</u>",
+             "It's not yet clear whether Finland has asked Turkey to extradite him."],
+   "media": {"type": "stats", "items": [
+     {"v": "2024", "l": "Interpol Red Notice (Dec, for Finland)"},
+     {"v": "$1B+", "l": "raised in offerings the SEC sued over"},
+     {"v": "−14%", "l": "HEX in 24h after confirmation"}]},
+   "source": "The Block, Decrypt, CoinGecko"},
+  {"kind": "end"}
+ ]
+}
