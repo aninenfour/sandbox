@@ -121,5 +121,17 @@
   "status": "scheduled",
   "note": "IG + FB 11:00, IG Story 11:05 (23:40 Sat run). Cover is an Unsplash 3D illustration (Google's own Willow image only 1280x720); credited as illustration.",
   "commit": "ee0bb53"
+ },
+ {
+  "id": "2026-10-18-slot-1600",
+  "type": "news",
+  "slot": "2026-10-18T16:00:00+08:00",
+  "title": "(left open for the Sun 07:40 run)",
+  "score": 9,
+  "sources": [
+   "https://cointelegraph.com/news/lagarde-says-euro-area-economy-is-resilient-digital-euro-imminent"
+  ],
+  "status": "skipped",
+  "note": "23:40 Sat run: best remaining candidate was Lagarde 'digital euro imminent' (9/12) but the statement has no new date or facts and only one outlet; Polygon/Coinme and Circle-40-markets scored 8 or less. Left 16:00 for the 07:40 run (fresher news) together with the 19:00 weekly preview."
  }
 ]
