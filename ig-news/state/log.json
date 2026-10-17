@@ -40,18 +40,6 @@
   "note": "photo: Michael Parulava / Unsplash; re-scheduled at 2x with CTA end card (old version moved to drafts); IG Story 16:05; Facebook 16:00"
  },
  {
-  "id": "2026-10-16-msci-strategy",
-  "type": "news",
-  "slot": null,
-  "title": "MSCI finalizes non-operating company rules (Strategy at risk)",
-  "score": 12,
-  "sources": [
-   "https://www.theblock.co/news/business/2026-10-15-msci-rules-could-exclude-strategy-mstr-from-indexes-418729"
-  ],
-  "status": "skipped",
-  "note": "only one outlet reports the finalization; no MSCI results announcement yet. Revisit when MSCI publishes or a 2nd outlet confirms; affected list due Nov 11"
- },
- {
   "id": "2026-10-16-reel-5-rules",
   "type": "reel",
   "slot": "2026-10-16T21:30:00+08:00",
@@ -74,5 +62,18 @@
   ],
   "status": "scheduled",
   "note": "IG 19:00 + IG Story 19:05 + FB 19:01 (FB 19:00 taken by Hotcoin's own post). 15:40 run: news slots and 21:30 reel already filled earlier today."
+ },
+ {
+  "id": "2026-10-17-msci-strategy",
+  "type": "news",
+  "slot": "2026-10-17T16:30:00+08:00",
+  "title": "MSCI may kick out Saylor's Strategy ($2.8B forced selling)",
+  "score": 12,
+  "sources": [
+   "https://www.coindesk.com/markets/2026/10/16/msci-approves-rules-that-could-eject-strategy-metaplanet-from-equity-indexes",
+   "https://www.theblock.co/news/business/2026-10-15-msci-rules-could-exclude-strategy-mstr-from-indexes-418729"
+  ],
+  "status": "scheduled",
+  "note": "built by 23:40 run for 11:00 but scheduling was interrupted by worker restarts; scheduled at 16:30 by the Sat 15:40 run (IG + FB 16:30, Story 16:35). Cover photo NYSE (Unsplash) since Wikimedia rate-limited."
  }
 ]
