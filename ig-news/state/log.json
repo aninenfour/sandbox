@@ -133,5 +133,21 @@
   ],
   "status": "skipped",
   "note": "23:40 Sat run: best remaining candidate was Lagarde 'digital euro imminent' (9/12) but the statement has no new date or facts and only one outlet; Polygon/Coinme and Circle-40-markets scored 8 or less. Left 16:00 for the 07:40 run (fresher news) together with the 19:00 weekly preview."
+ },
+ {
+  "id": "2026-10-18-weekly-oct19",
+  "type": "weekly",
+  "slot": "2026-10-18T19:00:00+08:00",
+  "title": "What's on this week: Oct 19-25 (Big Tech earnings week)",
+  "score": null,
+  "sources": [
+   "https://www.stocktitan.net/articles/earnings-calendar-week-of-october-19-2026",
+   "https://www.earningswhispers.com/calweek/20261019",
+   "https://www.wealthiertoday.com/news/economic-calendar-next-week-october-19-23-2026/",
+   "https://defillama.com/unlocks/layerzero"
+  ],
+  "status": "scheduled",
+  "note": "IG + FB 19:00, IG Story 19:05 (Sun 07:40 run). wday cards now shrink with event count; badges bigger.",
+  "commit": "96c7109"
  }
 ]
