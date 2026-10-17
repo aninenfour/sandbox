@@ -1,0 +1,160 @@
+{
+ "type": "weekly",
+ "slides": [
+  {
+   "kind": "wcover",
+   "photo": "musk.jpg",
+   "photo_pos": "50% 30%",
+   "title": [
+    "What's on",
+    "this week"
+   ],
+   "range": "Oct 19 – 25 · Big Tech earnings week"
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Tuesday",
+    "20 October"
+   ],
+   "bg": "linear-gradient(160deg,#ff7a3d,#f2a65a 45%,#c9b8a8)",
+   "events": [
+    {
+     "t": "$ZRO monthly unlock (~24M tokens)",
+     "time": "All day",
+     "badges": [
+      {
+       "t": "UNLOCK"
+      }
+     ]
+    },
+    {
+     "t": "General Motors Q3 earnings",
+     "time": "~18:30 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    }
+   ],
+   "photo": "chevy.jpg",
+   "photo_pos": "50% 55%"
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Wednesday",
+    "21 October"
+   ],
+   "bg": "linear-gradient(160deg,#2b1b5a,#8e3fae 50%,#e05d8b)",
+   "events": [
+    {
+     "t": "Netflix ($NFLX) Q3 earnings",
+     "time": "~04:00 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    },
+    {
+     "t": "AT&T Q3 earnings call",
+     "time": "20:30 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    }
+   ],
+   "photo": "netflix.jpg",
+   "photo_pos": "50% 50%"
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Thursday",
+    "22 October"
+   ],
+   "photo": "zuck.jpg",
+   "photo_pos": "50% 25%",
+   "bg": "linear-gradient(160deg,#0b3d2e,#1f8a5b 50%,#9be07a)",
+   "events": [
+    {
+     "t": "Tesla ($TSLA) Q3 earnings, webcast",
+     "time": "05:30 UTC+8",
+     "badges": [
+      {
+       "t": "HIGH IMPACT",
+       "c": "hi"
+      },
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    },
+    {
+     "t": "Meta ($META) Q3 earnings call",
+     "time": "04:30 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    },
+    {
+     "t": "US weekly jobless claims",
+     "time": "20:30 UTC+8",
+     "badges": [
+      {
+       "t": "MACRO"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Friday",
+    "23 October"
+   ],
+   "bg": "linear-gradient(160deg,#0f2a4a,#2f6db5 50%,#9cc3f0)",
+   "events": [
+    {
+     "t": "US flash PMIs for October",
+     "time": "21:45 UTC+8",
+     "badges": [
+      {
+       "t": "MACRO"
+      }
+     ]
+    },
+    {
+     "t": "Michigan consumer sentiment (final)",
+     "time": "22:00 UTC+8",
+     "badges": [
+      {
+       "t": "MACRO"
+      }
+     ]
+    },
+    {
+     "t": "American Express Q3 earnings call",
+     "time": "20:30 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    }
+   ],
+   "photo": "nyse.jpg",
+   "photo_pos": "50% 45%"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}

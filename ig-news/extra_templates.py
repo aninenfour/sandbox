@@ -59,8 +59,8 @@ CSS = """
 .wcard{position:absolute;left:150px;right:150px;top:300px;height:600px;border-radius:40px;background-size:cover;background-position:center;box-shadow:0 30px 80px rgba(0,0,0,.3)}
 .wev{position:absolute;left:62px;right:62px;bottom:150px;display:flex;flex-direction:column;gap:20px}
 .wev .e{display:flex;align-items:center;gap:18px;font-size:42px;text-shadow:0 2px 12px rgba(0,0,0,.35);font-weight:500;color:#fff;flex-wrap:wrap}
-.wev .t{font-size:26px;color:#ffffffcc}
-.wev .b{font-size:18px;font-weight:700;letter-spacing:.06em;border:2px solid #fff;border-radius:6px;padding:5px 12px;background:#0006}
+.wev .t{font-size:30px;color:#ffffffcc}
+.wev .b{font-size:23px;font-weight:700;letter-spacing:.06em;border:2px solid #fff;border-radius:8px;padding:6px 14px;background:#0006}
 .wev .b.hi{background:#E5322D;border-color:#E5322D}.wev .b.gr{background:#7EC25A;border-color:#7EC25A;color:#111}
 .wk .foot{text-shadow:0 1px 8px rgba(0,0,0,.4);color:#fff}
 .grain:after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:4px 4px;mix-blend-mode:overlay;pointer-events:none}
@@ -172,7 +172,7 @@ def kinds(g):
 
     def wday(s, base):
         bg = s.get('bg', 'linear-gradient(160deg,#ff7a3d,#f2a65a 45%,#c9b8a8)')
-        card = f'<div class="wcard" style="background-image:url({uri(s["photo"], base)});background-position:{s.get("photo_pos","center")}"></div>' if s.get('photo') else ''
+        card = f'<div class="wcard" style="height:{ {1: 600, 2: 520}.get(len(s["events"]), 430) }px;background-image:url({uri(s["photo"], base)});background-position:{s.get("photo_pos","center")}"></div>' if s.get('photo') else ''
         evs = ''.join(
             f'<div class="e">{inline(e["t"])} <span class="t">({_esc(e["time"])})</span>' + ''.join(f'<span class="b {b.get("c","")}">{_esc(b["t"])}</span>' for b in e.get('badges', [])) + '</div>'
             for e in s['events'])
