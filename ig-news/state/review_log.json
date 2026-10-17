@@ -1,0 +1,17 @@
+[
+ {
+  "date": "2026-10-18",
+  "metrics_summary": "IG 7d: Reels lead reach (Hotcoin 'Same tears' 1,326; desk Reel '5 rules' 101 reach, 3 saves). Desk news carousels 22-35 reach, 0-1 comments (Ledger 35, USDC 23, Russia 22, Stablecoins 101 17). Personal-question post 'what's your reason to trade?' 161 reach, 49 comments. Oct 17 posts (MSCI, BTC/gold/S&P, Reel 5 mistakes) not in analytics yet. FB: desk posts not in top 10 by reach.",
+  "findings": [
+   "Reels reach ~3-4x carousels on IG; carousels are under 0.4% reach rate",
+   "Desk closing questions are abstract and draw ~0 comments; Hotcoin's personal one-word questions draw dozens",
+   "Tutorial cover subtitle collided with the hero circle on the Oct 17 Academy post (fixed by hand at render time)",
+   "Hooks Oct 17-18 follow STYLE_NOTES (numbers, known names, short red twist); no clipped text in last 24h renders"
+  ],
+  "changes": [
+   "STYLE_NOTES: closing question must be one-word/emoji answerable",
+   "render.py + extra_templates.py: tcover subtitle auto-placed under title, shrinks to stay clear of hero (tested on Stablecoins 101 and BTC/gold covers)"
+  ],
+  "skipped": false
+ }
+]

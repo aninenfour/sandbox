@@ -155,7 +155,7 @@ def kinds(g):
         hero = f'<div class="thero" style="background-image:url({uri(s["hero"], base)});background-position:{s.get("hero_pos","center")};{("background-color:"+s["hero_bg"]+";background-size:"+s.get("hero_fit","70%")+";background-repeat:no-repeat") if s.get("hero_bg") else ""}"></div>' if s.get('hero') else ''
         lst = '<div class="tlist">' + ''.join(f'<div><b>{k+1:02d}</b>{_esc(t)}</div>' for k, t in enumerate(s.get('chapters', []))) + '</div>' if s.get('chapters') else ''
         return f'''<div class="slide paper">{hero}<div class="acad"><span class="dot"></span>Hotcoin Academy<span class="chip">{_esc(s.get("chip","Deep Dive"))}</span></div>
-<div class="thl" data-maxh="{s.get('title_h',390)}">{inline(s["title"])}</div><div class="tsub" style="top:{s.get("sub_top",560)}px">{inline(s.get("sub",""))}</div>{lst}{pfoot("Swipe to learn")}</div>'''
+<div class="thl" data-maxh="{s.get('title_h',390)}">{inline(s["title"])}</div><div class="tsub" {f'style="top:{s["sub_top"]}px"' if s.get("sub_top") else 'data-auto="1"'}>{inline(s.get("sub",""))}</div>{lst}{pfoot("Swipe to learn")}</div>'''
 
     def tslide(s, base):
         vis = vis_html(s['visual'], g, base) if s.get('visual') else ''

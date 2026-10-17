@@ -11,6 +11,7 @@ Newest rules win over older ones and over PLAYBOOK.md wording where they conflic
 - Each cover line ≤ 22 characters; 4–5 lines total. The big line is 1–3 words.
 - Catchy, never false: no "hacked" unless it was a hack, no "banned" unless it is banned, "suspected" stays if the number is unconfirmed.
 - Caption line 1 = the cover hook rewritten as one sentence, ending with 👇.
+- The closing question must be **easy and personal, answerable in one word or one emoji**: "Bullish or bearish? 🟢/🔴", "Would you hold it? Yes/No", "Which one got you? 1–5". Not abstract ("Can P2P really be shut down?"). Hotcoin's "what's your reason to trade?" got 49 comments on 161 reach; the desk's abstract questions got 0–1.
 
 Examples (before → better):
 - "Ledger's answer to / tampered wallets / is an Android / $849 phone / that ships in 2027" → "Ledger's fix for / $86M wallet drain? / A $849 / PHONE / shipping in 2027"
@@ -24,4 +25,5 @@ Examples (before → better):
 - Stats tiles only with real numbers worth remembering; never filler like "1 reseller".
 
 ## Changelog
+- 2026-10-18: closing question must be one-word/emoji answerable (comments data). Tutorial cover subtitle now auto-placed under the title and kept clear of the hero circle (sub_top optional).
 - 2026-10-16: initial rules from the first two days (hook simplification, no background graphics behind text, 2x render, CTA end card with live app UI, follow line, Story + Facebook).

@@ -166,6 +166,12 @@ FIT_JS = """
     let fs = parseFloat(getComputedStyle(el).fontSize);
     while (el.offsetHeight > +el.dataset.maxh && fs > 40) { fs -= 2; el.style.fontSize = fs + 'px'; }
   }
+  for (const sub of document.querySelectorAll('.tsub[data-auto]')) {  // tutorial cover: sit under the title, stay clear of the hero circle
+    const slide = sub.closest('.slide').getBoundingClientRect(), t = sub.parentElement.querySelector('.thl'), hero = sub.parentElement.querySelector('.thero');
+    sub.style.top = (t.getBoundingClientRect().bottom - slide.top + 28) + 'px';
+    const lim = hero ? hero.getBoundingClientRect().top - 24 : 1100; let fs = parseFloat(getComputedStyle(sub).fontSize);
+    while (sub.getBoundingClientRect().bottom > lim && fs > 26) { fs -= 1; sub.style.fontSize = fs + 'px'; }
+  }
   const over = [...document.querySelectorAll('.fitbody')].some(b => b.getBoundingClientRect().bottom > 1250);
   return over;
 }
