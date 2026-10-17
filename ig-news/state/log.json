@@ -90,5 +90,21 @@
   ],
   "publer_media_id": "6ad3322dcae398aa7d0ff701",
   "commit": "ace9b92"
+ },
+ {
+  "id": "2026-10-17-academy-btc-gold-sp",
+  "type": "tutorial",
+  "slot": "2026-10-17T19:00:00+08:00",
+  "title": "Bitcoin, gold or stocks: who won the year? (1-Year Scorecard)",
+  "score": null,
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD",
+   "https://query1.finance.yahoo.com/v8/finance/chart/GC=F",
+   "https://query1.finance.yahoo.com/v8/finance/chart/^GSPC",
+   "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart"
+  ],
+  "status": "scheduled",
+  "note": "IG + FB 19:00, IG Story 19:05. Reel thumbnail verified in Publer (frame 0 = hook). Cover sub moved up (sub_top 525) to clear the hero circle.",
+  "commit": "fbe4c2d"
  }
 ]
