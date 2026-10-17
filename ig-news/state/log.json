@@ -131,8 +131,8 @@
   "sources": [
    "https://cointelegraph.com/news/lagarde-says-euro-area-economy-is-resilient-digital-euro-imminent"
   ],
-  "status": "skipped",
-  "note": "23:40 Sat run: best remaining candidate was Lagarde 'digital euro imminent' (9/12) but the statement has no new date or facts and only one outlet; Polygon/Coinme and Circle-40-markets scored 8 or less. Left 16:00 for the 07:40 run (fresher news) together with the 19:00 weekly preview."
+  "status": "filled",
+  "note": "23:40 Sat run: best remaining candidate was Lagarde 'digital euro imminent' (9/12) but the statement has no new date or facts and only one outlet; Polygon/Coinme and Circle-40-markets scored 8 or less. Left 16:00 for the 07:40 run (fresher news) together with the 19:00 weekly preview. -> filled by Sun 07:40 run (Richard Heart)."
  },
  {
   "id": "2026-10-18-weekly-oct19",
@@ -149,5 +149,19 @@
   "status": "scheduled",
   "note": "IG + FB 19:00, IG Story 19:05 (Sun 07:40 run). wday cards now shrink with event count; badges bigger.",
   "commit": "96c7109"
+ },
+ {
+  "id": "2026-10-18-richard-heart-turkey",
+  "type": "news",
+  "slot": "2026-10-18T16:00:00+08:00",
+  "title": "HEX founder Richard Heart arrested in Turkey, $7.15M cash seized",
+  "score": 10,
+  "sources": [
+   "https://www.theblock.co/news/regulation/2026-10-17-turkey-confirms-hex-founder-richard-hearts-arrest-says-police-seized-7-15-million-and-six-cold-wallets-418852",
+   "https://decrypt.co/380948/hex-founder-richard-heart-detained-in-istanbul-on-interpol-red-notice-report"
+  ],
+  "status": "scheduled",
+  "note": "IG + FB 16:00, IG Story 16:05. No licensed photo of Heart; cover is Istanbul (Unsplash) + Turkish flag + HEX logo.",
+  "commit": "c978816"
  }
 ]
