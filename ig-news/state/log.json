@@ -107,5 +107,19 @@
   "status": "scheduled",
   "note": "IG + FB 19:00, IG Story 19:05. Reel thumbnail verified in Publer (frame 0 = hook). Cover sub moved up (sub_top 525) to clear the hero circle.",
   "commit": "fbe4c2d"
+ },
+ {
+  "id": "2026-10-18-google-quantum-bitcoin",
+  "type": "news",
+  "slot": "2026-10-18T11:00:00+08:00",
+  "title": "Google's quantum chip cut errors 40x: is your Bitcoin safe? (for now, yes)",
+  "score": 11,
+  "sources": [
+   "https://www.coindesk.com/tech/2026/10/16/satoshi-era-bitcoin-faces-a-bigger-quantum-threat-after-google-s-new-willow-breakthrough",
+   "https://decrypt.co/381102/google-cracked-quantum-computing-biggest-bottlenecks"
+  ],
+  "status": "scheduled",
+  "note": "IG + FB 11:00, IG Story 11:05 (23:40 Sat run). Cover is an Unsplash 3D illustration (Google's own Willow image only 1280x720); credited as illustration.",
+  "commit": "ee0bb53"
  }
 ]
