@@ -179,5 +179,21 @@
   "publer_media_id": "6ad47773cae398aa7d11d4f8",
   "commit": "2c50f88",
   "note": "first tier-list Reel from the W42 weekly learning loop; built on the owner's request Sun morning, so the 15:40 run has no Reel to make today."
+ },
+ {
+  "id": "2026-10-19-academy-tesla-earnings",
+  "type": "tutorial",
+  "slot": "2026-10-19T19:00:00+08:00",
+  "title": "Before Tesla reports: 4 charts (price, revenue, margins, deliveries)",
+  "score": null,
+  "sources": [
+   "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/TSLA",
+   "https://query1.finance.yahoo.com/v8/finance/chart/TSLA",
+   "https://electrek.co/2026/10/02/tesla-q3-2026-deliveries-486532/",
+   "https://teslanorth.com/2026/10/02/tesla-q3-2026-deliveries/"
+  ],
+  "status": "scheduled",
+  "note": "Sun 15:40 run: today's slots (11:00/16:00/19:00/21:30) all filled earlier, so built Monday's best slot. IG + FB 19:00, Story 19:05. Mon 11:00 and 16:00 news left for the 23:40 run (fresher news).",
+  "commit": "e3a3943"
  }
 ]
