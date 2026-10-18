@@ -1,0 +1,32 @@
+{
+ "type": "news",
+ "slides": [
+  {"kind": "cover", "photo": "hacker.jpg", "photo_pos": "55% 40%",
+   "headline": [
+    {"t": "Hackers took", "c": "ink", "max": 84},
+    {"t": "$1.18B in Q3 alone", "c": "green", "max": 80},
+    {"t": "and 77% slipped", "c": "ink", "max": 76},
+    {"t": "PAST AUDITS", "c": "ink", "max": 104},
+    {"t": "via vendors & unfixed bugs", "c": "red", "max": 62}
+   ]},
+  {"kind": "text", "tag": "WHAT HAPPENED",
+   "paras": ["Security firm Hacken counted <r>$1.18B</r> stolen across <g>107</g> crypto hacks in Q3, up 55% from Q2.",
+             "<u>Four incidents made up most of it:</u> Bitget ($350M+), Liquid Network (~$320M), a Coldcard wallet software flaw (~$114M) and Tectonic.",
+             "Most hacks were small. A few huge ones did the damage."],
+   "media": {"type": "stats", "items": [
+     {"v": "$1.18B", "l": "stolen in Q3 2026"},
+     {"v": "107", "l": "incidents"},
+     {"v": "+55%", "l": "vs Q2"}]},
+   "source": "Hacken Q3 2026 report via CoinDesk, Cointelegraph"},
+  {"kind": "text", "tag": "THE CATCH",
+   "paras": ["About <r>$907M</r>, or 77%, came from things a code audit didn't cover: hacked suppliers and dev tools, <g>known fixes never deployed</g>, and parts left out of the review.",
+             "<u>\"The problem is always scope,\" says Hacken co-founder Andrii Matiukhin.</u>",
+             "An \"audited\" badge checks one piece of code at one moment, not the whole system."],
+   "media": {"type": "stats", "items": [
+     {"v": "77%", "l": "of losses outside audit scope"},
+     {"v": "~$907M", "l": "lost that way"},
+     {"v": "4", "l": "hacks behind most losses"}]},
+   "source": "Hacken via CoinDesk"},
+  {"kind": "end"}
+ ]
+}

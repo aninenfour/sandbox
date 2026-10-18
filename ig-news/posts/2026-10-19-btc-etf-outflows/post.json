@@ -1,0 +1,107 @@
+{
+ "type": "news",
+ "slides": [
+  {
+   "kind": "cover",
+   "photo": "wallst.jpg",
+   "photo_pos": "50% 40%",
+   "insets": [
+    {
+     "src": "btc.svg",
+     "pos": "tr",
+     "size": 220,
+     "bg": "#fff",
+     "fit": "78%"
+    }
+   ],
+   "headline": [
+    {
+     "t": "Bitcoin ETFs bled",
+     "c": "ink",
+     "max": 82
+    },
+    {
+     "t": "$910M in two weeks",
+     "c": "green",
+     "max": 80
+    },
+    {
+     "t": "and October sits at",
+     "c": "ink",
+     "max": 70
+    },
+    {
+     "t": "−$615M",
+     "c": "ink",
+     "max": 110
+    },
+    {
+     "t": "so much for Uptober",
+     "c": "red",
+     "max": 72
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "tag": "WHAT HAPPENED",
+   "paras": [
+    "US spot Bitcoin ETFs lost a net <r>$228.6M</r> last week, after a <r>$681.1M</r> drain the week before.",
+    "<u>That's about $910M out in two weeks.</u> The worst day was Wednesday, Oct 14: −$261.4M, led by Fidelity's FBTC (−$152.7M) and BlackRock's IBIT (−$110.9M).",
+    "Bitcoin dipped below <g>$80,000</g> on Thursday and closed the week near $81,600."
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "$229M",
+      "l": "net outflow, week to Oct 16",
+      "color": "#E5322D"
+     },
+     {
+      "v": "$681M",
+      "l": "net outflow, week before",
+      "color": "#E5322D"
+     },
+     {
+      "v": "$261M",
+      "l": "out on the worst day (Oct 14)",
+      "color": "#E5322D"
+     }
+    ]
+   },
+   "source": "SoSoValue via Decrypt; Farside via TokenPost, Crypto Briefing"
+  },
+  {
+   "kind": "text",
+   "tag": "WHY IT MATTERS",
+   "paras": [
+    "ETFs are the main door for Wall Street money. When they bleed, a big buyer steps back.",
+    "October opened with about <g>$293M</g> of inflows and is now around <r>−$615M</r> for the month.",
+    "<u>Zoom out: the funds still hold ~$104B, and $57.3B has flowed in since launch.</u>"
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "−$615M",
+      "l": "October so far",
+      "color": "#E5322D"
+     },
+     {
+      "v": "$104B",
+      "l": "total ETF assets"
+     },
+     {
+      "v": "$57.3B",
+      "l": "net inflows since launch"
+     }
+    ]
+   },
+   "source": "SoSoValue, Decrypt ETF tracker"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
