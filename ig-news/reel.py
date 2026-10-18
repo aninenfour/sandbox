@@ -18,7 +18,7 @@ it becomes one reveal slide per item. Rank by real data only (returns, drawdowns
 Text is drawn white with a dark outline (TikTok/IG native look) on a softly darkened photo.
 Each photo slowly zooms (Ken Burns); slides cross-fade; music fades in/out.
 """
-import json, sys, pathlib, subprocess, base64, mimetypes, html as H, shutil
+import json, sys, pathlib, subprocess, base64, mimetypes, html as H, shutil, re
 from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent
@@ -52,6 +52,7 @@ body{font-family:'Inter Display','Inter',sans-serif;-webkit-font-smoothing:antia
 .ctat{position:absolute;left:0;right:0;top:170px;text-align:center;color:#07090A;font-weight:800;font-size:92px;line-height:1.02;letter-spacing:-.04em}
 .ctat span{background:#07090A;color:#B8F26A;border-radius:16px;padding:0 18px}
 .ctas{position:absolute;left:0;right:0;top:445px;text-align:center;color:#1b2a10;font-family:'Inter';font-weight:600;font-size:40px}
+.kw{color:#FFD60A}
 .ptitle{position:absolute;left:0;right:0;top:250px;text-align:center}
 .ptitle span{display:inline-block;background:#fff;color:#0A0A0A;font-weight:800;font-size:50px;line-height:1.1;padding:10px 26px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .tierbg{position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 50% 40%,#1d2328,#0A0C0E 70%)}
@@ -86,14 +87,19 @@ def tier_html(spec, upto, post):
     return f'<div class="tierbg"></div><div class="tiers">{board}</div>{legend}{note}'
 
 
+def kw(t):
+    """Escape text; [word] becomes a yellow keyword (the caption style top finance Shorts use, weekly scan W43)."""
+    return re.sub(r'\[(.+?)\]', r'<span class="kw">\1</span>', H.escape(t))
+
+
 def text_html(s, sym, title=''):
     if s.get('kind') == 'cta':
         return ''
-    lines = '<br>'.join(H.escape(x) for x in s['text'].split('\n'))
+    lines = '<br>'.join(kw(x) for x in s['text'].split('\n'))
     num = f'<div class="num">{H.escape(s["num"])}</div>' if s.get('num') else ''
     if s.get('hook') and s.get('tag'):
         num = f'<div class="num tag">{H.escape(s["tag"])}</div>'
-    sub = f'<div class="sub">{H.escape(s["sub"])}</div>' if s.get('sub') else ''
+    sub = f'<div class="sub">{kw(s["sub"])}</div>' if s.get('sub') else ''
     swipe = '<div class="swipe">Watch till the end 👇</div>' if s.get('hook') else ''
     shift = f' style="transform:translateY({int(s["shift"])}px)"' if s.get('shift') else ''  # move text off the photo's subject
     top = f'<div class="ptitle"><span>{H.escape(title)}</span></div>' if title and not s.get('hook') else ''  # context for viewers who land mid-loop

@@ -15,6 +15,9 @@ Newest rules win over older ones and over PLAYBOOK.md wording where they conflic
 
 - Reels may also hook with a **bold claim plus a number** instead of a list promise ("Bitcoin lost 24% in a year. Apple made 36%."), as long as the number is verified (weekly scan W42: "$140K is the new poor", "Bitcoin won't 100x anymore").
 
+- **Name + number** hooks work across channels (W43 scan: "Arthur Hayes predicts $10K ETH" 6.9x, "Bitcoin's $800K bottom? A Bitcoin exec explains" 31x, "Will Bitcoin hit $150K this year?" 5.9x). Use them only as **reported, attributed** claims from real news ("Arthur Hayes: $10K ETH by year-end?"), never as our own forecast, and say in the slides who said it and why it's uncertain.
+- Reels: mark 1–2 keywords per slide as [yellow] (`[word]` in reel.json); never more than one per line.
+
 Examples (before → better):
 - "Ledger's answer to / tampered wallets / is an Android / $849 phone / that ships in 2027" → "Ledger's fix for / $86M wallet drain? / A $849 / PHONE / shipping in 2027"
 - "Russia just set / an expiry date on / peer-to-peer crypto / July 1, 2027 / then only licensed rails" → "Russia sets a / deadline for / P2P crypto / JULY 2027 / after that: banks only"
@@ -27,6 +30,7 @@ Examples (before → better):
 - Stats tiles only with real numbers worth remembering; never filler like "1 reseller".
 
 ## Changelog
+- 2026-10-19 (weekly learning W43): yellow keyword highlight in Reels ([word]); attributed name + number hooks.
 - 2026-10-18 (weekly learning W42): tier-list Reel format and persistent title pill added to reel.py; bold-claim-with-number hook allowed for Reels.
 - 2026-10-18: closing question must be one-word/emoji answerable (comments data). Tutorial cover subtitle now auto-placed under the title and kept clear of the hero circle (sub_top optional).
 - 2026-10-16: initial rules from the first two days (hook simplification, no background graphics behind text, 2x render, CTA end card with live app UI, follow line, Story + Facebook).

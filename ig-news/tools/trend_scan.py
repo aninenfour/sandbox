@@ -14,7 +14,7 @@ from PIL import Image
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 30
 TOP = int(sys.argv[2]) if len(sys.argv) > 2 else 20
-week = datetime.date.today().strftime('%G-W%V')
+week = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime('%G-W%V')  # UTC+8 week, like the rest of the desk
 out = ROOT / 'research' / week
 out.mkdir(parents=True, exist_ok=True)
 

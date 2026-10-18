@@ -13,5 +13,20 @@
   ],
   "experiment": "2 of 7 Reels use tier-list format; compare reach + saves",
   "last_experiment_result": null
+ },
+ {
+  "week": "2026-W43",
+  "patterns": [
+   "named person + big price number (Cointelegraph 31x, CoinDesk 6.9x, Altcoin Daily 5.9x, Crypto Banter)",
+   "yellow keyword captions / heavy outlined caps (Cointelegraph, Meet Kevin, CoinDesk, Altcoin Daily)",
+   "tier lists still top (Graham Stephan x3)"
+  ],
+  "shipped": [
+   "reel.py: [word] yellow keyword markup (tested)",
+   "STYLE_NOTES: attributed name+number hooks; keyword rule",
+   "trend_scan.py: UTC+8 week label; 5 dead channels replaced with CoinDesk, Cointelegraph, Bankless, Altcoin Daily, Meet Kevin, Crypto Casey"
+  ],
+  "experiment": "continue W42 test (2 of 7 Reels tier-list) + every Reel uses 1-2 yellow keywords; compare Reel reach/saves vs Oct 16-17 Reels (104 and 54 reach)",
+  "last_experiment_result": "too early: first tier-list Reel went live Sun 21:30, ~9h before this run; judge next Monday"
  }
 ]
