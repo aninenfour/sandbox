@@ -224,5 +224,21 @@
   "status": "scheduled",
   "note": "IG + FB 16:00, Story 16:05. Per-incident figures differ by outlet; used only rounded, consistent ones.",
   "commit": "d6a8ea4"
+ },
+ {
+  "id": "2026-10-19-reel-btc-myths",
+  "type": "reel",
+  "slot": "2026-10-19T21:30:00+08:00",
+  "hook": "5 Bitcoin myths you still believe",
+  "topic": "myth vs fact",
+  "music": "369",
+  "channels": [
+   "instagram reel 21:30",
+   "facebook reel 21:30",
+   "instagram story 21:35"
+  ],
+  "publer_media_id": "6ad559c1af47a3248fc82658",
+  "commit": "59f4a79",
+  "note": "Mon 07:40 run (Mon news/academy slots already full). First Reel with yellow keywords (W43 experiment). Tue 11:00/16:00 news left for the 15:40 and 23:40 runs (fresher)."
  }
 ]
