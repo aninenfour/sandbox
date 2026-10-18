@@ -30,6 +30,7 @@ import {LeaderboardShot} from './promo4/LeaderboardShot';
 import {ChartShot} from './promo4/ChartShot';
 import {CoinShot} from './promo4/CoinShot';
 import {GuessMeme3D} from './guess2/GuessMeme3D';
+import {MemeRiddle} from './riddle/MemeRiddle';
 import {GuessMeme} from './guess2/GuessMeme';
 import {EthMaintenance, ZanoResume} from './notice/Notice';
 import {Style2Logo, Style2TradFi, Style2Next90} from './style2/Style2';
@@ -85,6 +86,7 @@ export const Root: React.FC = () => (
     <Composition id="PolicyMoves" component={PolicyMoves} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="PolicyOdds" component={PolicyOdds} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="PolicyVote" component={PolicyVote} durationInFrames={1} fps={30} width={1080} height={1350} />
+    <Composition id="MemeRiddle" component={MemeRiddle} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2Logo" component={Style2Logo} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2TradFi" component={Style2TradFi} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2Next90" component={Style2Next90} durationInFrames={1} fps={30} width={1080} height={1350} />

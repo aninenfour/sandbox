@@ -269,3 +269,7 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 - **App market rows:** Hotcoin public spot tickers (api.hotcoinfin.com), 15 Oct 2026. The balance and order on the phone are demo values.
 - **BTC chart:** Coinbase daily closes, 17 Jun to 14 Oct 2026.
 - **Copy-trading leaderboard:** the traders, avatars and figures are illustrative, and the shot says so on screen.
+
+## Meme math puzzle (`src/riddle/MemeRiddle.tsx`)
+- **Coin logos:** CoinGecko (DOGE, PEPE, BONK).
+- **Solution:** DOGE = 10, PEPE = 5, BONK = 4, so DOGE + PEPE × BONK = 10 + 20 = 30.
