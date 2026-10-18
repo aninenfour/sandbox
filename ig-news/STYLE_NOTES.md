@@ -13,6 +13,8 @@ Newest rules win over older ones and over PLAYBOOK.md wording where they conflic
 - Caption line 1 = the cover hook rewritten as one sentence, ending with 👇.
 - The closing question must be **easy and personal, answerable in one word or one emoji**: "Bullish or bearish? 🟢/🔴", "Would you hold it? Yes/No", "Which one got you? 1–5". Not abstract ("Can P2P really be shut down?"). Hotcoin's "what's your reason to trade?" got 49 comments on 161 reach; the desk's abstract questions got 0–1.
 
+- Reels may also hook with a **bold claim plus a number** instead of a list promise ("Bitcoin lost 24% in a year. Apple made 36%."), as long as the number is verified (weekly scan W42: "$140K is the new poor", "Bitcoin won't 100x anymore").
+
 Examples (before → better):
 - "Ledger's answer to / tampered wallets / is an Android / $849 phone / that ships in 2027" → "Ledger's fix for / $86M wallet drain? / A $849 / PHONE / shipping in 2027"
 - "Russia just set / an expiry date on / peer-to-peer crypto / July 1, 2027 / then only licensed rails" → "Russia sets a / deadline for / P2P crypto / JULY 2027 / after that: banks only"
@@ -25,5 +27,6 @@ Examples (before → better):
 - Stats tiles only with real numbers worth remembering; never filler like "1 reseller".
 
 ## Changelog
+- 2026-10-18 (weekly learning W42): tier-list Reel format and persistent title pill added to reel.py; bold-claim-with-number hook allowed for Reels.
 - 2026-10-18: closing question must be one-word/emoji answerable (comments data). Tutorial cover subtitle now auto-placed under the title and kept clear of the hero circle (sub_top optional).
 - 2026-10-16: initial rules from the first two days (hook simplification, no background graphics behind text, 2x render, CTA end card with live app UI, follow line, Story + Facebook).

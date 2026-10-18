@@ -10,7 +10,11 @@ reel.json:
    {"photo": "b.jpg", "num": "1", "text": "Risk 1–2% per trade", "sub": "Ten losses in a row still leaves you ~90%", "shift": 220},
    ...,
    {"kind": "cta"}                                  # last slide: Hotcoin app + link in bio
- ]}
+ ],
+ "title": "5 rules pros never break"}               # optional: white pill on every slide after the hook
+Tier-list Reel (the "Ranking X" format): add "tier": {"tiers": ["S","A","B","C","D","F"],
+"items": [{"name", "tier", "logo", "why"}, ...]} and put {"kind": "tier_all"} in slides after the hook;
+it becomes one reveal slide per item. Rank by real data only (returns, drawdowns, fees), never by opinion.
 Text is drawn white with a dark outline (TikTok/IG native look) on a softly darkened photo.
 Each photo slowly zooms (Ken Burns); slides cross-fade; music fades in/out.
 """
@@ -48,10 +52,41 @@ body{font-family:'Inter Display','Inter',sans-serif;-webkit-font-smoothing:antia
 .ctat{position:absolute;left:0;right:0;top:170px;text-align:center;color:#07090A;font-weight:800;font-size:92px;line-height:1.02;letter-spacing:-.04em}
 .ctat span{background:#07090A;color:#B8F26A;border-radius:16px;padding:0 18px}
 .ctas{position:absolute;left:0;right:0;top:445px;text-align:center;color:#1b2a10;font-family:'Inter';font-weight:600;font-size:40px}
+.ptitle{position:absolute;left:0;right:0;top:250px;text-align:center}
+.ptitle span{display:inline-block;background:#fff;color:#0A0A0A;font-weight:800;font-size:50px;line-height:1.1;padding:10px 26px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.tierbg{position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 50% 40%,#1d2328,#0A0C0E 70%)}
+.tiers{position:absolute;left:60px;right:60px;top:400px;display:flex;flex-direction:column;gap:10px}
+.tiers .row{display:flex;height:150px;border-radius:14px;overflow:hidden;background:#15191d}
+.tiers .lab{width:150px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:72px;color:#0A0A0A}
+.tiers .its{flex:1;display:flex;align-items:center;gap:16px;padding:0 18px}
+.tiers .it{display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;font-family:'Inter';font-weight:700;font-size:24px}
+.tiers .it img{width:84px;height:84px;border-radius:50%;background:#fff;object-fit:contain;padding:8px}
+.tiers .it.new img{box-shadow:0 0 0 6px #7EC25A}
+.tlegend{position:absolute;left:40px;right:40px;top:1375px;text-align:center;color:#9aa3ab;font-family:'Inter';font-weight:600;font-size:27px;white-space:nowrap}
+.tnote{position:absolute;left:70px;right:70px;top:1470px;text-align:center;color:#fff;font-weight:800;font-size:64px;line-height:1.1;-webkit-text-stroke:2px rgba(0,0,0,.85);paint-order:stroke fill}
+.tnote small{display:block;margin-top:14px;font-family:'Inter';font-weight:600;font-size:40px;color:#ffffffd9;-webkit-text-stroke:0}
 """
+TIER_COLORS = {'S': '#FF7F7F', 'A': '#FFBF7F', 'B': '#FFDF7F', 'C': '#BFFF7F', 'D': '#7FFF7F', 'F': '#C77DFF'}
 
 
-def text_html(s, sym):
+def tier_html(spec, upto, post):
+    """Tier-list board (the 'Ranking X' format): items revealed one per slide, the newest one ringed in green."""
+    rows = {t: [] for t in spec['tiers']}
+    for k, it in enumerate(spec['items'][:upto]):
+        logo = it.get('logo')
+        img = ''
+        if logo:
+            src = post / logo if (post / logo).exists() else ROOT / 'assets' / 'logos' / logo
+            img = f'<img src="{uri(src)}">'
+        rows[it['tier']].append(f'<div class="it{" new" if k == upto - 1 else ""}">{img}{H.escape(it["name"])}</div>')
+    board = ''.join(f'<div class="row"><div class="lab" style="background:{TIER_COLORS.get(t, "#ccc")}">{t}</div><div class="its">{"".join(v)}</div></div>' for t, v in rows.items())
+    cur = spec['items'][upto - 1]
+    note = f'<div class="tnote">{H.escape(cur["name"])}: {H.escape(cur["tier"])}<small>{H.escape(cur.get("why", ""))}</small></div>'
+    legend = f'<div class="tlegend">{H.escape(spec["legend"])}</div>' if spec.get('legend') else ''
+    return f'<div class="tierbg"></div><div class="tiers">{board}</div>{legend}{note}'
+
+
+def text_html(s, sym, title=''):
     if s.get('kind') == 'cta':
         return ''
     lines = '<br>'.join(H.escape(x) for x in s['text'].split('\n'))
@@ -61,13 +96,19 @@ def text_html(s, sym):
     sub = f'<div class="sub">{H.escape(s["sub"])}</div>' if s.get('sub') else ''
     swipe = '<div class="swipe">Watch till the end 👇</div>' if s.get('hook') else ''
     shift = f' style="transform:translateY({int(s["shift"])}px)"' if s.get('shift') else ''  # move text off the photo's subject
-    return (f'<div class="tx {"hook" if s.get("hook") else ""}"{shift}>{num}<div class="t">{lines}</div>{sub}</div>{swipe}'
+    top = f'<div class="ptitle"><span>{H.escape(title)}</span></div>' if title and not s.get('hook') else ''  # context for viewers who land mid-loop
+    return (f'{top}<div class="tx {"hook" if s.get("hook") else ""}"{shift}>{num}<div class="t">{lines}</div>{sub}</div>{swipe}'
             f'<div class="wm"><i><img src="{sym}"></i>@hotcoinex</div>')
 
 
 def main():
     post = pathlib.Path(sys.argv[1]).resolve()
     spec = json.loads((post / 'reel.json').read_text())
+    if 'tier' in spec:  # {"kind": "tier_all"} expands to one reveal slide per ranked item
+        ex = []
+        for sl in spec['slides']:
+            ex += [{'kind': 'tier', 'upto': k + 1, 'dur': 2.4} for k in range(len(spec['tier']['items']))] if sl.get('kind') == 'tier_all' else [sl]
+        spec['slides'] = ex
     out = ROOT / 'media' / post.name
     work = out / 'reel_frames'
     shutil.rmtree(work, ignore_errors=True); work.mkdir(parents=True)
@@ -93,12 +134,20 @@ def main():
                 pg.set_content(f'<!doctype html><html><head><style>{CSS}</style></head><body></body></html>')
                 pg.screenshot(path=str(work / f'tx{n:02d}.png'), omit_background=True)
                 continue
+            if s.get('kind') == 'tier':  # the board itself is the background; no text layer
+                body = tier_html(spec['tier'], s['upto'], post)
+                pg.set_content(f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>{body}<div class="ptitle"><span>{H.escape(spec.get("title", ""))}</span></div></body></html>')
+                pg.wait_for_load_state('networkidle'); pg.evaluate('document.fonts.ready')
+                pg.screenshot(path=str(work / f'bg{n:02d}.jpg'), type='jpeg', quality=94)
+                pg.set_content(f'<!doctype html><html><head><style>{CSS}</style></head><body></body></html>')
+                pg.screenshot(path=str(work / f'tx{n:02d}.png'), omit_background=True)
+                continue
             # background: photo cover-cropped, rendered 10% oversize so the zoom never shows edges
             ph = uri(post / s['photo'])
             pg.set_content(f'<!doctype html><html><head><style>{CSS}</style></head><body><div class="bg" style="background-image:url({ph});background-position:{s.get("pos","center")}"></div></body></html>')
             pg.wait_for_load_state('networkidle')
             pg.screenshot(path=str(work / f'bg{n:02d}.jpg'), type='jpeg', quality=94)
-            pg.set_content(f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>{text_html(s, sym)}</body></html>')
+            pg.set_content(f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>{text_html(s, sym, spec.get("title", ""))}</body></html>')
             pg.wait_for_load_state('networkidle'); pg.evaluate('document.fonts.ready')
             pg.screenshot(path=str(work / f'tx{n:02d}.png'), omit_background=True)
         b.close()
@@ -116,6 +165,8 @@ def main():
     for i in range(n):
         frames = int(durs[i] * FPS)
         z = '1.0+0.07*on/%d' % frames if i % 2 == 0 else '1.07-0.07*on/%d' % frames  # alternate zoom in / out
+        if spec['slides'][i].get('kind') == 'tier':
+            z = '1.0'  # the board must stay steady and sharp
         fc.append(f'[{2*i}:v]scale=2160:3840,zoompan=z=\'{z}\':d={frames}:x=\'iw/2-(iw/zoom/2)\':y=\'ih/2-(ih/zoom/2)\':s={W}x{HH}:fps={FPS},setsar=1[b{i}]')
         fade = '' if i == 0 else 'fade=t=in:st=0.12:d=0.3:alpha=1,'  # slide 1 text is visible from frame 0 = the Reel cover
         fc.append(f'[{2*i+1}:v]format=rgba,fps={FPS},{fade}setsar=1[t{i}]')

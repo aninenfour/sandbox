@@ -1,0 +1,92 @@
+{
+ "music": "281",
+ "title": "1-year return tier list 📊",
+ "tier": {
+  "tiers": [
+   "S",
+   "A",
+   "B",
+   "C",
+   "D",
+   "F"
+  ],
+  "items": [
+   {
+    "name": "Bitcoin",
+    "tier": "D",
+    "logo": "BTC.svg",
+    "why": "−23.9% in 12 months"
+   },
+   {
+    "name": "Gold",
+    "tier": "C",
+    "logo": "XAUT.svg",
+    "why": "−4.1%, after a record in January"
+   },
+   {
+    "name": "Tesla",
+    "tier": "D",
+    "logo": "TSLA.png",
+    "why": "−19.3%"
+   },
+   {
+    "name": "Ethereum",
+    "tier": "F",
+    "logo": "ETH.svg",
+    "why": "−38.1%"
+   },
+   {
+    "name": "S&P 500",
+    "tier": "A",
+    "logo": "SPY.png",
+    "why": "+14.9%"
+   },
+   {
+    "name": "Meta",
+    "tier": "C",
+    "logo": "META.png",
+    "why": "−1.1%, flat for a year"
+   },
+   {
+    "name": "XRP",
+    "tier": "F",
+    "logo": "XRP.svg",
+    "why": "−45.2%"
+   },
+   {
+    "name": "NVIDIA",
+    "tier": "A",
+    "logo": "NVDA.png",
+    "why": "+16.9%"
+   },
+   {
+    "name": "Solana",
+    "tier": "F",
+    "logo": "SOL.svg",
+    "why": "−44.9%"
+   },
+   {
+    "name": "Apple",
+    "tier": "S",
+    "logo": "AAPL.png",
+    "why": "+36.1%, the only one above +30%"
+   }
+  ],
+  "legend": "S ≥+30% · A +10–30% · B 0–10% · C 0 to −10% · D −10 to −30% · F <−30%"
+ },
+ "slides": [
+  {
+   "photo": "hook.jpg",
+   "pos": "50% 40%",
+   "hook": true,
+   "tag": "TIER LIST 📊",
+   "text": "Ranking 10 assets\nby 1-year return"
+  },
+  {
+   "kind": "tier_all"
+  },
+  {
+   "kind": "cta"
+  }
+ ]
+}

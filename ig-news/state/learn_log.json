@@ -1,0 +1,17 @@
+[
+ {
+  "week": "2026-W42",
+  "patterns": [
+   "tier-list ranking format (3 of top 6 breakouts)",
+   "bold claim with a number",
+   "persistent title pill"
+  ],
+  "shipped": [
+   "reel.py tier-list format + persistent title",
+   "first tier-list Reel (1-year returns) for Sun 21:30",
+   "STYLE_NOTES bold-claim hook rule"
+  ],
+  "experiment": "2 of 7 Reels use tier-list format; compare reach + saves",
+  "last_experiment_result": null
+ }
+]
