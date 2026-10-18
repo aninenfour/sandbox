@@ -1,6 +1,6 @@
 # Weekly learning loop: study what's working, then upgrade the desk
 
-Runs every **Monday 06:20 UTC+8** (before the daily review). Goal: get measurably better every week by studying
+Runs every **Monday 06:20 UTC+8** (before the daily review), scheduled task "Hotcoin IG weekly learning loop". Goal: get measurably better every week by studying
 breakout short-form finance content and our own numbers, then shipping 1–3 concrete upgrades.
 Idea source: analyse ~20 top videos at once (topic, format, hook, script technique) and look for non-obvious patterns.
 

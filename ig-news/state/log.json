@@ -163,5 +163,21 @@
   "status": "scheduled",
   "note": "IG + FB 16:00, IG Story 16:05. No licensed photo of Heart; cover is Istanbul (Unsplash) + Turkish flag + HEX logo.",
   "commit": "c978816"
+ },
+ {
+  "id": "2026-10-18-reel-tier-1y",
+  "type": "reel",
+  "slot": "2026-10-18T21:30:00+08:00",
+  "hook": "Ranking 10 assets by 1-year return (tier list)",
+  "topic": "tier list (1-year returns)",
+  "music": "281",
+  "channels": [
+   "instagram reel 21:30",
+   "facebook reel 21:30",
+   "instagram story 21:35"
+  ],
+  "publer_media_id": "6ad47773cae398aa7d11d4f8",
+  "commit": "2c50f88",
+  "note": "first tier-list Reel from the W42 weekly learning loop; built on the owner's request Sun morning, so the 15:40 run has no Reel to make today."
  }
 ]
