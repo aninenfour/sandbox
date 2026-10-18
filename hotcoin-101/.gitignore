@@ -5,3 +5,4 @@ bundle
 .env.*
 *.log
 public/vo/sample-*
+bundle-thumbs
