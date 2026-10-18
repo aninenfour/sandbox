@@ -25,6 +25,7 @@ import { EyeLab, EYE_TOTAL } from './lab/EyeLab';
 import { real } from './notebook/time';
 import { Ep13, EP13_TOTAL } from './ep13/Ep13';
 import { Ep14, EP14_TOTAL } from './ep14/Ep14';
+import { Ep15, EP15_TOTAL } from './ep15/Ep15';
 import { Thumb14A, Thumb14AV, Thumb14B, Thumb14BV } from './thumbs/Thumbs14';
 
 // Two thumbnails per release (A/B), each in 16:9 (1920x1080, exported to
@@ -40,6 +41,7 @@ const THUMBS = [
 const NOTEBOOK_EPISODES = [
   { slug: 'paper-money-invented-twice', component: Ep13, units: EP13_TOTAL },
   { slug: 'stablecoins-explained', component: Ep14, units: EP14_TOTAL },
+  { slug: 'whale-shrimp-bagholder', component: Ep15, units: EP15_TOTAL },
 ];
 
 // Notebook look (FILE 013 onward) sign-off comps

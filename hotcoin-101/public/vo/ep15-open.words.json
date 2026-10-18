@@ -1,0 +1,112 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 8.8,
+ "words": [
+  {
+   "word": "Crypto",
+   "start": 0,
+   "end": 0.4,
+   "at": 0,
+   "until": 12
+  },
+  {
+   "word": "has",
+   "start": 0.44,
+   "end": 0.56,
+   "at": 13.2,
+   "until": 16.8
+  },
+  {
+   "word": "a",
+   "start": 0.6,
+   "end": 0.64,
+   "at": 18,
+   "until": 19.2
+  },
+  {
+   "word": "whole",
+   "start": 0.72,
+   "end": 1.12,
+   "at": 21.6,
+   "until": 33.6
+  },
+  {
+   "word": "zoo,",
+   "start": 1.24,
+   "end": 2.32,
+   "at": 37.2,
+   "until": 69.6
+  },
+  {
+   "word": "whales,",
+   "start": 2.411,
+   "end": 3.2,
+   "at": 72.3,
+   "until": 96
+  },
+  {
+   "word": "shrimp,",
+   "start": 3.269,
+   "end": 4.08,
+   "at": 98.1,
+   "until": 122.4
+  },
+  {
+   "word": "bagholders,",
+   "start": 4.16,
+   "end": 5.2,
+   "at": 124.8,
+   "until": 156
+  },
+  {
+   "word": "and,",
+   "start": 5.28,
+   "end": 6.32,
+   "at": 158.4,
+   "until": 189.6
+  },
+  {
+   "word": "well,",
+   "start": 6.368,
+   "end": 6.96,
+   "at": 191,
+   "until": 208.8
+  },
+  {
+   "word": "you're",
+   "start": 7,
+   "end": 7.2,
+   "at": 210,
+   "until": 216
+  },
+  {
+   "word": "probably",
+   "start": 7.253,
+   "end": 7.68,
+   "at": 217.6,
+   "until": 230.4
+  },
+  {
+   "word": "in",
+   "start": 7.733,
+   "end": 7.84,
+   "at": 232,
+   "until": 235.2
+  },
+  {
+   "word": "it",
+   "start": 7.867,
+   "end": 7.92,
+   "at": 236,
+   "until": 237.6
+  },
+  {
+   "word": "somewhere.",
+   "start": 7.968,
+   "end": 8.8,
+   "at": 239,
+   "until": 264
+  }
+ ]
+}
