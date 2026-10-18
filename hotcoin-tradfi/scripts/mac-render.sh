@@ -18,9 +18,9 @@ SRV=$!; trap 'kill $SRV 2>/dev/null' EXIT; sleep 1
 # frames, in two parallel halves (the GPU is shared, more workers do not help much)
 OUT=public/promo4/${PAGE}frames; mkdir -p "$OUT"
 HALF=$((LAST / 2))
-node promo4/frames.js "$PAGE" "$OUT" 0 "$HALF" "$QUERY" &
-node promo4/frames.js "$PAGE" "$OUT" $((HALF + 1)) "$LAST" "$QUERY" &
-wait %2 %3
+node promo4/frames.js "$PAGE" "$OUT" 0 "$HALF" "$QUERY" & A=$!
+node promo4/frames.js "$PAGE" "$OUT" $((HALF + 1)) "$LAST" "$QUERY" & B=$!
+wait $A; wait $B
 
 # final video
 mkdir -p out/promo4
