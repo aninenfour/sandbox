@@ -13,5 +13,18 @@
    "render.py + extra_templates.py: tcover subtitle auto-placed under title, shrinks to stay clear of hero (tested on Stablecoins 101 and BTC/gold covers)"
   ],
   "skipped": false
+ },
+ {
+  "date": "2026-10-19",
+  "metrics_summary": "IG Oct 15-19: Reels lead (5 rules 104 reach/3 saves, 5 mistakes 54); carousels 25-48 (Ledger 48, MSCI 39). Sunday posts and the tier-list Reel not in analytics yet. Best times (30d): Mon 19:00 by far (score 1469), then Sat 16:00, Fri 17:00: matches current slots, no move.",
+  "findings": [
+   "Story frames for Academy and weekly posts were tagged 'Hotcoin News'",
+   "Last-24h covers/slides clean (ETF, hacks, Tesla, weekly, tier Reel); hooks follow STYLE_NOTES (numbers, known names, one-word closing questions)",
+   "Weekly learning run 30 min earlier already shipped yellow keywords + name/number hook rule"
+  ],
+  "changes": [
+   "cta.render_story: Story tag follows post type (Hotcoin News / Hotcoin Academy / This week); tested on Tesla Academy + hacks Stories. Already-scheduled Stories left as they are (cosmetic)."
+  ],
+  "skipped": false
  }
 ]

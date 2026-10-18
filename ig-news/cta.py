@@ -186,13 +186,16 @@ def s_end(g):
     return render
 
 
-def render_story(page, css_base, cover_jpg, out_path, g):
+STORY_LABEL = {'news': 'Hotcoin News', 'tutorial': 'Hotcoin Academy', 'weekly': 'This week'}  # Story tag follows the post type
+
+
+def render_story(page, css_base, cover_jpg, out_path, g, kind='news'):
     """1080x1920 Story: blurred cover backdrop + the cover card + 'new post' hint."""
     cover = g['uri'](str(cover_jpg), ROOT)
     logo_w = g['uri'](str(ROOT / 'assets' / 'logo-official-white.png'), ROOT)
     body = f'''<div class="slide story" style="width:1080px;height:1920px"><div class="bg" style="background-image:url({cover})"></div>
 <div class="brand"><img src="{logo_w}"></div>
-<div class="np"><span>NEW POST</span> Hotcoin News</div>
+<div class="np"><span>NEW POST</span> {STORY_LABEL.get(kind, 'Hotcoin News')}</div>
 <div class="card"><img src="{cover}"></div>
 <div class="hint">Full story on our feed 👉 <b>@hotcoinex</b></div></div>'''
     page.set_viewport_size({'width': 1080, 'height': 1920})

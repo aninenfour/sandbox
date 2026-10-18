@@ -215,7 +215,7 @@ def main():
             pg.screenshot(path=str(f), type='jpeg', quality=95)
             files.append(f)
         story = out / 'story.jpg'
-        cta.render_story(pg, css, files[0], story, globals())
+        cta.render_story(pg, css, files[0], story, globals(), spec.get('type', 'news'))
         files.append(story)
         b.close()
     print('\n'.join(str(f.relative_to(ROOT.parent)) for f in files))
