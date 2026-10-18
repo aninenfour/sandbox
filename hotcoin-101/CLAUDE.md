@@ -19,7 +19,13 @@ Exactly eight files, nothing else:
 7. `hotcoin-101-epNN-thumb-a-9x16.jpg` · 1080x1920 cover, variant A
 8. `hotcoin-101-epNN-thumb-b-9x16.jpg` · 1080x1920 cover, variant B
 
-**Thumbnails (from FILE 014):** two variants per release for A/B testing, each in both formats, built as `<Still>` compositions (`src/thumbs/ThumbsNN.tsx`, ids `thumb-NNN-{a,b}-{16x9,9x16}`). 16:9 renders at 1920x1080 and exports to 1280x720 JPG well under 2 MB. 9:16 renders and exports at 1080x1920, with everything that matters inside the centre 3:4 band (y 240 to 1680) so the Instagram profile grid crop keeps it. Same notebook look. Make the two genuinely different: one curiosity angle (a question about the topic), one drama or number angle. At most five words of big type, the narrator large with a strong mood, the small lockup and "101 · FILE NNN" top left. Numbers follow the same rule as the video: defensible, or not shown.
+**Thumbnails (kit v2 from FILE 015, after Alex found the first ones unreadable):** two variants per release for A/B testing, each in both formats, built as `<Still>` compositions (`src/thumbs/ThumbsNN.tsx`, ids `thumb-NNN-{a,b}-{16x9,9x16}`) from `src/thumbs/kit.tsx`. 16:9 renders at 1920x1080 and exports to 1280x720 JPG; 9:16 renders and exports at 1080x1920 with everything that matters inside the centre 3:4 band (y 240 to 1680) for the Instagram grid crop.
+- Built to read at 168 px wide (YouTube sidebar). Check a 320x180 and a 168x94 downscale before exporting.
+- Two to four words of huge Anton (230 to 330 px at 1920 wide) with a thick ink outline (`Line`), and one keyword on a solid red block.
+- Bold flat background, not the notebook paper: bright yellow `#F7C531` for the question variant, charcoal with a red glow for the drama variant. Never a green background (the narrator disappears into it).
+- Art as stickers with a white outline and drop shadow (`Sticker`): the subject big, the narrator very large (r 150 to 190) with a strong mood, and a thick arrow or crash line where it helps.
+- A call-to-action pill that says what the viewer gets ("CRYPTO SLANG IN 60 SECONDS", "WHO REALLY MOVES THE PRICE?") and the `Badge` (lockup plus green 101) top left, or centred in 9:16.
+- Variant A asks a question about the topic, variant B leads with the drama or the number. Numbers follow the video rule: defensible, or not shown.
 
 From FILE 013 the videos ship finished, with voice and a quiet music bed.
 
