@@ -1,0 +1,281 @@
+{
+ "type": "tutorial",
+ "slides": [
+  {
+   "kind": "tcover",
+   "chip": "Stock Deep Dive",
+   "title": "Before Tesla reports: <span class='hl2'>4 charts</span>",
+   "sub": "Price, sales, margins and deliveries, from the filings.",
+   "hero": "hero.jpg",
+   "hero_pos": "center 40%",
+   "chapters": [
+    "A rough year for the stock",
+    "Sales swing quarter to quarter",
+    "The margin squeeze",
+    "Q3 deliveries beat",
+    "What to watch Wednesday"
+   ]
+  },
+  {
+   "kind": "tslide",
+   "num": "01",
+   "of": "1/5",
+   "title": "A rough year for <span class='g'>$TSLA</span>",
+   "body_top": 390,
+   "paras": [
+    "Tesla peaked near <g>$481</g> in mid-December, then slid to about <r>$311</r> by late July.",
+    "It has climbed back to around $355, still <r>~19% below</r> where it was a year ago."
+   ],
+   "visual": {
+    "type": "line",
+    "title": "TSLA weekly close, $",
+    "h": 330,
+    "series": [
+     439.3,
+     433.7,
+     456.6,
+     429.5,
+     404.4,
+     391.1,
+     430.2,
+     455.0,
+     459.0,
+     481.2,
+     475.2,
+     438.1,
+     445.0,
+     437.5,
+     449.1,
+     430.4,
+     411.1,
+     417.4,
+     411.8,
+     402.5,
+     396.7,
+     391.2,
+     368.0,
+     361.8,
+     360.6,
+     349.0,
+     400.6,
+     376.3,
+     390.8,
+     428.4,
+     422.2,
+     426.0,
+     435.8,
+     391.0,
+     406.4,
+     400.5,
+     379.7,
+     393.5,
+     407.8,
+     380.8,
+     313.0,
+     311.2,
+     328.6,
+     342.3,
+     362.9,
+     348.8,
+     354.1,
+     365.4,
+     364.3,
+     372.1,
+     370.6,
+     382.7,
+     354.7
+    ],
+    "labels": [
+     "Oct '25",
+     "Jan '26",
+     "Apr '26",
+     "Jul '26",
+     "Oct '26"
+    ],
+    "fmt": "${:,.0f}",
+    "last_label": "$355",
+    "color": "#E5322D",
+    "marks": [
+     {
+      "i": 9,
+      "text": "Dec high"
+     },
+     {
+      "i": 41,
+      "text": "July low"
+     }
+    ]
+   },
+   "source": "Yahoo Finance, weekly closes to Oct 16, 2026"
+  },
+  {
+   "kind": "tslide",
+   "num": "02",
+   "of": "2/5",
+   "title": "Sales swing quarter to quarter",
+   "body_top": 390,
+   "paras": [
+    "Revenue hit a record <g>$28.2B</g> in Q2 2026, just above Q3 2025's $28.1B pre-tax-credit rush.",
+    "<u>Q1 is the weak one: $22.4B.</u>"
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Quarterly revenue, $B",
+    "row": 74,
+    "items": [
+     {
+      "l": "Q2 2025",
+      "v": 22.5,
+      "txt": "$22.5B"
+     },
+     {
+      "l": "Q3 2025",
+      "v": 28.1,
+      "txt": "$28.1B"
+     },
+     {
+      "l": "Q4 2025",
+      "v": 24.9,
+      "txt": "$24.9B"
+     },
+     {
+      "l": "Q1 2026",
+      "v": 22.4,
+      "txt": "$22.4B"
+     },
+     {
+      "l": "Q2 2026",
+      "v": 28.2,
+      "txt": "$28.2B"
+     }
+    ]
+   },
+   "source": "Tesla filings via Yahoo Finance"
+  },
+  {
+   "kind": "tslide",
+   "num": "03",
+   "of": "3/5",
+   "title": "The <span class='r'>margin</span> squeeze",
+   "body_top": 390,
+   "paras": [
+    "Q2 sold the most, but kept the least of each dollar: gross margin fell to <r>16.8%</r> from 21.1% in Q1.",
+    "<u>Wednesday's big question: did margins recover in Q3?</u>"
+   ],
+   "visual": {
+    "type": "table",
+    "title": "Per quarter",
+    "cols": [
+     "",
+     "Revenue",
+     "Gross margin",
+     "Net income"
+    ],
+    "rows": [
+     [
+      "Q2 '25",
+      "$22.5B",
+      "17.2%",
+      "$1.17B"
+     ],
+     [
+      "Q3 '25",
+      "$28.1B",
+      "18.0%",
+      "$1.37B"
+     ],
+     [
+      "Q4 '25",
+      "$24.9B",
+      "20.1%",
+      "$0.84B"
+     ],
+     [
+      "Q1 '26",
+      "$22.4B",
+      "21.1%",
+      "$0.48B"
+     ],
+     [
+      "Q2 '26",
+      "$28.2B",
+      "<r>16.8%</r>",
+      "$1.11B"
+     ]
+    ]
+   },
+   "source": "Tesla filings via Yahoo Finance; margin = gross profit / revenue"
+  },
+  {
+   "kind": "tslide",
+   "num": "04",
+   "of": "4/5",
+   "title": "Q3 deliveries <span class='g'>beat</span>",
+   "body_top": 390,
+   "paras": [
+    "Tesla delivered <g>486,532</g> cars in Q3, above the 461,974 analysts expected and up 1.3% from Q2.",
+    "Still <r>2.1% below</r> the record Q3 2025, when US buyers rushed before the $7,500 tax credit ended. Energy storage (13.7 GWh) missed the 15.9 GWh estimate."
+   ],
+   "visual": {
+    "type": "stats",
+    "title": "Q3 2026",
+    "cols": 3,
+    "items": [
+     {
+      "v": "486,532",
+      "l": "cars delivered",
+      "color": "#3E8E1E"
+     },
+     {
+      "v": "+5.3%",
+      "l": "vs analyst consensus"
+     },
+     {
+      "v": "13.7 GWh",
+      "l": "storage deployed (est. 15.9)"
+     }
+    ]
+   },
+   "source": "Tesla Q3 delivery report via Electrek, Tesla North"
+  },
+  {
+   "kind": "tslide",
+   "num": "05",
+   "of": "5/5",
+   "title": "What to watch Wednesday",
+   "body_top": 380,
+   "paras": [
+    "Results land after the US close on <g>Oct 21</g>. In Asia that's Thursday morning:"
+   ],
+   "visual": {
+    "type": "timeline",
+    "items": [
+     {
+      "y": "~04:00",
+      "t": "Q3 results drop (after US close, UTC+8 Thu)"
+     },
+     {
+      "y": "05:30",
+      "t": "Live Q&A webcast with management"
+     },
+     {
+      "y": "Margin",
+      "t": "Does gross margin bounce back from <r>16.8%</r>?"
+     },
+     {
+      "y": "AI",
+      "t": "Any new robotaxi or Optimus timelines?"
+     },
+     {
+      "y": "Energy",
+      "t": "Storage missed estimates: what's the guidance?"
+     }
+    ]
+   },
+   "source": "Tesla IR; times approximate"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
