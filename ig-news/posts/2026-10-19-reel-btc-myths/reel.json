@@ -1,0 +1,51 @@
+{
+ "music": "369",
+ "title": "Bitcoin: myth vs fact",
+ "slides": [
+  {
+   "photo": "hook.jpg",
+   "pos": "50% 45%",
+   "hook": true,
+   "tag": "MYTH vs FACT",
+   "text": "5 Bitcoin myths\nyou still [believe]"
+  },
+  {
+   "photo": "m1.jpg",
+   "pos": "50% 50%",
+   "num": "MYTH 1",
+   "text": "Bitcoin is\n[anonymous]",
+   "sub": "Fact: every transaction is [public] on-chain. It's pseudonymous."
+  },
+  {
+   "photo": "m2.jpg",
+   "pos": "50% 50%",
+   "num": "MYTH 2",
+   "text": "You need\n[1 whole BTC]",
+   "sub": "Fact: 1 BTC = [100,000,000] sats. Buy any slice."
+  },
+  {
+   "photo": "m3.jpg",
+   "pos": "50% 40%",
+   "num": "MYTH 3",
+   "text": "Bitcoin got\n[hacked]",
+   "sub": "Fact: thefts hit [exchanges, wallets and apps], not Bitcoin's own ledger."
+  },
+  {
+   "photo": "m4.jpg",
+   "pos": "50% 50%",
+   "num": "MYTH 4",
+   "text": "They can just\n[print more]",
+   "sub": "Fact: supply is capped at [21 million] BTC."
+  },
+  {
+   "photo": "m5.jpg",
+   "pos": "50% 50%",
+   "num": "MYTH 5",
+   "text": "Halving\n[doubles] the price",
+   "sub": "Fact: it halves [new supply] about every 4 years. Price isn't guaranteed."
+  },
+  {
+   "kind": "cta"
+  }
+ ]
+}
