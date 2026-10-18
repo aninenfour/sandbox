@@ -195,5 +195,34 @@
   "status": "scheduled",
   "note": "Sun 15:40 run: today's slots (11:00/16:00/19:00/21:30) all filled earlier, so built Monday's best slot. IG + FB 19:00, Story 19:05. Mon 11:00 and 16:00 news left for the 23:40 run (fresher news).",
   "commit": "e3a3943"
+ },
+ {
+  "id": "2026-10-19-btc-etf-outflows",
+  "type": "news",
+  "slot": "2026-10-19T11:00:00+08:00",
+  "title": "Bitcoin ETFs bled $910M in two weeks, October at -$615M",
+  "score": 11,
+  "sources": [
+   "https://decrypt.co/381246/bitcoin-etfs-shed-nearly-1-billion-two-weeks-uptober-red",
+   "https://www.tokenpost.com/news/investing/34334",
+   "https://cryptobriefing.com/bitwise-bitb-inflow-bitcoin-etf-outflows/"
+  ],
+  "status": "scheduled",
+  "note": "IG + FB 11:00, Story 11:05 (Sun 23:40 run).",
+  "commit": "d6a8ea4"
+ },
+ {
+  "id": "2026-10-19-q3-hacks",
+  "type": "news",
+  "slot": "2026-10-19T16:00:00+08:00",
+  "title": "Hackers took $1.18B in Q3; 77% slipped past audits (Hacken)",
+  "score": 11,
+  "sources": [
+   "https://www.coindesk.com/tech/2026/10/18/crypto-audits-give-investors-false-sense-of-security-as-q3-hacks-cost-usd1-18-billion-hacken-says",
+   "https://cointelegraph.com/news/bitget-liquid-exploits-push-crypto-hacks-near-12b-q3"
+  ],
+  "status": "scheduled",
+  "note": "IG + FB 16:00, Story 16:05. Per-incident figures differ by outlet; used only rounded, consistent ones.",
+  "commit": "d6a8ea4"
  }
 ]
