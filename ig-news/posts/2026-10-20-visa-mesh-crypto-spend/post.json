@@ -1,0 +1,95 @@
+{
+ "type": "news",
+ "slides": [
+  {
+   "kind": "cover",
+   "photo": "pay.jpg",
+   "photo_pos": "50% 45%",
+   "insets": [],
+   "headline": [
+    {
+     "t": "Spend your crypto at",
+     "c": "ink",
+     "max": 74
+    },
+    {
+     "t": "Visa's 175M stores",
+     "c": "green",
+     "max": 80
+    },
+    {
+     "t": "straight from your wallet",
+     "c": "ink",
+     "max": 64
+    },
+    {
+     "t": "NO CARD",
+     "c": "ink",
+     "max": 110
+    },
+    {
+     "t": "but no launch date yet",
+     "c": "red",
+     "max": 70
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "tag": "WHAT HAPPENED",
+   "paras": [
+    "Crypto payments firm <g>Mesh</g> partnered with Visa so people can pay with crypto and stablecoin balances held in wallet apps.",
+    "<u>No separate crypto card.</u> A Visa credential is set up in the wallet behind the scenes, and Mesh converts the crypto to cash at the moment you pay.",
+    "Merchants get paid through Visa as usual, with no change at checkout."
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "175M+",
+      "l": "Visa merchant locations"
+     },
+     {
+      "v": "200+",
+      "l": "countries and territories"
+     },
+     {
+      "v": "$1B",
+      "l": "Mesh valuation (Jan 2026)"
+     }
+    ]
+   },
+   "source": "Mesh / Visa via The Block, Cointelegraph"
+  },
+  {
+   "kind": "text",
+   "tag": "THE CATCH",
+   "paras": [
+    "Launch date, supported coins and the first wallet apps have <r>not been announced</r>. They come \"as rollout plans are finalized.\"",
+    "<u>\"Crypto never had a spending problem. It has a last-mile problem,\" says Mesh CEO Bam Azizi.</u>",
+    "Mesh also powers PayPal's \"Pay with Crypto\"."
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "TBA",
+      "l": "launch date"
+     },
+     {
+      "v": "TBA",
+      "l": "supported coins & wallets"
+     },
+     {
+      "v": "0",
+      "l": "cards needed"
+     }
+    ]
+   },
+   "source": "The Block, Cointelegraph"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
