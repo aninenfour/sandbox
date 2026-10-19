@@ -1,0 +1,103 @@
+{
+ "type": "news",
+ "slides": [
+  {
+   "kind": "cover",
+   "photo": "chase.jpg",
+   "photo_pos": "50% 40%",
+   "insets": [
+    {
+     "src": "eth.svg",
+     "pos": "tr",
+     "size": 220,
+     "bg": "#fff",
+     "fit": "62%"
+    }
+   ],
+   "headline": [
+    {
+     "t": "America's biggest bank",
+     "c": "ink",
+     "max": 70
+    },
+    {
+     "t": "just put its dollars",
+     "c": "green",
+     "max": 78
+    },
+    {
+     "t": "on a public blockchain",
+     "c": "ink",
+     "max": 70
+    },
+    {
+     "t": "ETHEREUM",
+     "c": "ink",
+     "max": 108
+    },
+    {
+     "t": "settling in seconds, 24/7",
+     "c": "red",
+     "max": 66
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "tag": "WHAT HAPPENED",
+   "paras": [
+    "JPMorgan brought <g>JPM Coin (JPMD)</g> to Ethereum for its institutional clients on Monday.",
+    "Each token is a dollar <u>held in a JPMorgan account</u>, redeemable any time. It launched on Base in November 2025 and can now move between Base and Ethereum.",
+    "Transfers settle in seconds, any day of the week. A bank wire only moves on business days."
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "$4T+",
+      "l": "moved on Kinexys to date"
+     },
+     {
+      "v": "$7B",
+      "l": "average daily volume"
+     },
+     {
+      "v": "24/7",
+      "l": "settlement in seconds"
+     }
+    ]
+   },
+   "source": "JPMorgan / Kinexys via The Block, Decrypt, CoinDesk"
+  },
+  {
+   "kind": "text",
+   "tag": "WHY IT MATTERS",
+   "paras": [
+    "This isn't a stablecoin. A stablecoin is backed by reserves a company holds elsewhere. JPMD <g>is the bank deposit itself</g>, and JPMorgan says deposit tokens can pay interest.",
+    "<r>You can't buy it</r>: only vetted institutions can hold it, and it's not on exchanges.",
+    "<u>\"Tokenized financial infrastructure is no longer theoretical,\" says Kinexys Labs head Emma Landriault.</u>"
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "2",
+      "l": "public chains: Base + Ethereum"
+     },
+     {
+      "v": "2025",
+      "l": "first launched on Base (Nov)"
+     },
+     {
+      "v": "0",
+      "l": "retail access"
+     }
+    ]
+   },
+   "source": "The Block, Decrypt"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
