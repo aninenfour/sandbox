@@ -240,5 +240,35 @@
   "publer_media_id": "6ad559c1af47a3248fc82658",
   "commit": "59f4a79",
   "note": "Mon 07:40 run (Mon news/academy slots already full). First Reel with yellow keywords (W43 experiment). Tue 11:00/16:00 news left for the 15:40 and 23:40 runs (fresher)."
+ },
+ {
+  "id": "2026-10-20-academy-fear-greed",
+  "type": "tutorial",
+  "slot": "2026-10-20T19:00:00+08:00",
+  "title": "185 days of extreme fear: reading crypto's mood (Fear & Greed Index)",
+  "score": null,
+  "sources": [
+   "https://api.alternative.me/fng/?limit=365",
+   "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD"
+  ],
+  "status": "scheduled",
+  "note": "Built by the Mon 15:40 run (interrupted before scheduling); committed + scheduled Tue 06:55. IG + FB 19:00, Story 19:05.",
+  "commit": "8ad1212"
+ },
+ {
+  "id": "2026-10-20-reel-tier-ath",
+  "type": "reel",
+  "slot": "2026-10-20T21:30:00+08:00",
+  "hook": "How far are coins from their peak? (tier list)",
+  "topic": "tier list (distance from ATH)",
+  "music": "267",
+  "channels": [
+   "instagram reel 21:30",
+   "facebook reel 21:30",
+   "instagram story 21:35"
+  ],
+  "publer_media_id": "6ad69f7ca391f1fc18f11d82",
+  "commit": "8ad1212",
+  "note": "2nd tier-list Reel of the W42/W43 experiment. CoinGecko ATH data Oct 19."
  }
 ]
