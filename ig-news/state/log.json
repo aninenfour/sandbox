@@ -270,5 +270,20 @@
   "publer_media_id": "6ad69f7ca391f1fc18f11d82",
   "commit": "8ad1212",
   "note": "2nd tier-list Reel of the W42/W43 experiment. CoinGecko ATH data Oct 19."
+ },
+ {
+  "id": "2026-10-20-jpm-coin-ethereum",
+  "type": "news",
+  "slot": "2026-10-20T11:00:00+08:00",
+  "title": "America's biggest bank put its dollars on Ethereum (JPM Coin)",
+  "score": 11,
+  "sources": [
+   "https://www.theblock.co/news/business/2026-10-19-jpmorgan-jpm-coin-deposit-token-ethereum-418874",
+   "https://decrypt.co/381343/jpmorgan-jpm-coin-ethereum-bank-dollars",
+   "https://www.coindesk.com/markets/2026/10/19/jpmorgan-s-jpm-coin-representing-dollar-deposits-is-coming-to-ethereum-bloomberg"
+  ],
+  "status": "scheduled",
+  "note": "Late Mon 23:40 run (fired 7h late, at Tue 06:51). IG + FB 11:00, Story 11:05. Tue 16:00 left for the 07:40 run; best candidate: BlackRock bitcoin ETF with downside protection (The Block, Oct 19), needs a 2nd source.",
+  "commit": "2832cc3"
  }
 ]

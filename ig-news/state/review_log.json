@@ -26,5 +26,15 @@
    "cta.render_story: Story tag follows post type (Hotcoin News / Hotcoin Academy / This week); tested on Tesla Academy + hacks Stories. Already-scheduled Stories left as they are (cosmetic)."
   ],
   "skipped": false
+ },
+ {
+  "date": "2026-10-20",
+  "metrics_summary": "Not re-pulled: the review fired together with a 7h-late news run; Oct 19 numbers from the weekly + daily reviews still current.",
+  "findings": [
+   "Mon 15:40 run was interrupted after rendering (no schedule); recovered at 06:52: Tue 19:00 + 21:30 scheduled, plus Tue 11:00 news",
+   "Last-24h renders checked at build time: Fear & Greed carousel, ATH tier Reel (legend shortened to fit), Bitcoin myths Reel, JPM Coin carousel"
+  ],
+  "changes": [],
+  "skipped": true
  }
 ]
