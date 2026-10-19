@@ -1,0 +1,277 @@
+{
+ "type": "tutorial",
+ "slides": [
+  {
+   "kind": "tcover",
+   "chip": "Market Psychology",
+   "title": "<span class='hl2'>185 days</span> of extreme fear: reading crypto's mood",
+   "sub": "What the Fear & Greed Index measures, and what it can't tell you.",
+   "hero": "hero.jpg",
+   "hero_pos": "center 55%",
+   "chapters": [
+    "What the index is",
+    "One year of mood",
+    "How the year split",
+    "Fear vs price",
+    "How to use it"
+   ]
+  },
+  {
+   "kind": "tslide",
+   "num": "01",
+   "of": "1/5",
+   "title": "A daily mood score, <span class='g'>0 to 100</span>",
+   "body_top": 390,
+   "paras": [
+    "The Crypto Fear & Greed Index turns the market's mood into one number. <g>0 = extreme fear</g>, <r>100 = extreme greed</r>.",
+    "It blends volatility, momentum and volume, social media, Bitcoin dominance and search trends, and updates once a day."
+   ],
+   "visual": {
+    "type": "stats",
+    "title": "Today (Oct 19)",
+    "cols": 3,
+    "items": [
+     {
+      "v": "59",
+      "l": "index value",
+      "color": "#3E8E1E"
+     },
+     {
+      "v": "Greed",
+      "l": "current reading"
+     },
+     {
+      "v": "0–100",
+      "l": "scale, updated daily"
+     }
+    ]
+   },
+   "source": "alternative.me"
+  },
+  {
+   "kind": "tslide",
+   "num": "02",
+   "of": "2/5",
+   "title": "One year of mood",
+   "body_top": 390,
+   "paras": [
+    "The index hit <r>5</r> on Feb 12, 2026, its low for the year. It peaked at <g>78</g> on Sep 22.",
+    "<u>Since September, the mood has flipped from fear to greed.</u>"
+   ],
+   "visual": {
+    "type": "line",
+    "title": "Fear & Greed Index, weekly",
+    "h": 330,
+    "series": [
+     29,
+     51,
+     42,
+     29,
+     14,
+     19,
+     24,
+     20,
+     16,
+     25,
+     24,
+     26,
+     27,
+     44,
+     20,
+     14,
+     14,
+     12,
+     5,
+     10,
+     8,
+     23,
+     8,
+     8,
+     13,
+     12,
+     29,
+     47,
+     40,
+     48,
+     28,
+     30,
+     29,
+     8,
+     20,
+     20,
+     12,
+     24,
+     28,
+     29,
+     30,
+     28,
+     30,
+     31,
+     73,
+     62,
+     71,
+     57,
+     70,
+     74,
+     70,
+     69,
+     59
+    ],
+    "labels": [
+     "Oct '25",
+     "Jan '26",
+     "Apr '26",
+     "Jul '26",
+     "Oct '26"
+    ],
+    "fmt": "{:,.0f}",
+    "last_label": "59",
+    "color": "#3E8E1E",
+    "marks": [
+     {
+      "i": 18,
+      "text": "Feb low"
+     },
+     {
+      "i": 49,
+      "text": "Sep high"
+     }
+    ]
+   },
+   "source": "alternative.me, weekly samples of the daily index"
+  },
+  {
+   "kind": "tslide",
+   "num": "03",
+   "of": "3/5",
+   "title": "Fear ruled the year",
+   "body_top": 390,
+   "paras": [
+    "Over the last 365 days the index sat in <r>extreme fear</r> on 185 days, more than half the year.",
+    "Extreme greed showed up on <g>just 1 day</g>."
+   ],
+   "visual": {
+    "type": "donut",
+    "title": "Days in each zone (last 365)",
+    "center": "365 days",
+    "colors": [
+     "#E5322D",
+     "#F29B38",
+     "#9AA0A5",
+     "#7EC25A",
+     "#3E8E1E"
+    ],
+    "items": [
+     {
+      "l": "Extreme fear",
+      "v": 185,
+      "txt": "185"
+     },
+     {
+      "l": "Fear",
+      "v": 104,
+      "txt": "104"
+     },
+     {
+      "l": "Neutral",
+      "v": 18,
+      "txt": "18"
+     },
+     {
+      "l": "Greed",
+      "v": 57,
+      "txt": "57"
+     },
+     {
+      "l": "Extreme greed",
+      "v": 1,
+      "txt": "1"
+     }
+    ]
+   },
+   "source": "alternative.me, Oct 20, 2025 – Oct 19, 2026"
+  },
+  {
+   "kind": "tslide",
+   "num": "04",
+   "of": "4/5",
+   "title": "Fear isn't a <span class='r'>timer</span>",
+   "body_top": 390,
+   "paras": [
+    "Peak fear in February came at <g>$66K</g>. Bitcoin still fell to $58.6K by June 30.",
+    "<u>Extreme readings tell you how crowded a feeling is, not when it ends.</u>"
+   ],
+   "visual": {
+    "type": "table",
+    "title": "Index vs Bitcoin",
+    "cols": [
+     "Date",
+     "Index",
+     "BTC close"
+    ],
+    "rows": [
+     [
+      "Feb 12, 2026",
+      "<r>5</r>",
+      "$66,222"
+     ],
+     [
+      "Jun 30, 2026",
+      "<r>15</r>",
+      "$58,559"
+     ],
+     [
+      "Sep 22, 2026",
+      "<g>78</g>",
+      "$86,172"
+     ],
+     [
+      "Oct 19, 2026",
+      "59",
+      "$82,762"
+     ]
+    ]
+   },
+   "source": "alternative.me, Yahoo Finance (BTC-USD)"
+  },
+  {
+   "kind": "tslide",
+   "num": "05",
+   "of": "5/5",
+   "title": "How traders use it",
+   "body_top": 380,
+   "paras": [
+    "Treat it as context, never as a signal on its own:"
+   ],
+   "visual": {
+    "type": "timeline",
+    "items": [
+     {
+      "y": "1",
+      "t": "Read it <g>next to price</g>, not instead of it"
+     },
+     {
+      "y": "2",
+      "t": "Extremes = <r>crowded</r> trades on one side"
+     },
+     {
+      "y": "3",
+      "t": "It looks back: built from recent data"
+     },
+     {
+      "y": "4",
+      "t": "A fear reading can last <r>for months</r>"
+     },
+     {
+      "y": "5",
+      "t": "Size your risk first, mood second"
+     }
+    ]
+   },
+   "source": "Hotcoin Academy. Not financial advice."
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}

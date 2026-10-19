@@ -1,0 +1,92 @@
+{
+ "music": "267",
+ "title": "How far from the top? 📉",
+ "tier": {
+  "tiers": [
+   "S",
+   "A",
+   "B",
+   "C",
+   "D",
+   "F"
+  ],
+  "legend": "Below all-time high: S ≤25% · A ≤40% · B ≤55% · C ≤70% · D ≤85% · F >85%",
+  "items": [
+   {
+    "name": "Ethereum",
+    "tier": "B",
+    "logo": "ETH.svg",
+    "why": "−50.8% from its $4,946 high (Aug 2025)"
+   },
+   {
+    "name": "Dogecoin",
+    "tier": "F",
+    "logo": "DOGE.png",
+    "why": "−89.1% from its 2021 high"
+   },
+   {
+    "name": "Bitcoin",
+    "tier": "A",
+    "logo": "BTC.svg",
+    "why": "−34.3% from $126,080 (Oct 2025)"
+   },
+   {
+    "name": "Solana",
+    "tier": "C",
+    "logo": "SOL.svg",
+    "why": "−64.0% from $293 (Jan 2025)"
+   },
+   {
+    "name": "TRON",
+    "tier": "S",
+    "logo": "TRX.png",
+    "why": "−23.3% from its Dec 2024 high"
+   },
+   {
+    "name": "Chainlink",
+    "tier": "D",
+    "logo": "LINK.png",
+    "why": "−76.8% from its 2021 high"
+   },
+   {
+    "name": "XRP",
+    "tier": "C",
+    "logo": "XRP.svg",
+    "why": "−63.9% from $3.65 (Jul 2025)"
+   },
+   {
+    "name": "Cardano",
+    "tier": "F",
+    "logo": "ADA.png",
+    "why": "−92.8% from $3.09 (2021)"
+   },
+   {
+    "name": "Zcash",
+    "tier": "C",
+    "logo": "ZEC.png",
+    "why": "−63.5% from its 2016 high"
+   },
+   {
+    "name": "Hyperliquid",
+    "tier": "S",
+    "logo": "HYPE.png",
+    "why": "−18.4%, high set just last month"
+   }
+  ]
+ },
+ "slides": [
+  {
+   "photo": "hook.jpg",
+   "pos": "50% 40%",
+   "hook": true,
+   "tag": "TIER LIST 📊",
+   "text": "How far are coins\nfrom their [peak]?"
+  },
+  {
+   "kind": "tier_all"
+  },
+  {
+   "kind": "cta"
+  }
+ ]
+}
