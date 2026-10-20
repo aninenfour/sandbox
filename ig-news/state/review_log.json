@@ -36,5 +36,20 @@
   ],
   "changes": [],
   "skipped": true
+ },
+ {
+  "date": "2026-10-21",
+  "metrics_summary": "IG last 7 days, by reach: Hotcoin zoo Reel 143; desk tier-list Reel (1y returns) 134 reach / 42 likes / 43 comments (63% engagement, best of the week by far); 5 rules Reel 108; myths Reel 81 (9 comments); weekly preview 71 (10 comments); ETF news 60; Ledger 59; Richard Heart 57 (1 like). Tue posts (JPM, Fear & Greed, ATH tier Reel) <24h, not judged.",
+  "findings": [
+   "Reels still beat carousels on reach (69-134 vs 57-71); tier list is the clear comment driver, consistent with the W43 experiment",
+   "Personality/legal news (Richard Heart) was the weakest post of the week",
+   "Last-24h renders checked at build: DCA vs lump sum Academy (fixed clipped chart label before scheduling), square tier Reel for X (no promo card). Hooks follow STYLE_NOTES.",
+   "Owner rules from Oct 20 in force: 1 news/day, slower Reels, tracker doc now writable"
+  ],
+  "changes": [],
+  "skipped": true,
+  "ideas_for_owner": [
+   "Tier lists win comments by ~5x; the Monday learning run will judge the experiment and may propose 2-3 tier lists a week instead of 2"
+  ]
  }
 ]
