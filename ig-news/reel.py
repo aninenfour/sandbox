@@ -2,6 +2,7 @@
 """Daily Reel: a photo slideshow video (1080x1920, 30 fps, H.264 + AAC) with IG-style text and music.
 
 Usage: python3 ig-news/reel.py ig-news/posts/<id>        (reads reel.json, writes ig-news/media/<id>/reel.mp4 + cover.jpg)
+       python3 ig-news/reel.py ig-news/posts/<id> --square   (1080x1080 cut for X, no promo card: reel_square.mp4 + cover_square.jpg)
 
 reel.json:
 {"music": "<mixkit id>",                         # from tools/music.py pick / list
@@ -71,6 +72,16 @@ body{font-family:'Inter Display','Inter',sans-serif;-webkit-font-smoothing:antia
 .tnote{position:absolute;left:70px;right:70px;top:1470px;text-align:center;color:#fff;font-weight:800;font-size:64px;line-height:1.1;-webkit-text-stroke:2px rgba(0,0,0,.85);paint-order:stroke fill}
 .tnote small{display:block;margin-top:14px;font-family:'Inter';font-weight:600;font-size:40px;color:#ffffffd9;-webkit-text-stroke:0}
 """
+# --square: same slides re-laid out for 1080x1080 (owner, Oct 20: tier-list Reels also go to X as a square video)
+SQUARE_CSS = """html,body{height:1080px}
+.t{font-size:74px}.hook .t{font-size:86px}.num{font-size:46px;margin-bottom:22px}.num.tag{font-size:34px}.sub{font-size:38px;margin-top:22px}
+.ptitle{top:50px}.ptitle span{font-size:40px}
+.wm{bottom:36px;right:40px;font-size:26px}.wm i{width:54px;height:54px}.wm img{width:30px}
+.swipe{bottom:100px;font-size:36px}
+.tiers{top:130px;left:120px;right:120px;gap:8px}.tiers .row{height:96px}.tiers .lab{width:96px;font-size:50px}
+.tiers .its{gap:12px;padding:0 12px}.tiers .it{font-size:17px;gap:3px}.tiers .it img{width:56px;height:56px;padding:5px}
+.tlegend{top:790px;font-size:22px}.tnote{top:836px;font-size:50px}.tnote small{font-size:32px;margin-top:8px}
+"""
 TIER_COLORS = {'S': '#FF7F7F', 'A': '#FFBF7F', 'B': '#FFDF7F', 'C': '#BFFF7F', 'D': '#7FFF7F', 'F': '#C77DFF'}
 
 
@@ -105,22 +116,30 @@ def text_html(s, sym, title=''):
         num = f'<div class="num tag">{H.escape(s["tag"])}</div>'
     sub = f'<div class="sub">{kw(s["sub"])}</div>' if s.get('sub') else ''
     swipe = '<div class="swipe">Watch till the end 👇</div>' if s.get('hook') else ''
-    shift = f' style="transform:translateY({int(s["shift"])}px)"' if s.get('shift') else ''  # move text off the photo's subject
+    shift = f' style="transform:translateY({int(s["shift"] * HH / 1920)}px)"' if s.get('shift') else ''  # move text off the photo's subject
     top = f'<div class="ptitle"><span>{H.escape(title)}</span></div>' if title and not s.get('hook') else ''  # context for viewers who land mid-loop
     return (f'{top}<div class="tx {"hook" if s.get("hook") else ""}"{shift}>{num}<div class="t">{lines}</div>{sub}</div>{swipe}'
             f'<div class="wm"><i><img src="{sym}"></i>@hotcoinex</div>')
 
 
 def main():
+    global HH, CSS
     post = pathlib.Path(sys.argv[1]).resolve()
+    sq = '--square' in sys.argv
+    if sq:
+        HH, CSS = W, CSS + SQUARE_CSS
+    sfx = '_square' if sq else ''
     spec = json.loads((post / 'reel.json').read_text())
     if 'tier' in spec:  # {"kind": "tier_all"} expands to one reveal slide per ranked item
         ex = []
         for sl in spec['slides']:
             ex += [{'kind': 'tier', 'upto': k + 1, 'dur': DUR['tier']} for k in range(len(spec['tier']['items']))] if sl.get('kind') == 'tier_all' else [sl]
         spec['slides'] = ex
+    if sq:  # X cut: no promo card (owner, Oct 20); hold the final slide longer instead
+        spec['slides'] = [x for x in spec['slides'] if x.get('kind') != 'cta']
+        spec['slides'][-1]['dur'] = max(float(spec['slides'][-1].get('dur', 0)), DUR['cta'])
     out = ROOT / 'media' / post.name
-    work = out / 'reel_frames'
+    work = out / ('reel_frames' + sfx)
     shutil.rmtree(work, ignore_errors=True); work.mkdir(parents=True)
     sym = uri(ROOT / 'assets' / 'symbol.svg')
     import render, cta  # reuse the carousel CTA card (live app UI) for the last slide
@@ -178,7 +197,7 @@ def main():
         z = '1.0+0.05*on/%d' % frames if i % 2 == 0 else '1.05-0.05*on/%d' % frames  # gentle alternate zoom in / out
         if spec['slides'][i].get('kind') == 'tier':
             z = '1.0'  # the board must stay steady and sharp
-        fc.append(f'[{2*i}:v]scale=2160:3840,zoompan=z=\'{z}\':d={frames}:x=\'iw/2-(iw/zoom/2)\':y=\'ih/2-(ih/zoom/2)\':s={W}x{HH}:fps={FPS},setsar=1[b{i}]')
+        fc.append(f'[{2*i}:v]scale={2*W}:{2*HH},zoompan=z=\'{z}\':d={frames}:x=\'iw/2-(iw/zoom/2)\':y=\'ih/2-(ih/zoom/2)\':s={W}x{HH}:fps={FPS},setsar=1[b{i}]')
         fade = '' if i == 0 else 'fade=t=in:st=0.45:d=0.5:alpha=1,'  # slide 1 text is visible from frame 0 = the Reel cover
         fc.append(f'[{2*i+1}:v]format=rgba,fps={FPS},{fade}setsar=1[t{i}]')
         fc.append(f'[b{i}][t{i}]overlay=0:0:shortest=1,format=yuv420p,trim=duration={durs[i]},setpts=PTS-STARTPTS[s{i}]')
@@ -189,12 +208,12 @@ def main():
         fc.append(f'[{last}][s{i}]xfade=transition={tr}:duration={td}:offset={offset:.3f}[x{i}]')
         last = f'x{i}'
     fc.append(f'[{2*n}:a]atrim=0:{total:.3f},afade=t=in:d=0.4,afade=t=out:st={total-1.4:.3f}:d=1.4,volume=0.9[a]')
-    mp4 = out / 'reel.mp4'
+    mp4 = out / f'reel{sfx}.mp4'
     cmd += ['-filter_complex', ';'.join(fc), '-map', f'[{last}]', '-map', '[a]', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19',
             '-pix_fmt', 'yuv420p', '-r', str(FPS), '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', f'{total:.3f}', str(mp4)]
     subprocess.run(cmd, check=True)
     # cover = frame 0 (Instagram's default Reel cover); check it before scheduling
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(mp4), '-frames:v', '1', '-q:v', '2', str(out / 'cover.jpg')], check=True)
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(mp4), '-frames:v', '1', '-q:v', '2', str(out / f'cover{sfx}.jpg')], check=True)
     print(mp4.relative_to(ROOT.parent), f'{total:.1f}s'); print(track[1])
 
 
