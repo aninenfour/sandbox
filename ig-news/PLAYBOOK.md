@@ -13,13 +13,13 @@ TZ=Asia/Shanghai date
 Chromium is preloaded at `/opt/pw-browsers/chromium` (render.py uses it; never run `playwright install`).
 
 ## 1. Decide what this run should post
-Daily target per UTC+8 day: **2 news + 1 tutorial + 1 Reel** (the Reel is built by the 15:40 run for the **21:30** slot; see §7b).
+Daily target per UTC+8 day: **1 news + 1 tutorial (chart) + 1 Reel**, nothing more (owner, Oct 20) (the Reel is built by the 15:40 run for the **21:30** slot; see §7b).
 On **Sunday**, the tutorial slot is replaced by the **Weekly preview** (next Mon–Sun).
 
 1. Read `ig-news/state/log.json` (everything this desk already made, with slot times) and `ig-news/STYLE_NOTES.md` (the current lessons from the daily review; follow them).
 2. Call Publer `list_publer_posts` with `from` = yesterday, `to` = tomorrow (UTC+8 dates), `states: ["published","scheduled","failed"]`, limit 60, to see what Hotcoin published or queued on every channel. (`get_recent_posts` stops at the server's UTC date and misses today's UTC+8 posts.) The log covers what this desk has scheduled. Never cover a story Hotcoin already posted on any channel in the last 48 h.
 3. Work out which slots of **today and tomorrow** are still open:
-   - News A **11:00**, News B **16:00**, Tutorial/Weekly **19:00**. (Monday 19:00 is the best slot of the week: put the strongest piece there.)
+   - News **16:00** (one news post per day, the strongest story of the last 24 h), Tutorial/Weekly **19:00**, Reel **21:30**. (Monday 19:00 is the best slot of the week: put the strongest piece there.)
    - Don't stack within 2 h of Hotcoin's own Daily News (~13:00) or Top Gainers (~20:30) posts. The slots above already avoid them.
 4. Fill only the **next open slot(s) that are at least 45 min away**. Max 2 posts per run. If nothing open → write a one-line note in the log and stop.
 
@@ -70,11 +70,12 @@ Put the data source on each chart slide (`source`).
 `wcover` (B&W photo of the week's biggest name + "What's on this week" + date range) → one `wday` per day that has events (day name + date; 1–3 events each with UTC+8 time and a badge: `HIGH IMPACT` (c: "hi") for CPI/FOMC/jobs, `UNLOCK`, `LISTING` (c: "gr") for Hotcoin listings, `EARNINGS`, `UPGRADE`) → `end`. Use a different `bg` gradient per day. Sources: economic calendar (WebSearch), token-unlock trackers, Hotcoin's own listing posts on Publer.
 
 ## 7b. Daily Reel (21:30 slot, made by the 15:40 run)
-A ~20 s photo slideshow video with IG-style text and music. Topic rotates (check `log.json`, don't repeat a topic within 14 days):
+A ~30 s photo slideshow video with IG-style text and music. Topic rotates (check `log.json`, don't repeat a topic within 14 days):
 **tier list** ("Ranking 10 assets by 1-year return": `"tier"` spec + `{"kind":"tier_all"}`, ranked only by real numbers, with a legend), **trading rule / habit** (e.g. "5 trading rules pros never break"), **ticker review** (one coin or stock: what it is, 3 facts, recent move with real numbers from Hotcoin's ticker / CoinGecko / Yahoo), **myth vs fact**, **mistakes beginners make**.
 - 6–8 slides: hook (≤ 6 words per line, 2 lines, `"hook": true`) → 4–6 numbered points (`num`, `text` ≤ 2 short lines, `sub` ≤ 12 words) → `{"kind": "cta"}`.
 - Photos: real photos, one per slide, portrait (Unsplash `search_photos` with `orientation: "portrait"`, `per_page: 3`; or Commons/press for a ticker's company/person). Download with `tools/get_image.py`.
 - Music: `python3 ig-news/tools/music.py pick` → id (least recently used hip-hop/lo-fi track, Mixkit free licence). Credit it in the first comment.
+- **Pacing (owner, Oct 20: must be readable):** reel.py defaults are hook 4 s, content shots 4.5 s, tier reveals 3.2 s, promo card 4.5 s; soft 0.8 s cross-fades; the promo card slides up (a different transition). Don't shorten them; if a slide has more text, give it `"dur"` 5–5.5.
 - Add `"title"` (a short topic pill shown on every slide after the hook). Wrap 1–2 keywords per slide in `[ ]` to show them in yellow.
 - Weekly upgrades come from `WEEKLY_LEARN.md` (Mondays); follow the current experiment in `state/learn_log.json`.
 - Build: `python3 ig-news/reel.py ig-news/posts/<date>-reel-<slug>` → `media/<id>/reel.mp4` + `cover.jpg`. Grab 3 frames with ffmpeg and look at them.
@@ -104,6 +105,9 @@ Slides render at 2x (2160x2700, Story 2160x3840) so text stays sharp when zoomed
 
 ## 9. Log
 Append to `ig-news/state/log.json`: `{"id","type","slot","title","score","sources":[...],"status":"scheduled|skipped","note"}`; commit and push. Finish with a 3-line summary: what was scheduled (slot + headline), what was skipped and why.
+
+## 10. Tracker (owner's Google Doc)
+When a desk post shows as published in `list_publer_posts` (state published, Instagram), copy its `published_url` into that log entry as `"ig_url"` and set `"status": "published"`. Then `python3 ig-news/tools/tracker.py thumbs` (commit + push the thumb.jpg files) and append the new rows to the Google Doc **Hotcoin content tracker** (id in `state/tracker.json`): Date | Topic | Content style | Link | First image. `tracker.py html` renders the full table.
 
 ## Hard rules
 - Never publish "now"; always schedule into a slot. Never delete or edit posts this desk didn't create.

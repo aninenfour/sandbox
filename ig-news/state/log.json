@@ -9,8 +9,9 @@
    "https://www.tradingview.com/news/financemagnates:b924f8108094b:0-eu-banking-regulator-takes-over-key-oversight-of-circle-s-usdc-stablecoin/",
    "https://www.finextra.com/pressarticle/111262/eba-classifies-usdc-as-significant-e-money-token-under-mica"
   ],
-  "status": "scheduled",
-  "note": "manual test run, outside regular slots"
+  "status": "published",
+  "note": "manual test run, outside regular slots",
+  "ig_url": "https://www.instagram.com/p/DehZFOQjFI4/"
  },
  {
   "id": "2026-10-16-ledger-atom",
@@ -23,8 +24,9 @@
    "https://decrypt.co/381023/ledger-announces-atom-touchscreen-android-device",
    "https://cointelegraph.com/news/ledger-new-hardware-device-asia-wallet-tampering"
   ],
-  "status": "scheduled",
-  "note": "images: Ledger official"
+  "status": "published",
+  "note": "images: Ledger official",
+  "ig_url": "https://www.instagram.com/p/DeihKnXCjbP/"
  },
  {
   "id": "2026-10-16-russia-p2p-ban",
@@ -36,8 +38,9 @@
    "https://decrypt.co/381079/russia-ban-peer-to-peer-bitcoin-trading",
    "https://cointelegraph.com/news/russia-ban-p2p-crypto-trades-july-2027"
   ],
-  "status": "scheduled",
-  "note": "photo: Michael Parulava / Unsplash; re-scheduled at 2x with CTA end card (old version moved to drafts); IG Story 16:05; Facebook 16:00"
+  "status": "published",
+  "note": "photo: Michael Parulava / Unsplash; re-scheduled at 2x with CTA end card (old version moved to drafts); IG Story 16:05; Facebook 16:00",
+  "ig_url": "https://www.instagram.com/p/DejDhTpjz0H/"
  },
  {
   "id": "2026-10-16-reel-5-rules",
@@ -46,8 +49,10 @@
   "title": "5 trading rules pros never break",
   "score": null,
   "sources": [],
-  "status": "scheduled",
-  "note": "IG reel + FB reel; music Mixkit 738 'Hip Hop 02' by Lily J; photos Unsplash; re-scheduled with designed cover as frame 0 (verified Publer thumbnail); first version moved to drafts; IG Story with the reel video at 21:35"
+  "status": "published",
+  "note": "IG reel + FB reel; music Mixkit 738 'Hip Hop 02' by Lily J; photos Unsplash; re-scheduled with designed cover as frame 0 (verified Publer thumbnail); first version moved to drafts; IG Story with the reel video at 21:35",
+  "ig_url": "https://www.instagram.com/reel/DejpfdrEUkh/",
+  "topic": "trading rules"
  },
  {
   "id": "2026-10-16-academy-stablecoins",
@@ -60,8 +65,9 @@
    "https://stablecoins.llama.fi/stablecoincharts/all",
    "https://stablecoins.llama.fi/stablecoinchains"
   ],
-  "status": "scheduled",
-  "note": "IG 19:00 + IG Story 19:05 + FB 19:01 (FB 19:00 taken by Hotcoin's own post). 15:40 run: news slots and 21:30 reel already filled earlier today."
+  "status": "published",
+  "note": "IG 19:00 + IG Story 19:05 + FB 19:01 (FB 19:00 taken by Hotcoin's own post). 15:40 run: news slots and 21:30 reel already filled earlier today.",
+  "ig_url": "https://www.instagram.com/p/DejYIpXiDsQ/"
  },
  {
   "id": "2026-10-17-msci-strategy",
@@ -73,8 +79,9 @@
    "https://www.coindesk.com/markets/2026/10/16/msci-approves-rules-that-could-eject-strategy-metaplanet-from-equity-indexes",
    "https://www.theblock.co/news/business/2026-10-15-msci-rules-could-exclude-strategy-mstr-from-indexes-418729"
   ],
-  "status": "scheduled",
-  "note": "built by 23:40 run for 11:00 but scheduling was interrupted by worker restarts; scheduled at 16:30 by the Sat 15:40 run (IG + FB 16:30, Story 16:35). Cover photo NYSE (Unsplash) since Wikimedia rate-limited."
+  "status": "published",
+  "note": "built by 23:40 run for 11:00 but scheduling was interrupted by worker restarts; scheduled at 16:30 by the Sat 15:40 run (IG + FB 16:30, Story 16:35). Cover photo NYSE (Unsplash) since Wikimedia rate-limited.",
+  "ig_url": "https://www.instagram.com/p/DelrurLCuax/"
  },
  {
   "id": "2026-10-17-reel-5-mistakes",
@@ -90,7 +97,9 @@
    "x (Hotcoin 🟩) published now ~17:32 on owner request"
   ],
   "publer_media_id": "6ad3322dcae398aa7d0ff701",
-  "commit": "ace9b92"
+  "commit": "ace9b92",
+  "ig_url": "https://www.instagram.com/reel/DemOEBwgFwg/",
+  "status": "published"
  },
  {
   "id": "2026-10-17-academy-btc-gold-sp",
@@ -104,9 +113,10 @@
    "https://query1.finance.yahoo.com/v8/finance/chart/^GSPC",
    "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart"
   ],
-  "status": "scheduled",
+  "status": "published",
   "note": "IG + FB 19:00, IG Story 19:05. Reel thumbnail verified in Publer (frame 0 = hook). Cover sub moved up (sub_top 525) to clear the hero circle.",
-  "commit": "fbe4c2d"
+  "commit": "fbe4c2d",
+  "ig_url": "https://www.instagram.com/p/Del87ukimkg/"
  },
  {
   "id": "2026-10-18-google-quantum-bitcoin",
@@ -118,9 +128,10 @@
    "https://www.coindesk.com/tech/2026/10/16/satoshi-era-bitcoin-faces-a-bigger-quantum-threat-after-google-s-new-willow-breakthrough",
    "https://decrypt.co/381102/google-cracked-quantum-computing-biggest-bottlenecks"
   ],
-  "status": "scheduled",
+  "status": "published",
   "note": "IG + FB 11:00, IG Story 11:05 (23:40 Sat run). Cover is an Unsplash 3D illustration (Google's own Willow image only 1280x720); credited as illustration.",
-  "commit": "ee0bb53"
+  "commit": "ee0bb53",
+  "ig_url": "https://www.instagram.com/p/Denqw4kivBy/"
  },
  {
   "id": "2026-10-18-slot-1600",
@@ -146,9 +157,10 @@
    "https://www.wealthiertoday.com/news/economic-calendar-next-week-october-19-23-2026/",
    "https://defillama.com/unlocks/layerzero"
   ],
-  "status": "scheduled",
+  "status": "published",
   "note": "IG + FB 19:00, IG Story 19:05 (Sun 07:40 run). wday cards now shrink with event count; badges bigger.",
-  "commit": "96c7109"
+  "commit": "96c7109",
+  "ig_url": "https://www.instagram.com/p/Deoht2EFDl8/"
  },
  {
   "id": "2026-10-18-richard-heart-turkey",
@@ -160,9 +172,10 @@
    "https://www.theblock.co/news/regulation/2026-10-17-turkey-confirms-hex-founder-richard-hearts-arrest-says-police-seized-7-15-million-and-six-cold-wallets-418852",
    "https://decrypt.co/380948/hex-founder-richard-heart-detained-in-istanbul-on-interpol-red-notice-report"
   ],
-  "status": "scheduled",
+  "status": "published",
   "note": "IG + FB 16:00, IG Story 16:05. No licensed photo of Heart; cover is Istanbul (Unsplash) + Turkish flag + HEX logo.",
-  "commit": "c978816"
+  "commit": "c978816",
+  "ig_url": "https://www.instagram.com/p/DeoNGO7INeD/"
  },
  {
   "id": "2026-10-18-reel-tier-1y",
@@ -178,7 +191,9 @@
   ],
   "publer_media_id": "6ad47773cae398aa7d11d4f8",
   "commit": "2c50f88",
-  "note": "first tier-list Reel from the W42 weekly learning loop; built on the owner's request Sun morning, so the 15:40 run has no Reel to make today."
+  "note": "first tier-list Reel from the W42 weekly learning loop; built on the owner's request Sun morning, so the 15:40 run has no Reel to make today.",
+  "ig_url": "https://www.instagram.com/reel/Deoy2tpDOPq/",
+  "status": "published"
  },
  {
   "id": "2026-10-19-academy-tesla-earnings",
@@ -192,9 +207,10 @@
    "https://electrek.co/2026/10/02/tesla-q3-2026-deliveries-486532/",
    "https://teslanorth.com/2026/10/02/tesla-q3-2026-deliveries/"
   ],
-  "status": "scheduled",
+  "status": "published",
   "note": "Sun 15:40 run: today's slots (11:00/16:00/19:00/21:30) all filled earlier, so built Monday's best slot. IG + FB 19:00, Story 19:05. Mon 11:00 and 16:00 news left for the 23:40 run (fresher news).",
-  "commit": "e3a3943"
+  "commit": "e3a3943",
+  "ig_url": "https://www.instagram.com/p/DerGhIBCtA0/"
  },
  {
   "id": "2026-10-19-btc-etf-outflows",
@@ -207,9 +223,10 @@
    "https://www.tokenpost.com/news/investing/34334",
    "https://cryptobriefing.com/bitwise-bitb-inflow-bitcoin-etf-outflows/"
   ],
-  "status": "scheduled",
+  "status": "published",
   "note": "IG + FB 11:00, Story 11:05 (Sun 23:40 run).",
-  "commit": "d6a8ea4"
+  "commit": "d6a8ea4",
+  "ig_url": "https://www.instagram.com/p/DeqPi_yCitv/"
  },
  {
   "id": "2026-10-19-q3-hacks",
@@ -221,9 +238,10 @@
    "https://www.coindesk.com/tech/2026/10/18/crypto-audits-give-investors-false-sense-of-security-as-q3-hacks-cost-usd1-18-billion-hacken-says",
    "https://cointelegraph.com/news/bitget-liquid-exploits-push-crypto-hacks-near-12b-q3"
   ],
-  "status": "scheduled",
+  "status": "published",
   "note": "IG + FB 16:00, Story 16:05. Per-incident figures differ by outlet; used only rounded, consistent ones.",
-  "commit": "d6a8ea4"
+  "commit": "d6a8ea4",
+  "ig_url": "https://www.instagram.com/p/Deqx5UECD_o/"
  },
  {
   "id": "2026-10-19-reel-btc-myths",
@@ -239,7 +257,9 @@
   ],
   "publer_media_id": "6ad559c1af47a3248fc82658",
   "commit": "59f4a79",
-  "note": "Mon 07:40 run (Mon news/academy slots already full). First Reel with yellow keywords (W43 experiment). Tue 11:00/16:00 news left for the 15:40 and 23:40 runs (fresher)."
+  "note": "Mon 07:40 run (Mon news/academy slots already full). First Reel with yellow keywords (W43 experiment). Tue 11:00/16:00 news left for the 15:40 and 23:40 runs (fresher).",
+  "ig_url": "https://www.instagram.com/reel/DerXpcvHzf-/",
+  "status": "published"
  },
  {
   "id": "2026-10-20-academy-fear-greed",
@@ -267,9 +287,9 @@
    "facebook reel 21:30",
    "instagram story 21:35"
   ],
-  "publer_media_id": "6ad69f7ca391f1fc18f11d82",
-  "commit": "8ad1212",
-  "note": "2nd tier-list Reel of the W42/W43 experiment. CoinGecko ATH data Oct 19."
+  "publer_media_id": "6ad6d1e5621cb5385d1c063d",
+  "commit": "e2d58cf",
+  "note": "2nd tier-list Reel of the W42/W43 experiment. CoinGecko ATH data Oct 19. Rebuilt with slower pacing (owner feedback Oct 20) and re-scheduled; the first version was moved to draft."
  },
  {
   "id": "2026-10-20-jpm-coin-ethereum",
@@ -296,8 +316,8 @@
    "https://www.theblock.co/news/business/2026-10-19-mesh-visa-partner-spend-crypto-stablecoins-421058",
    "https://cointelegraph.com/news/visa-mesh-partner-crypto-spending-175m-merchant-locations"
   ],
-  "status": "scheduled",
-  "note": "Tue 07:40 run. IG + FB 16:00, Story 16:05. Coin logos removed from cover (supported coins not announced). Skipped BlackRock 'Managed Protect' ETF filing: only The Block so far, not yet on EDGAR full-text search.",
+  "status": "draft",
+  "note": "Tue 07:40 run. IG + FB 16:00, Story 16:05. Coin logos removed from cover (supported coins not announced). Skipped BlackRock 'Managed Protect' ETF filing: only The Block so far, not yet on EDGAR full-text search. Pulled back to draft Tue 10:30 (owner: 1 news per day from Oct 20; JPM Coin kept at 11:00).",
   "commit": "2049b95"
  }
 ]

@@ -35,3 +35,5 @@ Examples (before → better):
 - 2026-10-18 (weekly learning W42): tier-list Reel format and persistent title pill added to reel.py; bold-claim-with-number hook allowed for Reels.
 - 2026-10-18: closing question must be one-word/emoji answerable (comments data). Tutorial cover subtitle now auto-placed under the title and kept clear of the hero circle (sub_top optional).
 - 2026-10-16: initial rules from the first two days (hook simplification, no background graphics behind text, 2x render, CTA end card with live app UI, follow line, Story + Facebook).
+
+- Oct 20 (owner): Reels were too fast to read. Shots now 4–4.5 s with 0.8 s soft fades and the promo card slides up at the end, same length as other shots. Keep text short enough to read twice in one shot. One news post per day only.
