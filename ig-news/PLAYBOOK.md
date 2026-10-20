@@ -5,7 +5,7 @@ This file is the whole job. Every run, follow it top to bottom. All times are **
 
 ## 0. Setup (every run, ~1 min)
 ```bash
-cd /home/user/sandbox 2>/dev/null || cd "$(git rev-parse --show-toplevel)"
+cd /home/user/sandbox 2>/dev/null || cd "$(git rev-parse --show-toplevel 2>/dev/null)" 2>/dev/null || { git clone https://github.com/aninenfour/sandbox /home/user/sandbox && cd /home/user/sandbox; }   # fresh sessions: clone if missing (add_repo aninenfour/sandbox if refused)
 git fetch origin claude/ig-news-automation && git checkout claude/ig-news-automation && git pull --ff-only origin claude/ig-news-automation
 python3 -c "import playwright" 2>/dev/null || pip install -q playwright==1.49.1
 TZ=Asia/Shanghai date
