@@ -1,0 +1,37 @@
+{
+ "type": "news",
+ "slides": [
+  {"kind": "cover", "photo": "jpm.jpg", "photo_pos": "72% 50%",
+   "insets": [{"src": "btc.svg", "pos": "tr", "size": 220, "bg": "#fff", "fit": "62%"}],
+   "headline": [
+    {"t": "JPMorgan just put", "c": "ink", "max": 78},
+    {"t": "a number on", "c": "green", "max": 84},
+    {"t": "Bitcoin's next decade", "c": "ink", "max": 72},
+    {"t": "10% A YEAR", "c": "ink", "max": 108},
+    {"t": "with a big catch", "c": "red", "max": 70}
+   ]},
+  {"kind": "text", "tag": "WHAT HAPPENED",
+   "paras": [
+    "J.P. Morgan Asset Management published its yearly long-term forecast for every major asset. For the <g>first time</g>, Bitcoin is on the list.",
+    "Its estimate: about <g>10% a year</g> over the next 10 years. That's above its forecast for US large-cap stocks and for gold.",
+    "<u>It's a forecast, not a promise</u>, from one of the biggest money managers on Wall Street."
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "10%", "l": "Bitcoin, per year"},
+     {"v": "7.5%", "l": "US large-cap stocks"},
+     {"v": "5.5%", "l": "gold"}]},
+   "source": "J.P. Morgan Asset Management 2027 Long-Term Capital Market Assumptions, via The Block, CoinDesk, Decrypt"},
+  {"kind": "text", "tag": "THE CATCH",
+   "paras": [
+    "JPMorgan expects Bitcoin's price to swing about <r>55% a year</r>. That's why it still leaves Bitcoin out of its main portfolio models.",
+    "Its analysts say volatility and unstable links to other assets remain <r>an obstacle</r> to Bitcoin being widely held in portfolios.",
+    "They may change their approach if swings calm down and regulation gets clearer."
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "55%", "l": "expected yearly volatility"},
+     {"v": "1st", "l": "Bitcoin forecast in this report"},
+     {"v": "10 yrs", "l": "forecast horizon"}]},
+   "source": "The Block, Decrypt, CoinDesk"},
+  {"kind": "end"}
+ ]
+}

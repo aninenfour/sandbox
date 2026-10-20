@@ -271,9 +271,10 @@
    "https://api.alternative.me/fng/?limit=365",
    "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD"
   ],
-  "status": "scheduled",
+  "status": "published",
   "note": "Built by the Mon 15:40 run (interrupted before scheduling); committed + scheduled Tue 06:55. IG + FB 19:00, Story 19:05.",
-  "commit": "8ad1212"
+  "commit": "8ad1212",
+  "ig_url": "https://www.instagram.com/p/DetraUQitAJ/"
  },
  {
   "id": "2026-10-20-reel-tier-ath",
@@ -291,7 +292,9 @@
   "publer_media_id": "6ad6d1e5621cb5385d1c063d",
   "commit": "e2d58cf",
   "note": "2nd tier-list Reel of the W42/W43 experiment. CoinGecko ATH data Oct 19. Rebuilt with slower pacing (owner feedback Oct 20) and re-scheduled; the first version was moved to draft.",
-  "x_media_id": "6ad6f3a9621cb5385d1c2ea2"
+  "x_media_id": "6ad6f3a9621cb5385d1c2ea2",
+  "ig_url": "https://www.instagram.com/reel/Det8jTEANQL/",
+  "status": "published"
  },
  {
   "id": "2026-10-20-jpm-coin-ethereum",
@@ -335,5 +338,19 @@
   ],
   "status": "scheduled",
   "note": "Tue 15:40 run. Today's slots already full (16:00 news dropped by owner's 1-news rule). Wed 16:00 news left for the Wed 07:40 run (fresher); Wed Reel for Wed 15:40. Prices as of Oct 20 intraday (~$81.5K). Photo: Napendra Singh / Unsplash."
+ },
+ {
+  "id": "2026-10-21-jpm-bitcoin-10pct",
+  "type": "news",
+  "slot": "2026-10-21T16:00:00+08:00",
+  "title": "JPMorgan puts a number on Bitcoin: ~10% a year for 10 years (with a big catch)",
+  "score": 12,
+  "sources": [
+   "https://www.theblock.co/news/markets/2026-10-20-jpmorgan-bitcoin-10-year-return-forecast-ltcma-421436",
+   "https://www.coindesk.com/markets/2026/10/20/jpmorgan-sees-10-annual-bitcoin-returns-topping-stocks-bonds-and-gold-over-next-decade",
+   "https://decrypt.co/381464/jpmorgan-bitcoin-forecast-first-time-stocks-gold"
+  ],
+  "status": "scheduled",
+  "note": "Wed 07:40 run. Bear/bull range (−9.7%/17%) only in CoinDesk, left out. Photo: Jefferson Anquilan / Unsplash. Other candidates: Mt. Gox delay to 2027 (11), Swiss retail BTC ETF (10)."
  }
 ]
