@@ -21,7 +21,7 @@ On **Sunday**, the tutorial slot is replaced by the **Weekly preview** (next Mon
 3. Work out which slots of **today and tomorrow** are still open:
    - News **16:00** (one news post per day, the strongest story of the last 24 h), Tutorial/Weekly **19:00**, Reel **21:30**. (Monday 19:00 is the best slot of the week: put the strongest piece there.)
    - Don't stack within 2 h of Hotcoin's own Daily News (~13:00) or Top Gainers (~20:30) posts. The slots above already avoid them.
-4. Fill only the **next open slot(s) that are at least 45 min away**. Max 2 posts per run. If nothing open → write a one-line note in the log and stop.
+4. Runs fire at **07:40** (fills today's 16:00 news + 19:00 Academy) and **15:40** (builds today's 21:30 Reel; may fill tomorrow's 19:00 Academy). Fill only open slots at least 45 min away. Max 2 posts per run. Save tokens: narrow Publer listings (date range, limit ≤ 40), look at slides as one contact sheet, re-render only to fix something. If nothing open → write a one-line note in the log and stop.
 
 ## 2. Is the news worth it? (the "worth the hassle" gate)
 ```bash
