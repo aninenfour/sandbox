@@ -304,9 +304,10 @@
    "https://decrypt.co/381343/jpmorgan-jpm-coin-ethereum-bank-dollars",
    "https://www.coindesk.com/markets/2026/10/19/jpmorgan-s-jpm-coin-representing-dollar-deposits-is-coming-to-ethereum-bloomberg"
   ],
-  "status": "scheduled",
+  "status": "published",
   "note": "Late Mon 23:40 run (fired 7h late, at Tue 06:51). IG + FB 11:00, Story 11:05. Tue 16:00 left for the 07:40 run; best candidate: BlackRock bitcoin ETF with downside protection (The Block, Oct 19), needs a 2nd source.",
-  "commit": "2832cc3"
+  "commit": "2832cc3",
+  "ig_url": "https://www.instagram.com/p/Des0b9_ikP9/"
  },
  {
   "id": "2026-10-20-visa-mesh-crypto-spend",
@@ -321,5 +322,18 @@
   "status": "draft",
   "note": "Tue 07:40 run. IG + FB 16:00, Story 16:05. Coin logos removed from cover (supported coins not announced). Skipped BlackRock 'Managed Protect' ETF filing: only The Block so far, not yet on EDGAR full-text search. Pulled back to draft Tue 10:30 (owner: 1 news per day from Oct 20; JPM Coin kept at 11:00).",
   "commit": "2049b95"
+ },
+ {
+  "id": "2026-10-21-academy-dca-vs-lump",
+  "type": "tutorial",
+  "slot": "2026-10-21T19:00:00+08:00",
+  "title": "$100 a week or all at once: what won on Bitcoin? (DCA vs lump sum)",
+  "score": null,
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?range=5y&interval=1d",
+   "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=365"
+  ],
+  "status": "scheduled",
+  "note": "Tue 15:40 run. Today's slots already full (16:00 news dropped by owner's 1-news rule). Wed 16:00 news left for the Wed 07:40 run (fresher); Wed Reel for Wed 15:40. Prices as of Oct 20 intraday (~$81.5K). Photo: Napendra Singh / Unsplash."
  }
 ]
