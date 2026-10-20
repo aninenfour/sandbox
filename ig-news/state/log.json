@@ -285,11 +285,13 @@
   "channels": [
    "instagram reel 21:30",
    "facebook reel 21:30",
-   "instagram story 21:35"
+   "instagram story 21:35",
+   "x video 21:30 (square, no promo card)"
   ],
   "publer_media_id": "6ad6d1e5621cb5385d1c063d",
   "commit": "e2d58cf",
-  "note": "2nd tier-list Reel of the W42/W43 experiment. CoinGecko ATH data Oct 19. Rebuilt with slower pacing (owner feedback Oct 20) and re-scheduled; the first version was moved to draft."
+  "note": "2nd tier-list Reel of the W42/W43 experiment. CoinGecko ATH data Oct 19. Rebuilt with slower pacing (owner feedback Oct 20) and re-scheduled; the first version was moved to draft.",
+  "x_media_id": "6ad6f3a9621cb5385d1c2ea2"
  },
  {
   "id": "2026-10-20-jpm-coin-ethereum",
