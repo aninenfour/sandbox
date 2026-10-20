@@ -23,7 +23,11 @@ from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
-W, HH, FPS, XF = 1080, 1920, 30, 0.35
+W, HH, FPS = 1080, 1920, 30
+# pacing (owner feedback Oct 20: slower, readable): hook 4s, content 4.5s, tier reveal 3.2s, promo 4.5s;
+# soft 0.8s cross-fades between shots, and the promo card slides up instead of fading in
+DUR = {'hook': 4.0, 'slide': 4.5, 'tier': 3.2, 'cta': 4.5}
+XF, XF_CTA = 0.8, 0.9
 
 
 def uri(p):
@@ -113,7 +117,7 @@ def main():
     if 'tier' in spec:  # {"kind": "tier_all"} expands to one reveal slide per ranked item
         ex = []
         for sl in spec['slides']:
-            ex += [{'kind': 'tier', 'upto': k + 1, 'dur': 2.4} for k in range(len(spec['tier']['items']))] if sl.get('kind') == 'tier_all' else [sl]
+            ex += [{'kind': 'tier', 'upto': k + 1, 'dur': DUR['tier']} for k in range(len(spec['tier']['items']))] if sl.get('kind') == 'tier_all' else [sl]
         spec['slides'] = ex
     out = ROOT / 'media' / post.name
     work = out / 'reel_frames'
@@ -159,8 +163,9 @@ def main():
         b.close()
 
     n = len(spec['slides'])
-    durs = [float(s.get('dur', 3.4 if s.get('hook') else (3.6 if s.get('kind') == 'cta' else 3.0))) for s in spec['slides']]
-    total = sum(durs) - XF * (n - 1)
+    durs = [float(s.get('dur', DUR['hook'] if s.get('hook') else (DUR['cta'] if s.get('kind') == 'cta' else DUR['slide']))) for s in spec['slides']]
+    trans = [('slideup', XF_CTA) if spec['slides'][i].get('kind') == 'cta' else ('fade', XF) for i in range(n)]  # transition INTO slide i
+    total = sum(durs) - sum(trans[i][1] for i in range(1, n))
     cmd = ['ffmpeg', '-y', '-loglevel', 'error']
     for i in range(n):
         cmd += ['-loop', '1', '-t', f'{durs[i]}', '-i', str(work / f'bg{i+1:02d}.jpg'),
@@ -170,17 +175,18 @@ def main():
     fc, offset = [], 0.0
     for i in range(n):
         frames = int(durs[i] * FPS)
-        z = '1.0+0.07*on/%d' % frames if i % 2 == 0 else '1.07-0.07*on/%d' % frames  # alternate zoom in / out
+        z = '1.0+0.05*on/%d' % frames if i % 2 == 0 else '1.05-0.05*on/%d' % frames  # gentle alternate zoom in / out
         if spec['slides'][i].get('kind') == 'tier':
             z = '1.0'  # the board must stay steady and sharp
         fc.append(f'[{2*i}:v]scale=2160:3840,zoompan=z=\'{z}\':d={frames}:x=\'iw/2-(iw/zoom/2)\':y=\'ih/2-(ih/zoom/2)\':s={W}x{HH}:fps={FPS},setsar=1[b{i}]')
-        fade = '' if i == 0 else 'fade=t=in:st=0.12:d=0.3:alpha=1,'  # slide 1 text is visible from frame 0 = the Reel cover
+        fade = '' if i == 0 else 'fade=t=in:st=0.45:d=0.5:alpha=1,'  # slide 1 text is visible from frame 0 = the Reel cover
         fc.append(f'[{2*i+1}:v]format=rgba,fps={FPS},{fade}setsar=1[t{i}]')
         fc.append(f'[b{i}][t{i}]overlay=0:0:shortest=1,format=yuv420p,trim=duration={durs[i]},setpts=PTS-STARTPTS[s{i}]')
     last = 's0'
     for i in range(1, n):
-        offset += durs[i - 1] - XF
-        fc.append(f'[{last}][s{i}]xfade=transition=fade:duration={XF}:offset={offset:.3f}[x{i}]')
+        tr, td = trans[i]
+        offset += durs[i - 1] - td
+        fc.append(f'[{last}][s{i}]xfade=transition={tr}:duration={td}:offset={offset:.3f}[x{i}]')
         last = f'x{i}'
     fc.append(f'[{2*n}:a]atrim=0:{total:.3f},afade=t=in:d=0.4,afade=t=out:st={total-1.4:.3f}:d=1.4,volume=0.9[a]')
     mp4 = out / 'reel.mp4'
