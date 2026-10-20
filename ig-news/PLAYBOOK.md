@@ -108,7 +108,12 @@ Slides render at 2x (2160x2700, Story 2160x3840) so text stays sharp when zoomed
 Append to `ig-news/state/log.json`: `{"id","type","slot","title","score","sources":[...],"status":"scheduled|skipped","note"}`; commit and push. Finish with a 3-line summary: what was scheduled (slot + headline), what was skipped and why.
 
 ## 10. Tracker (owner's Google Doc)
-When a desk post shows as published in `list_publer_posts` (state published, Instagram), copy its `published_url` into that log entry as `"ig_url"` and set `"status": "published"`. Then `python3 ig-news/tools/tracker.py thumbs` (commit + push the thumb.jpg files) and append the new rows to the Google Doc **Hotcoin content tracker** (id in `state/tracker.json`): Date | Topic | Content style | Link | First image. `tracker.py html` renders the full table. Append with the Google Docs editor connector (same doc, same link). If that connector isn't available, don't create a new doc: the rows wait in log.json and `rows_in_doc_through` stays as is.
+When a desk post shows as published in `list_publer_posts` (state published, Instagram), copy its `published_url` into that log entry as `"ig_url"` and set `"status": "published"`. Then, once per run at most:
+1. `python3 ig-news/tools/tracker.py thumbs`, commit + push, note the commit SHA (branch raw URLs are cached; use the SHA).
+2. Google Docs `read_doc` on the doc id in `state/tracker.json` (the result is saved to a file).
+3. `python3 ig-news/tools/tracker.py rows <saved read_doc file> <SHA>` → JSON with `requests` + `writeControl` (drop the `added` key) → one `update_doc` call. It appends only rows whose link isn't in the table yet.
+4. Check with Drive `read_file_content` (includeComments true) that the new rows are there; set `rows_in_doc_through` in `state/tracker.json`.
+Never create a second doc. If Google Docs isn't available, the rows wait in log.json.
 
 ## Hard rules
 - Never publish "now"; always schedule into a slot. Never delete or edit posts this desk didn't create.
