@@ -27,6 +27,7 @@ import '@fontsource/caveat/500.css';
 import '@fontsource/caveat/700.css';
 import '@fontsource/inter/700.css';
 import '@fontsource/montserrat/800.css';
+import '@fontsource/montserrat/900.css';
 import '@fontsource/unbounded/800.css';
 import '@fontsource/unbounded/900.css';
 import '@fontsource/jetbrains-mono/500.css';
