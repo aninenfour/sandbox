@@ -336,8 +336,9 @@
    "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?range=5y&interval=1d",
    "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=365"
   ],
-  "status": "scheduled",
-  "note": "Tue 15:40 run. Today's slots already full (16:00 news dropped by owner's 1-news rule). Wed 16:00 news left for the Wed 07:40 run (fresher); Wed Reel for Wed 15:40. Prices as of Oct 20 intraday (~$81.5K). Photo: Napendra Singh / Unsplash."
+  "status": "published",
+  "note": "Tue 15:40 run. Today's slots already full (16:00 news dropped by owner's 1-news rule). Wed 16:00 news left for the Wed 07:40 run (fresher); Wed Reel for Wed 15:40. Prices as of Oct 20 intraday (~$81.5K). Photo: Napendra Singh / Unsplash.",
+  "ig_url": "https://www.instagram.com/p/DewQKkHik3i/"
  },
  {
   "id": "2026-10-21-jpm-bitcoin-10pct",
@@ -350,8 +351,9 @@
    "https://www.coindesk.com/markets/2026/10/20/jpmorgan-sees-10-annual-bitcoin-returns-topping-stocks-bonds-and-gold-over-next-decade",
    "https://decrypt.co/381464/jpmorgan-bitcoin-forecast-first-time-stocks-gold"
   ],
-  "status": "scheduled",
-  "note": "Wed 07:40 run. Bear/bull range (−9.7%/17%) only in CoinDesk, left out. Photo: Jefferson Anquilan / Unsplash. Other candidates: Mt. Gox delay to 2027 (11), Swiss retail BTC ETF (10)."
+  "status": "published",
+  "note": "Wed 07:40 run. Bear/bull range (−9.7%/17%) only in CoinDesk, left out. Photo: Jefferson Anquilan / Unsplash. Other candidates: Mt. Gox delay to 2027 (11), Swiss retail BTC ETF (10).",
+  "ig_url": "https://www.instagram.com/p/Dev7jUsimkJ/"
  },
  {
   "id": "2026-10-21-reel-hype-review",
@@ -369,8 +371,9 @@
    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=hyperliquid",
    "https://api.hotcoinfin.com/v1/market/ticker"
   ],
-  "status": "scheduled",
-  "note": "Wed 15:40 run. CoinGecko Oct 21 15:40 UTC+8: $81.39, ATH $97.96 (Sep 23, 2026), #11, mcap $18.1B, circ 222.4M / max 1B, 1y +127.4%, ATL $3.81 (Nov 29, 2024); Hotcoin hype_usdt $81.51. Not a tier list, so no X cut. Photos: Unsplash (Iván Martínez Díaz, Jakub Żerdzicki, Nuki Nugraha, Izuddin Helmi Adnan, Damon Lam, Arturo Añez); swapped a trading-screen photo showing a competitor exchange UI."
+  "status": "published",
+  "note": "Wed 15:40 run. CoinGecko Oct 21 15:40 UTC+8: $81.39, ATH $97.96 (Sep 23, 2026), #11, mcap $18.1B, circ 222.4M / max 1B, 1y +127.4%, ATL $3.81 (Nov 29, 2024); Hotcoin hype_usdt $81.51. Not a tier list, so no X cut. Photos: Unsplash (Iván Martínez Díaz, Jakub Żerdzicki, Nuki Nugraha, Izuddin Helmi Adnan, Damon Lam, Arturo Añez); swapped a trading-screen photo showing a competitor exchange UI.",
+  "ig_url": "https://www.instagram.com/reel/DewhUcpkWOV/"
  },
  {
   "id": "2026-10-22-spacex-tesla-btc",
