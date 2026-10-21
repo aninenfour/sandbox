@@ -1,0 +1,103 @@
+{
+ "type": "news",
+ "slides": [
+  {
+   "kind": "cover",
+   "photo": "musk.jpg",
+   "photo_pos": "50% 22%",
+   "insets": [
+    {
+     "src": "btc.svg",
+     "pos": "tr",
+     "size": 220,
+     "bg": "#fff",
+     "fit": "62%"
+    }
+   ],
+   "headline": [
+    {
+     "t": "Musk may merge",
+     "c": "ink",
+     "max": 84
+    },
+    {
+     "t": "SpaceX and Tesla",
+     "c": "green",
+     "max": 84
+    },
+    {
+     "t": "and their Bitcoin",
+     "c": "ink",
+     "max": 80
+    },
+    {
+     "t": "30,221 BTC",
+     "c": "ink",
+     "max": 108
+    },
+    {
+     "t": "no deal yet",
+     "c": "red",
+     "max": 76
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "tag": "WHAT HAPPENED",
+   "paras": [
+    "On SpaceX's earnings call on Tuesday, Elon Musk said both companies set up <g>committees of independent directors</g> to study combining them.",
+    "Musk can't take part in the talks: he's a big shareholder of both.",
+    "<u>Together they hold 30,221 BTC</u>, worth about $2.5 billion."
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "18,712",
+      "l": "BTC held by SpaceX"
+     },
+     {
+      "v": "11,509",
+      "l": "BTC held by Tesla"
+     },
+     {
+      "v": "~$2.5B",
+      "l": "combined value"
+     }
+    ]
+   },
+   "source": "SpaceX Q3 earnings call (Oct 20), via CoinDesk, Decrypt"
+  },
+  {
+   "kind": "text",
+   "tag": "THE CATCH",
+   "paras": [
+    "The committees <r>have not agreed on any terms</r>. Musk said calling a deal a certainty would be \"overstating it.\"",
+    "He also said <g>shareholders would have to support it</g>.",
+    "Neither company has said it plans to buy or sell its Bitcoin."
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "0",
+      "l": "terms agreed so far"
+     },
+     {
+      "v": "2",
+      "l": "boards with special committees"
+     },
+     {
+      "v": "Yes",
+      "l": "shareholders must back it"
+     }
+    ]
+   },
+   "source": "CoinDesk, Decrypt"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}

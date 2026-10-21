@@ -371,5 +371,31 @@
   ],
   "status": "scheduled",
   "note": "Wed 15:40 run. CoinGecko Oct 21 15:40 UTC+8: $81.39, ATH $97.96 (Sep 23, 2026), #11, mcap $18.1B, circ 222.4M / max 1B, 1y +127.4%, ATL $3.81 (Nov 29, 2024); Hotcoin hype_usdt $81.51. Not a tier list, so no X cut. Photos: Unsplash (Iván Martínez Díaz, Jakub Żerdzicki, Nuki Nugraha, Izuddin Helmi Adnan, Damon Lam, Arturo Añez); swapped a trading-screen photo showing a competitor exchange UI."
+ },
+ {
+  "id": "2026-10-22-spacex-tesla-btc",
+  "type": "news",
+  "slot": "2026-10-22T16:00:00+08:00",
+  "title": "Musk may merge SpaceX and Tesla, and their 30,221 BTC (no deal yet)",
+  "score": 12,
+  "sources": [
+   "https://www.coindesk.com/markets/2026/10/21/spacex-and-tesla-explore-merger-that-would-unite-more-than-30-000-bitcoin",
+   "https://decrypt.co/381538/musk-spacex-tesla-merger-bitcoin-treasury-behemoth"
+  ],
+  "status": "scheduled",
+  "note": "Thu 07:40 run. Photo: Trevor Cokley / U.S. Air Force (public domain, Wikimedia Commons). Dropped the 'Tesla reports Wednesday' line: stale by post time."
+ },
+ {
+  "id": "2026-10-22-academy-btc-quiet",
+  "type": "tutorial",
+  "slot": "2026-10-22T19:00:00+08:00",
+  "title": "Bitcoin just went quiet: what came next before (volatility explained)",
+  "score": null,
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?range=5y&interval=1d",
+   "https://www.theblock.co (Bitcoin volatility nears 2026 lows, Oct 21)"
+  ],
+  "status": "scheduled",
+  "note": "Own calc: 30d realized vol 23.5% (2026 low 21.9% Aug 15), gold 17.7%, S&P 9.1%; 14 spells <32% since Oct 2021: 9 moved 10%+ in 30d, 6 up / 8 down. Photo: yasmin peyman / Unsplash."
  }
 ]
