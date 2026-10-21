@@ -352,5 +352,24 @@
   ],
   "status": "scheduled",
   "note": "Wed 07:40 run. Bear/bull range (−9.7%/17%) only in CoinDesk, left out. Photo: Jefferson Anquilan / Unsplash. Other candidates: Mt. Gox delay to 2027 (11), Swiss retail BTC ETF (10)."
+ },
+ {
+  "id": "2026-10-21-reel-hype-review",
+  "type": "reel",
+  "slot": "2026-10-21T21:30:00+08:00",
+  "hook": "+127% in a year. Meet Hyperliquid",
+  "topic": "ticker review (HYPE)",
+  "music": "349",
+  "channels": [
+   "instagram reel 21:30",
+   "facebook reel 21:30",
+   "instagram story 21:35"
+  ],
+  "sources": [
+   "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=hyperliquid",
+   "https://api.hotcoinfin.com/v1/market/ticker"
+  ],
+  "status": "scheduled",
+  "note": "Wed 15:40 run. CoinGecko Oct 21 15:40 UTC+8: $81.39, ATH $97.96 (Sep 23, 2026), #11, mcap $18.1B, circ 222.4M / max 1B, 1y +127.4%, ATL $3.81 (Nov 29, 2024); Hotcoin hype_usdt $81.51. Not a tier list, so no X cut. Photos: Unsplash (Iván Martínez Díaz, Jakub Żerdzicki, Nuki Nugraha, Izuddin Helmi Adnan, Damon Lam, Arturo Añez); swapped a trading-screen photo showing a competitor exchange UI."
  }
 ]

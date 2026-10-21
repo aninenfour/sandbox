@@ -1,0 +1,51 @@
+{
+ "music": "349",
+ "title": "Hyperliquid (HYPE) in 30s",
+ "slides": [
+  {
+   "photo": "hook.jpg",
+   "pos": "50% 50%",
+   "hook": true,
+   "tag": "TICKER REVIEW",
+   "text": "[+127%] in a year\nMeet Hyperliquid"
+  },
+  {
+   "photo": "s1.jpg",
+   "pos": "50% 40%",
+   "num": "1",
+   "text": "A trading app\nwith its [own chain]",
+   "sub": "Hyperliquid is a blockchain built for trading, best known for [perpetual futures]."
+  },
+  {
+   "photo": "s2.jpg",
+   "pos": "50% 45%",
+   "num": "2",
+   "text": "Peak: [$97.96]\non Sep 23",
+   "sub": "It trades near [$81] now, about 17% below that record."
+  },
+  {
+   "photo": "s3.jpg",
+   "pos": "50% 40%",
+   "num": "3",
+   "text": "[#11] crypto\nby market cap",
+   "sub": "About [$18.1B] of HYPE is already trading."
+  },
+  {
+   "photo": "s4.jpg",
+   "pos": "50% 45%",
+   "num": "4",
+   "text": "Only [22%]\nis trading",
+   "sub": "222M of a [1B] max supply. The rest isn't on the market yet."
+  },
+  {
+   "photo": "s5.jpg",
+   "pos": "50% 50%",
+   "num": "5",
+   "text": "From [$3.81]\nin Nov 2024",
+   "sub": "Its all-time low. Big runs cut [both ways]."
+  },
+  {
+   "kind": "cta"
+  }
+ ]
+}
