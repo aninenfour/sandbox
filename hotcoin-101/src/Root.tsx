@@ -28,6 +28,7 @@ import { Ep14, EP14_TOTAL } from './ep14/Ep14';
 import { Ep15, EP15_TOTAL } from './ep15/Ep15';
 import { Thumb14A, Thumb14AV, Thumb14B, Thumb14BV } from './thumbs/Thumbs14';
 import { Thumb15A, Thumb15AV, Thumb15B, Thumb15BV } from './thumbs/Thumbs15';
+import { HwSlide1, HwSlide2, HwSlide3, HwSlide4, HW_W, HW_H } from './halloween/Slides';
 
 // Two thumbnails per release (A/B), each in 16:9 (1920x1080, exported to
 // 1280x720) and 9:16 (1080x1920)
@@ -40,6 +41,11 @@ const THUMBS = [
   { id: 'thumb-015-b-16x9', component: Thumb15B, width: 1920, height: 1080 },
   { id: 'thumb-015-a-9x16', component: Thumb15AV, width: 1080, height: 1920 },
   { id: 'thumb-015-b-9x16', component: Thumb15BV, width: 1080, height: 1920 },
+  // Halloween carousel, 4 slides at 4:5
+  { id: 'halloween-1', component: HwSlide1, width: HW_W, height: HW_H },
+  { id: 'halloween-2', component: HwSlide2, width: HW_W, height: HW_H },
+  { id: 'halloween-3', component: HwSlide3, width: HW_W, height: HW_H },
+  { id: 'halloween-4', component: HwSlide4, width: HW_W, height: HW_H },
 ];
 
 // FILE 013 onward: bespoke notebook-look episodes, timed to the voiceover
