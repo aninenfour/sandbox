@@ -51,5 +51,19 @@
   "ideas_for_owner": [
    "Tier lists win comments by ~5x; the Monday learning run will judge the experiment and may propose 2-3 tier lists a week instead of 2"
   ]
+ },
+ {
+  "date": "2026-10-22",
+  "metrics_summary": "IG Oct 19-22 by reach: myths Reel 84; GM 78; ETF news 70; ATH tier Reel 67 (12 likes, 0 comments); Q3 hacks 41; Tesla Academy 31 (58% eng.); JPM Coin news 21; Fear & Greed Academy 14. Wed posts (JPM 10%, DCA, HYPE Reel) <24h.",
+  "findings": [
+   "Tuesday was weak across the board (account-level dip; Hotcoin's own GM post also halved, 78 -> 39)",
+   "Second tier list (crypto-only, ATH) got 0 comments vs 43 for the stocks-vs-crypto one: the cross-market comparison drove the debate, not the format alone",
+   "Carousels keep trailing Reels on reach",
+   "Last-24h renders checked at build: JPM 10% news, DCA Academy, HYPE Reel"
+  ],
+  "changes": [
+   "STYLE_NOTES: tier lists mix stocks/gold with crypto"
+  ],
+  "skipped": false
  }
 ]

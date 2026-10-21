@@ -16,6 +16,7 @@ Newest rules win over older ones and over PLAYBOOK.md wording where they conflic
 - Reels may also hook with a **bold claim plus a number** instead of a list promise ("Bitcoin lost 24% in a year. Apple made 36%."), as long as the number is verified (weekly scan W42: "$140K is the new poor", "Bitcoin won't 100x anymore").
 
 - **Name + number** hooks work across channels (W43 scan: "Arthur Hayes predicts $10K ETH" 6.9x, "Bitcoin's $800K bottom? A Bitcoin exec explains" 31x, "Will Bitcoin hit $150K this year?" 5.9x). Use them only as **reported, attributed** claims from real news ("Arthur Hayes: $10K ETH by year-end?"), never as our own forecast, and say in the slides who said it and why it's uncertain.
+- Tier lists: mix **household names across markets** (Apple, NVIDIA, gold, S&P 500 next to Bitcoin/ETH) so viewers argue the ranking. The stocks-vs-crypto 1-year tier list got 43 comments; the crypto-only ATH tier list got 0 (Oct 21 review).
 - Reels: mark 1–2 keywords per slide as [yellow] (`[word]` in reel.json); never more than one per line.
 
 Examples (before → better):
@@ -30,6 +31,7 @@ Examples (before → better):
 - Stats tiles only with real numbers worth remembering; never filler like "1 reseller".
 
 ## Changelog
+- 2026-10-22 (daily review): tier lists should mix stocks/gold with crypto (comment data).
 - 2026-10-19 (daily review): Story tag now matches the post type (Hotcoin News / Hotcoin Academy / This week).
 - 2026-10-19 (weekly learning W43): yellow keyword highlight in Reels ([word]); attributed name + number hooks.
 - 2026-10-18 (weekly learning W42): tier-list Reel format and persistent title pill added to reel.py; bold-claim-with-number hook allowed for Reels.
