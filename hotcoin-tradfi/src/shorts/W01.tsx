@@ -333,3 +333,14 @@ export const W01: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+// Cover for Reels / TikTok / Shorts: the opening picture plus the title, all inside Instagram's 3:4 grid crop (y 240 to 1680).
+export const W01Cover: React.FC = () => (
+  <AbsoluteFill style={{background: C.night}}>
+    <Hook />
+    <div style={{position: 'absolute', left: 60, right: 60, top: 1210, textAlign: 'center', font: `900 112px/1.08 ${FONT.cap}`, textTransform: 'uppercase', color: '#fff', WebkitTextStroke: '16px #0B0F18', paintOrder: 'stroke fill', textShadow: '0 8px 0 rgba(0,0,0,.45)'}}>
+      He sold <span style={{color: C.hi}}>10%</span> of Apple<br />for <span style={{color: C.hi}}>$800</span>
+    </div>
+    <div style={{position: 'absolute', left: 0, right: 0, top: 300, textAlign: 'center', font: `700 34px ${FONT.mono}`, letterSpacing: 4, color: 'rgba(255,255,255,.6)'}}>WORST MONEY DECISIONS · 01</div>
+  </AbsoluteFill>
+);

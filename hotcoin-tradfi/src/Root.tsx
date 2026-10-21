@@ -39,7 +39,7 @@ import {BF01Part2, PART2_DURATION} from './bf01/Part2';
 import {BF01Ad, AD_DURATION} from './bf01/Ad';
 import {BF01Part3, PART3_DURATION} from './bf01/Part3';
 import {BF01Full, FULL_DURATION} from './bf01/Full';
-import {W01, W01_DURATION} from './shorts/W01';
+import {W01, W01Cover, W01_DURATION} from './shorts/W01';
 import {FigQueue, FigBagTweets, FigMatryoshka, FigBalloon, FigMaterials, FigVizor, FigUS, FigFaces, FigTeamPhotos, FigAdvocacy, FigSideEvents, FIG_W} from './review/Figures';
 
 export const Root: React.FC = () => (
@@ -48,6 +48,7 @@ export const Root: React.FC = () => (
     <Composition id="BF01-Part2-16x9" component={BF01Part2} durationInFrames={PART2_DURATION} fps={BF01_FPS} width={1920} height={1080} />
     <Composition id="BF01-Part3-16x9" component={BF01Part3} durationInFrames={PART3_DURATION} fps={BF01_FPS} width={1920} height={1080} />
     <Composition id="Short-W01-9x16" component={W01} durationInFrames={W01_DURATION} fps={30} width={1080} height={1920} />
+    <Composition id="Short-W01-Cover" component={W01Cover} durationInFrames={120} fps={30} width={1080} height={1920} />
     <Composition id="BF01-Full-16x9" component={BF01Full} durationInFrames={FULL_DURATION} fps={BF01_FPS} width={1920} height={1080} />
     <Composition id="BF01-Part1-16x9" component={BF01Part1} durationInFrames={PART1_DURATION} fps={BF01_FPS} width={1920} height={1080} />
     <Composition id="Hunt-Board-Test-9x16" component={HuntBoard} durationInFrames={BOARD_DURATION} fps={BOARD_FPS} width={1080} height={1920} />
