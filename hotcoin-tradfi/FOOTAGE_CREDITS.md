@@ -273,3 +273,11 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 ## Meme math puzzle (`src/riddle/MemeRiddle.tsx`)
 - **Coin logos:** CoinGecko (DOGE, PEPE, BONK).
 - **Solution:** DOGE = 10, PEPE = 5, BONK = 4, so DOGE + PEPE × BONK = 10 + 20 = 30.
+
+## Crypto Scary Stories, Halloween (`src/halloween/ScaryStories.tsx`)
+- **Art:** all original (ghosts, campfire, forest, pumpkins drawn in SVG). Hotcoin logo on the laptop: official.
+- **Music:** "Silent Movie 46" by Sascha Ende (ende.app), CC BY 4.0. Credit in the end card and the post.
+- **Projector sound:** synthesized. Other sfx: repo foley set.
+- **Facts:** bitcointalk.org pizza post (18 May 2010, paid 22 May 2010); LUNA/USD daily closes from Bitfinex (5 May 2022 $82.38, 15 May 2022 $0.00021);
+  Feb 21, 2025 exchange cold-wallet hack (~401,000 ETH, ~$1.5B, attributed to DPRK by the FBI); BTC spot via Coinbase (Oct 22, 2026, $82,876.60).
+- **ETH logo:** CoinGecko.
