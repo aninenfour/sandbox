@@ -215,10 +215,10 @@ const Marshmallow: React.FC<{t: number; state: 'raw' | 'fire' | 'burnt' | 'gone'
 );
 
 // speech bubble above the teller
-const Bubble: React.FC<{f: number; children: React.ReactNode; w?: number; h?: number}> = ({f, children, w = 860, h = 520}) => {
+const Bubble: React.FC<{f: number; children: React.ReactNode; w?: number; h?: number; top?: number}> = ({f, children, w = 860, h = 520, top = 70}) => {
   const k = sp(f, 13, 200);
   return (
-    <div style={{position: 'absolute', left: 540 - w / 2, top: 70, width: w, height: h, transform: `scale(${k}) rotate(${(1 - k) * -6 - 1}deg)`, transformOrigin: '50% 115%', opacity: Math.min(1, k * 1.5)}}>
+    <div style={{position: 'absolute', left: 540 - w / 2, top, width: w, height: h, transform: `scale(${k}) rotate(${(1 - k) * -6 - 1}deg)`, transformOrigin: '50% 115%', opacity: Math.min(1, k * 1.5)}}>
       <svg width={w} height={h + 90} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
         <path d={`M30,0 H${w - 30} Q${w},0 ${w},30 V${h - 30} Q${w},${h} ${w - 30},${h} H${w / 2 + 40} L${w / 2 - 10},${h + 80} L${w / 2 - 10},${h} H30 Q0,${h} 0,${h - 30} V30 Q0,0 30,0Z`} fill="#FFFDF6" stroke="#20294D" strokeWidth={5} />
       </svg>
@@ -428,7 +428,7 @@ const Scene: React.FC<{id: string; f: number; g: number}> = ({id, f, g}) => {
 };
 
 // ---------------- film treatment ----------------
-const Film: React.FC<{g: number; card: boolean}> = ({g, card}) => {
+const Film: React.FC<{g: number; card: boolean; still?: boolean}> = ({g, card, still = false}) => {
   const flick = rnd(g * 3.1) * (card ? 0.1 : 0.06);
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
@@ -437,7 +437,7 @@ const Film: React.FC<{g: number; card: boolean}> = ({g, card}) => {
       <AbsoluteFill style={{backgroundImage: `url(${staticFile('grain.png')})`, backgroundSize: '300px 300px', backgroundPosition: `${rnd(g) * 300}px ${rnd(g + 1) * 300}px`, mixBlendMode: 'overlay', opacity: card ? 0.22 : 0.12}} />
       <svg width={1080} height={1350} style={{position: 'absolute', inset: 0}}>
         {Array.from({length: 6}, (_, i) => rnd(g * 7 + i) < 0.35 ? <circle key={i} cx={rnd(g + i * 11) * 1080} cy={rnd(g * 2 + i) * 1350} r={1 + rnd(g + i) * 3} fill={rnd(i + g) > 0.5 ? '#fff' : '#000'} opacity={0.5} /> : null)}
-        {rnd(Math.floor(g / 9) * 13) < 0.3 && <line x1={rnd(Math.floor(g / 9)) * 1080} x2={rnd(Math.floor(g / 9)) * 1080 + 4} y1={0} y2={1350} stroke={card ? '#ddd' : '#fff'} strokeWidth={1.4} opacity={0.25} />}
+        {!still && rnd(Math.floor(g / 9) * 13) < 0.3 && <line x1={rnd(Math.floor(g / 9)) * 1080} x2={rnd(Math.floor(g / 9)) * 1080 + 4} y1={0} y2={1350} stroke={card ? '#ddd' : '#fff'} strokeWidth={1.4} opacity={0.25} />}
       </svg>
     </AbsoluteFill>
   );
@@ -464,6 +464,45 @@ export const ScaryStories: React.FC = () => {
       <Sequence from={630 + 100} durationInFrames={60} layout="none"><Audio src={staticFile('sfx/foley/hit.wav')} volume={0.5} /></Sequence>
       <Sequence from={990 + 40} durationInFrames={60} layout="none"><Audio src={staticFile('sfx/foley/thump.wav')} volume={0.5} /></Sequence>
       <Sequence from={1290} durationInFrames={60} layout="none"><Audio src={staticFile('sfx/foley/hit.wav')} volume={0.45} /></Sequence>
+    </AbsoluteFill>
+  );
+};
+
+// ---------------- thumbnail (cover for the post) ----------------
+export const ScaryThumb: React.FC = () => {
+  useFonts();
+  const t = 2.4;
+  return (
+    <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
+      <Sky t={t} />
+      <Forest />
+      <Pumpkin x={980} y={860} s={0.9} t={t} />
+      <Pumpkin x={950} y={1230} s={1.1} t={t + 1} />
+      <Log x={540} y={890} w={300} r={0} />
+      <Ghost id="m" x={540} y={915} s={1.3} t={t} face="tell" arms={['up', 'hold']} light={1} warm={1}>
+        <g><rect x={88} y={176} width={24} height={46} rx={7} fill="#2A2F45" /><rect x={84} y={170} width={32} height={14} rx={5} fill="#FFE38A" /></g>
+      </Ghost>
+      <Log x={225} y={1035} w={270} r={14} />
+      <Log x={855} y={1035} w={270} r={-14} />
+      <Fire t={t} boost={0.6} />
+      <Ghost id="l" x={235} y={1035} s={1.18} t={t} face="scream" arms={['up', 'up']} ph={1.3} warm={1} />
+      <Ghost id="r" x={850} y={1035} s={1.18} t={t} face="blow" arms={['side', 'hold']} ph={2.6} warm={-1} />
+      <Marshmallow t={t} state="fire" ang={24} />
+      <Laptop x={70} y={1080} close={0} />
+      {/* title */}
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(10,12,30,0.78) 0%, rgba(10,12,30,0.45) 26%, rgba(10,12,30,0) 40%)'}} />
+      <div style={{position: 'absolute', left: 0, right: 0, top: 54, textAlign: 'center', color: CREAM}}>
+        <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 24, letterSpacing: 9, color: LIME}}>— HOTCOIN PRESENTS —</div>
+        <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 132, lineHeight: 0.95, marginTop: 14, textShadow: '0 6px 30px rgba(0,0,0,0.5)'}}>Crypto <span style={{color: LIME}}>Scary</span> Stories</div>
+      </div>
+      <Bubble f={60} w={760} h={250} top={330}>
+        <div style={{display: 'flex', flexDirection: 'column', gap: 12, fontFamily: SANS, color: INK}}>
+          {[['🍕', 'The $829M pizza', '#E8891A'], ['📉', 'LUNA −99.99%', RED], ['🏦', 'The $1.5B heist', INK]].map(([e, txt, c]) => (
+            <div key={txt} style={{display: 'flex', alignItems: 'center', gap: 18, fontFamily: DISPLAY, fontWeight: 900, fontSize: 44, letterSpacing: -1.5, color: c}}><span style={{fontSize: 40}}>{e}</span>{txt}</div>
+          ))}
+        </div>
+      </Bubble>
+      <Film g={7} card={false} still />
     </AbsoluteFill>
   );
 };
