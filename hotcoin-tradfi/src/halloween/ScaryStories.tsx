@@ -495,14 +495,41 @@ export const ScaryThumb: React.FC = () => {
         <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 24, letterSpacing: 9, color: LIME}}>— HOTCOIN PRESENTS —</div>
         <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 132, lineHeight: 0.95, marginTop: 14, textShadow: '0 6px 30px rgba(0,0,0,0.5)'}}>Crypto <span style={{color: LIME}}>Scary</span> Stories</div>
       </div>
-      <Bubble f={60} w={760} h={250} top={330}>
-        <div style={{display: 'flex', flexDirection: 'column', gap: 12, fontFamily: SANS, color: INK}}>
-          {[['🍕', 'The $829M pizza', '#E8891A'], ['📉', 'LUNA −99.99%', RED], ['🏦', 'The $1.5B heist', INK]].map(([e, txt, c]) => (
-            <div key={txt} style={{display: 'flex', alignItems: 'center', gap: 18, fontFamily: DISPLAY, fontWeight: 900, fontSize: 44, letterSpacing: -1.5, color: c}}><span style={{fontSize: 40}}>{e}</span>{txt}</div>
-          ))}
+      <Bubble f={60} w={740} h={250} top={330}>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', color: INK, textAlign: 'center'}}>
+          <div style={{display: 'flex', gap: 14}}>
+            {['I', 'II', 'III'].map((n) => (
+              <div key={n} style={{width: 150, height: 92, borderRadius: 16, background: '#20294D', color: CREAM, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 15, letterSpacing: 3, color: LIME}}>STORY {n}</div>
+                <div style={{fontFamily: DISPLAY, fontWeight: 900, fontSize: 40, letterSpacing: 2}}>???</div>
+              </div>
+            ))}
+          </div>
+          <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 56, marginTop: 16, lineHeight: 1}}>Don’t watch alone…</div>
         </div>
       </Bubble>
+      <div style={{position: 'absolute', left: 230, right: 150, top: 1212, display: 'flex', justifyContent: 'center'}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 14, background: LIME, color: INK, borderRadius: 999, padding: '16px 30px', fontFamily: DISPLAY, fontWeight: 900, fontSize: 30, boxShadow: '0 14px 30px rgba(10,12,30,0.45)'}}>
+          <svg width={26} height={28} viewBox="0 0 26 28"><path d="M2,2 L24,14 L2,26Z" fill={INK} /></svg>WATCH IF YOU DARE
+        </div>
+      </div>
       <Film g={7} card={false} still />
     </AbsoluteFill>
   );
 };
+
+const TallFrame: React.FC<{children: React.ReactNode; title?: boolean}> = ({children, title = true}) => (
+  <AbsoluteFill style={{background: '#0A0A09'}}>
+    <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 285, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 34, color: CREAM}}>
+      <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 24, letterSpacing: 9, color: LIME}}>{title ? 'EPISODE 1' : '🎃 HALLOWEEN SPECIAL 🎃'}</div>
+      {title ? <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 78, lineHeight: 1, marginTop: 10}}>Crypto Scary Stories</div> : <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 64, lineHeight: 1, marginTop: 12}}>Episode 1</div>}
+    </div>
+    <div style={{position: 'absolute', left: 0, top: 285, width: 1080, height: 1350, overflow: 'hidden'}}>{children}</div>
+    <div style={{position: 'absolute', left: 0, right: 0, top: 1635, height: 285, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 36, color: CREAM}}>
+      <Img src={staticFile('brand/logo-official-white.png')} style={{width: 230, height: (230 * 328) / 2005}} />
+      <div style={{fontFamily: MONO, fontSize: 20, letterSpacing: 5, marginTop: 16, opacity: 0.75}}>MARKET TRICKS · TRADING TREATS</div>
+    </div>
+  </AbsoluteFill>
+);
+export const ScaryStoriesTall: React.FC = () => <TallFrame><ScaryStories /></TallFrame>;
+export const ScaryThumbTall: React.FC = () => <TallFrame title={false}><ScaryThumb /></TallFrame>;
