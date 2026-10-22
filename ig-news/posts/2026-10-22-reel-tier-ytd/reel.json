@@ -1,0 +1,91 @@
+{
+ "music": "305",
+ "title": "2026 so far: tier list 📊",
+ "tier": {
+  "tiers": [
+   "S",
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "legend": "2026 return · S >50% · A 15–50% · B 5–15% · C −10% to 5% · D <−10%",
+  "items": [
+   {
+    "name": "Bitcoin",
+    "tier": "C",
+    "logo": "BTC.svg",
+    "why": "−6.1% this year"
+   },
+   {
+    "name": "Gold",
+    "tier": "C",
+    "logo": "XAUT.svg",
+    "why": "−5.3%, after a January record"
+   },
+   {
+    "name": "Tesla",
+    "tier": "D",
+    "logo": "TSLA.png",
+    "why": "−14.1% (before earnings)"
+   },
+   {
+    "name": "Ethereum",
+    "tier": "D",
+    "logo": "ETH.svg",
+    "why": "−18.1%"
+   },
+   {
+    "name": "S&P 500",
+    "tier": "B",
+    "logo": "SPY.png",
+    "why": "+13.3%"
+   },
+   {
+    "name": "Meta",
+    "tier": "B",
+    "logo": "META.png",
+    "why": "+5.7%"
+   },
+   {
+    "name": "Solana",
+    "tier": "D",
+    "logo": "SOL.svg",
+    "why": "−16.2%"
+   },
+   {
+    "name": "NVIDIA",
+    "tier": "A",
+    "logo": "NVDA.png",
+    "why": "+19.0%"
+   },
+   {
+    "name": "Apple",
+    "tier": "A",
+    "logo": "AAPL.png",
+    "why": "+26.5%"
+   },
+   {
+    "name": "Hyperliquid",
+    "tier": "S",
+    "logo": "HYPE.png",
+    "why": "+203%: from $26 to $79"
+   }
+  ]
+ },
+ "slides": [
+  {
+   "photo": "hook.jpg",
+   "pos": "50% 45%",
+   "hook": true,
+   "tag": "2026 TIER LIST 📊",
+   "text": "Bitcoin: −6%\nOne coin: [+203%]"
+  },
+  {
+   "kind": "tier_all"
+  },
+  {
+   "kind": "cta"
+  }
+ ]
+}

@@ -400,5 +400,26 @@
   ],
   "status": "scheduled",
   "note": "Own calc: 30d realized vol 23.5% (2026 low 21.9% Aug 15), gold 17.7%, S&P 9.1%; 14 spells <32% since Oct 2021: 9 moved 10%+ in 30d, 6 up / 8 down. Photo: yasmin peyman / Unsplash."
+ },
+ {
+  "id": "2026-10-22-reel-tier-ytd",
+  "type": "reel",
+  "slot": "2026-10-22T21:30:00+08:00",
+  "hook": "Bitcoin: −6%. One coin: +203% (2026 tier list)",
+  "topic": "tier list (2026 YTD, stocks + gold + crypto)",
+  "music": "305",
+  "channels": [
+   "instagram reel 21:30",
+   "facebook reel 21:30",
+   "instagram story 21:35",
+   "x video 21:30 (square, no promo card)"
+  ],
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/ (BTC/ETH/SOL-USD, GC=F, ^GSPC, NVDA, AAPL, TSLA, META; Dec 31, 2025 close to Oct 21/22)",
+   "https://api.coingecko.com/api/v3/coins/hyperliquid/market_chart",
+   "https://api.hotcoinfin.com/v1/market/ticker"
+  ],
+  "status": "scheduled",
+  "note": "Thu 15:40 run. 2nd tier list of the week, mixing stocks/gold/crypto per Oct 22 review rule. Stocks to Oct 21 close (Tesla before its earnings reaction), crypto Oct 22; Hotcoin prices match. Photo: Ezequiel Garrido / Unsplash."
  }
 ]
