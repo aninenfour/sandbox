@@ -385,8 +385,8 @@
    "https://www.coindesk.com/markets/2026/10/21/spacex-and-tesla-explore-merger-that-would-unite-more-than-30-000-bitcoin",
    "https://decrypt.co/381538/musk-spacex-tesla-merger-bitcoin-treasury-behemoth"
   ],
-  "status": "scheduled",
-  "note": "Thu 07:40 run. Photo: Trevor Cokley / U.S. Air Force (public domain, Wikimedia Commons). Dropped the 'Tesla reports Wednesday' line: stale by post time."
+  "status": "failed_ig",
+  "note": "Thu 07:40 run. Photo: Trevor Cokley / U.S. Air Force (public domain, Wikimedia Commons). Dropped the 'Tesla reports Wednesday' line: stale by post time. IG feed post FAILED in Publer at 16:00 (no reason shown); FB feed + IG Story published. Not reposted (stale next day, 1 news/day)."
  },
  {
   "id": "2026-10-22-academy-btc-quiet",
@@ -398,8 +398,9 @@
    "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?range=5y&interval=1d",
    "https://www.theblock.co (Bitcoin volatility nears 2026 lows, Oct 21)"
   ],
-  "status": "scheduled",
-  "note": "Own calc: 30d realized vol 23.5% (2026 low 21.9% Aug 15), gold 17.7%, S&P 9.1%; 14 spells <32% since Oct 2021: 9 moved 10%+ in 30d, 6 up / 8 down. Photo: yasmin peyman / Unsplash."
+  "status": "published",
+  "note": "Own calc: 30d realized vol 23.5% (2026 low 21.9% Aug 15), gold 17.7%, S&P 9.1%; 14 spells <32% since Oct 2021: 9 moved 10%+ in 30d, 6 up / 8 down. Photo: yasmin peyman / Unsplash.",
+  "ig_url": "https://www.instagram.com/p/Dey0-BMilu5/"
  },
  {
   "id": "2026-10-22-reel-tier-ytd",
@@ -419,8 +420,9 @@
    "https://api.coingecko.com/api/v3/coins/hyperliquid/market_chart",
    "https://api.hotcoinfin.com/v1/market/ticker"
   ],
-  "status": "scheduled",
-  "note": "Thu 15:40 run. 2nd tier list of the week, mixing stocks/gold/crypto per Oct 22 review rule. Stocks to Oct 21 close (Tesla before its earnings reaction), crypto Oct 22; Hotcoin prices match. Photo: Ezequiel Garrido / Unsplash."
+  "status": "published",
+  "note": "Thu 15:40 run. 2nd tier list of the week, mixing stocks/gold/crypto per Oct 22 review rule. Stocks to Oct 21 close (Tesla before its earnings reaction), crypto Oct 22; Hotcoin prices match. Photo: Ezequiel Garrido / Unsplash.",
+  "ig_url": "https://www.instagram.com/reel/DezGI9pAvk9/"
  },
  {
   "id": "2026-10-23-btc-etf-inflows",
