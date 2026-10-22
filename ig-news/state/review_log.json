@@ -65,5 +65,20 @@
    "STYLE_NOTES: tier lists mix stocks/gold with crypto"
   ],
   "skipped": false
+ },
+ {
+  "date": "2026-10-23",
+  "metrics_summary": "IG reach is falling account-wide. Hotcoin's own GM posts: 78 (Mon) -> 43 (Tue) -> 23 (Wed) -> 15 (Thu). Desk Wed posts: JPM 10% news 22, DCA Academy 7, HYPE Reel 10 (Reels were 70-140 last week). ATH tier Reel (Tue) 92 reach, 0 comments.",
+  "findings": [
+   "Drop hits every post type and Hotcoin's own non-desk posts too, so it looks account-level (distribution), not a template or hook problem",
+   "Nothing in the desk output changed on Oct 20-21 except the slower Reel pacing and 1 news/day; carousels and GM posts fell the same way, so pacing is not the cause",
+   "Last-24h renders checked at build: SpaceX-Tesla news, volatility Academy, 2026 tier Reel + X square cut"
+  ],
+  "changes": [],
+  "skipped": true,
+  "ideas_for_owner": [
+   "Check Instagram > Settings > Account Status for any restriction or recommendation-eligibility warning",
+   "If none, it may be a normal dip; the Monday learning run will compare full-week numbers"
+  ]
  }
 ]
