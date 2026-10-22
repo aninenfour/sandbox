@@ -1,0 +1,37 @@
+{
+ "type": "news",
+ "slides": [
+  {"kind": "cover", "photo": "wallst.jpg", "photo_pos": "50% 40%",
+   "insets": [{"src": "btc.svg", "pos": "tr", "size": 220, "bg": "#fff", "fit": "78%"}],
+   "headline": [
+    {"t": "Bitcoin ETFs just", "c": "ink", "max": 82},
+    {"t": "erased October's", "c": "green", "max": 82},
+    {"t": "losses in 3 days", "c": "ink", "max": 80},
+    {"t": "+$1B", "c": "ink", "max": 120},
+    {"t": "while BTC slipped", "c": "red", "max": 76}
+   ]},
+  {"kind": "text", "tag": "WHAT HAPPENED",
+   "paras": [
+    "On Monday we posted that October was <r>$615M in the red</r> for US spot Bitcoin ETFs.",
+    "Then buyers came back: <g>over $1 billion</g> flowed in over three sessions, including about $525M on Wednesday alone, led by BlackRock and Fidelity.",
+    "<u>October has flipped to roughly +$460M.</u>"
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "$1B+", "l": "inflows in 3 sessions"},
+     {"v": "~$525M", "l": "on Wednesday alone"},
+     {"v": "~$58B", "l": "net inflows since launch"}]},
+   "source": "The Block (SoSoValue), Decrypt"},
+  {"kind": "text", "tag": "THE CATCH",
+   "paras": [
+    "The money came in, but the price didn't follow: Bitcoin <r>slipped back near $81.5K</r> on Thursday as US stocks fell.",
+    "Ether ETFs only just ended a <r>5-day outflow streak</r>, with a small $14.9M inflow.",
+    "<u>Flows show demand; they don't set the price on their own.</u>"
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "~$81.5K", "l": "BTC on Thursday"},
+     {"v": "$14.9M", "l": "ether ETF inflow, Wed"},
+     {"v": "5", "l": "days of ether outflows before"}]},
+   "source": "Decrypt, The Block, Cointelegraph"},
+  {"kind": "end"}
+ ]
+}
