@@ -315,7 +315,7 @@ const HeistCard: React.FC<{f: number}> = ({f}) => {
 const EndCard: React.FC<{f: number}> = ({f}) => (
   <div style={{position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: INK}}>
     <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 150, lineHeight: 1, transform: `scale(${0.8 + 0.2 * sp(f, 10, 160)})`}}>The End?</div>
-    <div style={{fontFamily: MONO, fontSize: 22, color: '#5A6478', marginTop: 24, letterSpacing: 2, opacity: out((f - 30) / 14)}}>…MORE STORIES NEXT HALLOWEEN</div>
+    <div style={{fontFamily: MONO, fontSize: 22, color: '#5A6478', marginTop: 24, letterSpacing: 2, opacity: out((f - 30) / 14)}}>…MORE STORIES TO COME THIS HALLOWEEN</div>
   </div>
 );
 
@@ -357,7 +357,7 @@ const Outro: React.FC<{f: number}> = ({f}) => {
     <AbsoluteFill style={{background: '#0A0A09', alignItems: 'center', justifyContent: 'center', color: CREAM}}>
       <div style={{position: 'absolute', inset: 46, border: `3px solid ${CREAM}`, opacity: 0.85}} />
       <div style={{textAlign: 'center', opacity: a}}>
-        <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 104, lineHeight: 1.05}}>Stay spooky.<br /><span style={{color: LIME}}>Trade smart.</span></div>
+        <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 104, lineHeight: 1.05}}>Market tricks.<br /><span style={{color: LIME}}>Trading treats.</span></div>
         <Img src={staticFile('brand/logo-official-white.png')} style={{width: 380, height: (380 * 328) / 2005, marginTop: 70, opacity: out((f - 14) / 12)}} />
         <div style={{fontFamily: MONO, fontSize: 24, letterSpacing: 6, marginTop: 26, opacity: out((f - 20) / 12)}}>HAPPY HALLOWEEN 🎃</div>
       </div>
