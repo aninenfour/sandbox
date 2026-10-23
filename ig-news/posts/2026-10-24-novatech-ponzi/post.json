@@ -1,0 +1,36 @@
+{
+ "type": "news",
+ "slides": [
+  {"kind": "cover", "photo": "court.jpg", "photo_pos": "50% 30%",
+   "headline": [
+    {"t": "New York wants", "c": "ink", "max": 86},
+    {"t": "$1.37B back", "c": "red", "max": 110},
+    {"t": "from a crypto", "c": "ink", "max": 86},
+    {"t": "Ponzi that hunted", "c": "ink", "max": 80},
+    {"t": "in prayer groups", "c": "green", "max": 80}
+   ]},
+  {"kind": "text", "tag": "WHAT HAPPENED",
+   "paras": [
+    "New York's Attorney General asked a Manhattan court to order NovaTech's founders, <u>Cynthia and Eddy Petion</u>, to pay about <r>$1.37 billion</r>.",
+    "From 2019 to 2023, investors put in about <r>$1.16 billion</r> in crypto. NovaTech promised <r>2–4% a week</r>. It collapsed in 2023.",
+    "The couple fled the US. Four top promoters settled for nearly <g>$6 million</g>, which goes to victims."
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "$1.37B", "l": "sought from the founders"},
+     {"v": "$1.16B", "l": "deposited, 2019–2023"},
+     {"v": "11,000+", "l": "New Yorkers among victims"}]},
+   "source": "Decrypt, The Block, Cointelegraph · NY AG filing"},
+  {"kind": "text", "tag": "THE RED FLAGS",
+   "paras": [
+    "It spread through <u>prayer groups, WhatsApp chats and ads in Haitian Creole</u>, aimed at immigrant and religious communities.",
+    "It claimed to be a <r>registered, licensed broker</r>. It wasn't. Only about $26M ever reached a trading account.",
+    "<u>Weekly payouts came from new deposits.</u> 2–4% a week is over 140% a year: no real trading pays that."
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "2–4%", "l": "promised every week"},
+     {"v": "~$26M", "l": "actually sent to trading"},
+     {"v": "$134.5M+", "l": "to founders' wallets"}]},
+   "source": "Decrypt, The Block · NY AG filing"},
+  {"kind": "end"}
+ ]
+}
