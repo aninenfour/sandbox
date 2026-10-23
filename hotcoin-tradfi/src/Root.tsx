@@ -33,6 +33,7 @@ import {GuessMeme3D} from './guess2/GuessMeme3D';
 import {MemeRiddle} from './riddle/MemeRiddle';
 import {ScaryStories, ScaryStoriesTall, ScaryThumb, ScaryThumbTall, SCARY_DURATION} from './halloween/ScaryStories';
 import {ScaryStories2, ScaryStories2Tall, ScaryThumb2, ScaryThumb2Tall, SCARY2_DURATION} from './halloween/ScaryStories2';
+import {HalloweenGiveaway} from './halloween/Giveaway';
 import {GuessMeme} from './guess2/GuessMeme';
 import {EthMaintenance, ZanoResume} from './notice/Notice';
 import {Style2Logo, Style2TradFi, Style2Next90} from './style2/Style2';
@@ -88,6 +89,7 @@ export const Root: React.FC = () => (
     <Composition id="PolicyMoves" component={PolicyMoves} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="PolicyOdds" component={PolicyOdds} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="PolicyVote" component={PolicyVote} durationInFrames={1} fps={30} width={1080} height={1350} />
+    <Composition id="HalloweenGiveaway" component={HalloweenGiveaway} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="ScaryStories2" component={ScaryStories2} durationInFrames={SCARY2_DURATION} fps={30} width={1080} height={1350} />
     <Composition id="ScaryStories2-9x16" component={ScaryStories2Tall} durationInFrames={SCARY2_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="ScaryThumb2" component={ScaryThumb2} durationInFrames={1} fps={30} width={1080} height={1350} />

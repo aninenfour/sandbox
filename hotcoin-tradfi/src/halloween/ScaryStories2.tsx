@@ -45,7 +45,7 @@ const CARDS: Record<string, {kicker?: string; lines: React.ReactNode}> = {
 };
 
 // ---------------- set: graveyard of dead coins ----------------
-const Tomb: React.FC<{x: number; y: number; s: number; r: number; coin?: string; year?: string; cross?: boolean}> = ({x, y, s, r, coin, year, cross}) => (
+export const Tomb: React.FC<{x: number; y: number; s: number; r: number; coin?: string; year?: string; cross?: boolean}> = ({x, y, s, r, coin, year, cross}) => (
   <svg width={170 * s} height={230 * s} viewBox="-85 -200 170 230" style={{position: 'absolute', left: x - 85 * s, top: y - 200 * s, transform: `rotate(${r}deg)`, transformOrigin: '50% 100%', overflow: 'visible'}}>
     <ellipse cx={0} cy={20} rx={80} ry={10} fill="rgba(20,28,60,0.3)" />
     {cross ? (
@@ -63,7 +63,7 @@ const Tomb: React.FC<{x: number; y: number; s: number; r: number; coin?: string;
   </svg>
 );
 
-const Bat: React.FC<{t: number; k: number; x: number; y: number}> = ({t, k, x, y}) => {
+export const Bat: React.FC<{t: number; k: number; x: number; y: number}> = ({t, k, x, y}) => {
   const flap = Math.sin(t * 22 + k) ;
   return (
     <svg width={90} height={50} viewBox="-45 -25 90 50" style={{position: 'absolute', left: x - 45, top: y - 25}}>
@@ -73,7 +73,7 @@ const Bat: React.FC<{t: number; k: number; x: number; y: number}> = ({t, k, x, y
   );
 };
 
-const Graveyard: React.FC<{t: number}> = ({t}) => (
+export const Graveyard: React.FC<{t: number}> = ({t}) => (
   <>
     <svg width={1080} height={1350} style={{position: 'absolute', inset: 0}}>
       {Array.from({length: 11}, (_, i) => pine(-30 + i * 108 + rnd(i + 40) * 40, 740, 280 + rnd(i + 43) * 150, 160 + rnd(i + 45) * 60, '#5D6FB0', i))}
@@ -98,7 +98,7 @@ const Graveyard: React.FC<{t: number}> = ({t}) => (
 );
 
 // ---------------- costumes (drawn inside the ghost's own 200x260 space) ----------------
-const WitchHat: React.FC<{t: number}> = ({t}) => (
+export const WitchHat: React.FC<{t: number}> = ({t}) => (
   <g transform={`rotate(${Math.sin(t * 2.4) * 3} 100 20)`}>
     <ellipse cx={100} cy={20} rx={80} ry={14} fill="#2B2350" />
     <path d="M58,18 C70,-22 94,-60 132,-80 C120,-52 138,-12 144,18Z" fill="#3B2F6E" />
@@ -106,7 +106,7 @@ const WitchHat: React.FC<{t: number}> = ({t}) => (
     <rect x={92} y={2} width={18} height={18} rx={3} fill="none" stroke="#2B2350" strokeWidth={4} />
   </g>
 );
-const Scarf: React.FC = () => (
+export const Scarf: React.FC = () => (
   <g>
     <defs><pattern id="stripe" width="28" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(18)"><rect width="28" height="40" fill={LIME} /><rect width="13" height="40" fill="#2B3A6E" /></pattern></defs>
     <path d="M28,122 Q100,108 172,122 L170,160 Q100,148 30,160Z" fill="url(#stripe)" />
@@ -115,7 +115,7 @@ const Scarf: React.FC = () => (
   </g>
 );
 
-const CandyBucket: React.FC<{t: number; full: number; tilt: number}> = ({t, full, tilt}) => (
+export const CandyBucket: React.FC<{t: number; full: number; tilt: number}> = ({t, full, tilt}) => (
   <svg width={150} height={150} viewBox="-75 -80 150 150" style={{position: 'absolute', left: 925, top: 905, transform: `rotate(${tilt}deg)`, overflow: 'visible'}}>
     <path d="M-48,-30 Q0,-95 48,-30" stroke="#1E2546" strokeWidth={6} fill="none" />
     {full > 0 && Array.from({length: 7}, (_, i) => <circle key={i} cx={-36 + i * 12} cy={-34 - (i % 2) * 8 * full} r={9} fill={['#F6465D', '#B8F26A', '#FFD65A', '#9D7BFF', '#FF8FB1', '#7FC8FF', '#FFD65A'][i]} opacity={full} />)}
