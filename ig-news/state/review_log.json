@@ -80,5 +80,19 @@
    "Check Instagram > Settings > Account Status for any restriction or recommendation-eligibility warning",
    "If none, it may be a normal dip; the Monday learning run will compare full-week numbers"
   ]
+ },
+ {
+  "date": "2026-10-24",
+  "metrics_summary": "Reach still low account-wide: 2026 tier Reel 42 (0 comments), Hotcoin GM posts 30-32, Hotcoin's own Halloween Reel 8, volatility Academy 25 (10 likes). Fri posts not in insights yet. No failed posts on Oct 23.",
+  "findings": [
+   "Low distribution continues for every poster on the account, including Hotcoin's own Reel (8 reach): still points to an account-level cause, not desk content",
+   "Tier list with cross-market names did not revive comments this time (0), so the dip outweighs format effects right now",
+   "Last-24h renders checked at build: ETF inflows news, hashrate Academy, red-flags Reel"
+  ],
+  "changes": [],
+  "skipped": true,
+  "ideas_for_owner": [
+   "Still recommend checking Instagram Account Status; if clear, consider one boosted test post to see if paid reach behaves normally"
+  ]
  }
 ]
