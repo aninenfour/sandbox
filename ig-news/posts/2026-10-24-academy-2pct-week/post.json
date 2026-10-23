@@ -1,0 +1,190 @@
+{
+ "type": "tutorial",
+ "slides": [
+  {
+   "kind": "tcover",
+   "chip": "Investing 101",
+   "title": "\"Just 2% a week\" sounds small. <span class='hl2'>Do the maths.</span>",
+   "sub": "Why weekly-return promises like NovaTech's can't be real.",
+   "hero": "hero.jpg",
+   "hero_pos": "center 50%",
+   "chapters": [
+    "2% a week, for 3 years",
+    "Next to the S&P 500",
+    "Where the payouts came from",
+    "3 questions to ask"
+   ]
+  },
+  {
+   "kind": "tslide",
+   "num": "01",
+   "of": "1/4",
+   "title": "2% a week, for <span class='g'>3 years</span>",
+   "body_top": 390,
+   "paras": [
+    "Put in <g>$1,000</g> and earn 2% a week, reinvested. After one year: <g>$2,800</g>.",
+    "After three years: <r>$21,960</r>, a 22x gain. <u>That's a 180% return every single year.</u>"
+   ],
+   "visual": {
+    "type": "line",
+    "title": "$1,000 at 2% a week, value in $K",
+    "h": 330,
+    "series": [
+     1.0,
+     1.08,
+     1.17,
+     1.27,
+     1.37,
+     1.49,
+     1.61,
+     1.74,
+     1.88,
+     2.04,
+     2.21,
+     2.39,
+     2.59,
+     2.8,
+     3.03,
+     3.28,
+     3.55,
+     3.84,
+     4.16,
+     4.5,
+     4.88,
+     5.28,
+     5.71,
+     6.18,
+     6.69,
+     7.24,
+     7.84,
+     8.49,
+     9.19,
+     9.95,
+     10.77,
+     11.65,
+     12.61,
+     13.65,
+     14.78,
+     16.0,
+     17.32,
+     18.74,
+     20.29,
+     21.96
+    ],
+    "labels": [
+     "Start",
+     "Year 1",
+     "Year 2",
+     "Year 3"
+    ],
+    "fmt": "${:,.1f}K",
+    "last_label": "$22K",
+    "color": "#3E8E1E"
+   },
+   "source": "Hotcoin calc.: $1,000 × 1.02^weeks, compounded weekly"
+  },
+  {
+   "kind": "tslide",
+   "num": "02",
+   "of": "2/4",
+   "title": "Next to the <span class='g'>S&amp;P 500</span>",
+   "body_top": 390,
+   "paras": [
+    "Over the last 10 years the S&amp;P 500, with dividends, returned about <g>15% a year</g>, a strong decade.",
+    "NovaTech promised <r>2–4% a week</r>: <u>12 to 44 times more</u>, every year, with no down weeks."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Yearly return",
+    "row": 96,
+    "items": [
+     {
+      "l": "4% a week",
+      "v": 669,
+      "txt": "+669%"
+     },
+     {
+      "l": "2% a week",
+      "v": 180,
+      "txt": "+180%"
+     },
+     {
+      "l": "S&P 500, 10-yr avg",
+      "v": 15.1,
+      "txt": "+15%"
+     }
+    ]
+   },
+   "source": "Yahoo Finance (^SP500TR, Nov 2016 – Oct 2026); Hotcoin calc."
+  },
+  {
+   "kind": "tslide",
+   "num": "03",
+   "of": "3/4",
+   "title": "Where the payouts <span class='r'>came from</span>",
+   "body_top": 390,
+   "paras": [
+    "Investors deposited about <r>$1.16B</r>. Only about <r>$26M</r> ever reached a trading account, says New York's AG.",
+    "<u>The weekly payouts were paid from new investors' money.</u> That's what makes it a Ponzi."
+   ],
+   "visual": {
+    "type": "donut",
+    "title": "NovaTech deposits, 2019–2023 ($M)",
+    "center": "$1.16B",
+    "colors": [
+     "#E5322D",
+     "#3E8E1E"
+    ],
+    "items": [
+     {
+      "l": "Never traded",
+      "v": 1134,
+      "txt": "~$1,134M"
+     },
+     {
+      "l": "Sent to trading",
+      "v": 26,
+      "txt": "~$26M"
+     }
+    ]
+   },
+   "source": "NY AG filing via Decrypt and The Block, Oct 23, 2026"
+  },
+  {
+   "kind": "tslide",
+   "num": "04",
+   "of": "4/4",
+   "title": "3 questions to <span class='g'>ask</span>",
+   "body_top": 390,
+   "paras": [
+    "Before you hand over money for a promised return, check these:"
+   ],
+   "visual": {
+    "type": "table",
+    "title": "Quick check",
+    "cols": [
+     "Ask",
+     "Red flag"
+    ],
+    "rows": [
+     [
+      "Is the return fixed?",
+      "<r>\"2% every week\"</r>"
+     ],
+     [
+      "Is it registered?",
+      "<r>Can't name a licence</r>"
+     ],
+     [
+      "Who pays you?",
+      "<r>Bonuses for recruits</r>"
+     ]
+    ]
+   },
+   "source": "Hotcoin Academy. Not financial advice."
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
