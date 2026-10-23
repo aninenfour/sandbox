@@ -1,0 +1,51 @@
+{
+ "music": "318",
+ "title": "Crypto scam red flags 🚩",
+ "slides": [
+  {
+   "photo": "hook.jpg",
+   "pos": "50% 30%",
+   "hook": true,
+   "tag": "SAVE THIS 📌",
+   "text": "5 red flags of\na [scam coin]"
+  },
+  {
+   "photo": "s1.jpg",
+   "pos": "50% 50%",
+   "num": "1",
+   "text": "[Guaranteed]\nreturns",
+   "sub": "No real investment can promise a [fixed profit]. That's the oldest trick."
+  },
+  {
+   "photo": "s2.jpg",
+   "pos": "50% 45%",
+   "num": "2",
+   "text": "Anonymous team,\n[no audit]",
+   "sub": "If nobody stands behind the code, [nobody owns the risk]."
+  },
+  {
+   "photo": "s3.jpg",
+   "pos": "50% 50%",
+   "num": "3",
+   "text": "A few wallets\nhold [most coins]",
+   "sub": "Check the top holders. One big sale can [sink the price]."
+  },
+  {
+   "photo": "s4.jpg",
+   "pos": "50% 50%",
+   "num": "4",
+   "text": "Pressure to\nbuy [right now]",
+   "sub": "Countdowns and \"last chance\" DMs are made to [rush you]."
+  },
+  {
+   "photo": "s5.jpg",
+   "pos": "50% 50%",
+   "num": "5",
+   "text": "You [can't sell]",
+   "sub": "Some scam tokens block selling. Test with a [tiny amount] first."
+  },
+  {
+   "kind": "cta"
+  }
+ ]
+}

@@ -450,5 +450,21 @@
   ],
   "status": "scheduled",
   "note": "7d avg 1,053 EH/s (highest since Mar 3); 3y: 462 -> 1,093 EH/s daily; last diff +5.92% Oct 16, next est +3.3%. Photo: Taylor Vick / Unsplash."
+ },
+ {
+  "id": "2026-10-23-reel-red-flags",
+  "type": "reel",
+  "slot": "2026-10-23T21:30:00+08:00",
+  "hook": "5 red flags of a scam coin",
+  "topic": "scam red flags (mistakes/warning family)",
+  "music": "318",
+  "channels": [
+   "instagram reel 21:30",
+   "facebook reel 21:30",
+   "instagram story 21:35"
+  ],
+  "sources": [],
+  "status": "scheduled",
+  "note": "Fri 15:40 run. Evergreen safety list, no market figures. Photos: Unsplash (Sébastien Barbieri, Giorgio Trovato, Visual Karsa, Chinh Le Duc, Nathan Dumlao, John Salvino)."
  }
 ]
