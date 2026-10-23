@@ -1,8 +1,9 @@
 // Halloween giveaway poster (1080x1350): "Your crypto horror story in 6 words", $200 in Futures vouchers.
-// Episode 1 look (forest campfire, marshmallow, Hotcoin laptop). Rules live in the post, not on the poster.
+// Episode 1 look (forest campfire, marshmallow); the left ghost wears the witch hat. Rules live in the post, not on the poster.
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
-import {Bubble, CREAM, DISPLAY, Film, Fire, Forest, Ghost, INK, LIME, Laptop, Log, MONO, Marshmallow, Pumpkin, SERIF, Sky, useFonts} from './ScaryStories';
+import {Bubble, CREAM, DISPLAY, Film, Fire, Forest, Ghost, INK, LIME, Log, MONO, Marshmallow, Pumpkin, SERIF, Sky, useFonts} from './ScaryStories';
+import {WitchHat} from './ScaryStories2';
 
 export const HalloweenGiveaway: React.FC = () => {
   useFonts();
@@ -20,10 +21,9 @@ export const HalloweenGiveaway: React.FC = () => {
       <Log x={225} y={1035} w={270} r={14} />
       <Log x={855} y={1035} w={270} r={-14} />
       <Fire t={t} boost={0.4} />
-      <Ghost id="gl" x={235} y={1035} s={1.18} t={t} face="shock" arms={['up', 'up']} ph={1.3} warm={1} />
+      <Ghost id="gl" x={235} y={1035} s={1.18} t={t} face="shock" arms={['up', 'up']} ph={1.3} warm={1}><WitchHat t={t} /></Ghost>
       <Ghost id="gr" x={850} y={1035} s={1.18} t={t} face="happy" arms={['side', 'hold']} ph={2.6} warm={-1} />
       <Marshmallow t={t} state="raw" ang={0} />
-      <Laptop x={70} y={1080} close={0} />
       <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(10,12,30,0.8) 0%, rgba(10,12,30,0.45) 24%, rgba(10,12,30,0) 38%)'}} />
 
       <div style={{position: 'absolute', left: 60, right: 60, top: 52, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
@@ -44,7 +44,7 @@ export const HalloweenGiveaway: React.FC = () => {
         </div>
       </Bubble>
 
-      <div style={{position: 'absolute', left: 230, right: 150, top: 1212, display: 'flex', justifyContent: 'center'}}>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 1212, display: 'flex', justifyContent: 'center'}}>
         <div style={{display: 'flex', alignItems: 'center', gap: 12, background: LIME, color: INK, borderRadius: 999, padding: '16px 30px', fontFamily: DISPLAY, fontWeight: 900, fontSize: 30, boxShadow: '0 14px 30px rgba(10,12,30,0.45)'}}>
           REPLY WITH YOURS 👇
         </div>
