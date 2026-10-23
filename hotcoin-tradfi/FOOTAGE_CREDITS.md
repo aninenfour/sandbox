@@ -281,3 +281,12 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 - **Facts:** bitcointalk.org pizza post (18 May 2010, paid 22 May 2010); LUNA/USD daily closes from Bitfinex (5 May 2022 $82.38, 15 May 2022 $0.00021);
   Feb 21, 2025 exchange cold-wallet hack (~401,000 ETH, ~$1.5B, attributed to DPRK by the FBI); BTC spot via Coinbase (Oct 22, 2026, $82,876.60).
 - **ETH logo:** CoinGecko.
+
+## Crypto Scary Stories, Ep. 2 "The Lost Keys" (`src/halloween/ScaryStories2.tsx`)
+- **Art:** all original (graveyard, tombstones, bats, witch hat, scarf, candy bucket in SVG). Hotcoin logo: official.
+- **Music:** "Silent Movie 60" by Sascha Ende (ende.app), CC BY 4.0. Credit in the end card and the post.
+- **Facts:**
+  - James Howells: hard drive with 8,000 BTC thrown out in 2013, Newport landfill, Wales; claim struck out by the High Court and appeal refused (2025).
+  - Stefan Thomas: 7,002 BTC on an IronKey (10 wrong passwords allowed, 8 used), NYT, Jan 2021.
+  - Quadriga: CEO died Dec 2018 as sole key holder; ~C$215M owed to 76,000+ clients; wallets empty since April 2018 (Ontario Securities Commission, 2020).
+  - BTC spot via Coinbase (Oct 23, 2026, $81,766.36).

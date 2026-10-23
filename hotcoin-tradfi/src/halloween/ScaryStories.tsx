@@ -11,15 +11,15 @@ import {AbsoluteFill, Audio, Img, Loop, Sequence, continueRender, delayRender, i
 import data from './data.json';
 
 export const FPS = 30;
-const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
-const sp = (f: number, d = 12, s = 180) => spring({frame: f, fps: FPS, config: {damping: d, stiffness: s}});
-const io = (x: number) => { x = Math.max(0, Math.min(1, x)); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
-const out = (x: number) => 1 - Math.pow(1 - Math.max(0, Math.min(1, x)), 3);
-const rnd = (i: number) => { const v = Math.sin(i * 12.9898 + 78.233) * 43758.5453; return v - Math.floor(v); };
-const LIME = '#B8F26A', INK = '#0B0E11', CREAM = '#EFE8D6', RED = '#F6465D';
-const SERIF = '"Instrument Serif", serif', DISPLAY = 'Unbounded, sans-serif', MONO = '"JetBrains Mono", monospace', SANS = '"Inter Tight", sans-serif';
+export const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
+export const sp = (f: number, d = 12, s = 180) => spring({frame: f, fps: FPS, config: {damping: d, stiffness: s}});
+export const io = (x: number) => { x = Math.max(0, Math.min(1, x)); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+export const out = (x: number) => 1 - Math.pow(1 - Math.max(0, Math.min(1, x)), 3);
+export const rnd = (i: number) => { const v = Math.sin(i * 12.9898 + 78.233) * 43758.5453; return v - Math.floor(v); };
+export const LIME = '#B8F26A', INK = '#0B0E11', CREAM = '#EFE8D6', RED = '#F6465D';
+export const SERIF = '"Instrument Serif", serif', DISPLAY = 'Unbounded, sans-serif', MONO = '"JetBrains Mono", monospace', SANS = '"Inter Tight", sans-serif';
 
-const useFonts = () => {
+export const useFonts = () => {
   const [h] = useState(() => delayRender('fonts'));
   useEffect(() => {
     Promise.all(['italic 400 80px "Instrument Serif"', '900 80px Unbounded', '800 80px Unbounded', '700 20px "JetBrains Mono"', '600 30px "Inter Tight"', '700 30px "Inter Tight"'].map((s) => document.fonts.load(s)))
@@ -47,8 +47,8 @@ const T: Seg[] = [
 export const SCARY_DURATION = 1560;
 
 // ---------------- ghosts ----------------
-type Face = 'calm' | 'tell' | 'shock' | 'scared' | 'cry' | 'happy' | 'blow' | 'chew' | 'scream' | 'peek';
-type Arms = 'down' | 'up' | 'side' | 'hug' | 'hold' | 'cover';
+export type Face = 'calm' | 'tell' | 'shock' | 'scared' | 'cry' | 'happy' | 'blow' | 'chew' | 'scream' | 'peek';
+export type Arms = 'down' | 'up' | 'side' | 'hug' | 'hold' | 'cover';
 const bodyPath = (t: number, ph: number) => {
   const L = 14, R = 186, hem = 206;
   let d = `M${R},${hem} L${R},108 C${R},44 ${145},8 100,8 C55,8 ${L},44 ${L},108 L${L},${hem}`;
@@ -92,7 +92,7 @@ const Arm: React.FC<{side: -1 | 1; pose: Arms; t: number}> = ({side, pose, t}) =
   return <ellipse cx={x} cy={y} rx={14} ry={26} fill="url(#gb)" transform={`rotate(${r} ${x} ${y}) translate(0 16)`} />;
 };
 
-const Ghost: React.FC<{id: string; x: number; y: number; s: number; t: number; face: Face; arms?: [Arms, Arms]; ph?: number; rot?: number; tremble?: number; warm?: 1 | -1; light?: number; children?: React.ReactNode}> =
+export const Ghost: React.FC<{id: string; x: number; y: number; s: number; t: number; face: Face; arms?: [Arms, Arms]; ph?: number; rot?: number; tremble?: number; warm?: 1 | -1; light?: number; children?: React.ReactNode}> =
   ({id, x, y, s, t, face, arms = ['down', 'down'], ph = 0, rot = 0, tremble = 0, warm = 1, light = 0, children}) => {
     const bob = Math.sin(t * 2.2 + ph) * 7, tx = tremble * Math.sin(t * 55) * 3;
     return (
@@ -115,7 +115,7 @@ const Ghost: React.FC<{id: string; x: number; y: number; s: number; t: number; f
   };
 
 // ---------------- scene pieces ----------------
-const Sky: React.FC<{t: number}> = ({t}) => (
+export const Sky: React.FC<{t: number}> = ({t}) => (
   <AbsoluteFill style={{background: 'linear-gradient(180deg, #33437F 0%, #4F62A6 38%, #7A8BCB 62%, #93A2D9 70%)'}}>
     <svg width={1080} height={1350} style={{position: 'absolute', inset: 0}}>
       <defs><radialGradient id="moon"><stop offset="0.55" stopColor="#FFFBEA" /><stop offset="0.62" stopColor="#FFFBEA" stopOpacity="0.35" /><stop offset="1" stopColor="#FFFBEA" stopOpacity="0" /></radialGradient></defs>
@@ -135,7 +135,7 @@ const Sky: React.FC<{t: number}> = ({t}) => (
   </AbsoluteFill>
 );
 
-const pine = (x: number, base: number, h: number, w: number, c: string, k: number) => {
+export const pine = (x: number, base: number, h: number, w: number, c: string, k: number) => {
   const tiers = 4; let d = '';
   for (let i = 0; i < tiers; i++) { const ty = base - h + (h * i) / tiers, tw = w * (0.45 + 0.55 * (i + 1) / tiers); d += `M${x},${ty} L${x + tw / 2},${ty + h / tiers + 30} L${x - tw / 2},${ty + h / tiers + 30}Z `; }
   return <path key={k} d={d + `M${x - 10},${base} h20 v24 h-20Z`} fill={c} />;
@@ -153,7 +153,7 @@ const Forest: React.FC = () => (
   </svg>
 );
 
-const Log: React.FC<{x: number; y: number; w: number; r: number}> = ({x, y, w, r}) => (
+export const Log: React.FC<{x: number; y: number; w: number; r: number}> = ({x, y, w, r}) => (
   <svg width={w + 60} height={120} style={{position: 'absolute', left: x - w / 2 - 30, top: y - 60, transform: `rotate(${r}deg)`, overflow: 'visible'}}>
     <ellipse cx={w / 2 + 30} cy={104} rx={w / 2 + 10} ry={10} fill="rgba(20,28,60,0.3)" />
     <rect x={30} y={30} width={w} height={64} rx={30} fill="#7A5536" />
@@ -163,7 +163,7 @@ const Log: React.FC<{x: number; y: number; w: number; r: number}> = ({x, y, w, r
   </svg>
 );
 
-const Fire: React.FC<{t: number; boost?: number}> = ({t, boost = 0}) => {
+export const Fire: React.FC<{t: number; boost?: number}> = ({t, boost = 0}) => {
   const fl = (k: number, a: number) => Math.sin(t * (7 + k) + k * 2) * a;
   const h = 1 + boost * 0.7;
   const flame = (w: number, hh: number, c: string, k: number) => `<path d="M${-w},0 C${-w},${-hh * 0.4} ${-w * 0.3 + fl(k, 6)},${-hh * 0.6} ${fl(k + 1, 10)},${-hh} C${w * 0.3 + fl(k + 2, 6)},${-hh * 0.6} ${w},${-hh * 0.4} ${w},0 Z" fill="${c}"/>`;
@@ -181,7 +181,7 @@ const Fire: React.FC<{t: number; boost?: number}> = ({t, boost = 0}) => {
   );
 };
 
-const Pumpkin: React.FC<{x: number; y: number; s: number; t: number}> = ({x, y, s, t}) => (
+export const Pumpkin: React.FC<{x: number; y: number; s: number; t: number}> = ({x, y, s, t}) => (
   <svg width={200 * s} height={170 * s} viewBox="-100 -90 200 170" style={{position: 'absolute', left: x - 100 * s, top: y - 90 * s}}>
     <ellipse cx={0} cy={70} rx={80} ry={10} fill="rgba(20,28,60,0.3)" />
     {[-52, -22, 22, 52].map((dx) => <ellipse key={dx} cx={dx} cy={10} rx={40} ry={58} fill="#E8772A" />)}
@@ -195,7 +195,7 @@ const Pumpkin: React.FC<{x: number; y: number; s: number; t: number}> = ({x, y, 
 );
 
 // laptop on the ground, lid back facing camera with the Hotcoin logo (like the pizza box in the reference)
-const Laptop: React.FC<{x: number; y: number; close: number}> = ({x, y, close}) => (
+export const Laptop: React.FC<{x: number; y: number; close: number}> = ({x, y, close}) => (
   <div style={{position: 'absolute', left: x, top: y, width: 300, height: 220}}>
     <div style={{position: 'absolute', left: 0, bottom: 0, width: 300, height: 34, borderRadius: 8, background: 'linear-gradient(180deg,#CBD1DD,#9AA3B5)', transform: 'skewX(-18deg)', boxShadow: '0 12px 18px rgba(20,28,60,0.35)'}} />
     <div style={{position: 'absolute', left: 18, bottom: 26, width: 264, height: 186, borderRadius: 14, background: 'linear-gradient(160deg,#1A2026,#0B0E11)', transformOrigin: '50% 100%',
@@ -215,7 +215,7 @@ const Marshmallow: React.FC<{t: number; state: 'raw' | 'fire' | 'burnt' | 'gone'
 );
 
 // speech bubble above the teller
-const Bubble: React.FC<{f: number; children: React.ReactNode; w?: number; h?: number; top?: number}> = ({f, children, w = 860, h = 520, top = 70}) => {
+export const Bubble: React.FC<{f: number; children: React.ReactNode; w?: number; h?: number; top?: number}> = ({f, children, w = 860, h = 520, top = 70}) => {
   const k = sp(f, 13, 200);
   return (
     <div style={{position: 'absolute', left: 540 - w / 2, top, width: w, height: h, transform: `scale(${k}) rotate(${(1 - k) * -6 - 1}deg)`, transformOrigin: '50% 115%', opacity: Math.min(1, k * 1.5)}}>
@@ -329,8 +329,8 @@ const CARDS: Record<string, {kicker?: string; lines: React.ReactNode}> = {
   c3: {kicker: 'CHAPTER III', lines: <>The heist.</>},
   c3b: {lines: <>Feb 2025.<br />$1.5 billion in ETH,<br /><span style={{color: LIME}}>gone in one transaction.</span></>},
 };
-const Intertitle: React.FC<{id: string; f: number; len: number}> = ({id, f, len}) => {
-  const c = CARDS[id];
+export const Intertitle: React.FC<{id: string; f: number; len: number; cards?: Record<string, {kicker?: string; lines: React.ReactNode}>}> = ({id, f, len, cards = CARDS}) => {
+  const c = cards[id];
   const a = out(f / 8) * (1 - io((f - (len - 8)) / 8));
   return (
     <AbsoluteFill style={{background: '#0A0A09', alignItems: 'center', justifyContent: 'center'}}>
@@ -351,7 +351,7 @@ const Intertitle: React.FC<{id: string; f: number; len: number}> = ({id, f, len}
   );
 };
 
-const Outro: React.FC<{f: number}> = ({f}) => {
+export const Outro: React.FC<{f: number; sources?: React.ReactNode; extra?: string}> = ({f, sources, extra}) => {
   const a = out(f / 10);
   return (
     <AbsoluteFill style={{background: '#0A0A09', alignItems: 'center', justifyContent: 'center', color: CREAM}}>
@@ -360,8 +360,9 @@ const Outro: React.FC<{f: number}> = ({f}) => {
         <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 104, lineHeight: 1.05}}>Market tricks.<br /><span style={{color: LIME}}>Trading treats.</span></div>
         <Img src={staticFile('brand/logo-official-white.png')} style={{width: 380, height: (380 * 328) / 2005, marginTop: 70, opacity: out((f - 14) / 12)}} />
         <div style={{fontFamily: MONO, fontSize: 24, letterSpacing: 6, marginTop: 26, opacity: out((f - 20) / 12)}}>HAPPY HALLOWEEN 🎃</div>
+        {extra && <div style={{fontFamily: MONO, fontSize: 20, letterSpacing: 4, marginTop: 18, color: LIME, opacity: out((f - 26) / 12)}}>{extra}</div>}
       </div>
-      <div style={{position: 'absolute', left: 80, right: 80, bottom: 84, textAlign: 'center', fontFamily: MONO, fontSize: 15, letterSpacing: 1, opacity: 0.45}}>Sources: bitcointalk.org (2010) · Bitfinex LUNA/USD daily closes (2022) · FBI statement (Feb 2025) · BTC price via Coinbase, Oct 2026<br />Music: Silent Movie 46 by Sascha Ende (ende.app), CC BY 4.0</div>
+      <div style={{position: 'absolute', left: 80, right: 80, bottom: 84, textAlign: 'center', fontFamily: MONO, fontSize: 15, letterSpacing: 1, opacity: 0.45}}>{sources ?? <>Sources: bitcointalk.org (2010) · Bitfinex LUNA/USD daily closes (2022) · FBI statement (Feb 2025) · BTC price via Coinbase, Oct 2026<br />Music: Silent Movie 46 by Sascha Ende (ende.app), CC BY 4.0</>}</div>
     </AbsoluteFill>
   );
 };
@@ -428,7 +429,7 @@ const Scene: React.FC<{id: string; f: number; g: number}> = ({id, f, g}) => {
 };
 
 // ---------------- film treatment ----------------
-const Film: React.FC<{g: number; card: boolean; still?: boolean}> = ({g, card, still = false}) => {
+export const Film: React.FC<{g: number; card: boolean; still?: boolean}> = ({g, card, still = false}) => {
   const flick = rnd(g * 3.1) * (card ? 0.1 : 0.06);
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
@@ -518,11 +519,11 @@ export const ScaryThumb: React.FC = () => {
   );
 };
 
-const TallFrame: React.FC<{children: React.ReactNode; title?: boolean}> = ({children, title = true}) => (
+export const TallFrame: React.FC<{children: React.ReactNode; episode?: string; title?: string; small?: boolean}> = ({children, episode = 'EPISODE 1', title = 'Crypto Scary Stories', small = false}) => (
   <AbsoluteFill style={{background: '#0A0A09'}}>
     <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 285, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 34, color: CREAM}}>
-      <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 24, letterSpacing: 9, color: LIME}}>{title ? 'EPISODE 1' : '🎃 HALLOWEEN SPECIAL 🎃'}</div>
-      {title ? <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 78, lineHeight: 1, marginTop: 10}}>Crypto Scary Stories</div> : <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 64, lineHeight: 1, marginTop: 12}}>Episode 1</div>}
+      <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 24, letterSpacing: 9, color: LIME}}>{episode}</div>
+      <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: small ? 64 : 78, lineHeight: 1, marginTop: small ? 12 : 10}}>{title}</div>
     </div>
     <div style={{position: 'absolute', left: 0, top: 285, width: 1080, height: 1350, overflow: 'hidden'}}>{children}</div>
     <div style={{position: 'absolute', left: 0, right: 0, top: 1635, height: 285, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 36, color: CREAM}}>
@@ -532,4 +533,4 @@ const TallFrame: React.FC<{children: React.ReactNode; title?: boolean}> = ({chil
   </AbsoluteFill>
 );
 export const ScaryStoriesTall: React.FC = () => <TallFrame><ScaryStories /></TallFrame>;
-export const ScaryThumbTall: React.FC = () => <TallFrame title={false}><ScaryThumb /></TallFrame>;
+export const ScaryThumbTall: React.FC = () => <TallFrame episode="🎃 HALLOWEEN SPECIAL 🎃" title="Episode 1" small><ScaryThumb /></TallFrame>;
