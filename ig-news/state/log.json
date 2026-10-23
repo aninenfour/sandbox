@@ -434,8 +434,9 @@
    "https://decrypt.co/381611/bitcoin-etfs-erase-october-losses-1-billion-three-days",
    "https://www.theblock.co/news/markets/2026-10-22-bitcoin-etfs-draw-528-million-as-ether-funds-snap-five-day-outflow-streak-421904"
   ],
-  "status": "scheduled",
-  "note": "Fri 07:40 run. Sequel to the Oct 19 ETF outflow post (same Wall St photo on purpose, Cyril / Unsplash). Skipped per-day Monday figure and AUM (sources disagree)."
+  "status": "published",
+  "note": "Fri 07:40 run. Sequel to the Oct 19 ETF outflow post (same Wall St photo on purpose, Cyril / Unsplash). Skipped per-day Monday figure and AUM (sources disagree).",
+  "ig_url": "https://www.instagram.com/p/De1FIXFlSje/"
  },
  {
   "id": "2026-10-23-academy-hashrate",
@@ -448,8 +449,9 @@
    "https://mempool.space/api/v1/mining/hashrate/3y",
    "https://mempool.space/api/v1/difficulty-adjustment"
   ],
-  "status": "scheduled",
-  "note": "7d avg 1,053 EH/s (highest since Mar 3); 3y: 462 -> 1,093 EH/s daily; last diff +5.92% Oct 16, next est +3.3%. Photo: Taylor Vick / Unsplash."
+  "status": "published",
+  "note": "7d avg 1,053 EH/s (highest since Mar 3); 3y: 462 -> 1,093 EH/s daily; last diff +5.92% Oct 16, next est +3.3%. Photo: Taylor Vick / Unsplash.",
+  "ig_url": "https://www.instagram.com/p/De1ZtasmrrB/"
  },
  {
   "id": "2026-10-23-reel-red-flags",
@@ -464,7 +466,35 @@
    "instagram story 21:35"
   ],
   "sources": [],
+  "status": "published",
+  "note": "Fri 15:40 run. Evergreen safety list, no market figures. Photos: Unsplash (Sébastien Barbieri, Giorgio Trovato, Visual Karsa, Chinh Le Duc, Nathan Dumlao, John Salvino).",
+  "ig_url": "https://www.instagram.com/reel/De1q7sHDIRp/"
+ },
+ {
+  "id": "2026-10-24-novatech-ponzi",
+  "type": "news",
+  "slot": "2026-10-24T16:00:00+08:00",
+  "title": "New York wants $1.37B back from the NovaTech crypto Ponzi",
+  "score": null,
+  "sources": [
+   "https://decrypt.co/381708/crypto-scammers-prayer-groups-lure-victims-must-pay-1-3-billion-new-york",
+   "https://www.theblock.co/news/regulation/2026-10-23-new-york-seeks-over-1-3-billion-from-novatech-founders-after-couple-fled-the-us-424453",
+   "https://cointelegraph.com/news/new-york-ag-novatech-founders-companies-crypto-ponzi"
+  ],
   "status": "scheduled",
-  "note": "Fri 15:40 run. Evergreen safety list, no market figures. Photos: Unsplash (Sébastien Barbieri, Giorgio Trovato, Visual Karsa, Chinh Le Duc, Nathan Dumlao, John Salvino)."
+  "note": "Sat 07:40 run. IG+FB 16:00, story 16:05. Photo: NY County Supreme Court, Aditya Chinchure / Unsplash. Ties to Fri red-flags Reel."
+ },
+ {
+  "id": "2026-10-24-academy-2pct-week",
+  "type": "tutorial",
+  "slot": "2026-10-24T19:00:00+08:00",
+  "title": "\"Just 2% a week\" sounds small. Do the maths.",
+  "score": null,
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/^SP500TR?range=10y&interval=1mo",
+   "NY AG filing via Decrypt/The Block"
+  ],
+  "status": "scheduled",
+  "note": "Compounding: $1k at 2%/wk = $2,800 (1y), $21,960 (3y); S&P TR 10y CAGR 15.1%. NovaTech $1.16B in, ~$26M to trading. Photo: Sasun Bughdaryan / Unsplash."
  }
 ]
