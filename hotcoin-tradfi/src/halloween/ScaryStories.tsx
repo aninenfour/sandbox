@@ -140,7 +140,7 @@ export const pine = (x: number, base: number, h: number, w: number, c: string, k
   for (let i = 0; i < tiers; i++) { const ty = base - h + (h * i) / tiers, tw = w * (0.45 + 0.55 * (i + 1) / tiers); d += `M${x},${ty} L${x + tw / 2},${ty + h / tiers + 30} L${x - tw / 2},${ty + h / tiers + 30}Z `; }
   return <path key={k} d={d + `M${x - 10},${base} h20 v24 h-20Z`} fill={c} />;
 };
-const Forest: React.FC = () => (
+export const Forest: React.FC = () => (
   <svg width={1080} height={1350} style={{position: 'absolute', inset: 0}}>
     {Array.from({length: 12}, (_, i) => pine(-40 + i * 100 + rnd(i) * 40, 760, 300 + rnd(i + 3) * 160, 170 + rnd(i + 5) * 60, '#5D6FB0', i))}
     {Array.from({length: 9}, (_, i) => pine(-20 + i * 135 + rnd(i + 20) * 50, 800, 380 + rnd(i + 23) * 160, 210 + rnd(i + 25) * 60, '#45579A', 100 + i))}
@@ -205,7 +205,7 @@ export const Laptop: React.FC<{x: number; y: number; close: number}> = ({x, y, c
   </div>
 );
 
-const Marshmallow: React.FC<{t: number; state: 'raw' | 'fire' | 'burnt' | 'gone'; ang: number}> = ({t, state, ang}) => (
+export const Marshmallow: React.FC<{t: number; state: 'raw' | 'fire' | 'burnt' | 'gone'; ang: number}> = ({t, state, ang}) => (
   <svg width={300} height={200} viewBox="0 0 300 200" style={{position: 'absolute', left: 640, top: 900, overflow: 'visible', transform: `rotate(${ang}deg)`, transformOrigin: '270px 40px'}}>
     <line x1={270} y1={40} x2={40} y2={150} stroke="#8A5A33" strokeWidth={7} strokeLinecap="round" />
     {state !== 'gone' && <rect x={22} y={132} width={42} height={38} rx={12} fill={state === 'burnt' ? '#3A2A22' : '#FFF8EE'} stroke={state === 'burnt' ? '#1E1612' : '#E8D9C2'} strokeWidth={3} transform="rotate(-25 43 151)" />}
