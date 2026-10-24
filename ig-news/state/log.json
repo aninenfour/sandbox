@@ -496,5 +496,25 @@
   ],
   "status": "scheduled",
   "note": "Compounding: $1k at 2%/wk = $2,800 (1y), $21,960 (3y); S&P TR 10y CAGR 15.1%. NovaTech $1.16B in, ~$26M to trading. Photo: Sasun Bughdaryan / Unsplash."
+ },
+ {
+  "id": "2026-10-24-reel-gold-review",
+  "type": "reel",
+  "slot": "2026-10-24T21:30:00+08:00",
+  "hook": "Gold is −28% from its peak",
+  "topic": "gold (ticker review)",
+  "music": "876",
+  "channels": [
+   "instagram reel 21:30",
+   "facebook reel 21:30",
+   "instagram story 21:35"
+  ],
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/GC=F?range=5y&interval=1d",
+   "https://api.coingecko.com/api/v3/coins/tether-gold/market_chart?vs_currency=usd&days=365",
+   "https://api.hotcoinfin.com/v1/market/ticker"
+  ],
+  "status": "scheduled",
+  "note": "Sat 15:40 run. GC=F high $5,586 Jan 29 (XAUT daily peak $5,487 same day), last $4,008; 5y +121.8%, YTD -7.7%, 1y -3.3%; BTC $80.7K ≈ 20 oz. Not a tier list, so no X cut. Sunday weekly preview left for Sun 07:40."
  }
 ]
