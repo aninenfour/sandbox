@@ -44,7 +44,7 @@ import {D01, D01_DURATION} from './shorts/D01';
 import {D02, D02_DURATION} from './shorts/D02';
 import {WI02, WI02_DURATION} from './shorts/WI02';
 import {RigTest} from './shorts/RigTest';
-import {StyleLineup, StyleClose, StyleMedium, StyleWide} from './shorts/style/StyleFrames';
+import {StyleLineup, StyleClose, StyleMedium, StyleWide, StyleTalk} from './shorts/style/StyleFrames';
 import {WI02B, WI02B_DURATION} from './shorts/WI02b';
 import {FigQueue, FigBagTweets, FigMatryoshka, FigBalloon, FigMaterials, FigVizor, FigUS, FigFaces, FigTeamPhotos, FigAdvocacy, FigSideEvents, FIG_W} from './review/Figures';
 
@@ -63,6 +63,7 @@ export const Root: React.FC = () => (
     <Composition id="Style-Close" component={StyleClose} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Style-Medium" component={StyleMedium} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Style-Wide" component={StyleWide} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Style-Talk" component={StyleTalk} durationInFrames={120} fps={30} width={1080} height={1920} />
     <Composition id="Short-W01-Cover" component={W01Cover} durationInFrames={120} fps={30} width={1080} height={1920} />
     <Composition id="BF01-Full-16x9" component={BF01Full} durationInFrames={FULL_DURATION} fps={BF01_FPS} width={1920} height={1080} />
     <Composition id="BF01-Part1-16x9" component={BF01Part1} durationInFrames={PART1_DURATION} fps={BF01_FPS} width={1920} height={1080} />
