@@ -14,22 +14,15 @@ import type {Arms, Face} from './ScaryStories';
 
 const FPS = 30;
 type Seg = {k: 'card' | 'scene'; from: number; to: number; id: string};
-const T: Seg[] = [
-  {k: 'card', from: 0, to: 96, id: 'title'},
-  {k: 'scene', from: 96, to: 210, id: 'intro'},
-  {k: 'card', from: 210, to: 270, id: 'c1'},
-  {k: 'scene', from: 270, to: 480, id: 'landfill'},
-  {k: 'card', from: 480, to: 570, id: 'c1b'},
-  {k: 'card', from: 570, to: 630, id: 'c2'},
-  {k: 'scene', from: 630, to: 840, id: 'password'},
-  {k: 'card', from: 840, to: 930, id: 'c2b'},
-  {k: 'card', from: 930, to: 990, id: 'c3'},
-  {k: 'scene', from: 990, to: 1200, id: 'keys'},
-  {k: 'card', from: 1200, to: 1290, id: 'c3b'},
-  {k: 'scene', from: 1290, to: 1440, id: 'end'},
-  {k: 'card', from: 1440, to: 1560, id: 'outro'},
-];
-export const SCARY2_DURATION = 1560;
+const LEN = {title: 120, scene0: 114, chap: 90, scene: 210, fact: 120, end: 150, outro: 140};
+const T: Seg[] = (() => {
+  const order: [Seg['k'], string, number][] = [['card', 'title', LEN.title], ['scene', 'intro', LEN.scene0], ['card', 'c1', LEN.chap], ['scene', 'landfill', LEN.scene], ['card', 'c1b', LEN.fact],
+    ['card', 'c2', LEN.chap], ['scene', 'password', LEN.scene], ['card', 'c2b', LEN.fact], ['card', 'c3', LEN.chap], ['scene', 'keys', LEN.scene], ['card', 'c3b', LEN.fact], ['scene', 'end', LEN.end], ['card', 'outro', LEN.outro]];
+  let at = 0;
+  return order.map(([k, id, len]) => { const seg = {k, id, from: at, to: at + len}; at += len; return seg; });
+})();
+const at = (id: string) => T.find((x) => x.id === id)!.from;
+export const SCARY2_DURATION = T[T.length - 1].to;
 const usd = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
 const LANDFILL = 8000 * data.btcSpot, IRONKEY = 7002 * data.btcSpot;
 const M = (n: number) => `$${Math.round(n / 1e6)}M`;
@@ -106,14 +99,26 @@ export const WitchHat: React.FC<{t: number}> = ({t}) => (
     <rect x={92} y={2} width={18} height={18} rx={3} fill="none" stroke="#2B2350" strokeWidth={4} />
   </g>
 );
-export const Scarf: React.FC = () => (
-  <g>
-    <defs><pattern id="stripe" width="28" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(18)"><rect width="28" height="40" fill={LIME} /><rect width="13" height="40" fill="#2B3A6E" /></pattern></defs>
-    <path d="M28,122 Q100,108 172,122 L170,160 Q100,148 30,160Z" fill="url(#stripe)" />
-    <path d="M132,150 L160,150 L166,214 L138,216Z" fill="url(#stripe)" />
-    <path d="M138,216 l4,10 M146,216 l3,10 M154,215 l3,10 M161,214 l3,10" stroke="#2B3A6E" strokeWidth={3} />
-  </g>
-);
+// neck scarf: knitted band under the mouth, knot and two striped tails on the right
+export const Scarf: React.FC<{id?: string}> = ({id = 'a'}) => {
+  const band = 'M22,148 Q100,170 178,148 L180,180 Q100,204 20,180Z';
+  return (
+    <g>
+      <defs><clipPath id={`sc${id}`}><path d={band} /></clipPath></defs>
+      <path d={band} fill={LIME} />
+      <g clipPath={`url(#sc${id})`} fill="#2B3A6E">{[34, 66, 98, 130, 162].map((x) => <rect key={x} x={x} y={140} width={13} height={70} />)}</g>
+      <path d={band} fill="none" stroke="#2B3A6E" strokeWidth={3} />
+      <g transform="rotate(10 128 184)">
+        <rect x={116} y={176} width={26} height={50} rx={6} fill={LIME} stroke="#2B3A6E" strokeWidth={3} /><rect x={117} y={196} width={24} height={8} fill="#2B3A6E" />
+      </g>
+      <g transform="rotate(-6 150 184)">
+        <rect x={140} y={176} width={30} height={64} rx={6} fill={LIME} stroke="#2B3A6E" strokeWidth={3} /><rect x={141} y={194} width={28} height={9} fill="#2B3A6E" /><rect x={141} y={214} width={28} height={9} fill="#2B3A6E" />
+        <path d="M145,240 v10 M152,240 v10 M159,240 v10 M166,240 v10" stroke="#2B3A6E" strokeWidth={3} strokeLinecap="round" />
+      </g>
+      <circle cx={140} cy={178} r={12} fill={LIME} stroke="#2B3A6E" strokeWidth={3} />
+    </g>
+  );
+};
 
 export const CandyBucket: React.FC<{t: number; full: number; tilt: number}> = ({t, full, tilt}) => (
   <svg width={150} height={150} viewBox="-75 -80 150 150" style={{position: 'absolute', left: 925, top: 905, transform: `rotate(${tilt}deg)`, overflow: 'visible'}}>
@@ -296,7 +301,7 @@ const Scene: React.FC<{id: string; f: number; g: number}> = ({id, f, g}) => {
       <Log x={225} y={1035} w={270} r={14} />
       <Log x={855} y={1035} w={270} r={-14} />
       <Fire t={t} boost={boost} />
-      <Ghost id="l2" x={235} y={1035} s={1.18} t={t} face={L.face} arms={L.arms} ph={1.3} tremble={L.tremble ?? 0} rot={L.rot ?? 0} warm={1}><Scarf /></Ghost>
+      <Ghost id="l2" x={235} y={1035} s={1.18} t={t} face={L.face} arms={L.arms} ph={1.3} tremble={L.tremble ?? 0} rot={L.rot ?? 0} warm={1}><Scarf id="l2" /></Ghost>
       <Ghost id="r2" x={850} y={1035} s={1.18} t={t} face={R.face} arms={R.arms} ph={2.6} warm={-1} />
       <CandyBucket t={t} full={full} tilt={tilt} />
       {full > 0 && <Candy p={candy} />}
@@ -326,10 +331,10 @@ export const ScaryStories2: React.FC = () => {
       <Audio src={staticFile('halloween/silent-movie-60.mp3')} volume={(fr) => 0.75 * interpolate(fr, [0, 10, SCARY2_DURATION - 50, SCARY2_DURATION], [0, 1, 1, 0], cl)} />
       <Loop durationInFrames={180}><Audio src={staticFile('halloween/projector.wav')} volume={0.16} /></Loop>
       {T.filter((x) => x.k === 'scene' && x.id !== 'intro').map((x) => <Sequence key={x.id} from={x.from + 4} durationInFrames={30} layout="none"><Audio src={staticFile('sfx/mechanical/snap.mp3')} volume={0.35} /></Sequence>)}
-      <Sequence from={270 + 30} durationInFrames={60} layout="none"><Audio src={staticFile('sfx/foley/thump.wav')} volume={0.45} /></Sequence>
-      {Array.from({length: 8}, (_, i) => <Sequence key={i} from={630 + 28 + i * 13} durationInFrames={20} layout="none"><Audio src={staticFile('sfx/mechanical/blocked.mp3')} volume={0.3} /></Sequence>)}
-      <Sequence from={990 + 120} durationInFrames={60} layout="none"><Audio src={staticFile('sfx/foley/hit.wav')} volume={0.5} /></Sequence>
-      <Sequence from={1290} durationInFrames={60} layout="none"><Audio src={staticFile('sfx/foley/hit.wav')} volume={0.45} /></Sequence>
+      <Sequence from={at('landfill') + 30} durationInFrames={60} layout="none"><Audio src={staticFile('sfx/foley/thump.wav')} volume={0.45} /></Sequence>
+      {Array.from({length: 8}, (_, i) => <Sequence key={i} from={at('password') + 28 + i * 13} durationInFrames={20} layout="none"><Audio src={staticFile('sfx/mechanical/blocked.mp3')} volume={0.3} /></Sequence>)}
+      <Sequence from={at('keys') + 120} durationInFrames={60} layout="none"><Audio src={staticFile('sfx/foley/hit.wav')} volume={0.5} /></Sequence>
+      <Sequence from={at('end')} durationInFrames={60} layout="none"><Audio src={staticFile('sfx/foley/hit.wav')} volume={0.45} /></Sequence>
     </AbsoluteFill>
   );
 };
@@ -351,7 +356,7 @@ export const ScaryThumb2: React.FC = () => {
       <Log x={225} y={1035} w={270} r={14} />
       <Log x={855} y={1035} w={270} r={-14} />
       <Fire t={t} boost={0.6} />
-      <Ghost id="l2" x={235} y={1035} s={1.18} t={t} face="scream" arms={['up', 'up']} ph={1.3} warm={1}><Scarf /></Ghost>
+      <Ghost id="l2" x={235} y={1035} s={1.18} t={t} face="scream" arms={['up', 'up']} ph={1.3} warm={1}><Scarf id="l2" /></Ghost>
       <Ghost id="r2" x={850} y={1035} s={1.18} t={t} face="shock" arms={['up', 'hold']} ph={2.6} warm={-1} />
       <CandyBucket t={t} full={1} tilt={-12} />
       <Laptop x={70} y={1080} close={0} />

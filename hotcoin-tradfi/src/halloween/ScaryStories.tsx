@@ -163,12 +163,12 @@ export const Log: React.FC<{x: number; y: number; w: number; r: number}> = ({x, 
   </svg>
 );
 
-export const Fire: React.FC<{t: number; boost?: number}> = ({t, boost = 0}) => {
+export const Fire: React.FC<{t: number; boost?: number; x?: number; y?: number; s?: number}> = ({t, boost = 0, x = 540, y = 1085, s = 1}) => {
   const fl = (k: number, a: number) => Math.sin(t * (7 + k) + k * 2) * a;
   const h = 1 + boost * 0.7;
   const flame = (w: number, hh: number, c: string, k: number) => `<path d="M${-w},0 C${-w},${-hh * 0.4} ${-w * 0.3 + fl(k, 6)},${-hh * 0.6} ${fl(k + 1, 10)},${-hh} C${w * 0.3 + fl(k + 2, 6)},${-hh * 0.6} ${w},${-hh * 0.4} ${w},0 Z" fill="${c}"/>`;
   return (
-    <div style={{position: 'absolute', left: 540, top: 1085}}>
+    <div style={{position: 'absolute', left: x, top: y, transform: `scale(${s})`, transformOrigin: '0 0'}}>
       <svg width={600} height={600} viewBox="-300 -460 600 600" style={{position: 'absolute', left: -300, top: -460, overflow: 'visible'}}>
         <defs><radialGradient id="fglow"><stop offset="0" stopColor="#FFC66B" stopOpacity="0.55" /><stop offset="1" stopColor="#FFC66B" stopOpacity="0" /></radialGradient></defs>
         <ellipse cx={0} cy={-10} rx={300 + boost * 60} ry={140 + boost * 30} fill="url(#fglow)" opacity={0.8 + 0.2 * Math.sin(t * 9)} />
