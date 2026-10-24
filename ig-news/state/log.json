@@ -515,6 +515,7 @@
    "https://api.hotcoinfin.com/v1/market/ticker"
   ],
   "status": "scheduled",
-  "note": "Sat 15:40 run. GC=F high $5,586 Jan 29 (XAUT daily peak $5,487 same day), last $4,008; 5y +121.8%, YTD -7.7%, 1y -3.3%; BTC $80.7K ≈ 20 oz. Not a tier list, so no X cut. Sunday weekly preview left for Sun 07:40."
+  "note": "Sat 15:40 run. GC=F high $5,586 Jan 29 (XAUT daily peak $5,487 same day), last $4,008; 5y +121.8%, YTD -7.7%, 1y -3.3%; BTC $80.7K ≈ 20 oz. Not a tier list, so no X cut. Sunday weekly preview left for Sun 07:40. Re-rendered in frame style (owner pick, Oct 24 16:10); old outline-style posts moved to drafts.",
+  "style": "frame"
  }
 ]
