@@ -20,6 +20,8 @@ def two(n):
     return ONES[n] if n < 20 else TENS[n // 10] + ('-' + ONES[n % 10] if n % 10 else '')
 def year(m):
     hi, lo = int(m.group(1)), int(m.group(2))
+    if hi == 20 and lo < 10:  # 2000 to 2009 are said "two thousand seven", not "twenty oh seven"
+        return 'two thousand' + ('' if lo == 0 else ' ' + ONES[lo])
     return two(hi) + ' ' + ('hundred' if lo == 0 else 'oh ' + ONES[lo] if lo < 10 else two(lo))
 def say(text):
     for a, b in SAY.items(): text = text.replace(a, b)

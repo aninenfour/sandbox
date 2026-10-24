@@ -83,7 +83,7 @@ const World: React.FC<{n: number}> = ({n}) => {
 };
 
 // ---------- icons (flat, drawn in a 200x200 box) ----------
-const Icon: React.FC<{k: string}> = ({k}) => {
+export const Icon: React.FC<{k: string}> = ({k}) => {
   const s = {width: 360, height: 360, viewBox: '0 0 200 200', style: {overflow: 'visible' as const}};
   switch (k) {
     case 'bill': return <svg {...s}><rect x={20} y={60} width={160} height={80} rx={8} fill={C.money} stroke="#4E8F55" strokeWidth={6} /><circle cx={100} cy={100} r={24} fill="rgba(0,0,0,.15)" /><text x={100} y={112} textAnchor="middle" fontSize={34} fontWeight={900} fill="#2E5E33" fontFamily={FONT.cap}>1</text></svg>;
