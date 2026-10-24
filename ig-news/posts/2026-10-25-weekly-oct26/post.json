@@ -1,0 +1,149 @@
+{
+ "type": "weekly",
+ "slides": [
+  {
+   "kind": "wcover",
+   "photo": "fed.jpg",
+   "photo_pos": "50% 45%",
+   "title": [
+    "What's on",
+    "this week"
+   ],
+   "range": "Oct 26 – Nov 1 · Fed + Big Tech week"
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Wednesday",
+    "28 October"
+   ],
+   "bg": "linear-gradient(160deg,#0f2a4a,#2f6db5 50%,#9cc3f0)",
+   "photo": "visa.jpg",
+   "photo_pos": "50% 50%",
+   "events": [
+    {
+     "t": "Visa ($V) Q3 earnings call",
+     "time": "05:00 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    },
+    {
+     "t": "Robinhood ($HOOD) Q3 earnings call",
+     "time": "05:00 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Thursday",
+    "29 October"
+   ],
+   "bg": "linear-gradient(160deg,#2b1b5a,#8e3fae 50%,#e05d8b)",
+   "photo": "msft.jpg",
+   "photo_pos": "50% 70%",
+   "events": [
+    {
+     "t": "Fed rate decision + press conference",
+     "time": "02:00 UTC+8",
+     "badges": [
+      {
+       "t": "HIGH IMPACT",
+       "c": "hi"
+      }
+     ]
+    },
+    {
+     "t": "Alphabet + Microsoft Q3 earnings calls",
+     "time": "04:30 / 05:30 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    },
+    {
+     "t": "US Q3 GDP, first estimate",
+     "time": "20:30 UTC+8",
+     "badges": [
+      {
+       "t": "HIGH IMPACT",
+       "c": "hi"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Friday",
+    "30 October"
+   ],
+   "bg": "linear-gradient(160deg,#ff7a3d,#f2a65a 45%,#c9b8a8)",
+   "photo": "amzn.jpg",
+   "photo_pos": "50% 60%",
+   "events": [
+    {
+     "t": "Amazon ($AMZN) Q3 earnings call",
+     "time": "05:00 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    },
+    {
+     "t": "Strategy ($MSTR) Q3 results webinar",
+     "time": "05:00 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    },
+    {
+     "t": "US employment cost index (Q3)",
+     "time": "20:30 UTC+8",
+     "badges": [
+      {
+       "t": "MACRO"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Sunday",
+    "1 November"
+   ],
+   "bg": "linear-gradient(160deg,#0b3d2e,#1f8a5b 50%,#9be07a)",
+   "events": [
+    {
+     "t": "US clocks go back 1 hour. From Monday the US market opens at 22:30 UTC+8",
+     "time": "Heads up",
+     "badges": [
+      {
+       "t": "TIME CHANGE"
+      }
+     ]
+    }
+   ],
+   "photo": "clock.jpg",
+   "photo_pos": "50% 50%"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
