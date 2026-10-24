@@ -57,7 +57,7 @@ body{font-family:'Inter Display','Inter',sans-serif;-webkit-font-smoothing:antia
 .ctat{position:absolute;left:0;right:0;top:170px;text-align:center;color:#07090A;font-weight:800;font-size:92px;line-height:1.02;letter-spacing:-.04em}
 .ctat span{background:#07090A;color:#B8F26A;border-radius:16px;padding:0 18px}
 .ctas{position:absolute;left:0;right:0;top:445px;text-align:center;color:#1b2a10;font-family:'Inter';font-weight:600;font-size:40px}
-.kw{color:#FFD60A}
+.kw{color:#FFD60A}.pnl,.bgblur{display:none}
 .ptitle{position:absolute;left:0;right:0;top:250px;text-align:center}
 .ptitle span{display:inline-block;background:#fff;color:#0A0A0A;font-weight:800;font-size:50px;line-height:1.1;padding:10px 26px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .tierbg{position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 50% 40%,#1d2328,#0A0C0E 70%)}
@@ -72,6 +72,42 @@ body{font-family:'Inter Display','Inter',sans-serif;-webkit-font-smoothing:antia
 .tnote{position:absolute;left:70px;right:70px;top:1470px;text-align:center;color:#fff;font-weight:800;font-size:64px;line-height:1.1;-webkit-text-stroke:2px rgba(0,0,0,.85);paint-order:stroke fill}
 .tnote small{display:block;margin-top:14px;font-family:'Inter';font-weight:600;font-size:40px;color:#ffffffd9;-webkit-text-stroke:0}
 """
+# Text styles (owner, Oct 24: outlined text straight on a busy photo, e.g. yellow on gold, reads badly). reel.json "style":
+#   outline  white outlined text on the photo (the original look)
+#   panel    photo on top, text on a solid dark panel below (text never touches the photo)
+#   box      photo full screen, every text line on its own dark caption box (TikTok-style)
+#   frame    blurred photo backdrop, sharp photo as a rounded card, clean text underneath
+STYLE_CSS = {
+    'outline': '',
+    'panel': """
+body.bgp{background:#0B0D0F}.bg{bottom:40%}.bg:after{background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,0) 30%,rgba(11,13,15,.0) 80%,rgba(11,13,15,1))}
+.pnl{display:block!important;position:absolute;left:0;right:0;bottom:0;height:40%;background:#0B0D0F}
+.tx{top:auto;bottom:0;height:40%;left:80px;right:80px;justify-content:flex-start;align-items:flex-start;text-align:left;padding-top:20px}
+.t,.hook .t{font-size:96px;-webkit-text-stroke:0;text-shadow:none;letter-spacing:-.025em}
+.sub{font-size:44px;color:#AEB6BD;-webkit-text-stroke:0;text-shadow:none;margin-top:28px}
+.num{margin-bottom:26px;box-shadow:none}.kw{color:#7EC25A}
+.swipe{bottom:250px;text-align:left;left:80px;font-size:38px;color:#AEB6BD;text-shadow:none}
+.wm{bottom:110px}
+""",
+    'box': """
+.bg:after{background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.25))}
+.t,.hook .t{font-size:84px;line-height:1.42;-webkit-text-stroke:0;text-shadow:none}
+.ln{background:#0A0A0A;padding:4px 26px;border-radius:16px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sub{-webkit-text-stroke:0;text-shadow:none;font-size:42px;line-height:1.6;margin-top:30px;max-width:900px}
+.sub .ln{background:#fff;color:#0A0A0A;padding:6px 20px;border-radius:12px}
+.sub .kw{color:#2F7D12}.kw{color:#B8F26A}
+""",
+    'frame': """
+.bgblur{display:block!important;position:absolute;inset:-60px;background-size:cover;background-position:center;filter:blur(46px) brightness(.42) saturate(1.1)}
+body.bgp{background:#0B0D0F}.bg{left:70px;right:70px;top:380px;bottom:auto;height:820px;border-radius:40px;box-shadow:0 30px 80px rgba(0,0,0,.55)}.bg:after{display:none}
+.tx{top:1230px;bottom:250px;justify-content:flex-start}
+.t,.hook .t{font-size:88px;-webkit-text-stroke:0;text-shadow:0 4px 24px rgba(0,0,0,.4);letter-spacing:-.02em}
+.sub{font-size:42px;color:#D5DADF;-webkit-text-stroke:0;text-shadow:none;margin-top:24px}
+.kw{color:#7EC25A}.swipe{display:none}
+""",
+}
+
+
 # --square: same slides re-laid out for 1080x1080 (owner, Oct 20: tier-list Reels also go to X as a square video)
 SQUARE_CSS = """html,body{height:1080px}
 .t{font-size:74px}.hook .t{font-size:86px}.num{font-size:46px;margin-bottom:22px}.num.tag{font-size:34px}.sub{font-size:38px;margin-top:22px}
@@ -110,15 +146,15 @@ def kw(t):
 def text_html(s, sym, title=''):
     if s.get('kind') == 'cta':
         return ''
-    lines = '<br>'.join(kw(x) for x in s['text'].split('\n'))
+    lines = '<br>'.join(f'<span class="ln">{kw(x)}</span>' for x in s['text'].split('\n'))
     num = f'<div class="num">{H.escape(s["num"])}</div>' if s.get('num') else ''
     if s.get('hook') and s.get('tag'):
         num = f'<div class="num tag">{H.escape(s["tag"])}</div>'
-    sub = f'<div class="sub">{kw(s["sub"])}</div>' if s.get('sub') else ''
+    sub = f'<div class="sub"><span class="ln">{kw(s["sub"])}</span></div>' if s.get('sub') else ''
     swipe = '<div class="swipe">Watch till the end 👇</div>' if s.get('hook') else ''
     shift = f' style="transform:translateY({int(s["shift"] * HH / 1920)}px)"' if s.get('shift') else ''  # move text off the photo's subject
     top = f'<div class="ptitle"><span>{H.escape(title)}</span></div>' if title and not s.get('hook') else ''  # context for viewers who land mid-loop
-    return (f'{top}<div class="tx {"hook" if s.get("hook") else ""}"{shift}>{num}<div class="t">{lines}</div>{sub}</div>{swipe}'
+    return (f'<div class="pnl"></div>{top}<div class="tx {"hook" if s.get("hook") else ""}"{shift}>{num}<div class="t">{lines}</div>{sub}</div>{swipe}'
             f'<div class="wm"><i><img src="{sym}"></i>@hotcoinex</div>')
 
 
@@ -138,6 +174,7 @@ def main():
     if sq:  # X cut: no promo card (owner, Oct 20); hold the final slide longer instead
         spec['slides'] = [x for x in spec['slides'] if x.get('kind') != 'cta']
         spec['slides'][-1]['dur'] = max(float(spec['slides'][-1].get('dur', 0)), DUR['cta'])
+    CSS += STYLE_CSS[spec.get('style', 'outline')]
     out = ROOT / 'media' / post.name
     work = out / ('reel_frames' + sfx)
     shutil.rmtree(work, ignore_errors=True); work.mkdir(parents=True)
@@ -173,7 +210,7 @@ def main():
                 continue
             # background: photo cover-cropped, rendered 10% oversize so the zoom never shows edges
             ph = uri(post / s['photo'])
-            pg.set_content(f'<!doctype html><html><head><style>{CSS}</style></head><body><div class="bg" style="background-image:url({ph});background-position:{s.get("pos","center")}"></div></body></html>')
+            pg.set_content(f'<!doctype html><html><head><style>{CSS}</style></head><body class="bgp"><div class="bgblur" style="background-image:url({ph})"></div><div class="bg" style="background-image:url({ph});background-position:{s.get("pos","center")}"></div></body></html>')
             pg.wait_for_load_state('networkidle')
             pg.screenshot(path=str(work / f'bg{n:02d}.jpg'), type='jpeg', quality=94)
             pg.set_content(f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>{text_html(s, sym, spec.get("title", ""))}</body></html>')
