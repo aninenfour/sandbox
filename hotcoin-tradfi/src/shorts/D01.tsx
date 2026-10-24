@@ -126,7 +126,7 @@ export const D01: React.FC = () => {
       {/* person and the thing their money buys right now */}
       <AbsoluteFill style={{opacity: 1 - endP}}>
         <Figure who="man" x={260} y={1200} s={1.05} pose={{armL: 20, armR: n > 0 ? -60 - Math.min(80, n * 2) : -10, mood: n >= 20 ? 'happy' : n >= 8 ? 'smug' : 'neutral', bob: float, look: 1}} />
-        <div key={mile.n} style={{position: 'absolute', left: 680 - 180, top: 760 - 180 + float * 0.6, scale: '1.25', transform: `scale(${pop(fr, mileAt, 10, 200)}) rotate(${(1 - pop(fr, mileAt, 10, 200)) * -20}deg)`}}>
+        <div key={mile.n} style={{position: 'absolute', left: 680 - 180, top: 760 - 180 + float * 0.6, scale: '1.25', transform: mile.n === 0 ? 'none' : `scale(${pop(fr, mileAt, 10, 200)}) rotate(${(1 - pop(fr, mileAt, 10, 200)) * -20}deg)`}}>
           {mile.icon === 'apple'
             ? <div style={{position: 'relative', width: 360, height: 360}}><div style={{position: 'absolute', left: -540 + 180, top: -960 + 180}}><Fruit x={540} y={960} r={130} slice={1} glow={1} /></div></div>
             : <Icon k={mile.icon} />}
@@ -143,12 +143,12 @@ export const D01: React.FC = () => {
 
       {/* milestone line */}
       {!ending && (
-        <div key={'l' + mile.n} style={{position: 'absolute', left: 70, right: 170, top: 1290, textAlign: 'center', font: `italic 400 78px/1.15 ${SERIF}`, color: '#fff', textShadow: '0 4px 18px rgba(0,0,0,.7)', opacity: lin(fr, mileAt, mileAt + 5), transform: `translateY(${(1 - ease(lin(fr, mileAt, mileAt + 8))) * 20}px)`}}>{mile.line}</div>
+        <div key={'l' + mile.n} style={{position: 'absolute', left: 70, right: 170, top: 1290, textAlign: 'center', font: `italic 400 78px/1.15 ${SERIF}`, color: '#fff', textShadow: '0 4px 18px rgba(0,0,0,.7)', opacity: mile.n === 0 ? 1 : lin(fr, mileAt, mileAt + 5), transform: `translateY(${mile.n === 0 ? 0 : (1 - ease(lin(fr, mileAt, mileAt + 8))) * 20}px)`}}>{mile.line}</div>
       )}
 
       {/* the real lesson */}
       {ending && (
-        <AbsoluteFill style={{opacity: endP, alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 40, padding: '0 80px', textAlign: 'center'}}>
+        <AbsoluteFill style={{opacity: endP, alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 40, padding: '0 170px 0 80px', textAlign: 'center'}}>
           <div style={{font: `italic 400 92px/1.1 ${SERIF}`, color: '#fff'}}>Real money doubles too.</div>
           <div style={{font: `italic 400 92px/1.1 ${SERIF}`, color: C.hi, opacity: lin(fr, f(END_AT) + 30, f(END_AT) + 40)}}>Just slower.</div>
           <div style={{font: `900 56px/1.3 ${FONT.cap}`, color: '#fff', marginTop: 30, opacity: lin(fr, f(END_AT) + 60, f(END_AT) + 70)}}>At 7% a year, it doubles<br />about every <span style={{color: C.hi}}>10 years</span>.</div>

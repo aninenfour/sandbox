@@ -1,0 +1,80 @@
+{
+ "note": "What If 02 timeline: each key maps a point in Apple's history (fractional year) to a time in the video (seconds). Values come from aapl.json (Yahoo Finance weekly closes, split-adjusted, $22 IPO price, no dividends).",
+ "keys": [
+  {
+   "year": 1980.948,
+   "t": 1.2,
+   "line": "What if you put $100 into Apple in 1980?",
+   "mood": "neutral"
+  },
+  {
+   "year": 1985.69,
+   "t": 4.4,
+   "line": "1985. Steve Jobs is pushed out.",
+   "mood": "worried"
+  },
+  {
+   "year": 1997.97,
+   "t": 8.8,
+   "line": "1997. Apple is close to going broke. 17 years in.",
+   "mood": "worried"
+  },
+  {
+   "year": 2000.22,
+   "t": 11.6,
+   "line": "The dot-com boom.",
+   "mood": "happy"
+  },
+  {
+   "year": 2000.94,
+   "t": 13.6,
+   "line": "Then the crash.",
+   "mood": "worried"
+  },
+  {
+   "year": 2001.8,
+   "t": 15.6,
+   "line": "The iPod.",
+   "mood": "neutral"
+  },
+  {
+   "year": 2007.04,
+   "t": 18.4,
+   "line": "The iPhone.",
+   "mood": "happy"
+  },
+  {
+   "year": 2008.88,
+   "t": 21.0,
+   "line": "2008. The crash cuts it in half.",
+   "mood": "worried"
+  },
+  {
+   "year": 2010.7,
+   "t": 23.4,
+   "line": "$10,000. Almost 30 years in.",
+   "mood": "happy"
+  },
+  {
+   "year": 2018.59,
+   "t": 26.8,
+   "line": "Apple hits $1 trillion.",
+   "mood": "happy"
+  },
+  {
+   "year": 2020.57,
+   "t": 29.4,
+   "line": "$100,000.",
+   "mood": "happy"
+  },
+  {
+   "year": 2026.8077,
+   "t": 32.8,
+   "line": "Today. From $100.",
+   "mood": "happy"
+  }
+ ],
+ "end": 35.4,
+ "dur": 41.0,
+ "dwell": 0.9
+}
