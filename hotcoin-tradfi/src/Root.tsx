@@ -43,6 +43,8 @@ import {W01, W01Cover, W01_DURATION} from './shorts/W01';
 import {D01, D01_DURATION} from './shorts/D01';
 import {D02, D02_DURATION} from './shorts/D02';
 import {WI02, WI02_DURATION} from './shorts/WI02';
+import {RigTest} from './shorts/RigTest';
+import {WI02B, WI02B_DURATION} from './shorts/WI02b';
 import {FigQueue, FigBagTweets, FigMatryoshka, FigBalloon, FigMaterials, FigVizor, FigUS, FigFaces, FigTeamPhotos, FigAdvocacy, FigSideEvents, FIG_W} from './review/Figures';
 
 export const Root: React.FC = () => (
@@ -54,6 +56,8 @@ export const Root: React.FC = () => (
     <Composition id="Short-D01-9x16" component={D01} durationInFrames={D01_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="Short-D02-9x16" component={D02} durationInFrames={D02_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="Short-WI02-9x16" component={WI02} durationInFrames={WI02_DURATION} fps={30} width={1080} height={1920} />
+    <Composition id="Short-WI02B-9x16" component={WI02B} durationInFrames={WI02B_DURATION} fps={30} width={1080} height={1920} />
+    <Composition id="RigTest" component={RigTest} durationInFrames={30} fps={30} width={1080} height={1920} />
     <Composition id="Short-W01-Cover" component={W01Cover} durationInFrames={120} fps={30} width={1080} height={1920} />
     <Composition id="BF01-Full-16x9" component={BF01Full} durationInFrames={FULL_DURATION} fps={BF01_FPS} width={1920} height={1080} />
     <Composition id="BF01-Part1-16x9" component={BF01Part1} durationInFrames={PART1_DURATION} fps={BF01_FPS} width={1920} height={1080} />
