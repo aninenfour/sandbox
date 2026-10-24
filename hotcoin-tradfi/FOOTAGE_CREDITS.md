@@ -290,3 +290,10 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
   - Stefan Thomas: 7,002 BTC on an IronKey (10 wrong passwords allowed, 8 used), NYT, Jan 2021.
   - Quadriga: CEO died Dec 2018 as sole key holder; ~C$215M owed to 76,000+ clients; wallets empty since April 2018 (Ontario Securities Commission, 2020).
   - BTC spot via Coinbase (Oct 23, 2026, $81,766.36).
+
+## Crypto Scary Stories, Ep. 3 "The Vanishing Act" (`src/halloween/ScaryStories3.tsx`)
+- **Art:** all original (parlour, fireplace, rug, armchair, top hat, popcorn in SVG/CSS). Hotcoin symbol in the portrait: official.
+- **Music:** "Silent Movie 133" by Sascha Ende (ende.app), CC BY 4.0. Credit in the end card and the post.
+- **Facts:** SQUID, Nov 1 2021, ~$2,861 to ~$0.003 within minutes, holders unable to sell (Benzinga, Cointelegraph); price path in the bubble is simplified.
+  AnubisDAO, Oct 29 2021, ~$60M ETH raised, liquidity removed ~20 h into a 24 h sale (The Block, Decrypt); funds later moved via Tornado Cash (Cointelegraph, 2023).
+  OneCoin founder: last seen flying Sofia to Athens, Oct 25 2017; alleged $4B+ fraud; FBI Ten Most Wanted (June 2022). No likeness used (silhouette).
