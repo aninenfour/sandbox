@@ -1,0 +1,24 @@
+{
+ "music": "876",
+ "title": "Gold in 30s",
+ "slides": [
+  {"photo": "hook.jpg", "pos": "50% 50%", "hook": true, "tag": "TICKER REVIEW",
+   "text": "Gold is [−28%]\nfrom its peak"},
+  {"photo": "s1.jpg", "pos": "50% 45%", "num": "1",
+   "text": "Record: [$5,586]\non Jan 29",
+   "sub": "Gold futures' all-time high. Today it's near [$4,008] an ounce."},
+  {"photo": "s2.jpg", "pos": "50% 50%", "num": "2",
+   "text": "Still [+122%]\nin 5 years",
+   "sub": "Up from about [$1,807] an ounce in Oct 2021."},
+  {"photo": "s3.jpg", "pos": "50% 40%", "num": "3",
+   "text": "[−7.7%]\nthis year",
+   "sub": "It started 2026 near $4,341. Over 12 months: [−3.3%]."},
+  {"photo": "s4.jpg", "pos": "50% 50%", "num": "4",
+   "text": "1 Bitcoin ≈\n[20 ounces]",
+   "sub": "BTC near $80.7K, gold near [$4,000] an ounce."},
+  {"photo": "s5.jpg", "pos": "50% 50%", "num": "5",
+   "text": "Gold on-chain:\n[XAUT]",
+   "sub": "Each Tether Gold token is backed by [1 troy ounce] of gold."},
+  {"kind": "cta"}
+ ]
+}
