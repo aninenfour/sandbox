@@ -1,0 +1,107 @@
+{
+ "type": "news",
+ "slides": [
+  {
+   "kind": "cover",
+   "photo": "trader.jpg",
+   "photo_pos": "50% 35%",
+   "insets": [
+    {
+     "src": "btc.svg",
+     "pos": "tr",
+     "size": 220,
+     "bg": "#fff",
+     "fit": "78%"
+    }
+   ],
+   "headline": [
+    {
+     "t": "Bitcoin dipped",
+     "c": "ink",
+     "max": 88
+    },
+    {
+     "t": "below $80K",
+     "c": "red",
+     "max": 110
+    },
+    {
+     "t": "and $404M of bets",
+     "c": "ink",
+     "max": 80
+    },
+    {
+     "t": "on a rise got wiped",
+     "c": "ink",
+     "max": 78
+    },
+    {
+     "t": "in 4 hours",
+     "c": "red",
+     "max": 96
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "tag": "WHAT HAPPENED",
+   "paras": [
+    "On Saturday Bitcoin fell to about <r>$79,300</r>, its weakest level in more than a month.",
+    "In four hours, <r>$436M</r> of leveraged crypto trades were force-closed. <u>$404M of that was longs</u>, bets that prices would go up.",
+    "By Sunday morning BTC was back near <g>$80.8K</g>."
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "~$79.3K",
+      "l": "Saturday low",
+      "neg": true
+     },
+     {
+      "v": "$404M",
+      "l": "longs liquidated in 4h",
+      "neg": true
+     },
+     {
+      "v": "93%",
+      "l": "of liquidations were longs"
+     }
+    ]
+   },
+   "source": "The Block (CoinGlass), CoinDesk, CoinGecko"
+  },
+  {
+   "kind": "text",
+   "tag": "WHY IT MATTERS",
+   "paras": [
+    "The US is pulling staff from embassies and bases across the Middle East over reported Iranian threats, CoinDesk reports, citing the WSJ.",
+    "Bitcoin ETFs turned too: <r>−$773M</r> on Thursday and Friday, after $1.08B in Mon–Wed. <u>Update to our Friday post: October's ETF flows are back in the red.</u>",
+    "BitMEX co-founder Arthur Hayes said he sold his fund's bets: <r>\"I dumped it all.\"</r>"
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "$635M",
+      "l": "out of BTC ETFs, Thursday",
+      "neg": true
+     },
+     {
+      "v": "$138M",
+      "l": "out of BTC ETFs, Friday",
+      "neg": true
+     },
+     {
+      "v": "+$305M",
+      "l": "still net for the week"
+     }
+    ]
+   },
+   "source": "CoinDesk, The Block (SoSoValue)"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}

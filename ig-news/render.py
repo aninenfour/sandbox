@@ -130,7 +130,7 @@ def s_text(s, base):
     if m and m['type'] == 'stats':
         cols = len(m['items'])
         out.append(f'<div class="stats" style="grid-template-columns:repeat({cols},1fr)">' + ''.join(
-            f'<div class="stat"><div class="v">{H.escape(i["v"])}</div><div class="l">{H.escape(i["l"])}</div></div>' for i in m['items']) + '</div>')
+            f'<div class="stat"><div class="v"{" style=\'color:" + RED + "\'" if i.get("neg") else ""}>{H.escape(i["v"])}</div><div class="l">{H.escape(i["l"])}</div></div>' for i in m['items']) + '</div>')
     if s.get('source'):
         out.append(f'<div class="src">Source: {H.escape(s["source"])}</div>')
     out.append(foot('Swipe') + '</div>')
