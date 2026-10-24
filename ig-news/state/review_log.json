@@ -94,5 +94,19 @@
   "ideas_for_owner": [
    "Still recommend checking Instagram Account Status; if clear, consider one boosted test post to see if paid reach behaves normally"
   ]
+ },
+ {
+  "date": "2026-10-25",
+  "metrics_summary": "Top 7-day reach (IG): Hotcoin's own whale/slang Reel 158, Oct 18 tier Reel 148 (43 comments), ATH tier Reel 101, myths Reel 88; 2026 YTD tier Reel 66 with 0 likes. Oct 23-24 posts not in insights yet. All Oct 24 posts published (NovaTech news, 2%-a-week Academy, gold Reel in new frame style + stories); no failures.",
+  "findings": [
+   "Reach still well below the Oct 16-18 level for desk and Hotcoin's own posts alike",
+   "Owner changed the Reel look on Oct 24 (frame style now default); judge its effect in the Monday weekly run once 2-3 Reels have data",
+   "Last-24h renders checked at build time: NovaTech carousel, 2%-a-week Academy, gold Reel (frame)"
+  ],
+  "changes": [],
+  "skipped": true,
+  "ideas_for_owner": [
+   "Instagram Account Status check still open (reach dip since ~Oct 20)"
+  ]
  }
 ]
