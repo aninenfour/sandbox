@@ -158,6 +158,8 @@ export const Paper: React.FC<{x: number; y: number; w?: number; title: string; l
       <div style={{font: `700 30px ${FONT.mono}`, color: '#1d1b16', letterSpacing: 2, borderBottom: '4px solid #1d1b16', paddingBottom: 14, minHeight: 36}}>{typed(title)}</div>
       {lines.map((l, i) => <div key={i} style={{font: `500 30px/1.5 ${FONT.mono}`, color: '#3a372f', marginTop: 16, minHeight: 45}}>{typed(l)}</div>)}
       {children}
+      {/* drawn reconstructions, not the real paperwork */}
+      <div style={{position: 'absolute', right: 20, top: 14, font: `600 16px ${FONT.mono}`, letterSpacing: 2, color: 'rgba(0,0,0,.35)'}}>ILLUSTRATION</div>
       {stamp && fr >= stamp.at && (
         <div style={{position: 'absolute', right: 30, bottom: 40, transform: `rotate(-12deg) scale(${2 - sp})`, opacity: Math.min(1, sp * 2), border: `8px solid ${stamp.color ?? C.red}`, color: stamp.color ?? C.red, padding: '8px 22px', font: `900 64px ${FONT.cap}`, letterSpacing: 2, whiteSpace: 'nowrap'}}>{stamp.text}</div>
       )}
@@ -223,7 +225,7 @@ export const Meter: React.FC<{states: MeterState[]}> = ({states}) => {
 // money, numbers and names light up in the highlight colour.
 export type Word = {w: string; start: number; end: number; s: number};
 type Chunk = {text: string[]; hi: boolean[]; start: number; end: number};
-export const buildChunks = (words: Word[], replace: [string, string][], highlight: RegExp, maxWords = 3, maxChars = 13): Chunk[] => {
+export const buildChunks = (words: Word[], replace: [string, string][], highlight: RegExp, maxWords = 3, maxChars = 12): Chunk[] => {
   // merge spoken phrases into their written form ("eight hundred dollars." -> "$800.")
   const toks: {w: string; start: number; end: number; s: number}[] = [];
   const clean = (w: string) => w.toLowerCase().replace(/[^a-z0-9-]/g, '');
@@ -262,9 +264,9 @@ export const Captions: React.FC<{chunks: Chunk[]; offset?: number; y?: number}> 
   const since = (t - c.start + 0.04) * FPS;
   const s = 0.82 + 0.18 * Math.min(1, pop(since, 0, 9, 320));
   return (
-    <div style={{position: 'absolute', left: 60, right: 60, top: y, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '0 26px', transform: `scale(${s})`}}>
+    <div style={{position: 'absolute', left: 70, right: 170, top: y, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '0 24px', transform: `scale(${s})`}}>
       {c.text.map((w, i) => (
-        <span key={i} style={{font: `900 104px/1.1 ${FONT.cap}`, textTransform: 'uppercase', color: c.hi[i] ? C.hi : '#fff', WebkitTextStroke: '14px #0B0F18', paintOrder: 'stroke fill', textShadow: '0 8px 0 rgba(0,0,0,.45)', whiteSpace: 'nowrap'}}>{w.replace(/[.,]$/, '')}</span>
+        <span key={i} style={{font: `900 94px/1.1 ${FONT.cap}`, textTransform: 'uppercase', color: c.hi[i] ? C.hi : '#fff', WebkitTextStroke: '14px #0B0F18', paintOrder: 'stroke fill', textShadow: '0 8px 0 rgba(0,0,0,.45)', whiteSpace: 'nowrap'}}>{w.replace(/[.,]$/, '')}</span>
       ))}
     </div>
   );

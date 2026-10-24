@@ -50,7 +50,7 @@ const World: React.FC<{n: number}> = ({n}) => {
     <AbsoluteFill>
       {/* room */}
       <AbsoluteFill style={{background: `linear-gradient(${C.wall}, ${C.night2})`}}>
-        <div style={{position: 'absolute', left: 0, right: 0, top: 1330, bottom: 0, background: C.floor}} />
+        <div style={{position: 'absolute', left: 0, right: 0, top: 1200, bottom: 0, background: C.floor}} />
         <div style={{position: 'absolute', left: 540 - 650, top: 650 - 650, width: 1300, height: 1300, borderRadius: '50%', background: `radial-gradient(circle, ${C.lightSoft}, transparent 70%)`}} />
       </AbsoluteFill>
       {/* street at night */}
@@ -58,12 +58,12 @@ const World: React.FC<{n: number}> = ({n}) => {
         {Array.from({length: 9}, (_, i) => {
           const h = 420 + ((i * 173) % 380), w = 140 + ((i * 61) % 60), x = -40 + i * 132;
           return (
-            <div key={i} style={{position: 'absolute', left: x, top: 1330 - h, width: w, height: h, background: i % 2 ? '#1F2A45' : '#26324F'}}>
+            <div key={i} style={{position: 'absolute', left: x, top: 1200 - h, width: w, height: h, background: i % 2 ? '#1F2A45' : '#26324F'}}>
               {Array.from({length: Math.floor(h / 70) * 3}, (_, k) => <div key={k} style={{position: 'absolute', left: 16 + (k % 3) * (w / 3.2), top: 24 + Math.floor(k / 3) * 70, width: 22, height: 30, background: (k * 7 + i + Math.floor(fr / 20)) % 4 ? 'rgba(242,193,78,.6)' : 'rgba(242,193,78,.1)'}} />)}
             </div>
           );
         })}
-        <div style={{position: 'absolute', left: 0, right: 0, top: 1330, bottom: 0, background: '#151B2B'}} />
+        <div style={{position: 'absolute', left: 0, right: 0, top: 1200, bottom: 0, background: '#151B2B'}} />
       </AbsoluteFill>
       {/* sky: clouds stream down, so we feel like we're rising */}
       <AbsoluteFill style={{opacity: mix(2), background: 'linear-gradient(#3B5BA8, #7FA6E0)'}}>
@@ -125,8 +125,8 @@ export const D01: React.FC = () => {
 
       {/* person and the thing their money buys right now */}
       <AbsoluteFill style={{opacity: 1 - endP}}>
-        <Figure who="man" x={280} y={1330} s={1.05} pose={{armL: 20, armR: n > 0 ? -60 - Math.min(80, n * 2) : -10, mood: n >= 20 ? 'happy' : n >= 8 ? 'smug' : 'neutral', bob: float, look: 1}} />
-        <div key={mile.n} style={{position: 'absolute', left: 700 - 180, top: 860 - 180 + float * 0.6, scale: '1.25', transform: `scale(${pop(fr, mileAt, 10, 200)}) rotate(${(1 - pop(fr, mileAt, 10, 200)) * -20}deg)`}}>
+        <Figure who="man" x={260} y={1200} s={1.05} pose={{armL: 20, armR: n > 0 ? -60 - Math.min(80, n * 2) : -10, mood: n >= 20 ? 'happy' : n >= 8 ? 'smug' : 'neutral', bob: float, look: 1}} />
+        <div key={mile.n} style={{position: 'absolute', left: 680 - 180, top: 760 - 180 + float * 0.6, scale: '1.25', transform: `scale(${pop(fr, mileAt, 10, 200)}) rotate(${(1 - pop(fr, mileAt, 10, 200)) * -20}deg)`}}>
           {mile.icon === 'apple'
             ? <div style={{position: 'relative', width: 360, height: 360}}><div style={{position: 'absolute', left: -540 + 180, top: -960 + 180}}><Fruit x={540} y={960} r={130} slice={1} glow={1} /></div></div>
             : <Icon k={mile.icon} />}
@@ -143,7 +143,7 @@ export const D01: React.FC = () => {
 
       {/* milestone line */}
       {!ending && (
-        <div key={'l' + mile.n} style={{position: 'absolute', left: 70, right: 70, top: 1420, textAlign: 'center', font: `italic 400 78px/1.15 ${SERIF}`, color: '#fff', textShadow: '0 4px 18px rgba(0,0,0,.7)', opacity: lin(fr, mileAt, mileAt + 5), transform: `translateY(${(1 - ease(lin(fr, mileAt, mileAt + 8))) * 20}px)`}}>{mile.line}</div>
+        <div key={'l' + mile.n} style={{position: 'absolute', left: 70, right: 170, top: 1290, textAlign: 'center', font: `italic 400 78px/1.15 ${SERIF}`, color: '#fff', textShadow: '0 4px 18px rgba(0,0,0,.7)', opacity: lin(fr, mileAt, mileAt + 5), transform: `translateY(${(1 - ease(lin(fr, mileAt, mileAt + 8))) * 20}px)`}}>{mile.line}</div>
       )}
 
       {/* the real lesson */}

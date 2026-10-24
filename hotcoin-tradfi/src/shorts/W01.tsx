@@ -96,12 +96,12 @@ const Ages: React.FC = () => {
   return (
     <Enter>
       <Room light={{x: 540, y: 800, r: 700}} />
-      <Figure who="wayne" x={200} y={1150} s={0.9} pose={{armL: 6, armR: -6}} />
-      <Figure who="jobs" x={540} y={1150} s={0.9} pose={{armL: 10, armR: -14, mood: 'smug'}} />
-      <Figure who="woz" x={880} y={1150} s={0.9} pose={{armL: 12, armR: -12, mood: 'happy'}} />
-      <AgeTag x={200} at={f(wt('forty-one') - b)} age="41" />
-      <AgeTag x={540} at={f(wt('twenty-one') - b)} age="21" />
-      <AgeTag x={880} at={f(wt('twenty-five') - b)} age="25" />
+      <Figure who="wayne" x={180} y={1150} s={0.9} pose={{armL: 6, armR: -6}} />
+      <Figure who="jobs" x={480} y={1150} s={0.9} pose={{armL: 10, armR: -14, mood: 'smug'}} />
+      <Figure who="woz" x={780} y={1150} s={0.9} pose={{armL: 12, armR: -12, mood: 'happy'}} />
+      <AgeTag x={180} at={f(wt('forty-one') - b)} age="41" />
+      <AgeTag x={480} at={f(wt('twenty-one') - b)} age="21" />
+      <AgeTag x={780} at={f(wt('twenty-five') - b)} age="25" />
     </Enter>
   );
 };
@@ -113,7 +113,7 @@ const GrownUp: React.FC = () => {
     <Enter>
       <Room light={{x: 540, y: 800, r: 520}} window />
       <Figure who="jobs" x={190} y={1150} s={0.82} pose={{armL: 150, armR: -150, mood: 'happy', bob: j}} />
-      <Figure who="woz" x={890} y={1150} s={0.82} pose={{armL: 140, armR: -160, mood: 'happy', bob: w}} />
+      <Figure who="woz" x={810} y={1150} s={0.82} pose={{armL: 140, armR: -160, mood: 'happy', bob: w}} />
       <Figure who="wayne" x={540} y={1150} s={1.05} pose={{armL: 30, armR: -30, mood: 'neutral'}} />
       <div style={{position: 'absolute', left: 540 - 90, top: 820, width: 180, height: 120, background: C.paper, borderRadius: 6, transform: 'rotate(-4deg)', boxShadow: '0 10px 0 rgba(0,0,0,.3)'}} />
     </Enter>
@@ -191,10 +191,10 @@ const Hook2: React.FC = () => {
   return (
     <Enter>
       <Room light={{x: 540, y: 900, r: 700}} />
-      <Figure who="jobs" x={560} y={1150} s={0.88} pose={{pockets: true, mood: 'happy'}} />
-      <Figure who="woz" x={880} y={1150} s={0.88} pose={{pockets: true, mood: 'happy'}} />
+      <Figure who="jobs" x={500} y={1150} s={0.88} pose={{pockets: true, mood: 'happy'}} />
+      <Figure who="woz" x={790} y={1150} s={0.88} pose={{pockets: true, mood: 'happy'}} />
       <Figure who="wayne" x={200} y={1150} s={0.88} pose={{armL: 20, armR: -60, mood: fr > loseAt ? 'worried' : 'neutral'}} />
-      {['$0', '$0'].map((t, i) => <div key={i} style={{position: 'absolute', left: [560, 880][i], top: 520, transform: `translateX(-50%) scale(${pop(fr, 20 + i * 6)})`, font: `900 70px ${FONT.cap}`, color: C.grey}}>{t}</div>)}
+      {['$0', '$0'].map((t, i) => <div key={i} style={{position: 'absolute', left: [500, 790][i], top: 520, transform: `translateX(-50%) scale(${pop(fr, 20 + i * 6)})`, font: `900 70px ${FONT.cap}`, color: C.grey}}>{t}</div>)}
       {/* Wayne's savings */}
       <div style={{position: 'absolute', left: 300 - 100, top: 760 - lift * 140, width: 200, height: 210, transform: `scale(${pop(fr, 14)})`}}>
         <div style={{position: 'absolute', inset: 0, background: '#C9A86A', borderRadius: '45% 45% 40% 40%'}} />
@@ -261,7 +261,7 @@ const Auction: React.FC = () => {
         </svg>
         {/* proof: the headline, recreated */}
         <div style={{position: 'absolute', left: 90, top: 330, width: 900, background: C.paper, padding: '18px 26px', transform: `rotate(-1.5deg) translateY(${(1 - pop(fr, hit + 10, 14, 160)) * 300}px)`, boxShadow: '0 12px 0 rgba(0,0,0,.3)'}}>
-          <div style={{font: `700 22px ${FONT.mono}`, color: '#6b665a', letterSpacing: 3}}>DECEMBER 2011 · NEW YORK</div>
+          <div style={{font: `700 22px ${FONT.mono}`, color: '#6b665a', letterSpacing: 3}}>DECEMBER 2011 · NEW YORK · ILLUSTRATION</div>
           <div style={{font: `900 46px/1.1 ${FONT.cap}`, color: C.line, marginTop: 6}}>Apple's founding contract sells for $1.59 million at Sotheby's</div>
         </div>
       </AbsoluteFill>
