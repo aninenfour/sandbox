@@ -174,7 +174,7 @@ def main():
     if sq:  # X cut: no promo card (owner, Oct 20); hold the final slide longer instead
         spec['slides'] = [x for x in spec['slides'] if x.get('kind') != 'cta']
         spec['slides'][-1]['dur'] = max(float(spec['slides'][-1].get('dur', 0)), DUR['cta'])
-    CSS += STYLE_CSS[spec.get('style', 'outline')]
+    CSS += STYLE_CSS[spec.get('style', 'frame')]  # frame = house style (owner, Oct 24)
     out = ROOT / 'media' / post.name
     work = out / ('reel_frames' + sfx)
     shutil.rmtree(work, ignore_errors=True); work.mkdir(parents=True)

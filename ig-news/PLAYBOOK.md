@@ -76,6 +76,7 @@ A ~30 s photo slideshow video with IG-style text and music. Topic rotates (check
 - Photos: real photos, one per slide, portrait (Unsplash `search_photos` with `orientation: "portrait"`, `per_page: 3`; or Commons/press for a ticker's company/person). Download with `tools/get_image.py`.
 - Music: `python3 ig-news/tools/music.py pick` → id (least recently used hip-hop/lo-fi track, Mixkit free licence). Credit it in the first comment.
 - **Pacing (owner, Oct 20: must be readable):** reel.py defaults are hook 4 s, content shots 4.5 s, tier reveals 3.2 s, promo card 4.5 s; soft 0.8 s cross-fades; the promo card slides up (a different transition). Don't shorten them; if a slide has more text, give it `"dur"` 5–5.5.
+- **Style (owner, Oct 24): "frame" is the house style** (sharp photo as a rounded card on a blurred copy of itself, clean text underneath, green keywords); reel.py uses it by default. Other options via `"style"`: `panel`, `box`, `outline` (old look: outlined text on the photo, avoid). Check the contact sheet for text clashing with the photo.
 - Add `"title"` (a short topic pill shown on every slide after the hook). Wrap 1–2 keywords per slide in `[ ]` to show them in yellow.
 - Weekly upgrades come from `WEEKLY_LEARN.md` (Mondays); follow the current experiment in `state/learn_log.json`.
 - Build: `python3 ig-news/reel.py ig-news/posts/<date>-reel-<slug>` → `media/<id>/reel.mp4` + `cover.jpg`. Grab 3 frames with ffmpeg and look at them.
