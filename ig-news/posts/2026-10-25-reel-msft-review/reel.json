@@ -1,0 +1,24 @@
+{
+ "music": "283",
+ "title": "Microsoft in 30s",
+ "slides": [
+  {"photo": "hook.jpg", "pos": "50% 40%", "hook": true, "tag": "TICKER REVIEW",
+   "text": "Microsoft: [+50%]\nsince June"},
+  {"photo": "s1.jpg", "pos": "50% 50%", "num": "1",
+   "text": "Reports [Thursday]\n05:30 UTC+8",
+   "sub": "Q3 results after the US close on Wed, Oct 28. The call starts at [5:30 PM ET]."},
+  {"photo": "s2.jpg", "pos": "50% 50%", "num": "2",
+   "text": "June low:\n[$349.20]",
+   "sub": "Its lowest price of the past year, on [Jun 25]."},
+  {"photo": "s3.jpg", "pos": "50% 50%", "num": "3",
+   "text": "Now:\n[$524.51]",
+   "sub": "About [+50%] from the June low, and +8.5% so far in 2026."},
+  {"photo": "s4.jpg", "pos": "50% 50%", "num": "4",
+   "text": "Record: [$555.45]\nJuly 2025",
+   "sub": "Still about [5.6%] below its all-time high."},
+  {"photo": "s5.jpg", "pos": "50% 50%", "num": "5",
+   "text": "Same night:\n[Alphabet]",
+   "sub": "Alphabet reports an hour earlier, right after the [Fed] decision."},
+  {"kind": "cta"}
+ ]
+}
