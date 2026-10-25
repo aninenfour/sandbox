@@ -108,5 +108,18 @@
   "ideas_for_owner": [
    "Instagram Account Status check still open (reach dip since ~Oct 20)"
   ]
+ },
+ {
+  "date": "2026-10-26",
+  "metrics_summary": "7-day numbers were pulled 30 min earlier by the W44 weekly run (FB: gold frame-style Reel 228 reach, best of the week; IG Reels 47-107). No failed posts Oct 24-26. Sun posts (BTC < $80K news, weekly preview, MSFT Reel) went out as scheduled.",
+  "findings": [
+   "Nothing new since the weekly run; its changes (tier cap, question-hook rule) already shipped",
+   "Last-24h renders checked at build: BTC below $80K carousel (red stat values fix), weekly preview (clock photo added to empty Sunday slide), MSFT Reel frames"
+  ],
+  "changes": [],
+  "skipped": true,
+  "ideas_for_owner": [
+   "Instagram Account Status check still open (reach dip since ~Oct 20)"
+  ]
  }
 ]
