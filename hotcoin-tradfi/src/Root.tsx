@@ -12,6 +12,7 @@ import {Meme, MEME_DURATION} from './meme/Meme';
 import {Carousel, CAROUSEL_W, CAROUSEL_H} from './referral/Carousel';
 import {Uptober, UPTOBER_DURATION} from './uptober/Uptober';
 import {Uptober2023, Uptober2024, Uptober2025, UptoberSoFar} from './uptober/UptoberSoFar';
+import {StardropDNA} from './stardrop/Stardrop';
 import {Rowing, ROWING_DURATION} from './rowing/Rowing';
 import {Guess} from './guess/Guess';
 import {GoldRush, GOLDRUSH_DURATION} from './goldrush/GoldRush';
@@ -146,6 +147,7 @@ export const Root: React.FC = () => (
     <Composition id="Uptober2023" component={Uptober2023} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Uptober2024" component={Uptober2024} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Uptober2025" component={Uptober2025} durationInFrames={1} fps={30} width={1080} height={1350} />
+    <Composition id="StardropDNA" component={StardropDNA} durationInFrames={1} fps={30} width={1600} height={900} />
     <Composition id="UptoberSoFar" component={UptoberSoFar} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Referral-Carousel" component={Carousel} durationInFrames={1} fps={60} width={CAROUSEL_W} height={CAROUSEL_H} />
     <Composition id="Meme-4x5" component={Meme} durationInFrames={MEME_DURATION} fps={60} width={1080} height={1350} />
