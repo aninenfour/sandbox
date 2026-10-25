@@ -531,8 +531,9 @@
    "https://www.theblock.co/news/markets/2026-10-24-crypto-longs-lose-404-million-in-four-hours-as-bitcoin-briefly-slips-below-80000-431608",
    "https://www.coindesk.com/markets/2026/10/24/crypto-under-weekend-pressure-bitcoin-slides-below-usd80-000-on-u-s-middle-east-evacuations"
   ],
-  "status": "scheduled",
-  "note": "Sun 07:40 run. Includes the correction to Fri ETF post (Oct back in red after -$773M Thu+Fri). Photo: Chris Liverani / Unsplash. render.py stats now accept neg:true (red value)."
+  "status": "published",
+  "note": "Sun 07:40 run. Includes the correction to Fri ETF post (Oct back in red after -$773M Thu+Fri). Photo: Chris Liverani / Unsplash. render.py stats now accept neg:true (red value).",
+  "ig_url": "https://www.instagram.com/p/De6OuArjrmJ/"
  },
  {
   "id": "2026-10-25-weekly-oct26",
@@ -546,8 +547,9 @@
    "https://windowsforum.com/news/microsoft-fy27-q1-earnings-date-october-28-2026-call-time-azure-and-copilot-watchpoints.449893/",
    "https://primexbt.com/for-traders/mstr-earnings-date/"
   ],
-  "status": "scheduled",
-  "note": "Skipped Coinbase (date unconfirmed) and token unlocks (no verified 2026 calendar). Fed photo: Commons 'Marriner S. Eccles Federal Reserve Board Building' (credit lookup 429)."
+  "status": "published",
+  "note": "Skipped Coinbase (date unconfirmed) and token unlocks (no verified 2026 calendar). Fed photo: Commons 'Marriner S. Eccles Federal Reserve Board Building' (credit lookup 429).",
+  "ig_url": "https://www.instagram.com/p/De6jVZAiDiy/"
  },
  {
   "id": "2026-10-25-reel-msft-review",
@@ -567,7 +569,34 @@
    "https://api.nasdaq.com/api/quote/MSFT/info?assetclass=stocks",
    "https://www.stocktitan.net/articles/earnings-calendar-week-of-october-26-2026"
   ],
+  "status": "published",
+  "note": "Sun 15:40 run. Close $524.51 (Yahoo+Nasdaq), 52w low $349.20 Jun 25 (both), ATH $555.45 Jul 31 2025 (Yahoo), YTD +8.5%. Mon 19:00 Academy left for Mon 07:40 run.",
+  "ig_url": "https://www.instagram.com/reel/De60e8QjHAf/"
+ },
+ {
+  "id": "2026-10-26-coindcx-16m",
+  "type": "news",
+  "slot": "2026-10-26T16:00:00+08:00",
+  "title": "\"Sounds like a false alarm\": then CoinDCX confirmed a $16M loss",
+  "score": null,
+  "sources": [
+   "https://www.theblock.co/news/business/2026-10-25-coindcx-confirms-16-million-loss-from-retired-wallets-days-after-ceo-called-breach-reports-a-false-alarm-431617",
+   "https://unchainedcrypto.com/coindcx-absorbs-losses-credits-users-after-failed-sweep-of-hacked-deposit-addresses"
+  ],
   "status": "scheduled",
-  "note": "Sun 15:40 run. Close $524.51 (Yahoo+Nasdaq), 52w low $349.20 Jun 25 (both), ATH $555.45 Jul 31 2025 (Yahoo), YTD +8.5%. Mon 19:00 Academy left for Mon 07:40 run."
+  "note": "Mon 07:40 run. Photo: FlyD / Unsplash; USDT logo inset."
+ },
+ {
+  "id": "2026-10-26-academy-fed-days",
+  "type": "tutorial",
+  "slot": "2026-10-26T19:00:00+08:00",
+  "title": "Does Bitcoin crash on Fed day? 22 decisions tested",
+  "score": null,
+  "sources": [
+   "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+   "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?interval=1d"
+  ],
+  "status": "scheduled",
+  "note": "Close day before decision vs close day after (UTC). 11 up/11 down, median 0.0%, avg abs 2.71% vs baseline 2.49%; 2026: 4 of 6 down. W44 experiment: number+question hook #1."
  }
 ]
