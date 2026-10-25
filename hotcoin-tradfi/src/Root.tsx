@@ -11,6 +11,7 @@ import {Launch, LAUNCH_DURATION} from './v2/Launch';
 import {Meme, MEME_DURATION} from './meme/Meme';
 import {Carousel, CAROUSEL_W, CAROUSEL_H} from './referral/Carousel';
 import {Uptober, UPTOBER_DURATION} from './uptober/Uptober';
+import {UptoberSoFar} from './uptober/UptoberSoFar';
 import {Rowing, ROWING_DURATION} from './rowing/Rowing';
 import {Guess} from './guess/Guess';
 import {GoldRush, GOLDRUSH_DURATION} from './goldrush/GoldRush';
@@ -142,6 +143,7 @@ export const Root: React.FC = () => (
     <Composition id="Guess-1x1" component={Guess} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="Rowing-9x16" component={Rowing} durationInFrames={ROWING_DURATION} fps={30} width={720} height={1280} />
     <Composition id="Uptober-4x5" component={Uptober} durationInFrames={UPTOBER_DURATION} fps={30} width={1080} height={1350} />
+    <Composition id="UptoberSoFar" component={UptoberSoFar} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Referral-Carousel" component={Carousel} durationInFrames={1} fps={60} width={CAROUSEL_W} height={CAROUSEL_H} />
     <Composition id="Meme-4x5" component={Meme} durationInFrames={MEME_DURATION} fps={60} width={1080} height={1350} />
   </>
