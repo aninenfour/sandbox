@@ -1,0 +1,876 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 47.75,
+ "words": [
+  {
+   "word": "Liquidity",
+   "start": 0.0,
+   "end": 0.5,
+   "at": 0.0,
+   "until": 15.0
+  },
+  {
+   "word": "is",
+   "start": 0.528,
+   "end": 0.583,
+   "at": 15.8,
+   "until": 17.5
+  },
+  {
+   "word": "how",
+   "start": 0.625,
+   "end": 0.75,
+   "at": 18.8,
+   "until": 22.5
+  },
+  {
+   "word": "much",
+   "start": 0.8,
+   "end": 1.0,
+   "at": 24.0,
+   "until": 30.0
+  },
+  {
+   "word": "you",
+   "start": 1.021,
+   "end": 1.083,
+   "at": 30.6,
+   "until": 32.5
+  },
+  {
+   "word": "can",
+   "start": 1.125,
+   "end": 1.25,
+   "at": 33.8,
+   "until": 37.5
+  },
+  {
+   "word": "trade",
+   "start": 1.32,
+   "end": 1.667,
+   "at": 39.6,
+   "until": 50.0
+  },
+  {
+   "word": "without",
+   "start": 1.698,
+   "end": 1.917,
+   "at": 50.9,
+   "until": 57.5
+  },
+  {
+   "word": "moving",
+   "start": 1.965,
+   "end": 2.25,
+   "at": 59.0,
+   "until": 67.5
+  },
+  {
+   "word": "the",
+   "start": 2.271,
+   "end": 2.333,
+   "at": 68.1,
+   "until": 70.0
+  },
+  {
+   "word": "price,",
+   "start": 2.417,
+   "end": 3.333,
+   "at": 72.5,
+   "until": 100.0
+  },
+  {
+   "word": "and",
+   "start": 3.354,
+   "end": 3.417,
+   "at": 100.6,
+   "until": 102.5
+  },
+  {
+   "word": "it",
+   "start": 3.472,
+   "end": 3.583,
+   "at": 104.2,
+   "until": 107.5
+  },
+  {
+   "word": "lives",
+   "start": 3.639,
+   "end": 3.917,
+   "at": 109.2,
+   "until": 117.5
+  },
+  {
+   "word": "in",
+   "start": 3.945,
+   "end": 4.0,
+   "at": 118.3,
+   "until": 120.0
+  },
+  {
+   "word": "the",
+   "start": 4.021,
+   "end": 4.083,
+   "at": 120.6,
+   "until": 122.5
+  },
+  {
+   "word": "order",
+   "start": 4.139,
+   "end": 4.417,
+   "at": 124.2,
+   "until": 132.5
+  },
+  {
+   "word": "book,",
+   "start": 4.467,
+   "end": 5.25,
+   "at": 134.0,
+   "until": 157.5
+  },
+  {
+   "word": "buyers",
+   "start": 5.298,
+   "end": 5.583,
+   "at": 158.9,
+   "until": 167.5
+  },
+  {
+   "word": "stacked",
+   "start": 5.635,
+   "end": 6.0,
+   "at": 169.0,
+   "until": 180.0
+  },
+  {
+   "word": "on",
+   "start": 6.028,
+   "end": 6.083,
+   "at": 180.8,
+   "until": 182.5
+  },
+  {
+   "word": "one",
+   "start": 6.146,
+   "end": 6.333,
+   "at": 184.4,
+   "until": 190.0
+  },
+  {
+   "word": "side,",
+   "start": 6.433,
+   "end": 7.25,
+   "at": 193.0,
+   "until": 217.5
+  },
+  {
+   "word": "sellers",
+   "start": 7.292,
+   "end": 7.583,
+   "at": 218.8,
+   "until": 227.5
+  },
+  {
+   "word": "on",
+   "start": 7.611,
+   "end": 7.667,
+   "at": 228.3,
+   "until": 230.0
+  },
+  {
+   "word": "the",
+   "start": 7.708,
+   "end": 7.833,
+   "at": 231.2,
+   "until": 235.0
+  },
+  {
+   "word": "other,",
+   "start": 7.889,
+   "end": 8.583,
+   "at": 236.7,
+   "until": 257.5
+  },
+  {
+   "word": "and",
+   "start": 8.625,
+   "end": 8.75,
+   "at": 258.8,
+   "until": 262.5
+  },
+  {
+   "word": "the",
+   "start": 8.771,
+   "end": 8.833,
+   "at": 263.1,
+   "until": 265.0
+  },
+  {
+   "word": "gap",
+   "start": 8.896,
+   "end": 9.083,
+   "at": 266.9,
+   "until": 272.5
+  },
+  {
+   "word": "between",
+   "start": 9.135,
+   "end": 9.5,
+   "at": 274.1,
+   "until": 285.0
+  },
+  {
+   "word": "them",
+   "start": 9.55,
+   "end": 9.75,
+   "at": 286.5,
+   "until": 292.5
+  },
+  {
+   "word": "is",
+   "start": 9.833,
+   "end": 10.0,
+   "at": 295.0,
+   "until": 300.0
+  },
+  {
+   "word": "the",
+   "start": 10.021,
+   "end": 10.083,
+   "at": 300.6,
+   "until": 302.5
+  },
+  {
+   "word": "spread.",
+   "start": 10.155,
+   "end": 10.75,
+   "at": 304.6,
+   "until": 322.5
+  },
+  {
+   "word": "Deep",
+   "start": 11.0,
+   "end": 12.0,
+   "at": 330.0,
+   "until": 360.0
+  },
+  {
+   "word": "stacks",
+   "start": 12.072,
+   "end": 12.5,
+   "at": 362.2,
+   "until": 375.0
+  },
+  {
+   "word": "soak",
+   "start": 12.55,
+   "end": 12.75,
+   "at": 376.5,
+   "until": 382.5
+  },
+  {
+   "word": "up",
+   "start": 12.805,
+   "end": 12.917,
+   "at": 384.1,
+   "until": 387.5
+  },
+  {
+   "word": "a",
+   "start": 12.958,
+   "end": 13.0,
+   "at": 388.7,
+   "until": 390.0
+  },
+  {
+   "word": "big",
+   "start": 13.083,
+   "end": 13.333,
+   "at": 392.5,
+   "until": 400.0
+  },
+  {
+   "word": "order.",
+   "start": 13.403,
+   "end": 13.833,
+   "at": 402.1,
+   "until": 415.0
+  },
+  {
+   "word": "Thin",
+   "start": 14.0,
+   "end": 14.667,
+   "at": 420.0,
+   "until": 440.0
+  },
+  {
+   "word": "ones",
+   "start": 14.733,
+   "end": 15.0,
+   "at": 442.0,
+   "until": 450.0
+  },
+  {
+   "word": "get",
+   "start": 15.042,
+   "end": 15.167,
+   "at": 451.3,
+   "until": 455.0
+  },
+  {
+   "word": "eaten",
+   "start": 15.236,
+   "end": 15.583,
+   "at": 457.1,
+   "until": 467.5
+  },
+  {
+   "word": "level",
+   "start": 15.639,
+   "end": 15.917,
+   "at": 469.2,
+   "until": 477.5
+  },
+  {
+   "word": "by",
+   "start": 15.972,
+   "end": 16.083,
+   "at": 479.2,
+   "until": 482.5
+  },
+  {
+   "word": "level,",
+   "start": 16.153,
+   "end": 17.0,
+   "at": 484.6,
+   "until": 510.0
+  },
+  {
+   "word": "and",
+   "start": 17.021,
+   "end": 17.083,
+   "at": 510.6,
+   "until": 512.5
+  },
+  {
+   "word": "the",
+   "start": 17.104,
+   "end": 17.167,
+   "at": 513.1,
+   "until": 515.0
+  },
+  {
+   "word": "price",
+   "start": 17.236,
+   "end": 17.583,
+   "at": 517.1,
+   "until": 527.5
+  },
+  {
+   "word": "slides",
+   "start": 17.643,
+   "end": 18.0,
+   "at": 529.3,
+   "until": 540.0
+  },
+  {
+   "word": "as",
+   "start": 18.055,
+   "end": 18.167,
+   "at": 541.6,
+   "until": 545.0
+  },
+  {
+   "word": "you",
+   "start": 18.188,
+   "end": 18.25,
+   "at": 545.6,
+   "until": 547.5
+  },
+  {
+   "word": "fill,",
+   "start": 18.333,
+   "end": 19.083,
+   "at": 550.0,
+   "until": 572.5
+  },
+  {
+   "word": "which",
+   "start": 19.111,
+   "end": 19.25,
+   "at": 573.3,
+   "until": 577.5
+  },
+  {
+   "word": "is",
+   "start": 19.305,
+   "end": 19.417,
+   "at": 579.1,
+   "until": 582.5
+  },
+  {
+   "word": "slippage.",
+   "start": 19.472,
+   "end": 20.167,
+   "at": 584.2,
+   "until": 605.0
+  },
+  {
+   "word": "And",
+   "start": 20.417,
+   "end": 21.167,
+   "at": 612.5,
+   "until": 635.0
+  },
+  {
+   "word": "here's",
+   "start": 21.2,
+   "end": 21.417,
+   "at": 636.0,
+   "until": 642.5
+  },
+  {
+   "word": "the",
+   "start": 21.438,
+   "end": 21.5,
+   "at": 643.1,
+   "until": 645.0
+  },
+  {
+   "word": "catch,",
+   "start": 21.583,
+   "end": 22.5,
+   "at": 647.5,
+   "until": 675.0
+  },
+  {
+   "word": "those",
+   "start": 22.542,
+   "end": 22.75,
+   "at": 676.3,
+   "until": 682.5
+  },
+  {
+   "word": "stacks",
+   "start": 22.822,
+   "end": 23.25,
+   "at": 684.7,
+   "until": 697.5
+  },
+  {
+   "word": "are",
+   "start": 23.271,
+   "end": 23.333,
+   "at": 698.1,
+   "until": 700.0
+  },
+  {
+   "word": "just",
+   "start": 23.417,
+   "end": 23.75,
+   "at": 702.5,
+   "until": 712.5
+  },
+  {
+   "word": "orders,",
+   "start": 23.833,
+   "end": 24.667,
+   "at": 715.0,
+   "until": 740.0
+  },
+  {
+   "word": "and",
+   "start": 24.688,
+   "end": 24.75,
+   "at": 740.6,
+   "until": 742.5
+  },
+  {
+   "word": "orders",
+   "start": 24.809,
+   "end": 25.167,
+   "at": 744.3,
+   "until": 755.0
+  },
+  {
+   "word": "can",
+   "start": 25.208,
+   "end": 25.333,
+   "at": 756.2,
+   "until": 760.0
+  },
+  {
+   "word": "be",
+   "start": 25.389,
+   "end": 25.5,
+   "at": 761.7,
+   "until": 765.0
+  },
+  {
+   "word": "cancelled,",
+   "start": 25.55,
+   "end": 26.583,
+   "at": 766.5,
+   "until": 797.5
+  },
+  {
+   "word": "so",
+   "start": 26.639,
+   "end": 26.75,
+   "at": 799.2,
+   "until": 802.5
+  },
+  {
+   "word": "when",
+   "start": 26.783,
+   "end": 26.917,
+   "at": 803.5,
+   "until": 807.5
+  },
+  {
+   "word": "things",
+   "start": 26.952,
+   "end": 27.167,
+   "at": 808.6,
+   "until": 815.0
+  },
+  {
+   "word": "get",
+   "start": 27.229,
+   "end": 27.417,
+   "at": 816.9,
+   "until": 822.5
+  },
+  {
+   "word": "scary",
+   "start": 27.486,
+   "end": 27.833,
+   "at": 824.6,
+   "until": 835.0
+  },
+  {
+   "word": "they",
+   "start": 27.867,
+   "end": 28.0,
+   "at": 836.0,
+   "until": 840.0
+  },
+  {
+   "word": "vanish,",
+   "start": 28.095,
+   "end": 29.417,
+   "at": 842.8,
+   "until": 882.5
+  },
+  {
+   "word": "uhm,",
+   "start": 29.542,
+   "end": 30.167,
+   "at": 886.3,
+   "until": 905.0
+  },
+  {
+   "word": "all",
+   "start": 30.333,
+   "end": 30.833,
+   "at": 910.0,
+   "until": 925.0
+  },
+  {
+   "word": "at",
+   "start": 30.889,
+   "end": 31.0,
+   "at": 926.7,
+   "until": 930.0
+  },
+  {
+   "word": "once.",
+   "start": 31.1,
+   "end": 32.208,
+   "at": 933.0,
+   "until": 966.2
+  },
+  {
+   "word": "On",
+   "start": 32.445,
+   "end": 32.917,
+   "at": 973.4,
+   "until": 987.5
+  },
+  {
+   "word": "May",
+   "start": 33.0,
+   "end": 33.25,
+   "at": 990.0,
+   "until": 997.5
+  },
+  {
+   "word": "sixth,",
+   "start": 33.333,
+   "end": 33.833,
+   "at": 1000.0,
+   "until": 1015.0
+  },
+  {
+   "word": "twenty",
+   "start": 33.857,
+   "end": 34.0,
+   "at": 1015.7,
+   "until": 1020.0
+  },
+  {
+   "word": "ten,",
+   "start": 34.125,
+   "end": 34.75,
+   "at": 1023.8,
+   "until": 1042.5
+  },
+  {
+   "word": "that",
+   "start": 34.817,
+   "end": 35.083,
+   "at": 1044.5,
+   "until": 1052.5
+  },
+  {
+   "word": "hit",
+   "start": 35.167,
+   "end": 35.417,
+   "at": 1055.0,
+   "until": 1062.5
+  },
+  {
+   "word": "US",
+   "start": 35.528,
+   "end": 35.75,
+   "at": 1065.8,
+   "until": 1072.5
+  },
+  {
+   "word": "stocks,",
+   "start": 35.833,
+   "end": 36.917,
+   "at": 1075.0,
+   "until": 1107.5
+  },
+  {
+   "word": "and",
+   "start": 36.958,
+   "end": 37.083,
+   "at": 1108.7,
+   "until": 1112.5
+  },
+  {
+   "word": "for",
+   "start": 37.104,
+   "end": 37.167,
+   "at": 1113.1,
+   "until": 1115.0
+  },
+  {
+   "word": "a",
+   "start": 37.25,
+   "end": 37.333,
+   "at": 1117.5,
+   "until": 1120.0
+  },
+  {
+   "word": "moment",
+   "start": 37.393,
+   "end": 37.75,
+   "at": 1121.8,
+   "until": 1132.5
+  },
+  {
+   "word": "Accenture",
+   "start": 37.809,
+   "end": 38.333,
+   "at": 1134.3,
+   "until": 1150.0
+  },
+  {
+   "word": "traded",
+   "start": 38.381,
+   "end": 38.667,
+   "at": 1151.4,
+   "until": 1160.0
+  },
+  {
+   "word": "at",
+   "start": 38.722,
+   "end": 38.833,
+   "at": 1161.7,
+   "until": 1165.0
+  },
+  {
+   "word": "one",
+   "start": 38.917,
+   "end": 39.167,
+   "at": 1167.5,
+   "until": 1175.0
+  },
+  {
+   "word": "cent.",
+   "start": 39.267,
+   "end": 39.75,
+   "at": 1178.0,
+   "until": 1192.5
+  },
+  {
+   "word": "So",
+   "start": 40.028,
+   "end": 40.583,
+   "at": 1200.8,
+   "until": 1217.5
+  },
+  {
+   "word": "check",
+   "start": 40.639,
+   "end": 40.917,
+   "at": 1219.2,
+   "until": 1227.5
+  },
+  {
+   "word": "the",
+   "start": 40.938,
+   "end": 41.0,
+   "at": 1228.1,
+   "until": 1230.0
+  },
+  {
+   "word": "depth,",
+   "start": 41.07,
+   "end": 41.75,
+   "at": 1232.1,
+   "until": 1252.5
+  },
+  {
+   "word": "not",
+   "start": 41.812,
+   "end": 42.0,
+   "at": 1254.4,
+   "until": 1260.0
+  },
+  {
+   "word": "just",
+   "start": 42.05,
+   "end": 42.25,
+   "at": 1261.5,
+   "until": 1267.5
+  },
+  {
+   "word": "the",
+   "start": 42.271,
+   "end": 42.333,
+   "at": 1268.1,
+   "until": 1270.0
+  },
+  {
+   "word": "price,",
+   "start": 42.43,
+   "end": 43.0,
+   "at": 1272.9,
+   "until": 1290.0
+  },
+  {
+   "word": "because",
+   "start": 43.104,
+   "end": 43.833,
+   "at": 1293.1,
+   "until": 1315.0
+  },
+  {
+   "word": "the",
+   "start": 43.854,
+   "end": 43.917,
+   "at": 1315.6,
+   "until": 1317.5
+  },
+  {
+   "word": "price",
+   "start": 43.986,
+   "end": 44.333,
+   "at": 1319.6,
+   "until": 1330.0
+  },
+  {
+   "word": "is",
+   "start": 44.389,
+   "end": 44.5,
+   "at": 1331.7,
+   "until": 1335.0
+  },
+  {
+   "word": "a",
+   "start": 44.542,
+   "end": 44.583,
+   "at": 1336.3,
+   "until": 1337.5
+  },
+  {
+   "word": "quote",
+   "start": 44.667,
+   "end": 45.083,
+   "at": 1340.0,
+   "until": 1352.5
+  },
+  {
+   "word": "and",
+   "start": 45.208,
+   "end": 45.583,
+   "at": 1356.2,
+   "until": 1367.5
+  },
+  {
+   "word": "the",
+   "start": 45.604,
+   "end": 45.667,
+   "at": 1368.1,
+   "until": 1370.0
+  },
+  {
+   "word": "fill",
+   "start": 45.783,
+   "end": 46.25,
+   "at": 1373.5,
+   "until": 1387.5
+  },
+  {
+   "word": "is",
+   "start": 46.305,
+   "end": 46.417,
+   "at": 1389.2,
+   "until": 1392.5
+  },
+  {
+   "word": "what",
+   "start": 46.45,
+   "end": 46.583,
+   "at": 1393.5,
+   "until": 1397.5
+  },
+  {
+   "word": "you",
+   "start": 46.625,
+   "end": 46.75,
+   "at": 1398.8,
+   "until": 1402.5
+  },
+  {
+   "word": "actually",
+   "start": 46.796,
+   "end": 47.167,
+   "at": 1403.9,
+   "until": 1415.0
+  },
+  {
+   "word": "get.",
+   "start": 47.271,
+   "end": 47.75,
+   "at": 1418.1,
+   "until": 1432.5
+  }
+ ],
+ "tempo": 0.96
+}

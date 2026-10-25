@@ -26,8 +26,10 @@ import { real } from './notebook/time';
 import { Ep13, EP13_TOTAL } from './ep13/Ep13';
 import { Ep14, EP14_TOTAL } from './ep14/Ep14';
 import { Ep15, EP15_TOTAL } from './ep15/Ep15';
+import { Ep16, EP16_TOTAL } from './ep16/Ep16';
 import { Thumb14A, Thumb14AV, Thumb14B, Thumb14BV } from './thumbs/Thumbs14';
 import { Thumb15A, Thumb15AV, Thumb15B, Thumb15BV } from './thumbs/Thumbs15';
+import { Thumb16A, Thumb16AV, Thumb16B, Thumb16BV } from './thumbs/Thumbs16';
 import { HwSlide1, HwSlide2, HwSlide3, HwSlide4, HW_W, HW_H } from './halloween/Slides';
 
 // Two thumbnails per release (A/B), each in 16:9 (1920x1080, exported to
@@ -41,6 +43,10 @@ const THUMBS = [
   { id: 'thumb-015-b-16x9', component: Thumb15B, width: 1920, height: 1080 },
   { id: 'thumb-015-a-9x16', component: Thumb15AV, width: 1080, height: 1920 },
   { id: 'thumb-015-b-9x16', component: Thumb15BV, width: 1080, height: 1920 },
+  { id: 'thumb-016-a-16x9', component: Thumb16A, width: 1920, height: 1080 },
+  { id: 'thumb-016-b-16x9', component: Thumb16B, width: 1920, height: 1080 },
+  { id: 'thumb-016-a-9x16', component: Thumb16AV, width: 1080, height: 1920 },
+  { id: 'thumb-016-b-9x16', component: Thumb16BV, width: 1080, height: 1920 },
   // Halloween carousel, 4 slides at 4:5
   { id: 'halloween-1', component: HwSlide1, width: HW_W, height: HW_H },
   { id: 'halloween-2', component: HwSlide2, width: HW_W, height: HW_H },
@@ -53,6 +59,7 @@ const NOTEBOOK_EPISODES = [
   { slug: 'paper-money-invented-twice', component: Ep13, units: EP13_TOTAL },
   { slug: 'stablecoins-explained', component: Ep14, units: EP14_TOTAL },
   { slug: 'whale-shrimp-bagholder', component: Ep15, units: EP15_TOTAL },
+  { slug: 'liquidity-noticed-when-gone', component: Ep16, units: EP16_TOTAL },
 ];
 
 // Notebook look (FILE 013 onward) sign-off comps

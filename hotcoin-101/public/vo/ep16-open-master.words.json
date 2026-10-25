@@ -1,0 +1,162 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 9.2,
+ "words": [
+  {
+   "word": "The",
+   "start": 0.0,
+   "end": 0.08,
+   "at": 0.0,
+   "until": 2.4
+  },
+  {
+   "word": "screen",
+   "start": 0.126,
+   "end": 0.4,
+   "at": 3.8,
+   "until": 12.0
+  },
+  {
+   "word": "says",
+   "start": 0.448,
+   "end": 0.64,
+   "at": 13.4,
+   "until": 19.2
+  },
+  {
+   "word": "a",
+   "start": 0.68,
+   "end": 0.72,
+   "at": 20.4,
+   "until": 21.6
+  },
+  {
+   "word": "hundred",
+   "start": 0.75,
+   "end": 0.96,
+   "at": 22.5,
+   "until": 28.8
+  },
+  {
+   "word": "dollars,",
+   "start": 1.03,
+   "end": 1.84,
+   "at": 30.9,
+   "until": 55.2
+  },
+  {
+   "word": "you",
+   "start": 1.86,
+   "end": 1.92,
+   "at": 55.8,
+   "until": 57.6
+  },
+  {
+   "word": "hit",
+   "start": 1.96,
+   "end": 2.08,
+   "at": 58.8,
+   "until": 62.4
+  },
+  {
+   "word": "sell,",
+   "start": 2.176,
+   "end": 2.8,
+   "at": 65.3,
+   "until": 84.0
+  },
+  {
+   "word": "and",
+   "start": 2.9,
+   "end": 3.2,
+   "at": 87.0,
+   "until": 96.0
+  },
+  {
+   "word": "you",
+   "start": 3.24,
+   "end": 3.36,
+   "at": 97.2,
+   "until": 100.8
+  },
+  {
+   "word": "get,",
+   "start": 3.4,
+   "end": 3.68,
+   "at": 102.0,
+   "until": 110.4
+  },
+  {
+   "word": "well,",
+   "start": 3.744,
+   "end": 4.72,
+   "at": 112.3,
+   "until": 141.6
+  },
+  {
+   "word": "ninety-four.",
+   "start": 4.766,
+   "end": 5.68,
+   "at": 143.0,
+   "until": 170.4
+  },
+  {
+   "word": "Nobody",
+   "start": 5.84,
+   "end": 6.8,
+   "at": 175.2,
+   "until": 204.0
+  },
+  {
+   "word": "robbed",
+   "start": 6.846,
+   "end": 7.12,
+   "at": 205.4,
+   "until": 213.6
+  },
+  {
+   "word": "you,",
+   "start": 7.2,
+   "end": 7.76,
+   "at": 216.0,
+   "until": 232.8
+  },
+  {
+   "word": "the",
+   "start": 7.78,
+   "end": 7.84,
+   "at": 233.4,
+   "until": 235.2
+  },
+  {
+   "word": "buyers",
+   "start": 7.897,
+   "end": 8.24,
+   "at": 236.9,
+   "until": 247.2
+  },
+  {
+   "word": "just",
+   "start": 8.288,
+   "end": 8.48,
+   "at": 248.6,
+   "until": 254.4
+  },
+  {
+   "word": "ran",
+   "start": 8.54,
+   "end": 8.72,
+   "at": 256.2,
+   "until": 261.6
+  },
+  {
+   "word": "out.",
+   "start": 8.8,
+   "end": 9.2,
+   "at": 264.0,
+   "until": 276.0
+  }
+ ],
+ "tempo": 1.0
+}
