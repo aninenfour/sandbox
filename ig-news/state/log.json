@@ -548,5 +548,26 @@
   ],
   "status": "scheduled",
   "note": "Skipped Coinbase (date unconfirmed) and token unlocks (no verified 2026 calendar). Fed photo: Commons 'Marriner S. Eccles Federal Reserve Board Building' (credit lookup 429)."
+ },
+ {
+  "id": "2026-10-25-reel-msft-review",
+  "type": "reel",
+  "slot": "2026-10-25T21:30:00+08:00",
+  "hook": "Microsoft: +50% since June",
+  "topic": "Microsoft (ticker review, pre-earnings)",
+  "music": "283",
+  "style": "frame",
+  "channels": [
+   "instagram reel 21:30",
+   "facebook reel 21:30",
+   "instagram story 21:35"
+  ],
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/MSFT?range=5y&interval=1d",
+   "https://api.nasdaq.com/api/quote/MSFT/info?assetclass=stocks",
+   "https://www.stocktitan.net/articles/earnings-calendar-week-of-october-26-2026"
+  ],
+  "status": "scheduled",
+  "note": "Sun 15:40 run. Close $524.51 (Yahoo+Nasdaq), 52w low $349.20 Jun 25 (both), ATH $555.45 Jul 31 2025 (Yahoo), YTD +8.5%. Mon 19:00 Academy left for Mon 07:40 run."
  }
 ]
