@@ -1,0 +1,234 @@
+{
+ "2022": [
+  {
+   "id": "dogecoin",
+   "sym": "DOGE",
+   "open": 0.06168,
+   "close": 0.12686,
+   "chg": 105.67
+  },
+  {
+   "id": "ethereum",
+   "sym": "ETH",
+   "open": 1328.71,
+   "close": 1572.69,
+   "chg": 18.36
+  },
+  {
+   "id": "binancecoin",
+   "sym": "BNB",
+   "open": 284.9,
+   "close": 325.7,
+   "chg": 14.32
+  },
+  {
+   "id": "bitcoin",
+   "sym": "BTC",
+   "open": 19422.61,
+   "close": 20490.74,
+   "chg": 5.5
+  },
+  {
+   "id": "tron",
+   "sym": "TRX",
+   "open": 0.06101,
+   "close": 0.06325,
+   "chg": 3.67
+  },
+  {
+   "id": "solana",
+   "sym": "SOL",
+   "open": 33.25,
+   "close": 32.56,
+   "chg": -2.08
+  },
+  {
+   "id": "ripple",
+   "sym": "XRP",
+   "open": 0.4799,
+   "close": 0.4641,
+   "chg": -3.29
+  },
+  {
+   "id": "cardano",
+   "sym": "ADA",
+   "open": 0.4346,
+   "close": 0.4055,
+   "chg": -6.7
+  }
+ ],
+ "2023": [
+  {
+   "id": "solana",
+   "sym": "SOL",
+   "open": 21.37,
+   "close": 38.4,
+   "chg": 79.69
+  },
+  {
+   "id": "bitcoin",
+   "sym": "BTC",
+   "open": 26962.57,
+   "close": 34639.77,
+   "chg": 28.47
+  },
+  {
+   "id": "ripple",
+   "sym": "XRP",
+   "open": 0.5148,
+   "close": 0.5996,
+   "chg": 16.47
+  },
+  {
+   "id": "cardano",
+   "sym": "ADA",
+   "open": 0.254,
+   "close": 0.293,
+   "chg": 15.35
+  },
+  {
+   "id": "dogecoin",
+   "sym": "DOGE",
+   "open": 0.06207,
+   "close": 0.06827,
+   "chg": 9.99
+  },
+  {
+   "id": "tron",
+   "sym": "TRX",
+   "open": 0.0886,
+   "close": 0.09715,
+   "chg": 9.65
+  },
+  {
+   "id": "ethereum",
+   "sym": "ETH",
+   "open": 1670.89,
+   "close": 1814.67,
+   "chg": 8.6
+  },
+  {
+   "id": "binancecoin",
+   "sym": "BNB",
+   "open": 214.6,
+   "close": 226.2,
+   "chg": 5.41
+  }
+ ],
+ "2024": [
+  {
+   "id": "dogecoin",
+   "sym": "DOGE",
+   "open": 0.11421,
+   "close": 0.16164,
+   "chg": 41.53
+  },
+  {
+   "id": "bitcoin",
+   "sym": "BTC",
+   "open": 63327.6,
+   "close": 70292.01,
+   "chg": 11.0
+  },
+  {
+   "id": "solana",
+   "sym": "SOL",
+   "open": 152.51,
+   "close": 168.69,
+   "chg": 10.61
+  },
+  {
+   "id": "tron",
+   "sym": "TRX",
+   "open": 0.1559,
+   "close": 0.1684,
+   "chg": 8.02
+  },
+  {
+   "id": "binancecoin",
+   "sym": "BNB",
+   "open": 567.4,
+   "close": 576.6,
+   "chg": 1.62
+  },
+  {
+   "id": "ethereum",
+   "sym": "ETH",
+   "open": 2602.24,
+   "close": 2518.61,
+   "chg": -3.21
+  },
+  {
+   "id": "cardano",
+   "sym": "ADA",
+   "open": 0.3733,
+   "close": 0.3418,
+   "chg": -8.44
+  },
+  {
+   "id": "ripple",
+   "sym": "XRP",
+   "open": 0.6114,
+   "close": 0.5095,
+   "chg": -16.67
+  }
+ ],
+ "2025": [
+  {
+   "id": "binancecoin",
+   "sym": "BNB",
+   "open": 1008.51,
+   "close": 1088.9,
+   "chg": 7.97
+  },
+  {
+   "id": "bitcoin",
+   "sym": "BTC",
+   "open": 114048.94,
+   "close": 109608.01,
+   "chg": -3.89
+  },
+  {
+   "id": "ethereum",
+   "sym": "ETH",
+   "open": 4145.15,
+   "close": 3847.99,
+   "chg": -7.17
+  },
+  {
+   "id": "solana",
+   "sym": "SOL",
+   "open": 208.68,
+   "close": 187.21,
+   "chg": -10.29
+  },
+  {
+   "id": "tron",
+   "sym": "TRX",
+   "open": 0.3336,
+   "close": 0.2962,
+   "chg": -11.21
+  },
+  {
+   "id": "ripple",
+   "sym": "XRP",
+   "open": 2.8468,
+   "close": 2.5097,
+   "chg": -11.84
+  },
+  {
+   "id": "dogecoin",
+   "sym": "DOGE",
+   "open": 0.23294,
+   "close": 0.18644,
+   "chg": -19.96
+  },
+  {
+   "id": "cardano",
+   "sym": "ADA",
+   "open": 0.8073,
+   "close": 0.6091,
+   "chg": -24.55
+  }
+ ]
+}
