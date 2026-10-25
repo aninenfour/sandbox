@@ -17,6 +17,35 @@ const useFonts = () => {
 const pct = (v: number) => `${v >= 0 ? '+' : '−'}${Math.abs(v).toFixed(1)}%`;
 
 type Row = {id: string; sym: string; chg: number};
+
+// background: the big year in engraved lines, with that October's real BTC daily candles drawn over it
+const BgArt: React.FC<{year: string}> = ({year}) => {
+  const c = (years as unknown as {btcCandles: Record<string, number[][]>}).btcCandles[year];
+  const lo = Math.min(...c.map((k) => k[2])), hi = Math.max(...c.map((k) => k[1]));
+  const X0 = 705, W = 215, Y0 = 150, H = 470, n = 31, step = W / n, bw = step * 0.66;
+  const y = (v: number) => Y0 + (1 - (v - lo) / (hi - lo)) * H;
+  return (
+    <>
+      <div style={{position: 'absolute', left: 1068, top: 130, transform: 'rotate(90deg)', transformOrigin: '0 0', fontFamily: SANS, fontWeight: 700, fontSize: 150, lineHeight: 1, letterSpacing: -4, whiteSpace: 'nowrap',
+        backgroundImage: 'repeating-linear-gradient(90deg, rgba(11,14,17,0.22) 0 3px, transparent 3px 7px)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent'}}>{year}</div>
+      <svg width={1080} height={1350} style={{position: 'absolute', inset: 0}}>
+        <defs>
+          <pattern id="hg" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#DDF5C4" /><rect width="6" height="3" fill="#8FD45E" /></pattern>
+          <pattern id="hr" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#FBD6D7" /><rect width="6" height="3" fill="#F08A8D" /></pattern>
+        </defs>
+        {c.map(([o, h, l, cl], i) => {
+          const up = cl >= o, x = X0 + i * step + (step - bw) / 2;
+          return (
+            <g key={i} opacity={0.85}>
+              <line x1={x + bw / 2} x2={x + bw / 2} y1={y(h)} y2={y(l)} stroke={up ? '#7EC25A' : '#E5484D'} strokeWidth={2} />
+              <rect x={x} y={y(Math.max(o, cl))} width={bw} height={Math.max(3, Math.abs(y(o) - y(cl)))} rx={2} fill={`url(#${up ? 'hg' : 'hr'})`} stroke={up ? '#7EC25A' : '#E5484D'} strokeWidth={1.5} />
+            </g>
+          );
+        })}
+      </svg>
+    </>
+  );
+};
 const Slide: React.FC<{page: string; year: string; sub: string; rows: Row[]; note: React.ReactNode; source: string; red: boolean}> = ({page, year, sub, rows, note, source, red}) => {
   useFonts();
   const up = rows.filter((r) => r.chg >= 0).length;
@@ -25,8 +54,7 @@ const Slide: React.FC<{page: string; year: string; sub: string; rows: Row[]; not
   const big = red ? `${rows.length - up}/${rows.length}` : `${up}/${rows.length}`;
   return (
     <AbsoluteFill style={{background: '#FFFFFF', color: INK, fontFamily: SANS, padding: '70px 76px 56px'}}>
-      <Img src={staticFile('policy26/bitcoin-engraved.png')} style={{position: 'absolute', right: -260, top: 60, width: 860, height: 860, transform: 'rotate(-10deg)', opacity: 0.45, filter: red ? 'hue-rotate(250deg) saturate(1.4)' : 'none',
-        WebkitMaskImage: 'radial-gradient(circle at 60% 40%, #000 45%, transparent 78%)', maskImage: 'radial-gradient(circle at 60% 40%, #000 45%, transparent 78%)'}} />
+      <BgArt year={year.slice(0, 4)} />
       <div style={{position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
         <Img src={staticFile('brand/logo-official-black.png')} style={{width: 170, height: (170 * 328) / 2003}} />
         <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 16, letterSpacing: 2, border: `1.5px solid ${INK}`, borderRadius: 100, padding: '8px 18px', background: '#fff'}}>UPTOBER CHECK · {page}</div>
