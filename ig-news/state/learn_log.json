@@ -28,5 +28,20 @@
   ],
   "experiment": "continue W42 test (2 of 7 Reels tier-list) + every Reel uses 1-2 yellow keywords; compare Reel reach/saves vs Oct 16-17 Reels (104 and 54 reach)",
   "last_experiment_result": "too early: first tier-list Reel went live Sun 21:30, ~9h before this run; judge next Monday"
+ },
+ {
+  "week": "2026-W44",
+  "patterns": [
+   "ranking/tier lists still lead (Graham Stephan 42x, 10x, 6.7x: credit cards, books, habits)",
+   "number + question hooks on price levels (Cointelegraph $800K bottom? 22.9x, Altcoin Daily $150K? 7.2x, Crypto Casey next crash? 4.2x, CoinDesk Hayes $10K ETH 5.8x)",
+   "photo framed as a card over a blurred copy + highlighted caption words (CoinDesk, Altcoin Daily, Cointelegraph): matches the owner-picked frame style"
+  ],
+  "shipped": [
+   "PLAYBOOK 7b: tier lists max 1 per week",
+   "STYLE_NOTES: number + question hooks answered with past data (before/after)",
+   "(owner, Oct 24) frame style is the Reel default"
+  ],
+  "experiment": "all Reels in frame style; 2 of 7 Reels use a number + question hook answered with past data; max 1 tier list. Judge vs W43 Reel averages: IG ~76 reach, FB ~147 reach, plus saves/comments.",
+  "last_experiment_result": "Tier lists: first one strong (IG 148 reach, 43 comments), then fading with 3 in a week (105, then 66 with 0 likes). FB: tier YTD 188, ATH 112. Yellow keywords shipped on all Reels; no clear lift. Best Reel on FB was the gold ticker review in the new frame style (228 reach). Verdict: keep tier lists but cap at 1/week; keyword markup stays (now green in frame style)."
  }
 ]

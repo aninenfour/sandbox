@@ -30,7 +30,11 @@ Examples (before → better):
 - No faded background graphics behind body text (they hurt readability).
 - Stats tiles only with real numbers worth remembering; never filler like "1 reseller".
 
+- Number + question hooks (W44 trend: "$800K bottom?", "Will Bitcoin hit $150K this year?", "The next Bitcoin crash?" across Cointelegraph, Altcoin Daily, Crypto Casey) are allowed only when the slides answer them with past data, never a forecast of our own.
+  Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
+
 ## Changelog
+- 2026-10-26 (weekly learning W44): tier lists capped at 1 per week (fatigue); number + question hooks answered with past data.
 - 2026-10-22 (daily review): tier lists should mix stocks/gold with crypto (comment data).
 - 2026-10-19 (daily review): Story tag now matches the post type (Hotcoin News / Hotcoin Academy / This week).
 - 2026-10-19 (weekly learning W43): yellow keyword highlight in Reels ([word]); attributed name + number hooks.

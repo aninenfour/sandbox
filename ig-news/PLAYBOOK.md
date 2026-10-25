@@ -71,7 +71,7 @@ Put the data source on each chart slide (`source`).
 
 ## 7b. Daily Reel (21:30 slot, made by the 15:40 run)
 A ~30 s photo slideshow video with IG-style text and music. Topic rotates (check `log.json`, don't repeat a topic within 14 days):
-**tier list** ("Ranking 10 assets by 1-year return": `"tier"` spec + `{"kind":"tier_all"}`, ranked only by real numbers, with a legend), **trading rule / habit** (e.g. "5 trading rules pros never break"), **ticker review** (one coin or stock: what it is, 3 facts, recent move with real numbers from Hotcoin's ticker / CoinGecko / Yahoo), **myth vs fact**, **mistakes beginners make**.
+**tier list** (max 1 per week: 3 in one week faded from 148 to 105 to 66 IG reach, W44 learning) ("Ranking 10 assets by 1-year return": `"tier"` spec + `{"kind":"tier_all"}`, ranked only by real numbers, with a legend), **trading rule / habit** (e.g. "5 trading rules pros never break"), **ticker review** (one coin or stock: what it is, 3 facts, recent move with real numbers from Hotcoin's ticker / CoinGecko / Yahoo), **myth vs fact**, **mistakes beginners make**.
 - 6–8 slides: hook (≤ 6 words per line, 2 lines, `"hook": true`) → 4–6 numbered points (`num`, `text` ≤ 2 short lines, `sub` ≤ 12 words) → `{"kind": "cta"}`.
 - Photos: real photos, one per slide, portrait (Unsplash `search_photos` with `orientation: "portrait"`, `per_page: 3`; or Commons/press for a ticker's company/person). Download with `tools/get_image.py`.
 - Music: `python3 ig-news/tools/music.py pick` → id (least recently used hip-hop/lo-fi track, Mixkit free licence). Credit it in the first comment.
