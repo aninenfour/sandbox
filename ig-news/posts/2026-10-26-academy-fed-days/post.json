@@ -1,0 +1,205 @@
+{
+ "type": "tutorial",
+ "slides": [
+  {
+   "kind": "tcover",
+   "chip": "Markets 101",
+   "title": "Does Bitcoin crash on <span class='hl2'>Fed day?</span>",
+   "sub": "We tested 22 US rate decisions since Jan 2024 against Bitcoin's 2-day move.",
+   "hero": "hero.jpg",
+   "hero_pos": "center 50%",
+   "chapters": [
+    "Up or down?",
+    "Bumpier than usual?",
+    "2026 leans red",
+    "The biggest moves",
+    "This week"
+   ]
+  },
+  {
+   "kind": "tslide",
+   "num": "01",
+   "of": "1/5",
+   "title": "Up or down? A <span class='g'>coin flip</span>",
+   "body_top": 390,
+   "paras": [
+    "We took Bitcoin's close the day before each Fed decision and the close the day after.",
+    "Out of 22 decisions: <g>11 up</g>, <r>11 down</r>. <u>The median move was 0.0%.</u>"
+   ],
+   "visual": {
+    "type": "donut",
+    "title": "BTC 2 days around a Fed decision",
+    "center": "22",
+    "colors": [
+     "#3E8E1E",
+     "#E5322D"
+    ],
+    "items": [
+     {
+      "l": "Up",
+      "v": 11,
+      "txt": "11"
+     },
+     {
+      "l": "Down",
+      "v": 11,
+      "txt": "11"
+     }
+    ]
+   },
+   "source": "Hotcoin calc.: Yahoo Finance BTC-USD daily closes (UTC); Fed meeting calendar, Jan 2024 – Sep 2026"
+  },
+  {
+   "kind": "tslide",
+   "num": "02",
+   "of": "2/5",
+   "title": "Only a bit <span class='g'>bumpier</span>",
+   "body_top": 390,
+   "paras": [
+    "On Fed days Bitcoin moved <u>2.7% on average</u> (up or down) over two days.",
+    "On any two days in the same period: 2.5%. <g>Fed days are only slightly bigger.</g>"
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Average 2-day move, either direction",
+    "row": 96,
+    "items": [
+     {
+      "l": "Around Fed decisions",
+      "v": 2.71,
+      "txt": "2.7%"
+     },
+     {
+      "l": "Any 2 days",
+      "v": 2.49,
+      "txt": "2.5%"
+     }
+    ]
+   },
+   "source": "Hotcoin calc.: Yahoo Finance BTC-USD daily closes, Jan 2024 – Oct 2026"
+  },
+  {
+   "kind": "tslide",
+   "num": "03",
+   "of": "3/5",
+   "title": "2026 leans <span class='r'>red</span>",
+   "body_top": 390,
+   "paras": [
+    "This year is different: <r>4 of 6</r> Fed decisions came with a drop, three of them of 4% or more."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "BTC 2-day move, 2026 Fed decisions",
+    "row": 72,
+    "items": [
+     {
+      "l": "Jan 28",
+      "v": -5.1,
+      "txt": "−5.1%"
+     },
+     {
+      "l": "Mar 18",
+      "v": -5.4,
+      "txt": "−5.4%"
+     },
+     {
+      "l": "Apr 29",
+      "v": -0.1,
+      "txt": "−0.1%"
+     },
+     {
+      "l": "Jun 17",
+      "v": -4.1,
+      "txt": "−4.1%"
+     },
+     {
+      "l": "Jul 29",
+      "v": 1.3,
+      "txt": "+1.3%"
+     },
+     {
+      "l": "Sep 16",
+      "v": 1.0,
+      "txt": "+1.0%"
+     }
+    ]
+   },
+   "source": "Hotcoin calc.: Yahoo Finance BTC-USD daily closes"
+  },
+  {
+   "kind": "tslide",
+   "num": "04",
+   "of": "4/5",
+   "title": "The <span class='r'>biggest</span> moves",
+   "body_top": 390,
+   "paras": [
+    "The largest swing came on <r>Dec 18, 2024</r>: −8.1% in two days.",
+    "<u>Big moves went both ways</u>, so the date alone tells you little."
+   ],
+   "visual": {
+    "type": "table",
+    "title": "Largest 2-day moves around a decision",
+    "cols": [
+     "Decision",
+     "BTC move"
+    ],
+    "rows": [
+     [
+      "Dec 18, 2024",
+      "<r>−8.1%</r>"
+     ],
+     [
+      "May 7, 2025",
+      "<g>+6.7%</g>"
+     ],
+     [
+      "Mar 20, 2024",
+      "<g>+5.8%</g>"
+     ],
+     [
+      "Mar 18, 2026",
+      "<r>−5.4%</r>"
+     ]
+    ]
+   },
+   "source": "Hotcoin calc.: Yahoo Finance BTC-USD daily closes"
+  },
+  {
+   "kind": "tslide",
+   "num": "05",
+   "of": "5/5",
+   "title": "This <span class='g'>week</span>",
+   "body_top": 390,
+   "paras": [
+    "The next decision lands on Thursday morning in Asia.",
+    "<u>Direction has been a coin flip.</u> If you trade around it, keep positions small."
+   ],
+   "visual": {
+    "type": "table",
+    "title": "Fed calendar (UTC+8)",
+    "cols": [
+     "Event",
+     "When"
+    ],
+    "rows": [
+     [
+      "Rate decision",
+      "Thu Oct 29, 02:00"
+     ],
+     [
+      "Press conference",
+      "Thu Oct 29, 02:30"
+     ],
+     [
+      "Last meeting of 2026",
+      "Dec 8–9"
+     ]
+    ]
+   },
+   "source": "Federal Reserve FOMC calendar. Past moves don't predict future ones. Not financial advice."
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
