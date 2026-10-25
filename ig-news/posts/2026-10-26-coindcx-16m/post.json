@@ -1,0 +1,106 @@
+{
+ "type": "news",
+ "slides": [
+  {
+   "kind": "cover",
+   "photo": "lock.jpg",
+   "photo_pos": "50% 50%",
+   "insets": [
+    {
+     "src": "usdt.svg",
+     "pos": "tr",
+     "size": 200,
+     "bg": "#fff",
+     "fit": "70%"
+    }
+   ],
+   "headline": [
+    {
+     "t": "\"Sounds like a",
+     "c": "ink",
+     "max": 86
+    },
+    {
+     "t": "false alarm\"",
+     "c": "red",
+     "max": 100
+    },
+    {
+     "t": "Then CoinDCX",
+     "c": "ink",
+     "max": 86
+    },
+    {
+     "t": "confirmed a",
+     "c": "ink",
+     "max": 86
+    },
+    {
+     "t": "$16M loss",
+     "c": "red",
+     "max": 110
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "tag": "WHAT HAPPENED",
+   "paras": [
+    "On Tuesday, about <r>16M USDT</r> flowed out of old deposit addresses at India's CoinDCX. A security researcher flagged it on X the next day.",
+    "CEO Sumit Gupta replied that the wallets were <u>not breached</u> and it \"sounds like a false alarm\".",
+    "On Sunday CoinDCX confirmed a <r>$16M loss</r> from wallets it had retired after its 2025 hack."
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "15.99M",
+      "l": "USDT taken",
+      "neg": true
+     },
+     {
+      "v": "~5 days",
+      "l": "from outflow to confirmation"
+     },
+     {
+      "v": "$44M",
+      "l": "lost in its July 2025 hack",
+      "neg": true
+     }
+    ]
+   },
+   "source": "The Block, Unchained"
+  },
+  {
+   "kind": "text",
+   "tag": "WHY IT MATTERS",
+   "paras": [
+    "CoinDCX says a failed automatic \"sweep\" left deposits sitting in an old address, and that it <g>covered the loss itself</g>.",
+    "On-chain investigator ZachXBT says that address was still sweeping user deposits in <r>April and May 2026</r>, and told users to withdraw.",
+    "<u>Lesson: watch what an exchange does, not just what it says.</u>"
+   ],
+   "media": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "$0",
+      "l": "user loss, says CoinDCX"
+     },
+     {
+      "v": "$15.8M",
+      "l": "user deposits unaccounted for, says ZachXBT",
+      "neg": true
+     },
+     {
+      "v": "3",
+      "l": "exchanges the funds were sent on to"
+     }
+    ]
+   },
+   "source": "The Block, Unchained, ZachXBT on X"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
