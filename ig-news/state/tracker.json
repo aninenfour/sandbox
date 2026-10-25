@@ -2,6 +2,6 @@
  "doc_title": "Hotcoin content tracker",
  "doc_id": "11yHYf4xdV6M25P6dk1OJGl2KFus_EMHumsPokflZR1U",
  "doc_url": "https://docs.google.com/document/d/11yHYf4xdV6M25P6dk1OJGl2KFus_EMHumsPokflZR1U/edit",
- "rows_in_doc_through": "2026-10-24",
+ "rows_in_doc_through": "2026-10-25",
  "note": "Google Docs connector connected Oct 20; rows are appended with tracker.py rows (PLAYBOOK \u00a710). Never create a second tracker doc."
 }
