@@ -1,0 +1,5 @@
+{"episode": 1, "title": "The Tower", "lesson": "At 100x leverage, a 1% dip wipes you out. Trade small.",
+ "topic": "leverage", "setting": "night city skyline, moon", "props": ["stacked crates 1x-100x", "sky price line", "feather", "LIQUIDATED stamp"],
+ "camera": "starts close, pulls back as the tower grows; shake on the crash",
+ "sound": "music bed (Curiosity, Diego Nava, Mixkit) cut hard at the collapse; thunks rising in pitch, whoosh, creak, crash, typewriter, low pad",
+ "fact_check": "At 100x, a 1% adverse move equals 100% of margin (liquidation usually triggers slightly earlier because of maintenance margin)."}
