@@ -57,7 +57,7 @@ body{font-family:'Inter Display','Inter',sans-serif;-webkit-font-smoothing:antia
 .ctat{position:absolute;left:0;right:0;top:170px;text-align:center;color:#07090A;font-weight:800;font-size:92px;line-height:1.02;letter-spacing:-.04em}
 .ctat span{background:#07090A;color:#B8F26A;border-radius:16px;padding:0 18px}
 .ctas{position:absolute;left:0;right:0;top:445px;text-align:center;color:#1b2a10;font-family:'Inter';font-weight:600;font-size:40px}
-.kw{color:#FFD60A}.pnl,.bgblur{display:none}
+.kw{color:#FFD60A}.kwr{color:#FF5A52!important}.pnl,.bgblur{display:none}
 .ptitle{position:absolute;left:0;right:0;top:250px;text-align:center}
 .ptitle span{display:inline-block;background:#fff;color:#0A0A0A;font-weight:800;font-size:50px;line-height:1.1;padding:10px 26px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .tierbg{position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 50% 40%,#1d2328,#0A0C0E 70%)}
@@ -140,7 +140,8 @@ def tier_html(spec, upto, post):
 
 def kw(t):
     """Escape text; [word] becomes a yellow keyword (the caption style top finance Shorts use, weekly scan W43)."""
-    return re.sub(r'\[(.+?)\]', r'<span class="kw">\1</span>', H.escape(t))
+    t = re.sub(r'\[(.+?)\]', r'<span class="kw">\1</span>', H.escape(t))
+    return re.sub(r'\{(.+?)\}', r'<span class="kwr">\1</span>', t)  # {word}: red keyword for losses
 
 
 def text_html(s, sym, title=''):

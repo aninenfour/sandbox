@@ -1,0 +1,51 @@
+{
+ "music": "476",
+ "title": "Strategy vs Bitcoin",
+ "slides": [
+  {
+   "photo": "hook.jpg",
+   "pos": "50% 50%",
+   "hook": true,
+   "tag": "TICKER REVIEW",
+   "text": "Why did Strategy fall\n[2x] harder than BTC?"
+  },
+  {
+   "photo": "s1.jpg",
+   "pos": "50% 50%",
+   "num": "1",
+   "text": "Bitcoin: {−37%}\nfrom its peak",
+   "sub": "Record [$126,198] on Oct 6, 2025. Near $80K now."
+  },
+  {
+   "photo": "s2.jpg",
+   "pos": "50% 50%",
+   "num": "2",
+   "text": "Strategy: {−73%}\nfrom its peak",
+   "sub": "Record [$543] in Nov 2024. $146.01 at Friday's close."
+  },
+  {
+   "photo": "s3.jpg",
+   "pos": "50% 60%",
+   "num": "3",
+   "text": "It moves [1.5x]\nBitcoin",
+   "sub": "Past year: on a day BTC moved 1%, MSTR moved about [1.5%]."
+  },
+  {
+   "photo": "s4.jpg",
+   "pos": "50% 50%",
+   "num": "4",
+   "text": "Daily swings:\n[5.1%] vs 2.7%",
+   "sub": "Its typical daily move is about [twice] Bitcoin's. Down years hit harder."
+  },
+  {
+   "photo": "s5.jpg",
+   "pos": "50% 50%",
+   "num": "5",
+   "text": "Reports [Friday]\n05:00 UTC+8",
+   "sub": "Q3 results after the US close on [Thursday], Oct 29."
+  },
+  {
+   "kind": "cta"
+  }
+ ]
+}
