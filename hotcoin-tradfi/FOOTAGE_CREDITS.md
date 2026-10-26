@@ -297,3 +297,15 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 - **Facts:** SQUID, Nov 1 2021, ~$2,861 to ~$0.003 within minutes, holders unable to sell (Benzinga, Cointelegraph); price path in the bubble is simplified.
   AnubisDAO, Oct 29 2021, ~$60M ETH raised, liquidity removed ~20 h into a 24 h sale (The Block, Decrypt); funds later moved via Tornado Cash (Cointelegraph, 2023).
   OneCoin founder: last seen flying Sofia to Athens, Oct 25 2017; alleged $4B+ fraud; FBI Ten Most Wanted (June 2022). No likeness used (silhouette).
+
+## Crypto Scary Stories, Ep. 4 "The Fallen Kings" (`src/halloween/ScaryStories4.tsx`)
+- **Art:** all original (detective office, corkboard, fedora, magnifier, desk lamp, coffee and donut in SVG/CSS). Hotcoin logo in the neon: official.
+- **Music:** "Silent Movie 140" by Sascha Ende (ende.app), CC BY 4.0. Credit in the end card and the post.
+- **Photos (Wikimedia Commons, cropped and tinted; stored in `public/halloween/ep4/`, gitignored):**
+  - Sam Bankman-Fried: "File:Sam Bankman-Fried (cropped).png", Cointelegraph, CC BY 3.0.
+  - Do Kwon: "File:Do Kwon.png", FAQX, CC BY 3.0.
+  - Alex Mashinsky: "File:2021 - Centre Stage PO1 0057 (51654289843).jpg", Web Summit, CC BY 2.0.
+  - Used only to identify the people in documented court cases; no endorsement implied.
+- **Facts:** SBF convicted on 7 counts Nov 2023, sentenced to 25 years 28 Mar 2024 (US DOJ SDNY); ~$8B customer funds.
+  Terra/LUNA collapse May 2022 (~$40B); Do Kwon arrested in Montenegro with a fake passport Mar 2023, sentenced to 15 years 11 Dec 2025 (The Block, Decrypt).
+  Celsius froze withdrawals 12 Jun 2022, Chapter 11 Jul 2022; Mashinsky pleaded guilty Dec 2024, sentenced to 12 years 8 May 2025 (NBC News).
