@@ -1,0 +1,36 @@
+{
+ "type": "news",
+ "slides": [
+  {"kind": "cover", "photo": "arena.jpg", "photo_pos": "50% 50%",
+   "headline": [
+    {"t": "The NBA just picked", "c": "ink", "max": 80},
+    {"t": "Kalshi + Polymarket", "c": "green", "max": 84},
+    {"t": "as its prediction", "c": "ink", "max": 82},
+    {"t": "markets. The NFL", "c": "ink", "max": 82},
+    {"t": "says no.", "c": "red", "max": 110}
+   ]},
+  {"kind": "text", "tag": "WHAT HAPPENED",
+   "paras": [
+    "The NBA signed a data-sharing deal with the <u>CFTC</u>, the US derivatives regulator, and named <g>Kalshi and Polymarket</g> its \"preferred\" prediction market exchanges.",
+    "They will share integrity data and report suspicious trades. <r>League and team staff can't trade NBA contracts.</r>",
+    "Baseball (MLB) and hockey (NHL) signed similar deals earlier this year."
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "3", "l": "pro leagues with CFTC deals"},
+     {"v": "2", "l": "\"preferred\" exchanges"},
+     {"v": "0", "l": "NBA staff allowed to trade NBA contracts"}]},
+   "source": "The Block (CFTC statement), CoinDesk"},
+  {"kind": "text", "tag": "WHY IT MATTERS",
+   "paras": [
+    "The NFL refused. In a Supreme Court filing it backed the states that say sports contracts are <r>gambling</r> and should fall under state law.",
+    "Three big federal court rulings have split, <r>two of them for the states</r>. The Supreme Court has been asked to decide who's in charge.",
+    "<u>Prediction markets are going mainstream. Who regulates them is still open.</u>"
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "3", "l": "federal rulings, split"},
+     {"v": "2", "l": "sided with the states", "neg": true},
+     {"v": "1", "l": "Supreme Court question ahead"}]},
+   "source": "CoinDesk, The Block"},
+  {"kind": "end"}
+ ]
+}

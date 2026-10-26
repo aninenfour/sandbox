@@ -1,0 +1,220 @@
+{
+ "type": "tutorial",
+ "slides": [
+  {
+   "kind": "tcover",
+   "chip": "Bitcoin 101",
+   "title": "95% of all Bitcoin is <span class='hl2'>already mined.</span>",
+   "sub": "So who gets the last 896,000 coins, and when?",
+   "hero": "hero.jpg",
+   "hero_pos": "center 50%",
+   "chapters": [
+    "Mined so far",
+    "Half as much every 4 years",
+    "The next halving",
+    "450 new coins a day",
+    "The last coin"
+   ]
+  },
+  {
+   "kind": "tslide",
+   "num": "01",
+   "of": "1/5",
+   "title": "Mined <span class='g'>so far</span>",
+   "body_top": 390,
+   "paras": [
+    "Bitcoin's supply is capped at <u>21 million</u>. About <g>20.10 million</g> already exist.",
+    "That leaves roughly <r>896,000</r> coins still to be mined."
+   ],
+   "visual": {
+    "type": "donut",
+    "title": "Bitcoin supply, Oct 27, 2026",
+    "center": "95.7%",
+    "colors": [
+     "#3E8E1E",
+     "#C9CED3"
+    ],
+    "items": [
+     {
+      "l": "Mined",
+      "v": 20104094,
+      "txt": "20.10M"
+     },
+     {
+      "l": "Still to mine",
+      "v": 895906,
+      "txt": "0.90M"
+     }
+    ]
+   },
+   "source": "Hotcoin calc. from block height 973,309 (mempool.space); blockchain.info total: 20,104,053 BTC"
+  },
+  {
+   "kind": "tslide",
+   "num": "02",
+   "of": "2/5",
+   "title": "Half as much <span class='g'>every 4 years</span>",
+   "body_top": 390,
+   "paras": [
+    "Every 210,000 blocks (about 4 years), the reward for mining a block <u>halves</u>.",
+    "Half of all Bitcoin came out in the first era alone."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "New bitcoin created per era (million)",
+    "row": 70,
+    "items": [
+     {
+      "l": "2009-12 · 50/block",
+      "v": 10.5,
+      "txt": "10.5M"
+     },
+     {
+      "l": "2012-16 · 25",
+      "v": 5.25,
+      "txt": "5.25M"
+     },
+     {
+      "l": "2016-20 · 12.5",
+      "v": 2.625,
+      "txt": "2.63M"
+     },
+     {
+      "l": "2020-24 · 6.25",
+      "v": 1.3125,
+      "txt": "1.31M"
+     },
+     {
+      "l": "2024-28 · 3.125",
+      "v": 0.65625,
+      "txt": "0.66M"
+     }
+    ]
+   },
+   "source": "Bitcoin issuance schedule: 210,000 blocks per era, reward halves each era"
+  },
+  {
+   "kind": "tslide",
+   "num": "03",
+   "of": "3/5",
+   "title": "The next <span class='g'>halving</span>",
+   "body_top": 390,
+   "paras": [
+    "The next one comes at <u>block 1,050,000</u>, about 76,700 blocks from now.",
+    "At ~144 blocks a day, that's around <g>April 2028</g>. The reward drops to 1.5625 BTC."
+   ],
+   "visual": {
+    "type": "table",
+    "title": "Halving clock",
+    "cols": [
+     "",
+     ""
+    ],
+    "rows": [
+     [
+      "Block now",
+      "973,309"
+     ],
+     [
+      "Next halving block",
+      "1,050,000"
+     ],
+     [
+      "Blocks to go",
+      "~76,700"
+     ],
+     [
+      "Estimated date",
+      "~April 2028"
+     ]
+    ]
+   },
+   "source": "mempool.space block height, Oct 27, 2026; date assumes 10-minute blocks"
+  },
+  {
+   "kind": "tslide",
+   "num": "04",
+   "of": "4/5",
+   "title": "<span class='g'>450</span> new coins a day",
+   "body_top": 390,
+   "paras": [
+    "144 blocks × 3.125 BTC = <u>about 450 new bitcoin per day</u>.",
+    "At ~$80K that's roughly <g>$36M</g> a day of new supply. Spot Bitcoin ETFs can move 10x that in a single session."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "New BTC per day, by era",
+    "row": 80,
+    "items": [
+     {
+      "l": "From 2009",
+      "v": 7200,
+      "txt": "7,200"
+     },
+     {
+      "l": "From 2012",
+      "v": 3600,
+      "txt": "3,600"
+     },
+     {
+      "l": "From 2016",
+      "v": 1800,
+      "txt": "1,800"
+     },
+     {
+      "l": "From 2020",
+      "v": 900,
+      "txt": "900"
+     },
+     {
+      "l": "From 2024 (now)",
+      "v": 450,
+      "txt": "450"
+     }
+    ]
+   },
+   "source": "Hotcoin calc.: 144 blocks/day × reward at each halving"
+  },
+  {
+   "kind": "tslide",
+   "num": "05",
+   "of": "5/5",
+   "title": "The <span class='g'>last</span> coin",
+   "body_top": 390,
+   "paras": [
+    "Halvings keep shrinking the reward, so the final fractions of a bitcoin are mined around <u>the year 2140</u>.",
+    "After that, miners are paid only by transaction fees."
+   ],
+   "visual": {
+    "type": "table",
+    "title": "Milestones",
+    "cols": [
+     "",
+     ""
+    ],
+    "rows": [
+     [
+      "Supply cap",
+      "21,000,000"
+     ],
+     [
+      "Mined today",
+      "~95.7%"
+     ],
+     [
+      "99% mined",
+      "~2035"
+     ],
+     [
+      "Last bitcoin",
+      "~2140"
+     ]
+    ]
+   },
+   "source": "Hotcoin calc. from the issuance schedule. Not financial advice."
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
