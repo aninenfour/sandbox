@@ -598,5 +598,21 @@
   ],
   "status": "scheduled",
   "note": "Close day before decision vs close day after (UTC). 11 up/11 down, median 0.0%, avg abs 2.71% vs baseline 2.49%; 2026: 4 of 6 down. W44 experiment: number+question hook #1."
+ },
+ {
+  "id": "2026-10-26-reel-mstr-vs-btc",
+  "type": "reel",
+  "slot": null,
+  "hook": "Why did Strategy fall 2x harder than BTC?",
+  "topic": "Strategy vs Bitcoin (ticker review, number+question hook)",
+  "music": "476",
+  "style": "frame",
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/MSTR?range=5y&interval=1d",
+   "https://api.nasdaq.com/api/quote/MSTR/info?assetclass=stocks",
+   "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?range=2y&interval=1d"
+  ],
+  "status": "not_scheduled",
+  "note": "Built and uploaded Mon 15:40 but the session worker restarted before scheduling, so the Mon 21:30 slot went empty. Re-use at Tue 15:40 for Tue 21:30 with prices refreshed to Monday's close (MSTR reports Thu after close)."
  }
 ]

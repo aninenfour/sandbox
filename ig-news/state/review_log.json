@@ -121,5 +121,21 @@
   "ideas_for_owner": [
    "Instagram Account Status check still open (reach dip since ~Oct 20)"
   ]
+ },
+ {
+  "date": "2026-10-27",
+  "metrics_summary": "Mon news (CoinDCX) and Academy (Fed days) published on IG; Mon 21:30 Reel missing: it was built but never scheduled because the worker restarted mid-run.",
+  "findings": [
+   "One slot lost to an interrupted run, not to content",
+   "Last-24h renders checked at build: CoinDCX carousel, Fed-days Academy (cover title fixed), Strategy vs Bitcoin Reel (red {keyword} for losses added)"
+  ],
+  "changes": [
+   "PLAYBOOK: gap check at the start of each run (built-but-not-scheduled posts get re-used in the next open slot)"
+  ],
+  "skipped": false,
+  "ideas_for_owner": [
+   "Story Reel 'The Tower' is waiting for your OK before it goes on the Mon/Wed/Fri 12:30 schedule",
+   "Instagram Account Status check still open"
+  ]
  }
 ]
