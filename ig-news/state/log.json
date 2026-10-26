@@ -583,8 +583,9 @@
    "https://www.theblock.co/news/business/2026-10-25-coindcx-confirms-16-million-loss-from-retired-wallets-days-after-ceo-called-breach-reports-a-false-alarm-431617",
    "https://unchainedcrypto.com/coindcx-absorbs-losses-credits-users-after-failed-sweep-of-hacked-deposit-addresses"
   ],
-  "status": "scheduled",
-  "note": "Mon 07:40 run. Photo: FlyD / Unsplash; USDT logo inset."
+  "status": "published",
+  "note": "Mon 07:40 run. Photo: FlyD / Unsplash; USDT logo inset.",
+  "ig_url": "https://www.instagram.com/p/De8ziPNEXOh/"
  },
  {
   "id": "2026-10-26-academy-fed-days",
@@ -596,8 +597,9 @@
    "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
    "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?interval=1d"
   ],
-  "status": "scheduled",
-  "note": "Close day before decision vs close day after (UTC). 11 up/11 down, median 0.0%, avg abs 2.71% vs baseline 2.49%; 2026: 4 of 6 down. W44 experiment: number+question hook #1."
+  "status": "published",
+  "note": "Close day before decision vs close day after (UTC). 11 up/11 down, median 0.0%, avg abs 2.71% vs baseline 2.49%; 2026: 4 of 6 down. W44 experiment: number+question hook #1.",
+  "ig_url": "https://www.instagram.com/p/De9IJvUD1Qp/"
  },
  {
   "id": "2026-10-26-reel-mstr-vs-btc",
@@ -614,5 +616,31 @@
   ],
   "status": "not_scheduled",
   "note": "Built and uploaded Mon 15:40 but the session worker restarted before scheduling, so the Mon 21:30 slot went empty. Re-use at Tue 15:40 for Tue 21:30 with prices refreshed to Monday's close (MSTR reports Thu after close)."
+ },
+ {
+  "id": "2026-10-27-nba-prediction-markets",
+  "type": "news",
+  "slot": "2026-10-27T16:00:00+08:00",
+  "title": "The NBA picked Kalshi + Polymarket as its prediction markets. The NFL says no.",
+  "score": null,
+  "sources": [
+   "https://www.theblock.co/news/regulation/2026-10-26-nba-cftc-memorandum-of-understanding-prediction-markets-kalshi-polymarket-431764",
+   "https://www.coindesk.com/policy/2026/10/26/nba-joins-pro-sports-leagues-on-cftc-prediction-markets-bandwagon-while-nfl-balks"
+  ],
+  "status": "scheduled",
+  "note": "Tue 07:40 run. Skipped Anthropic IPO story (conflict of interest: the desk runs on Claude). Photo: Marius Christensen / Unsplash."
+ },
+ {
+  "id": "2026-10-27-academy-btc-supply",
+  "type": "tutorial",
+  "slot": "2026-10-27T19:00:00+08:00",
+  "title": "95% of all Bitcoin is already mined",
+  "score": null,
+  "sources": [
+   "https://mempool.space/api/blocks/tip/height",
+   "https://blockchain.info/q/totalbc"
+  ],
+  "status": "scheduled",
+  "note": "Height 973,309; supply 20,104,094 (calc) vs 20,104,053 (blockchain.info); next halving block 1,050,000 ~Apr 2028; 99% mined ~2035. Photo: Michael Förtsch / Unsplash."
  }
 ]
