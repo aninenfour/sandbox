@@ -1,0 +1,8 @@
+node_modules/
+out/
+public/img/
+public/vo.mp3
+public/sfx.wav
+src/timeline.json
+*.key
+.publer_key

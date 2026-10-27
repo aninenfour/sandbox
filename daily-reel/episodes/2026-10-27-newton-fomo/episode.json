@@ -1,0 +1,32 @@
+{
+  "slug": "newton-fomo",
+  "highlight": ["FOMO","1720","triples","pops","crash","twenty","thousand","pounds","millions","plan","gravity","rich"],
+  "scenes": [
+    {"at": "The smartest man", "img": "s01", "mode": "wide", "fx": 50, "fy": 50},
+    {"at": "lost a fortune", "img": "s01", "mode": "close", "fx": 50, "fy": 40},
+    {"at": "It's 1720", "img": "s02", "mode": "wide", "fx": 50, "fy": 55},
+    {"at": "figured out gravity", "img": "s02", "mode": "close", "fx": 40, "fy": 40},
+    {"at": "buys shares", "img": "s02", "mode": "close", "fx": 70, "fy": 35},
+    {"at": "The pitch", "img": "s03", "mode": "wide", "fx": 50, "fy": 50},
+    {"at": "Exclusive trade", "img": "s03", "mode": "close", "fx": 65, "fy": 25},
+    {"at": "and everyone in London", "img": "s04", "mode": "wide"},
+    {"at": "Step one", "step": 1},
+    {"at": "The price triples", "img": "s06", "mode": "close", "fx": 55, "fy": 25},
+    {"at": "so Newton sells", "img": "s06", "mode": "wide", "fx": 50, "fy": 55},
+    {"at": "Step two", "step": 2},
+    {"at": "But the price", "img": "s08", "mode": "wide"},
+    {"at": "friends are getting", "img": "s08", "mode": "close", "fx": 35, "fy": 45},
+    {"at": "Step three", "step": 3},
+    {"at": "He can't take it", "img": "s10", "mode": "close", "fx": 40, "fy": 40},
+    {"at": "so he buys back", "img": "s10", "mode": "wide", "fx": 50, "fy": 55},
+    {"at": "Step four", "step": 4},
+    {"at": "By autumn", "img": "s12", "mode": "wide", "fx": 50, "fy": 30},
+    {"at": "and the shares crash", "img": "s12", "mode": "close", "fx": 50, "fy": 70},
+    {"at": "Newton loses", "img": "s13", "mode": "wide", "fx": 50, "fy": 55},
+    {"at": "That's millions", "img": "s13", "mode": "close", "fx": 40, "fy": 50},
+    {"at": "And legend says", "img": "s14", "mode": "wide"},
+    {"at": "the words South Sea", "img": "s14", "mode": "close", "fx": 55, "fy": 45},
+    {"at": "So if a genius", "img": "s15", "mode": "wide"},
+    {"at": "have a plan", "img": "s15", "mode": "close", "fx": 50, "fy": 55}
+  ]
+}
