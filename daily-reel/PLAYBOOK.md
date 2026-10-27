@@ -27,7 +27,8 @@
 
 ## Topic bank (rotate history / crypto / markets / psychology; strike through when used)
 → ~~Newton and the South Sea Bubble~~ (2026-10-27)
-→ Tulip mania · The Bitcoin pizza · Black Wednesday 1992 · The Mississippi Bubble · LTCM collapse · Mt. Gox · The 1929 crash in 4 steps · The man who sold the Eiffel Tower twice · Hetty Green, the witch of Wall Street · The Hunt brothers and silver · GameStop short squeeze · Nixon ends the gold standard 1971 · Zimbabwe's 100 trillion dollar note · The Dutch East India Company, first stock · Ponzi's postage stamps · Satoshi's lost coins · Enron · The Rothschild Waterloo legend (as "legend says") · Weimar hyperinflation · The DAO hack 2016
+→ ~~The Bitcoin pizza~~ (2026-10-27)
+→ Tulip mania · Black Wednesday 1992 · The Mississippi Bubble · LTCM collapse · Mt. Gox · The 1929 crash in 4 steps · The man who sold the Eiffel Tower twice · Hetty Green, the witch of Wall Street · The Hunt brothers and silver · GameStop short squeeze · Nixon ends the gold standard 1971 · Zimbabwe's 100 trillion dollar note · The Dutch East India Company, first stock · Ponzi's postage stamps · Satoshi's lost coins · Enron · The Rothschild Waterloo legend (as "legend says") · Weimar hyperinflation · The DAO hack 2016
 
 ## Hook bank (first line of every script; rotate types, log the type used)
 Adapted for third-person money stories. Never first person, never a price prediction.
@@ -52,3 +53,4 @@ Adapted for third-person money stories. Never first person, never a price predic
 | Date | Topic | Hook type | Instagram | TikTok | Facebook | IG views | TT views | FB views | Notes |
 |---|---|---|---|---|---|---|---|---|---|
 | 2026-10-27 | Newton FOMO (South Sea Bubble) | Curiosity / superlative | https://www.instagram.com/reel/De_t0laFPxt/ | @hotcoin.com | https://www.facebook.com/reel/4635565790054485 | | | | first episode, red bodies (pre-green style) |
+| 2026-10-27 | Bitcoin pizza (10,000 BTC, 2010) | Number | https://www.instagram.com/reel/DfAVZruDOJM/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1110473388296151 | | | | second post of the day (first scheduled run); green style, 53.6 s, BTC ~$80k tie-in |
