@@ -94,7 +94,7 @@
    "instagram reel 21:30",
    "facebook reel 21:30",
    "instagram story 21:35",
-   "x (Hotcoin 🟩) published now ~17:32 on owner request"
+   "x (Hotcoin \ud83d\udfe9) published now ~17:32 on owner request"
   ],
   "publer_media_id": "6ad3322dcae398aa7d0ff701",
   "commit": "ace9b92",
@@ -352,7 +352,7 @@
    "https://decrypt.co/381464/jpmorgan-bitcoin-forecast-first-time-stocks-gold"
   ],
   "status": "published",
-  "note": "Wed 07:40 run. Bear/bull range (−9.7%/17%) only in CoinDesk, left out. Photo: Jefferson Anquilan / Unsplash. Other candidates: Mt. Gox delay to 2027 (11), Swiss retail BTC ETF (10).",
+  "note": "Wed 07:40 run. Bear/bull range (\u22129.7%/17%) only in CoinDesk, left out. Photo: Jefferson Anquilan / Unsplash. Other candidates: Mt. Gox delay to 2027 (11), Swiss retail BTC ETF (10).",
   "ig_url": "https://www.instagram.com/p/Dev7jUsimkJ/"
  },
  {
@@ -372,7 +372,7 @@
    "https://api.hotcoinfin.com/v1/market/ticker"
   ],
   "status": "published",
-  "note": "Wed 15:40 run. CoinGecko Oct 21 15:40 UTC+8: $81.39, ATH $97.96 (Sep 23, 2026), #11, mcap $18.1B, circ 222.4M / max 1B, 1y +127.4%, ATL $3.81 (Nov 29, 2024); Hotcoin hype_usdt $81.51. Not a tier list, so no X cut. Photos: Unsplash (Iván Martínez Díaz, Jakub Żerdzicki, Nuki Nugraha, Izuddin Helmi Adnan, Damon Lam, Arturo Añez); swapped a trading-screen photo showing a competitor exchange UI.",
+  "note": "Wed 15:40 run. CoinGecko Oct 21 15:40 UTC+8: $81.39, ATH $97.96 (Sep 23, 2026), #11, mcap $18.1B, circ 222.4M / max 1B, 1y +127.4%, ATL $3.81 (Nov 29, 2024); Hotcoin hype_usdt $81.51. Not a tier list, so no X cut. Photos: Unsplash (Iv\u00e1n Mart\u00ednez D\u00edaz, Jakub \u017berdzicki, Nuki Nugraha, Izuddin Helmi Adnan, Damon Lam, Arturo A\u00f1ez); swapped a trading-screen photo showing a competitor exchange UI.",
   "ig_url": "https://www.instagram.com/reel/DewhUcpkWOV/"
  },
  {
@@ -406,7 +406,7 @@
   "id": "2026-10-22-reel-tier-ytd",
   "type": "reel",
   "slot": "2026-10-22T21:30:00+08:00",
-  "hook": "Bitcoin: −6%. One coin: +203% (2026 tier list)",
+  "hook": "Bitcoin: \u22126%. One coin: +203% (2026 tier list)",
   "topic": "tier list (2026 YTD, stocks + gold + crypto)",
   "music": "305",
   "channels": [
@@ -467,7 +467,7 @@
   ],
   "sources": [],
   "status": "published",
-  "note": "Fri 15:40 run. Evergreen safety list, no market figures. Photos: Unsplash (Sébastien Barbieri, Giorgio Trovato, Visual Karsa, Chinh Le Duc, Nathan Dumlao, John Salvino).",
+  "note": "Fri 15:40 run. Evergreen safety list, no market figures. Photos: Unsplash (S\u00e9bastien Barbieri, Giorgio Trovato, Visual Karsa, Chinh Le Duc, Nathan Dumlao, John Salvino).",
   "ig_url": "https://www.instagram.com/reel/De1q7sHDIRp/"
  },
  {
@@ -503,7 +503,7 @@
   "id": "2026-10-24-reel-gold-review",
   "type": "reel",
   "slot": "2026-10-24T21:30:00+08:00",
-  "hook": "Gold is −28% from its peak",
+  "hook": "Gold is \u221228% from its peak",
   "topic": "gold (ticker review)",
   "music": "876",
   "channels": [
@@ -517,7 +517,7 @@
    "https://api.hotcoinfin.com/v1/market/ticker"
   ],
   "status": "published",
-  "note": "Sat 15:40 run. GC=F high $5,586 Jan 29 (XAUT daily peak $5,487 same day), last $4,008; 5y +121.8%, YTD -7.7%, 1y -3.3%; BTC $80.7K ≈ 20 oz. Not a tier list, so no X cut. Sunday weekly preview left for Sun 07:40. Re-rendered in frame style (owner pick, Oct 24 16:10); old outline-style posts moved to drafts.",
+  "note": "Sat 15:40 run. GC=F high $5,586 Jan 29 (XAUT daily peak $5,487 same day), last $4,008; 5y +121.8%, YTD -7.7%, 1y -3.3%; BTC $80.7K \u2248 20 oz. Not a tier list, so no X cut. Sunday weekly preview left for Sun 07:40. Re-rendered in frame style (owner pick, Oct 24 16:10); old outline-style posts moved to drafts.",
   "style": "frame",
   "ig_url": "https://www.instagram.com/reel/De4PtzWkkoA/"
  },
@@ -614,13 +614,14 @@
    "https://api.nasdaq.com/api/quote/MSTR/info?assetclass=stocks",
    "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?range=2y&interval=1d"
   ],
-  "status": "scheduled",
+  "status": "published",
   "note": "Built and uploaded Mon 15:40 but the session worker restarted before scheduling, so the Mon 21:30 slot went empty. Re-use at Tue 15:40 for Tue 21:30 with prices refreshed to Monday's close (MSTR reports Thu after close). Tue 15:40: refreshed to Mon close (MSTR $139.82, -74%; BTC -37%), added STRC buyback line; scheduled Tue 21:30.",
   "channels": [
    "instagram reel 21:30",
    "facebook reel 21:30",
    "instagram story 21:35"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/reel/De_-F2mgggE/"
  },
  {
   "id": "2026-10-27-nba-prediction-markets",
@@ -632,8 +633,9 @@
    "https://www.theblock.co/news/regulation/2026-10-26-nba-cftc-memorandum-of-understanding-prediction-markets-kalshi-polymarket-431764",
    "https://www.coindesk.com/policy/2026/10/26/nba-joins-pro-sports-leagues-on-cftc-prediction-markets-bandwagon-while-nfl-balks"
   ],
-  "status": "scheduled",
-  "note": "Tue 07:40 run. Skipped Anthropic IPO story (conflict of interest: the desk runs on Claude). Photo: Marius Christensen / Unsplash."
+  "status": "published",
+  "note": "Tue 07:40 run. Skipped Anthropic IPO story (conflict of interest: the desk runs on Claude). Photo: Marius Christensen / Unsplash.",
+  "ig_url": "https://www.instagram.com/p/De_YUmvCJex/"
  },
  {
   "id": "2026-10-27-academy-btc-supply",
@@ -645,7 +647,35 @@
    "https://mempool.space/api/blocks/tip/height",
    "https://blockchain.info/q/totalbc"
   ],
+  "status": "published",
+  "note": "Height 973,309; supply 20,104,094 (calc) vs 20,104,053 (blockchain.info); next halving block 1,050,000 ~Apr 2028; 99% mined ~2035. Photo: Michael F\u00f6rtsch / Unsplash.",
+  "ig_url": "https://www.instagram.com/p/De_s8OlD01O/"
+ },
+ {
+  "id": "2026-10-28-robinhood-q3",
+  "type": "news",
+  "slot": "2026-10-28T16:00:00+08:00",
+  "title": "Robinhood now earns more from predictions than from crypto",
+  "score": null,
+  "sources": [
+   "CoinDesk: Robinhood Q3 2026 results",
+   "Decrypt: Robinhood Q3 2026 results"
+  ],
   "status": "scheduled",
-  "note": "Height 973,309; supply 20,104,094 (calc) vs 20,104,053 (blockchain.info); next halving block 1,050,000 ~Apr 2028; 99% mined ~2035. Photo: Michael Förtsch / Unsplash."
+  "note": "Wed 07:40 run. Revenue $1.424B, EPS 0.51 vs 0.55, crypto $120M (-55%), prediction mkts $173M, 16.4B contracts. Photo: Marga Santoso / Unsplash. Combined IG+FB submit errored but created IG; FB added separately. Sources line put in caption (Publer can't add first_comment on edit)."
+ },
+ {
+  "id": "2026-10-28-academy-gold-btc-spx",
+  "type": "tutorial",
+  "slot": "2026-10-28T19:00:00+08:00",
+  "title": "$1,000 since 2020: gold, Bitcoin or the S&P 500?",
+  "score": null,
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?interval=1mo",
+   "https://query1.finance.yahoo.com/v8/finance/chart/GC=F?interval=1mo",
+   "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?interval=1mo"
+  ],
+  "status": "scheduled",
+  "note": "Monthly closes Jan 2020 to Oct 2026: BTC $8,648 (max DD -73%), gold $2,572 (-17%), S&P $2,394 price only (-25%). Photo: Zlataky.cz / Unsplash."
  }
 ]
