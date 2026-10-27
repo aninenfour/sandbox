@@ -137,5 +137,19 @@
    "Story Reel 'The Tower' is waiting for your OK before it goes on the Mon/Wed/Fri 12:30 schedule",
    "Instagram Account Status check still open"
   ]
+ },
+ {
+  "date": "2026-10-28",
+  "metrics_summary": "No failed posts Oct 26-28. Tue news (NBA prediction markets), Academy (95% of BTC mined) and the Strategy vs Bitcoin Reel went out on IG/FB; first TikTok (same Reel, TikTok cut) published 21:36 and logged in the TikTok doc.",
+  "findings": [
+   "TikTok pipeline works end to end (render --tiktok, Publer, doc link swap)",
+   "Last-24h renders checked at build: NBA carousel, BTC supply Academy (era labels fixed), Strategy Reel + TikTok cut (safe zones checked)"
+  ],
+  "changes": [],
+  "skipped": true,
+  "ideas_for_owner": [
+   "Story Reel 'The Tower' still waiting for approval; today's 12:30 story slot stays empty until you OK it",
+   "Instagram Account Status check still open"
+  ]
  }
 ]
