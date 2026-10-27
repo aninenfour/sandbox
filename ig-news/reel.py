@@ -3,6 +3,7 @@
 
 Usage: python3 ig-news/reel.py ig-news/posts/<id>        (reads reel.json, writes ig-news/media/<id>/reel.mp4 + cover.jpg)
        python3 ig-news/reel.py ig-news/posts/<id> --square   (1080x1080 cut for X, no promo card: reel_square.mp4 + cover_square.jpg)
+       python3 ig-news/reel.py ig-news/posts/<id> --tiktok   (1080x1920 TikTok cut, no promo card: reel_tiktok.mp4 + cover_tiktok.jpg)
 
 reel.json:
 {"music": "<mixkit id>",                         # from tools/music.py pick / list
@@ -108,6 +109,13 @@ body.bgp{background:#0B0D0F}.bg{left:70px;right:70px;top:380px;bottom:auto;heigh
 }
 
 
+# --tiktok: keep text out of TikTok's UI (caption over the bottom ~20%, buttons down the right edge)
+TIKTOK_CSS = """
+.ptitle{top:150px}.bg{top:250px;height:720px}.tx{top:1020px;bottom:auto;left:90px;right:150px}
+.wm{top:70px;bottom:auto;left:60px;right:auto}.hook .t{font-size:84px}
+"""
+
+
 # --square: same slides re-laid out for 1080x1080 (owner, Oct 20: tier-list Reels also go to X as a square video)
 SQUARE_CSS = """html,body{height:1080px}
 .t{font-size:74px}.hook .t{font-size:86px}.num{font-size:46px;margin-bottom:22px}.num.tag{font-size:34px}.sub{font-size:38px;margin-top:22px}
@@ -165,17 +173,20 @@ def main():
     sq = '--square' in sys.argv
     if sq:
         HH, CSS = W, CSS + SQUARE_CSS
-    sfx = '_square' if sq else ''
+    tt = '--tiktok' in sys.argv  # TikTok cut (owner, Oct 27): same 9:16 video, no promo card (TikTok limits trading-platform promos)
+    sfx = '_square' if sq else ('_tiktok' if tt else '')
     spec = json.loads((post / 'reel.json').read_text())
     if 'tier' in spec:  # {"kind": "tier_all"} expands to one reveal slide per ranked item
         ex = []
         for sl in spec['slides']:
             ex += [{'kind': 'tier', 'upto': k + 1, 'dur': DUR['tier']} for k in range(len(spec['tier']['items']))] if sl.get('kind') == 'tier_all' else [sl]
         spec['slides'] = ex
-    if sq:  # X cut: no promo card (owner, Oct 20); hold the final slide longer instead
+    if sq or tt:  # X / TikTok cut: no promo card (owner, Oct 20 / Oct 27); hold the final slide longer instead
         spec['slides'] = [x for x in spec['slides'] if x.get('kind') != 'cta']
         spec['slides'][-1]['dur'] = max(float(spec['slides'][-1].get('dur', 0)), DUR['cta'])
     CSS += STYLE_CSS[spec.get('style', 'frame')]  # frame = house style (owner, Oct 24)
+    if tt and spec.get('style', 'frame') == 'frame':
+        CSS += TIKTOK_CSS
     out = ROOT / 'media' / post.name
     work = out / ('reel_frames' + sfx)
     shutil.rmtree(work, ignore_errors=True); work.mkdir(parents=True)
