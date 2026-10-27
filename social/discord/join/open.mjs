@@ -18,7 +18,7 @@ const ITEMS = [
   ['1,200', '2 × $20', 'futures vouchers', ''],
   ['10,000', '10 × $30', 'vouchers + goodies + Legend role', 'HOTCOIN LEGEND'],
 ];
-const EARN = [['+3', 'Like, repost + reply', 'every new Hotcoin tweet, within 24h'], ['+2', '/claim', 'every day'], ['+50', 'Platinum role', 'one-time boost']];
+const EARN = [['+3', 'Like, repost + reply', 'every new Hotcoin tweet, within 24h'], ['+2', '/claim', 'every day'], ['+30', 'Platinum role', 'one-time boost']];
 
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=block');
