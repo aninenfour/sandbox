@@ -29,10 +29,26 @@
 → ~~Newton and the South Sea Bubble~~ (2026-10-27)
 → Tulip mania · The Bitcoin pizza · Black Wednesday 1992 · The Mississippi Bubble · LTCM collapse · Mt. Gox · The 1929 crash in 4 steps · The man who sold the Eiffel Tower twice · Hetty Green, the witch of Wall Street · The Hunt brothers and silver · GameStop short squeeze · Nixon ends the gold standard 1971 · Zimbabwe's 100 trillion dollar note · The Dutch East India Company, first stock · Ponzi's postage stamps · Satoshi's lost coins · Enron · The Rothschild Waterloo legend (as "legend says") · Weimar hyperinflation · The DAO hack 2016
 
+## Hook bank (first line of every script; rotate types, log the type used)
+Adapted for third-person money stories. Never first person, never a price prediction.
+→ Curiosity: "Nobody talks about this, but the richest man in history..."
+→ Contrarian: "The smartest investor of 1720 was the worst one."
+→ Number: "One man turned $100 into $1 billion in a single day. Here's how."
+→ Story: "In 1636, a single flower cost more than a house."
+→ Mistake: "This was the biggest money mistake of the 20th century."
+→ Warning: "If you've ever chased a pump, this story is for you."
+→ Secret: "Here's what nobody tells you about the 1929 crash."
+→ Comparison: "Most people panic-sold. One woman bought everything."
+→ Direct callout: "If you're new to crypto, learn this story first."
+→ FOMO: "Everyone in London wanted in. That was the problem."
+→ Myth-busting: "You don't need to be a genius to beat the market. Newton proved it."
+→ Open loop: "He almost gave up, until this happened." (pay it off before the end)
+→ Skip: Prediction ("X will change everything"), Proof/Transformation ("I went from X to Y"): first-person or forecast, off-brand for Hotcoin.
+
 ## Learnings (updated by the weekly review)
 → (none yet)
 
 ## Results log
-| Date | Topic | Instagram | TikTok | Facebook | IG views | TT views | FB views | Notes |
-|---|---|---|---|---|---|---|---|---|
-| 2026-10-27 | Newton FOMO (South Sea Bubble) | https://www.instagram.com/reel/De_t0laFPxt/ | @hotcoin.com | https://www.facebook.com/reel/4635565790054485 | | | | first episode, red bodies (pre-green style) |
+| Date | Topic | Hook type | Instagram | TikTok | Facebook | IG views | TT views | FB views | Notes |
+|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-27 | Newton FOMO (South Sea Bubble) | Curiosity / superlative | https://www.instagram.com/reel/De_t0laFPxt/ | @hotcoin.com | https://www.facebook.com/reel/4635565790054485 | | | | first episode, red bodies (pre-green style) |

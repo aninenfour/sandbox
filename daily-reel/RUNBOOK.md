@@ -17,7 +17,7 @@ pip install --break-system-packages -q edge-tts numpy
 
 ## 2. Write
 Create `episodes/<YYYY-MM-DD>-<slug>/` with:
-- `script.txt`: one sentence per line, 110 to 135 words (45 to 52 s). Hook line first (a promise or a shock), then "Step one." to "Step four." each starting its own line, then a one-line lesson. Spoken rhythm, contractions, connectives. Say "legend says" for anything apocryphal. No price predictions, no "buy X", no em dashes.
+- `script.txt`: one sentence per line, 110 to 135 words (45 to 52 s). Hook line first, picked from the PLAYBOOK hook bank (rotate types; avoid the type used yesterday), then "Step one." to "Step four." each starting its own line, then a one-line lesson. Spoken rhythm, contractions, connectives. Say "legend says" for anything apocryphal. No price predictions, no "buy X", no em dashes.
 - `caption.md`: hook sentence, 2 short lines of story, 3 arrow (→) lessons, a question for comments, "Follow Hotcoin for more money stories.", then dot keywords (•finance •investing ...). Never name the account handle.
 - Fact-check every number and date in the script with a web search before going on.
 
@@ -47,7 +47,7 @@ PUBLER_API_KEY=<from the task prompt> python3 scripts/publish.py out/<slug>.mp4 
 Posts Instagram Reel (also on grid), TikTok (public) and Facebook Reel, spaced a minute apart, retrying on Publer's "one minute gap" clash. Writes `published.json` with the links.
 
 ## 7. Log and save
-- Add a row to the PLAYBOOK results log (date, topic, links; leave views blank for the weekly review).
+- Add a row to the PLAYBOOK results log (date, topic, hook type, links; leave views blank for the weekly review).
 - Commit the episode folder and PLAYBOOK changes (NOT images, audio or video; .gitignore covers them) and push.
 - Send the user one short message: topic, the three links, anything that went wrong.
 
