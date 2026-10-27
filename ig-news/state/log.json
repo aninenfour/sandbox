@@ -604,7 +604,7 @@
  {
   "id": "2026-10-26-reel-mstr-vs-btc",
   "type": "reel",
-  "slot": null,
+  "slot": "2026-10-27T21:30:00+08:00",
   "hook": "Why did Strategy fall 2x harder than BTC?",
   "topic": "Strategy vs Bitcoin (ticker review, number+question hook)",
   "music": "476",
@@ -614,8 +614,13 @@
    "https://api.nasdaq.com/api/quote/MSTR/info?assetclass=stocks",
    "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?range=2y&interval=1d"
   ],
-  "status": "not_scheduled",
-  "note": "Built and uploaded Mon 15:40 but the session worker restarted before scheduling, so the Mon 21:30 slot went empty. Re-use at Tue 15:40 for Tue 21:30 with prices refreshed to Monday's close (MSTR reports Thu after close)."
+  "status": "scheduled",
+  "note": "Built and uploaded Mon 15:40 but the session worker restarted before scheduling, so the Mon 21:30 slot went empty. Re-use at Tue 15:40 for Tue 21:30 with prices refreshed to Monday's close (MSTR reports Thu after close). Tue 15:40: refreshed to Mon close (MSTR $139.82, -74%; BTC -37%), added STRC buyback line; scheduled Tue 21:30.",
+  "channels": [
+   "instagram reel 21:30",
+   "facebook reel 21:30",
+   "instagram story 21:35"
+  ]
  },
  {
   "id": "2026-10-27-nba-prediction-markets",
