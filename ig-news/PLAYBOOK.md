@@ -85,6 +85,13 @@ A ~30 s photo slideshow video with IG-style text and music. Topic rotates (check
 - Numbers in a rule must be correct (e.g. 10 losses at 1% leaves 0.99^10 ≈ 90%). Ticker reviews: verify every figure; no price targets.
 - Publer: upload the mp4 with `upload_publer_media_from_url` (single `url`), then `submit_publer_posts` twice: Instagram `post_type: "reel"` and Facebook `post_type: "reel"` (same `media_id`, 21:30, FB follow line @HotcoinExchange). Caption: hook + the numbered points as emoji list + "Save this 📌" + follow block + hashtags. **Plus an Instagram Story** with the same video: a third `submit_publer_posts` call, `platform: "instagram"`, `post_type: "story"`, the reel's raw GitHub URL as `media_url` (+ `media_filename: "<slug>-story.mp4"`; passing the uploaded video `media_id` for a Story fails in Publer with a thumbnail error), `caption: "New Reel: <hook>"`, at **21:35**.
 
+## 7c. TikTok (owner, Oct 27)
+Every Reel also goes to **TikTok** (Publer account "Hotcoin Exchange (TikTok)") in the same slot as the IG/FB Reel.
+- Video: `python3 ig-news/reel.py <post> --tiktok` → `reel_tiktok.mp4`: same 9:16 Reel **without the Hotcoin promo card** (TikTok limits reach of content that promotes trading platforms) and with text moved out of TikTok's UI (caption over the bottom ~20%, buttons down the right edge). Check the first and last frames.
+- Caption (TikTok style, not the IG one): hook line with the number + 👇, 1–2 short lines, a comment question, "Not financial advice.", then 4–5 hashtags mixing broad and niche (#fintok #crypto #bitcoin #stocks #investing). **No** "Follow @hotcoinex" block, no link in bio, no "trade on Hotcoin".
+- Publer: `platform: "tiktok"`, `post_type: "video"`, `network_options: {"details": {"privacy": "PUBLIC_TO_EVERYONE", "comment": true, "duet": true, "stitch": true}}`.
+- Log every TikTok post in `state/tiktok_log.json` and in the Google Doc **"Hotcoin TikTok releases"** (id in `state/tracker.json` → `tiktok_doc_id`; columns Date | Time | Topic | Hook | Status / TikTok link | First frame, newest first; thumbnail = `media/<id>/thumb_tiktok.jpg`). When the post is live, replace "Scheduled" with the TikTok link.
+
 ## 8. Render, check, host, schedule
 ```bash
 P=ig-news/posts/<YYYY-MM-DD>-<slug>          # post.json + photos live here
