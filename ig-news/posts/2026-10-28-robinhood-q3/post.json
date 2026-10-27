@@ -1,0 +1,36 @@
+{
+ "type": "news",
+ "slides": [
+  {"kind": "cover", "photo": "phone.jpg", "photo_pos": "38% 50%",
+   "headline": [
+    {"t": "Robinhood now earns", "c": "ink", "max": 80},
+    {"t": "more from", "c": "ink", "max": 86},
+    {"t": "predictions", "c": "green", "max": 110},
+    {"t": "than from", "c": "ink", "max": 86},
+    {"t": "crypto", "c": "red", "max": 110}
+   ]},
+  {"kind": "text", "tag": "WHAT HAPPENED",
+   "paras": [
+    "Robinhood reported <g>record revenue of $1.42B</g> for Q3, up 12% from a year ago, but earnings of <r>$0.51 a share</r> missed the $0.55 analysts expected.",
+    "Crypto trading revenue fell to <r>$120M</r>, down 55% from a year earlier. Crypto volume dropped 38% to $50B.",
+    "Prediction markets brought in <g>$173M</g>, more than six times a year earlier."
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "$1.42B", "l": "Q3 revenue, a record"},
+     {"v": "$120M", "l": "crypto revenue, -55% YoY", "neg": true},
+     {"v": "$173M", "l": "prediction markets revenue"}]},
+   "source": "CoinDesk, Decrypt"},
+  {"kind": "text", "tag": "WHY IT MATTERS",
+   "paras": [
+    "A year ago crypto was about <u>21% of Robinhood's revenue</u>. Now it's <r>8.4%</r>.",
+    "Users traded a record <g>16.4 billion</g> event contracts, more than 7x a year earlier. Options and stocks also grew.",
+    "<u>When crypto trading cools, brokers chase the next thing people want to bet on.</u> Shares fell about 5% after hours."
+   ],
+   "media": {"type": "stats", "items": [
+     {"v": "8.4%", "l": "crypto share of revenue, from ~21%", "neg": true},
+     {"v": "16.4B", "l": "event contracts traded"},
+     {"v": "-5%", "l": "shares after hours", "neg": true}]},
+   "source": "CoinDesk, Decrypt"},
+  {"kind": "end"}
+ ]
+}
