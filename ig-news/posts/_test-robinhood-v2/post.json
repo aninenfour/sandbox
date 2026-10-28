@@ -1,0 +1,125 @@
+{
+ "type": "news",
+ "style": "v2",
+ "date": "OCT 28",
+ "slides": [
+  {
+   "kind": "ncover",
+   "photo": "phone.jpg",
+   "photo_pos": "38% 50%",
+   "headline": "Robinhood now makes more from [prediction markets] than from {crypto}",
+   "chips": [
+    {
+     "v": "$173M",
+     "l": "prediction markets"
+    },
+    {
+     "v": "$120M",
+     "l": "crypto, -55% in a year",
+     "neg": true
+    }
+   ]
+  },
+  {
+   "kind": "nrows",
+   "tag": "BY THE NUMBERS",
+   "title": "Robinhood's quarter in 4 lines",
+   "rows": [
+    {
+     "emoji": "\ud83d\udcb5",
+     "l": "Revenue",
+     "sub": "record, +12% YoY",
+     "v": "$1.42B",
+     "pos": true
+    },
+    {
+     "emoji": "\ud83c\udfaf",
+     "l": "Prediction markets",
+     "sub": "6x+ a year ago",
+     "v": "$173M",
+     "pos": true
+    },
+    {
+     "logo": "logos/BTC.svg",
+     "l": "Crypto",
+     "sub": "-55% YoY",
+     "v": "$120M",
+     "neg": true
+    },
+    {
+     "emoji": "\ud83d\udcc9",
+     "l": "Shares after hours",
+     "v": "-5%",
+     "neg": true
+    }
+   ],
+   "text": [
+    "Earnings missed: [$0.51] vs $0.55 a share."
+   ],
+   "source": "CoinDesk, Decrypt"
+  },
+  {
+   "kind": "nphoto",
+   "tag": "THE CATCH",
+   "title": "Earnings missed",
+   "photo": "phone.jpg",
+   "overlay": "$0.51 a share vs $0.55 expected",
+   "text": [
+    "Revenue was a record, but profit per share came in {below} forecasts."
+   ],
+   "source": "CoinDesk, Decrypt"
+  },
+  {
+   "kind": "nbars",
+   "tag": "Q3 REVENUE",
+   "title": "Bets on events passed crypto",
+   "bars": [
+    {
+     "l": "Options",
+     "v": 399,
+     "txt": "$399M"
+    },
+    {
+     "l": "Prediction markets",
+     "v": 173,
+     "txt": "$173M",
+     "hi": true
+    },
+    {
+     "l": "Stocks",
+     "v": 121,
+     "txt": "$121M"
+    },
+    {
+     "l": "Crypto",
+     "v": 120,
+     "txt": "$120M",
+     "neg": true
+    }
+   ],
+   "text": [
+    "Crypto revenue fell [55%] in a year.",
+    "Prediction markets grew more than [6x]."
+   ],
+   "source": "Robinhood Q3 2026 results via CoinDesk, Decrypt"
+  },
+  {
+   "kind": "nbig",
+   "tag": "WHY IT MATTERS",
+   "title": "Crypto is now a small slice",
+   "kicker": "CRYPTO SHARE OF REVENUE",
+   "big": "8.4%",
+   "delta": "was ~21%",
+   "neg": true,
+   "label": "of a record $1.42B quarter",
+   "text": [
+    "Users traded a record [16.4B] event contracts.",
+    "Shares fell {~5%} after hours."
+   ],
+   "source": "CoinDesk, Decrypt"
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}

@@ -9,9 +9,13 @@ Newest rules win over older ones and over PLAYBOOK.md wording where they conflic
 - **Hooks must be instantly clear.** Bad: "$1,000 since 2020. Who won?" (owner: weird, doesn't understand it, not interesting). A hook names the concrete thing and the payoff in plain words, e.g. "Bitcoin turned $1,000 into $8,648. Gold: $2,572." Read it as a stranger: if it needs the next slide to make sense, rewrite it.
 - **Style review every week** (owner: "you seem to forget it"): the Monday learning run must look at our last 7 days of slides next to top accounts and Hotcoin's X posts and ship at least one visual upgrade, with before/after renders.
 - Don't touch posts that are already scheduled or published.
-- Until the revision is done (Thu Oct 29 05:00 UTC+8 run), the 15:40 run must NOT pre-build tomorrow's Academy; leave it for the 07:40 run in the new style.
+- Done Oct 29: news v2 (news2.py) + Academy v2. See PLAYBOOK §4/§6. Before/after: research/2026-W44/style-revision-before-after.jpg.
 
 ## Hooks (cover headline + caption first line)
+- **CLEAR FIRST (owner, Oct 28).** A stranger must understand the cover with no other slide: name the thing + the result/number in plain words. Riddles and teasers that hide the answer are banned.
+  - Bad: "$1,000 since 2020. Who won?" · "Is this the end?" · "Robinhood just did something wild"
+  - Good: "Bitcoin turned $1,000 into $8,648" · "Robinhood now makes more from prediction markets than from crypto" · "Nvidia: $50 in 2004 is $90,244 today"
+  - Test: read it aloud to someone who doesn't trade. If they ask "what?", rewrite.
 - Simple words a trader would say out loud. One idea per cover. If it needs a comma, it's too long.
 - Lead with the **thing people know** (Bitcoin, Ledger, Russia, BlackRock, a famous name) in line 1 or 2.
 - Put a **number** on the cover when there is one ($86M, July 2027, 1 of 45). Numbers stop the scroll.
@@ -42,6 +46,7 @@ Examples (before → better):
   Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
 
 ## Changelog
+- 2026-10-29 (owner feedback Oct 28): full style revision. News v2: light background, Archivo + Manrope, graphic-first slides with 5 rotating layouts (ncover, nbars, nbig, nrows, nphoto), modern stat cards like Hotcoin's X posts. Academy v2: new fonts, chart on top and enlarged. Hooks must be instantly clear (no riddles). Weekly learning run now has a mandatory visual style review.
 - 2026-10-26 (weekly learning W44): tier lists capped at 1 per week (fatigue); number + question hooks answered with past data.
 - 2026-10-22 (daily review): tier lists should mix stocks/gold with crypto (comment data).
 - 2026-10-19 (daily review): Story tag now matches the post type (Hotcoin News / Hotcoin Academy / This week).

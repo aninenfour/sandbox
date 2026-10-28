@@ -3,7 +3,7 @@
 
 Usage: python3 ig-news/render.py posts/2026-10-16-usdc-eba
 Also writes media/<id>/story.jpg (1080x1920 Instagram Story announcing the post).
-Slide kinds: cover, text, end (news) · tcover, tslide (tutorial) · wcover, wday (weekly).
+Slide kinds: ncover, nbars, nbig, nrows, nphoto (news v2, see news2.py) · cover, text, end (old news) · tcover, tslide (tutorial) · wcover, wday (weekly).
 Inline markup in "html" fields: <g>green</g> <r>red</r> <u>underlined</u> <b>bold</b> <q>quote</q>.
 """
 import json, sys, pathlib, base64, mimetypes, html as H
@@ -158,7 +158,7 @@ FIT_JS = """
     while (tot() > panel.clientHeight - 44 && k++ < 40) lines.forEach(l => l.style.fontSize = (parseFloat(l.style.fontSize)*0.98)+'px'); }
   for (const b of document.querySelectorAll('.fitbody')) {
     const lim = +b.dataset.bottom; let fs = parseFloat(getComputedStyle(b).fontSize);
-    const blockers = [...document.querySelectorAll('.card,.stats,.vis,.wev')].map(e => e.getBoundingClientRect().top - 30);
+    const blockers = [...document.querySelectorAll('.card,.stats,.vis,.wev')].filter(e => e.getBoundingClientRect().top > b.getBoundingClientRect().top).map(e => e.getBoundingClientRect().top - 30);
     const bottom = Math.min(lim, ...blockers);
     while (b.getBoundingClientRect().bottom > bottom && fs > 24) { fs -= 1; b.style.fontSize = fs + 'px'; }
   }
@@ -193,6 +193,11 @@ def main():
         css += extra_templates.CSS
     except ImportError:
         pass
+    import news2  # v2 news layouts (owner, Oct 28): light, graphic-first, Archivo + Manrope
+    KINDS.update(news2.kinds(globals()))
+    css += news2.css()
+    if spec.get('style') == 'v2':
+        css += news2.ACADEMY_CSS
     import cta  # CTA end card + Story frame
     KINDS['end'] = cta.s_end(globals())
     css += cta.CSS.replace('GRAIN', uri(str(grain), ROOT) if grain.exists() else '')
@@ -205,10 +210,19 @@ def main():
         b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
         pg = b.new_page(viewport={'width': W, 'height': HGT}, device_scale_factor=2)  # 2160x2700 output: sharp text on zoom
         for n, s in enumerate(spec['slides'], 1):
+            s.setdefault('_date', spec.get('date', ''))
+            if spec.get('style') == 'v2' and s['kind'] == 'tslide' and s.get('visual'):  # bigger charts (graphic first)
+                v = s['visual']; v.setdefault('fs', 1.4)
+                if v['type'] == 'line': v['h'] = max(v.get('h', 300), 470)
+                if v['type'] == 'bars': v['row'] = max(v.get('row', 64), 96)
             body = KINDS[s['kind']](s, post_dir)
             pg.set_content(f'<!doctype html><html><head><meta charset="utf-8"><style>{css}</style></head><body>{body}</body></html>')
             pg.wait_for_load_state('networkidle')
             pg.evaluate('document.fonts.ready')
+            if spec.get('style') == 'v2' and s['kind'] == 'tslide':
+                pg.evaluate(news2.ACADEMY_JS)
+            if s['kind'] in news2.KINDS_V2 and pg.evaluate(news2.FIT_JS):
+                print(f'WARNING slide {n}: text runs past the bottom — shorten copy', file=sys.stderr)
             if pg.evaluate(FIT_JS):
                 print(f'WARNING slide {n}: body text overflows into footer — shorten copy', file=sys.stderr)
             f = out / f'{n:02d}.jpg'

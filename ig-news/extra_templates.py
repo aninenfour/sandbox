@@ -73,6 +73,7 @@ def _esc(s):
 
 def svg_line(v):
     """v: {series:[numbers], labels:[first,last] or [...], title, unit, color}"""
+    F = v.get('fs', 1)
     ys = v['series']; n = len(ys); w, h = 880, v.get('h', 300)
     lo, hi = min(ys), max(ys); pad = (hi - lo) * 0.08 or 1; lo -= pad; hi += pad
     X = lambda i: 10 + i * (w - 190) / (n - 1)
@@ -82,18 +83,19 @@ def svg_line(v):
     area = f'M{X(0):.1f},{h-40} L' + ' L'.join(f'{X(i):.1f},{Y(y):.1f}' for i, y in enumerate(ys)) + f' L{X(n-1):.1f},{h-40} Z'
     grid = ''.join(f'<line x1="10" x2="{w-180}" y1="{20+k*(h-60)/3:.0f}" y2="{20+k*(h-60)/3:.0f}" stroke="#ecece6" stroke-width="2"/>' for k in range(4))
     fmt = v.get('fmt', '{:,.0f}')
-    lab = ''.join(f'<text x="{X(int(i*(n-1)/(len(v.get("labels",[]))-1 or 1))):.0f}" y="{h-6}" font-size="21" fill="#8a9095" text-anchor="{'start' if i==0 else ('end' if i==len(v.get('labels',[]))-1 else 'middle')}">{_esc(l)}</text>' for i, l in enumerate(v.get('labels', [])))
+    lab = ''.join(f'<text x="{X(int(i*(n-1)/(len(v.get("labels",[]))-1 or 1))):.0f}" y="{h-6}" font-size="{21*F:.0f}" fill="#8a9095" text-anchor="{'start' if i==0 else ('end' if i==len(v.get('labels',[]))-1 else 'middle')}">{_esc(l)}</text>' for i, l in enumerate(v.get('labels', [])))
     marks = ''
     for m in v.get('marks', []):  # {i, text}
-        marks += f'<circle cx="{X(m["i"]):.0f}" cy="{Y(ys[m["i"]]):.0f}" r="9" fill="#0E1012"/><text x="{X(m["i"]):.0f}" y="{Y(ys[m["i"]])-20:.0f}" font-size="22" font-weight="700" text-anchor="middle" fill="#0E1012">{_esc(m["text"])}</text>'
+        marks += f'<circle cx="{X(m["i"]):.0f}" cy="{Y(ys[m["i"]]):.0f}" r="9" fill="#0E1012"/><text x="{X(m["i"]):.0f}" y="{Y(ys[m["i"]])-20:.0f}" font-size="{22*F:.0f}" font-weight="700" text-anchor="middle" fill="#0E1012">{_esc(m["text"])}</text>'
     return f'''<svg width="100%" viewBox="0 0 {w} {h}"><defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{col}" stop-opacity=".35"/><stop offset="1" stop-color="{col}" stop-opacity="0"/></linearGradient></defs>
 {grid}<path d="{area}" fill="url(#ga)"/><polyline points="{pts}" fill="none" stroke="{col}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="{X(n-1):.1f}" cy="{Y(ys[-1]):.1f}" r="10" fill="{col}"/><text x="{X(n-1)+18:.0f}" y="{Y(ys[-1])+9:.0f}" font-size="28" font-weight="800" fill="#0E1012">{_esc(v.get("last_label", fmt.format(ys[-1])))}</text>
-{'' if abs(Y(ys[-1]) - Y(hi-pad)) < 44 else f'<text x="{w-100}" y="{Y(hi-pad)+8:.0f}" font-size="20" fill="#8a9095">{_esc(fmt.format(hi-pad))}</text>'}<text x="{w-100}" y="{Y(lo+pad)+8:.0f}" font-size="20" fill="#8a9095">{_esc(fmt.format(lo+pad))}</text>{marks}{lab}</svg>'''
+<circle cx="{X(n-1):.1f}" cy="{Y(ys[-1]):.1f}" r="10" fill="{col}"/><text x="{X(n-1)+18:.0f}" y="{Y(ys[-1])+9:.0f}" font-size="{28*F:.0f}" font-weight="800" fill="#0E1012">{_esc(v.get("last_label", fmt.format(ys[-1])))}</text>
+{'' if abs(Y(ys[-1]) - Y(hi-pad)) < 44 else f'<text x="{w-100}" y="{Y(hi-pad)+8:.0f}" font-size="{20*F:.0f}" fill="#8a9095">{_esc(fmt.format(hi-pad))}</text>'}<text x="{w-100}" y="{Y(lo+pad)+8:.0f}" font-size="{20*F:.0f}" fill="#8a9095">{_esc(fmt.format(lo+pad))}</text>{marks}{lab}</svg>'''
 
 
 def svg_bars(v):
     """v: {items:[{l, v, txt?}]} horizontal bars; negatives drawn red."""
+    F = v.get('fs', 1)
     it = v['items']; w = 880; rh = v.get('row', 64); h = rh * len(it)
     m = max(abs(i['v']) for i in it) or 1; neg = any(i['v'] < 0 for i in it)
     x0 = 300 + (230 if neg else 0); span = (w - x0 - 140) if not neg else 230
@@ -101,9 +103,9 @@ def svg_bars(v):
     for k, i in enumerate(it):
         y = k * rh; bw = abs(i['v']) / m * span; col = GREEN if i['v'] >= 0 else RED
         x = x0 if i['v'] >= 0 else x0 - bw
-        out.append(f'<text x="0" y="{y+rh/2+9:.0f}" font-size="27" font-weight="600" fill="#0E1012">{_esc(i["l"])}</text>'
+        out.append(f'<text x="0" y="{y+rh/2+9:.0f}" font-size="{27*F:.0f}" font-weight="600" fill="#0E1012">{_esc(i["l"])}</text>'
                    f'<rect x="{x:.0f}" y="{y+12}" width="{max(bw,4):.0f}" height="{rh-24}" rx="8" fill="{col}"/>'
-                   f'<text x="{(x0+bw+14) if i["v"]>=0 else (x0+14):.0f}" y="{y+rh/2+9:.0f}" font-size="25" font-weight="700" fill="{"#0E1012" if i["v"]>=0 else RED}">{_esc(i.get("txt", i["v"]))}</text>')
+                   f'<text x="{(x0+bw+14) if i["v"]>=0 else (x0+14):.0f}" y="{y+rh/2+9:.0f}" font-size="{25*F:.0f}" font-weight="700" fill="{"#0E1012" if i["v"]>=0 else RED}">{_esc(i.get("txt", i["v"]))}</text>')
     axis = f'<line x1="{x0}" x2="{x0}" y1="0" y2="{h}" stroke="#cfcfc8" stroke-width="2"/>' if neg else ''
     return f'<svg width="100%" viewBox="0 0 {w} {h}">{axis}{"".join(out)}</svg>'
 
