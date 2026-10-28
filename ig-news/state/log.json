@@ -661,8 +661,9 @@
    "CoinDesk: Robinhood Q3 2026 results",
    "Decrypt: Robinhood Q3 2026 results"
   ],
-  "status": "scheduled",
-  "note": "Wed 07:40 run. Revenue $1.424B, EPS 0.51 vs 0.55, crypto $120M (-55%), prediction mkts $173M, 16.4B contracts. Photo: Marga Santoso / Unsplash. Combined IG+FB submit errored but created IG; FB added separately. Sources line put in caption (Publer can't add first_comment on edit)."
+  "status": "published",
+  "note": "Wed 07:40 run. Revenue $1.424B, EPS 0.51 vs 0.55, crypto $120M (-55%), prediction mkts $173M, 16.4B contracts. Photo: Marga Santoso / Unsplash. Combined IG+FB submit errored but created IG; FB added separately. Sources line put in caption (Publer can't add first_comment on edit).",
+  "ig_url": "https://www.instagram.com/p/DfB9DajEZga/"
  },
  {
   "id": "2026-10-28-academy-gold-btc-spx",
@@ -675,8 +676,9 @@
    "https://query1.finance.yahoo.com/v8/finance/chart/GC=F?interval=1mo",
    "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?interval=1mo"
   ],
-  "status": "scheduled",
-  "note": "Monthly closes Jan 2020 to Oct 2026: BTC $8,648 (max DD -73%), gold $2,572 (-17%), S&P $2,394 price only (-25%). Photo: Zlataky.cz / Unsplash."
+  "status": "published",
+  "note": "Monthly closes Jan 2020 to Oct 2026: BTC $8,648 (max DD -73%), gold $2,572 (-17%), S&P $2,394 price only (-25%). Photo: Zlataky.cz / Unsplash.",
+  "ig_url": "https://www.instagram.com/p/DfCRrDugCNP/"
  },
  {
   "id": "2026-10-28-whatif-gta-nvda",
@@ -690,8 +692,9 @@
    "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?interval=1d",
    "https://api.nasdaq.com/api/quote/NVDA/info?assetclass=stocks"
   ],
-  "status": "scheduled",
-  "note": "First WHAT IF Reel (owner Oct 28: slideshow Reels stopped). $50 on Oct 26, 2004 (close 0.12075 split-adj) -> $90,244 at $217.94 (Oct 27). Drawdowns -85% (2007-08), -66% (2021-22). IG+FB Reel, X video, TikTok 21:30; IG Story 21:35."
+  "status": "published",
+  "note": "First WHAT IF Reel (owner Oct 28: slideshow Reels stopped). $50 on Oct 26, 2004 (close 0.12075 split-adj) -> $90,244 at $217.94 (Oct 27). Drawdowns -85% (2007-08), -66% (2021-22). IG+FB Reel, X video, TikTok 21:30; IG Story 21:35.",
+  "ig_url": "https://www.instagram.com/reel/DfCiz2kgqQd/"
  },
  {
   "id": "run-2026-10-28-1540",
@@ -699,5 +702,38 @@
   "slot": "2026-10-28T15:40:00+08:00",
   "status": "skipped",
   "note": "15:40 run: today's 16:00, 19:00, 21:30 already scheduled (checked Publer). Tomorrow's Academy held for the Oct 29 05:00 style revision (owner feedback)."
+ },
+ {
+  "id": "2026-10-29-fed-hold-hike",
+  "type": "news",
+  "style": "v2",
+  "layouts": [
+   "nrows",
+   "nbig"
+  ],
+  "slot": "2026-10-29T16:00:00+08:00",
+  "title": "The Fed held rates, but 2 officials voted for a hike",
+  "score": null,
+  "sources": [
+   "https://www.coindesk.com/markets/2026/10/28/fed-leaves-interest-rates-unchanged-as-expected",
+   "https://decrypt.co/382092/fed-hold-interest-rate-steady-bitcoin-december-rate-hike"
+  ],
+  "status": "scheduled",
+  "note": "First v2 news. 3.75-4.00% held, 10-2 (Cook, Hammack for hike), CPI 3.7% (Decrypt/Labor Dept), Dec 8-9 next. Photo: Fed Eccles building, Wikimedia Commons."
+ },
+ {
+  "id": "2026-10-29-academy-bigtech-ytd",
+  "type": "tutorial",
+  "style": "v2",
+  "slot": "2026-10-29T19:00:00+08:00",
+  "title": "Apple is up 26% this year. Bitcoin is down 7%.",
+  "score": null,
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?range=2y&interval=1d",
+   "https://api.nasdaq.com/api/quote/AAPL/info?assetclass=stocks",
+   "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
+  ],
+  "status": "scheduled",
+  "note": "Data Day. YTD to Oct 28 close: AAPL +26.5, NVDA +15.5, SPX +13.1, AMZN +10.3, MSFT +9.8, GOOGL +3.8, gold -6.4, BTC -7.1, META -7.2, TSLA -10.1. Calendar topic swapped (was 'Big Tech moves after last 8 earnings'). Photo: Pao Pattarapol / Unsplash."
  }
 ]
