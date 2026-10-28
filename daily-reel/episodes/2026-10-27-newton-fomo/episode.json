@@ -1,5 +1,6 @@
 {
   "slug": "newton-fomo",
+  "thumb": {"text": "Newton lost a fortune to FOMO", "hi": ["fortune", "FOMO"], "kicker": "True story", "img": "nw01", "zoom": 1.45, "fx": 45, "fy": 38},
   "highlight": ["FOMO","1720","triples","pops","crash","twenty","thousand","pounds","millions","plan","gravity","rich"],
   "scenes": [
     {"at": "The smartest man", "img": "s01", "mode": "wide", "fx": 50, "fy": 50},
