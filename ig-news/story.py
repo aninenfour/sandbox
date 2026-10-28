@@ -71,13 +71,17 @@ def main():
     else:
         scene = (post / 'scene.js').read_text()
     import base64
+    mime = {'.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp'}
+    imgs = {f.name: f'data:{mime[f.suffix.lower()]};base64,' + base64.b64encode(f.read_bytes()).decode()
+            for f in post.iterdir() if f.suffix.lower() in mime}  # post images for the scene (window.IMGS)
     logo = 'data:image/svg+xml;base64,' + base64.b64encode((ROOT / 'assets' / 'symbol.svg').read_bytes()).decode()
     html = f'''<!doctype html><html><head><meta charset="utf-8"><style>html,body{{margin:0;background:#000}}canvas{{display:block}}</style></head>
-<body><canvas id="c" width="{W}" height="{H}"></canvas><script>window.HOTCOIN_LOGO="{logo}";</script><script>{kit}</script><script>{scene}</script></body></html>'''
+<body><canvas id="c" width="{W}" height="{H}"></canvas><script>window.HOTCOIN_LOGO="{logo}";window.IMGS={json.dumps(imgs)};</script><script>{kit}</script><script>{scene}</script></body></html>'''
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
         pg = b.new_page(viewport={'width': W, 'height': H})
         pg.set_content(html); pg.wait_for_load_state('networkidle'); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(300)
+        pg.wait_for_function("typeof IM === 'undefined' || Object.values(IM).every(i => i.complete)")
         dur = pg.evaluate('window.DURATION'); cues = pg.evaluate('window.CUES'); cover_t = pg.evaluate('window.COVER_T || 6.8')
         n = int(round(dur * FPS))
         for i in range(n):

@@ -75,6 +75,7 @@ Put the data source on each chart slide (`source`).
 - **Tier list** (Saturday only, max 1 a week), as below.
 - Channels for both: IG Reel + FB Reel (21:30), IG Story (21:35, media_url), TikTok (§7c, same story.mp4, no separate cut needed), X (`platform: "twitter"`, `post_type: "video"`, hook + 2 lines + question + 2 hashtags, no CTA/follow line).
 - Vary the music; don't reuse the previous Reel's track.
+- **Owner feedback on the first one (GTA vs Nvidia, Oct 28): good, but a bit too quick.** The template now runs slower (16 s chart, ~33 s total) with a slow fade-in reveal. **Use real images** (owner OK'd, no copyright worry): download the real cover/box art into the post folder as `buy.card_img` and a cut-out of the real object (disc, phone, console; transparent PNG, remove the background if needed) as `buy.dot_img` (+ `"spin": true` for discs). Search Wikimedia Commons / official press images / the web.
 
 Old slideshow notes below are kept only for the tier list:
 A ~30 s photo slideshow video with IG-style text and music. Topic rotates (check `log.json`, don't repeat a topic within 14 days):

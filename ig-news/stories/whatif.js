@@ -2,12 +2,15 @@
 // Real price history draws itself, the dot is the object riding the line, a live $ counter, a big reveal.
 // Data comes from window.SPEC (the post's whatif.json): amount, year, buy {label, price, icon}, invest {label},
 // series [[date, value of the money]], events [{d, txt, c}], reveal {value, sub}, lesson [{t, c}].
+// Real images (owner OK'd, Oct 28): put files in the post folder and name them in buy.card_img (cover/box art on the
+// choice card) and buy.dot_img (cut-out object that rides the line, e.g. the real disc; buy.spin: true rotates it).
 const S = window.SPEC, PTS = S.series, N = PTS.length;
-const T = {year: .25, cash: 1.3, choice: 2.6, fly: 4.6, c0: 5.4, c1: 17.4, rev: 17.9};
-const LESSON = S.lesson, L0 = T.rev + 2.9, LT = lessonTimes(L0, LESSON, 19);
+// Owner, Oct 28: slower pacing and a smoother, slower reveal (longer video is fine).
+const T = {year: .25, cash: 1.4, choice: 2.9, fly: 5.6, c0: 6.6, c1: 22.6, rev: 23.6, out: 28.2};
+const LESSON = S.lesson, L0 = T.out + .6, LT = lessonTimes(L0, LESSON, 19);
 const LEND = LT[LT.length - 1] + LESSON[LESSON.length - 1].t.length / 19;
 window.DURATION = LEND + 3.2;
-window.COVER_T = T.rev + .9;            // cover = the reveal
+window.COVER_T = T.rev + 1.6;            // cover = the reveal
 const CX0 = 110, CX1 = 970, CY0 = 720, CY1 = 1460;           // chart box
 const fmt = v => '$' + Math.round(v).toLocaleString('en-US');
 const idxAt = t => clamp((t - T.c0) / (T.c1 - T.c0)) * (N - 1);
@@ -20,14 +23,25 @@ window.CUES = (() => {
   let y0 = +PTS[0][0].slice(0, 4);
   PTS.forEach((p, i) => { const y = +p[0].slice(0, 4); if (y !== y0) { c.push({t: evTime(i), s: 'key', pitch: 1}); y0 = y; } });
   EV.forEach(e => c.push({t: evTime(e.i), s: e.c === 'red' ? 'crash' : 'chime'}));
-  c.push({t: T.rev - .05, s: 'cut'}, {t: T.rev, s: 'stamp'}, {t: T.rev + .1, s: 'cash'}, {t: T.rev + .5, s: 'cheer'});
+  c.push({t: T.rev - .05, s: 'cut'}, {t: T.rev + .9, s: 'stamp'}, {t: T.rev + 1.0, s: 'cash'}, {t: T.rev + 1.4, s: 'cheer'});
   let k = L0; LESSON.forEach(l => { for (let i = 0; i < l.t.length; i++) if (l.t[i] !== ' ') c.push({t: k + i / 19, s: 'key'}); k += l.t.length / 19 + .35; });
-  c.push({t: T.rev + 2.6, s: 'pad'}, {t: LEND + .6, s: 'chime'});
+  c.push({t: T.out - .4, s: 'pad'}, {t: LEND + .6, s: 'chime'});
   return c;
 })();
 
 // ---- objects (generic drawings, no logos)
+const IM = {}; for (const [k, src] of Object.entries(window.IMGS || {})) { IM[k] = new Image(); IM[k].src = src; }
+function photo(name, x, y, w, h, round = 0) {  // real photo/cutout, fit inside w x h
+  const im = IM[name]; if (!im || !im.naturalWidth) return false;
+  const sc = Math.min(w / im.naturalWidth, h / im.naturalHeight), dw = im.naturalWidth * sc, dh = im.naturalHeight * sc;
+  ctx.save(); if (round) { ctx.beginPath(); ctx.roundRect(x - dw / 2, y - dh / 2, dw, dh, round); ctx.clip(); }
+  ctx.drawImage(im, x - dw / 2, y - dh / 2, dw, dh); ctx.restore(); return true;
+}
 function icon(kind, x, y, r, t) {
+  if (kind === S.buy.icon && S.buy.dot_img && IM[S.buy.dot_img]) {  // real object photo as the dot
+    ctx.save(); ctx.translate(x, y); if (S.buy.spin) ctx.rotate(t * 5);
+    ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 24; photo(S.buy.dot_img, 0, 0, r * 2.2, r * 2.2); ctx.restore(); return;
+  }
   ctx.save(); ctx.translate(x, y);
   if (kind === 'disc') {
     ctx.rotate(t * 5);
@@ -121,6 +135,7 @@ function draw(t) {
     ctx.globalAlpha = a; ctx.fillStyle = '#121C29'; ctx.strokeStyle = '#3B4B5E'; ctx.lineWidth = 5;
     for (const x of [LX, RX]) { ctx.beginPath(); ctx.roundRect(x - 220, 700, 440, 560, 34); ctx.fill(); ctx.stroke(); }
     icon('chart', RX, 880, 120, t);
+    if (S.buy.card_img) photo(S.buy.card_img, LX, 880, 300, 300, 16);
     ctx.globalAlpha = a; ctx.font = '800 46px Inter, sans-serif'; ctx.fillStyle = P.white; ctx.textAlign = 'center';
     S.buy.label.split('\n').forEach((l, k) => ctx.fillText(l, LX, 1090 + k * 56));
     S.invest.card.split('\n').forEach((l, k) => ctx.fillText(l, RX, 1090 + k * 56));
@@ -130,19 +145,19 @@ function draw(t) {
     ctx.globalAlpha = 1;
   }
   if (t < T.c0 + .05 && t > T.fly - .4) icon(S.buy.icon, ...(() => { const fk = easeInOut(prog(t, T.fly - .4, T.c0)); return [lerp(290, CX0, fk), lerp(880, CY1 - 60, fk)]; })(), 110 - 48 * prog(t, T.fly - .4, T.c0), t);
-  else if (t <= T.fly - .4 && ch > 0) icon(S.buy.icon, lerp(W / 2, 290, ch), 880, 110, t);
+  else if (t <= T.fly - .4 && ch > 0 && !S.buy.card_img) icon(S.buy.icon, lerp(W / 2, 290, ch), 880, 110, t);
   // 4. the chart
-  const cha = prog(t, T.c0 - .3, T.c0 + .2) * (1 - prog(t, T.rev + 2.2, T.rev + 2.8));
+  const cha = prog(t, T.c0 - .3, T.c0 + .2) * (1 - .75 * easeInOut(prog(t, T.rev, T.rev + 1.0))) * (1 - prog(t, T.out - .6, T.out));
   if (cha > 0) chart(t, cha);
   // 5. the reveal
   if (t >= T.rev) {
-    const k = easeOut(prog(t, T.rev, T.rev + .25)), a = 1 - prog(t, T.rev + 2.2, T.rev + 2.8);
-    ctx.globalAlpha = .9 * a; ctx.fillStyle = P.bg1; ctx.fillRect(-80, -80, W + 160, H + 160); ctx.globalAlpha = 1;
+    const k = easeInOut(prog(t, T.rev + .3, T.rev + 1.1)), a = 1 - prog(t, T.out - .6, T.out);
+    ctx.globalAlpha = .9 * a * easeInOut(prog(t, T.rev, T.rev + 1.0)); ctx.fillStyle = P.bg1; ctx.fillRect(-80, -80, W + 160, H + 160); ctx.globalAlpha = 1;
     if (a > 0) {
-      ctx.save(); ctx.translate(W / 2, 960); ctx.scale(lerp(1.6, 1, k), lerp(1.6, 1, k)); ctx.translate(-W / 2, -960);
+      ctx.save(); ctx.translate(W / 2, 960); ctx.scale(lerp(.7, 1, k), lerp(.7, 1, k)); ctx.translate(-W / 2, -960);
       title(S.reveal.value, 960, 200, P.green, a * k); ctx.restore();
-      title(S.reveal.sub, 1110, 50, P.white, a * prog(t, T.rev + .5, T.rev + .8), 700);
-      title(S.reveal.game, 1190, 44, P.dim, a * prog(t, T.rev + 1.0, T.rev + 1.3), 600);
+      title(S.reveal.sub, 1110, 50, P.white, a * prog(t, T.rev + 1.5, T.rev + 2.0), 700);
+      title(S.reveal.game, 1190, 44, P.dim, a * prog(t, T.rev + 2.3, T.rev + 2.8), 600);
     }
   }
   // 6. lesson + end card
