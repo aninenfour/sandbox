@@ -214,7 +214,7 @@ def main():
             if spec.get('style') == 'v2' and s['kind'] == 'tslide' and s.get('visual'):  # bigger charts (graphic first)
                 v = s['visual']; v.setdefault('fs', 1.4)
                 if v['type'] == 'line': v['h'] = max(v.get('h', 300), 470)
-                if v['type'] == 'bars': v['row'] = max(v.get('row', 64), 96)
+                if v['type'] == 'bars': v['row'] = max(v.get('row', 64), 96 if len(v['items']) <= 6 else 64)
             body = KINDS[s['kind']](s, post_dir)
             pg.set_content(f'<!doctype html><html><head><meta charset="utf-8"><style>{css}</style></head><body>{body}</body></html>')
             pg.wait_for_load_state('networkidle')

@@ -98,7 +98,7 @@ def svg_bars(v):
     F = v.get('fs', 1)
     it = v['items']; w = 880; rh = v.get('row', 64); h = rh * len(it)
     m = max(abs(i['v']) for i in it) or 1; neg = any(i['v'] < 0 for i in it)
-    x0 = 300 + (230 if neg else 0); span = (w - x0 - 140) if not neg else 230
+    x0 = 300 + (230 if neg else 0); span = (w - x0 - 140 * F) if not neg else min(230, w - x0 - 120 * F)
     out = []
     for k, i in enumerate(it):
         y = k * rh; bw = abs(i['v']) / m * span; col = GREEN if i['v'] >= 0 else RED

@@ -208,7 +208,7 @@ ACADEMY_JS = """
   // grow the graphic into the free space (owner: graphics first, not small charts)
   const free = 1190 - (b.getBoundingClientRect().bottom - sl.top);
   const vh = v.getBoundingClientRect().height, z = Math.min(1.7, Math.max(1, (vh + free - 20) / vh));
-  if (z > 1.02 && !v.querySelector('svg')) {  // HTML visuals (stats, tables) scale up; SVG charts are sized in render.py
+  if (z > 1.02 && !v.querySelector('svg, .sg')) {  // HTML visuals (stats, tables) scale up; SVG charts are sized in render.py
     v.style.right = 'auto'; v.style.width = (956 / z) + 'px'; v.style.transformOrigin = 'top left'; v.style.transform = `scale(${z})`;
     b.style.top = (top + v.getBoundingClientRect().height + 40) + 'px';
   }

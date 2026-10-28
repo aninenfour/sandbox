@@ -1,0 +1,382 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "slides": [
+  {
+   "kind": "tcover",
+   "chip": "Data Day",
+   "title": "Apple is up 26% this year. <span class='hl2'>Bitcoin is down 7%.</span>",
+   "sub": "How Big Tech, Bitcoin and gold did in 2026 so far, as earnings land this week.",
+   "hero": "hero.jpg",
+   "hero_pos": "center 50%",
+   "chapters": [
+    "The 2026 scoreboard",
+    "Apple's run",
+    "Bitcoin's year",
+    "Who reports this week",
+    "What it means"
+   ]
+  },
+  {
+   "kind": "tslide",
+   "num": "01",
+   "of": "1/5",
+   "title": "The 2026 <span class='g'>scoreboard</span>",
+   "paras": [
+    "Price change since Jan 1, to Wednesday's close.",
+    "<g>5 of 7</g> Big Tech stocks are up. Meta and Tesla are down, with Bitcoin."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "2026 so far (%)",
+    "items": [
+     {
+      "l": "Apple",
+      "v": 26.5,
+      "txt": "+26.5%"
+     },
+     {
+      "l": "Nvidia",
+      "v": 15.5,
+      "txt": "+15.5%"
+     },
+     {
+      "l": "S&P 500",
+      "v": 13.1,
+      "txt": "+13.1%"
+     },
+     {
+      "l": "Amazon",
+      "v": 10.3,
+      "txt": "+10.3%"
+     },
+     {
+      "l": "Microsoft",
+      "v": 9.8,
+      "txt": "+9.8%"
+     },
+     {
+      "l": "Alphabet",
+      "v": 3.8,
+      "txt": "+3.8%"
+     },
+     {
+      "l": "Gold",
+      "v": -6.4,
+      "txt": "-6.4%"
+     },
+     {
+      "l": "Bitcoin",
+      "v": -7.1,
+      "txt": "-7.1%"
+     },
+     {
+      "l": "Meta",
+      "v": -7.2,
+      "txt": "-7.2%"
+     },
+     {
+      "l": "Tesla",
+      "v": -10.1,
+      "txt": "-10.1%"
+     }
+    ]
+   },
+   "source": "Yahoo Finance daily closes, Dec 31, 2025 to Oct 28, 2026; prices cross-checked with Nasdaq.com and CoinGecko"
+  },
+  {
+   "kind": "tslide",
+   "num": "02",
+   "of": "2/5",
+   "title": "Apple's <span class='g'>run</span>",
+   "paras": [
+    "$1,000 in Apple on Jan 1 is about <g>$1,265</g> now.",
+    "The best of the Big Tech names this year."
+   ],
+   "visual": {
+    "type": "line",
+    "title": "$1,000 in Apple, 2026",
+    "series": [
+     1000,
+     965,
+     954,
+     956,
+     907,
+     912,
+     943,
+     993,
+     1015,
+     1007,
+     941,
+     959,
+     1001,
+     972,
+     966,
+     956,
+     941,
+     935,
+     912,
+     929,
+     907,
+     941,
+     952,
+     953,
+     969,
+     979,
+     997,
+     994,
+     1018,
+     1057,
+     1084,
+     1104,
+     1112,
+     1134,
+     1148,
+     1141,
+     1109,
+     1087,
+     1101,
+     1093,
+     1012,
+     1064,
+     1150,
+     1163,
+     1158,
+     1228,
+     1199,
+     1239,
+     1226,
+     1138,
+     1153,
+     1112,
+     1124,
+     1145,
+     1140,
+     1176,
+     1195,
+     1163,
+     1222,
+     1223,
+     1247,
+     1236,
+     1212,
+     1227,
+     1238,
+     1254,
+     1258,
+     1249,
+     1279,
+     1265
+    ],
+    "labels": [
+     "Jan",
+     "Apr",
+     "Jul",
+     "Oct"
+    ],
+    "fmt": "${:,.0f}",
+    "last_label": "$1,265",
+    "color": "#3E8E1E"
+   },
+   "source": "Yahoo Finance (AAPL)"
+  },
+  {
+   "kind": "tslide",
+   "num": "03",
+   "of": "3/5",
+   "title": "Bitcoin's <span class='g'>year</span>",
+   "paras": [
+    "$1,000 in Bitcoin on Jan 1 is about <r>$929</r> now.",
+    "It started 2026 near $87,500 and sits near $81,300."
+   ],
+   "visual": {
+    "type": "line",
+    "title": "$1,000 in Bitcoin, 2026",
+    "series": [
+     1000,
+     1035,
+     1071,
+     1034,
+     1042,
+     1092,
+     1070,
+     1021,
+     1018,
+     1018,
+     961,
+     899,
+     717,
+     803,
+     766,
+     797,
+     771,
+     777,
+     738,
+     771,
+     751,
+     831,
+     769,
+     799,
+     811,
+     855,
+     799,
+     775,
+     815,
+     758,
+     780,
+     765,
+     787,
+     820,
+     809,
+     855,
+     865,
+     873,
+     885,
+     884,
+     872,
+     897,
+     931,
+     922,
+     920,
+     904,
+     879,
+     886,
+     880,
+     850,
+     843,
+     762,
+     696,
+     721,
+     726,
+     751,
+     736,
+     734,
+     716,
+     686,
+     687,
+     703,
+     726,
+     711,
+     729,
+     742,
+     730,
+     745,
+     743,
+     747,
+     730,
+     717,
+     732,
+     741,
+     730,
+     725,
+     718,
+     792,
+     881,
+     898,
+     889,
+     898,
+     929,
+     918,
+     894,
+     883,
+     864,
+     924,
+     990,
+     964,
+     965,
+     955,
+     969,
+     978,
+     943,
+     934,
+     939,
+     937,
+     960,
+     923,
+     923,
+     929
+    ],
+    "labels": [
+     "Jan",
+     "Apr",
+     "Jul",
+     "Oct"
+    ],
+    "fmt": "${:,.0f}",
+    "last_label": "$929",
+    "color": "#E5322D"
+   },
+   "source": "Yahoo Finance (BTC-USD), CoinGecko"
+  },
+  {
+   "kind": "tslide",
+   "num": "04",
+   "of": "4/5",
+   "title": "Who reports <span class='g'>this week</span>",
+   "paras": [
+    "Earnings can move these stocks <u>5-10% in a day</u>, up or down.",
+    "Times are UTC+8."
+   ],
+   "visual": {
+    "type": "table",
+    "cols": [
+     "Company",
+     "Results",
+     "2026 so far"
+    ],
+    "rows": [
+     [
+      "Microsoft",
+      "Thu 05:30",
+      "<g>+9.8%</g>"
+     ],
+     [
+      "Alphabet",
+      "Thu 04:30",
+      "<g>+3.8%</g>"
+     ],
+     [
+      "Amazon",
+      "Fri 05:00",
+      "<g>+10.3%</g>"
+     ]
+    ]
+   },
+   "source": "Company earnings calendars; Yahoo Finance"
+  },
+  {
+   "kind": "tslide",
+   "num": "05",
+   "of": "5/5",
+   "title": "What it <span class='g'>means</span>",
+   "paras": [
+    "Tech and Bitcoin often move together. <u>Not this year.</u>",
+    "One year is a short window. Spreading money across assets means no single one decides your year."
+   ],
+   "visual": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "+13.1%",
+      "l": "S&P 500",
+      "color": "#3E8E1E"
+     },
+     {
+      "v": "-7.1%",
+      "l": "Bitcoin",
+      "color": "#E5322D"
+     },
+     {
+      "v": "-6.4%",
+      "l": "Gold",
+      "color": "#E5322D"
+     }
+    ]
+   },
+   "source": "Yahoo Finance. Past performance doesn't predict future returns. Not financial advice."
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
