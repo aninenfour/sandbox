@@ -1,0 +1,918 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 49.376,
+ "words": [
+  {
+   "word": "A",
+   "start": 0.0,
+   "end": 0.172,
+   "at": 0.0,
+   "until": 5.2
+  },
+  {
+   "word": "bond",
+   "start": 0.258,
+   "end": 0.602,
+   "at": 7.7,
+   "until": 18.1
+  },
+  {
+   "word": "is",
+   "start": 0.659,
+   "end": 0.774,
+   "at": 19.8,
+   "until": 23.2
+  },
+  {
+   "word": "just",
+   "start": 0.826,
+   "end": 1.032,
+   "at": 24.8,
+   "until": 31.0
+  },
+  {
+   "word": "a",
+   "start": 1.075,
+   "end": 1.118,
+   "at": 32.2,
+   "until": 33.5
+  },
+  {
+   "word": "loan.",
+   "start": 1.204,
+   "end": 1.634,
+   "at": 36.1,
+   "until": 49.0
+  },
+  {
+   "word": "You",
+   "start": 1.871,
+   "end": 2.581,
+   "at": 56.1,
+   "until": 77.4
+  },
+  {
+   "word": "hand",
+   "start": 2.632,
+   "end": 2.839,
+   "at": 79.0,
+   "until": 85.2
+  },
+  {
+   "word": "over",
+   "start": 2.89,
+   "end": 3.097,
+   "at": 86.7,
+   "until": 92.9
+  },
+  {
+   "word": "a",
+   "start": 3.14,
+   "end": 3.183,
+   "at": 94.2,
+   "until": 95.5
+  },
+  {
+   "word": "thousand",
+   "start": 3.23,
+   "end": 3.613,
+   "at": 96.9,
+   "until": 108.4
+  },
+  {
+   "word": "dollars,",
+   "start": 3.667,
+   "end": 4.473,
+   "at": 110.0,
+   "until": 134.2
+  },
+  {
+   "word": "they",
+   "start": 4.525,
+   "end": 4.731,
+   "at": 135.8,
+   "until": 141.9
+  },
+  {
+   "word": "pay",
+   "start": 4.774,
+   "end": 4.903,
+   "at": 143.2,
+   "until": 147.1
+  },
+  {
+   "word": "you,",
+   "start": 4.989,
+   "end": 5.333,
+   "at": 149.7,
+   "until": 160.0
+  },
+  {
+   "word": "say,",
+   "start": 5.419,
+   "end": 5.763,
+   "at": 162.6,
+   "until": 172.9
+  },
+  {
+   "word": "forty",
+   "start": 5.82,
+   "end": 6.108,
+   "at": 174.6,
+   "until": 183.2
+  },
+  {
+   "word": "a",
+   "start": 6.194,
+   "end": 6.28,
+   "at": 185.8,
+   "until": 188.4
+  },
+  {
+   "word": "year,",
+   "start": 6.366,
+   "end": 7.14,
+   "at": 191.0,
+   "until": 214.2
+  },
+  {
+   "word": "that's",
+   "start": 7.174,
+   "end": 7.355,
+   "at": 215.2,
+   "until": 220.7
+  },
+  {
+   "word": "the",
+   "start": 7.366,
+   "end": 7.398,
+   "at": 221.0,
+   "until": 221.9
+  },
+  {
+   "word": "coupon,",
+   "start": 7.484,
+   "end": 8.516,
+   "at": 224.5,
+   "until": 255.5
+  },
+  {
+   "word": "and",
+   "start": 8.559,
+   "end": 8.688,
+   "at": 256.8,
+   "until": 260.6
+  },
+  {
+   "word": "you",
+   "start": 8.71,
+   "end": 8.774,
+   "at": 261.3,
+   "until": 263.2
+  },
+  {
+   "word": "get",
+   "start": 8.817,
+   "end": 8.946,
+   "at": 264.5,
+   "until": 268.4
+  },
+  {
+   "word": "the",
+   "start": 8.989,
+   "end": 9.118,
+   "at": 269.7,
+   "until": 273.5
+  },
+  {
+   "word": "thousand",
+   "start": 9.157,
+   "end": 9.462,
+   "at": 274.7,
+   "until": 283.9
+  },
+  {
+   "word": "back",
+   "start": 9.531,
+   "end": 9.806,
+   "at": 285.9,
+   "until": 294.2
+  },
+  {
+   "word": "at",
+   "start": 9.835,
+   "end": 9.892,
+   "at": 295.1,
+   "until": 296.8
+  },
+  {
+   "word": "the",
+   "start": 9.935,
+   "end": 10.065,
+   "at": 298.1,
+   "until": 301.9
+  },
+  {
+   "word": "end.",
+   "start": 10.151,
+   "end": 10.667,
+   "at": 304.5,
+   "until": 320.0
+  },
+  {
+   "word": "Here's",
+   "start": 10.89,
+   "end": 11.871,
+   "at": 326.7,
+   "until": 356.1
+  },
+  {
+   "word": "the",
+   "start": 11.892,
+   "end": 11.957,
+   "at": 356.8,
+   "until": 358.7
+  },
+  {
+   "word": "weird",
+   "start": 12.0,
+   "end": 12.215,
+   "at": 360.0,
+   "until": 366.4
+  },
+  {
+   "word": "bit",
+   "start": 12.28,
+   "end": 12.473,
+   "at": 368.4,
+   "until": 374.2
+  },
+  {
+   "word": "though.",
+   "start": 12.51,
+   "end": 12.817,
+   "at": 375.3,
+   "until": 384.5
+  },
+  {
+   "word": "If",
+   "start": 13.104,
+   "end": 13.677,
+   "at": 393.1,
+   "until": 410.3
+  },
+  {
+   "word": "new",
+   "start": 13.72,
+   "end": 13.849,
+   "at": 411.6,
+   "until": 415.5
+  },
+  {
+   "word": "bonds",
+   "start": 13.922,
+   "end": 14.28,
+   "at": 417.7,
+   "until": 428.4
+  },
+  {
+   "word": "start",
+   "start": 14.323,
+   "end": 14.538,
+   "at": 429.7,
+   "until": 436.1
+  },
+  {
+   "word": "paying",
+   "start": 14.587,
+   "end": 14.882,
+   "at": 437.6,
+   "until": 446.5
+  },
+  {
+   "word": "fifty,",
+   "start": 14.968,
+   "end": 15.914,
+   "at": 449.0,
+   "until": 477.4
+  },
+  {
+   "word": "nobody",
+   "start": 15.963,
+   "end": 16.258,
+   "at": 478.9,
+   "until": 487.7
+  },
+  {
+   "word": "wants",
+   "start": 16.301,
+   "end": 16.516,
+   "at": 489.0,
+   "until": 495.5
+  },
+  {
+   "word": "your",
+   "start": 16.551,
+   "end": 16.688,
+   "at": 496.5,
+   "until": 500.6
+  },
+  {
+   "word": "forty,",
+   "start": 16.774,
+   "end": 17.806,
+   "at": 503.2,
+   "until": 534.2
+  },
+  {
+   "word": "so",
+   "start": 17.835,
+   "end": 17.892,
+   "at": 535.1,
+   "until": 536.8
+  },
+  {
+   "word": "to",
+   "start": 17.949,
+   "end": 18.065,
+   "at": 538.5,
+   "until": 542.0
+  },
+  {
+   "word": "sell",
+   "start": 18.116,
+   "end": 18.323,
+   "at": 543.5,
+   "until": 549.7
+  },
+  {
+   "word": "it",
+   "start": 18.352,
+   "end": 18.409,
+   "at": 550.6,
+   "until": 552.3
+  },
+  {
+   "word": "you",
+   "start": 18.452,
+   "end": 18.581,
+   "at": 553.6,
+   "until": 557.4
+  },
+  {
+   "word": "have",
+   "start": 18.598,
+   "end": 18.667,
+   "at": 557.9,
+   "until": 560.0
+  },
+  {
+   "word": "to",
+   "start": 18.696,
+   "end": 18.753,
+   "at": 560.9,
+   "until": 562.6
+  },
+  {
+   "word": "cut",
+   "start": 18.817,
+   "end": 19.011,
+   "at": 564.5,
+   "until": 570.3
+  },
+  {
+   "word": "the",
+   "start": 19.032,
+   "end": 19.097,
+   "at": 571.0,
+   "until": 572.9
+  },
+  {
+   "word": "price.",
+   "start": 19.183,
+   "end": 19.871,
+   "at": 575.5,
+   "until": 596.1
+  },
+  {
+   "word": "Rates",
+   "start": 20.029,
+   "end": 20.817,
+   "at": 600.9,
+   "until": 624.5
+  },
+  {
+   "word": "up,",
+   "start": 20.932,
+   "end": 21.419,
+   "at": 628.0,
+   "until": 642.6
+  },
+  {
+   "word": "old",
+   "start": 21.484,
+   "end": 21.677,
+   "at": 644.5,
+   "until": 650.3
+  },
+  {
+   "word": "bond",
+   "start": 21.746,
+   "end": 22.022,
+   "at": 652.4,
+   "until": 660.7
+  },
+  {
+   "word": "prices",
+   "start": 22.083,
+   "end": 22.452,
+   "at": 662.5,
+   "until": 673.6
+  },
+  {
+   "word": "down,",
+   "start": 22.538,
+   "end": 23.312,
+   "at": 676.1,
+   "until": 699.4
+  },
+  {
+   "word": "it's",
+   "start": 23.369,
+   "end": 23.57,
+   "at": 701.1,
+   "until": 707.1
+  },
+  {
+   "word": "just",
+   "start": 23.639,
+   "end": 23.914,
+   "at": 709.2,
+   "until": 717.4
+  },
+  {
+   "word": "maths.",
+   "start": 24.029,
+   "end": 24.774,
+   "at": 720.9,
+   "until": 743.2
+  },
+  {
+   "word": "And",
+   "start": 24.968,
+   "end": 25.548,
+   "at": 749.0,
+   "until": 766.4
+  },
+  {
+   "word": "the",
+   "start": 25.591,
+   "end": 25.72,
+   "at": 767.7,
+   "until": 771.6
+  },
+  {
+   "word": "yield",
+   "start": 25.777,
+   "end": 26.065,
+   "at": 773.3,
+   "until": 782.0
+  },
+  {
+   "word": "on",
+   "start": 26.094,
+   "end": 26.151,
+   "at": 782.8,
+   "until": 784.5
+  },
+  {
+   "word": "the",
+   "start": 26.172,
+   "end": 26.237,
+   "at": 785.2,
+   "until": 787.1
+  },
+  {
+   "word": "US",
+   "start": 26.352,
+   "end": 26.581,
+   "at": 790.6,
+   "until": 797.4
+  },
+  {
+   "word": "ten-year",
+   "start": 26.667,
+   "end": 27.097,
+   "at": 800.0,
+   "until": 812.9
+  },
+  {
+   "word": "is",
+   "start": 27.154,
+   "end": 27.269,
+   "at": 814.6,
+   "until": 818.1
+  },
+  {
+   "word": "the",
+   "start": 27.29,
+   "end": 27.355,
+   "at": 818.7,
+   "until": 820.6
+  },
+  {
+   "word": "number",
+   "start": 27.404,
+   "end": 27.699,
+   "at": 822.1,
+   "until": 831.0
+  },
+  {
+   "word": "everyone",
+   "start": 27.756,
+   "end": 28.215,
+   "at": 832.7,
+   "until": 846.5
+  },
+  {
+   "word": "watches,",
+   "start": 28.301,
+   "end": 29.161,
+   "at": 849.0,
+   "until": 874.8
+  },
+  {
+   "word": "because",
+   "start": 29.215,
+   "end": 29.591,
+   "at": 876.5,
+   "until": 887.7
+  },
+  {
+   "word": "it's",
+   "start": 29.62,
+   "end": 29.763,
+   "at": 888.6,
+   "until": 892.9
+  },
+  {
+   "word": "what",
+   "start": 29.798,
+   "end": 29.935,
+   "at": 893.9,
+   "until": 898.0
+  },
+  {
+   "word": "you",
+   "start": 29.978,
+   "end": 30.108,
+   "at": 899.3,
+   "until": 903.2
+  },
+  {
+   "word": "earn",
+   "start": 30.176,
+   "end": 30.452,
+   "at": 905.3,
+   "until": 913.6
+  },
+  {
+   "word": "for",
+   "start": 30.495,
+   "end": 30.624,
+   "at": 914.9,
+   "until": 918.7
+  },
+  {
+   "word": "taking",
+   "start": 30.673,
+   "end": 30.968,
+   "at": 920.2,
+   "until": 929.0
+  },
+  {
+   "word": "basically",
+   "start": 31.019,
+   "end": 31.484,
+   "at": 930.6,
+   "until": 944.5
+  },
+  {
+   "word": "no",
+   "start": 31.57,
+   "end": 31.742,
+   "at": 947.1,
+   "until": 952.3
+  },
+  {
+   "word": "risk.",
+   "start": 31.845,
+   "end": 32.43,
+   "at": 955.3,
+   "until": 972.9
+  },
+  {
+   "word": "So",
+   "start": 32.831,
+   "end": 33.634,
+   "at": 984.9,
+   "until": 1009.0
+  },
+  {
+   "word": "in",
+   "start": 33.691,
+   "end": 33.806,
+   "at": 1010.7,
+   "until": 1014.2
+  },
+  {
+   "word": "twenty",
+   "start": 33.843,
+   "end": 34.065,
+   "at": 1015.3,
+   "until": 1021.9
+  },
+  {
+   "word": "twenty-two,",
+   "start": 34.114,
+   "end": 35.183,
+   "at": 1023.4,
+   "until": 1055.5
+  },
+  {
+   "word": "when",
+   "start": 35.217,
+   "end": 35.355,
+   "at": 1056.5,
+   "until": 1060.6
+  },
+  {
+   "word": "it",
+   "start": 35.384,
+   "end": 35.441,
+   "at": 1061.5,
+   "until": 1063.2
+  },
+  {
+   "word": "climbed",
+   "start": 35.495,
+   "end": 35.871,
+   "at": 1064.8,
+   "until": 1076.1
+  },
+  {
+   "word": "from",
+   "start": 35.905,
+   "end": 36.043,
+   "at": 1077.2,
+   "until": 1081.3
+  },
+  {
+   "word": "about",
+   "start": 36.086,
+   "end": 36.301,
+   "at": 1082.6,
+   "until": 1089.0
+  },
+  {
+   "word": "one",
+   "start": 36.366,
+   "end": 36.559,
+   "at": 1091.0,
+   "until": 1096.8
+  },
+  {
+   "word": "and",
+   "start": 36.581,
+   "end": 36.645,
+   "at": 1097.4,
+   "until": 1099.4
+  },
+  {
+   "word": "a",
+   "start": 36.688,
+   "end": 36.731,
+   "at": 1100.6,
+   "until": 1101.9
+  },
+  {
+   "word": "half",
+   "start": 36.783,
+   "end": 36.989,
+   "at": 1103.5,
+   "until": 1109.7
+  },
+  {
+   "word": "percent",
+   "start": 37.043,
+   "end": 37.419,
+   "at": 1111.3,
+   "until": 1122.6
+  },
+  {
+   "word": "to",
+   "start": 37.476,
+   "end": 37.591,
+   "at": 1124.3,
+   "until": 1127.7
+  },
+  {
+   "word": "almost",
+   "start": 37.641,
+   "end": 37.935,
+   "at": 1129.2,
+   "until": 1138.1
+  },
+  {
+   "word": "four,",
+   "start": 38.039,
+   "end": 39.054,
+   "at": 1141.2,
+   "until": 1171.6
+  },
+  {
+   "word": "uhm,",
+   "start": 39.097,
+   "end": 39.57,
+   "at": 1172.9,
+   "until": 1187.1
+  },
+  {
+   "word": "everything",
+   "start": 39.64,
+   "end": 40.344,
+   "at": 1189.2,
+   "until": 1210.3
+  },
+  {
+   "word": "risky",
+   "start": 40.43,
+   "end": 40.86,
+   "at": 1212.9,
+   "until": 1225.8
+  },
+  {
+   "word": "had",
+   "start": 40.903,
+   "end": 41.032,
+   "at": 1227.1,
+   "until": 1231.0
+  },
+  {
+   "word": "to",
+   "start": 41.061,
+   "end": 41.118,
+   "at": 1231.8,
+   "until": 1233.5
+  },
+  {
+   "word": "get",
+   "start": 41.14,
+   "end": 41.204,
+   "at": 1234.2,
+   "until": 1236.1
+  },
+  {
+   "word": "cheaper",
+   "start": 41.258,
+   "end": 41.634,
+   "at": 1237.7,
+   "until": 1249.0
+  },
+  {
+   "word": "to",
+   "start": 41.663,
+   "end": 41.72,
+   "at": 1249.9,
+   "until": 1251.6
+  },
+  {
+   "word": "compete,",
+   "start": 41.785,
+   "end": 42.839,
+   "at": 1253.5,
+   "until": 1285.2
+  },
+  {
+   "word": "and",
+   "start": 42.882,
+   "end": 43.011,
+   "at": 1286.5,
+   "until": 1290.3
+  },
+  {
+   "word": "bitcoin",
+   "start": 43.086,
+   "end": 43.613,
+   "at": 1292.6,
+   "until": 1308.4
+  },
+  {
+   "word": "lost",
+   "start": 43.682,
+   "end": 43.957,
+   "at": 1310.5,
+   "until": 1318.7
+  },
+  {
+   "word": "about",
+   "start": 43.986,
+   "end": 44.129,
+   "at": 1319.6,
+   "until": 1323.9
+  },
+  {
+   "word": "two",
+   "start": 44.215,
+   "end": 44.473,
+   "at": 1326.5,
+   "until": 1334.2
+  },
+  {
+   "word": "thirds.",
+   "start": 44.559,
+   "end": 45.333,
+   "at": 1336.8,
+   "until": 1360.0
+  },
+  {
+   "word": "Safe",
+   "start": 45.54,
+   "end": 46.366,
+   "at": 1366.2,
+   "until": 1391.0
+  },
+  {
+   "word": "money",
+   "start": 46.438,
+   "end": 46.796,
+   "at": 1393.1,
+   "until": 1403.9
+  },
+  {
+   "word": "sets",
+   "start": 46.847,
+   "end": 47.054,
+   "at": 1405.4,
+   "until": 1411.6
+  },
+  {
+   "word": "the",
+   "start": 47.075,
+   "end": 47.14,
+   "at": 1412.2,
+   "until": 1414.2
+  },
+  {
+   "word": "bar",
+   "start": 47.226,
+   "end": 47.484,
+   "at": 1416.8,
+   "until": 1424.5
+  },
+  {
+   "word": "every",
+   "start": 47.556,
+   "end": 47.914,
+   "at": 1426.7,
+   "until": 1437.4
+  },
+  {
+   "word": "other",
+   "start": 47.957,
+   "end": 48.172,
+   "at": 1438.7,
+   "until": 1445.2
+  },
+  {
+   "word": "bet",
+   "start": 48.258,
+   "end": 48.516,
+   "at": 1447.7,
+   "until": 1455.5
+  },
+  {
+   "word": "has",
+   "start": 48.559,
+   "end": 48.688,
+   "at": 1456.8,
+   "until": 1460.6
+  },
+  {
+   "word": "to",
+   "start": 48.745,
+   "end": 48.86,
+   "at": 1462.3,
+   "until": 1465.8
+  },
+  {
+   "word": "clear.",
+   "start": 48.932,
+   "end": 49.376,
+   "at": 1468.0,
+   "until": 1481.3
+  }
+ ],
+ "tempo": 0.93
+}

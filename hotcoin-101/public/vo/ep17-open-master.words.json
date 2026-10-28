@@ -1,0 +1,169 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 8.337,
+ "words": [
+  {
+   "word": "The",
+   "start": 0.0,
+   "end": 0.168,
+   "at": 0.0,
+   "until": 5.0
+  },
+  {
+   "word": "most",
+   "start": 0.219,
+   "end": 0.421,
+   "at": 6.6,
+   "until": 12.6
+  },
+  {
+   "word": "boring",
+   "start": 0.494,
+   "end": 0.926,
+   "at": 14.8,
+   "until": 27.8
+  },
+  {
+   "word": "thing",
+   "start": 0.968,
+   "end": 1.179,
+   "at": 29.0,
+   "until": 35.4
+  },
+  {
+   "word": "in",
+   "start": 1.207,
+   "end": 1.263,
+   "at": 36.2,
+   "until": 37.9
+  },
+  {
+   "word": "finance",
+   "start": 1.337,
+   "end": 1.853,
+   "at": 40.1,
+   "until": 55.6
+  },
+  {
+   "word": "is",
+   "start": 1.908,
+   "end": 2.021,
+   "at": 57.2,
+   "until": 60.6
+  },
+  {
+   "word": "lending",
+   "start": 2.063,
+   "end": 2.358,
+   "at": 61.9,
+   "until": 70.7
+  },
+  {
+   "word": "money",
+   "start": 2.4,
+   "end": 2.611,
+   "at": 72.0,
+   "until": 78.3
+  },
+  {
+   "word": "to",
+   "start": 2.666,
+   "end": 2.779,
+   "at": 80.0,
+   "until": 83.4
+  },
+  {
+   "word": "a",
+   "start": 2.863,
+   "end": 2.947,
+   "at": 85.9,
+   "until": 88.4
+  },
+  {
+   "word": "government,",
+   "start": 2.994,
+   "end": 3.958,
+   "at": 89.8,
+   "until": 118.7
+  },
+  {
+   "word": "and",
+   "start": 4.021,
+   "end": 4.211,
+   "at": 120.6,
+   "until": 126.3
+  },
+  {
+   "word": "somehow",
+   "start": 4.274,
+   "end": 4.716,
+   "at": 128.2,
+   "until": 141.5
+  },
+  {
+   "word": "it",
+   "start": 4.8,
+   "end": 4.968,
+   "at": 144.0,
+   "until": 149.0
+  },
+  {
+   "word": "sets",
+   "start": 5.019,
+   "end": 5.221,
+   "at": 150.6,
+   "until": 156.6
+  },
+  {
+   "word": "the",
+   "start": 5.263,
+   "end": 5.389,
+   "at": 157.9,
+   "until": 161.7
+  },
+  {
+   "word": "price",
+   "start": 5.432,
+   "end": 5.642,
+   "at": 163.0,
+   "until": 169.3
+  },
+  {
+   "word": "of",
+   "start": 5.671,
+   "end": 5.726,
+   "at": 170.1,
+   "until": 171.8
+  },
+  {
+   "word": "everything",
+   "start": 5.773,
+   "end": 6.232,
+   "at": 173.2,
+   "until": 187.0
+  },
+  {
+   "word": "else,",
+   "start": 6.333,
+   "end": 7.074,
+   "at": 190.0,
+   "until": 212.2
+  },
+  {
+   "word": "crypto",
+   "start": 7.134,
+   "end": 7.495,
+   "at": 214.0,
+   "until": 224.8
+  },
+  {
+   "word": "included.",
+   "start": 7.551,
+   "end": 8.337,
+   "at": 226.5,
+   "until": 250.1
+  }
+ ],
+ "tempo": 0.95
+}
