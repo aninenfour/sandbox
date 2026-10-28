@@ -2,7 +2,9 @@
 TikTok and Facebook (Reel). Retries when Publer reports a clash with another post
 (it needs a one-minute gap). Prints the live links.
 
-Usage: PUBLER_API_KEY=... python3 scripts/publish.py out/<slug>.mp4 episodes/<slug>/caption.md
+Usage: PUBLER_API_KEY=... python3 scripts/publish.py out/<slug>.mp4 episodes/<slug>/caption.md [out/<slug>-thumb.jpg]
+The optional third argument is a cover image (see scripts/thumb.sh). It is uploaded to Publer and set as the
+default thumbnail on all three networks (Instagram cover, Facebook Reel cover, TikTok cover).
 The API key comes from the environment only. Never commit it.
 """
 import json, os, subprocess, sys, time
@@ -52,13 +54,30 @@ if 'id' not in up:
 media = up['id']
 th = up['thumbnails'][0]
 
+# media entry per network; with a cover image, append it to the video's thumbnails and select it
+def vid(tiktok=False):
+    m = {'id': media, 'type': 'video'}
+    if tiktok:
+        m['thumbnails'] = [{'real': th['real'], 'small': th['small']}]
+    if cover:
+        thumbs = [{'real': th['real'], 'small': th['small']}] if tiktok else list(up['thumbnails'])
+        m['thumbnails'] = thumbs + [{'real': cover['path'], 'small': cover.get('thumbnail') or cover['path']}]
+        m['default_thumbnail'] = len(thumbs)
+    return m
+
+cover = None
+if len(sys.argv) > 3:
+    cover = curl('-X', 'POST', f'{API}/media', '-F', f'file=@{sys.argv[3]};type=image/jpeg', '-F', 'in_library=false')
+    if 'path' not in cover:
+        print(f'cover upload failed, posting with the default frame: {cover}')
+        cover = None
+
 networks = {
-    'instagram': {'type': 'video', 'text': caption, 'media': [{'id': media, 'type': 'video'}],
+    'instagram': {'type': 'video', 'text': caption, 'media': [vid()],
                   'details': {'type': 'reel', 'feed': True}},
-    'tiktok': {'type': 'video', 'text': caption.replace('•', '#'),
-               'media': [{'id': media, 'type': 'video', 'thumbnails': [{'real': th['real'], 'small': th['small']}]}],
+    'tiktok': {'type': 'video', 'text': caption.replace('•', '#'), 'media': [vid(tiktok=True)],
                'details': {'privacy': 'PUBLIC_TO_EVERYONE', 'comment': True, 'duet': True, 'stitch': True}},
-    'facebook': {'type': 'video', 'text': caption, 'media': [{'id': media, 'type': 'video'}],
+    'facebook': {'type': 'video', 'text': caption, 'media': [vid()],
                  'details': {'type': 'reel'}},
 }
 

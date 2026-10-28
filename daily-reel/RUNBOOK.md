@@ -1,6 +1,6 @@
 # Daily Finance Reel: Runbook
 
-One run = one finished video posted to Instagram (Reel), TikTok and Facebook (Reel).
+One run = one finished video posted to Instagram (Reel), TikTok and Facebook (Reel). Cadence: one video every 2 days.
 Read `PLAYBOOK.md` first: it holds the locked format, the style rules, the topic bank, what already ran, and what the weekly review learned.
 
 ## 0. Setup (fresh session)
@@ -37,14 +37,17 @@ Then write `episodes/<dir>/episode.json` (see `scripts/build.py` docstring): abo
 python3 scripts/build.py episodes/<dir>
 npx remotion still src/index.ts Reel /tmp/check.png --frame=200   # spot-check a few frames (captions, step card, end card)
 scripts/finish.sh <slug>          # renders 60 fps, adds the day's music track at a low level, masters to -14 LUFS → out/<slug>.mp4
+scripts/thumb.sh episodes/<dir>   # text-only cover, no logo → out/<slug>-thumb.jpg (look at it)
 ```
+Thumbnail: add `"thumb": {"text": "...", "hi": [...], "kicker": "True story"}` to episode.json. Text = the hook in 4 to 7 words, 1 or 2 key words in `hi` (shown green), kicker optional (2 to 3 words). No logo, no images, no em dashes, no price predictions.
+
 Check: make a contact sheet with ffmpeg (`fps=14/<dur>,scale=300:-1,tile=7x2`) and look at it. Captions readable, no text in images, end card says "Follow Hotcoin for more".
 
 ## 6. Publish
 ```bash
-PUBLER_API_KEY=<from the task prompt> python3 scripts/publish.py out/<slug>.mp4 episodes/<dir>/caption.md
+PUBLER_API_KEY=<from the task prompt> python3 scripts/publish.py out/<slug>.mp4 episodes/<dir>/caption.md out/<slug>-thumb.jpg
 ```
-Posts Instagram Reel (also on grid), TikTok (public) and Facebook Reel, spaced a minute apart, retrying on Publer's "one minute gap" clash. Writes `published.json` with the links.
+The third argument sets the cover on all three networks (if the cover upload fails it posts with the default frame and says so). Posts Instagram Reel (also on grid), TikTok (public) and Facebook Reel, spaced a minute apart, retrying on Publer's "one minute gap" clash. Writes `published.json` with the links.
 
 ## 7. Log and save
 - Add a row to the PLAYBOOK results log (date, topic, hook type, links; leave views blank for the weekly review).
