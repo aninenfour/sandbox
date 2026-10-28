@@ -37,9 +37,9 @@ Then write `episodes/<dir>/episode.json` (see `scripts/build.py` docstring): abo
 python3 scripts/build.py episodes/<dir>
 npx remotion still src/index.ts Reel /tmp/check.png --frame=200   # spot-check a few frames (captions, step card, end card)
 scripts/finish.sh <slug>          # renders 60 fps, adds the day's music track at a low level, masters to -14 LUFS → out/<slug>.mp4
-scripts/thumb.sh episodes/<dir>   # text-only cover, no logo → out/<slug>-thumb.jpg (look at it)
+scripts/thumb.sh episodes/<dir>   # cover: character's face + hook text, no logo → out/<slug>-thumb.jpg (look at it)
 ```
-Thumbnail: add `"thumb": {"text": "...", "hi": [...], "kicker": "True story"}` to episode.json. Text = the hook in 4 to 7 words, 1 or 2 key words in `hi` (shown green), kicker optional (2 to 3 words). No logo, no images, no em dashes, no price predictions.
+Thumbnail: add `"thumb": {"text": "...", "hi": [...], "kicker": "True story", "img": "s06", "zoom": 1.5, "fx": 65, "fy": 22}` to episode.json. Pick the scene where the main character's face is biggest and most expressive; zoom 1.4 to 1.6 with fx/fy on the face so the face fills the upper half (the text sits in the lower third on a dark fade). Text = the hook in 4 to 7 words, 1 or 2 key words in `hi` (shown green), kicker optional (2 to 3 words). Face must not be covered by text. No logo, no em dashes, no price predictions.
 
 Check: make a contact sheet with ffmpeg (`fps=14/<dur>,scale=300:-1,tile=7x2`) and look at it. Captions readable, no text in images, end card says "Follow Hotcoin for more".
 

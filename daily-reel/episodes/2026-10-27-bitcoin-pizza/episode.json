@@ -1,6 +1,6 @@
 {
   "slug": "bitcoin-pizza",
-  "thumb": {"text": "Two pizzas for 10,000 bitcoin", "hi": ["10,000", "bitcoin"], "kicker": "True story"},
+  "thumb": {"text": "Two pizzas for 10,000 bitcoin", "hi": ["10,000", "bitcoin"], "kicker": "True story", "img": "s06", "zoom": 1.5, "fx": 65, "fy": 22},
   "highlight": ["pizzas","Ten","thousand","bitcoin","nobody","Four","days","Jeremy","forty-one","dollars","eight","hundred","million","regrets","brave","first"],
   "scenes": [
     {"at": "Two pizzas", "img": "s11", "mode": "wide", "fx": 50, "fy": 55},

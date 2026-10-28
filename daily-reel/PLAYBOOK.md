@@ -6,7 +6,7 @@
 → Story in 4 numbered steps, each with a "Step N" card (number in brand green)
 → One-line lesson, then the Hotcoin logo end card "Follow Hotcoin for more" (3 s)
 → Captions: 1 to 3 words, white with a heavy black outline, key words in brand green #7EC25A
-→ Cover: text-only thumbnail (scripts/thumb.sh), cream card background, hook in Hand font, key words green, no logo
+→ Cover (scripts/thumb.sh): zoomed-in scene with the main character's face in the upper half, hook text in the lower third (Hand font, key words green), no logo
 → Sound: free TTS voice, whoosh on cuts, pop on Step cards, quiet Mixkit music bed (rotates daily), mastered to -14 LUFS
 → Post every 2 days to Instagram Reel, TikTok, Facebook Reel. Same caption, dot keywords (TikTok gets #). Never name the account handle.
 
