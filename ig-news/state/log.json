@@ -677,5 +677,20 @@
   ],
   "status": "scheduled",
   "note": "Monthly closes Jan 2020 to Oct 2026: BTC $8,648 (max DD -73%), gold $2,572 (-17%), S&P $2,394 price only (-25%). Photo: Zlataky.cz / Unsplash."
+ },
+ {
+  "id": "2026-10-28-whatif-gta-nvda",
+  "type": "reel",
+  "slot": "2026-10-28T21:30:00+08:00",
+  "hook": "$50 on GTA San Andreas or $50 in Nvidia?",
+  "topic": "WHAT IF price-dot (GTA San Andreas vs Nvidia)",
+  "music": "480",
+  "style": "whatif",
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?interval=1d",
+   "https://api.nasdaq.com/api/quote/NVDA/info?assetclass=stocks"
+  ],
+  "status": "scheduled",
+  "note": "First WHAT IF Reel (owner Oct 28: slideshow Reels stopped). $50 on Oct 26, 2004 (close 0.12075 split-adj) -> $90,244 at $217.94 (Oct 27). Drawdowns -85% (2007-08), -66% (2021-22). IG+FB Reel, X video, TikTok 21:30; IG Story 21:35."
  }
 ]

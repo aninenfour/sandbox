@@ -1,10 +1,20 @@
 [
  {
+  "id": "2026-10-28-whatif-gta-nvda",
+  "slot": "2026-10-28T21:30:00+08:00",
+  "topic": "WHAT IF: GTA San Andreas vs Nvidia",
+  "hook": "$50 on GTA San Andreas in 2004 vs $50 in Nvidia",
+  "caption": "$50 on GTA San Andreas in 2004 vs $50 in Nvidia \ud83d\udc47 one of them is worth $90,244 now ... #fintok #nvidia #gta #stocks #investing",
+  "file": "ig-news/media/2026-10-28-whatif-gta-nvda/story.mp4",
+  "status": "scheduled",
+  "doc_row": false
+ },
+ {
   "id": "2026-10-26-reel-mstr-vs-btc",
   "slot": "2026-10-27T21:30:00+08:00",
   "topic": "Strategy vs Bitcoin (ticker review)",
   "hook": "Why did Strategy fall 2x harder than BTC?",
-  "caption": "Bitcoin is down 37% from its peak. Strategy ($MSTR) is down 74%. Here's why it falls 2x harder 👇 ... #bitcoin #stocks #crypto #investing #fintok",
+  "caption": "Bitcoin is down 37% from its peak. Strategy ($MSTR) is down 74%. Here's why it falls 2x harder \ud83d\udc47 ... #bitcoin #stocks #crypto #investing #fintok",
   "file": "ig-news/media/2026-10-26-reel-mstr-vs-btc/reel_tiktok.mp4",
   "status": "published",
   "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7701339657975369012",
