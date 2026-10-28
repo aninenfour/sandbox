@@ -3,7 +3,8 @@
 ## Locked format
 → 9:16, 1080×1920, 60 fps, 45 to 52 s
 → Hook in the first 3 s that promises a payoff
-→ Story in 4 numbered steps, each with a "Step N" card (number in brand green)
+→ Story in 4 numbered steps, each with a "Step N" card (number in brand green). A bridge line right before Step one announces the steps ("So here's how it happened, in four steps.")
+→ Visuals: 18 to 22 fresh images per video, a new image on most cuts
 → One-line lesson, then the Hotcoin logo end card "Follow Hotcoin for more" (3 s)
 → Captions: 1 to 3 words, white with a heavy black outline, key words in brand green #7EC25A
 → Cover (scripts/thumb.sh): zoomed-in scene with the main character's face in the upper half, hook text in the lower third (Hand font, key words green), no logo
@@ -22,6 +23,7 @@
 → Snappy, spoken, contractions, connectives ("so", "and", "but")
 → Real, checkable facts only; "legend says" for apocryphal bits
 → No price predictions, no "buy X", no first-person brand voice, no em dashes
+→ Always a bridge line before "Step one" (a question or "here's how it happened"), never jump straight into Step one
 
 ## Posting time
 → Run starts 19:40 Beijing, posts land around 20:15 to 20:30 Beijing (12:15 to 12:30 UTC): Asia evening, Europe lunch, US East morning.

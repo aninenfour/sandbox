@@ -17,7 +17,7 @@ pip install --break-system-packages -q edge-tts numpy
 
 ## 2. Write
 Create `episodes/<YYYY-MM-DD>-<slug>/` with:
-- `script.txt`: one sentence per line, 110 to 135 words (45 to 52 s). Hook line first, picked from the PLAYBOOK hook bank (rotate types; avoid the type used yesterday), then "Step one." to "Step four." each starting its own line, then a one-line lesson. Spoken rhythm, contractions, connectives. Say "legend says" for anything apocryphal. No price predictions, no "buy X", no em dashes.
+- `script.txt`: one sentence per line, 110 to 135 words (45 to 52 s). Hook line first, picked from the PLAYBOOK hook bank (rotate types; avoid the type used last time), then 1 or 2 lines of setup, then a **bridge line that announces the steps** so they don't come out of nowhere (e.g. "So here's how the first bitcoin purchase actually happened." / "Here's how it went wrong, in four steps." / "So how do you lose a fortune to a pizza? Four steps."), then "Step one." to "Step four." each starting its own line, then a one-line lesson. Never start a step without that bridge line right before Step one. Spoken rhythm, contractions, connectives. Say "legend says" for anything apocryphal. No price predictions, no "buy X", no em dashes.
 - `caption.md`: hook sentence, 2 short lines of story, 3 arrow (→) lessons, a question for comments, "Follow Hotcoin for more money stories.", then dot keywords (•finance •investing ...). Never name the account handle.
 - Fact-check every number and date in the script with a web search before going on.
 
@@ -25,10 +25,10 @@ Create `episodes/<YYYY-MM-DD>-<slug>/` with:
 ```bash
 python3 scripts/tts.py episodes/<dir>     # writes public/vo.mp3 + episodes/<dir>/words.json
 ```
-Then write `episodes/<dir>/episode.json` (see `scripts/build.py` docstring): about 26 scenes, each image used twice (wide, then a close crop) so cuts land about every 2 s; a `{"at": "Step one", "step": 1}` entry for each step; `highlight` = 8 to 12 key words (numbers, the punchline words).
+Then write `episodes/<dir>/episode.json` (see `scripts/build.py` docstring): about 26 to 30 scenes so cuts land about every 1.5 to 2 s. Use a fresh image for most cuts; reuse an image (wide, then a close crop) only where it helps; a `{"at": "Step one", "step": 1}` entry for each step; `highlight` = 8 to 12 key words (numbers, the punchline words).
 
 ## 4. Images (Canva)
-1. `generate-image`, `PORTRAIT_9_16`, about 11 scenes. Every prompt passes the style reference `imageReferences: [{"type":"MEDIA","id":"MAHZNJ0bV8g"}]` and uses the style block in PLAYBOOK. Generate the main character's hero image first, then pass BOTH the style ref and the hero's media id for the other scenes so the character stays consistent. Fire them all in parallel, then poll `get-generate-image-job`.
+1. `generate-image`, `PORTRAIT_9_16`, about 18 to 22 scenes (we post every 2 days, so spend the time: more images, denser and more interesting visuals, varied shots: close-ups of faces and hands, wide establishing shots, props, crowds, visual metaphors). If Canva rejects a call (409/rate limit), wait a few seconds and retry it, and fire in batches of 6 to 8. Every prompt passes the style reference `imageReferences: [{"type":"MEDIA","id":"MAHZNJ0bV8g"}]` and uses the style block in PLAYBOOK. Generate the main character's hero image first, then pass BOTH the style ref and the hero's media id for the other scenes so the character stays consistent. Fire them all in parallel, then poll `get-generate-image-job`.
 2. Look at every image. Regenerate any with text/letters, extra limbs, wrong colours (red bodies), or off-style.
 3. Full-res export (thumbnails are too small): `create-design` (brief "plain blank vertical story page", format "Instagram Story") → `read-design` with `open_transaction: true` → `edit-design` `add_page` ×N (1080×1920, title = scene name) → `read-design` with the transaction and `page_indices` 2..N+1 for page ids → `edit-design` `insert_fill` per page (left 0, top 0, width 1080, height 1922) → `edit-design` `finalize: commit` → `export-design` png, pages 2..N+1, 1080×1920, pro quality → `curl` each URL to `public/img/<scene>.png`.
 
