@@ -2,6 +2,7 @@
 """Animated story Reel (owner, Oct 26): a short visual story with barely any text, then a typed lesson, Hotcoin style.
 
 Usage: python3 ig-news/story.py ig-news/posts/<id> [--music <mixkit id>] [--frames-only]
+  WHAT IF Reels (owner, Oct 28): a post with whatif.json uses the shared stories/whatif.js template instead of scene.js.
   reads <post>/scene.js (defines draw(t), window.DURATION, window.CUES) on top of ig-news/stories/kit.js,
   writes ig-news/media/<id>/story.mp4 (1080x1920, 30 fps) + cover.jpg + contact.jpg (one frame per second).
 One 9:16 file goes to IG Reels, FB Reels and X (no promo card, no CTA on X).
@@ -52,6 +53,9 @@ def sfx(name, pitch=1.0):
         tt = t(1.6); return .22 * (np.sin(2 * np.pi * 880 * tt) + .6 * np.sin(2 * np.pi * 1320 * tt)) * env(len(tt), .01, .45)
     if name == 'pad':  # soft low drone under the lesson
         tt = t(6.5); return .16 * (np.sin(2 * np.pi * 55 * tt) + .7 * np.sin(2 * np.pi * 82.5 * tt) + .35 * np.sin(2 * np.pi * 110 * tt * (1 + .003 * np.sin(tt)))) * np.minimum(1, tt / 1.2) * np.minimum(1, (6.5 - tt) / 1.5)
+    if name == 'cash':  # register "ka-ching"
+        tt = t(.9); return (.25 * lowpass(rs.standard_normal(len(tt)), 2) * env(len(tt), d=.03)
+                            + .2 * (np.sin(2 * np.pi * 2093 * tt) + np.sin(2 * np.pi * 2637 * tt)) * env(len(tt), .005, .3) * (tt > .08))
     if name == 'cheer':
         tt = t(.7); return .14 * (np.sin(2 * np.pi * 660 * tt) + np.sin(2 * np.pi * 990 * tt * (1 + .02 * tt))) * env(len(tt), .02, .25)
     return np.zeros(1)
@@ -61,7 +65,11 @@ def main():
     post = pathlib.Path(sys.argv[1]).resolve()
     out = ROOT / 'media' / post.name; frames = out / 'story_frames'
     shutil.rmtree(frames, ignore_errors=True); frames.mkdir(parents=True)
-    kit = (ROOT / 'stories' / 'kit.js').read_text(); scene = (post / 'scene.js').read_text()
+    kit = (ROOT / 'stories' / 'kit.js').read_text()
+    if (post / 'whatif.json').exists():  # WHAT IF price-dot Reel: shared template + the post's data
+        scene = 'window.SPEC=' + (post / 'whatif.json').read_text() + ';\n' + (ROOT / 'stories' / 'whatif.js').read_text()
+    else:
+        scene = (post / 'scene.js').read_text()
     import base64
     logo = 'data:image/svg+xml;base64,' + base64.b64encode((ROOT / 'assets' / 'symbol.svg').read_bytes()).decode()
     html = f'''<!doctype html><html><head><meta charset="utf-8"><style>html,body{{margin:0;background:#000}}canvas{{display:block}}</style></head>
@@ -70,7 +78,7 @@ def main():
         b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
         pg = b.new_page(viewport={'width': W, 'height': H})
         pg.set_content(html); pg.wait_for_load_state('networkidle'); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(300)
-        dur = pg.evaluate('window.DURATION'); cues = pg.evaluate('window.CUES')
+        dur = pg.evaluate('window.DURATION'); cues = pg.evaluate('window.CUES'); cover_t = pg.evaluate('window.COVER_T || 6.8')
         n = int(round(dur * FPS))
         for i in range(n):
             pg.evaluate(f'draw({i / FPS})')
@@ -101,7 +109,7 @@ def main():
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-framerate', str(FPS), '-i', str(frames / '%04d.jpg'), '-i', track[0], '-i', str(wav),
                     '-filter_complex', fc, '-map', '0:v', '-map', '[a]', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-pix_fmt', 'yuv420p',
                     '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', f'{dur:.3f}', str(mp4)], check=True)
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', '6.8', '-i', str(mp4), '-frames:v', '1', '-q:v', '2', str(out / 'cover.jpg')], check=True)
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f'{cover_t:.2f}', '-i', str(mp4), '-frames:v', '1', '-q:v', '2', str(out / 'cover.jpg')], check=True)
     print(mp4.relative_to(ROOT.parent), f'{dur:.1f}s'); print(track[1])
 
 
