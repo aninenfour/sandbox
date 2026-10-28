@@ -151,5 +151,15 @@
    "Story Reel 'The Tower' still waiting for approval; today's 12:30 story slot stays empty until you OK it",
    "Instagram Account Status check still open"
   ]
+ },
+ {
+  "date": "2026-10-29",
+  "looked_at": "IG+FB insights Oct 27-28 (Oct 28 posts not in insights yet); renders from the last 24 h (v2 test renders, GTA what-if frames)",
+  "findings": [
+   "Tue slideshow Reel (MSTR) 18 IG / 76 FB reach vs the team's story-led 'money story' Reels (Newton 123, Bitcoin pizza 128 IG; 207 FB): story/visual video beats slideshows ~7x on IG, supports the Oct 28 switch to WHAT IF + stick-figure stories",
+   "Desk carousels on Tue: 13-14 IG reach, 19 FB: still very low; the v2 graphic-first redesign (shipped this morning) is the fix to judge from Thursday"
+  ],
+  "changes": "no change needed (full style revision v2 shipped 05:00 today; don't stack more changes before it has data)",
+  "owner_decision": "Approve stick-figure Ep 1 'The Tower' so story Reels can start (they match what performs best)."
  }
 ]
