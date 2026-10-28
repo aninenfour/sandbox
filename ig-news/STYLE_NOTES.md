@@ -9,6 +9,7 @@ Newest rules win over older ones and over PLAYBOOK.md wording where they conflic
 - **Hooks must be instantly clear.** Bad: "$1,000 since 2020. Who won?" (owner: weird, doesn't understand it, not interesting). A hook names the concrete thing and the payoff in plain words, e.g. "Bitcoin turned $1,000 into $8,648. Gold: $2,572." Read it as a stranger: if it needs the next slide to make sense, rewrite it.
 - **Style review every week** (owner: "you seem to forget it"): the Monday learning run must look at our last 7 days of slides next to top accounts and Hotcoin's X posts and ship at least one visual upgrade, with before/after renders.
 - Don't touch posts that are already scheduled or published.
+- Until the revision is done (Thu Oct 29 05:00 UTC+8 run), the 15:40 run must NOT pre-build tomorrow's Academy; leave it for the 07:40 run in the new style.
 
 ## Hooks (cover headline + caption first line)
 - Simple words a trader would say out loud. One idea per cover. If it needs a comma, it's too long.
