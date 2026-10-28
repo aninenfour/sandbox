@@ -692,5 +692,12 @@
   ],
   "status": "scheduled",
   "note": "First WHAT IF Reel (owner Oct 28: slideshow Reels stopped). $50 on Oct 26, 2004 (close 0.12075 split-adj) -> $90,244 at $217.94 (Oct 27). Drawdowns -85% (2007-08), -66% (2021-22). IG+FB Reel, X video, TikTok 21:30; IG Story 21:35."
+ },
+ {
+  "id": "run-2026-10-28-1540",
+  "type": "note",
+  "slot": "2026-10-28T15:40:00+08:00",
+  "status": "skipped",
+  "note": "15:40 run: today's 16:00, 19:00, 21:30 already scheduled (checked Publer). Tomorrow's Academy held for the Oct 29 05:00 style revision (owner feedback)."
  }
 ]
