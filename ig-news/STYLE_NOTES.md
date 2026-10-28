@@ -3,6 +3,13 @@
 Every news/tutorial run reads this file and follows it. The daily review (REVIEW.md) adds or updates rules here.
 Newest rules win over older ones and over PLAYBOOK.md wording where they conflict on style (not on facts or safety).
 
+## OWNER FEEDBACK, Oct 28 (full revision due Thu Oct 29 morning, then checked every week)
+- **News carousels look ugly**: the black background must go, the fonts can be better, slides must be **graphic-led, not text-led**, and must stop looking the same every day.
+- **Stats must look modern, like Hotcoin's own X posts: the graphic on top** (big chart/visual first, short text under it). Look at the X account's recent posts in Publer before redesigning.
+- **Hooks must be instantly clear.** Bad: "$1,000 since 2020. Who won?" (owner: weird, doesn't understand it, not interesting). A hook names the concrete thing and the payoff in plain words, e.g. "Bitcoin turned $1,000 into $8,648. Gold: $2,572." Read it as a stranger: if it needs the next slide to make sense, rewrite it.
+- **Style review every week** (owner: "you seem to forget it"): the Monday learning run must look at our last 7 days of slides next to top accounts and Hotcoin's X posts and ship at least one visual upgrade, with before/after renders.
+- Don't touch posts that are already scheduled or published.
+
 ## Hooks (cover headline + caption first line)
 - Simple words a trader would say out loud. One idea per cover. If it needs a comma, it's too long.
 - Lead with the **thing people know** (Bitcoin, Ledger, Russia, BlackRock, a famous name) in line 1 or 2.
