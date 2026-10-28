@@ -1,0 +1,18 @@
+{"type":"news","style":"v2","date":"OCT 29",
+ "slides":[
+  {"kind":"ncover","photo":"fed.jpg","photo_pos":"50% 40%",
+   "headline":"The Fed held rates, but [2 officials] voted for a {hike}",
+   "chips":[{"v":"3.75-4%","l":"rates, unchanged"},{"v":"10-2","l":"vote, 2 wanted a hike","neg":true}]},
+  {"kind":"nrows","tag":"WHAT HAPPENED","title":"Wednesday's Fed decision",
+   "rows":[{"emoji":"🏛️","l":"Interest rate","sub":"held, as expected","v":"3.75-4%"},
+           {"emoji":"🗳️","l":"Vote","sub":"Cook and Hammack wanted a hike","v":"10-2","neg":true},
+           {"emoji":"📈","l":"Last move","sub":"September, first since 2023","v":"Hike"},
+           {"emoji":"📅","l":"Next meeting","sub":"with new forecasts","v":"Dec 8-9"}],
+   "text":["The Fed called the economy [strong] and inflation still elevated."],
+   "source":"CoinDesk, Decrypt"},
+  {"kind":"nbig","tag":"WHY IT MATTERS","title":"Inflation is still too hot","kicker":"US INFLATION, SEPTEMBER","big":"3.7%","delta":"target: 2%","neg":true,
+   "label":"almost double the Fed's goal",
+   "text":["Markets now expect a [hike in December].","Bitcoin barely moved, holding near $81K."],
+   "source":"Labor Department via Decrypt; CoinDesk"},
+  {"kind":"end"}
+ ]}

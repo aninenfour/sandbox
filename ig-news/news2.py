@@ -63,7 +63,7 @@ CSS = """
 /* big number */
 .v2 .n2-bigc{position:absolute;left:44px;right:44px;border-radius:48px;overflow:hidden;z-index:2;background:linear-gradient(135deg,#8ED06A 0%%,#5FA83C 55%%,#3F8A27 100%%);box-shadow:0 30px 70px rgba(63,138,39,.35);color:%(ink)s}
 .v2 .n2-bigc.n2-neg{background:linear-gradient(135deg,#FF7A6E 0%%,#E5322D 60%%,#B71F1A 100%%);box-shadow:0 30px 70px rgba(229,50,45,.3);color:#fff}
-.v2 .n2-bigc .n2-k{position:absolute;left:56px;top:50px;font-family:'Archivo';font-weight:800;font-stretch:115%%;font-size:26px;letter-spacing:.12em;opacity:.8}
+.v2 .n2-bigc .n2-k{position:absolute;left:56px;right:300px;top:50px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Archivo';font-weight:800;font-stretch:115%%;font-size:26px;letter-spacing:.12em;opacity:.8}
 .v2 .n2-bigc .n2-n{position:absolute;left:50px;right:50px;top:120px;font-family:'Archivo';font-weight:900;font-stretch:118%%;letter-spacing:-.045em;line-height:.95;white-space:nowrap}
 .v2 .n2-bigc .n2-lb{position:absolute;left:56px;right:56px;font-size:34px;font-weight:700;line-height:1.25}
 .v2 .n2-bigc .n2-dp{position:absolute;right:50px;top:40px;font-family:'Archivo';font-weight:800;font-size:30px;padding:10px 22px;border-radius:30px;background:rgba(255,255,255,.85);color:%(ink)s}
