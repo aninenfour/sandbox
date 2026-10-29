@@ -98,12 +98,13 @@ function chart(t, alpha) {
   path(); ctx.lineTo(X(fi), CY1); ctx.lineTo(X(0), CY1); ctx.closePath(); ctx.fillStyle = g; ctx.fill();
   path(); ctx.strokeStyle = P.green; ctx.lineWidth = 8; ctx.lineJoin = 'round'; ctx.stroke();
   // events
-  EV.forEach(e => {
-    if (e.i > fi) return; const age = t - evTime(e.i); const a = clamp(age * 4) * clamp((2.2 - age) * 2);
-    if (a <= 0) return; const c = e.c === 'red' ? P.red : P.green;
-    ctx.fillStyle = c; ctx.beginPath(); ctx.arc(X(e.i), Y(val(e.i)), 14, 0, 7); ctx.fill();
-    pill(e.txt, X(e.i), Math.max(CY0 - 40, Y(val(e.i)) - 110), c, a * alpha);
-  });
+  // events: a marker stays on the line; the label sits in one fixed slot under the counter (never under the dot,
+  // never on top of another label: a newer event replaces the older one) (owner, Oct 29: no collisions)
+  const live = EV.filter(e => e.i <= fi && t - evTime(e.i) < 2.4).pop();
+  EV.forEach(e => { if (e.i > fi) return; const c = e.c === 'red' ? P.red : P.green;
+    ctx.globalAlpha = alpha * .9; ctx.fillStyle = c; ctx.beginPath(); ctx.arc(X(e.i), Y(val(e.i)), 12, 0, 7); ctx.fill(); });
+  if (live) { const age = t - evTime(live.i), a = clamp(age * 5) * clamp((2.4 - age) * 3);
+    pill(live.txt, W / 2, 640, live.c === 'red' ? P.red : P.green, a * alpha); }
   ctx.globalAlpha = alpha;
   // the dot = the object
   icon(S.buy.icon, X(fi), Y(cur), 62, t);
@@ -125,7 +126,7 @@ function draw(t) {
   const ca = easeOut(prog(t, T.cash, T.cash + .3)) * (1 - prog(t, T.choice, T.choice + .3));
   if (ca > 0) { icon('cash', W / 2, 900 + 40 * (1 - ca), 110, t); title(`You have $${S.amount}.`, 1150, 80, P.white, ca); }
   // 3. the choice
-  const ch = easeOut(prog(t, T.choice, T.choice + .35)), out = prog(t, T.fly - .2, T.fly + .3);
+  const ch = easeOut(prog(t, T.choice + .3, T.choice + .65)), out = prog(t, T.fly - .2, T.fly + .3);  // cards start after 'You have $X' has faded
   if (ch > 0 && out < 1) {
     const a = ch * (1 - out);
     const LX = lerp(W / 2, 290, ch), RX = lerp(W / 2, 790, ch);
