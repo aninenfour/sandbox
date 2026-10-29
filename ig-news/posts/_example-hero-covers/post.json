@@ -1,0 +1,5 @@
+{"type":"news","style":"v2","date":"OCT 29","slides":[
+ {"kind":"nhero","photo":"fed.jpg","photo_pos":"50% 20%","tag":"BREAKING","headline":"The Fed held rates. [2 officials] wanted a {hike}"},
+ {"kind":"nhero","photo":"phone.jpg","photo_pos":"35% 30%","tag":"EARNINGS","badge":{"src":"logos/BTC.svg","pos":"tr","fit":"100%"},"headline":"Robinhood now earns more from [bets] than from crypto"},
+ {"kind":"nhero","photo":"hero.jpg","photo_pos":"50% 30%","tag":"DATA","badge":{"src":"logos/AAPL.png","pos":"tr","fit":"60%"},"headline":"Apple is up [26%] this year. Bitcoin is {down 7%}"}
+]}

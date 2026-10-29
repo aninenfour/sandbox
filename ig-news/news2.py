@@ -75,6 +75,20 @@ CSS = """
 .v2 .n2-row .n2-rl{flex:1;font-size:30px;font-weight:700;line-height:1.2}
 .v2 .n2-row .n2-rl small{display:block;font-size:22px;font-weight:600;color:#6b766e;margin-top:4px}
 .v2 .n2-row .n2-rv{font-family:'Archivo';font-weight:800;font-stretch:110%%;font-size:50px;letter-spacing:-.03em;white-space:nowrap}
+/* hero cover (owner, Oct 29: Kalshi-style first slide: one photo, one badge, one tag, one big statement) */
+.v2 .n2-hero{position:absolute;inset:0;background-size:cover;background-position:center;z-index:1}
+.v2 .n2-hero:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,18,.35) 0%%,rgba(6,10,18,0) 22%%,rgba(6,10,18,0) 42%%,rgba(6,10,18,.88) 66%%,#060A12 82%%)}
+.v2 .n2-hlogo{position:absolute;left:52px;top:46px;z-index:4;display:flex;align-items:center;gap:14px;font-family:'Archivo';font-weight:800;font-stretch:110%%;font-size:40px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+.v2 .n2-hlogo img{width:54px;height:54px;filter:brightness(0) invert(1)}
+.v2 .n2-badge{position:absolute;width:440px;height:440px;border-radius:50%%;border:8px solid %(green)s;background:#fff center/66%% no-repeat;box-shadow:0 24px 70px rgba(0,0,0,.45);z-index:3}
+.v2 .n2-hbox{position:absolute;left:44px;right:44px;bottom:120px;height:420px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;z-index:4}
+.v2 .n2-htag{font-family:'Archivo';font-weight:800;font-stretch:100%%;font-size:30px;letter-spacing:.04em;color:%(green)s;border:3px solid %(green)s;border-radius:12px;padding:4px 16px;margin-bottom:22px;background:rgba(6,10,18,.5)}
+.v2 .n2-hhl{font-family:'Archivo';font-weight:900;font-stretch:72%%;text-transform:uppercase;color:#fff;text-align:center;line-height:.94;letter-spacing:-.01em;text-wrap:balance}
+.v2 .n2-hhl .n2-hl{background:none;color:%(green)s;padding:0}
+.v2 .n2-hhl .n2-hr{color:#FF5A52}
+.v2 .n2-hft{position:absolute;left:52px;right:52px;bottom:40px;display:flex;justify-content:space-between;align-items:center;font-size:22px;font-weight:700;color:rgba(255,255,255,.8);z-index:5}
+.v2 .n2-hft .n2-ar{width:74px;height:30px;border-radius:16px;background:%(green)s;position:relative;display:inline-block;vertical-align:middle;margin-left:14px}
+.v2 .n2-hft .n2-ar:after{content:'';position:absolute;right:16px;top:50%%;width:12px;height:12px;border-top:3px solid %(ink)s;border-right:3px solid %(ink)s;transform:translateY(-50%%) rotate(45deg)}
 /* photo fact */
 .v2 .n2-pf{position:absolute;left:44px;right:44px;border-radius:44px;background-size:cover;background-position:center;z-index:2;box-shadow:0 30px 70px rgba(14,26,18,.22);overflow:hidden}
 .v2 .n2-pf:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%%,rgba(0,0,0,.78))}
@@ -183,7 +197,20 @@ def kinds(G):
                  f'<div class="n2-ov">{mark(s.get("overlay", ""))}</div></div>{lines(s, y + h + 44)}{src(s)}')
         return frame(s, inner)
 
-    return {'ncover': ncover, 'nbars': nbars, 'nbig': nbig, 'nrows': nrows, 'nphoto': nphoto}
+    def nhero(s, base):  # default first slide (owner, Oct 29)
+        badge = ''
+        if s.get('badge'):
+            b = s['badge']; pos = {'tr': 'right:-30px;top:170px', 'tl': 'left:-30px;top:170px', 'r': 'right:-60px;top:330px'}[b.get('pos', 'tr')]
+            size = b.get('size', 440)
+            badge = (f'<div class="n2-badge" style="{pos};width:{size}px;height:{size}px;background-image:url({uri(b["src"], base)});'
+                     f'background-color:{b.get("bg", "#fff")};background-size:{b.get("fit", "66%")}"></div>')
+        tag = f'<div class="n2-htag">{H.escape(s.get("tag", "BREAKING"))}</div>' if s.get('tag', 'BREAKING') else ''
+        return (f'<div class="slide v2"><div class="n2-hero" style="background-image:url({uri(s["photo"], base)});background-position:{s.get("photo_pos", "center")}"></div>'
+                f'<div class="n2-hlogo"><img src="{G["SYM"]}">Hotcoin</div>{badge}'
+                f'<div class="n2-hbox">{tag}<div class="n2-hhl fithero" data-max="{s.get("max", 118)}" style="font-size:{s.get("max", 118)}px">{mark(s["headline"])}</div></div>'
+                f'<div class="n2-hft"><div>@hotcoinex</div><div>Swipe<span class="n2-ar"></span></div></div></div>')
+
+    return {'nhero': nhero, 'ncover': ncover, 'nbars': nbars, 'nbig': nbig, 'nrows': nrows, 'nphoto': nphoto}
 
 
 # Academy / weekly slides keep their layouts but get the v2 fonts when post.json has "style": "v2".
@@ -216,10 +243,12 @@ ACADEMY_JS = """
 }
 """
 
-KINDS_V2 = {"ncover", "nbars", "nbig", "nrows", "nphoto"}
+KINDS_V2 = {"nhero", "ncover", "nbars", "nbig", "nrows", "nphoto"}
 
 FIT_JS = """
 () => {
+  for (const T of document.querySelectorAll('.fithero')) { let fs = +T.dataset.max;
+    while ((T.offsetHeight > 330 || T.scrollWidth > T.clientWidth) && fs > 56) { fs -= 2; T.style.fontSize = fs + 'px'; } }
   const T = document.querySelector('.fitttl');
   if (T) { let fs = +T.dataset.max; const box = T.parentElement;
     while ((T.scrollHeight > box.clientHeight || T.scrollWidth > box.clientWidth) && fs > 40) { fs -= 2; T.style.fontSize = fs + 'px'; } }
@@ -240,7 +269,7 @@ FIT_JS = """
 # text/graphic boxes, cut-off text and elements off the edge are printed as WARNING lines. Fix them all before publishing.
 CHECK_JS = """
 () => {
-  const sel = ['.n2-brand','.n2-chip','.n2-tagc','.n2-ttl','.n2-lines','.n2-sc','.n2-ins','.n2-k','.n2-dp','.n2-n','.n2-lb',
+  const sel = ['.n2-hlogo','.n2-badge','.n2-htag','.n2-hhl','.n2-hft','.n2-brand','.n2-chip','.n2-tagc','.n2-ttl','.n2-lines','.n2-sc','.n2-ins','.n2-k','.n2-dp','.n2-n','.n2-lb',
     '.n2-card','.n2-bigc','.n2-pf','.n2-ov','.n2-ft','.n2-bv','.n2-bl','.n2-rl','.n2-rv',
     '.tch','.thl','.tsub','.thero','.tnum','.ttl','.tbody','.vis','.foot'].join(',');
   const ok = [['n2-sc','n2-cph'],['n2-ins','n2-cph'],['n2-sc','n2-ins']];  // meant to sit on top of each other
@@ -258,7 +287,7 @@ CHECK_JS = """
   }
   for (const e of document.querySelectorAll('.n2-k,.n2-n,.n2-bv,.n2-rv,.n2-v,.n2-dp,.n2-chip,.n2-tagc'))
     if (e.scrollWidth > e.clientWidth + 2) out.push(`${name(e)} text is cut off ("${e.textContent.trim().slice(0, 30)}")`);
-  for (const e of els.filter(e => !['thero', 'n2-ins'].includes(name(e)))) {
+  for (const e of els.filter(e => !['thero', 'n2-ins', 'n2-badge'].includes(name(e)))) {
     const r = e.getBoundingClientRect(); if (r.right > 1082 || r.left < -2) out.push(`${name(e)} runs off the slide edge`); }
   return out;
 }
