@@ -1,5 +1,14 @@
 [
  {
+  "id": "2026-10-29-whatif-xbox-msft",
+  "slot": "2026-10-29T21:30:00+08:00",
+  "topic": "WHAT IF: Xbox 360 vs Microsoft",
+  "hook": "$399 on an Xbox 360 in 2005 vs $399 in Microsoft",
+  "file": "ig-news/media/2026-10-29-whatif-xbox-msft/story.mp4",
+  "status": "scheduled",
+  "doc_row": true
+ },
+ {
   "id": "2026-10-28-whatif-gta-nvda",
   "slot": "2026-10-28T21:30:00+08:00",
   "topic": "WHAT IF: GTA San Andreas vs Nvidia",

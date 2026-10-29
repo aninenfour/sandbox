@@ -735,5 +735,21 @@
   ],
   "status": "scheduled",
   "note": "Data Day. YTD to Oct 28 close: AAPL +26.5, NVDA +15.5, SPX +13.1, AMZN +10.3, MSFT +9.8, GOOGL +3.8, gold -6.4, BTC -7.1, META -7.2, TSLA -10.1. Calendar topic swapped (was 'Big Tech moves after last 8 earnings'). Photo: Pao Pattarapol / Unsplash."
+ },
+ {
+  "id": "2026-10-29-whatif-xbox-msft",
+  "type": "reel",
+  "slot": "2026-10-29T21:30:00+08:00",
+  "hook": "$399 on an Xbox 360 or $399 in Microsoft?",
+  "topic": "WHAT IF price-dot (Xbox 360 vs Microsoft)",
+  "music": "Hip Hop 03 (Lily J, Mixkit)",
+  "style": "whatif",
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/MSFT?interval=1d",
+   "https://api.nasdaq.com/api/quote/MSFT/info?assetclass=stocks",
+   "https://en.wikipedia.org/wiki/Xbox_360"
+  ],
+  "status": "scheduled",
+  "note": "Second WHAT IF: slower timeline (35.5 s), real photo on card + round photo dot (Arturo Rey / Unsplash; Wikimedia rate-limited), event labels in a fixed slot under the counter (no collisions). $399 Nov 22 2005 (close 27.91) -> $7,591 at $531.01 (Oct 28). -59% 2007-09, still $395 in Jan 2013, -38% 2021-22. IG+FB Reel, TikTok, X 21:30; Story 21:35."
  }
 ]
