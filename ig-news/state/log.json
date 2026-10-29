@@ -718,8 +718,9 @@
    "https://www.coindesk.com/markets/2026/10/28/fed-leaves-interest-rates-unchanged-as-expected",
    "https://decrypt.co/382092/fed-hold-interest-rate-steady-bitcoin-december-rate-hike"
   ],
-  "status": "scheduled",
-  "note": "First v2 news. 3.75-4.00% held, 10-2 (Cook, Hammack for hike), CPI 3.7% (Decrypt/Labor Dept), Dec 8-9 next. Photo: Fed Eccles building, Wikimedia Commons."
+  "status": "published",
+  "note": "First v2 news. 3.75-4.00% held, 10-2 (Cook, Hammack for hike), CPI 3.7% (Decrypt/Labor Dept), Dec 8-9 next. Photo: Fed Eccles building, Wikimedia Commons.",
+  "ig_url": "https://www.instagram.com/p/DfEh4eUCUhP/"
  },
  {
   "id": "2026-10-29-academy-bigtech-ytd",
@@ -733,8 +734,9 @@
    "https://api.nasdaq.com/api/quote/AAPL/info?assetclass=stocks",
    "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
   ],
-  "status": "scheduled",
-  "note": "Data Day. YTD to Oct 28 close: AAPL +26.5, NVDA +15.5, SPX +13.1, AMZN +10.3, MSFT +9.8, GOOGL +3.8, gold -6.4, BTC -7.1, META -7.2, TSLA -10.1. Calendar topic swapped (was 'Big Tech moves after last 8 earnings'). Photo: Pao Pattarapol / Unsplash."
+  "status": "published",
+  "note": "Data Day. YTD to Oct 28 close: AAPL +26.5, NVDA +15.5, SPX +13.1, AMZN +10.3, MSFT +9.8, GOOGL +3.8, gold -6.4, BTC -7.1, META -7.2, TSLA -10.1. Calendar topic swapped (was 'Big Tech moves after last 8 earnings'). Photo: Pao Pattarapol / Unsplash.",
+  "ig_url": "https://www.instagram.com/p/DfE2hcCm9if/"
  },
  {
   "id": "2026-10-29-whatif-xbox-msft",
@@ -749,7 +751,41 @@
    "https://api.nasdaq.com/api/quote/MSFT/info?assetclass=stocks",
    "https://en.wikipedia.org/wiki/Xbox_360"
   ],
+  "status": "published",
+  "note": "Second WHAT IF: slower timeline (35.5 s), real photo on card + round photo dot (Arturo Rey / Unsplash; Wikimedia rate-limited), event labels in a fixed slot under the counter (no collisions). $399 Nov 22 2005 (close 27.91) -> $7,591 at $531.01 (Oct 28). -59% 2007-09, still $395 in Jan 2013, -38% 2021-22. IG+FB Reel, TikTok, X 21:30; Story 21:35.",
+  "ig_url": "https://www.instagram.com/reel/DfFHvdjlKZb/"
+ },
+ {
+  "id": "2026-10-30-binance-hack",
+  "type": "news",
+  "style": "v2",
+  "layouts": [
+   "nhero",
+   "nbars",
+   "nrows"
+  ],
+  "slot": "2026-10-30T16:00:00+08:00",
+  "title": "Over $5.5B drained from Binance in a suspected hack",
+  "score": null,
+  "sources": [
+   "https://decrypt.co/382191/binance-suspected-hack-5-billion-tether-circle-freeze-crypto",
+   "https://www.theblock.co/news/markets/2026-10-29-binance-investigating-hack-suspicious-outflows-5-billion-432171",
+   "https://www.coindesk.com/business/2026/10/29/potential-multi-billion-binance-hack-hitting-crypto-markets"
+  ],
   "status": "scheduled",
-  "note": "Second WHAT IF: slower timeline (35.5 s), real photo on card + round photo dot (Arturo Rey / Unsplash; Wikimedia rate-limited), event labels in a fixed slot under the counter (no collisions). $399 Nov 22 2005 (close 27.91) -> $7,591 at $531.01 (Oct 28). -59% 2007-09, still $395 in Jan 2013, -38% 2021-22. IG+FB Reel, TikTok, X 21:30; Story 21:35."
+  "note": "DEVELOPING STORY: unconfirmed by Binance as of 07:40 UTC+8. 15:40 run must re-check (confirmed? amount changed? user funds?) and edit the caption before 16:00 if facts moved. $5.57B tally (ETH 3.51, BTC 1.44 = 18,270 BTC, Tron 0.63), Tether+Circle froze ~$1.8B, Bybit ~$1.5B prior record. No real photo of Yi He available (Commons none, news og blocked) -> Binance app photo (Vadim Art / Unsplash), brightened."
+ },
+ {
+  "id": "2026-10-30-academy-sell-in-may",
+  "type": "tutorial",
+  "style": "v2",
+  "slot": "2026-10-30T19:00:00+08:00",
+  "title": "\"Sell in May\" would have halved your gains",
+  "score": null,
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?interval=1mo"
+  ],
+  "status": "scheduled",
+  "note": "Myth vs Fact (Halloween). S&P month-end closes: Nov-Apr avg +6.4% (30 winters 1996-2025), May-Oct avg +2.9% (21/30 up, worst 2008 -30%, best 2025 +22.8%). $1,000 Oct96->Apr26: hold $10,222 vs winters only $5,610. Price only. Photo: Ross Sneddon / Unsplash."
  }
 ]
