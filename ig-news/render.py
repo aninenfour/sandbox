@@ -225,6 +225,9 @@ def main():
                 print(f'WARNING slide {n}: text runs past the bottom — shorten copy', file=sys.stderr)
             if pg.evaluate(FIT_JS):
                 print(f'WARNING slide {n}: body text overflows into footer — shorten copy', file=sys.stderr)
+            if spec.get('style') == 'v2':
+                for w in pg.evaluate(news2.CHECK_JS):
+                    print(f'WARNING slide {n} collision: {w}', file=sys.stderr)
             f = out / f'{n:02d}.jpg'
             pg.screenshot(path=str(f), type='jpeg', quality=95)
             files.append(f)

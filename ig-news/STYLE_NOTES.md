@@ -46,6 +46,7 @@ Examples (before → better):
   Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
 
 ## Changelog
+- 2026-10-29 (owner: "new design is much better"): no source line on slides (sources go in the caption/first comment); automatic collision check in render.py, every WARNING must be fixed before scheduling.
 - 2026-10-29 (owner feedback Oct 28): full style revision. News v2: light background, Archivo + Manrope, graphic-first slides with 5 rotating layouts (ncover, nbars, nbig, nrows, nphoto), modern stat cards like Hotcoin's X posts. Academy v2: new fonts, chart on top and enlarged. Hooks must be instantly clear (no riddles). Weekly learning run now has a mandatory visual style review.
 - 2026-10-26 (weekly learning W44): tier lists capped at 1 per week (fatigue); number + question hooks answered with past data.
 - 2026-10-22 (daily review): tier lists should mix stocks/gold with crypto (comment data).

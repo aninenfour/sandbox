@@ -105,11 +105,11 @@ def kinds(G):
     def lines(s, top):
         if not s.get('text'):
             return ''
-        return (f'<div class="n2-lines fitv2" data-bottom="{1240 if not s.get("source") else 1200}" style="top:{top}px">'
+        return (f'<div class="n2-lines fitv2" data-bottom="1240" style="top:{top}px">'
                 + ''.join(f'<p>{mark(p)}</p>' for p in s['text']) + '</div>')
 
-    def src(s):
-        return f'<div class="n2-src">Source: {H.escape(s["source"])}</div>' if s.get('source') else ''
+    def src(s):  # owner, Oct 29: no source line on the slides; "source" stays in post.json and goes in the caption
+        return ''
 
     def title(s, top, size=58):
         if not s.get('title'):
@@ -194,6 +194,7 @@ ACADEMY_CSS = """
 .tnum{font-size:76px !important;top:132px !important;line-height:1 !important}
 .ttl{top:138px !important;left:190px !important;font-size:56px !important}
 .vis{bottom:auto !important}
+.tsrc{display:none !important}
 """
 
 # Graphic on top for Academy chapter slides: title row, then the chart/visual, then the text under it.
@@ -231,5 +232,34 @@ FIT_JS = """
     while (b.getBoundingClientRect().bottom > lim && fs > 26) { fs -= 1; b.style.fontSize = fs + 'px'; }
     if (b.getBoundingClientRect().bottom > lim) over = true; }
   return over;
+}
+"""
+
+
+# Collision check (owner, Oct 29: "check for collisions"): every v2 slide is scanned after layout; overlapping
+# text/graphic boxes, cut-off text and elements off the edge are printed as WARNING lines. Fix them all before publishing.
+CHECK_JS = """
+() => {
+  const sel = ['.n2-brand','.n2-chip','.n2-tagc','.n2-ttl','.n2-lines','.n2-sc','.n2-ins','.n2-k','.n2-dp','.n2-n','.n2-lb',
+    '.n2-card','.n2-bigc','.n2-pf','.n2-ov','.n2-ft','.n2-bv','.n2-bl','.n2-rl','.n2-rv',
+    '.tch','.thl','.tsub','.thero','.tnum','.ttl','.tbody','.vis','.foot'].join(',');
+  const ok = [['n2-sc','n2-cph'],['n2-ins','n2-cph'],['n2-sc','n2-ins']];  // meant to sit on top of each other
+  const els = [...document.querySelectorAll(sel)].filter(e => { const r = e.getBoundingClientRect(), c = getComputedStyle(e);
+    return r.width > 2 && r.height > 2 && c.visibility !== 'hidden' && c.display !== 'none'; });
+  const name = e => (e.className.baseVal ?? e.className).split(' ')[0];
+  const out = [];
+  for (let i = 0; i < els.length; i++) for (let j = i + 1; j < els.length; j++) {
+    const a = els[i], b = els[j];
+    if (a.contains(b) || b.contains(a)) continue;
+    if (ok.some(([x, y]) => [name(a), name(b)].includes(x) && [name(a), name(b)].includes(y))) continue;
+    const r = a.getBoundingClientRect(), q = b.getBoundingClientRect();
+    const w = Math.min(r.right, q.right) - Math.max(r.left, q.left), h = Math.min(r.bottom, q.bottom) - Math.max(r.top, q.top);
+    if (w > 4 && h > 4) out.push(`${name(a)} overlaps ${name(b)} (${Math.round(w)}x${Math.round(h)}px)`);
+  }
+  for (const e of document.querySelectorAll('.n2-k,.n2-n,.n2-bv,.n2-rv,.n2-v,.n2-dp,.n2-chip,.n2-tagc'))
+    if (e.scrollWidth > e.clientWidth + 2) out.push(`${name(e)} text is cut off ("${e.textContent.trim().slice(0, 30)}")`);
+  for (const e of els.filter(e => !['thero', 'n2-ins'].includes(name(e)))) {
+    const r = e.getBoundingClientRect(); if (r.right > 1082 || r.left < -2) out.push(`${name(e)} runs off the slide edge`); }
+  return out;
 }
 """
