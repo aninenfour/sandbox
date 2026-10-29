@@ -309,3 +309,12 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 - **Facts:** SBF convicted on 7 counts Nov 2023, sentenced to 25 years 28 Mar 2024 (US DOJ SDNY); ~$8B customer funds.
   Terra/LUNA collapse May 2022 (~$40B); Do Kwon arrested in Montenegro with a fake passport Mar 2023, sentenced to 15 years 11 Dec 2025 (The Block, Decrypt).
   Celsius froze withdrawals 12 Jun 2022, Chapter 11 Jul 2022; Mashinsky pleaded guilty Dec 2024, sentenced to 12 years 8 May 2025 (NBC News).
+
+## Crypto Scary Stories, Ep. 5 "Bugs in the Code" (`src/halloween/ScaryStories5.tsx`)
+- **Art:** all original (mad-science lab, Tesla coil, flasks, lever, chalkboard, cobwebs, spiders, goggles, pith helmet, bug net, caramel apple in SVG/CSS). No real people's likeness.
+- **Music:** "Silent Movie 125" by Sascha Ende (ende.app), CC BY 4.0. Credit in the end card and the post.
+- **Projector loop:** synthesized by `scripts/make-projector.py`. Other sfx: `npm run sfx`.
+- **Facts:**
+  - Value overflow incident, 15 Aug 2010, block 74638: two outputs of 92,233,720,368.54 BTC (~184.47B BTC); patched in v0.3.10 within hours (Bitcoin Wiki, CVE-2010-5139).
+  - The DAO, 17 Jun 2016: ~3.6M ETH (3,641,694) drained via repeated splitDAO calls (re-entrancy); hard fork 20 Jul 2016, the unforked chain became Ethereum Classic.
+  - Parity multisig library, 6 Nov 2017: devops199 became owner and called kill(); 513,774 ETH frozen in 587 wallets; "I accidentally killed it." (Parity postmortem; still frozen).

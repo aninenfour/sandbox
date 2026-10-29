@@ -38,6 +38,7 @@ import {ScaryStories2, ScaryStories2Tall, ScaryThumb2, ScaryThumb2Tall, SCARY2_D
 import {HalloweenGiveaway} from './halloween/Giveaway';
 import {ScaryStories3, ScaryStories3Tall, ScaryThumb3, ScaryThumb3Tall, SCARY3_DURATION} from './halloween/ScaryStories3';
 import {ScaryStories4, ScaryStories4Tall, ScaryThumb4, ScaryThumb4Tall, SCARY4_DURATION} from './halloween/ScaryStories4';
+import {ScaryStories5, ScaryStories5Tall, ScaryThumb5, ScaryThumb5Tall, SCARY5_DURATION} from './halloween/ScaryStories5';
 import {GuessMeme} from './guess2/GuessMeme';
 import {EthMaintenance, ZanoResume} from './notice/Notice';
 import {Style2Logo, Style2TradFi, Style2Next90} from './style2/Style2';
@@ -100,6 +101,10 @@ export const Root: React.FC = () => (
     <Composition id="ScaryStories4-9x16" component={ScaryStories4Tall} durationInFrames={SCARY4_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="ScaryThumb4" component={ScaryThumb4} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="ScaryThumb4-9x16" component={ScaryThumb4Tall} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="ScaryStories5" component={ScaryStories5} durationInFrames={SCARY5_DURATION} fps={30} width={1080} height={1350} />
+    <Composition id="ScaryStories5-9x16" component={ScaryStories5Tall} durationInFrames={SCARY5_DURATION} fps={30} width={1080} height={1920} />
+    <Composition id="ScaryThumb5" component={ScaryThumb5} durationInFrames={1} fps={30} width={1080} height={1350} />
+    <Composition id="ScaryThumb5-9x16" component={ScaryThumb5Tall} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="ScaryThumb3" component={ScaryThumb3} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="ScaryThumb3-9x16" component={ScaryThumb3Tall} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="ScaryStories2" component={ScaryStories2} durationInFrames={SCARY2_DURATION} fps={30} width={1080} height={1350} />
