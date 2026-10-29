@@ -1,0 +1,187 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "pumpkins.jpg",
+   "photo_pos": "50% 30%",
+   "tag": "MYTH VS FACT",
+   "headline": "\"Sell in May\" would have {halved} your gains"
+  },
+  {
+   "kind": "tslide",
+   "num": "01",
+   "of": "1/5",
+   "title": "The <span class='g'>myth</span>",
+   "paras": [
+    "The saying: stocks do better from <g>Halloween to May</g>, so sell in May and come back on Oct 31.",
+    "Over 30 years of the S&P 500, winters really did gain more on average."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Average S&P 500 gain, 1996-2026 (%)",
+    "items": [
+     {
+      "l": "Nov to Apr",
+      "v": 6.4,
+      "txt": "+6.4%"
+     },
+     {
+      "l": "May to Oct",
+      "v": 2.9,
+      "txt": "+2.9%"
+     }
+    ]
+   },
+   "source": "Hotcoin calc. from Yahoo Finance monthly closes"
+  },
+  {
+   "kind": "tslide",
+   "num": "02",
+   "of": "2/5",
+   "title": "Year by <span class='g'>year</span>",
+   "paras": [
+    "Winters won in some years, summers in others. In 2025 the summer made <g>+22.8%</g>."
+   ],
+   "visual": {
+    "type": "table",
+    "cols": [
+     "Year",
+     "May to Oct",
+     "Nov to Apr"
+    ],
+    "rows": [
+     [
+      "2019",
+      "<g>+3.1%</g>",
+      "<r>-4.1%</r>"
+     ],
+     [
+      "2020",
+      "<g>+12.3%</g>",
+      "<g>+27.9%</g>"
+     ],
+     [
+      "2021",
+      "<g>+10.1%</g>",
+      "<r>-10.3%</r>"
+     ],
+     [
+      "2022",
+      "<r>-6.3%</r>",
+      "<g>+7.7%</g>"
+     ],
+     [
+      "2023",
+      "<g>+0.6%</g>",
+      "<g>+20.1%</g>"
+     ],
+     [
+      "2024",
+      "<g>+13.3%</g>",
+      "<r>-2.4%</r>"
+     ],
+     [
+      "2025",
+      "<g>+22.8%</g>",
+      "<g>+5.4%</g>"
+     ]
+    ]
+   },
+   "source": "Yahoo Finance (^GSPC), month-end closes; Nov-Apr runs into the next year"
+  },
+  {
+   "kind": "tslide",
+   "num": "03",
+   "of": "3/5",
+   "title": "Summers still <span class='g'>made money</span>",
+   "paras": [
+    "The S&P 500 rose in <g>21 of 30</g> summers.",
+    "The worst was 2008, <r>-30%</r>. Most years, sitting out meant missing gains."
+   ],
+   "visual": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "21 / 30",
+      "l": "summers up",
+      "color": "#3E8E1E"
+     },
+     {
+      "v": "-30%",
+      "l": "worst, 2008",
+      "color": "#E5322D"
+     },
+     {
+      "v": "+22.8%",
+      "l": "best, 2025",
+      "color": "#3E8E1E"
+     }
+    ]
+   },
+   "source": "Hotcoin calc. from Yahoo Finance monthly closes"
+  },
+  {
+   "kind": "tslide",
+   "num": "04",
+   "of": "4/5",
+   "title": "The real <span class='g'>test</span>",
+   "paras": [
+    "$1,000 from Oct 1996 to Apr 2026: hold all year, or only from Halloween to May.",
+    "Selling every May left you with about <r>half</r>."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "$1,000, Oct 1996 to Apr 2026",
+    "items": [
+     {
+      "l": "Hold all year",
+      "v": 10222,
+      "txt": "$10,222"
+     },
+     {
+      "l": "Only Nov to Apr",
+      "v": 5610,
+      "txt": "$5,610"
+     }
+    ]
+   },
+   "source": "Hotcoin calc., price only, no dividends, cash earns 0% while out"
+  },
+  {
+   "kind": "tslide",
+   "num": "05",
+   "of": "5/5",
+   "title": "What it <span class='g'>means</span>",
+   "paras": [
+    "A pattern can be real and <u>still not worth trading</u>.",
+    "Time in the market beat timing the market, again."
+   ],
+   "visual": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "+6.4%",
+      "l": "avg winter",
+      "color": "#3E8E1E"
+     },
+     {
+      "v": "+2.9%",
+      "l": "avg summer",
+      "color": "#3E8E1E"
+     },
+     {
+      "v": "2x",
+      "l": "holding vs timing",
+      "color": "#0E1A12"
+     }
+    ]
+   },
+   "source": "Past performance doesn't predict future returns. Not financial advice."
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
