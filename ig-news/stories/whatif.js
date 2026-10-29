@@ -10,7 +10,7 @@ const T = {year: .25, cash: 1.4, choice: 2.9, fly: 5.6, c0: 6.6, c1: 22.6, rev: 
 const LESSON = S.lesson, L0 = T.out + .6, LT = lessonTimes(L0, LESSON, 19);
 const LEND = LT[LT.length - 1] + LESSON[LESSON.length - 1].t.length / 19;
 window.DURATION = LEND + 3.2;
-window.COVER_T = T.rev + 1.6;            // cover = the reveal
+window.COVER_T = T.rev + 3.1;            // cover = the reveal
 const CX0 = 110, CX1 = 970, CY0 = 720, CY1 = 1460;           // chart box
 const fmt = v => '$' + Math.round(v).toLocaleString('en-US');
 const idxAt = t => clamp((t - T.c0) / (T.c1 - T.c0)) * (N - 1);
