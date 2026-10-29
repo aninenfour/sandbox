@@ -46,6 +46,7 @@ Examples (before → better):
   Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
 
 ## Changelog
+- 2026-10-29 (owner): covers use real faces of the people behind the story (CEOs, officials, founders) with the company logo badge; place/product photos only when no person fits.
 - 2026-10-29 (owner, Kalshi reference): first slide is now `nhero`: full-bleed photo, round logo badge, small BREAKING/TRENDING tag, one big plain statement in condensed caps. Clear objective in one glance.
 - 2026-10-29 (owner: "new design is much better"): no source line on slides (sources go in the caption/first comment); automatic collision check in render.py, every WARNING must be fixed before scheduling.
 - 2026-10-29 (owner feedback Oct 28): full style revision. News v2: light background, Archivo + Manrope, graphic-first slides with 5 rotating layouts (ncover, nbars, nbig, nrows, nphoto), modern stat cards like Hotcoin's X posts. Academy v2: new fonts, chart on top and enlarged. Hooks must be instantly clear (no riddles). Weekly learning run now has a mandatory visual style review.

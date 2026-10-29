@@ -57,6 +57,7 @@ Voice: confident, plain English, slightly provocative hook, no hype words ("moon
 - **First comment**: `Sources: …` + `Photo: <credit>` + `Not financial advice.`
 
 ## 5. Photos (real photos, always)
+**FACES FIRST (owner, Oct 29: "social media loves faces").** Every cover (`nhero`) uses the face of the real person behind the story whenever one exists: the CEO for company news and earnings (Tim Cook for Apple, Vlad Tenev for Robinhood, Jensen Huang for Nvidia, Satya Nadella for Microsoft, Brian Armstrong for Coinbase, Michael Saylor for Strategy...), the official for policy (the Fed chair, the regulator), the founder for a coin. Put the company/coin logo in the `badge` next to the face (Kalshi style). Face fills the upper half, eyes in the top third, looking into the frame; use `photo_pos` to frame it. Only real photos of that exact person (Wikimedia Commons, official press kits, the article's lead photo with credit). Never a look-alike, never AI-generated, never a face that suggests someone was involved when they weren't. Only when no person fits (e.g. market-wide data) use a place/product photo instead.
 Order of preference:
 1. **Wikimedia Commons** photo of the person/place/product: `python3 ig-news/tools/get_image.py "commons:File_Name.jpg" out.jpg` (prints the credit). Find files with WebSearch `site:commons.wikimedia.org <name>`.
 2. Official newsroom / press-kit images from the company or regulator.
