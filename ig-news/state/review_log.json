@@ -161,5 +161,15 @@
   ],
   "changes": "no change needed (full style revision v2 shipped 05:00 today; don't stack more changes before it has data)",
   "owner_decision": "Approve stick-figure Ep 1 'The Tower' so story Reels can start (they match what performs best)."
+ },
+ {
+  "date": "2026-10-30",
+  "looked_at": "IG+FB insights Oct 28-29 (Thu v2 posts not in insights yet); Xbox WHAT IF frames",
+  "findings": [
+   "WHAT IF #1 (GTA vs Nvidia): IG 66 reach / 90 views, FB 76. ~3.7x the last slideshow Reel on IG (18) but half the team's story Reels (bond explainer 141, Bitcoin pizza 130 IG; pizza 257 FB). Those state the payoff in the first second; ours opened on '2004' and '$50'.",
+   "Old-style carousels Wed: Robinhood 16 IG / 17 FB, gold vs BTC 12 IG / 16 FB. The v2 + nhero covers are the fix; judge Thu/Fri posts tomorrow."
+  ],
+  "changes": "whatif.js: optional 'hook' (2 caps lines, payoff) shown from frame 1; PLAYBOOK \u00a77b says always set it. Tested on the Xbox spec (no overlap).",
+  "owner_decision": "Approve stick-figure Ep 1 'The Tower' (still pending; Friday 12:30 slot stays empty until then)."
  }
 ]

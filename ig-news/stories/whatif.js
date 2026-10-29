@@ -119,6 +119,10 @@ function draw(t) {
   const [sx, sy] = shake(t, EV.filter(e => e.c === 'red').map(e => evTime(e.i)).find(x => t >= x && t < x + .6) ?? -9, .6, 22);
   ctx.save(); ctx.translate(sx, sy);
   sky(); stars(t, .5);
+  // 0. payoff hook from frame 1 (review Oct 30: our open was slow; the team's top Reels state the payoff at once)
+  if (S.hook) { const ha = 1 - prog(t, T.choice, T.choice + .4);
+    if (ha > 0) { ctx.save(); ctx.globalAlpha = ha; ctx.fillStyle = P.green; ctx.font = '900 66px "Inter Display", Inter, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; S.hook.split('\n').forEach((l, k) => ctx.fillText(l, W / 2, 230 + k * 78)); ctx.restore(); } }
   // 1. the year
   const ya = clamp(prog(t, T.year, T.year + .15)) * (1 - prog(t, T.choice + .2, T.choice + .5));
   if (ya > 0) title(S.year, 520 - 30 * prog(t, T.year, T.fly), lerp(260, 220, prog(t, T.year, T.year + .25)), P.white, ya);
