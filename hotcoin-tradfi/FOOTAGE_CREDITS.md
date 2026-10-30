@@ -318,3 +318,15 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
   - Value overflow incident, 15 Aug 2010, block 74638: two outputs of 92,233,720,368.54 BTC (~184.47B BTC); patched in v0.3.10 within hours (Bitcoin Wiki, CVE-2010-5139).
   - The DAO, 17 Jun 2016: ~3.6M ETH (3,641,694) drained via repeated splitDAO calls (re-entrancy); hard fork 20 Jul 2016, the unforked chain became Ethereum Classic.
   - Parity multisig library, 6 Nov 2017: devops199 became owner and called kill(); 513,774 ETH frozen in 587 wallets; "I accidentally killed it." (Parity postmortem; still frozen).
+
+## "Never SAFU" aura edit (`src/aura/AuraEdit.tsx`, 9:16, 30 s)
+- **Footage (NASA, public domain; fetched from images-api.nasa.gov, cut by hand into `public/aura/clips/`, gitignored):**
+  - "Engineers Break SLS Rocket Propellant Tank On Purpose" (MSFC, 2020): LOX tank test-to-failure (breach shots).
+  - "NASA Conducts Space Launch System Rocket Full-Scale Booster Test" (2020): booster ignition and fireball (fire shots).
+  - "Perseverance Rover Lands on Mars, as the World Watches" (JPL, 2021): control room, claps, cheers, red-lit landmarks. Crowd audio from the same clip. Shots of children not used.
+  - "NASA's SDO Captures Stunning 4K View of April 17 Solar Flare" (GSFC, 2016): flare and white light.
+  - "NASA ScienceCasts: Observing Lightning from the ISS" (2021): storm from orbit.
+- **Music and sfx:** original, synthesized by `scripts/make-aura-beat.py` (150 BPM).
+- **Data:** Binance daily candles, Oct 10, 2025 (open to intraday low), via `scripts/fetch-aura.mjs` (`src/aura/crash.json`); coin logos from CoinGecko.
+- **Headlines:** $1.5B exchange hack (Feb 21, 2025); Nvidia −17%, ~$589B (Jan 27, 2025; Reuters/Bloomberg); S&P 500 −5.97% Apr 4, 2025, ~$5T in two days (Reuters/Bloomberg); ~$19B liquidated Oct 10, 2025 (CoinGlass); LUNA ~$40B (May 2022); FTX $8B (Nov 2022).
+- No real people's likeness implying endorsement: NASA staff appear only as unnamed crowd reactions, no captions or claims attached to them.
