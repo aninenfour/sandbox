@@ -89,6 +89,8 @@ Support doesn't slide into your DMs. If you didn't open a ticket and someone mes
 **🚩 "Claim your compensation airdrop."**
 Free money, plus a link that asks you to connect your wallet or sign a transaction, adds up to a drained wallet. Compensation, if it ever exists, is never a random link.
 
+**The tells, in one look:** a lookalike domain (hotc0in is not hotcoin), fake urgency, a missing Anti-Phishing Code, "support" that messages you first, a request for your 2FA code, free money, and a "connect wallet" button.
+
 **The rule:** STOP. Don't click. Don't reply. Check it on Hotcoin Verify.
 
 ---

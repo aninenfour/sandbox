@@ -100,26 +100,56 @@ ${[['01', 'Google Verification (2FA)', 'Logins with a stolen password · SIM-swa
 
   // ---------- 3: hacks and scams ----------
   '03-scams-follow': [1600, 900, `${top('3/4')}
-<h1 style="position:absolute;left:76px;top:150px;font-size:76px">Hacks make headlines.<br><span>Scams follow.</span></h1>
-<div style="position:absolute;left:76px;top:370px;width:700px">
-  <div class="mono">CRYPTO STOLEN IN HACKS, PER YEAR (USD)</div>
-  <div style="position:relative;height:330px;margin-top:20px;display:flex;align-items:flex-end;gap:34px;border-bottom:2px solid var(--ink)">
-  ${HACKS.map(([y, v]) => `<div style="flex:1;display:flex;flex-direction:column;align-items:center">
-      <div style="font-weight:600;font-size:34px;letter-spacing:-1.5px;color:var(--red);margin-bottom:10px">$${v}B</div>
-      <div class="hatch-r" style="width:100%;height:${(v / 3.8) * 250}px;border:2px solid var(--ink);border-bottom:none;border-radius:10px 10px 0 0"></div></div>`).join('')}
+<h1 style="position:absolute;left:76px;top:136px;font-size:64px">Spot the scam.<br><span>3 messages that follow every big hack.</span></h1>
+${(() => {
+  const C = 'position:absolute;top:0;width:456px';
+  const card = 'position:relative;border-radius:20px;background:#fff;border:2px solid var(--ink);box-shadow:0 18px 40px rgba(11,14,17,.10);overflow:hidden;height:280px';
+  const tag = (t) => `<div style="font-family:'JetBrains Mono';font-weight:700;font-size:14px;letter-spacing:2px;color:var(--muted);margin-bottom:12px">${t}</div>`;
+  const n = (i) => `<span style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:13px;background:#FFD84D;border:2px solid var(--ink);font-family:'JetBrains Mono';font-weight:700;font-size:14px;color:var(--ink);vertical-align:middle;margin-left:6px;box-shadow:2px 2px 0 var(--ink)">${i}</span>`;
+  const hl = (t) => `<span style="background:#FFF1B8;border-bottom:2px solid #F2C200">${t}</span>`;
+  const calls = (items) => `<div style="display:flex;flex-direction:column;gap:10px;margin-top:18px">${items.map(([i, e, t, d], k) => `
+    <div style="display:flex;align-items:center;gap:12px;background:#FFD84D;border:2px solid var(--ink);border-radius:12px;padding:8px 14px;box-shadow:4px 4px 0 var(--ink);transform:rotate(${k % 2 ? 0.8 : -0.8}deg)">
+      <span style="display:inline-flex;align-items:center;justify-content:center;flex:none;width:28px;height:28px;border-radius:14px;background:#fff;border:2px solid var(--ink);font-family:'JetBrains Mono';font-weight:700;font-size:15px">${i}</span><span style="font-size:22px">${e}</span>
+      <div style="font-weight:700;font-size:20px;letter-spacing:-.3px">${t}<span style="font-weight:500;color:#5B4A00"> · ${d}</span></div></div>`).join('')}</div>`;
+  const btn = (t, bg) => `<div style="display:inline-block;margin-top:12px;background:${bg};color:#fff;font-weight:700;font-size:17px;border-radius:10px;padding:9px 16px">${t}</div>`;
+  return `<div style="position:absolute;left:76px;right:76px;top:318px">
+  <div style="${C};left:0">${tag('📧 EMAIL')}
+    <div style="${card}">
+      <div style="padding:14px 18px;border-bottom:1.5px solid var(--line);font-size:16px;line-height:1.7">
+        <div><b>From:</b> Hotcoin Security &lt;${hl('alert@hotc0in-safe.co')}&gt;${n(1)}</div>
+        <div><b>Subject:</b> ${hl('URGENT: move funds within 24h')}${n(2)}</div>
+        <div style="color:var(--muted)">Anti-Phishing Code: <b style="color:var(--red)">none</b>${n(3)}</div></div>
+      <div style="padding:14px 18px;font-size:17px;line-height:1.4;color:var(--body)">After a security incident your assets are at risk. Move everything to your Safe Wallet now.<br>${btn('Secure my funds →', '#2F9E44')}</div>
+    </div>
+    ${calls([['1', '⚠️', 'Lookalike domain', 'hotc0in ≠ hotcoin'], ['2', '⏰', 'Fake urgency', 'panic is the trick'], ['3', '🚫', 'No Anti-Phishing Code', 'it’s fake']])}
   </div>
-  <div style="display:flex;gap:34px;margin-top:10px">${HACKS.map(([y]) => `<div style="flex:1;text-align:center;font-family:'JetBrains Mono';font-weight:700;font-size:18px">${y}${y === '2025' ? '*' : ''}</div>`).join('')}</div>
-</div>
-<div style="position:absolute;left:880px;right:76px;top:370px">
-  <div class="mono">3 MESSAGES THAT FOLLOW EVERY BIG HACK</div>
-${[['“URGENT: move your funds to a safe wallet”', 'No real exchange asks this. The safe wallet is the scammer’s.'], ['“Hi, I’m from Hotcoin support”', 'Support never DMs you first.'], ['“Claim your compensation airdrop”', 'Connect wallet + sign = drained wallet.']].map(([q, a], i) => `
-  <div style="padding:20px 0;border-top:${i ? '1.5px solid var(--line)' : '2px solid var(--ink)'};${i ? '' : 'margin-top:14px'}">
-    <div style="font-family:'JetBrains Mono';font-weight:700;font-size:13px;letter-spacing:2px;color:var(--red)">RED FLAG 0${i + 1}</div>
-    <div style="font-weight:600;font-size:27px;letter-spacing:-.8px;line-height:1.15;margin-top:6px">${q}</div>
-    <div style="font-size:20px;color:var(--body);margin-top:6px">${a}</div></div>`).join('')}
-</div>
-<div class="src" style="left:76px;bottom:40px">Data: Chainalysis, funds stolen from crypto platforms. *2025: January to early December. Rule: stop, don’t click, check it on Hotcoin Verify.</div>`],
-
+  <div style="${C};left:496px">${tag('💬 DIRECT MESSAGE')}
+    <div style="${card};background:#F6F7F9">
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 18px;background:#fff;border-bottom:1.5px solid var(--line)">
+        <div style="width:40px;height:40px;border-radius:20px;background:var(--ink);color:var(--lime);display:flex;align-items:center;justify-content:center;font-weight:700">H</div>
+        <div><div style="font-weight:700;font-size:18px">Hotcoin Support ✔︎${n(1)}</div><div style="font-size:14px;color:var(--muted)">@hotcoin_help_desk · messaged you first</div></div></div>
+      <div style="padding:14px 18px">
+        <div style="background:#fff;border:1.5px solid var(--line);border-radius:16px 16px 16px 4px;padding:12px 14px;font-size:17px;line-height:1.45;width:350px">Hi! We noticed unusual activity on your account 😟 To protect it, please ${hl('send me your 2FA code')}${n(2)} 🙏</div>
+        <div style="margin:10px 0 0 auto;background:#DCE9FF;border-radius:16px 16px 4px 16px;padding:9px 14px;font-size:17px;width:fit-content">ok wait…</div>
+      </div>
+    </div>
+    ${calls([['1', '🚩', 'Support never DMs first', 'badge or not'], ['2', '🔑', 'Never share 2FA codes', 'not even us']])}
+  </div>
+  <div style="${C};left:992px">${tag('📣 SOCIAL POST')}
+    <div style="${card}">
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1.5px solid var(--line)">
+        <div style="width:40px;height:40px;border-radius:20px;background:#F1F3F5;display:flex;align-items:center;justify-content:center;font-size:20px">🎁</div>
+        <div><div style="font-weight:700;font-size:18px">Hotcoin Rewards</div><div style="font-size:14px;color:var(--muted)">@hotcoin_airdrops · 2m</div></div></div>
+      <div style="padding:14px 18px;font-size:17px;line-height:1.5;color:var(--body)">Affected by the hack? 👇<br>${hl('Claim 500 USDT compensation now')}${n(1)}<br><span style="color:#3B6FE0">claim-hotcoin-drop.xyz</span><br>${btn('Connect wallet', '#3B6FE0')}${n(2)}</div>
+    </div>
+    ${calls([['1', '🎁', 'Too good to be true', 'free money = bait'], ['2', '🔗', 'Connect + sign = drained', 'don’t']])}
+  </div>
+</div>`;
+})()}
+<div style="position:absolute;left:76px;right:76px;bottom:30px;display:flex;align-items:center;gap:14px;border-top:2px solid var(--ink);padding-top:14px">
+  <div style="font-size:26px">✅</div><div style="font-weight:600;font-size:26px;letter-spacing:-.5px">Stop. Don’t click. Don’t reply. Check it on <span style="background:var(--lime);padding:0 6px">Hotcoin Verify</span>.</div>
+  <div class="mono" style="margin-left:auto;font-size:12px;letter-spacing:1px">EXAMPLES ARE ILLUSTRATIVE</div>
+</div>`],
   // ---------- 4: never ask ----------
   '04-never-ask': [1600, 900, `${top('4/4')}
 <h1 style="position:absolute;left:76px;top:150px;font-size:76px">Hotcoin will never<br><span>ask you for these.</span></h1>
