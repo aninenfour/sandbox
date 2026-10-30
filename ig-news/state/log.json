@@ -806,5 +806,22 @@
   "status": "published",
   "ig_url": "https://www.instagram.com/reel/DfGXKfQioGh/",
   "note": "Owner request. 38 s, 1080x1920, published now to IG Reels, FB Reels, TikTok and LinkedIn (first LinkedIn post, owner said every major platform except X). Scene: ig-news/posts/2026-10-30-reel-binance-hack/scene.js."
+ },
+ {
+  "id": "2026-10-30-whatif-prime-amzn",
+  "type": "reel",
+  "slot": "2026-10-30T21:30:00+08:00",
+  "hook": "$79 IN 2005. $9,197 TODAY?",
+  "topic": "WHAT IF price-dot (Amazon Prime vs Amazon stock)",
+  "music": "Baileys (Diego Nava, Mixkit)",
+  "style": "whatif",
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/AMZN?interval=1d",
+   "https://api.nasdaq.com/api/quote/AMZN/info?assetclass=stocks",
+   "https://en.wikipedia.org/wiki/Amazon_Prime",
+   "https://www.pattern.com/blog/amazon-prime-timeline-from-2005-to-today"
+  ],
+  "status": "scheduled",
+  "note": "$79 Feb 2 2005 (close 2.094 split-adj) -> $9,197 at $243.79 (Oct 29 close, before after-hours earnings move). -65% 2007-08, -56% 2021-22. First WHAT IF with frame-1 payoff hook. Photo: Anirudh / Unsplash. IG+FB Reel, TikTok, X 21:30; Story 21:35."
  }
 ]
