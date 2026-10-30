@@ -1,8 +1,11 @@
-// "Security notice" set for the X article: a 5:2 cover (1500x600) and four 16:9 inline images (1600x900).
-// Hotcoin facts used (all from Hotcoin's own pages): homepage "9 Years of Trust, Rooted in Security", "intelligent risk
-// control, and a zero-incident track record"; Account Security checklist (Google Verification, Anti-Phishing Code, Fund
-// Password); Hotcoin Verify page; June 2026 Proof of Reserves release (coverage above 100% for major assets and
-// stablecoins, substantial majority in cold storage, cold-key access restricted to a limited number of authorized staff).
+// "Security notice" set for the X article, in the light Pulse/Uptober data style: a 5:2 cover (1500x600) and four
+// 16:9 inline images (1600x900).
+// Hotcoin facts (Hotcoin's own pages only): hotcoin.com ("9 Years of Trust, Rooted in Security", "intelligent risk
+// control, and a zero-incident track record"; Account Security checklist: Google Verification, Anti-Phishing Code, Fund
+// Password; Hotcoin Verify); June 2026 Proof of Reserves release (Newsfile, Aug 2026): ~US$137.4M reserves, BTC+ETH about
+// half, stablecoins more than 42%, other ~8%, coverage above 100% for major assets and stablecoins, substantial majority in
+// cold storage, cold-key access limited to authorized personnel, operating since 2017, 8M+ users, 120+ countries.
+// Industry data: Chainalysis stolen funds, 2022 $3.8B, 2023 $1.7B, 2024 $2.2B, 2025 $3.4B (Jan to early Dec).
 // Run: PW_PATH=$(npm root -g)/playwright node social/security/render.mjs <scratch-dir>
 import {createRequire} from 'module';
 import fs from 'fs';
@@ -11,116 +14,132 @@ const {chromium} = require(process.env.PW_PATH);
 const ROOT = '/home/user/sandbox';
 const OUT = ROOT + '/social/security';
 const SCR = process.argv[2];
-const LOGO = 'file://' + ROOT + '/hotcoin-tradfi/public/brand/logo-official-white.png';
-const SYM = 'file://' + ROOT + '/hotcoin-tradfi/public/brand/symbol-official-white.png';
+const LOGO = 'file://' + ROOT + '/hotcoin-tradfi/public/brand/logo-official-black.png';
 
 const base = (w, h) => `
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=block');
-:root{--ink:#07090A;--lime:#B8F26A;--green:#7EC25A;--red:#F6465D;--muted:#8A938C;--body:#C9D0CB}
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=block');
+:root{--ink:#0B0E11;--muted:#8A9099;--body:#4A5058;--red:#E5484D;--green:#2F9E44;--lime:#B8F26A;--line:#E6E8EB}
 *{box-sizing:border-box;margin:0;padding:0}
-body{width:${w}px;height:${h}px;background:var(--ink);color:#F4F6F1;font-family:'Inter Tight',sans-serif;overflow:hidden}
+body{width:${w}px;height:${h}px;background:#fff;color:var(--ink);font-family:'Inter Tight',sans-serif;overflow:hidden}
 .s{position:relative;width:${w}px;height:${h}px;overflow:hidden}
-.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(184,242,106,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(184,242,106,.06) 1px,transparent 1px);background-size:48px 48px;
-  mask-image:radial-gradient(80% 90% at 70% 50%,#000,transparent)}
-.alert{display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono';font-weight:700;letter-spacing:4px;color:#fff;background:var(--red);border-radius:8px;padding:9px 16px 9px 12px;box-shadow:0 0 30px rgba(246,70,93,.45)}
-.alert svg{flex:none}
-.tape{position:absolute;left:0;right:0;height:22px;background:repeating-linear-gradient(-45deg,var(--lime) 0 18px,var(--ink) 18px 36px)}
-.logo{position:absolute}
-h1{font-family:Unbounded;font-weight:900;letter-spacing:-2px;line-height:.98}
-h1 em{font-style:normal;color:var(--lime)}
-.mono{font-family:'JetBrains Mono';font-weight:700;letter-spacing:3px;color:var(--muted)}
+.pill{font-family:'JetBrains Mono';font-weight:500;font-size:16px;letter-spacing:2px;border:1.5px solid var(--ink);border-radius:100px;padding:8px 18px;background:#fff;display:inline-flex;align-items:center;gap:10px}
+.pill i{width:10px;height:10px;border-radius:50%;background:var(--red)}
+.mono{font-family:'JetBrains Mono';font-size:14px;letter-spacing:2px;color:var(--muted)}
+h1{font-weight:600;letter-spacing:-3.2px;line-height:.98}
+h1 span{color:var(--muted)}
+.src{position:absolute;font-family:'JetBrains Mono';font-size:13px;color:var(--muted);letter-spacing:.3px;line-height:1.5}
+.hatch-l{background:repeating-linear-gradient(135deg,var(--lime) 0 12px,#D9F7B0 12px 24px)}
+.hatch-r{background:repeating-linear-gradient(135deg,#F08A8D 0 12px,#FBD6D7 12px 24px)}
+.ghost{position:absolute;font-weight:700;letter-spacing:-6px;line-height:1;white-space:nowrap;color:transparent;
+  background-image:repeating-linear-gradient(90deg,rgba(11,14,17,.16) 0 3px,transparent 3px 7px);-webkit-background-clip:text;background-clip:text}
 `;
-const warn = (s) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M12 2 23 21H1Z" fill="#fff"/><rect x="11" y="8" width="2" height="7" rx="1" fill="#F6465D"/><circle cx="12" cy="17.6" r="1.2" fill="#F6465D"/></svg>`;
-const shield = (w) => `<svg width="${w}" height="${w * 1.15}" viewBox="0 0 200 230" style="overflow:visible">
-  <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B2616"/><stop offset="1" stop-color="#0C110A"/></linearGradient></defs>
-  <path d="M100 6 186 38v70c0 58-38 100-86 116C52 208 14 166 14 108V38Z" fill="url(#sg)" stroke="#B8F26A" stroke-width="5" style="filter:drop-shadow(0 0 22px rgba(184,242,106,.55))"/>
-  <path d="M100 26 168 52v56c0 46-30 80-68 94-38-14-68-48-68-94V52Z" fill="none" stroke="rgba(184,242,106,.35)" stroke-width="2" stroke-dasharray="6 6"/>
-</svg>`;
-const lock = (s, c = '#B8F26A') => `<svg width="${s}" height="${s}" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="12" rx="3" fill="${c}"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="${c}" stroke-width="2.4"/><circle cx="12" cy="15.5" r="1.8" fill="#07090A"/><rect x="11.2" y="16" width="1.6" height="3.2" rx=".8" fill="#07090A"/></svg>`;
-const head = (title, kicker = 'IMPORTANT · SECURITY NOTICE') => `
-<div style="position:absolute;left:80px;right:80px;top:64px;display:flex;justify-content:space-between;align-items:center">
-  <div class="alert" style="font-size:17px">${warn(22)}${kicker}</div><img src="${LOGO}" style="width:190px">
-</div>
-<h1 style="position:absolute;left:80px;right:80px;top:140px;font-size:66px">${title}</h1>`;
+const top = (page) => `
+<div style="position:absolute;left:76px;right:76px;top:60px;display:flex;justify-content:space-between;align-items:center">
+  <img src="${LOGO}" style="width:170px"><div class="pill"><i></i>SECURITY NOTICE · ${page}</div>
+</div>`;
+const check = `<svg width="26" height="26" viewBox="0 0 24 24"><rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="none" stroke="#0B0E11" stroke-width="2"/></svg>`;
+const never = `<svg width="22" height="22" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" stroke="#E5484D" stroke-width="3" stroke-linecap="round"/></svg>`;
+
+const HACKS = [['2022', 3.8], ['2023', 1.7], ['2024', 2.2], ['2025', 3.4]];
 
 const pages = {
   // ---------- cover 5:2 ----------
   'cover-5x2': [1500, 600, `
-<div class="grid"></div>
-<div style="position:absolute;inset:0;background:radial-gradient(40% 70% at 78% 50%,rgba(184,242,106,.20),transparent 70%)"></div>
-<div class="tape" style="top:0"></div><div class="tape" style="bottom:0"></div>
-<div style="position:absolute;left:80px;top:78px"><div class="alert" style="font-size:18px">${warn(24)}IMPORTANT · SECURITY NOTICE</div></div>
-<h1 style="position:absolute;left:80px;top:150px;font-size:92px">Lock it<br><em>down.</em></h1>
-<div style="position:absolute;left:84px;top:372px;font-size:30px;font-weight:600;color:var(--body);line-height:1.3">How Hotcoin guards your funds,<br>and the 5 settings that guard your account.</div>
-<img src="${LOGO}" style="position:absolute;left:84px;bottom:58px;width:190px">
-<div style="position:absolute;left:960px;top:70px">${shield(330)}
-  <img src="${SYM}" style="position:absolute;left:105px;top:110px;width:120px;filter:drop-shadow(0 0 16px rgba(184,242,106,.6))">
-  <div style="position:absolute;left:216px;top:236px;width:92px;height:92px;border-radius:24px;background:#0C110A;border:3px solid var(--lime);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.6)">${lock(56)}</div>
+<div style="position:absolute;left:76px;top:56px;display:flex;align-items:center;gap:22px"><img src="${LOGO}" style="width:170px"><div class="pill"><i></i>IMPORTANT · SECURITY NOTICE</div></div>
+<h1 style="position:absolute;left:76px;top:150px;font-size:104px">Lock it down.<br><span>Your 5-minute<br>security check.</span></h1>
+<div style="position:absolute;left:880px;top:150px;width:544px;display:flex;flex-direction:column">
+${[['0', 'security incidents', 'since 2017 · per hotcoin.com', 'var(--green)'], ['>100%', 'reserve coverage', 'major assets · June 2026 PoR', 'var(--ink)'], ['5', 'settings to turn on', 'today · Account Security', 'var(--ink)']].map(([n, t, d, c], i) => `
+  <div style="display:flex;align-items:baseline;gap:20px;padding:16px 0;border-top:${i ? '1.5px solid var(--line)' : '2px solid var(--ink)'}">
+    <div style="width:230px;font-weight:600;font-size:66px;letter-spacing:-3px;line-height:.9;color:${c}">${n}</div>
+    <div><div style="font-weight:600;font-size:24px">${t}</div><div class="mono" style="font-size:13px;letter-spacing:1px;margin-top:3px">${d}</div></div></div>`).join('')}
 </div>`],
 
-  // ---------- 1: the five basics ----------
-  '01-five-basics': [1600, 900, `
-<div class="grid"></div>${head('Do these <em>5 things</em> today.')}
-<div style="position:absolute;left:80px;right:80px;top:262px;display:grid;grid-template-columns:1fr 1fr;gap:20px">
-${[
-    ['01', 'Turn on Google Verification', 'An authenticator app beats SMS codes.'],
-    ['02', 'Set your Anti-Phishing Code', 'Real Hotcoin emails show it. No code, no click.'],
-    ['03', 'Add a Fund Password', 'A second lock on every withdrawal.'],
-    ['04', 'Use a unique password', 'Never reused from any other site or app.'],
-    ['05', 'Verify before you trust', 'Check links and accounts on Hotcoin Verify.'],
-  ].map(([n, t, d], i) => `<div style="display:flex;gap:22px;align-items:center;border-radius:20px;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.10);padding:36px 30px;${i === 4 ? 'grid-column:1 / span 2;border-color:rgba(184,242,106,.5);background:rgba(184,242,106,.07)' : ''}">
-    <div style="font-family:Unbounded;font-weight:900;font-size:44px;color:var(--lime);width:76px">${n}</div>
-    <div><div style="font-size:31px;font-weight:700">${t}</div><div style="font-size:23px;color:var(--body);margin-top:4px">${d}</div></div></div>`).join('')}
+  // ---------- 1: our side ----------
+  '01-our-side': [1600, 900, `${top('1/4')}
+<h1 style="position:absolute;left:76px;top:150px;font-size:76px">How Hotcoin guards<br><span>your funds.</span></h1>
+<div style="position:absolute;left:76px;top:390px;width:820px">
+  <div class="mono">TOTAL RESERVES · JUNE 2026</div>
+  <div style="font-weight:600;font-size:120px;letter-spacing:-6px;line-height:1;margin-top:8px">$137.4M</div>
+  <div style="display:flex;height:46px;margin-top:22px;border:2px solid var(--ink);border-radius:12px;overflow:hidden">
+    <div class="hatch-l" style="width:50%;border-right:2px solid var(--ink)"></div><div style="width:42%;background:#D9F7B0;border-right:2px solid var(--ink)"></div><div style="width:8%;background:#F1F3F5"></div>
+  </div>
+  <div style="display:flex;margin-top:12px;font-size:20px;font-weight:600">
+    <div style="width:50%">BTC + ETH <span style="color:var(--muted);font-weight:500">~50%</span></div><div style="width:42%">Stablecoins <span style="color:var(--muted);font-weight:500">&gt;42%</span></div><div style="width:8%;white-space:nowrap">Other <span style="color:var(--muted);font-weight:500">~8%</span></div>
+  </div>
+  <div class="mono" style="margin-top:34px">RESERVE COVERAGE · MAJOR ASSETS &amp; STABLECOINS</div>
+  <div style="position:relative;height:30px;margin-top:12px;border-radius:8px;background:#F1F3F5">
+    <div class="hatch-l" style="position:absolute;left:0;top:0;bottom:0;width:86%;border:2px solid var(--ink);border-radius:8px"></div>
+    <div style="position:absolute;left:78%;top:-8px;bottom:-8px;width:2px;background:var(--ink)"></div>
+    <div class="mono" style="position:absolute;left:78%;top:38px;transform:translateX(-50%);white-space:nowrap;color:var(--ink)">100% = CUSTOMER BALANCES</div>
+    <div style="position:absolute;left:calc(86% + 14px);top:-6px;font-weight:600;font-size:30px;letter-spacing:-1px;color:var(--green)">&gt;100%</div>
+  </div>
 </div>
-<div class="mono" style="position:absolute;left:80px;bottom:52px;font-size:17px">ALL FIVE LIVE IN ONE PLACE: ACCOUNT SECURITY</div>
-<div class="tape" style="bottom:0;height:14px"></div>`],
+<div style="position:absolute;left:1000px;right:76px;top:150px">
+${[['2017', 'operating continuously since'], ['0', 'security incidents · 9 years'], ['8M+', 'users · 120+ countries'], ['Cold', 'storage holds the substantial majority'], ['Few', 'hands on cold-storage keys']].map(([n, t], i) => `
+  <div style="display:flex;align-items:baseline;gap:18px;padding:18px 0;border-top:${i ? '1.5px solid var(--line)' : '2px solid var(--ink)'}">
+    <div style="width:150px;font-weight:600;font-size:56px;letter-spacing:-2.5px;line-height:.9;color:${n === '0' ? 'var(--green)' : 'var(--ink)'}">${n}</div><div style="font-size:21px;color:var(--body);line-height:1.2">${t}</div></div>`).join('')}
+</div>
+<div class="src" style="left:76px;bottom:40px">Source: Hotcoin Proof of Reserves report, June 2026 (self-reported, announced Aug 2026; not a full audit of liabilities) · hotcoin.com</div>`],
 
-  // ---------- 2: red flags ----------
-  '02-red-flags': [1600, 900, `
-<div class="grid"></div>${head('After a hack, <em>scammers</em> move in.')}
-<div style="position:absolute;left:80px;right:80px;top:270px;display:flex;gap:18px">
-${[
-    ['“URGENT: move your funds to a safe wallet”', 'No real exchange will ever ask you to move your crypto to “protect” it.'],
-    ['“Hi, I’m from Hotcoin support”', 'A DM you didn’t ask for is not support. We never DM you first.'],
-    ['“Claim your compensation airdrop”', 'Free money + connect wallet = drained wallet.'],
-  ].map(([q, a]) => `<div style="flex:1;border-radius:22px;border:2px solid rgba(246,70,93,.55);background:linear-gradient(180deg,rgba(246,70,93,.12),rgba(246,70,93,.03));padding:34px 32px 38px;position:relative">
-    <div style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:3px;color:var(--red)">${warn(18).replace('#fff', '#F6465D').replace(/#F6465D"\/><circle/, '#07090A"/><circle').replace('fill="#F6465D"/></svg>', 'fill="#07090A"/></svg>')}RED FLAG</div>
-    <div style="font-family:Unbounded;font-weight:800;font-size:31px;line-height:1.15;margin-top:18px;min-height:112px">${q}</div>
-    <div style="font-size:26px;color:var(--body);line-height:1.35;margin-top:18px">${a}</div></div>`).join('')}
+  // ---------- 2: five settings ----------
+  '02-five-settings': [1600, 900, `${top('2/4')}
+<h1 style="position:absolute;left:76px;top:150px;font-size:76px">5 locks on your account.<br><span>Turn them on today.</span></h1>
+<div style="position:absolute;left:76px;right:76px;top:370px">
+  <div class="mono" style="display:flex;padding-bottom:12px;border-bottom:2px solid var(--ink)"><div style="width:90px">#</div><div style="width:560px">SETTING</div><div style="flex:1">WHAT IT BLOCKS</div><div style="width:60px;text-align:right">DONE</div></div>
+${[['01', 'Google Verification (2FA)', 'Logins with a stolen password · SIM-swap codes'], ['02', 'Anti-Phishing Code', 'Fake “Hotcoin” emails'], ['03', 'Fund Password', 'Withdrawals from a hijacked session'], ['04', 'Unique password', 'Passwords leaked from other sites'], ['05', 'Hotcoin Verify', 'Fake links and fake support accounts']].map(([n, s, b]) => `
+  <div style="display:flex;align-items:center;height:72px;border-bottom:1.5px solid var(--line)">
+    <div style="width:90px;font-family:'JetBrains Mono';font-weight:700;font-size:22px;color:var(--muted)">${n}</div>
+    <div style="width:560px;font-weight:600;font-size:32px;letter-spacing:-1px">${s}</div>
+    <div style="flex:1;font-size:23px;color:var(--body)">${b}</div><div style="width:60px;display:flex;justify-content:flex-end">${check}</div></div>`).join('')}
 </div>
-<div style="position:absolute;left:80px;right:80px;top:760px;display:flex;align-items:center;gap:18px;font-size:32px;font-weight:700">
-  <span style="background:var(--lime);color:var(--ink);font-family:Unbounded;font-weight:900;font-size:22px;border-radius:10px;padding:10px 16px">STOP</span><span>Don’t click. Don’t reply. Check it on <span style="color:var(--lime)">Hotcoin Verify</span>.</span>
+<div style="position:absolute;left:76px;right:76px;bottom:44px;display:flex;align-items:center;gap:20px">
+  <div class="mono" style="color:var(--ink)">YOUR PROTECTION</div>
+  <div style="flex:1;display:flex;gap:8px">${[0, 1, 2, 3, 4].map(() => '<div class="hatch-l" style="flex:1;height:22px;border:2px solid var(--ink);border-radius:6px"></div>').join('')}</div>
+  <div style="font-weight:600;font-size:30px;letter-spacing:-1px;color:var(--green)">5/5</div>
 </div>`],
 
-  // ---------- 3: what guards your funds ----------
-  '03-our-side': [1600, 900, `
-<div class="grid"></div>${head('How we guard <em>your funds.</em>', 'SECURITY · OUR SIDE')}
-<div style="position:absolute;left:80px;right:80px;top:262px;display:grid;grid-template-columns:1fr 1fr;gap:20px">
-${[
-    ['❄', 'Cold storage first', 'The substantial majority of reserves is held offline. Hot wallets carry only what daily withdrawals need.'],
-    ['🔑', 'Keys in few hands', 'Access to cold-storage keys is restricted to a limited number of authorized personnel.'],
-    ['📊', 'Proof of Reserves', 'Published on a recurring basis. June 2026: coverage above 100% for major assets and stablecoins.'],
-    ['🛡', 'Intelligent risk control', 'Built up over 9 years of operation since 2017. A zero-incident track record.'],
-  ].map(([i, t, d]) => `<div style="border-radius:20px;background:rgba(184,242,106,.05);border:1.5px solid rgba(184,242,106,.28);padding:38px 32px;display:flex;gap:24px">
-    <div style="flex:none;width:64px;height:64px;border-radius:16px;background:#0C110A;border:2px solid var(--lime);display:flex;align-items:center;justify-content:center;font-size:30px;font-family:'Noto Color Emoji',sans-serif">${i}</div>
-    <div><div style="font-size:31px;font-weight:700">${t}</div><div style="font-size:25px;color:var(--body);line-height:1.38;margin-top:8px">${d}</div></div></div>`).join('')}
+  // ---------- 3: hacks and scams ----------
+  '03-scams-follow': [1600, 900, `${top('3/4')}
+<h1 style="position:absolute;left:76px;top:150px;font-size:76px">Hacks make headlines.<br><span>Scams follow.</span></h1>
+<div style="position:absolute;left:76px;top:370px;width:700px">
+  <div class="mono">CRYPTO STOLEN IN HACKS, PER YEAR (USD)</div>
+  <div style="position:relative;height:330px;margin-top:20px;display:flex;align-items:flex-end;gap:34px;border-bottom:2px solid var(--ink)">
+  ${HACKS.map(([y, v]) => `<div style="flex:1;display:flex;flex-direction:column;align-items:center">
+      <div style="font-weight:600;font-size:34px;letter-spacing:-1.5px;color:var(--red);margin-bottom:10px">$${v}B</div>
+      <div class="hatch-r" style="width:100%;height:${(v / 3.8) * 250}px;border:2px solid var(--ink);border-bottom:none;border-radius:10px 10px 0 0"></div></div>`).join('')}
+  </div>
+  <div style="display:flex;gap:34px;margin-top:10px">${HACKS.map(([y]) => `<div style="flex:1;text-align:center;font-family:'JetBrains Mono';font-weight:700;font-size:18px">${y}${y === '2025' ? '*' : ''}</div>`).join('')}</div>
 </div>
-<div class="mono" style="position:absolute;left:80px;bottom:52px;font-size:15px;letter-spacing:1.5px;line-height:1.6">SOURCES: HOTCOIN.COM · HOTCOIN PROOF OF RESERVES REPORT, JUNE 2026 (PUBLISHED AUG 2026)</div>
-<div class="tape" style="bottom:0;height:14px"></div>`],
+<div style="position:absolute;left:880px;right:76px;top:370px">
+  <div class="mono">3 MESSAGES THAT FOLLOW EVERY BIG HACK</div>
+${[['“URGENT: move your funds to a safe wallet”', 'No real exchange asks this. The safe wallet is the scammer’s.'], ['“Hi, I’m from Hotcoin support”', 'Support never DMs you first.'], ['“Claim your compensation airdrop”', 'Connect wallet + sign = drained wallet.']].map(([q, a], i) => `
+  <div style="padding:20px 0;border-top:${i ? '1.5px solid var(--line)' : '2px solid var(--ink)'};${i ? '' : 'margin-top:14px'}">
+    <div style="font-family:'JetBrains Mono';font-weight:700;font-size:13px;letter-spacing:2px;color:var(--red)">RED FLAG 0${i + 1}</div>
+    <div style="font-weight:600;font-size:27px;letter-spacing:-.8px;line-height:1.15;margin-top:6px">${q}</div>
+    <div style="font-size:20px;color:var(--body);margin-top:6px">${a}</div></div>`).join('')}
+</div>
+<div class="src" style="left:76px;bottom:40px">Data: Chainalysis, funds stolen from crypto platforms. *2025: January to early December. Rule: stop, don’t click, check it on Hotcoin Verify.</div>`],
 
-  // ---------- 4: we will never ask ----------
-  '04-never-ask': [1600, 900, `
-<div class="grid"></div>${head('Hotcoin will <em>never</em> ask you for:')}
-<div style="position:absolute;left:80px;right:80px;top:282px;display:flex;flex-wrap:wrap;gap:22px">
-${['Your password', 'Your 2FA code', 'Your Fund Password', 'Your seed phrase or private keys', 'Remote access to your device', 'A “test” transfer to verify your account'].map((t) =>
-    `<div style="display:flex;align-items:center;gap:16px;border-radius:999px;border:2px solid rgba(246,70,93,.55);background:rgba(246,70,93,.07);padding:24px 36px 24px 26px;font-size:38px;font-weight:700">
-      <svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#F6465D"/><path d="M7.5 7.5l9 9M16.5 7.5l-9 9" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>${t}</div>`).join('')}
+  // ---------- 4: never ask ----------
+  '04-never-ask': [1600, 900, `${top('4/4')}
+<h1 style="position:absolute;left:76px;top:150px;font-size:76px">Hotcoin will never<br><span>ask you for these.</span></h1>
+<div style="position:absolute;left:76px;width:900px;top:370px">
+  <div class="mono" style="display:flex;padding-bottom:12px;border-bottom:2px solid var(--ink)"><div style="flex:1">REQUEST</div><div style="width:160px;text-align:right">HOTCOIN</div></div>
+${['Your password', 'Your 2FA code', 'Your Fund Password', 'Your seed phrase or private keys', 'Remote access to your device', 'A “test” transfer to verify your account'].map((t) => `
+  <div style="display:flex;align-items:center;height:62px;border-bottom:1.5px solid var(--line)">
+    <div style="flex:1;font-weight:600;font-size:30px;letter-spacing:-.8px">${t}</div>
+    <div style="width:160px;display:flex;justify-content:flex-end;align-items:center;gap:10px;font-family:'JetBrains Mono';font-weight:700;font-size:18px;letter-spacing:2px;color:var(--red)">${never}NEVER</div></div>`).join('')}
 </div>
-<div style="position:absolute;left:80px;right:80px;bottom:60px;border-radius:22px;background:var(--lime);color:var(--ink);padding:26px 34px;display:flex;align-items:center;gap:22px">
-  ${lock(52, '#07090A')}<div style="font-family:Unbounded;font-weight:800;font-size:31px;line-height:1.15">If someone asks, it isn’t us.<br><span style="font-family:'Inter Tight';font-weight:700;font-size:25px">Report it and check the account on Hotcoin Verify.</span></div>
-</div>`],
+<div style="position:absolute;left:1060px;right:76px;top:370px;border-top:2px solid var(--ink);padding-top:22px">
+  <div class="mono">IF SOMEONE ASKS</div>
+  <div style="font-weight:600;font-size:100px;letter-spacing:-5px;line-height:.9;margin-top:14px;color:var(--red)">0%</div>
+  <div style="font-size:24px;color:var(--body);line-height:1.3;margin-top:12px">chance it’s really us.</div>
+  <div style="margin-top:34px;border-top:1.5px solid var(--line);padding-top:20px;font-size:22px;line-height:1.35"><b>Report it.</b><br>Check the account on<br><b style="background:var(--lime);padding:0 6px">Hotcoin Verify</b>.</div>
+</div>
+<div class="src" style="left:76px;bottom:40px">Hotcoin · Account Security · Official channels: Hotcoin Verify on hotcoin.com</div>`],
 };
 
+for (const f of fs.readdirSync(OUT)) if (f.endsWith('.png')) fs.unlinkSync(`${OUT}/${f}`);
 const browser = await chromium.launch();
 for (const [name, [w, h, body]] of Object.entries(pages)) {
   const page = await browser.newPage({viewport: {width: w, height: h}, deviceScaleFactor: 2});
