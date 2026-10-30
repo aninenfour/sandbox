@@ -171,5 +171,16 @@
   ],
   "changes": "whatif.js: optional 'hook' (2 caps lines, payoff) shown from frame 1; PLAYBOOK \u00a77b says always set it. Tested on the Xbox spec (no overlap).",
   "owner_decision": "Approve stick-figure Ep 1 'The Tower' (still pending; Friday 12:30 slot stays empty until then)."
+ },
+ {
+  "date": "2026-10-31",
+  "looked_at": "IG+FB insights Oct 29-30: first v2 carousels (Fed, Big Tech), Binance breaking carousel + explainer Reel, Xbox WHAT IF; team Reels",
+  "findings": [
+   "v2 carousels still get ~11-17 reach (Fed 11/17, Big Tech 13/15). The breaking Binance carousel (nhero cover) got 34 IG, 3x, but that is mostly the topic. Carousels get little distribution whatever the design.",
+   "Binance explainer Reel: 78 IG / 79 FB, our best desk Reel this week. Xbox WHAT IF: 29 IG / 65 FB, below GTA (66 IG).",
+   "Team's 'on this exact day' history Reel (1929 crash, posted Oct 29): 162 IG / 263 FB, best of the week again."
+  ],
+  "changes": "STYLE_NOTES: anniversary 'on this exact day' hook rule + upcoming dates to use.",
+  "owner_decision": "Carousels reach ~10-15 people vs Reels 30-260. Suggest turning the daily 19:00 Academy into a short animated Reel 3-4x a week (same data, chart animates) and keeping 1 carousel a day (news). Also still waiting: stick-figure Ep 1 OK."
  }
 ]

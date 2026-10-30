@@ -46,6 +46,7 @@ Examples (before → better):
   Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
 
 ## Changelog
+- 2026-10-31 (daily review): "on this exact day" anniversary hooks win. The team's 1929 Black Tuesday Reel (posted on Oct 29) reached 162 IG / 263 FB, the best of the week. When a story, launch or crash has an anniversary in the next 7 days, post it ON that day and open with "On this exact day in YEAR..." (e.g. Xbox 360 launch Nov 22, PS5 Nov 12, ChatGPT Nov 30, Bitcoin whitepaper Oct 31).
 - 2026-10-30 (owner): WHAT IF dots/cards must be instantly readable: brand logos or clean product cut-outs, never dark photo crops.
 - 2026-10-29 (owner): covers use real faces of the people behind the story (CEOs, officials, founders) with the company logo badge; place/product photos only when no person fits.
 - 2026-10-29 (owner, Kalshi reference): first slide is now `nhero`: full-bleed photo, round logo badge, small BREAKING/TRENDING tag, one big plain statement in condensed caps. Clear objective in one glance.
