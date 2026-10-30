@@ -762,18 +762,20 @@
   "layouts": [
    "nhero",
    "nbars",
-   "nrows"
+   "nrows",
+   "nbig"
   ],
-  "slot": "2026-10-30T16:00:00+08:00",
-  "title": "Over $5.5B drained from Binance in a suspected hack",
+  "slot": "2026-10-30T09:04:00+08:00",
+  "title": "$5.7B stolen from Binance. The biggest crypto hack ever",
   "score": null,
   "sources": [
    "https://decrypt.co/382191/binance-suspected-hack-5-billion-tether-circle-freeze-crypto",
    "https://www.theblock.co/news/markets/2026-10-29-binance-investigating-hack-suspicious-outflows-5-billion-432171",
    "https://www.coindesk.com/business/2026/10/29/potential-multi-billion-binance-hack-hitting-crypto-markets"
   ],
-  "status": "scheduled",
-  "note": "DEVELOPING STORY: unconfirmed by Binance as of 07:40 UTC+8. 15:40 run must re-check (confirmed? amount changed? user funds?) and edit the caption before 16:00 if facts moved. $5.57B tally (ETH 3.51, BTC 1.44 = 18,270 BTC, Tron 0.63), Tether+Circle froze ~$1.8B, Bybit ~$1.5B prior record. No real photo of Yi He available (Commons none, news og blocked) -> Binance app photo (Vadim Art / Unsplash), brightened."
+  "status": "published",
+  "note": "Owner: release NOW on every major platform except X. Rebuilt with updated facts (~$5.7B Arkham, $2.54B frozen per Binance, withdrawals+deposits paused, co-CEO Yi He: cover all hacking losses, method unconfirmed). Published 09:04 IG + FB + IG Story. The 16:00 scheduled version (old facts) moved to draft on IG, IG Story and FB.",
+  "ig_url": "https://www.instagram.com/p/DfGW-hMCnDM/"
  },
  {
   "id": "2026-10-30-academy-sell-in-may",
@@ -787,5 +789,22 @@
   ],
   "status": "scheduled",
   "note": "Myth vs Fact (Halloween). S&P month-end closes: Nov-Apr avg +6.4% (30 winters 1996-2025), May-Oct avg +2.9% (21/30 up, worst 2008 -30%, best 2025 +22.8%). $1,000 Oct96->Apr26: hold $10,222 vs winters only $5,610. Price only. Photo: Ross Sneddon / Unsplash."
+ },
+ {
+  "id": "2026-10-30-reel-binance-hack",
+  "type": "reel",
+  "style": "paper-desk explainer (Johnny Harris style)",
+  "slot": "2026-10-30T09:06:00+08:00",
+  "hook": "THE BIGGEST CRYPTO HACK IN HISTORY",
+  "topic": "Breaking explainer: Binance $5.7B hack",
+  "music": "Deep Techno Ambience (Alejandro Magana, Mixkit)",
+  "sources": [
+   "https://www.coindesk.com/business/2026/10/29/potential-multi-billion-binance-hack-hitting-crypto-markets",
+   "https://cointelegraph.com/news/binance-linked-wallet-faces-possible-exploit-blockchain-researcher-warns",
+   "https://decrypt.co/382191/binance-suspected-hack-5-billion-tether-circle-freeze-crypto"
+  ],
+  "status": "published",
+  "ig_url": "https://www.instagram.com/reel/DfGXKfQioGh/",
+  "note": "Owner request. 38 s, 1080x1920, published now to IG Reels, FB Reels, TikTok and LinkedIn (first LinkedIn post, owner said every major platform except X). Scene: ig-news/posts/2026-10-30-reel-binance-hack/scene.js."
  }
 ]
