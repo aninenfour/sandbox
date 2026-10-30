@@ -787,8 +787,9 @@
   "sources": [
    "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?interval=1mo"
   ],
-  "status": "scheduled",
-  "note": "Myth vs Fact (Halloween). S&P month-end closes: Nov-Apr avg +6.4% (30 winters 1996-2025), May-Oct avg +2.9% (21/30 up, worst 2008 -30%, best 2025 +22.8%). $1,000 Oct96->Apr26: hold $10,222 vs winters only $5,610. Price only. Photo: Ross Sneddon / Unsplash."
+  "status": "published",
+  "note": "Myth vs Fact (Halloween). S&P month-end closes: Nov-Apr avg +6.4% (30 winters 1996-2025), May-Oct avg +2.9% (21/30 up, worst 2008 -30%, best 2025 +22.8%). $1,000 Oct96->Apr26: hold $10,222 vs winters only $5,610. Price only. Photo: Ross Sneddon / Unsplash.",
+  "ig_url": "https://www.instagram.com/p/DfHbXltGw6R/"
  },
  {
   "id": "2026-10-30-reel-binance-hack",
@@ -821,7 +822,45 @@
    "https://en.wikipedia.org/wiki/Amazon_Prime",
    "https://www.pattern.com/blog/amazon-prime-timeline-from-2005-to-today"
   ],
+  "status": "published",
+  "note": "$79 Feb 2 2005 (close 2.094 split-adj) -> $9,197 at $243.79 (Oct 29 close, before after-hours earnings move). -65% 2007-08, -56% 2021-22. First WHAT IF with frame-1 payoff hook. Photo: Anirudh / Unsplash. IG+FB Reel, TikTok, X 21:30; Story 21:35.",
+  "ig_url": "https://www.instagram.com/reel/DfHsc4CD8Vp/"
+ },
+ {
+  "id": "2026-10-31-binance-hack-update",
+  "type": "news",
+  "style": "v2",
+  "layouts": [
+   "nhero",
+   "nrows",
+   "nbars",
+   "nphoto"
+  ],
+  "slot": "2026-10-31T16:00:00+08:00",
+  "title": "Binance hack hits $6.3B. Investigators point to North Korea",
+  "score": null,
+  "sources": [
+   "https://www.coindesk.com/tech/2026/10/30/binance-uncovers-wider-breach-in-usd6-3-billion-exploit-targets-sunday-withdrawal-restart",
+   "https://decrypt.co/382224/trm-and-chainalysis-tie-6-4b-binance-hack-to-north-koreas-tradertraitor",
+   "https://decrypt.co/382237/binance-sets-aside-6-34b-to-cover-hack-losses-ceo-says-your-assets-are-safe"
+  ],
   "status": "scheduled",
-  "note": "$79 Feb 2 2005 (close 2.094 split-adj) -> $9,197 at $243.79 (Oct 29 close, before after-hours earnings move). -65% 2007-08, -56% 2021-22. First WHAT IF with frame-1 payoff hook. Photo: Anirudh / Unsplash. IG+FB Reel, TikTok, X 21:30; Story 21:35."
+  "note": "Follow-up. $6.3B (Binance), TRM $6.36B, Chainalysis $6.4B; TraderTraitor (same group FBI blamed for Bybit); $6.34B set aside; ~$3B frozen; withdrawals target Sunday; PoR Monday; EIP-7702 + self-destruct (Teng). Face: Richard Teng, Decrypt lead photo (Wikimedia rate-limited)."
+ },
+ {
+  "id": "2026-10-31-academy-whitepaper-18",
+  "type": "tutorial",
+  "style": "v2",
+  "slot": "2026-10-31T19:00:00+08:00",
+  "title": "18 years ago today, 9 pages started a $1.5 trillion asset",
+  "score": null,
+  "sources": [
+   "https://bitcoin.org/bitcoin.pdf",
+   "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?range=max&interval=1mo",
+   "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true",
+   "https://blockchain.info/q/totalbc"
+  ],
+  "status": "scheduled",
+  "note": "Anniversary rule (on this exact day). BTC $77,219, mcap $1.55T, supply 20,105,365, -39% from $126,198 record. Photo: Erling Loken Andersen / Unsplash."
  }
 ]
