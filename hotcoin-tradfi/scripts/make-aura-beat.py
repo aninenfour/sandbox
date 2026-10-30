@@ -1,7 +1,7 @@
 """Original phonk-style score for the "Aura" edit (public/aura/beat.wav). 150 BPM, 12 frames per beat at 30 fps.
 Sections (seconds): 0-3.2 red wall (rumble, siren, snare roll) | 3.2 fracture impact | 3.2-12.8 drop (808, clap, hats,
 cowbell riff) | 12.8-17.6 rain breakdown (rain, thunder, pad, heartbeat) | 17.0-18.2 riser, 18.2-18.4 silence |
-18.4-21.6 claps | 21.6-28.0 final drop | 28.0 end hit + tail. Everything is synthesised here, nothing sampled."""
+18.4-21.6 archive memories (snaps, pad, music box, vinyl) | 21.6-26.4 kinetic-type groove | 26.4 end card (soft hit, pad). Everything is synthesised here, nothing sampled."""
 import numpy as np, soundfile as sf
 from scipy.signal import butter, sosfilt, fftconvolve
 
@@ -131,7 +131,7 @@ def drop_bar(t0, b, riff=True, hats=True, roll=False):
         add(hat(open_=True), t0 + 6 * STEP, 0.4, -0.4); add(hat(open_=True), t0 + 14 * STEP, 0.4, -0.4)
     if riff:
         for st, nt in enumerate(RIFF[b % 2]):
-            if nt is not None: add(cowbell(nt), t0 + st * STEP, 1.0, -0.25); add(cowbell(nt + 12), t0 + st * STEP, 0.25, 0.35)
+            if nt is not None: add(cowbell(nt), t0 + st * STEP, 0.8 if t0 >= 21 else 1.0, -0.25); add(cowbell(nt + 12), t0 + st * STEP, 0.25, 0.35)
 
 # drop 3.2-12.8: 6 bars (first bar without riff for punch)
 for b in range(6): drop_bar(DROP0 + b * 1.6, b, riff=b > 0, roll=b % 2 == 1)
@@ -144,18 +144,31 @@ for st, nt in enumerate(RIFF[0]):
     if nt is not None: add(lp(cowbell(nt, 0.5), 1200), BD + 1.6 + st * STEP * 2, 0.5, -0.5)  # half-speed echo
 add(thunder(), BD + 2.6, 0.5)
 add(riser(1.2), 17.0, 1.0)
-# silence 18.2-18.4, then claps 18.4-21.6
+# silence 18.2-18.4, then the archive "memories" section 18.4-21.6: soft kick, snaps, warm major pad, music box, vinyl
 CL = 18.4
+def snap():
+    t = t_(0.08); return bp(rng.standard_normal(len(t)), 1800, 6000) * np.exp(-t * 70) * 0.6
+def mbox(note, dur=1.2):
+    t = t_(dur); f = 523.25 * 2 ** (note / 12)
+    return (np.sin(2 * np.pi * f * t) + 0.3 * np.sin(2 * np.pi * 2 * f * t) + 0.1 * np.sin(2 * np.pi * 3.01 * f * t)) * np.exp(-t * 3.5) * 0.18
+def crackle(dur):
+    t = t_(dur); x = (rng.random(len(t)) > 0.9985) * rng.uniform(-1, 1, len(t))
+    return hp(x, 1500) * 0.5 + lp(rng.standard_normal(len(t)), 300) * 0.01
+add(pad([8, 12, 15, 20], 3.4), CL, 1.2); add(crackle(3.4), CL, 1.0)
 for i in range(8):
     tt = CL + i * BEAT
-    add(clap(0.5), tt, 1.0, 0.0); add(clap(0.5), tt + 0.004, 0.6, (-1) ** i * 0.5); add(k808(0 if i % 4 else -5, 0.35), tt, 0.8); side(tt, 0.5)
-for i in range(4): add(clap(0.3), CL + 3.2 - 0.4 + i * STEP, 0.7, 0.3)  # quick 16th claps into the drop
-add(impact(1.2), CL, 0.8)
-# final drop 21.6-28.0 (4 bars)
+    if i % 2 == 0: add(k808(0, 0.3, 1.2), tt, 0.5)
+    else: add(snap(), tt, 0.7, 0.3 * (-1) ** i)
+MEL = [8, 12, 15, 20, 19, 15, 12, 15, 8, 12, 15, 17, 15, 12, 10, 12]
+for i, n in enumerate(MEL): add(mbox(n - 12), CL + i * STEP * 2, 0.9, 0.2 * np.sin(i))
+# kinetic-type groove 21.6-26.4 (3 bars): cleaner drop, quieter cowbell
 FD = 21.6
-add(impact(), FD, 1.0); side(FD, 0.9, 0.4)
-for b in range(4): drop_bar(FD + b * 1.6, b, roll=b == 3)
-add(tail_hit(), 28.0, 1.0); add(shatter(), 28.0, 0.5)
+add(impact(1.4), FD, 0.6); side(FD, 0.7, 0.3)
+for b in range(3): drop_bar(FD + b * 1.6, b, roll=b == 2)
+# end card 26.4-30.4: one soft hit, then a warm pad and music box under the CTA
+END = 26.4
+add(impact(2.0), END, 0.55); add(pad([8, 12, 15, 20], 4.0), END, 1.0)
+for i, n in enumerate([8, 15, 20, 15, 12, 20, 24, 20]): add(mbox(n - 12, 1.6), END + 0.2 + i * BEAT, 0.8)
 
 # ---------- reverb, ducking, master ----------
 irn = int(1.6 * SR); ir_t = np.arange(irn) / SR

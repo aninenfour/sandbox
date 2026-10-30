@@ -323,10 +323,11 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 - **Footage (NASA, public domain; fetched from images-api.nasa.gov, cut by hand into `public/aura/clips/`, gitignored):**
   - "Engineers Break SLS Rocket Propellant Tank On Purpose" (MSFC, 2020): LOX tank test-to-failure (breach shots).
   - "NASA Conducts Space Launch System Rocket Full-Scale Booster Test" (2020): booster ignition and fireball (fire shots).
-  - "Perseverance Rover Lands on Mars, as the World Watches" (JPL, 2021): control room, claps, cheers, red-lit landmarks. Crowd audio from the same clip. Shots of children not used.
+  - "Perseverance Rover Lands on Mars, as the World Watches" (JPL, 2021): control room and red-lit landmarks (panic section only). Shots of children not used.
+- **Archive friends (Prelinger Archives via archive.org, public domain):** "Our Summer 1946" home movie (picnic toast, friends on the grass), "Social Acceptability" (McGraw-Hill, 1957, soda fountain), "What Makes a Good Party?" (Coronet, 1950, friends singing).
   - "NASA's SDO Captures Stunning 4K View of April 17 Solar Flare" (GSFC, 2016): flare and white light.
   - "NASA ScienceCasts: Observing Lightning from the ISS" (2021): storm from orbit.
-- **Music and sfx:** original, synthesized by `scripts/make-aura-beat.py` (150 BPM).
+- **Music and sfx:** original, synthesized by `scripts/make-aura-beat.py` (150 BPM; phonk first half, music-box/pad second half).
 - **Data:** Binance daily candles, Oct 10, 2025 (open to intraday low), via `scripts/fetch-aura.mjs` (`src/aura/crash.json`); coin logos from CoinGecko.
 - **Headlines:** $1.5B exchange hack (Feb 21, 2025); Nvidia −17%, ~$589B (Jan 27, 2025; Reuters/Bloomberg); S&P 500 −5.97% Apr 4, 2025, ~$5T in two days (Reuters/Bloomberg); ~$19B liquidated Oct 10, 2025 (CoinGlass); LUNA ~$40B (May 2022); FTX $8B (Nov 2022).
 - No real people's likeness implying endorsement: NASA staff appear only as unnamed crowd reactions, no captions or claims attached to them.
