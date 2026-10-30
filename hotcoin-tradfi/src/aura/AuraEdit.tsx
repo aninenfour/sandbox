@@ -1,17 +1,18 @@
-// "Never SAFU" aura edit (1080x1920, 30 fps, 30 s). Beat-synced to public/aura/beat.wav (150 BPM = 12 frames per beat).
+// "Never SAFU" aura edit (1080x1920 and 1080x1080, 30 fps, 30 s). Beat-synced to public/aura/beat.wav (150 BPM = 12 frames per beat).
 // Footage: NASA (public domain): SLS LOX tank test-to-failure (breach), SLS booster test fire (fire), Perseverance landing
 // day at JPL (control room, claps, cheers, red landmarks), SDO solar flare (white light), ISS lightning/storm.
 // Market data: Binance daily candles for Oct 10, 2025 (open to intraday low, src/aura/crash.json); NVDA -17% / ~$589B
 // (Jan 27, 2025); S&P 500 -5.97% (Apr 4, 2025), ~$5T in two days; $19B liquidated (Oct 10, 2025, CoinGlass);
 // $1.5B exchange hack (Feb 21, 2025); LUNA (May 2022); FTX (Nov 2022). Coin logos: CoinGecko.
 import React, {useEffect, useState} from 'react';
-import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, continueRender, delayRender, interpolate, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, continueRender, delayRender, interpolate, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import crash from './crash.json';
 
-const W = 1080, H = 1920, B = 12; // frames per beat
+let W = 1080, H = 1920, SQ = false; // set per render from the composition size (9:16 or 1:1)
+const B = 12; // frames per beat
 export const AURA_DURATION = 900;
 const RED = '#FF2A3A', LIME = '#B8F26A', INK = '#050607';
-const ANTON = 'Anton, sans-serif', BANG = 'Bangers, sans-serif', SERIF = '"Instrument Serif", serif', MONO = '"JetBrains Mono", monospace', SANS = '"Inter Tight", sans-serif', DISP = 'Unbounded, sans-serif';
+const ANTON = 'Anton, sans-serif', SERIF = '"Instrument Serif", serif', MONO = '"JetBrains Mono", monospace', SANS = '"Inter Tight", sans-serif', DISP = 'Unbounded, sans-serif';
 const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const rnd = (i: number) => { const v = Math.sin(i * 12.9898 + 78.233) * 43758.5453; return v - Math.floor(v); };
 const ease = (x: number) => 1 - Math.pow(1 - Math.max(0, Math.min(1, x)), 3);
@@ -22,7 +23,7 @@ const T = {wall: 0, fracture: 96, rain: 384, white: 504, claps: 552, aura: 648, 
 const useFonts = () => {
   const [h] = useState(() => delayRender('fonts'));
   useEffect(() => {
-    Promise.all(['400 80px Anton', '400 80px Bangers', 'italic 400 80px "Instrument Serif"', '700 30px "JetBrains Mono"', '600 30px "Inter Tight"', '900 60px Unbounded'].map((s) => document.fonts.load(s)))
+    Promise.all(['400 80px Anton', '400 80px VT323', 'italic 400 80px "Instrument Serif"', '700 30px "JetBrains Mono"', '600 30px "Inter Tight"', '900 60px Unbounded'].map((s) => document.fonts.load(s)))
       .then(() => setTimeout(() => continueRender(h), 100));
   }, [h]);
 };
@@ -31,9 +32,9 @@ const useFonts = () => {
 const HITS: [number, number][] = (() => {
   const h: [number, number][] = [];
   for (let f = T.fracture; f < T.rain; f += B) h.push([f, (f - T.fracture) % (4 * B) === 0 ? 0.9 : 0.45]);
-  for (let f = T.claps; f < T.aura; f += B) h.push([f, 0.9]);
+  for (let f = T.claps; f < T.aura; f += B) h.push([f, 0.3]);
   for (let f = T.aura; f < 840; f += B) h.push([f, (f - T.aura) % (4 * B) === 0 ? 0.9 : 0.4]);
-  [[T.fracture, 1.6], [T.rain, 1.2], [T.claps, 1.4], [T.aura, 1.5], [840, 1.6]].forEach(([f, s]) => h.push([f, s]));
+  [[T.fracture, 1.6], [T.rain, 1.2], [T.claps, 0.6], [T.aura, 1.5], [840, 1.6]].forEach(([f, s]) => h.push([f, s]));
   return h;
 })();
 const hit = (f: number, decay = 4) => HITS.reduce((m, [h, s]) => (f >= h ? Math.max(m, s * Math.exp(-(f - h) / decay)) : m), 0);
@@ -85,7 +86,7 @@ const Clip: React.FC<{src: string; t: number; from?: number; rate?: number; grad
 const News: React.FC<{f: number; title: string; sub: string; tag?: string}> = ({f, title, sub, tag = 'BREAKING'}) => {
   const p = ease(f / 6);
   return (
-    <div style={{position: 'absolute', left: 0, right: 0, bottom: 300, transform: `translateX(${(1 - p) * -120}%)`}}>
+    <div style={{position: 'absolute', left: 0, right: 0, bottom: SQ ? 110 : 300, transform: `translateX(${(1 - p) * -120}%)`}}>
       <div style={{display: 'flex', alignItems: 'stretch', marginLeft: 50, marginRight: 50, boxShadow: '0 20px 50px rgba(0,0,0,0.6)'}}>
         <div style={{background: RED, color: '#fff', fontFamily: ANTON, fontSize: 40, padding: '14px 20px', display: 'flex', alignItems: 'center'}}>{tag}</div>
         <div style={{flex: 1, background: '#fff', color: INK, fontFamily: ANTON, fontSize: 58, lineHeight: 1.05, padding: '14px 22px', textTransform: 'uppercase'}}>{title}</div>
@@ -137,19 +138,10 @@ const LensDrops: React.FC<{f: number}> = ({f}) => (
     })}
   </>
 );
-const SpeedLines: React.FC<{f: number; color?: string; n?: number}> = ({f, color = '#fff', n = 90}) => (
-  <svg width={W} height={H} viewBox={`${-W / 2} ${-H / 2} ${W} ${H}`} style={{position: 'absolute', inset: 0}}>
-    {Array.from({length: n}, (_, i) => {
-      const a = (i / n) * Math.PI * 2 + rnd(i + f * 3) * 0.05, r0 = 260 + rnd(i + f) * 260, w = 3 + rnd(i * 3 + f) * 10;
-      const x0 = Math.cos(a) * r0, y0 = Math.sin(a) * r0, x1 = Math.cos(a - w / 1000) * 1600, y1 = Math.sin(a - w / 1000) * 1600, x2 = Math.cos(a + w / 1000) * 1600, y2 = Math.sin(a + w / 1000) * 1600;
-      return <polygon key={i} points={`${x0},${y0} ${x1},${y1} ${x2},${y2}`} fill={color} opacity={0.85} />;
-    })}
-  </svg>
-);
 const Cracks: React.FC<{p: number}> = ({p}) => (
   <svg width={W} height={H} style={{position: 'absolute', inset: 0}}>
     {Array.from({length: 16}, (_, i) => {
-      const a = (i / 16) * Math.PI * 2 + rnd(i) * 0.3; let x = 540, y = 900; const pts = [`${x},${y}`];
+      const a = (i / 16) * Math.PI * 2 + rnd(i) * 0.3; let x = W / 2, y = H * 0.47; const pts = [`${x},${y}`];
       for (let k = 0; k < 9; k++) { x += Math.cos(a + (rnd(i * 9 + k) - 0.5) * 0.7) * 150 * p; y += Math.sin(a + (rnd(i * 9 + k) - 0.5) * 0.7) * 150 * p; pts.push(`${x},${y}`); }
       return <polyline key={i} points={pts.join(' ')} fill="none" stroke="#fff" strokeWidth={4 - (i % 3)} opacity={0.95} style={{filter: 'drop-shadow(0 0 6px #fff)'}} />;
     })}
@@ -157,8 +149,8 @@ const Cracks: React.FC<{p: number}> = ({p}) => (
 );
 
 // ---------------- scenes ----------------
-const COLS = 4, ROWS = 7, TW = W / COLS, TH = H / ROWS;
 const RedWall: React.FC<{f: number}> = ({f}) => {
+  const COLS = 4, ROWS = SQ ? 4 : 7, TW = W / COLS, TH = H / ROWS;
   const z = 1 + f * 0.0012;
   return (
     <AbsoluteFill style={{background: '#0A0102', transform: `scale(${z})`}}>
@@ -291,7 +283,7 @@ const RainScene: React.FC<{f: number}> = ({f}) => {
       <LensDrops f={f} />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, transparent 35%, rgba(0,0,0,0.75))'}} />
       <AbsoluteFill style={{background: '#DDE6FF', opacity: thunder * 0.55, mixBlendMode: 'screen'}} />
-      <div style={{position: 'absolute', left: 0, right: 0, top: 1240, textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic', fontSize: 132, color: '#fff', textShadow: '0 0 40px rgba(170,200,255,0.6)', opacity: interpolate(f, [120, 140], [1, 0], cl)}}>
+      <div style={{position: 'absolute', left: 0, right: 0, top: SQ ? 760 : 1240, textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic', fontSize: SQ ? 112 : 132, color: '#fff', textShadow: '0 0 40px rgba(170,200,255,0.6)', opacity: interpolate(f, [120, 140], [1, 0], cl)}}>
         {txt.slice(0, shown)}<span style={{opacity: Math.floor(f / 6) % 2 ? 1 : 0}}>|</span>
       </div>
     </AbsoluteFill>
@@ -308,27 +300,51 @@ const WhiteLight: React.FC<{f: number}> = ({f}) => {
   );
 };
 
-const CLAPS = [
-  {c: 'clapD', from: 0.15, anime: false}, {c: 'clapE', from: 0.4, anime: true}, {c: 'cheerA', from: 0.8, anime: false}, {c: 'clapD', from: 0.5, anime: true},
-  {c: 'cheerC', from: 0.2, anime: false}, {c: 'clapE', from: 0.9, anime: true}, {c: 'pump', from: 0.1, anime: false}, {c: 'clapE', from: 0.2, anime: true},
+// celebration: CRT power-on, then an old-TV broadcast of everyone celebrating (channel-static between some cuts)
+const CELEB = [
+  {c: 'cheerA', from: 0.2}, {c: 'clapD', from: 0.1}, {c: 'cheerC', from: 0.1}, {c: 'clapE', from: 0.3},
+  {c: 'clapD', from: 0.6}, {c: 'cheerA', from: 1.2}, {c: 'pump', from: 0.05}, {c: 'clapE', from: 0.9},
 ];
-const ClapScene: React.FC<{f: number}> = ({f}) => {
-  const beat = Math.floor(f / B), bb = f % B;
-  const fast = f >= 84; // last 12 frames: 16th-note stutter cuts
-  const k = fast ? Math.floor((f - 84) / 3) : beat;
-  const shot = CLAPS[fast ? (k * 3) % CLAPS.length : beat % CLAPS.length];
-  const anime = fast ? k % 2 === 0 : shot.anime;
-  const local = fast ? (f - 84) % 3 : bb;
+const Static: React.FC<{f: number; o: number}> = ({f, o}) => (
+  <AbsoluteFill style={{opacity: o}}>
+    <svg width={W} height={H} style={{position: 'absolute', inset: 0}}>
+      <filter id={`st${f}`}><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={2} seed={f} /><feColorMatrix type="saturate" values="0" /></filter>
+      <rect width={W} height={H} filter={`url(#st${f})`} />
+    </svg>
+  </AbsoluteFill>
+);
+const OldTV: React.FC<{f: number; children: React.ReactNode}> = ({f, children}) => {
+  const roll = ((f * 9) % (H + 300)) - 150, jitter = (rnd(f) - 0.5) * 4;
   return (
-    <AbsoluteFill style={{background: anime ? '#fff' : INK}}>
-      <Clip src={shot.c} t={local} from={shot.from} grade={anime ? 'mono' : 'raw'} zoom={1.25 - Math.min(local, 8) * 0.02} />
-      {anime && <AbsoluteFill style={{backgroundImage: 'radial-gradient(rgba(0,0,0,0.55) 1.4px, transparent 1.8px)', backgroundSize: '9px 9px', mixBlendMode: 'multiply', opacity: 0.5}} />}
-      {anime && <SpeedLines f={f} color={local % 2 ? '#000' : '#fff'} />}
-      {local < 2 && <AbsoluteFill style={{background: '#fff', opacity: 0.8 - local * 0.35}} />}
-      {(anime || local < 6) && (
-        <div style={{position: 'absolute', left: 0, right: 0, top: anime ? 720 : 1300, textAlign: 'center', transform: `scale(${1.4 - ease(local / 5) * 0.4}) rotate(${(beat % 2 ? 1 : -1) * 7}deg)`}}>
-          <span style={{fontFamily: BANG, fontSize: anime ? 300 : 200, color: anime ? '#fff' : LIME, WebkitTextStroke: `${anime ? 14 : 10}px #000`, paintOrder: 'stroke fill', letterSpacing: 6, textShadow: '10px 10px 0 #000'}}>CLAP!</span>
-        </div>
+    <AbsoluteFill style={{background: '#000'}}>
+      <AbsoluteFill style={{inset: SQ ? 40 : 46, borderRadius: SQ ? 60 : 70, overflow: 'hidden', transform: `translateX(${jitter}px)`, boxShadow: 'inset 0 0 160px rgba(0,0,0,0.9)'}}>
+        <AbsoluteFill style={{filter: 'sepia(0.55) saturate(0.7) contrast(1.25) brightness(1.05) blur(0.6px)'}}>{children}</AbsoluteFill>
+        <AbsoluteFill style={{backgroundImage: 'repeating-linear-gradient(180deg, rgba(0,0,0,0.35) 0 2px, transparent 2px 5px)'}} />
+        <div style={{position: 'absolute', left: 0, right: 0, top: roll, height: 140, background: 'linear-gradient(180deg, transparent, rgba(255,255,255,0.10), transparent)'}} />
+        <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 50%, transparent 50%, rgba(0,0,0,0.75))'}} />
+        <AbsoluteFill style={{background: `rgba(255,240,210,${0.04 + rnd(f + 5) * 0.05})`}} />
+        <div style={{position: 'absolute', left: 50, top: 46, fontFamily: '"VT323", monospace', fontSize: SQ ? 54 : 64, color: '#F4F1E6', textShadow: '3px 0 rgba(255,0,0,0.6), -3px 0 rgba(0,180,255,0.6)'}}>PLAY ▶</div>
+        <div style={{position: 'absolute', right: 50, bottom: 40, fontFamily: '"VT323", monospace', fontSize: SQ ? 46 : 56, color: '#F4F1E6', textShadow: '3px 0 rgba(255,0,0,0.6), -3px 0 rgba(0,180,255,0.6)'}}>00:{String(18 + Math.floor(f / 30)).padStart(2, '0')}:{String(Math.floor((f % 30) * 2)).padStart(2, '0')}</div>
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+const CelebScene: React.FC<{f: number}> = ({f}) => {
+  // 0-9: CRT power-on line; then a cut per beat, static on every other cut
+  const on = f < 9;
+  const beat = Math.floor(f / B), bb = f % B;
+  const shot = CELEB[beat % CELEB.length];
+  const stat = beat > 0 && beat % 2 === 0 && bb < 2;
+  return (
+    <AbsoluteFill style={{background: '#000'}}>
+      <OldTV f={f}>
+        <Clip src={shot.c} t={bb} from={shot.from} grade="raw" zoom={1.12 - Math.min(bb, 10) * 0.006} />
+        {stat && <Static f={f} o={0.85} />}
+      </OldTV>
+      {on && (
+        <AbsoluteFill style={{background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div style={{width: W * interpolate(f, [0, 3, 8], [0.05, 1, 1], cl), height: H * interpolate(f, [0, 4, 8], [0.004, 0.006, 1], cl), background: '#fff', boxShadow: '0 0 60px #fff', opacity: interpolate(f, [6, 9], [1, 0], cl)}} />
+        </AbsoluteFill>
       )}
     </AbsoluteFill>
   );
@@ -340,48 +356,61 @@ const AuraScene: React.FC<{f: number}> = ({f}) => {
     <AbsoluteFill style={{background: INK}}>
       <Clip src="cheerA" t={f} from={0.6} rate={0.5} grade="lime" zoom={1.15} />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.15), rgba(0,0,0,0.85))'}} />
-      <div style={{position: 'absolute', left: 0, right: 0, top: 640, textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic', fontSize: 110, color: '#fff', opacity: p1, transform: `translateY(${(1 - p1) * 40}px)`, textShadow: '0 0 30px rgba(255,255,255,0.4)'}}>…unless you’re</div>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 790, textAlign: 'center', fontFamily: ANTON, fontSize: 210, lineHeight: 0.95, color: LIME, opacity: p2, transform: `scale(${1.3 - p2 * 0.3})`, textShadow: `0 0 40px ${LIME}, 0 0 90px rgba(184,242,106,0.6)`}}>WITH A<br />FRIEND.</div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: SQ ? 220 : 640, textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic', fontSize: SQ ? 96 : 110, color: '#fff', opacity: p1, transform: `translateY(${(1 - p1) * 40}px)`, textShadow: '0 0 30px rgba(255,255,255,0.4)'}}>…unless you’re</div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: SQ ? 350 : 790, textAlign: 'center', fontFamily: ANTON, fontSize: SQ ? 175 : 210, lineHeight: 0.95, color: LIME, opacity: p2, transform: `scale(${1.3 - p2 * 0.3})`, textShadow: `0 0 40px ${LIME}, 0 0 90px rgba(184,242,106,0.6)`}}>WITH A<br />FRIEND.</div>
     </AbsoluteFill>
   );
-  // 48-96: two columns (you + friend) and a 2x
-  const g = f - 48, p = ease(g / 8);
+  // 48-96: you + friend, each $5, plus $2 for bringing them
+  const g = f - 48, p = ease(g / 8), q = ease((g - 8) / 8);
   return (
     <AbsoluteFill style={{background: INK}}>
-      {[['clapE', 0.3], ['pump', 0.1]].map(([c, fr], i) => (
+      {[['clapE', 0.3, 'YOU'], ['pump', 0.1, 'FRIEND']].map(([c, fr, who], i) => (
         <div key={i} style={{position: 'absolute', top: 0, left: (i * W) / 2, width: W / 2, height: H, overflow: 'hidden', transform: `translateY(${(i ? 1 : -1) * (1 - p) * H}px)`, borderRight: i ? undefined : `4px solid ${LIME}`}}>
           <div style={{position: 'absolute', left: -W / 4, top: 0, width: W, height: H}}><Clip src={c as string} t={g} from={fr as number} rate={0.5} grade="lime" zoom={1.1} /></div>
+          <div style={{position: 'absolute', left: 0, right: 0, bottom: SQ ? 60 : 240, textAlign: 'center', fontFamily: ANTON, fontSize: SQ ? 64 : 84, color: '#fff', textShadow: '0 4px 20px rgba(0,0,0,0.8)'}}>{who as string} · $5</div>
         </div>
       ))}
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.0), rgba(0,0,0,0.6))'}} />
-      <div style={{position: 'absolute', left: 0, right: 0, top: 690, textAlign: 'center', fontFamily: ANTON, fontSize: 460, lineHeight: 1, color: '#fff', transform: `scale(${1.5 - ease((g - 6) / 8) * 0.5})`, opacity: g > 6 ? 1 : 0, textShadow: `0 0 50px ${LIME}, 0 0 120px ${LIME}`}}>2×</div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: SQ ? 300 : 700, textAlign: 'center', fontFamily: ANTON, fontSize: SQ ? 330 : 420, lineHeight: 1, color: '#fff', transform: `scale(${1.5 - q * 0.5})`, opacity: g > 8 ? 1 : 0, textShadow: `0 0 50px ${LIME}, 0 0 120px ${LIME}`}}>+$2</div>
     </AbsoluteFill>
   );
 };
 
+// end card: white, clean brand style
 const CTA: React.FC<{f: number}> = ({f}) => {
   const a = (d: number) => ease((f - d) / 8);
-  const slam = f >= 96 ? 1 : 0;
+  const pulse = f >= 96 ? Math.exp(-(f - 96) / 6) : 0;
+  const L = SQ
+    ? {pad: 80, logo: 210, logoTop: 70, h: 82, hTop: 170, rows: 430, num: 120, rowGap: 160, btnTop: 790, btn: 40, foot: 30}
+    : {pad: 90, logo: 300, logoTop: 170, h: 118, hTop: 400, rows: 900, num: 170, rowGap: 260, btnTop: 1520, btn: 40, foot: 70};
+  const rows: [string, string, string][] = [['$5', 'Futures Voucher', 'Sign up + bind phone + first deposit'], ['+$2', 'for every friend', 'Up to 50 friends · paid after the event']];
   return (
-    <AbsoluteFill style={{background: INK, color: '#fff', fontFamily: SANS}}>
-      <AbsoluteFill style={{background: `radial-gradient(circle at 50% 46%, rgba(184,242,106,${0.28 + 0.12 * Math.sin(f / 6)}), transparent 60%)`}} />
-      <AbsoluteFill style={{backgroundImage: 'linear-gradient(rgba(184,242,106,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(184,242,106,0.08) 1px, transparent 1px)', backgroundSize: '60px 60px', maskImage: 'radial-gradient(ellipse at 50% 50%, #000, transparent 75%)'}} />
-      <Img src={staticFile('brand/logo-official-white.png')} style={{position: 'absolute', left: 540 - 300, top: 330, width: 600, height: (600 * 328) / 2005, opacity: a(0), transform: `scale(${1.2 - a(0) * 0.2 + slam * 0.04 * Math.exp(-(f - 96) / 5)})`}} />
-      <div style={{position: 'absolute', left: 0, right: 0, top: 470, textAlign: 'center', fontFamily: MONO, fontWeight: 700, fontSize: 30, letterSpacing: 6, color: LIME, opacity: a(6)}}>THE ALL-IN-ONE MONEY PLATFORM</div>
-      <div style={{position: 'absolute', left: 80, right: 80, top: 660, opacity: a(14), transform: `translateY(${(1 - a(14)) * 40}px)`}}>
-        <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 26, letterSpacing: 4, color: 'rgba(255,255,255,0.6)'}}>01 · SIGN UP</div>
-        <div style={{fontFamily: ANTON, fontSize: 120, lineHeight: 1}}>GET YOUR<br />WELCOME BONUS</div>
+    <AbsoluteFill style={{background: '#fff', color: INK, fontFamily: SANS}}>
+      <AbsoluteFill style={{backgroundImage: 'linear-gradient(rgba(11,14,17,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(11,14,17,0.05) 1px, transparent 1px)', backgroundSize: '54px 54px', maskImage: 'linear-gradient(180deg, #000, transparent 70%)'}} />
+      <div style={{position: 'absolute', left: L.pad, right: L.pad, top: L.logoTop, display: 'flex', justifyContent: 'space-between', alignItems: 'center', opacity: a(0)}}>
+        <Img src={staticFile('brand/logo-official-black.png')} style={{width: L.logo, height: (L.logo * 328) / 2003, transform: `scale(${1 + pulse * 0.06})`, transformOrigin: 'left center'}} />
+        <div style={{fontFamily: MONO, fontWeight: 700, fontSize: SQ ? 15 : 19, letterSpacing: 2, border: `1.5px solid ${INK}`, borderRadius: 100, padding: '8px 16px'}}>NOV 3 — NOV 30</div>
       </div>
-      <div style={{position: 'absolute', left: 80, right: 80, top: 980, opacity: a(30), transform: `translateY(${(1 - a(30)) * 40}px)`}}>
-        <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 26, letterSpacing: 4, color: 'rgba(255,255,255,0.6)'}}>02 · BRING A FRIEND</div>
-        <div style={{fontFamily: ANTON, fontSize: 120, lineHeight: 1, color: LIME, textShadow: `0 0 40px rgba(184,242,106,0.6)`}}>WE DOUBLE IT.</div>
+      <div style={{position: 'absolute', left: L.pad, right: L.pad, top: L.hTop, fontWeight: 600, fontSize: L.h, lineHeight: 0.98, letterSpacing: -L.h * 0.045, opacity: a(4), transform: `translateY(${(1 - a(4)) * 30}px)`}}>
+        Time to test<br />a new platform.<br /><span style={{color: '#8A9099'}}>The test is on us.</span>
       </div>
-      <div style={{position: 'absolute', left: 80, right: 80, top: 1330, opacity: a(48), transform: `scale(${0.9 + a(48) * 0.1})`, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 18, background: LIME, color: INK, borderRadius: 28, padding: '34px 30px', fontFamily: DISP, fontWeight: 900, fontSize: 46, boxShadow: `0 0 ${40 + 30 * Math.sin(f / 5)}px rgba(184,242,106,0.7)`}}>
-        hotcoin.com/r/MetaBonus
+      <div style={{position: 'absolute', left: L.pad, right: L.pad, top: L.rows}}>
+        {rows.map(([n, t, d], i) => (
+          <div key={i} style={{display: 'flex', alignItems: 'baseline', gap: SQ ? 26 : 34, height: L.rowGap, borderTop: i ? '1.5px solid #E6E8EB' : `2px solid ${INK}`, paddingTop: SQ ? 18 : 26, opacity: a(18 + i * 14), transform: `translateX(${(1 - a(18 + i * 14)) * 60}px)`}}>
+            <div style={{width: SQ ? 250 : 340, flex: 'none', fontWeight: 600, fontSize: L.num, letterSpacing: -L.num * 0.05, lineHeight: 0.9, color: i ? '#2F9E44' : INK}}>{n}</div>
+            <div><div style={{fontWeight: 600, fontSize: SQ ? 38 : 50, letterSpacing: -1}}>{t}</div><div style={{fontFamily: MONO, fontSize: SQ ? 17 : 20, color: '#8A9099', marginTop: 6, letterSpacing: 0.3, whiteSpace: 'nowrap'}}>{d}</div></div>
+          </div>
+        ))}
       </div>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 1500, textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic', fontSize: 64, opacity: a(60)}}>Nobody’s SAFU alone.</div>
-      <div style={{position: 'absolute', left: 80, right: 80, bottom: 90, textAlign: 'center', fontFamily: MONO, fontSize: 20, lineHeight: 1.5, color: 'rgba(255,255,255,0.45)', opacity: a(60)}}>Terms apply. Bonus details on the event page.<br />Futures trading is high risk. Not financial advice.</div>
-      <div style={{position: 'absolute', left: 0, right: 0, bottom: 34, textAlign: 'center', fontFamily: MONO, fontSize: 15, color: 'rgba(255,255,255,0.3)'}}>Footage: NASA (public domain) · Market data: Binance, CoinGlass, Reuters, Bloomberg</div>
+      <div style={{position: 'absolute', left: L.pad, right: L.pad, top: L.btnTop, display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: INK, color: '#fff', borderRadius: 999, padding: SQ ? '22px 22px 22px 40px' : '30px 30px 30px 50px', opacity: a(46), transform: `scale(${0.94 + a(46) * 0.06 + pulse * 0.03})`}}>
+        <div style={{fontFamily: DISP, fontWeight: 900, fontSize: L.btn}}>hotcoin.com/r/MetaBonus</div>
+        <div style={{width: SQ ? 66 : 86, height: SQ ? 66 : 86, borderRadius: '50%', background: LIME, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <svg width="40%" height="40%" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" stroke={INK} strokeWidth={3} fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        </div>
+      </div>
+      <div style={{position: 'absolute', left: L.pad, right: L.pad, bottom: L.foot, fontFamily: MONO, fontSize: SQ ? 13 : 16, lineHeight: 1.55, color: '#8A9099', opacity: a(56)}}>
+        Futures Vouchers are promotional trial funds. Futures trading is high risk. Terms apply.<br />Footage: NASA (public domain) · Data: Binance, CoinGlass, Reuters, Bloomberg
+      </div>
     </AbsoluteFill>
   );
 };
@@ -390,15 +419,17 @@ const CTA: React.FC<{f: number}> = ({f}) => {
 export const AuraEdit: React.FC = () => {
   useFonts();
   const g = useCurrentFrame();
+  ({width: W, height: H} = useVideoConfig()); SQ = W === H;
   const h = hit(g);
   const shake = h * 22, sx = (rnd(g * 1.7) - 0.5) * shake, sy = (rnd(g * 2.3) - 0.5) * shake;
   const zoom = 1 + h * 0.06;
-  const rgb = Math.min(18, h * 14 + (g >= T.fracture && g < T.fracture + 10 ? 10 : 0));
+  const cta = g >= T.cta;
+  const rgb = cta ? 0 : Math.min(18, h * 14 + (g >= T.fracture && g < T.fracture + 10 ? 10 : 0));
   let scene: React.ReactNode;
   if (g < T.fracture) scene = (
     <AbsoluteFill>
       <RedWall f={g} />
-      {g >= 48 && <Glitch text={['EVERYTHING', 'EVERYTHING\nIS', 'EVERYTHING\nIS RED.'][Math.min(2, Math.floor((g - 48) / B))]} size={190} f={g} amt={(g - 48) % B < 3 ? 0.8 : 0.12} top={620} />}
+      {g >= 48 && <Glitch text={['EVERYTHING', 'EVERYTHING\nIS', 'EVERYTHING\nIS RED.'][Math.min(2, Math.floor((g - 48) / B))]} size={SQ ? 160 : 190} f={g} amt={(g - 48) % B < 3 ? 0.8 : 0.12} top={SQ ? 230 : 620} />}
       <AbsoluteFill style={{background: `linear-gradient(${(g * 6) % 360}deg, rgba(255,0,30,0.25), transparent 40%)`, mixBlendMode: 'screen'}} />
     </AbsoluteFill>
   );
@@ -411,7 +442,7 @@ export const AuraEdit: React.FC = () => {
   );
   else if (g < T.white) scene = <RainScene f={g - T.rain} />;
   else if (g < T.claps) scene = <WhiteLight f={g - T.white} />;
-  else if (g < T.aura) scene = <ClapScene f={g - T.claps} />;
+  else if (g < T.aura) scene = <CelebScene f={g - T.claps} />;
   else if (g < T.cta) scene = <AuraScene f={g - T.aura} />;
   else scene = <CTA f={g - T.cta} />;
   const flash = [T.fracture, T.rain, T.aura, 840].some((x) => g >= x && g < x + 3) ? 1 - ((g - [T.fracture, T.rain, T.aura, 840].find((x) => g >= x && g < x + 3)!) / 3) : 0;
@@ -430,8 +461,8 @@ export const AuraEdit: React.FC = () => {
       </svg>
       <AbsoluteFill style={{transform: `translate(${sx}px, ${sy}px) scale(${zoom})`, filter: rgb > 1 ? 'url(#rgbsplit)' : undefined}}>{scene}</AbsoluteFill>
       <AbsoluteFill style={{background: '#fff', opacity: flash}} />
-      <AbsoluteFill style={{backgroundImage: `url(${staticFile('grain.png')})`, backgroundPosition: `${rnd(g) * 400}px ${rnd(g + 1) * 400}px`, opacity: 0.12, mixBlendMode: 'overlay'}} />
-      <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,0.55))'}} />
+      {!cta && <AbsoluteFill style={{backgroundImage: `url(${staticFile('grain.png')})`, backgroundPosition: `${rnd(g) * 400}px ${rnd(g + 1) * 400}px`, opacity: 0.12, mixBlendMode: 'overlay'}} />}
+      {!cta && <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,0.55))'}} />}
       <Audio src={staticFile('aura/beat.wav')} />
       <Sequence from={T.claps} durationInFrames={T.aura - T.claps + 20} layout="none">
         <Audio src={staticFile('aura/clips/cheer-audio.wav')} startFrom={Math.round(2.4 * 30)} volume={(fr) => 0.55 * interpolate(fr, [0, 4, 96, 116], [0, 1, 1, 0], cl)} />
