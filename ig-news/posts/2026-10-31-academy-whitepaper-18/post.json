@@ -1,0 +1,316 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "coins.jpg",
+   "photo_pos": "50% 40%",
+   "tag": "CRYPTO 101 \u00b7 ON THIS DAY",
+   "headline": "18 years ago today, 9 pages started a [$1.5 trillion] asset"
+  },
+  {
+   "kind": "tslide",
+   "num": "01",
+   "of": "1/5",
+   "title": "Oct 31, <span class='g'>2008</span>",
+   "paras": [
+    "An anonymous author, <g>Satoshi Nakamoto</g>, emailed a 9-page paper to a cryptography mailing list.",
+    "Title: \"Bitcoin: A Peer-to-Peer Electronic Cash System\". Money with no bank in the middle."
+   ],
+   "visual": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "9",
+      "l": "pages"
+     },
+     {
+      "v": "21M",
+      "l": "coins, max supply ever"
+     },
+     {
+      "v": "0",
+      "l": "companies behind it"
+     }
+    ]
+   },
+   "source": "bitcoin.org/bitcoin.pdf"
+  },
+  {
+   "kind": "tslide",
+   "num": "02",
+   "of": "2/5",
+   "title": "From paper to <span class='g'>trillion</span>",
+   "paras": [
+    "Eighteen years, a handful of moments everyone remembers."
+   ],
+   "visual": {
+    "type": "timeline",
+    "items": [
+     {
+      "y": "2008",
+      "t": "Whitepaper published, Oct 31"
+     },
+     {
+      "y": "2009",
+      "t": "First block mined, Jan 3"
+     },
+     {
+      "y": "2010",
+      "t": "2 pizzas bought for 10,000 BTC"
+     },
+     {
+      "y": "2024",
+      "t": "US spot Bitcoin ETFs approved"
+     },
+     {
+      "y": "2025",
+      "t": "Record high: <g>$126,198</g> (Oct)"
+     },
+     {
+      "y": "2026",
+      "t": "Today: about <g>$77,200</g>"
+     }
+    ]
+   },
+   "source": "bitcoin.org, Yahoo Finance, CoinGecko"
+  },
+  {
+   "kind": "tslide",
+   "num": "03",
+   "of": "3/5",
+   "title": "The price <span class='g'>since 2014</span>",
+   "paras": [
+    "About <g>$338</g> in Oct 2014. About <g>$77,200</g> now, after many 50%+ drops on the way."
+   ],
+   "visual": {
+    "type": "line",
+    "title": "Bitcoin monthly close, $K",
+    "series": [
+     0.3,
+     0.4,
+     0.3,
+     0.2,
+     0.3,
+     0.2,
+     0.2,
+     0.2,
+     0.3,
+     0.3,
+     0.2,
+     0.2,
+     0.3,
+     0.4,
+     0.4,
+     0.4,
+     0.4,
+     0.4,
+     0.4,
+     0.5,
+     0.7,
+     0.6,
+     0.6,
+     0.6,
+     0.7,
+     0.7,
+     1.0,
+     1.0,
+     1.2,
+     1.1,
+     1.3,
+     2.3,
+     2.5,
+     2.9,
+     4.7,
+     4.3,
+     6.5,
+     10.2,
+     14.2,
+     10.2,
+     10.4,
+     7.0,
+     9.2,
+     7.5,
+     6.4,
+     7.8,
+     7.0,
+     6.6,
+     6.3,
+     4.0,
+     3.7,
+     3.5,
+     3.9,
+     4.1,
+     5.4,
+     8.6,
+     10.8,
+     10.1,
+     9.6,
+     8.3,
+     9.2,
+     7.6,
+     7.2,
+     9.4,
+     8.6,
+     6.4,
+     8.7,
+     9.5,
+     9.1,
+     11.3,
+     11.7,
+     10.8,
+     13.8,
+     19.6,
+     29.0,
+     33.1,
+     45.1,
+     58.9,
+     57.8,
+     37.3,
+     35.0,
+     41.6,
+     47.2,
+     43.8,
+     61.3,
+     57.0,
+     46.3,
+     38.5,
+     43.2,
+     45.5,
+     37.7,
+     31.8,
+     19.8,
+     23.3,
+     20.0,
+     19.4,
+     20.5,
+     17.2,
+     16.5,
+     23.1,
+     23.1,
+     28.5,
+     29.3,
+     27.2,
+     30.5,
+     29.2,
+     25.9,
+     27.0,
+     34.7,
+     37.7,
+     42.3,
+     42.6,
+     61.2,
+     71.3,
+     60.6,
+     67.5,
+     62.7,
+     64.6,
+     59.0,
+     63.3,
+     70.2,
+     96.4,
+     93.4,
+     102.4,
+     84.4,
+     82.5,
+     94.2,
+     104.6,
+     107.1,
+     115.8,
+     108.2,
+     114.1,
+     109.6,
+     90.4,
+     87.5,
+     78.6,
+     67.0,
+     68.2,
+     76.3,
+     73.6,
+     58.6,
+     62.8,
+     78.5,
+     83.6,
+     77.8,
+     77.1
+    ],
+    "labels": [
+     "2014",
+     "2018",
+     "2022",
+     "2026"
+    ],
+    "fmt": "${:,.0f}K",
+    "last_label": "$77K",
+    "color": "#3E8E1E"
+   },
+   "source": "Yahoo Finance (BTC-USD) monthly closes; CoinGecko"
+  },
+  {
+   "kind": "tslide",
+   "num": "04",
+   "of": "4/5",
+   "title": "Almost all <span class='g'>mined</span>",
+   "paras": [
+    "About <g>20.1M</g> of the 21M coins exist today. The rest trickle out until around 2140."
+   ],
+   "visual": {
+    "type": "donut",
+    "title": "Bitcoin supply, Oct 31, 2026",
+    "center": "95.7%",
+    "colors": [
+     "#3E8E1E",
+     "#C9CED3"
+    ],
+    "items": [
+     {
+      "l": "Mined",
+      "v": 20105365,
+      "txt": "20.11M"
+     },
+     {
+      "l": "Still to mine",
+      "v": 894635,
+      "txt": "0.89M"
+     }
+    ]
+   },
+   "source": "blockchain.info total supply"
+  },
+  {
+   "kind": "tslide",
+   "num": "05",
+   "of": "5/5",
+   "title": "What it <span class='g'>means</span>",
+   "paras": [
+    "A PDF with no company, no CEO and no ads became a <u>$1.55 trillion</u> asset.",
+    "Ideas can be worth more than businesses. Volatile ones too."
+   ],
+   "visual": {
+    "type": "stats",
+    "items": [
+     {
+      "v": "18",
+      "l": "years old today",
+      "color": "#3E8E1E"
+     },
+     {
+      "v": "$1.55T",
+      "l": "market value",
+      "color": "#3E8E1E"
+     },
+     {
+      "v": "-39%",
+      "l": "from its record",
+      "color": "#E5322D"
+     }
+    ]
+   },
+   "source": "CoinGecko. Not financial advice."
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}
