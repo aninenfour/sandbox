@@ -46,6 +46,7 @@ Examples (before → better):
   Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
 
 ## Changelog
+- 2026-10-30 (owner): WHAT IF dots/cards must be instantly readable: brand logos or clean product cut-outs, never dark photo crops.
 - 2026-10-29 (owner): covers use real faces of the people behind the story (CEOs, officials, founders) with the company logo badge; place/product photos only when no person fits.
 - 2026-10-29 (owner, Kalshi reference): first slide is now `nhero`: full-bleed photo, round logo badge, small BREAKING/TRENDING tag, one big plain statement in condensed caps. Clear objective in one glance.
 - 2026-10-29 (owner: "new design is much better"): no source line on slides (sources go in the caption/first comment); automatic collision check in render.py, every WARNING must be fixed before scheduling.
