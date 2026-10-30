@@ -302,8 +302,8 @@ const WhiteLight: React.FC<{f: number}> = ({f}) => {
 
 // celebration: CRT power-on, then an old-TV broadcast of everyone celebrating (channel-static between some cuts)
 const CELEB = [
-  {c: 'cheerA', from: 0.2}, {c: 'clapD', from: 0.1}, {c: 'cheerC', from: 0.1}, {c: 'clapE', from: 0.3},
-  {c: 'clapD', from: 0.6}, {c: 'cheerA', from: 1.2}, {c: 'pump', from: 0.05}, {c: 'clapE', from: 0.9},
+  {c: 'cheerA', from: 0.2}, {c: 'clapD', from: 0}, {c: 'cheerC', from: 0.1}, {c: 'clapE', from: 0.3},
+  {c: 'clapD', from: 0.45}, {c: 'cheerA', from: 1.2}, {c: 'pump', from: 0.05}, {c: 'clapE', from: 0.9},
 ];
 const Static: React.FC<{f: number; o: number}> = ({f, o}) => (
   <AbsoluteFill style={{opacity: o}}>
