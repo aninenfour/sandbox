@@ -1,0 +1,16 @@
+{"music":"399","title":"Scariest crashes ever 🎃",
+ "tier":{"tiers":["S","A","B","C","D"],
+  "legend":"Ranked by drop from peak to bottom",
+  "items":[
+   {"name":"Black Monday 1987","tier":"D","logo":"Y1987.png","why":"S&P 500 -20.5% in ONE day"},
+   {"name":"Covid crash 2020","tier":"C","logo":"Y2020.png","why":"S&P 500 -34% in 23 trading days"},
+   {"name":"2008 crisis","tier":"B","logo":"Y2008.png","why":"S&P 500 -57% (2007 to 2009)"},
+   {"name":"Bitcoin 2022","tier":"A","logo":"BTC.svg","why":"-77%: $67.6K to $15.8K"},
+   {"name":"Dot-com 2000","tier":"A","logo":"Y2000.png","why":"Nasdaq -78% (2000 to 2002)"},
+   {"name":"Bitcoin 2018","tier":"A","logo":"BTC.svg","why":"-83%: $19.5K to $3.2K"},
+   {"name":"Great Crash 1929","tier":"S","logo":"Y1929.png","why":"Dow -89% (1929 to 1932)"},
+   {"name":"LUNA 2022","tier":"S","logo":"LUNA.png","why":"~-100% in about a week"}]},
+ "slides":[
+  {"photo":"hook.jpg","pos":"50% 45%","hook":true,"tag":"HALLOWEEN TIER LIST 🎃","text":"Scariest crashes\never, [ranked]"},
+  {"kind":"tier_all"},
+  {"kind":"cta"}]}
