@@ -172,7 +172,36 @@ ${mark(700, 560, 520, '#0B0E11', '#7EC25A', 0.05)}
 </div></body></html>`;
 };
 
-const PAGES = {'sq-white': () => POD(false), 'sq-black': () => POD(true), 'sq-mark': MARK, 'sq-cards': CARDS};
+
+// ---------- #1 spotlight ----------
+const TOP1 = () => {
+  const g = D.gainers[0];
+  return `${HEAD}<style>
+body{background:#fff;color:#0B0E11}
+.pill{background:#F3F4F0;color:#0B0E11}
+.glow{position:absolute;left:50%;top:560px;width:900px;height:900px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,${g.glow}55,${g.glow}00 65%)}
+.rays{position:absolute;left:50%;top:560px;width:1500px;height:1500px;transform:translate(-50%,-50%);background:repeating-conic-gradient(${g.glow}22 0 6deg,transparent 6deg 18deg);-webkit-mask:radial-gradient(circle,#000 10%,transparent 60%);mask:radial-gradient(circle,#000 10%,transparent 60%)}
+.hero{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:10px}
+.rk{display:flex;align-items:center;gap:12px;font-family:'JetBrains Mono';font-weight:800;font-size:20px;letter-spacing:4px;margin-bottom:26px}
+.rk .md{width:46px;height:46px;font-size:22px}
+.sym{font-family:Unbounded;font-weight:900;font-size:96px;letter-spacing:-3px;line-height:1;margin-top:30px}
+.nm{font-size:24px;font-weight:600;color:#6B7280;margin-top:8px}
+.ch{font-family:Unbounded;font-weight:900;font-size:150px;letter-spacing:-7px;color:#14A04B;line-height:1;margin-top:18px}
+.ch small{font-size:30px;letter-spacing:2px;font-family:'JetBrains Mono';font-weight:800;color:#6B7280;margin-left:12px;vertical-align:middle}
+.ft{position:relative;display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:2px;color:#6B7280}
+.head h1{font-size:54px}
+</style></head><body><div class="s"><div class="rays"></div><div class="glow"></div>
+${mark(980, 420, -170, '#0B0E11', '#7EC25A', 0.045)}
+<div class="head"><img src="/hotcoin-tradfi/public/brand/logo-official-black.png"><h1>Top Gainer of the Day<span class="t5">#1</span></h1><div class="pill"><span class="dot"></span>${D.window}</div></div>
+<div class="hero"><div class="rk">${medal(1)}DAILY TOP GAINER</div>
+ ${bezel(g, 330, 'gold')}
+ <div class="sym">$${g.sym}</div><div class="nm">${g.name}</div>
+ <div class="ch">${pct(g.ch)}<small>24H</small></div></div>
+<div class="ft"><span>24H CHANGE · SPOT</span><span>HOTCOIN.COM</span></div>
+</div></body></html>`;
+};
+
+const PAGES = {'sq-white': () => POD(false), 'sq-black': () => POD(true), 'sq-mark': MARK, 'sq-cards': CARDS, 'sq-top1': TOP1};
 const want = process.argv.slice(2);
 fs.mkdirSync(DIR + '/build', {recursive: true});
 const server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1', '--directory', ROOT], {stdio: 'ignore'});
