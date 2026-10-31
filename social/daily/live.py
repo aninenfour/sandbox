@@ -33,27 +33,55 @@ def get(url, tries=5):
             time.sleep(6 * (i + 1))
 
 
+def get_json(url, tries=6):
+    for i in range(tries):
+        try:
+            d = json.loads(get(url))
+            if not (isinstance(d, dict) and 'status' in d and isinstance(d['status'], dict) and d['status'].get('error_code')):
+                return d
+        except Exception:
+            if i == tries - 1:
+                raise
+        time.sleep(10 * (i + 1))
+    raise RuntimeError(f'rate-limited: {url}')
+
+
 def gainers(min_vol, n=5):
     t = json.loads(get(TICKER))['ticker']
     rows = [x for x in t if x['symbol'].endswith('_usdt') and float(x['amount']) >= min_vol]
     rows.sort(key=lambda x: -float(x['change']))
-    return [{'sym': x['symbol'][:-5].upper(), 'ch': float(x['change']), 'last': x['last'], 'vol': float(x['amount'])} for x in rows[:n]]
+    return [{'sym': x['symbol'][:-5].upper(), 'ch': float(x['change']), 'last': float(x['last']), 'vol': float(x['amount'])} for x in rows[:n]]
 
 
-def resolve(sym, cache):
-    if sym in cache:
-        return cache[sym]
-    res = json.loads(get(f'{CG}/search?query={urllib.parse.quote(sym)}'))
-    cands = [c for c in res.get('coins', []) if c['symbol'].upper() == sym]
-    if not cands:
-        info = {'id': None, 'name': sym, 'twitter': None, 'logo': None}
+def price_ok(cg, hc):
+    return cg and hc and 0.7 <= cg / hc <= 1 / 0.7
+
+
+def resolve(sym, price, cache):
+    """Match the Hotcoin ticker to a CoinGecko coin. A match only counts if CoinGecko's price is
+    within ±30% of Hotcoin's last price, so a same-symbol different token never gets tagged."""
+    if sym in cache and cache[sym].get('id'):
+        cg = get_json(f'{CG}/simple/price?ids={cache[sym]["id"]}&vs_currencies=usd').get(cache[sym]['id'], {}).get('usd')
+        if price_ok(cg, price) or cache[sym].get('pinned'):
+            return cache[sym]
+        print(f'{sym}: cached {cache[sym]["id"]} price {cg} vs Hotcoin {price}, re-resolving', file=sys.stderr)
+    res = get_json(f'{CG}/search?query={urllib.parse.quote(sym)}')
+    cands = [c for c in res.get('coins', []) if c['symbol'].upper() == sym][:12]
+    prices = get_json(f'{CG}/simple/price?ids={",".join(c["id"] for c in cands)}&vs_currencies=usd') if cands else {}
+    ok = [c for c in cands if price_ok(prices.get(c['id'], {}).get('usd'), price)]
+    if not ok:
+        print(f'{sym}: no CoinGecko coin with a matching price, posting without tag/logo', file=sys.stderr)
+        info = {'id': None, 'name': '', 'twitter': None, 'logo': None}
     else:
-        best = min(cands, key=lambda c: c.get('market_cap_rank') or 10 ** 9)
+        best = min(ok, key=lambda c: c.get('market_cap_rank') or 10 ** 9)
         time.sleep(2)
-        c = json.loads(get(f'{CG}/coins/{best["id"]}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false'))
+        c = get_json(f'{CG}/coins/{best["id"]}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false')
         info = {'id': best['id'], 'name': c.get('name') or sym, 'twitter': (c.get('links') or {}).get('twitter_screen_name') or None,
                 'image': (c.get('image') or {}).get('large'), 'logo': sym.lower()}
-    cache[sym] = info
+    if info['id']:
+        cache[sym] = info
+    else:
+        cache.pop(sym, None)
     time.sleep(2)
     return info
 
@@ -105,7 +133,7 @@ def main():
     top = gainers(a.min_vol)
     cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
     for g in top:
-        info = resolve(g['sym'], cache)
+        info = resolve(g['sym'], g['last'], cache)
         g['name'], g['handle'] = info['name'], tag(info)
         lf = logo_file(info)
         g['logo'] = os.path.splitext(os.path.basename(lf))[0] if lf else 'missing'

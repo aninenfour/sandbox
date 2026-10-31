@@ -39,8 +39,12 @@ const METAL = {
   steel: 'conic-gradient(from 200deg,#E6E9EC,#6E757D,#C9CED3,#4A5058,#B3B9BF,#5D646C,#E6E9EC)',
 };
 const metalFor = (rank) => ['gold', 'silver', 'bronze'][rank - 1] || 'steel';
+// no verified logo: the ticker letters stand in for it
+const face = (g, size) => g.logo === 'missing'
+  ? `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#0B0E11;color:#B8F26A;font-family:Unbounded;font-weight:900;font-size:${size * (g.sym.length > 3 ? 0.18 : 0.3)}px;letter-spacing:-1px">${g.sym}</div>`
+  : `<img src="${logo(g.logo)}">`;
 const bezel = (g, size, metal) => `<div class="bz" style="width:${size}px;height:${size}px;padding:${Math.round(size * 0.075)}px;background:repeating-conic-gradient(rgba(0,0,0,.13) 0 1.2deg,transparent 1.2deg 2.4deg),${METAL[metal]}">
-  <div class="in" style="background:${g.bg}"><img src="${logo(g.logo)}"></div></div>`;
+  <div class="in" style="background:${g.bg}">${face(g, size)}</div></div>`;
 const medal = (rank) => `<span class="md md${rank}">${rank}</span>`;
 
 const HEAD = `<!doctype html><html><head><meta charset="utf-8">

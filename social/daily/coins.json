@@ -87,18 +87,5 @@
   "twitter": "centrifuge",
   "image": "https://coin-images.coingecko.com/coins/images/55913/large/centrifuge.jpg?1747707741",
   "logo": "cfg"
- },
- "B": {
-  "id": null,
-  "name": "B",
-  "twitter": null,
-  "logo": null
- },
- "UNC": {
-  "id": "unc",
-  "name": "unc",
-  "twitter": "officialuncx",
-  "image": "https://coin-images.coingecko.com/coins/images/102173025/large/3a4a5du6tealqcy0eh1hutz167bj.?1777284110",
-  "logo": "unc"
  }
 }
