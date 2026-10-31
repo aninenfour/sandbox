@@ -23,6 +23,9 @@ const D = {
     {sym: 'UAI', name: 'UnifAI Network', ch: 8.66, logo: 'uai', bg: '#1E1E2E', glow: '#8B7CF6'},
   ],
 };
+// live runs (live.py) pass the day's data and an output folder
+if (process.env.DATA) Object.assign(D, JSON.parse(fs.readFileSync(process.env.DATA, 'utf8')));
+const OUT = process.env.OUT_DIR || DIR + '/img';
 const pct = (v) => (v > 0 ? '+' : '') + v.toFixed(2) + '%';
 const logo = (k) => `/social/daily/logos/${k}.png`;
 const MARK_SLASH = 'M2.28588 5.14427L5.12855 2.3016C6.54988 3.24916 7.97122 5.14427 12.5906 5.49962C16.842 5.82668 19.3419 3.24917 21.1186 1.94628L24.3166 5.14429L5.12855 24.3323L1.93054 21.1343L13.3012 9.76362C7.97121 10.119 4.41787 7.2763 2.28588 5.14427Z';
@@ -90,7 +93,7 @@ ${mark(980, 420, -170, T.mark, '#7EC25A', T.mop)}
 <div class="pod">${top.map((g) => {
     const r = D.gainers.indexOf(g) + 1, one = r === 1;
     return `<div class="p${one ? ' one' : ''}"><div class="gl" style="background:radial-gradient(90% 60% at 50% 0%,${g.glow},transparent 75%)"></div>${medal(r)}
-  ${bezel(g, one ? 212 : 158, metalFor(r))}<div class="sym">${g.sym}</div><div class="nm">${g.name}</div><div class="ch">${pct(g.ch)}</div></div>`;
+  ${bezel(g, one ? 212 : 158, metalFor(r))}<div class="sym" style="${g.sym.length > 7 ? 'font-size:26px' : ''}">${g.sym}</div><div class="nm">${g.name}</div><div class="ch">${pct(g.ch)}</div></div>`;
   }).join('')}</div>
 <div class="rows">${D.gainers.slice(3).map((g, i) => `<div class="r"><div class="n">${i + 4}</div>${bezel(g, 68, 'steel')}<div><div class="sym">${g.sym}</div><div class="nm">${g.name}</div></div><div class="ch">${pct(g.ch)}</div></div>`).join('')}</div>
 <div class="ft"><span>24H CHANGE · SPOT</span><span>HOTCOIN.COM</span></div>
@@ -215,7 +218,7 @@ try {
     fs.writeFileSync(`${DIR}/build/${name}.html`, html());
     await page.goto(`http://localhost:${PORT}/social/daily/build/${name}.html`, {waitUntil: 'networkidle'});
     await page.evaluate(() => document.fonts.ready);
-    await page.screenshot({path: `${DIR}/img/${name}.png`});
+    await page.screenshot({path: `${OUT}/${name}.png`});
     console.log(name);
   }
 } finally {

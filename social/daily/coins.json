@@ -1,0 +1,91 @@
+{
+ "Q": {
+  "id": "quack-ai",
+  "name": "Quack AI",
+  "twitter": "QuackAI_AI",
+  "logo": "q"
+ },
+ "HYPE": {
+  "id": "hyperliquid",
+  "name": "Hyperliquid",
+  "twitter": "HyperliquidX",
+  "logo": "hype"
+ },
+ "SOXSB": {
+  "id": "direxion-semiconductor-bear-3x-etf-bstocks-tokenized-stock",
+  "name": "Direxion SOXS · bStocks",
+  "twitter": "binance",
+  "logo": "soxsb"
+ },
+ "RUNE": {
+  "id": "thorchain",
+  "name": "THORChain",
+  "twitter": "THORChain",
+  "logo": "rune"
+ },
+ "UAI": {
+  "id": "unifai-network",
+  "name": "UnifAI Network",
+  "twitter": "UnifaiNetwork",
+  "logo": "uai"
+ },
+ "STONKBROKER": {
+  "id": "stonkbroker",
+  "name": "StonkBroker",
+  "twitter": null,
+  "logo": "stonkbroker"
+ },
+ "HUMA": {
+  "id": "huma-finance",
+  "name": "Huma Finance",
+  "twitter": null,
+  "logo": "huma"
+ },
+ "LITEB": {
+  "id": "lumentum-holdings-bstocks-tokenized-stock",
+  "name": "Lumentum · bStocks",
+  "twitter": "binance",
+  "logo": "liteb"
+ },
+ "ORCLB": {
+  "id": "oracle-bstocks-tokenized-stock",
+  "name": "Oracle · bStocks",
+  "twitter": "binance",
+  "logo": "orclb"
+ },
+ "GWEI": {
+  "id": "ethgas-2",
+  "name": "ETHGas",
+  "twitter": "ethgasofficial",
+  "image": "https://coin-images.coingecko.com/coins/images/71375/large/ethgas_token_200.png?1769055039",
+  "logo": "gwei"
+ },
+ "SPK": {
+  "id": "spark-2",
+  "name": "Spark",
+  "twitter": "sparkfinance",
+  "image": "https://coin-images.coingecko.com/coins/images/38637/large/Spark-Logomark-RGB.png?1744878896",
+  "logo": "spk"
+ },
+ "OP": {
+  "id": "optimism",
+  "name": "Optimism",
+  "twitter": "Optimism",
+  "image": "https://coin-images.coingecko.com/coins/images/25244/large/Token.png?1774456081",
+  "logo": "op"
+ },
+ "PROVE": {
+  "id": "succinct",
+  "name": "Succinct",
+  "twitter": "succinctlabs",
+  "image": "https://coin-images.coingecko.com/coins/images/67905/large/succinct-logo.png?1754228574",
+  "logo": "prove"
+ },
+ "CFG": {
+  "id": "centrifuge-2",
+  "name": "Centrifuge",
+  "twitter": "centrifuge",
+  "image": "https://coin-images.coingecko.com/coins/images/55913/large/centrifuge.jpg?1747707741",
+  "logo": "cfg"
+ }
+}
