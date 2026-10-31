@@ -1,0 +1,150 @@
+{
+ "type": "weekly",
+ "slides": [
+  {
+   "kind": "wcover",
+   "photo": "capitol.jpg",
+   "photo_pos": "50% 40%",
+   "title": [
+    "What's on",
+    "this week"
+   ],
+   "range": "Nov 2 \u2013 8 \u00b7 US midterms + jobs report"
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Tuesday",
+    "3 November"
+   ],
+   "bg": "linear-gradient(160deg,#0f2a4a,#2f6db5 50%,#9cc3f0)",
+   "photo": "karp.jpg",
+   "photo_pos": "50% 25%",
+   "events": [
+    {
+     "t": "Palantir ($PLTR) Q3 results",
+     "time": "~05:00 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    },
+    {
+     "t": "US midterm elections",
+     "time": "all day, US",
+     "badges": [
+      {
+       "t": "HIGH IMPACT",
+       "c": "hi"
+      }
+     ]
+    },
+    {
+     "t": "Binance proof of reserves due",
+     "time": "after the hack",
+     "badges": [
+      {
+       "t": "CRYPTO"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Wednesday",
+    "4 November"
+   ],
+   "bg": "linear-gradient(160deg,#2b1b5a,#8e3fae 50%,#e05d8b)",
+   "photo": "su.jpg",
+   "photo_pos": "50% 20%",
+   "events": [
+    {
+     "t": "AMD ($AMD) + Block ($XYZ) Q3 results",
+     "time": "~05:00 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    },
+    {
+     "t": "Midterm results: who controls Congress?",
+     "time": "all day",
+     "badges": [
+      {
+       "t": "HIGH IMPACT",
+       "c": "hi"
+      }
+     ]
+    },
+    {
+     "t": "Uber ($UBER) Q3 results",
+     "time": "before US open",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Thursday",
+    "5 November"
+   ],
+   "bg": "linear-gradient(160deg,#ff7a3d,#f2a65a 45%,#c9b8a8)",
+   "photo": "courier.jpg",
+   "photo_pos": "50% 50%",
+   "events": [
+    {
+     "t": "Qualcomm ($QCOM) + DoorDash ($DASH) Q3 results",
+     "time": "~05:00 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "wday",
+   "day": [
+    "Friday",
+    "6 November"
+   ],
+   "bg": "linear-gradient(160deg,#0b3d2e,#1f8a5b 50%,#9be07a)",
+   "photo": "chesky.jpg",
+   "photo_pos": "50% 25%",
+   "events": [
+    {
+     "t": "Airbnb ($ABNB) + Cloudflare ($NET) Q3 results",
+     "time": "~05:00 UTC+8",
+     "badges": [
+      {
+       "t": "EARNINGS"
+      }
+     ]
+    },
+    {
+     "t": "US jobs report (October)",
+     "time": "21:30 UTC+8",
+     "badges": [
+      {
+       "t": "HIGH IMPACT",
+       "c": "hi"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "end"
+  }
+ ]
+}

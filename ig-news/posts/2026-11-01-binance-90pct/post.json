@@ -1,0 +1,18 @@
+{"type":"news","style":"v2","date":"NOV 1","slides":[
+ {"kind":"nhero","photo":"teng_p.jpg","photo_pos":"50% 15%","tag":"UPDATE","badge":{"src":"bnb.svg","pos":"tr","fit":"100%","size":300},
+  "headline":"Binance has already replaced [90%] of the stolen $6.3B"},
+ {"kind":"nbars","tag":"REFILL","title":"Coins bought back so far",
+  "bars":[{"l":"Friday update","v":80,"txt":"80%"},{"l":"Saturday update","v":90,"txt":"90%","pos":true},{"l":"Still missing","v":10,"txt":"10%","neg":true}],
+  "text":["The gap left is [less liquid tokens]. Binance is buying them on the market and over the counter."]},
+ {"kind":"nrows","tag":"WHO PAYS","title":"Not the users",
+  "rows":[{"emoji":"🏦","l":"Company treasury","sub":"Binance's own money","v":"Yes"},
+          {"emoji":"🛡️","l":"Futures insurance fund","sub":"part of it","v":"Yes"},
+          {"emoji":"🆘","l":"SAFU emergency fund","sub":"to be refilled to ~$1B","v":"Partly"},
+          {"emoji":"👤","l":"User balances","sub":"BTC, ETH + 8 more fully backed","v":"$0 lost","pos":true}],
+  "text":["\"Binance will absorb the financial impact... [not our users].\""]},
+ {"kind":"nrows","tag":"WHAT'S NEXT","title":"The next 48 hours",
+  "rows":[{"emoji":"🔓","l":"Withdrawals reopen","sub":"Binance target","v":"Today","pos":true},
+          {"emoji":"🧾","l":"Full proof of reserves","sub":"zero-knowledge proof","v":"By Nov 3"},
+          {"emoji":"🧊","l":"Frozen by Tether + Circle","sub":"separate from the refill","v":"~$3B","pos":true}],
+  "text":["Investigators link the attack to North Korea's [TraderTraitor] group."]},
+ {"kind":"end"}]}
