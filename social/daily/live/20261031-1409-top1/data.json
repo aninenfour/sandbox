@@ -1,0 +1,46 @@
+{
+ "window": "24H to Oct 31 14:09 (UTC+8)",
+ "date": "OCT 31",
+ "gainers": [
+  {
+   "sym": "GWEI",
+   "name": "ETHGas",
+   "ch": 22.42,
+   "logo": "gwei",
+   "bg": "#05a2c2",
+   "glow": "#05a2c2"
+  },
+  {
+   "sym": "SPK",
+   "name": "Spark",
+   "ch": 18.84,
+   "logo": "spk",
+   "bg": "#ffffff",
+   "glow": "#fc727b"
+  },
+  {
+   "sym": "B",
+   "name": "B",
+   "ch": 12.4,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "UNC",
+   "name": "unc",
+   "ch": 12.28,
+   "logo": "unc",
+   "bg": "#f7f5f5",
+   "glow": "#2f3a42"
+  },
+  {
+   "sym": "OP",
+   "name": "Optimism",
+   "ch": 11.54,
+   "logo": "op",
+   "bg": "#ff0421",
+   "glow": "#ff0421"
+  }
+ ]
+}
