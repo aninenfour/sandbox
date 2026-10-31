@@ -878,5 +878,16 @@
   ],
   "status": "scheduled",
   "note": "Computed: S&P 2007-09 -56.8%, Nasdaq 2000-02 -77.9%, S&P Covid -33.9% (Feb 19-Mar 23 2020), BTC 2017-18 -83.4% (19,497->3,236 closes), BTC 2021-22 -76.6% (67,567->15,787), S&P 1987-10-19 -20.5% one day. 1929 Dow -89% and LUNA ~-100% from historical records. Readable year badges (owner Oct 30). IG+FB Reel, TikTok cut, X square (no CTA) 21:30; Story 21:35. Saturday = tier list (1/week)."
+ },
+ {
+  "date": "2026-10-31",
+  "slug": "2026-10-31-x-whitepaper",
+  "type": "4-image whitepaper doc set",
+  "platforms": [
+   "x",
+   "linkedin",
+   "facebook"
+  ],
+  "published": "now (owner request)"
  }
 ]
