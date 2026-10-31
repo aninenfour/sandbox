@@ -862,5 +862,21 @@
   ],
   "status": "scheduled",
   "note": "Anniversary rule (on this exact day). BTC $77,219, mcap $1.55T, supply 20,105,365, -39% from $126,198 record. Photo: Erling Loken Andersen / Unsplash."
+ },
+ {
+  "id": "2026-10-31-reel-tier-crashes",
+  "type": "reel",
+  "slot": "2026-10-31T21:30:00+08:00",
+  "hook": "Scariest crashes ever, ranked",
+  "topic": "tier list (Halloween: scariest crashes by peak-to-bottom drop)",
+  "music": "Billy the Kid (Arulo, Mixkit)",
+  "style": "tier",
+  "sources": [
+   "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC",
+   "https://query1.finance.yahoo.com/v8/finance/chart/%5EIXIC",
+   "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD"
+  ],
+  "status": "scheduled",
+  "note": "Computed: S&P 2007-09 -56.8%, Nasdaq 2000-02 -77.9%, S&P Covid -33.9% (Feb 19-Mar 23 2020), BTC 2017-18 -83.4% (19,497->3,236 closes), BTC 2021-22 -76.6% (67,567->15,787), S&P 1987-10-19 -20.5% one day. 1929 Dow -89% and LUNA ~-100% from historical records. Readable year badges (owner Oct 30). IG+FB Reel, TikTok cut, X square (no CTA) 21:30; Story 21:35. Saturday = tier list (1/week)."
  }
 ]
