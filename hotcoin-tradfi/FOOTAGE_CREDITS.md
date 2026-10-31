@@ -331,3 +331,10 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 - **Data:** Binance daily candles, Oct 10, 2025 (open to intraday low), via `scripts/fetch-aura.mjs` (`src/aura/crash.json`); coin logos from CoinGecko.
 - **Headlines:** $1.5B exchange hack (Feb 21, 2025); Nvidia −17%, ~$589B (Jan 27, 2025; Reuters/Bloomberg); S&P 500 −5.97% Apr 4, 2025, ~$5T in two days (Reuters/Bloomberg); ~$19B liquidated Oct 10, 2025 (CoinGlass); LUNA ~$40B (May 2022); FTX $8B (Nov 2022).
 - No real people's likeness implying endorsement: NASA staff appear only as unnamed crowd reactions, no captions or claims attached to them.
+
+## Crypto Scary Stories, Ep. 6 (finale) "The Great Heists" (`src/halloween/ScaryStories6.tsx`)
+- **Art:** all original (bank vault, vault door, deposit boxes, lasers, bunting, bandit mask, flat cap, money sack, guard cap, flashlight, lollipop, party hats, confetti in SVG/CSS). Hotcoin symbol and logo: official.
+- **Coin logos:** BTC and NEM (XEM) from CoinGecko.
+- **Music:** "Silent Movie 135" by Sascha Ende (ende.app), CC BY 4.0. Credit in the end card and the post.
+- **Facts:** Mt. Gox, Feb 2014, ~850,000 BTC lost, ~200,000 later found, repayments began July 2024 (trustee notices, Cointelegraph). Coincheck, Jan 26 2018, ~523M NEM (~$530M) from a hot wallet without multisig, ~260,000 users refunded (Reuters, Coincheck). Poly Network, Aug 10 2021, ~$611M taken and returned by "Mr. White Hat" (The Block). Hotcoin security lines from hotcoin.com and the June 2026 Proof of Reserves release.
+- The Oct 30, 2026 Binance incident is deliberately not referenced (developing story, competitor).
