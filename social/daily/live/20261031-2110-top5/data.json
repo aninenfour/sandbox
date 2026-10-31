@@ -1,0 +1,46 @@
+{
+ "window": "24H to Oct 31 21:10 (UTC+8)",
+ "date": "OCT 31",
+ "gainers": [
+  {
+   "sym": "STX",
+   "name": "Stacks",
+   "ch": 16.42,
+   "logo": "stx",
+   "bg": "#ff5512",
+   "glow": "#ff5512"
+  },
+  {
+   "sym": "UAI",
+   "name": "UnifAI Network",
+   "ch": 11.01,
+   "logo": "uai",
+   "bg": "#181b24",
+   "glow": "#8890f5"
+  },
+  {
+   "sym": "PENDLE",
+   "name": "Pendle",
+   "ch": 10.47,
+   "logo": "pendle",
+   "bg": "#ffffff",
+   "glow": "#1e4480"
+  },
+  {
+   "sym": "B",
+   "name": "",
+   "ch": 9.92,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "GWEI",
+   "name": "ETHGas",
+   "ch": 8.88,
+   "logo": "gwei",
+   "bg": "#05a2c2",
+   "glow": "#05a2c2"
+  }
+ ]
+}

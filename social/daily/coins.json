@@ -87,5 +87,19 @@
   "twitter": "centrifuge",
   "image": "https://coin-images.coingecko.com/coins/images/55913/large/centrifuge.jpg?1747707741",
   "logo": "cfg"
+ },
+ "STX": {
+  "id": "blockstack",
+  "name": "Stacks",
+  "twitter": "Stacks",
+  "image": "https://coin-images.coingecko.com/coins/images/2069/large/Stacks_Logo_png.png?1709979332",
+  "logo": "stx"
+ },
+ "PENDLE": {
+  "id": "pendle",
+  "name": "Pendle",
+  "twitter": "pendle_fi",
+  "image": "https://coin-images.coingecko.com/coins/images/15069/large/Pendle_Logo_Normal-03.png?1696514728",
+  "logo": "pendle"
  }
 }
