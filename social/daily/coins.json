@@ -136,5 +136,12 @@
   "twitter": "GoKiteAI",
   "image": "https://coin-images.coingecko.com/coins/images/70426/large/KITE-ICON.png?1762328605",
   "logo": "kite"
+ },
+ "ALEO": {
+  "id": "aleo",
+  "name": "ALEO",
+  "twitter": "AleoHQ",
+  "image": "https://coin-images.coingecko.com/coins/images/27916/large/secondary-icon-dark.png?1726770428",
+  "logo": "aleo"
  }
 }

@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 1 18:49 (UTC+8)",
+ "date": "NOV 1",
+ "gainers": [
+  {
+   "sym": "牛来",
+   "name": "牛来 (Niu Lai)",
+   "ch": 30.19,
+   "logo": "牛来",
+   "bg": "#ffe28a",
+   "glow": "#fed67d"
+  },
+  {
+   "sym": "LIT",
+   "name": "Lighter",
+   "ch": 20.09,
+   "logo": "lit",
+   "bg": "#080808",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "MARSCOIN",
+   "name": "MarsCoin",
+   "ch": 14.47,
+   "logo": "marscoin",
+   "bg": "#fffcb1",
+   "glow": "#770d00"
+  },
+  {
+   "sym": "ALEO",
+   "name": "ALEO",
+   "ch": 11.08,
+   "logo": "aleo",
+   "bg": "#ffffff",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "STONKBROKER",
+   "name": "StonkBroker",
+   "ch": 10.36,
+   "logo": "stonkbroker",
+   "bg": "#ff7000",
+   "glow": "#ff7000"
+  }
+ ]
+}
