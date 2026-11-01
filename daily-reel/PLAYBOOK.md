@@ -32,6 +32,7 @@
 → ~~Newton and the South Sea Bubble~~ (2026-10-27)
 → ~~The Bitcoin pizza~~ (2026-10-27)
 → ~~The 1929 crash in 4 steps~~ (2026-10-29)
+→ ~~Satoshi's whitepaper and disappearance~~ (2026-11-01)
 → Tulip mania · Black Wednesday 1992 · The Mississippi Bubble · LTCM collapse · Mt. Gox · The man who sold the Eiffel Tower twice · Hetty Green, the witch of Wall Street · The Hunt brothers and silver · GameStop short squeeze · Nixon ends the gold standard 1971 · Zimbabwe's 100 trillion dollar note · The Dutch East India Company, first stock · Ponzi's postage stamps · Satoshi's lost coins · Enron · The Rothschild Waterloo legend (as "legend says") · Weimar hyperinflation · The DAO hack 2016
 
 ## Hook bank (first line of every script; rotate types, log the type used)
@@ -59,3 +60,4 @@ Adapted for third-person money stories. Never first person, never a price predic
 | 2026-10-27 | Newton FOMO (South Sea Bubble) | Curiosity / superlative | https://www.instagram.com/reel/De_t0laFPxt/ | @hotcoin.com | https://www.facebook.com/reel/4635565790054485 | | | | first episode, red bodies (pre-green style) |
 | 2026-10-27 | Bitcoin pizza (10,000 BTC, 2010) | Number | https://www.instagram.com/reel/DfAVZruDOJM/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1110473388296151 | | | | second post of the day (first scheduled run); green style, 53.6 s, BTC ~$80k tie-in |
 | 2026-10-29 | 1929 crash (Black Tuesday anniversary, margin buying) | Story (date) | https://www.instagram.com/reel/DfFei4DCl2y/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/4101410140161216 | | | | posted on the 97th anniversary; 21 images, 51.9 s, cover set |
+| 2026-11-01 | Satoshi's whitepaper (18th anniversary, Oct 31 2008) and disappearance | Open loop | https://www.instagram.com/reel/DfNLW5MAkBp/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1434494208229883 | | | | whitepaper turned 18 the day before; 20 images, 54.6 s, cover set |
