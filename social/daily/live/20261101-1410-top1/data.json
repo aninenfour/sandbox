@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 1 14:10 (UTC+8)",
+ "date": "NOV 1",
+ "gainers": [
+  {
+   "sym": "牛来",
+   "name": "牛来 (Niu Lai)",
+   "ch": 26.51,
+   "logo": "牛来",
+   "bg": "#ffe28a",
+   "glow": "#fed67d"
+  },
+  {
+   "sym": "LIT",
+   "name": "Lighter",
+   "ch": 16.36,
+   "logo": "lit",
+   "bg": "#080808",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "ZAMA",
+   "name": "Zama",
+   "ch": 14.51,
+   "logo": "zama",
+   "bg": "#fed217",
+   "glow": "#fed217"
+  },
+  {
+   "sym": "MARSCOIN",
+   "name": "MarsCoin",
+   "ch": 11.41,
+   "logo": "marscoin",
+   "bg": "#fffcb1",
+   "glow": "#770d00"
+  },
+  {
+   "sym": "KITE",
+   "name": "Kite",
+   "ch": 11.31,
+   "logo": "kite",
+   "bg": "#ffffff",
+   "glow": "#bdb099"
+  }
+ ]
+}

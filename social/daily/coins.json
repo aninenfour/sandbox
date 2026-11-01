@@ -101,5 +101,40 @@
   "twitter": "pendle_fi",
   "image": "https://coin-images.coingecko.com/coins/images/15069/large/Pendle_Logo_Normal-03.png?1696514728",
   "logo": "pendle"
+ },
+ "牛来": {
+  "id": "niu-lai",
+  "name": "牛来 (Niu Lai)",
+  "twitter": null,
+  "image": "https://coin-images.coingecko.com/coins/images/102175567/large/niulai.webp?1786873800",
+  "logo": "牛来"
+ },
+ "LIT": {
+  "id": "lighter",
+  "name": "Lighter",
+  "twitter": "Lighter_xyz",
+  "image": "https://coin-images.coingecko.com/coins/images/71121/large/lighter.png?1765888098",
+  "logo": "lit"
+ },
+ "ZAMA": {
+  "id": "zama",
+  "name": "Zama",
+  "twitter": "zama",
+  "image": "https://coin-images.coingecko.com/coins/images/70921/large/zama.png?1764591992",
+  "logo": "zama"
+ },
+ "MARSCOIN": {
+  "id": "marscoin-4",
+  "name": "MarsCoin",
+  "twitter": "MarsCoin7777",
+  "image": "https://coin-images.coingecko.com/coins/images/102175246/large/1000299474.png?1785934648",
+  "logo": "marscoin"
+ },
+ "KITE": {
+  "id": "kite-2",
+  "name": "Kite",
+  "twitter": "GoKiteAI",
+  "image": "https://coin-images.coingecko.com/coins/images/70426/large/KITE-ICON.png?1762328605",
+  "logo": "kite"
  }
 }
