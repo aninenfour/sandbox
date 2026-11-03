@@ -1,7 +1,7 @@
 // "PolitiFi: $10.4B gone" drawdown graphic, 1080x1350, white background.
 // Data: CoinMarketCap daily market-cap history (data-api detail/chart, range ALL) for TRUMP, MELANIA, PEOPLE,
 // the top 3 of CoinGecko's PolitiFi category (96% of it on Nov 3, 2026). Combined, forward-filled daily. drawdown.json.
-// Coin logos: CoinGecko. Background: US Capitol photo by J. Amill Santiago on Unsplash (SVtBYkvai1M), halftoned by scripts/halftone.py.
+// Coin logos: CoinGecko. Background: US Capitol photo by J. Amill Santiago on Unsplash (SVtBYkvai1M), halftoned by scripts/halftone-capitol.py.
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {INK, MONO, SANS, useFonts} from '../promo4/kit';

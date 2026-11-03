@@ -30,7 +30,7 @@ Scripts: `scripts/fetch-v2.mjs` (Pexels and Pixabay, keys from the environment).
 
 **Data:** Coin Metrics community API, BTC daily reference rate (PriceUSD). Monthly return = month-end close vs the previous month-end close, Jan 2013 to Sep 2026.
 
-**Photos:** Pexels, turned into halftones by `scripts/halftone.py`.
+**Photos:** Pexels, turned into halftones by `scripts/halftone-capitol.py`.
 - y2013: 37732199 by SHOX ART
 - y2017: 7156480 by Gustavo Fring
 - y2019: 25020077 by JC Terry
@@ -340,5 +340,5 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 - The Oct 30, 2026 Binance incident is deliberately not referenced (developing story, competitor).
 
 ## PolitiFi drawdown graphic (src/politifi/Wiped.tsx)
-- US Capitol dome photo: J. Amill Santiago on Unsplash, https://unsplash.com/photos/SVtBYkvai1M (Unsplash License). Halftoned and masked with scripts/halftone.py.
+- US Capitol dome photo: J. Amill Santiago on Unsplash, https://unsplash.com/photos/SVtBYkvai1M (Unsplash License). Halftoned and masked with scripts/halftone-capitol.py.
 - Coin logos: CoinGecko. Market caps: CoinMarketCap daily history.
