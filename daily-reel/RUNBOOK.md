@@ -13,7 +13,7 @@ pip install --break-system-packages -q edge-tts numpy
 ## 1. Decide
 - Check what worked: Publer `analyze_recent_performance` / `get_recent_posts` for the last week (Instagram + TikTok), plus the PLAYBOOK results log and "Learnings".
 - Check trends: a quick web search for what finance/crypto story is in the news this week. A trend-linked historical parallel beats a random one.
-- Pick ONE story that has not run before (check `episodes/`). Rotate categories (history / crypto / markets / psychology). It must be true and checkable.
+- Pick ONE story that has not run before (check `episodes/`). If a dated topic in the PLAYBOOK topic bank has its anniversary today or yesterday, pick it and open the hook with the date ("On this exact day in...", "Eighteen years ago..."); otherwise rotate categories (history / crypto / markets / psychology). It must be true and checkable.
 
 ## 2. Write
 Create `episodes/<YYYY-MM-DD>-<slug>/` with:
@@ -50,7 +50,7 @@ PUBLER_API_KEY=<from the task prompt> python3 scripts/publish.py out/<slug>.mp4 
 The third argument sets the cover on all three networks (if the cover upload fails it posts with the default frame and says so). Posts Instagram Reel (also on grid), TikTok (public) and Facebook Reel, spaced a minute apart, retrying on Publer's "one minute gap" clash. Writes `published.json` with the links.
 
 ## 7. Log and save
-- Add a row to the PLAYBOOK results log (date, topic, hook type, links; leave views blank for the weekly review).
+- Add a row to the PLAYBOOK results log (date, topic, hook type, links; leave views blank for the weekly review). In Notes always write the music track `finish.sh` printed (`music: ...`), the final length in seconds, and the posting time in Beijing time, so the weekly review can compare them.
 - Commit the episode folder and PLAYBOOK changes (NOT images, audio or video; .gitignore covers them) and push.
 - Send the user one short message: topic, the three links, anything that went wrong.
 

@@ -33,7 +33,23 @@
 → ~~The Bitcoin pizza~~ (2026-10-27)
 → ~~The 1929 crash in 4 steps~~ (2026-10-29)
 → ~~Satoshi's whitepaper and disappearance~~ (2026-11-01)
-→ Tulip mania · Black Wednesday 1992 · The Mississippi Bubble · LTCM collapse · Mt. Gox · The man who sold the Eiffel Tower twice · Hetty Green, the witch of Wall Street · The Hunt brothers and silver · GameStop short squeeze · Nixon ends the gold standard 1971 · Zimbabwe's 100 trillion dollar note · The Dutch East India Company, first stock · Ponzi's postage stamps · Satoshi's lost coins · Enron · The Rothschild Waterloo legend (as "legend says") · Weimar hyperinflation · The DAO hack 2016
+Sorted by next anniversary (see Learnings: anniversary hooks win). Use the dated one when a posting day lands on or a day after its date; fill the gaps with the evergreen list. Fact-check the date in the run as always.
+→ Nov 15, 1923: Weimar hyperinflation ends (Rentenmark introduced)
+→ Nov 21, 1834: Hetty Green, the witch of Wall Street, is born
+→ Dec 2, 2001: Enron files for bankruptcy
+→ Jan 2009: Zimbabwe's 100 trillion dollar note
+→ Jan 28, 2021: GameStop short squeeze peak
+→ Feb 1637: Tulip mania collapses
+→ Feb 2014: Mt. Gox halts withdrawals and goes bankrupt
+→ Mar 20, 1602: The Dutch East India Company, first stock
+→ Mar 27, 1980: The Hunt brothers and Silver Thursday
+→ Jun 17, 2016: The DAO hack
+→ Jun 18, 1815: The Rothschild Waterloo legend (as "legend says")
+→ Aug 1920: Ponzi's postage stamps scheme collapses
+→ Aug 15, 1971: Nixon ends the gold standard
+→ Sep 16, 1992: Black Wednesday
+→ Sep 23, 1998: LTCM bailout
+→ Evergreen (no fixed date, use between anniversaries): The man who sold the Eiffel Tower twice · The Mississippi Bubble · Satoshi's lost coins
 
 ## Hook bank (first line of every script; rotate types, log the type used)
 Adapted for third-person money stories. Never first person, never a price prediction.
@@ -52,12 +68,17 @@ Adapted for third-person money stories. Never first person, never a price predic
 → Skip: Prediction ("X will change everything"), Proof/Transformation ("I went from X to Y"): first-person or forecast, off-brand for Hotcoin.
 
 ## Learnings (updated by the weekly review)
-→ (none yet)
+Week of 2026-11-03 (4 reels, small sample, no watch-time data from Publer):
+→ Anniversary hooks win. The two "on this day" reels (Satoshi 1,574 views across 3 networks, 1929 914) beat the two evergreen ones (Newton 646, pizza 438), and Satoshi had 4x the next-best IG views despite being the newest. Prefer a topic whose anniversary falls on or within a day of posting, and say the date in the first line.
+→ Instagram is where these reels work: Satoshi (1,176) and 1929 (285) were the account's #1 and #2 IG videos of the week, ahead of the Binance-hack news reel (232). On TikTok they sit mid-pack (~330 to 400) behind news and "$X on product vs $X in stock" videos (480 to 2,270).
+→ Never post two story reels the same day: the pizza reel went out ~6 h after Newton and reached 7 people on TikTok (vs 330 to 400 for the others).
+→ IG reels get likes and saves but almost no comments (0 on all four). The closing question isn't pulling replies yet.
 
 ## Results log
 | Date | Topic | Hook type | Instagram | TikTok | Facebook | IG views | TT views | FB views | Notes |
+<!-- Views as of the weekly review (IG/FB = video views, TT = reach, Publer has no TikTok view count). L/C/S = likes/comments/saves. -->
 |---|---|---|---|---|---|---|---|---|---|
-| 2026-10-27 | Newton FOMO (South Sea Bubble) | Curiosity / superlative | https://www.instagram.com/reel/De_t0laFPxt/ | @hotcoin.com | https://www.facebook.com/reel/4635565790054485 | | | | first episode, red bodies (pre-green style) |
-| 2026-10-27 | Bitcoin pizza (10,000 BTC, 2010) | Number | https://www.instagram.com/reel/DfAVZruDOJM/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1110473388296151 | | | | second post of the day (first scheduled run); green style, 53.6 s, BTC ~$80k tie-in |
-| 2026-10-29 | 1929 crash (Black Tuesday anniversary, margin buying) | Story (date) | https://www.instagram.com/reel/DfFei4DCl2y/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/4101410140161216 | | | | posted on the 97th anniversary; 21 images, 51.9 s, cover set |
-| 2026-11-01 | Satoshi's whitepaper (18th anniversary, Oct 31 2008) and disappearance | Open loop | https://www.instagram.com/reel/DfNLW5MAkBp/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1434494208229883 | | | | whitepaper turned 18 the day before; 20 images, 54.6 s, cover set |
+| 2026-10-27 | Newton FOMO (South Sea Bubble) | Curiosity / superlative | https://www.instagram.com/reel/De_t0laFPxt/ | @hotcoin.com | https://www.facebook.com/reel/4635565790054485 | 160 (3L 0C 1S) | 403 (9L 3C) | 83 (0L) | first episode, red bodies (pre-green style); ~48 s; music curiosity (inferred from day rotation); posted 19:09 Beijing |
+| 2026-10-27 | Bitcoin pizza (10,000 BTC, 2010) | Number | https://www.instagram.com/reel/DfAVZruDOJM/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1110473388296151 | 152 (8L 0C 2S) | 7 (1L) | 279 (2L) | second post of the day (first scheduled run); green style, 53.6 s, BTC ~$80k tie-in; music curiosity (inferred); posted 00:55 Beijing, ~6 h after Newton |
+| 2026-10-29 | 1929 crash (Black Tuesday anniversary, margin buying) | Story (date) | https://www.instagram.com/reel/DfFei4DCl2y/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/4101410140161216 | 285 (8L 0C 2S) | 335 (5L) | 294 (1L) | posted on the 97th anniversary; 21 images, 51.9 s, cover set; music lofi-01 (inferred); posted 00:51 Beijing |
+| 2026-11-01 | Satoshi's whitepaper (18th anniversary, Oct 31 2008) and disappearance | Open loop | https://www.instagram.com/reel/DfNLW5MAkBp/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1434494208229883 | 1,176 (25L 0C 1S) | 328 (4L) | 70 (1L 1C) | whitepaper turned 18 the day before; 20 images, 54.6 s, cover set; music dreamy-jazz (inferred); posted 00:38 Beijing |
