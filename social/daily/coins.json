@@ -192,5 +192,19 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970",
   "logo": "bnb"
+ },
+ "PIEVERSE": {
+  "id": "pieverse",
+  "name": "Pieverse",
+  "twitter": "pieverse_io",
+  "image": "https://coin-images.coingecko.com/coins/images/68773/large/pieverse.png?1756546685",
+  "logo": "pieverse"
+ },
+ "AXIS": {
+  "id": "axis-robotics",
+  "name": "Axis Robotics",
+  "twitter": "axisrobotics",
+  "image": "https://coin-images.coingecko.com/coins/images/102178869/large/axisrobotics.png?1790578974",
+  "logo": "axis"
  }
 }

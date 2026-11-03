@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 3 22:04 (UTC+8)",
+ "date": "NOV 3",
+ "gainers": [
+  {
+   "sym": "TSR",
+   "name": "",
+   "ch": 21.05,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "ALEO",
+   "name": "ALEO",
+   "ch": 14.9,
+   "logo": "aleo",
+   "bg": "#ffffff",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "PIEVERSE",
+   "name": "Pieverse",
+   "ch": 9.23,
+   "logo": "pieverse",
+   "bg": "#ffffff",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "RUNE",
+   "name": "THORChain",
+   "ch": 9.0,
+   "logo": "rune",
+   "bg": "#19e5cb",
+   "glow": "#08d4ee"
+  },
+  {
+   "sym": "AXIS",
+   "name": "Axis Robotics",
+   "ch": 8.87,
+   "logo": "axis",
+   "bg": "#000000",
+   "glow": "#9AA3B5"
+  }
+ ]
+}
