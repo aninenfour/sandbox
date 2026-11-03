@@ -1,12 +1,37 @@
 {
-  "asof": "Nov 3, 2026 · 13:50 UTC",
+  "asof": "Nov 3, 2026 · 14:00 UTC",
   "red": [
-    {"sym": "TRUMP", "name": "Official Trump", "mc": 452464812, "ch": -2.17},
-    {"sym": "MELANIA", "name": "Official Melania Meme", "mc": 76940458, "ch": 1.01},
-    {"sym": "MAGA", "name": "MAGA", "mc": 548735, "ch": 1.03}
+    {
+      "sym": "TRUMP",
+      "name": "Official Trump",
+      "mc": 450686480,
+      "ch": -2.23
+    },
+    {
+      "sym": "MELANIA",
+      "name": "Official Melania Meme",
+      "mc": 76893415,
+      "ch": 0.6
+    },
+    {
+      "sym": "MAGA",
+      "name": "MAGA Hat",
+      "mc": 582867,
+      "ch": 1.18
+    }
   ],
   "blue": [
-    {"sym": "BODEN", "name": "Jeo Boden", "mc": 743138, "ch": -3.30},
-    {"sym": "KAMA", "name": "Kamala Horris", "mc": 295691, "ch": -3.94}
+    {
+      "sym": "BODEN",
+      "name": "Jeo Boden",
+      "mc": 754347,
+      "ch": -1.29
+    },
+    {
+      "sym": "KAMA",
+      "name": "Kamala Horris",
+      "mc": 298286,
+      "ch": -3.11
+    }
   ]
 }

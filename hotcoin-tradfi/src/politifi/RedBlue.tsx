@@ -1,5 +1,5 @@
 // "Red vs Blue" PolitiFi market-cap comparison, 1080x1350, white background.
-// Data: CoinMarketCap (TRUMP, MELANIA, MAGA) and DexScreener top Solana pair (BODEN, KAMA), snapshot in data.json.
+// Data: CoinGecko /coins/markets snapshot (Nov 3, 2026 14:00 UTC), in data.json.
 // Coin logos: CoinGecko (public/politifi/{SYM}.png). Sources and date go in the post copy, not on the graphic.
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
