@@ -75,8 +75,9 @@ def main():
     imgs = {f.name: f'data:{mime[f.suffix.lower()]};base64,' + base64.b64encode(f.read_bytes()).decode()
             for f in post.iterdir() if f.suffix.lower() in mime}  # post images for the scene (window.IMGS)
     logo = 'data:image/svg+xml;base64,' + base64.b64encode((ROOT / 'assets' / 'symbol.svg').read_bytes()).decode()
+    logo_dark = 'data:image/svg+xml;base64,' + base64.b64encode((ROOT / 'assets' / 'symbol-dark.svg').read_bytes()).decode()
     html = f'''<!doctype html><html><head><meta charset="utf-8"><style>html,body{{margin:0;background:#000}}canvas{{display:block}}</style></head>
-<body><canvas id="c" width="{W}" height="{H}"></canvas><script>window.HOTCOIN_LOGO="{logo}";window.IMGS={json.dumps(imgs)};</script><script>{kit}</script><script>{scene}</script></body></html>'''
+<body><canvas id="c" width="{W}" height="{H}"></canvas><script>window.HOTCOIN_LOGO="{logo}";window.HOTCOIN_LOGO_DARK="{logo_dark}";window.IMGS={json.dumps(imgs)};</script><script>{kit}</script><script>{scene}</script></body></html>'''
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
         pg = b.new_page(viewport={'width': W, 'height': H})
