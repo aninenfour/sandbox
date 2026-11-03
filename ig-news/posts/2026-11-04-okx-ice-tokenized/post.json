@@ -1,0 +1,18 @@
+{"type":"news","style":"v2","date":"NOV 4","slides":[
+ {"kind":"nhero","photo":"musk.jpg","photo_pos":"50% 20%","tag":"STOCKS ON-CHAIN",
+  "headline":"Tesla and SpaceX say {NO} to 24/7 crypto-style stock trading"},
+ {"kind":"nbars","tag":"THE LIST GROWS","title":"Companies saying no",
+  "bars":[{"l":"Oct 15","v":9,"txt":"9"},{"l":"Oct 28","v":38,"txt":"38"},{"l":"Oct 30","v":50,"txt":"50"},{"l":"Nov 2","v":56,"txt":"56","neg":true}],
+  "text":["[49 of the 62] stocks picked for launch have objected so far."]},
+ {"kind":"nrows","tag":"WHO SAID NO","title":"The biggest names",
+  "rows":[{"emoji":"🚗","l":"Tesla + SpaceX","sub":"joined Nov 2","v":"No","neg":true},
+          {"emoji":"📦","l":"Amazon + Netflix","sub":"joined Nov 2","v":"No","neg":true},
+          {"emoji":"🟩","l":"Nvidia, Microsoft, Alphabet","sub":"earlier","v":"No","neg":true},
+          {"emoji":"🍎","l":"Apple","sub":"no objection on file","v":"Not yet","pos":true}],
+  "text":["A \"no\" only blocks that stock on [this one venue]."]},
+ {"kind":"nrows","tag":"WHAT IS IT","title":"OKX meets the NYSE owner",
+  "rows":[{"emoji":"🤝","l":"OKX + ICE","sub":"ICE owns the New York Stock Exchange","v":"50/50"},
+          {"emoji":"⏰","l":"Trading hours","sub":"tokenized US stocks","v":"24/7","pos":true},
+          {"emoji":"💵","l":"Paid in","sub":"stablecoins such as USDC","v":"USDC"}],
+  "text":["Companies get [30 days] to object after the venue notifies them."]},
+ {"kind":"end"}]}
