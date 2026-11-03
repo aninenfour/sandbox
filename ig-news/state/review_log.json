@@ -182,5 +182,16 @@
   ],
   "changes": "STYLE_NOTES: anniversary 'on this exact day' hook rule + upcoming dates to use.",
   "owner_decision": "Carousels reach ~10-15 people vs Reels 30-260. Suggest turning the daily 19:00 Academy into a short animated Reel 3-4x a week (same data, chart animates) and keeping 1 carousel a day (news). Also still waiting: stick-figure Ep 1 OK."
+ },
+ {
+  "date": "2026-11-04",
+  "looked_at": "IG insights Oct 31-Nov 3; election WHAT IF v2 (light) published IG/FB/TikTok/X Nov 3 21:30, no IG numbers yet",
+  "findings": [
+   "Team whatif-anniversary Reel (Satoshi, Nov 2): 1,110 IG reach, best of the week by far.",
+   "Desk carousels/photos still 9-36 reach (weekly preview 9, Binance update 36). Tier list Reel 21.",
+   "Desk output was thin Nov 1-2 because worker restarts cut runs off before scheduling."
+  ],
+  "changes": "none today (WHAT IF v2 light theme shipped Nov 3 on owner request)",
+  "owner_decision": "Reels outperform carousels 10-50x: move the 19:00 Academy to short Reels 3-4x/week? Still pending."
  }
 ]
