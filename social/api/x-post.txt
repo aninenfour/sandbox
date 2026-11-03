@@ -1,0 +1,12 @@
+Builders, this one's for you 🛠️
+
+The Hotcoin API is free for every Hotcoin user. 3 bots you can ship this weekend:
+
+1️⃣ Price alert: 12 lines of Python, no API key
+2️⃣ Live order book: WebSocket push, no polling
+3️⃣ Your own DCA: signed orders on a schedule
+
+370 markets in one call 👇
+hotcoin.com/en_US/docs
+
+Not financial advice. Bots can lose money, so test small.
