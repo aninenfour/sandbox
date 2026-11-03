@@ -921,5 +921,18 @@
    "Yahoo Finance ^GSPC daily closes 2000-11-07 1431.87, 2026-11-02 7541.40"
   ],
   "note": "Dot = 'I voted' sticker (Unsplash, Dan Dennis). 16:00 news + 19:00 Academy skipped today (run time lost to restarts)."
+ },
+ {
+  "id": "2026-11-04-okx-ice-tokenized",
+  "type": "news",
+  "style": "v2",
+  "slot": "2026-11-04T16:00:00+08:00",
+  "title": "Tesla and SpaceX say NO to 24/7 tokenized stock trading",
+  "status": "scheduled",
+  "sources": [
+   "https://www.coindesk.com/business/2026/11/03/amazon-tesla-and-spacex-join-okx-ice-tokenized-stock-objections-as-deadline-looms",
+   "https://decrypt.co/382458/elon-musk-tesla-spacex-block-okx-ice-tokenized-stock"
+  ],
+  "note": "56 objectors (Nov 2 notice), 49/62 launch picks. Musk photo Wikimedia. 19:00 Academy skipped (pending owner call on Academy-as-Reels)."
  }
 ]
