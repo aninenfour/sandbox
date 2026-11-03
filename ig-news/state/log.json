@@ -889,5 +889,19 @@
    "facebook"
   ],
   "published": "now (owner request)"
+ },
+ {
+  "id": "2026-11-01-weekly-nov2",
+  "type": "weekly",
+  "slot": "2026-11-03T12:00:00+08:00",
+  "title": "What's on this week (Wed-Fri, Tuesday slide dropped)",
+  "status": "scheduled",
+  "note": "Missed Sun 19:00 slot due to worker restarts; rescheduled Tue 12:00 IG+FB+IG Story."
+ },
+ {
+  "id": "2026-11-01-binance-90pct",
+  "type": "news",
+  "status": "skipped",
+  "note": "Rendered but never scheduled (restarts); stale by Tue."
  }
 ]
