@@ -35,6 +35,7 @@ import {GuessMeme3D} from './guess2/GuessMeme3D';
 import {MemeRiddle} from './riddle/MemeRiddle';
 import {ApiSlide1, ApiSlide2, ApiSlide3, ApiSlide4} from './api/ApiCarousel';
 import {RedBlue} from './politifi/RedBlue';
+import {Wiped} from './politifi/Wiped';
 import {ScaryStories, ScaryStoriesTall, ScaryThumb, ScaryThumbTall, SCARY_DURATION} from './halloween/ScaryStories';
 import {ScaryStories2, ScaryStories2Tall, ScaryThumb2, ScaryThumb2Tall, SCARY2_DURATION} from './halloween/ScaryStories2';
 import {HalloweenGiveaway} from './halloween/Giveaway';
@@ -131,6 +132,7 @@ export const Root: React.FC = () => (
     <Composition id="ApiSlide3" component={ApiSlide3} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="ApiSlide4" component={ApiSlide4} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="RedBlue" component={RedBlue} durationInFrames={1} fps={30} width={1080} height={1350} />
+    <Composition id="PolitiWiped" component={Wiped} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2Logo" component={Style2Logo} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2TradFi" component={Style2TradFi} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2Next90" component={Style2Next90} durationInFrames={1} fps={30} width={1080} height={1350} />
