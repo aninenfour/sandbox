@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "US midterms today, first polls close 07:00 Wed UTC+8"},
+ {"sym": "BNB", "kind": "crypto", "why": "Binance proof-of-reserves check expected today"},
+ {"sym": "AMDB", "kind": "tradfi", "why": "Q3 results after the US close, call 06:00 Wed UTC+8"},
+ {"sym": "SMCIB", "kind": "tradfi", "why": "Reports after the US close, prelim revenue $18.5B to $19.5B"},
+ {"sym": "PLTRB", "kind": "tradfi", "why": "Q3 revenue up 96% to $2.3B, first session after results"}
+]}

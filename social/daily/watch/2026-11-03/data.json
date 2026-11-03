@@ -1,0 +1,71 @@
+{
+ "date": "NOV 3",
+ "window": "Prices at Nov 3 11:53 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "US midterms today, first polls close 07:00 Wed UTC+8",
+   "last": 76942.03,
+   "ch": -2.18,
+   "vol": 735490419.78,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "BNB",
+   "name": "BNB",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Binance proof-of-reserves check expected today",
+   "last": 697.21,
+   "ch": -2.41,
+   "vol": 3747220.45,
+   "logo": "bnb",
+   "bg": "#f0b90b",
+   "glow": "#f0b90b"
+  },
+  {
+   "sym": "AMDB",
+   "name": "AMD",
+   "kind": "tradfi",
+   "handle": "@AMD",
+   "why": "Q3 results after the US close, call 06:00 Wed UTC+8",
+   "last": 474.01,
+   "ch": -8.7,
+   "vol": 570260.66,
+   "logo": "amdb",
+   "bg": "#111111",
+   "glow": "#fdd984"
+  },
+  {
+   "sym": "SMCIB",
+   "name": "Supermicro",
+   "kind": "tradfi",
+   "handle": "@Supermicro_SMCI",
+   "why": "Reports after the US close, prelim revenue $18.5B to $19.5B",
+   "last": 30.85,
+   "ch": -8.59,
+   "vol": 690361.01,
+   "logo": "smcib",
+   "bg": "#f0f3fa",
+   "glow": "#efa21c"
+  },
+  {
+   "sym": "PLTRB",
+   "name": "Palantir",
+   "kind": "tradfi",
+   "handle": "@PalantirTech",
+   "why": "Q3 revenue up 96% to $2.3B, first session after results",
+   "last": 171.05,
+   "ch": -8.67,
+   "vol": 667365.52,
+   "logo": "pltrb",
+   "bg": "#171a1d",
+   "glow": "#f2a224"
+  }
+ ]
+}

@@ -185,5 +185,12 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102175310/large/SMCIB.png?1786085207",
   "logo": "smcib"
+ },
+ "BNB": {
+  "id": "binancecoin",
+  "name": "BNB",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970",
+  "logo": "bnb"
  }
 }

@@ -1,0 +1,21 @@
+{
+ "twitter": {
+  "state": "published",
+  "link": "https://x.com/1065817584396713984/status/2117467072061935714",
+  "id": "6ae95c7f6a225ebf41dd5d65",
+  "error": null
+ },
+ "facebook": {
+  "state": "published",
+  "link": "https://www.facebook.com/107965200554050_1653110219941079",
+  "id": null,
+  "error": null,
+  "note": "attempts 1-2 hit Publer one-minute gap (another post at 12:01:36); attempt 3 published 12:03:48"
+ },
+ "linkedin": {
+  "state": "published",
+  "link": "https://www.linkedin.com/feed/update/urn:li:share:7523233644547801088",
+  "id": "6ae95d4c7b9f173718cf4570",
+  "error": null
+ }
+}
