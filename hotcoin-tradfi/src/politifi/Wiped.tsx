@@ -1,7 +1,7 @@
 // "PolitiFi: $10.4B gone" drawdown graphic, 1080x1350, white background.
 // Data: CoinMarketCap daily market-cap history (data-api detail/chart, range ALL) for TRUMP, MELANIA, PEOPLE,
 // the top 3 of CoinGecko's PolitiFi category (96% of it on Nov 3, 2026). Combined, forward-filled daily. drawdown.json.
-// Coin logos: CoinGecko.
+// Coin logos: CoinGecko. Background: US Capitol photo by J. Amill Santiago on Unsplash (SVtBYkvai1M), halftoned by scripts/halftone.py.
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {INK, MONO, SANS, useFonts} from '../promo4/kit';
@@ -49,6 +49,7 @@ export const Wiped: React.FC = () => {
   const gone = data.peak.v - data.now, pct = (1 - data.now / data.peak.v) * 100;
   return (
     <AbsoluteFill style={{background: '#FFFFFF', fontFamily: SANS, color: INK, padding: '72px 72px 64px'}}>
+      <Img src={staticFile('politifi/capitol-halftone.png')} style={{position: 'absolute', left: 300, top: 110, width: 960, opacity: 0.28, maskImage: 'radial-gradient(ellipse 55% 62% at 50% 36%, #000 50%, transparent 100%)'}} />
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
         <Img src={staticFile('brand/logo-official-black.png')} style={{height: 44}} />
         <div style={{fontFamily: MONO, fontSize: 20, letterSpacing: 2, border: `1.5px solid ${INK}`, borderRadius: 999, padding: '10px 20px'}}>POLITIFI · {data.asof.toUpperCase()}</div>

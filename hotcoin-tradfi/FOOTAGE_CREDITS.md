@@ -338,3 +338,7 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 - **Music:** "Silent Movie 135" by Sascha Ende (ende.app), CC BY 4.0. Credit in the end card and the post.
 - **Facts:** Mt. Gox, Feb 2014, ~850,000 BTC lost, ~200,000 later found, repayments began July 2024 (trustee notices, Cointelegraph). Coincheck, Jan 26 2018, ~523M NEM (~$530M) from a hot wallet without multisig, ~260,000 users refunded (Reuters, Coincheck). Poly Network, Aug 10 2021, ~$611M taken and returned by "Mr. White Hat" (The Block). Hotcoin security lines from hotcoin.com and the June 2026 Proof of Reserves release.
 - The Oct 30, 2026 Binance incident is deliberately not referenced (developing story, competitor).
+
+## PolitiFi drawdown graphic (src/politifi/Wiped.tsx)
+- US Capitol dome photo: J. Amill Santiago on Unsplash, https://unsplash.com/photos/SVtBYkvai1M (Unsplash License). Halftoned and masked with scripts/halftone.py.
+- Coin logos: CoinGecko. Market caps: CoinMarketCap daily history.
