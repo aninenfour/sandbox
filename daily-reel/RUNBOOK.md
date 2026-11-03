@@ -17,7 +17,7 @@ pip install --break-system-packages -q edge-tts numpy
 
 ## 2. Write
 Create `episodes/<YYYY-MM-DD>-<slug>/` with:
-- `script.txt`: one sentence per line, 110 to 135 words (45 to 52 s). Hook line first, picked from the PLAYBOOK hook bank (rotate types; avoid the type used last time), then 1 or 2 lines of setup, then a **bridge line that announces the steps** so they don't come out of nowhere (e.g. "So here's how the first bitcoin purchase actually happened." / "Here's how it went wrong, in four steps." / "So how do you lose a fortune to a pizza? Four steps."), then "Step one." to "Step four." each starting its own line, then a one-line lesson. Never start a step without that bridge line right before Step one. Spoken rhythm, contractions, connectives. Say "legend says" for anything apocryphal. No price predictions, no "buy X", no em dashes.
+- `script.txt`: one sentence per line, 110 to 135 words (about 48 to 53 s of voice; build.py adds a 2 s hold on the last line and the 3 s end card). Hook line first, picked from the PLAYBOOK hook bank (rotate types; avoid the type used last time), then 1 or 2 lines of setup, then a **bridge line that announces the steps** so they don't come out of nowhere (e.g. "So here's how the first bitcoin purchase actually happened." / "Here's how it went wrong, in four steps." / "So how do you lose a fortune to a pizza? Four steps."), then "Step one." to "Step four." each starting its own line, then a one-line lesson. Never start a step without that bridge line right before Step one. Spoken rhythm, contractions, connectives. Say "legend says" for anything apocryphal. No price predictions, no "buy X", no em dashes.
 - `caption.md`: hook sentence, 2 short lines of story, 3 arrow (→) lessons, a question for comments, "Follow Hotcoin for more money stories.", then dot keywords (•finance •investing ...). Never name the account handle.
 - Fact-check every number and date in the script with a web search before going on.
 
@@ -41,9 +41,10 @@ scripts/thumb.sh episodes/<dir>   # cover: character's face + hook text, no logo
 ```
 Thumbnail: add `"thumb": {"text": "...", "hi": [...], "kicker": "True story", "img": "s06", "zoom": 1.5, "fx": 65, "fy": 22}` to episode.json. Pick the scene where the main character's face is biggest and most expressive; zoom 1.4 to 1.6 with fx/fy on the face so the face fills the upper half (the text sits in the lower third on a dark fade). Text = the hook in 4 to 7 words, 1 or 2 key words in `hi` (shown green), kicker optional (2 to 3 words). Face must not be covered by text. No logo, no em dashes, no price predictions.
 
-Check: make a contact sheet with ffmpeg (`fps=14/<dur>,scale=300:-1,tile=7x2`) and look at it. Captions readable, no text in images, end card says "Follow Hotcoin for more".
+Check: make a contact sheet with ffmpeg (`fps=14/<dur>,scale=300:-1,tile=7x2`) and look at it. Captions readable, no text in images, the full lesson line holds on screen for about 2 s after the voice stops, end card says "Follow Hotcoin for more".
 
 ## 6. Publish
+Before posting, check Publer for scheduled posts (`list_publer_posts` with state "scheduled", days 1) on the Hotcoin Instagram, TikTok and Facebook accounts. If anything is due within about 15 minutes of now, wait until it has gone out (plus a few minutes) before running publish.py, so the reel never lands on top of another post.
 ```bash
 PUBLER_API_KEY=<from the task prompt> python3 scripts/publish.py out/<slug>.mp4 episodes/<dir>/caption.md out/<slug>-thumb.jpg
 ```

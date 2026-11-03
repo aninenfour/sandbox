@@ -21,6 +21,7 @@ import numpy as np, wave
 
 FPS = 60
 END_SECONDS = 3.0
+HOLD_SECONDS = 2.0   # beat after the last spoken line so the lesson sinks in before the end card
 
 ep = sys.argv[1]
 spec = json.load(open(os.path.join(ep, 'episode.json')))
@@ -46,7 +47,7 @@ if anchors[0] != 0:
     anchors[0] = 0
 
 vo_end = W[-1]['e']
-total = vo_end + 0.35
+total = vo_end + 0.35 + HOLD_SECONDS
 scenes = []
 for i, sc in enumerate(spec['scenes']):
     st = 0 if i == 0 else W[anchors[i]]['s'] - 0.05
@@ -74,12 +75,25 @@ for i, w in enumerate(W):
         caps.append(cur); cur = []
     cur.append(i)
 if cur: caps.append(cur)
+# hold: once the voice stops, show the whole last line (the lesson) as one caption until the end card
+last_line = open(os.path.join(ep, 'script.txt')).read().strip().splitlines()[-1]
+n_last = len([t for t in last_line.split() if norm(t)])
+last_idx = [i for i in range(len(W) - n_last, len(W)) if i not in step_words]
+if HOLD_SECONDS > 0 and last_idx:
+    caps.append(('hold', last_idx))
 out = []
 for k, c in enumerate(caps):
+    if isinstance(c, tuple):   # the hold caption: all words visible at once, on screen until the end card
+        st = W[c[1][-1]]['e'] + 0.15
+        out.append(dict(from_=round(st * FPS), dur=round(total * FPS) - round(st * FPS),
+                        words=[dict(t=W[i]['w'], hi=norm(W[i]['w']).replace("'s", '') in hi, at=0) for i in c[1]]))
+        continue
     st = W[c[0]]['s']
     en = W[c[-1]]['e'] + 0.12
-    if k + 1 < len(caps):
+    if k + 1 < len(caps) and not isinstance(caps[k + 1], tuple):
         en = min(max(en, st + 0.3), W[caps[k + 1][0]]['s'])
+    elif k + 1 < len(caps):
+        en = min(en, W[caps[k + 1][1][-1]]['e'] + 0.15)
     out.append(dict(from_=round(st * FPS), dur=max(6, round(en * FPS) - round(st * FPS)),
                     words=[dict(t=W[i]['w'], hi=norm(W[i]['w']).replace("'s", '') in hi,
                                 at=round((W[i]['s'] - st) * FPS)) for i in c]))
