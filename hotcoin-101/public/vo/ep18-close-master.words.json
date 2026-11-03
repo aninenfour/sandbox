@@ -1,0 +1,97 @@
+{
+ "placeholder": true,
+ "duration": 6.22,
+ "words": [
+  {
+   "word": "Staying",
+   "start": 0.0,
+   "end": 0.505,
+   "at": 0.0,
+   "until": 15.2
+  },
+  {
+   "word": "in",
+   "start": 0.565,
+   "end": 0.795,
+   "at": 16.9,
+   "until": 23.8
+  },
+  {
+   "word": "the",
+   "start": 0.855,
+   "end": 1.14,
+   "at": 25.6,
+   "until": 34.2
+  },
+  {
+   "word": "game",
+   "start": 1.2,
+   "end": 1.54,
+   "at": 36.0,
+   "until": 46.2
+  },
+  {
+   "word": "isn't",
+   "start": 1.6,
+   "end": 1.94,
+   "at": 48.0,
+   "until": 58.2
+  },
+  {
+   "word": "the",
+   "start": 2.0,
+   "end": 2.285,
+   "at": 60.0,
+   "until": 68.5
+  },
+  {
+   "word": "boring",
+   "start": 2.345,
+   "end": 2.795,
+   "at": 70.3,
+   "until": 83.8
+  },
+  {
+   "word": "part",
+   "start": 2.855,
+   "end": 3.195,
+   "at": 85.6,
+   "until": 95.8
+  },
+  {
+   "word": "of",
+   "start": 3.255,
+   "end": 3.485,
+   "at": 97.6,
+   "until": 104.5
+  },
+  {
+   "word": "trading.",
+   "start": 3.545,
+   "end": 4.05,
+   "at": 106.3,
+   "until": 121.5
+  },
+  {
+   "word": "It's",
+   "start": 4.51,
+   "end": 4.795,
+   "at": 135.3,
+   "until": 143.8
+  },
+  {
+   "word": "the",
+   "start": 4.855,
+   "end": 5.14,
+   "at": 145.6,
+   "until": 154.2
+  },
+  {
+   "word": "strategy.",
+   "start": 5.2,
+   "end": 5.76,
+   "at": 156.0,
+   "until": 172.8
+  }
+ ]
+}

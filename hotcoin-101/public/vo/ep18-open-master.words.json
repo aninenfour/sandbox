@@ -1,0 +1,139 @@
+{
+ "placeholder": true,
+ "duration": 8.72,
+ "words": [
+  {
+   "word": "Lose",
+   "start": 0.0,
+   "end": 0.34,
+   "at": 0.0,
+   "until": 10.2
+  },
+  {
+   "word": "half",
+   "start": 0.4,
+   "end": 0.74,
+   "at": 12.0,
+   "until": 22.2
+  },
+  {
+   "word": "your",
+   "start": 0.8,
+   "end": 1.14,
+   "at": 24.0,
+   "until": 34.2
+  },
+  {
+   "word": "money",
+   "start": 1.2,
+   "end": 1.595,
+   "at": 36.0,
+   "until": 47.9
+  },
+  {
+   "word": "and,",
+   "start": 1.655,
+   "end": 1.94,
+   "at": 49.6,
+   "until": 58.2
+  },
+  {
+   "word": "well,",
+   "start": 2.18,
+   "end": 2.52,
+   "at": 65.4,
+   "until": 75.6
+  },
+  {
+   "word": "you'd",
+   "start": 2.76,
+   "end": 3.1,
+   "at": 82.8,
+   "until": 93.0
+  },
+  {
+   "word": "think",
+   "start": 3.16,
+   "end": 3.555,
+   "at": 94.8,
+   "until": 106.7
+  },
+  {
+   "word": "you",
+   "start": 3.615,
+   "end": 3.9,
+   "at": 108.5,
+   "until": 117.0
+  },
+  {
+   "word": "need",
+   "start": 3.96,
+   "end": 4.3,
+   "at": 118.8,
+   "until": 129.0
+  },
+  {
+   "word": "half",
+   "start": 4.36,
+   "end": 4.7,
+   "at": 130.8,
+   "until": 141.0
+  },
+  {
+   "word": "back.",
+   "start": 4.76,
+   "end": 5.1,
+   "at": 142.8,
+   "until": 153.0
+  },
+  {
+   "word": "You",
+   "start": 5.56,
+   "end": 5.845,
+   "at": 166.8,
+   "until": 175.4
+  },
+  {
+   "word": "don't,",
+   "start": 5.905,
+   "end": 6.245,
+   "at": 177.2,
+   "until": 187.4
+  },
+  {
+   "word": "you",
+   "start": 6.485,
+   "end": 6.77,
+   "at": 194.6,
+   "until": 203.1
+  },
+  {
+   "word": "need",
+   "start": 6.83,
+   "end": 7.17,
+   "at": 204.9,
+   "until": 215.1
+  },
+  {
+   "word": "to",
+   "start": 7.23,
+   "end": 7.46,
+   "at": 216.9,
+   "until": 223.8
+  },
+  {
+   "word": "double",
+   "start": 7.52,
+   "end": 7.97,
+   "at": 225.6,
+   "until": 239.1
+  },
+  {
+   "word": "it.",
+   "start": 8.03,
+   "end": 8.26,
+   "at": 240.9,
+   "until": 247.8
+  }
+ ]
+}

@@ -15,7 +15,16 @@ type Words = {words: W[]};
 
 const strip = (s: string) => s.replace(/[.,!?…;:]+$/g, '');
 
-export const makeTimeline = (open: Words, body: Words, opts: {titleLen?: number; endHold?: number} = {}) => {
+/**
+ * Clock times for an episode from its voice takes. From FILE 018 an optional
+ * closing take lands after a short pause (closeGap) and the last scene holds
+ * for `tail` before the end card, so the takeaway has room to sink in.
+ */
+export const makeTimeline = (
+  open: Words,
+  body: Words,
+  opts: {titleLen?: number; endHold?: number; close?: Words; closeGap?: number; tail?: number} = {},
+) => {
   const find = (list: W[], word: string, n: number) => {
     let k = 0;
     for (const x of list) if (strip(x.word) === word && ++k === n) return x;
@@ -26,18 +35,27 @@ export const makeTimeline = (open: Words, body: Words, opts: {titleLen?: number;
   const TITLE_AT = Math.round(OPEN_AT + openEnd + 8);
   const BODY_AT = TITLE_AT + (opts.titleLen ?? 100);
   const bodyEnd = BODY_AT + body.words[body.words.length - 1].until;
-  const END_AT = Math.round(bodyEnd + 16);
+  const close = opts.close;
+  const CLOSE_AT = close ? Math.round(bodyEnd + (opts.closeGap ?? 30)) : Math.round(bodyEnd);
+  const voiceEnd = close ? CLOSE_AT + close.words[close.words.length - 1].until : bodyEnd;
+  const END_AT = Math.round(voiceEnd + (opts.tail ?? 16));
   const TOTAL = END_AT + (opts.endHold ?? 130);
   return {
     OPEN_AT,
     TITLE_AT,
     BODY_AT,
+    CLOSE_AT,
     END_AT,
     TOTAL,
     /** global clock time of the nth occurrence of a body word (case-sensitive) */
     w: (word: string, n = 1) => BODY_AT + find(body.words, word, n).at,
     /** global clock time of a cold-open word */
     ow: (word: string, n = 1) => OPEN_AT + find(open.words, word, n).at,
+    /** global clock time of a closing-take word */
+    cw: (word: string, n = 1) => {
+      if (!close) throw new Error('no closing take');
+      return CLOSE_AT + find(close.words, word, n).at;
+    },
   };
 };
 

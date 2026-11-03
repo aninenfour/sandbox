@@ -4,6 +4,8 @@ Educational video series for Hotcoin social (X, Instagram @hotcoinex, YouTube, L
 
 Read this before touching anything. Every rule below came from real feedback.
 
+> **In progress: FILE 018 (Risk of Ruin).** Scenes, thumbnails, posts and voiceover script are done; the voice is not. `public/vo/ep18-*-master.words.json` hold *estimated* timings (`"placeholder": true`, and renders show a red PREVIEW banner). To finish: with `ELEVENLABS_API_KEY` in the environment or `.env`, generate three takes from `deliver/hotcoin-101-ep18-voiceover.md` (open = first paragraph, close = last line, body = everything between) with `node scripts/voice.mjs --text "..." --out ep18-open|ep18-body|ep18-close --stability 0.5`, master each with `python3 scripts/vo_master.py <name> <tempo>` (aim for about 2.5 words a second), check the banner is gone, review stills, render both formats, then delete this note.
+
 ---
 
 ## Deliverables per episode
@@ -72,6 +74,7 @@ Older looks (`terminal`, `flat`, `cutPaper`, `white`) stay as they are for 001 t
 - **Text must never drift.** Text animates in, then stays pixel-still. No slow zoom, no page drift, no sub-pixel creep. `useInk` and the `snap()` helper in the blocks force landed text to exactly zero offset. Second-act effects change colour, glow and backgrounds only, never the position or scale of text. This was tested: letter pixels must be identical between two late frames of the same page.
 - Diagrams and figures may keep moving for the whole page. That is the point of them.
 - Pacing should stay readable. Earlier pacing was about right; the problem was static frames, not page length.
+- **Give the ending room (from FILE 018, after Alex found 016 and 017 ended too abruptly).** Episodes can run a little longer, up to about 80 seconds. The takeaway line is its own voice take (`epNN-close`), placed about a second after the body (`makeTimeline(open, body, {close, closeGap: 30, tail: 80})`). The last scene then holds for about 2.5 seconds on music alone before the end card, so the viewer gets their "aha". Don't start a new idea in the last scene; it lands what came before.
 
 ---
 
@@ -114,7 +117,7 @@ The logo's green dot, alone. From FILE 013 it is a proper character (`src/compan
 
 ```bash
 # in this cloud container, point Remotion at the preinstalled Chromium:
-export REMOTION_CHROME=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
+export REMOTION_CHROME=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell   # path changes with the container image: ls /opt/pw-browsers
 npx remotion bundle src/index.ts --out-dir=bundle
 npx remotion render bundle <slug>-vertical out/<name>-9x16.mp4 --concurrency=<cores>
 npx remotion render bundle <slug>-horizontal out/<name>-16x9.mp4 --concurrency=<cores>
