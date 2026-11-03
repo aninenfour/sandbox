@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "US midterm Election Day, results land overnight in Asia"},
+ {"sym": "AMDB", "kind": "tradfi", "why": "Q3 earnings after the US close (early Wed, UTC+8)"},
+ {"sym": "PLTRB", "kind": "tradfi", "why": "Revenue up 63% in Q3, yet shares slipped on valuation"},
+ {"sym": "SMCIB", "kind": "tradfi", "why": "Reports after the US close, options price a ~14% move"},
+ {"sym": "NEFE", "kind": "crypto", "why": "Hotcoin's top mover in the last 24h, can it hold?"}
+]}

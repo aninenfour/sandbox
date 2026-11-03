@@ -143,5 +143,47 @@
   "twitter": "AleoHQ",
   "image": "https://coin-images.coingecko.com/coins/images/27916/large/secondary-icon-dark.png?1726770428",
   "logo": "aleo"
+ },
+ "NEFE": {
+  "id": "nefe-coin",
+  "name": "NEFE COIN",
+  "twitter": "NEFECoin",
+  "image": "https://coin-images.coingecko.com/coins/images/71119/large/PFP_1_%281%29.png?1790218760",
+  "logo": "nefe"
+ },
+ "RAIN": {
+  "id": "rain",
+  "name": "Rain",
+  "twitter": "rain__protocol",
+  "image": "https://coin-images.coingecko.com/coins/images/69134/large/Rain_logo_1_.png?1762952191",
+  "logo": "rain"
+ },
+ "BTC": {
+  "id": "bitcoin",
+  "name": "Bitcoin",
+  "twitter": "bitcoin",
+  "image": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+  "logo": "btc"
+ },
+ "AMDB": {
+  "id": "advanced-micro-devices-bstocks-tokenized-stock",
+  "name": "Advanced Micro Devices (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102176878/large/amdb.png?1788941339",
+  "logo": "amdb"
+ },
+ "PLTRB": {
+  "id": "palantir-technologies-bstocks-tokenized-stock",
+  "name": "Palantir Technologies (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174257/large/bstocks_pltrb.png?1782836664",
+  "logo": "pltrb"
+ },
+ "SMCIB": {
+  "id": "super-micro-computer-bstocks-tokenized-stock",
+  "name": "Super Micro Computer (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102175310/large/SMCIB.png?1786085207",
+  "logo": "smcib"
  }
 }

@@ -7,9 +7,12 @@
 import {createRequire} from 'module';
 import {spawn} from 'child_process';
 import fs from 'fs';
-const require = createRequire('/opt/node-tools/node_modules/');
-const {chromium} = require(process.env.PW_PATH || 'playwright');
-const ROOT = '/home/user/sandbox';
+import path from 'path';
+import {fileURLToPath} from 'url';
+const require = createRequire(import.meta.url);
+let chromium;
+for (const p of [process.env.PW_PATH, 'playwright', '/opt/node-tools/node_modules/playwright'].filter(Boolean)) { try { ({chromium} = require(p)); break; } catch {} }
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const DIR = ROOT + '/social/daily';
 const PORT = 8768;
 
@@ -208,7 +211,41 @@ ${mark(980, 420, -170, '#0B0E11', '#7EC25A', 0.045)}
 </div></body></html>`;
 };
 
-const PAGES = {'sq-white': () => POD(false), 'sq-black': () => POD(true), 'sq-mark': MARK, 'sq-cards': CARDS, 'sq-top1': TOP1};
+// ---------- morning: what to watch today (5 rows, crypto + tradfi) ----------
+const WATCH = () => {
+  const it = D.items || [];
+  const price = (v) => v >= 1 ? '$' + v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '$' + Number(v.toPrecision(4));
+  const chg = (v) => `<span style="color:${v >= 0 ? '#14A04B' : '#D64545'}">${v >= 0 ? '▲' : '▼'}${Math.abs(v).toFixed(2)}%</span>`;
+  return `${HEAD}<style>
+body{background:#fff;color:#0B0E11}
+.pill{background:#F3F4F0;color:#0B0E11}
+.head h1 .t5{font-size:50px}
+.list{position:relative;flex:1;display:flex;flex-direction:column;gap:14px;margin-top:30px}
+.r{flex:1;display:flex;align-items:center;gap:22px;border-radius:26px;background:#F6F7F4;border:1.5px solid #ECEDEA;padding:0 30px 0 22px;position:relative;overflow:hidden}
+.r::before{content:'';position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--g)}
+.r .mid{flex:1;min-width:0}
+.r .top{display:flex;align-items:baseline;gap:12px}
+.r .sym{font-family:Unbounded;font-weight:900;font-size:32px;letter-spacing:-.5px}
+.r .nm{font-size:16px;color:#6B7280;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r .k{font-family:'JetBrains Mono';font-weight:800;font-size:12px;letter-spacing:2px;border-radius:999px;padding:5px 10px;margin-left:auto;flex:none}
+.r .k.crypto{background:#B8F26A;color:#0B0E11}.r .k.tradfi{background:#0B0E11;color:#fff}
+.r .why{font-size:21px;font-weight:600;margin-top:6px;line-height:1.25;color:#1F2328;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.r .px{text-align:right;flex:none;width:200px}
+.r .px b{display:block;font-family:Unbounded;font-weight:800;font-size:26px;letter-spacing:-.5px}
+.r .px span{font-family:Unbounded;font-weight:900;font-size:22px}
+.ft{position:relative;display:flex;justify-content:space-between;margin-top:22px;font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:2px;color:#6B7280}
+</style></head><body><div class="s">
+${mark(980, 420, -170, '#0B0E11', '#7EC25A', 0.045)}
+<div class="head"><img src="/hotcoin-tradfi/public/brand/logo-official-black.png"><h1>What to Watch<span class="t5">TODAY</span></h1><div class="pill"><span class="dot"></span>${D.window}</div></div>
+<div class="list">${it.map((g) => `<div class="r" style="--g:${g.glow}">${bezel(g, 96, 'steel')}
+  <div class="mid"><div class="top"><span class="sym" style="${g.sym.length > 6 ? 'font-size:26px' : ''}">${g.sym}</span><span class="nm">${g.name}</span><span class="k ${g.kind}">${g.kind === 'crypto' ? 'CRYPTO' : 'TRADFI'}</span></div>
+  <div class="why">${g.why}</div></div>
+  <div class="px"><b>${price(g.last)}</b>${chg(g.ch)}</div></div>`).join('')}</div>
+<div class="ft"><span>${D.date} · CRYPTO + TRADFI · 24H</span><span>HOTCOIN.COM</span></div>
+</div></body></html>`;
+};
+
+const PAGES = {'sq-watch': WATCH, 'sq-white': () => POD(false), 'sq-black': () => POD(true), 'sq-mark': MARK, 'sq-cards': CARDS, 'sq-top1': TOP1};
 const want = process.argv.slice(2);
 fs.mkdirSync(DIR + '/build', {recursive: true});
 const server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1', '--directory', ROOT], {stdio: 'ignore'});
