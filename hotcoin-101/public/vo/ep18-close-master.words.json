@@ -1,97 +1,99 @@
 {
- "placeholder": true,
- "duration": 6.22,
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 5.067,
  "words": [
   {
    "word": "Staying",
    "start": 0.0,
-   "end": 0.505,
+   "end": 0.356,
    "at": 0.0,
-   "until": 15.2
+   "until": 10.7
   },
   {
    "word": "in",
-   "start": 0.565,
-   "end": 0.795,
-   "at": 16.9,
-   "until": 23.8
+   "start": 0.386,
+   "end": 0.444,
+   "at": 11.6,
+   "until": 13.3
   },
   {
    "word": "the",
-   "start": 0.855,
-   "end": 1.14,
-   "at": 25.6,
-   "until": 34.2
+   "start": 0.467,
+   "end": 0.533,
+   "at": 14.0,
+   "until": 16.0
   },
   {
    "word": "game",
-   "start": 1.2,
-   "end": 1.54,
-   "at": 36.0,
-   "until": 46.2
+   "start": 0.622,
+   "end": 0.978,
+   "at": 18.7,
+   "until": 29.3
   },
   {
    "word": "isn't",
-   "start": 1.6,
-   "end": 1.94,
-   "at": 48.0,
-   "until": 58.2
+   "start": 1.022,
+   "end": 1.244,
+   "at": 30.7,
+   "until": 37.3
   },
   {
    "word": "the",
-   "start": 2.0,
-   "end": 2.285,
-   "at": 60.0,
-   "until": 68.5
+   "start": 1.267,
+   "end": 1.333,
+   "at": 38.0,
+   "until": 40.0
   },
   {
    "word": "boring",
-   "start": 2.345,
-   "end": 2.795,
-   "at": 70.3,
-   "until": 83.8
+   "start": 1.41,
+   "end": 1.867,
+   "at": 42.3,
+   "until": 56.0
   },
   {
    "word": "part",
-   "start": 2.855,
-   "end": 3.195,
-   "at": 85.6,
-   "until": 95.8
+   "start": 1.92,
+   "end": 2.133,
+   "at": 57.6,
+   "until": 64.0
   },
   {
    "word": "of",
-   "start": 3.255,
-   "end": 3.485,
-   "at": 97.6,
-   "until": 104.5
+   "start": 2.163,
+   "end": 2.222,
+   "at": 64.9,
+   "until": 66.7
   },
   {
    "word": "trading.",
-   "start": 3.545,
-   "end": 4.05,
-   "at": 106.3,
-   "until": 121.5
+   "start": 2.289,
+   "end": 2.844,
+   "at": 68.7,
+   "until": 85.3
   },
   {
    "word": "It's",
-   "start": 4.51,
-   "end": 4.795,
-   "at": 135.3,
-   "until": 143.8
+   "start": 3.17,
+   "end": 4.0,
+   "at": 95.1,
+   "until": 120.0
   },
   {
    "word": "the",
-   "start": 4.855,
-   "end": 5.14,
-   "at": 145.6,
-   "until": 154.2
+   "start": 4.044,
+   "end": 4.178,
+   "at": 121.3,
+   "until": 125.3
   },
   {
    "word": "strategy.",
-   "start": 5.2,
-   "end": 5.76,
-   "at": 156.0,
-   "until": 172.8
+   "start": 4.267,
+   "end": 5.067,
+   "at": 128.0,
+   "until": 152.0
   }
- ]
+ ],
+ "tempo": 0.9
 }

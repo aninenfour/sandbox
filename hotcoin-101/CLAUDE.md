@@ -1,10 +1,8 @@
 # Hotcoin 101 — project brief for Claude Code
 
-Educational video series for Hotcoin social (X, Instagram @hotcoinex, YouTube, LinkedIn, Telegram), built in Remotion. Episodes are standalone, around 60 to 70 seconds, in both 9:16 and 16:9. Owner: Alex (Social Media, Ads & Operations Lead, Hotcoin Global).
+Educational video series for Hotcoin social (X, Instagram @hotcoinex, YouTube, LinkedIn, Telegram), built in Remotion. Episodes are standalone, around 60 to 80 seconds, in both 9:16 and 16:9. Owner: Alex (Social Media, Ads & Operations Lead, Hotcoin Global).
 
 Read this before touching anything. Every rule below came from real feedback.
-
-> **In progress: FILE 018 (Risk of Ruin).** Scenes, thumbnails, posts and voiceover script are done; the voice is not. `public/vo/ep18-*-master.words.json` hold *estimated* timings (`"placeholder": true`, and renders show a red PREVIEW banner). To finish: with `ELEVENLABS_API_KEY` in the environment or `.env`, generate three takes from `deliver/hotcoin-101-ep18-voiceover.md` (open = first paragraph, close = last line, body = everything between) with `node scripts/voice.mjs --text "..." --out ep18-open|ep18-body|ep18-close --stability 0.5`, master each with `python3 scripts/vo_master.py <name> <tempo>` (aim for about 2.5 words a second), check the banner is gone, review stills, render both formats, then delete this note.
 
 ---
 

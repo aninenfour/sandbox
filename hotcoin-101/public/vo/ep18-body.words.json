@@ -1,0 +1,798 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 47.52,
+ "words": [
+  {
+   "word": "That's",
+   "start": 0,
+   "end": 0.24,
+   "at": 0,
+   "until": 7.2
+  },
+  {
+   "word": "the",
+   "start": 0.28,
+   "end": 0.4,
+   "at": 8.4,
+   "until": 12
+  },
+  {
+   "word": "maths",
+   "start": 0.453,
+   "end": 0.72,
+   "at": 13.6,
+   "until": 21.6
+  },
+  {
+   "word": "of",
+   "start": 0.747,
+   "end": 0.8,
+   "at": 22.4,
+   "until": 24
+  },
+  {
+   "word": "a",
+   "start": 0.84,
+   "end": 0.88,
+   "at": 25.2,
+   "until": 26.4
+  },
+  {
+   "word": "drawdown.",
+   "start": 0.96,
+   "end": 1.68,
+   "at": 28.8,
+   "until": 50.4
+  },
+  {
+   "word": "Lose",
+   "start": 1.872,
+   "end": 2.64,
+   "at": 56.2,
+   "until": 79.2
+  },
+  {
+   "word": "ten",
+   "start": 2.7,
+   "end": 2.88,
+   "at": 81,
+   "until": 86.4
+  },
+  {
+   "word": "percent,",
+   "start": 2.95,
+   "end": 3.76,
+   "at": 88.5,
+   "until": 112.8
+  },
+  {
+   "word": "you",
+   "start": 3.8,
+   "end": 3.92,
+   "at": 114,
+   "until": 117.6
+  },
+  {
+   "word": "need",
+   "start": 3.952,
+   "end": 4.08,
+   "at": 118.6,
+   "until": 122.4
+  },
+  {
+   "word": "eleven",
+   "start": 4.137,
+   "end": 4.48,
+   "at": 124.1,
+   "until": 134.4
+  },
+  {
+   "word": "to",
+   "start": 4.533,
+   "end": 4.64,
+   "at": 136,
+   "until": 139.2
+  },
+  {
+   "word": "get",
+   "start": 4.66,
+   "end": 4.72,
+   "at": 139.8,
+   "until": 141.6
+  },
+  {
+   "word": "back.",
+   "start": 4.816,
+   "end": 5.36,
+   "at": 144.5,
+   "until": 160.8
+  },
+  {
+   "word": "Lose",
+   "start": 5.568,
+   "end": 6.4,
+   "at": 167,
+   "until": 192
+  },
+  {
+   "word": "half,",
+   "start": 6.512,
+   "end": 7.24,
+   "at": 195.4,
+   "until": 217.2
+  },
+  {
+   "word": "you",
+   "start": 7.31,
+   "end": 7.52,
+   "at": 219.3,
+   "until": 225.6
+  },
+  {
+   "word": "need",
+   "start": 7.552,
+   "end": 7.68,
+   "at": 226.6,
+   "until": 230.4
+  },
+  {
+   "word": "a",
+   "start": 7.76,
+   "end": 7.84,
+   "at": 232.8,
+   "until": 235.2
+  },
+  {
+   "word": "hundred.",
+   "start": 7.89,
+   "end": 8.56,
+   "at": 236.7,
+   "until": 256.8
+  },
+  {
+   "word": "Lose",
+   "start": 8.768,
+   "end": 9.6,
+   "at": 263,
+   "until": 288
+  },
+  {
+   "word": "seventy,",
+   "start": 9.67,
+   "end": 10.64,
+   "at": 290.1,
+   "until": 319.2
+  },
+  {
+   "word": "and",
+   "start": 10.66,
+   "end": 10.72,
+   "at": 319.8,
+   "until": 321.6
+  },
+  {
+   "word": "you",
+   "start": 10.74,
+   "end": 10.8,
+   "at": 322.2,
+   "until": 324
+  },
+  {
+   "word": "need",
+   "start": 10.848,
+   "end": 11.04,
+   "at": 325.4,
+   "until": 331.2
+  },
+  {
+   "word": "two",
+   "start": 11.08,
+   "end": 11.2,
+   "at": 332.4,
+   "until": 336
+  },
+  {
+   "word": "hundred",
+   "start": 11.25,
+   "end": 11.6,
+   "at": 337.5,
+   "until": 348
+  },
+  {
+   "word": "and",
+   "start": 11.64,
+   "end": 11.76,
+   "at": 349.2,
+   "until": 352.8
+  },
+  {
+   "word": "thirty-three",
+   "start": 11.806,
+   "end": 12.16,
+   "at": 354.2,
+   "until": 364.8
+  },
+  {
+   "word": "percent,",
+   "start": 12.23,
+   "end": 13.28,
+   "at": 366.9,
+   "until": 398.4
+  },
+  {
+   "word": "which,",
+   "start": 13.347,
+   "end": 13.92,
+   "at": 400.4,
+   "until": 417.6
+  },
+  {
+   "word": "uhm,",
+   "start": 13.96,
+   "end": 14.64,
+   "at": 418.8,
+   "until": 439.2
+  },
+  {
+   "word": "mostly",
+   "start": 14.754,
+   "end": 15.44,
+   "at": 442.6,
+   "until": 463.2
+  },
+  {
+   "word": "doesn't",
+   "start": 15.48,
+   "end": 15.76,
+   "at": 464.4,
+   "until": 472.8
+  },
+  {
+   "word": "happen.",
+   "start": 15.84,
+   "end": 17,
+   "at": 475.2,
+   "until": 510
+  },
+  {
+   "word": "And",
+   "start": 17.17,
+   "end": 17.68,
+   "at": 515.1,
+   "until": 530.4
+  },
+  {
+   "word": "losses",
+   "start": 17.749,
+   "end": 18.16,
+   "at": 532.5,
+   "until": 544.8
+  },
+  {
+   "word": "don't",
+   "start": 18.2,
+   "end": 18.52,
+   "at": 546,
+   "until": 555.6
+  },
+  {
+   "word": "arrive",
+   "start": 18.549,
+   "end": 18.72,
+   "at": 556.5,
+   "until": 561.6
+  },
+  {
+   "word": "politely,",
+   "start": 18.791,
+   "end": 19.6,
+   "at": 563.7,
+   "until": 588
+  },
+  {
+   "word": "one",
+   "start": 19.66,
+   "end": 19.84,
+   "at": 589.8,
+   "until": 595.2
+  },
+  {
+   "word": "at",
+   "start": 19.867,
+   "end": 19.92,
+   "at": 596,
+   "until": 597.6
+  },
+  {
+   "word": "a",
+   "start": 20,
+   "end": 20.08,
+   "at": 600,
+   "until": 602.4
+  },
+  {
+   "word": "time.",
+   "start": 20.16,
+   "end": 20.8,
+   "at": 604.8,
+   "until": 624
+  },
+  {
+   "word": "Flip",
+   "start": 20.976,
+   "end": 21.68,
+   "at": 629.3,
+   "until": 650.4
+  },
+  {
+   "word": "a",
+   "start": 21.72,
+   "end": 21.76,
+   "at": 651.6,
+   "until": 652.8
+  },
+  {
+   "word": "fair",
+   "start": 21.808,
+   "end": 22,
+   "at": 654.2,
+   "until": 660
+  },
+  {
+   "word": "coin",
+   "start": 22.08,
+   "end": 22.4,
+   "at": 662.4,
+   "until": 672
+  },
+  {
+   "word": "a",
+   "start": 22.44,
+   "end": 22.48,
+   "at": 673.2,
+   "until": 674.4
+  },
+  {
+   "word": "hundred",
+   "start": 22.51,
+   "end": 22.72,
+   "at": 675.3,
+   "until": 681.6
+  },
+  {
+   "word": "times",
+   "start": 22.813,
+   "end": 23.28,
+   "at": 684.4,
+   "until": 698.4
+  },
+  {
+   "word": "and",
+   "start": 23.38,
+   "end": 23.68,
+   "at": 701.4,
+   "until": 710.4
+  },
+  {
+   "word": "a",
+   "start": 23.72,
+   "end": 23.76,
+   "at": 711.6,
+   "until": 712.8
+  },
+  {
+   "word": "run",
+   "start": 23.82,
+   "end": 24,
+   "at": 714.6,
+   "until": 720
+  },
+  {
+   "word": "of",
+   "start": 24.053,
+   "end": 24.16,
+   "at": 721.6,
+   "until": 724.8
+  },
+  {
+   "word": "five",
+   "start": 24.208,
+   "end": 24.4,
+   "at": 726.2,
+   "until": 732
+  },
+  {
+   "word": "losses",
+   "start": 24.469,
+   "end": 24.88,
+   "at": 734.1,
+   "until": 746.4
+  },
+  {
+   "word": "in",
+   "start": 24.907,
+   "end": 24.96,
+   "at": 747.2,
+   "until": 748.8
+  },
+  {
+   "word": "a",
+   "start": 25,
+   "end": 25.04,
+   "at": 750,
+   "until": 751.2
+  },
+  {
+   "word": "row",
+   "start": 25.14,
+   "end": 25.44,
+   "at": 754.2,
+   "until": 763.2
+  },
+  {
+   "word": "is",
+   "start": 25.52,
+   "end": 25.68,
+   "at": 765.6,
+   "until": 770.4
+  },
+  {
+   "word": "more",
+   "start": 25.728,
+   "end": 25.92,
+   "at": 771.8,
+   "until": 777.6
+  },
+  {
+   "word": "likely",
+   "start": 25.977,
+   "end": 26.32,
+   "at": 779.3,
+   "until": 789.6
+  },
+  {
+   "word": "than",
+   "start": 26.352,
+   "end": 26.48,
+   "at": 790.6,
+   "until": 794.4
+  },
+  {
+   "word": "not.",
+   "start": 26.58,
+   "end": 27.2,
+   "at": 797.4,
+   "until": 816
+  },
+  {
+   "word": "So",
+   "start": 27.547,
+   "end": 28.24,
+   "at": 826.4,
+   "until": 847.2
+  },
+  {
+   "word": "here's",
+   "start": 28.288,
+   "end": 28.56,
+   "at": 848.6,
+   "until": 856.8
+  },
+  {
+   "word": "the",
+   "start": 28.6,
+   "end": 28.72,
+   "at": 858,
+   "until": 861.6
+  },
+  {
+   "word": "whole",
+   "start": 28.76,
+   "end": 28.96,
+   "at": 862.8,
+   "until": 868.8
+  },
+  {
+   "word": "game.",
+   "start": 29.024,
+   "end": 29.36,
+   "at": 870.7,
+   "until": 880.8
+  },
+  {
+   "word": "Risk",
+   "start": 29.6,
+   "end": 30.56,
+   "at": 888,
+   "until": 916.8
+  },
+  {
+   "word": "two",
+   "start": 30.58,
+   "end": 30.64,
+   "at": 917.4,
+   "until": 919.2
+  },
+  {
+   "word": "percent",
+   "start": 30.69,
+   "end": 31.04,
+   "at": 920.7,
+   "until": 931.2
+  },
+  {
+   "word": "a",
+   "start": 31.08,
+   "end": 31.12,
+   "at": 932.4,
+   "until": 933.6
+  },
+  {
+   "word": "trade,",
+   "start": 31.2,
+   "end": 31.84,
+   "at": 936,
+   "until": 955.2
+  },
+  {
+   "word": "and",
+   "start": 31.88,
+   "end": 32,
+   "at": 956.4,
+   "until": 960
+  },
+  {
+   "word": "five",
+   "start": 32.064,
+   "end": 32.32,
+   "at": 961.9,
+   "until": 969.6
+  },
+  {
+   "word": "losses",
+   "start": 32.389,
+   "end": 32.8,
+   "at": 971.7,
+   "until": 984
+  },
+  {
+   "word": "leaves",
+   "start": 32.846,
+   "end": 33.12,
+   "at": 985.4,
+   "until": 993.6
+  },
+  {
+   "word": "you",
+   "start": 33.14,
+   "end": 33.2,
+   "at": 994.2,
+   "until": 996
+  },
+  {
+   "word": "with",
+   "start": 33.232,
+   "end": 33.36,
+   "at": 997,
+   "until": 1000.8
+  },
+  {
+   "word": "ninety",
+   "start": 33.417,
+   "end": 33.76,
+   "at": 1002.5,
+   "until": 1012.8
+  },
+  {
+   "word": "percent,",
+   "start": 33.82,
+   "end": 34.8,
+   "at": 1014.6,
+   "until": 1044
+  },
+  {
+   "word": "annoying",
+   "start": 34.871,
+   "end": 35.44,
+   "at": 1046.1,
+   "until": 1063.2
+  },
+  {
+   "word": "but",
+   "start": 35.5,
+   "end": 35.68,
+   "at": 1065,
+   "until": 1070.4
+  },
+  {
+   "word": "fine.",
+   "start": 35.792,
+   "end": 36.48,
+   "at": 1073.8,
+   "until": 1094.4
+  },
+  {
+   "word": "Risk",
+   "start": 36.704,
+   "end": 37.6,
+   "at": 1101.1,
+   "until": 1128
+  },
+  {
+   "word": "twenty",
+   "start": 37.646,
+   "end": 37.92,
+   "at": 1129.4,
+   "until": 1137.6
+  },
+  {
+   "word": "percent,",
+   "start": 37.98,
+   "end": 38.8,
+   "at": 1139.4,
+   "until": 1164
+  },
+  {
+   "word": "and",
+   "start": 38.82,
+   "end": 38.88,
+   "at": 1164.6,
+   "until": 1166.4
+  },
+  {
+   "word": "the",
+   "start": 38.92,
+   "end": 39.04,
+   "at": 1167.6,
+   "until": 1171.2
+  },
+  {
+   "word": "same",
+   "start": 39.088,
+   "end": 39.28,
+   "at": 1172.6,
+   "until": 1178.4
+  },
+  {
+   "word": "streak",
+   "start": 39.337,
+   "end": 39.68,
+   "at": 1180.1,
+   "until": 1190.4
+  },
+  {
+   "word": "leaves",
+   "start": 39.714,
+   "end": 39.92,
+   "at": 1191.4,
+   "until": 1197.6
+  },
+  {
+   "word": "you",
+   "start": 39.94,
+   "end": 40,
+   "at": 1198.2,
+   "until": 1200
+  },
+  {
+   "word": "with",
+   "start": 40.032,
+   "end": 40.16,
+   "at": 1201,
+   "until": 1204.8
+  },
+  {
+   "word": "a",
+   "start": 40.24,
+   "end": 40.32,
+   "at": 1207.2,
+   "until": 1209.6
+  },
+  {
+   "word": "third,",
+   "start": 40.4,
+   "end": 41.2,
+   "at": 1212,
+   "until": 1236
+  },
+  {
+   "word": "needing",
+   "start": 41.23,
+   "end": 41.44,
+   "at": 1236.9,
+   "until": 1243.2
+  },
+  {
+   "word": "to",
+   "start": 41.467,
+   "end": 41.52,
+   "at": 1244,
+   "until": 1245.6
+  },
+  {
+   "word": "triple",
+   "start": 41.589,
+   "end": 42,
+   "at": 1247.7,
+   "until": 1260
+  },
+  {
+   "word": "just",
+   "start": 42.064,
+   "end": 42.32,
+   "at": 1261.9,
+   "until": 1269.6
+  },
+  {
+   "word": "to",
+   "start": 42.347,
+   "end": 42.4,
+   "at": 1270.4,
+   "until": 1272
+  },
+  {
+   "word": "break",
+   "start": 42.44,
+   "end": 42.64,
+   "at": 1273.2,
+   "until": 1279.2
+  },
+  {
+   "word": "even.",
+   "start": 42.72,
+   "end": 43.28,
+   "at": 1281.6,
+   "until": 1298.4
+  },
+  {
+   "word": "Same",
+   "start": 43.456,
+   "end": 44.16,
+   "at": 1303.7,
+   "until": 1324.8
+  },
+  {
+   "word": "trader,",
+   "start": 44.229,
+   "end": 44.88,
+   "at": 1326.9,
+   "until": 1346.4
+  },
+  {
+   "word": "same",
+   "start": 44.928,
+   "end": 45.12,
+   "at": 1347.8,
+   "until": 1353.6
+  },
+  {
+   "word": "luck,",
+   "start": 45.2,
+   "end": 46,
+   "at": 1356,
+   "until": 1380
+  },
+  {
+   "word": "totally",
+   "start": 46.05,
+   "end": 46.4,
+   "at": 1381.5,
+   "until": 1392
+  },
+  {
+   "word": "different",
+   "start": 46.44,
+   "end": 46.8,
+   "at": 1393.2,
+   "until": 1404
+  },
+  {
+   "word": "ending.",
+   "start": 46.869,
+   "end": 47.52,
+   "at": 1406.1,
+   "until": 1425.6
+  }
+ ]
+}
