@@ -903,5 +903,23 @@
   "type": "news",
   "status": "skipped",
   "note": "Rendered but never scheduled (restarts); stale by Tue."
+ },
+ {
+  "id": "2026-11-03-whatif-election-spx",
+  "type": "reel-whatif",
+  "slot": "2026-11-03T21:30:00+08:00",
+  "title": "$1,000 in S&P 500 on Election Day 2000 -> $5,267",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance ^GSPC daily closes 2000-11-07 1431.87, 2026-11-02 7541.40"
+  ],
+  "note": "Dot = 'I voted' sticker (Unsplash, Dan Dennis). 16:00 news + 19:00 Academy skipped today (run time lost to restarts)."
  }
 ]
