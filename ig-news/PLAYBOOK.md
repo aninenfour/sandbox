@@ -146,3 +146,7 @@ Never create a second doc. If Google Docs isn't available, the rows wait in log.
 - Never publish "now"; always schedule into a slot. Never delete or edit posts this desk didn't create.
 - If Publer, rendering or the push fails twice, stop and log the error. Don't post a half-made carousel.
 - Breaking news exception: a truly market-moving event (score 12/12, e.g. major exchange hack, ETF approval, Fed surprise) may take the next slot even if < 45 min away, at the earliest 20 min out.
+
+
+### WHAT IF v2 (owner, Nov 3)
+White background, light motion design (default in stories/whatif.js; `"theme":"dark"` only on request). Choice cards are big and readable: drawn cash/chart icons or a clean product cut-out (`buy.card_icon` / `buy.card_img`), 58px labels. The dot must be a clean, readable object (drawn badge or cut-out), never a muddy photo. The lesson line holds ~3 s before the end card.
