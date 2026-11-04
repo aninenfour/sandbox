@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 4 22:06 (UTC+8)",
+ "date": "NOV 4",
+ "gainers": [
+  {
+   "sym": "JCT",
+   "name": "Janction",
+   "ch": 26.05,
+   "logo": "jct",
+   "bg": "#000001",
+   "glow": "#e9a16f"
+  },
+  {
+   "sym": "ARX",
+   "name": "Arcium",
+   "ch": 13.98,
+   "logo": "arx",
+   "bg": "#6d45ff",
+   "glow": "#6d45ff"
+  },
+  {
+   "sym": "FLNCB",
+   "name": "Fluence Energy (bStocks Tokenized Stock)",
+   "ch": 12.22,
+   "logo": "flncb",
+   "bg": "#0050b5",
+   "glow": "#0050b5"
+  },
+  {
+   "sym": "GNR",
+   "name": "",
+   "ch": 9.82,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "USELESS",
+   "name": "Useless Coin",
+   "ch": 9.04,
+   "logo": "useless",
+   "bg": "#fbefd0",
+   "glow": "#f7b521"
+  }
+ ]
+}

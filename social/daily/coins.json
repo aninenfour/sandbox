@@ -220,5 +220,33 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102174589/large/armb-bstocks.png?1784150128",
   "logo": "armb"
+ },
+ "JCT": {
+  "id": "janction",
+  "name": "Janction",
+  "twitter": "JANCTION_Global",
+  "image": "https://coin-images.coingecko.com/coins/images/70608/large/janction.png?1762738430",
+  "logo": "jct"
+ },
+ "ARX": {
+  "id": "arcium",
+  "name": "Arcium",
+  "twitter": "Arcium",
+  "image": "https://coin-images.coingecko.com/coins/images/54948/large/Arcium_Logomark_04_400x400_circle.png?1782278429",
+  "logo": "arx"
+ },
+ "FLNCB": {
+  "id": "fluence-energy-bstocks-tokenized-stock",
+  "name": "Fluence Energy (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102175192/large/FLCNB.png?1785458741",
+  "logo": "flncb"
+ },
+ "USELESS": {
+  "id": "useless-3",
+  "name": "Useless Coin",
+  "twitter": null,
+  "image": "https://coin-images.coingecko.com/coins/images/55684/large/coingeckoupdate.png?1755203747",
+  "logo": "useless"
  }
 }
