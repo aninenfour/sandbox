@@ -205,6 +205,14 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     for old in out.glob('*.jpg'):
         old.unlink()
+    # Owner, Nov 4: research/Academy carousels are exactly 4 slides with NO CTA end slide on every channel
+    # (X shows 4 images). News keeps its end slide for IG/FB only; X gets slides 1-4.
+    if spec.get('type') == 'tutorial':
+        if any(x['kind'] == 'end' for x in spec['slides']):
+            print('WARNING: Academy/research carousel: end (CTA) slide removed')
+            spec['slides'] = [x for x in spec['slides'] if x['kind'] != 'end']
+        if len(spec['slides']) != 4:
+            print(f"WARNING: Academy/research carousel has {len(spec['slides'])} slides; must be exactly 4 (cover + 3)")
     files = []
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')

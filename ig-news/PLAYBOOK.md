@@ -152,3 +152,8 @@ Never create a second doc. If Google Docs isn't available, the rows wait in log.
 White background, light motion design (default in stories/whatif.js; `"theme":"dark"` only on request). Choice cards are big and readable: drawn cash/chart icons or a clean product cut-out (`buy.card_icon` / `buy.card_img`), 58px labels. The dot must be a clean, readable object (drawn badge or cut-out), never a muddy photo. The lesson line holds ~3 s before the end card.
 
 - Thumbnail + X cut (owner, Nov 4): every WHAT IF opens on a designed cover frame (1 s: WHAT IF? pill, $X IN YEAR, two choice cards, big green result + TODAY?), kept inside y 300-1500 so the IG 4:5 grid and X crop show it whole. story.py also writes story_x45.mp4 (1080x1350, crop y=180) and cover_45.jpg: X always gets the 4:5 file, never the 9:16.
+
+### Carousel length + CTA + X accounts (owner, Nov 4)
+- **Academy / research carousels: exactly 4 slides** (cover + 3 content), **no CTA end slide on any channel**. render.py strips `end` and warns if the count is not 4.
+- **News carousels:** 4 content slides + CTA end slide on IG/FB only. On X never post the CTA slide: X gets slides 01-04.
+- **Every carousel also goes to the Hotcoin Research X account** (Publer: "Hotcoin Research"), 4 images, no CTA, short factual caption, ~1.5 h after the IG post (avoid same caption as the main X account).
