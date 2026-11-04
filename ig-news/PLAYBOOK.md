@@ -150,3 +150,5 @@ Never create a second doc. If Google Docs isn't available, the rows wait in log.
 
 ### WHAT IF v2 (owner, Nov 3)
 White background, light motion design (default in stories/whatif.js; `"theme":"dark"` only on request). Choice cards are big and readable: drawn cash/chart icons or a clean product cut-out (`buy.card_icon` / `buy.card_img`), 58px labels. The dot must be a clean, readable object (drawn badge or cut-out), never a muddy photo. The lesson line holds ~3 s before the end card.
+
+- Thumbnail + X cut (owner, Nov 4): every WHAT IF opens on a designed cover frame (1 s: WHAT IF? pill, $X IN YEAR, two choice cards, big green result + TODAY?), kept inside y 300-1500 so the IG 4:5 grid and X crop show it whole. story.py also writes story_x45.mp4 (1080x1350, crop y=180) and cover_45.jpg: X always gets the 4:5 file, never the 9:16.
