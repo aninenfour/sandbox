@@ -934,5 +934,24 @@
    "https://decrypt.co/382458/elon-musk-tesla-spacex-block-okx-ice-tokenized-stock"
   ],
   "note": "56 objectors (Nov 2 notice), 49/62 launch picks. Musk photo Wikimedia. 19:00 Academy skipped (pending owner call on Academy-as-Reels)."
+ },
+ {
+  "id": "2026-11-04-whatif-switch-nvda",
+  "type": "reel-whatif",
+  "style": "light",
+  "slot": "2026-11-04T21:30:00+08:00",
+  "title": "$299 Switch (2017) or $299 in Nvidia -> $25,114",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance NVDA split-adj closes 2017-03-03 2.4608, 2026-11-03 206.69"
+  ],
+  "note": "Drawn generic console icon (no logos). 2021 peak $4,008 -> 2022 low $1,364 (-66%)."
  }
 ]
