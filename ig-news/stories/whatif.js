@@ -76,6 +76,18 @@ function icon(kind, x, y, r, t) {
     ctx.fillStyle = '#D62E2E'; ctx.beginPath();
     for (let k = 0; k < 10; k++) { const a = -Math.PI / 2 + k * Math.PI / 5, rr = k % 2 ? r * .12 : r * .28; ctx[k ? 'lineTo' : 'moveTo'](Math.cos(a) * rr, -r * .2 + Math.sin(a) * rr); } ctx.fill();
     ctx.fillStyle = '#1F4FA3'; ctx.font = `900 ${r * .34}px "Inter Display", Inter, sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('VOTED', 0, r * .3);
+  } else if (kind === 'console') {   // generic hybrid handheld: red + blue side controllers, dark screen (no logos)
+    const w = r * 2.3, h = r * 1.2, jw = r * .42;
+    ctx.shadowColor = 'rgba(20,40,10,.25)'; ctx.shadowBlur = 20;
+    ctx.fillStyle = '#00A9E0'; ctx.beginPath(); ctx.roundRect(-w / 2 - jw, -h / 2, jw * 1.6, h, [h * .45, 0, 0, h * .45]); ctx.fill();
+    ctx.fillStyle = '#FF4B3A'; ctx.beginPath(); ctx.roundRect(w / 2 - jw * .6, -h / 2, jw * 1.6, h, [0, h * .45, h * .45, 0]); ctx.fill();
+    ctx.shadowBlur = 0; ctx.fillStyle = '#2B2F33'; ctx.beginPath(); ctx.roundRect(-w / 2, -h / 2, w, h, 10); ctx.fill();
+    ctx.fillStyle = '#11161B'; ctx.beginPath(); ctx.roundRect(-w / 2 + r * .1, -h / 2 + r * .1, w - r * .2, h - r * .2, 6); ctx.fill();
+    const g = ctx.createLinearGradient(0, -h / 2, 0, h / 2); g.addColorStop(0, 'rgba(126,194,90,.35)'); g.addColorStop(1, 'rgba(126,194,90,0)');
+    ctx.fillStyle = g; ctx.fillRect(-w / 2 + r * .1, -h / 2 + r * .1, w - r * .2, h - r * .2);
+    ctx.fillStyle = '#1B1F23'; ctx.beginPath(); ctx.arc(-w / 2 - jw * .25, -h * .18, r * .13, 0, 7); ctx.fill();
+    ctx.beginPath(); ctx.arc(w / 2 + jw * .25, h * .18, r * .13, 0, 7); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,.9)'; for (const [dx, dy] of [[0, -1], [1, 0], [0, 1], [-1, 0]]) { ctx.beginPath(); ctx.arc(w / 2 + jw * .25 + dx * r * .1, -h * .2 + dy * r * .1, r * .045, 0, 7); ctx.fill(); }
   } else if (kind === 'cash') {
     ctx.rotate(-.06);
     for (const [dx, dy, c] of [[14, 14, '#BFE3A8'], [0, 0, '#5DB23A']]) { ctx.fillStyle = c; ctx.beginPath(); ctx.roundRect(-r * 1.1 + dx, -r * .62 + dy, r * 2.2, r * 1.24, 18); ctx.fill(); }
