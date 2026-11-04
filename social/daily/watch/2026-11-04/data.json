@@ -1,0 +1,71 @@
+{
+ "date": "NOV 4",
+ "window": "Prices at Nov 4 11:48 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Networks project Democrats win the House in US midterms",
+   "last": 76311.39,
+   "ch": -0.73,
+   "vol": 708664706.77,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "RUNE",
+   "name": "THORChain",
+   "kind": "crypto",
+   "handle": "@THORChain",
+   "why": "THORChain restarted swaps on 10 of 13 chains after a pause",
+   "last": 0.633,
+   "ch": 15.09,
+   "vol": 293199.99,
+   "logo": "rune",
+   "bg": "#19e5cb",
+   "glow": "#08d4ee"
+  },
+  {
+   "sym": "QCOMB",
+   "name": "Qualcomm",
+   "kind": "tradfi",
+   "handle": "@Qualcomm",
+   "why": "FY26 Q4 results after the US close, call 05:45 Thu UTC+8",
+   "last": 159.39,
+   "ch": -2.5,
+   "vol": 672926.88,
+   "logo": "qcomb",
+   "bg": "#3253dc",
+   "glow": "#3253dc"
+  },
+  {
+   "sym": "ARMB",
+   "name": "Arm",
+   "kind": "tradfi",
+   "handle": "@Arm",
+   "why": "Q2 results after the US close, call 06:00 Thu UTC+8",
+   "last": 196.71,
+   "ch": -1.31,
+   "vol": 619149.45,
+   "logo": "armb",
+   "bg": "#0090bf",
+   "glow": "#0090bf"
+  },
+  {
+   "sym": "AMDB",
+   "name": "AMD",
+   "kind": "tradfi",
+   "handle": "@AMD",
+   "why": "Q3 revenue up 45% to $13.4B, Q4 outlook about $17B",
+   "last": 500.22,
+   "ch": 5.34,
+   "vol": 557811.88,
+   "logo": "amdb",
+   "bg": "#111111",
+   "glow": "#fdd984"
+  }
+ ]
+}

@@ -206,5 +206,19 @@
   "twitter": "axisrobotics",
   "image": "https://coin-images.coingecko.com/coins/images/102178869/large/axisrobotics.png?1790578974",
   "logo": "axis"
+ },
+ "QCOMB": {
+  "id": "qualcomm-bstocks-tokenized-stock",
+  "name": "Qualcomm (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174371/large/qcomb-bstocks.png?1783454170",
+  "logo": "qcomb"
+ },
+ "ARMB": {
+  "id": "arm-bstocks-tokenized-stock",
+  "name": "Arm (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174589/large/armb-bstocks.png?1784150128",
+  "logo": "armb"
  }
 }
