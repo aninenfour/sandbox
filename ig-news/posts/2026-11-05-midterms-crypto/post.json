@@ -1,0 +1,17 @@
+{"type":"news","style":"v2","date":"NOV 5","slides":[
+ {"kind":"nhero","photo":"capitol.jpg","photo_pos":"50% 35%","tag":"MIDTERMS",
+  "headline":"Democrats take Congress. Bitcoin [jumps] back above $80K"},
+ {"kind":"nbars","tag":"24H MOVES","title":"Who won, who lost",
+  "bars":[{"l":"Ether","v":6,"txt":"+6%","pos":true},{"l":"Bitcoin","v":4,"txt":"+4%","pos":true},{"l":"MELANIA","v":-13,"txt":"-13%","neg":true},{"l":"TRUMP","v":-17,"txt":"-17%","neg":true}],
+  "text":["Trump-linked tokens led the losses. Bitcoin is about [$80,500]."]},
+ {"kind":"nrows","tag":"STOCKS","title":"Crypto stocks rallied too",
+  "rows":[{"emoji":"🟩","l":"Block","sub":"after earnings","v":"+15%","pos":true},
+          {"emoji":"🟠","l":"Strategy","sub":"Saylor's bitcoin company","v":"+6%","pos":true},
+          {"emoji":"🔵","l":"Coinbase","sub":"largest US exchange","v":"+6%","pos":true}],
+  "text":["\"The case for holding Bitcoin crosses [party lines].\" - Michael Saylor"]},
+ {"kind":"nrows","tag":"WHAT IT MEANS","title":"Crypto's big bill stalls",
+  "rows":[{"emoji":"📜","l":"Clarity Act","sub":"failed Senate vote in Sept","v":"49-50","neg":true},
+          {"emoji":"🎲","l":"Odds it becomes law in 2026","sub":"prediction market","v":"3%","neg":true},
+          {"emoji":"🗓️","l":"New Congress starts","sub":"crypto rules restart","v":"Jan 2027"}],
+  "text":["The stablecoin law already passed [still stands]."]},
+ {"kind":"end"}]}
