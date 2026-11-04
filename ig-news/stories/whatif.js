@@ -147,7 +147,7 @@ function chart(t, alpha) {
   return cur;
 }
 
-function draw(t) {
+function drawMain(t) {
   const [sx, sy] = shake(t, EV.filter(e => e.c === 'red').map(e => evTime(e.i)).find(x => t >= x && t < x + .6) ?? -9, .6, 22);
   ctx.save(); ctx.translate(sx, sy);
   sky(); if (!LIGHT) stars(t, .5);
@@ -205,3 +205,36 @@ function draw(t) {
   corner(.7 * (1 - prog(t, L0 - .5, L0)));
   ctx.restore();
 }
+
+
+// ---- thumbnail cover (owner, Nov 4: "not adapted with thumbnail"; X gets a 4:5 cut)
+// Frame 0 is a designed cover, so every platform's default thumbnail (IG grid, TikTok, X) is the hook.
+// All cover content sits inside y 300-1500, safe for the IG 4:5 grid crop and the X 4:5 cut (y 180-1530).
+const CVT = 1.0;
+function coverCard(a) {
+  sky(); ctx.globalAlpha = a;
+  ctx.fillStyle = P.green; ctx.font = '900 44px "Inter Display", Inter, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  const tag = 'WHAT IF?'; const tw = ctx.measureText(tag).width + 60;
+  ctx.beginPath(); ctx.roundRect(W / 2 - tw / 2, 330, tw, 80, 40); ctx.fill(); ctx.fillStyle = '#FFFFFF'; ctx.fillText(tag, W / 2, 372);
+  title(`${money(S.amount)} IN ${S.year}`, 520, 120, P.white, a);
+  for (const [x, k] of [[300, 'buy'], [780, 'inv']]) { ctx.save(); ctx.globalAlpha = a; ctx.shadowColor = CARD.shadow; ctx.shadowBlur = 40; ctx.shadowOffsetY = 14;
+    ctx.fillStyle = CARD.fill; ctx.beginPath(); ctx.roundRect(x - 210, 640, 420, 440, 40); ctx.fill(); ctx.restore();
+    ctx.globalAlpha = a; ctx.strokeStyle = CARD.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.roundRect(x - 210, 640, 420, 440, 40); ctx.stroke(); }
+  if (S.buy.card_img) photo(S.buy.card_img, 300, 800, 260, 240, 20); else icon(S.buy.card_icon || S.buy.icon, 300, 810, 115, 0);
+  icon('chart', 780, 810, 130, 0);
+  ctx.globalAlpha = a; ctx.fillStyle = P.white; ctx.font = '900 50px "Inter Display", Inter, sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText((S.buy.short || S.buy.label.split('\n').join(' ')).toUpperCase().slice(0, 16), 300, 1005);
+  ctx.fillText((S.invest.short || S.invest.label).toUpperCase().slice(0, 16), 780, 1005);
+  title('OR', 860, 64, P.green, a);
+  title(S.reveal.value, 1240, 190, P.green, a);
+  title('TODAY?', 1390, 72, P.white, a);
+  ctx.globalAlpha = 1; corner(.8 * a);
+}
+function draw(t) {
+  if (t < CVT) { coverCard(1); return; }
+  drawMain(t - CVT);
+  const f = 1 - prog(t, CVT, CVT + .35); if (f > 0) coverCard(f);
+}
+window.DURATION += CVT;
+window.CUES = window.CUES.map(c => ({...c, t: c.t + CVT}));
+window.COVER_T = 0.02;   // not 0: story.py reads COVER_T || 6.8

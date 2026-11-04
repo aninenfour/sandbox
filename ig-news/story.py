@@ -115,6 +115,10 @@ def main():
                     '-filter_complex', fc, '-map', '0:v', '-map', '[a]', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-pix_fmt', 'yuv420p',
                     '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', f'{dur:.3f}', str(mp4)], check=True)
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f'{cover_t:.2f}', '-i', str(mp4), '-frames:v', '1', '-q:v', '2', str(out / 'cover.jpg')], check=True)
+    if (post / 'whatif.json').exists():  # X cut (owner, Nov 4): 4:5, 1080x1350, keeps hook, counter, chart, reveal, lesson
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(mp4), '-vf', 'crop=1080:1350:0:180', '-c:v', 'libx264', '-crf', '20',
+                        '-pix_fmt', 'yuv420p', '-c:a', 'copy', str(out / 'story_x45.mp4')], check=True)
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(out / 'cover.jpg'), '-vf', 'crop=1080:1350:0:285', str(out / 'cover_45.jpg')], check=True)
     print(mp4.relative_to(ROOT.parent), f'{dur:.1f}s'); print(track[1])
 
 
