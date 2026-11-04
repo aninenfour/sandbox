@@ -953,5 +953,43 @@
    "Yahoo Finance NVDA split-adj closes 2017-03-03 2.4608, 2026-11-03 206.69"
   ],
   "note": "Drawn generic console icon (no logos). 2021 peak $4,008 -> 2022 low $1,364 (-66%)."
+ },
+ {
+  "id": "2026-11-05-midterms-crypto",
+  "type": "news",
+  "slot": "2026-11-05T16:00:00+08:00",
+  "title": "Democrats take Congress. Bitcoin jumps back above $80K",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "The Block",
+   "Cointelegraph",
+   "Decrypt"
+  ]
+ },
+ {
+  "id": "2026-11-05-academy-btc-holders",
+  "type": "tutorial",
+  "slides": 4,
+  "slot": "2026-11-05T19:00:00+08:00",
+  "title": "Who owns the most Bitcoin? A ghost is still number 1",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "Arkham (Satoshi ~1.10M)",
+   "Strategy SEC filing Sep 2026 (~846K)",
+   "BlackRock IBIT (~800K, mid-2026 reports)"
+  ],
+  "note": "Figures rounded with ~; IBIT figure from mid-2026 reports, flagged as latest public."
  }
 ]
