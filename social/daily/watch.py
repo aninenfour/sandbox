@@ -35,6 +35,18 @@ TRADFI = {
     'XAUT': ('Tether Gold', None), 'PAXG': ('PAX Gold', 'PaxosGlobal'),
 }
 TZ = live.TZ
+LIGHT = ((0, 4351), (8192, 8205), (8208, 8223), (8242, 8247))
+
+
+def x_len(t):
+    """X's weighted length, erring high (same rule as publish.py): emoji count 2."""
+    n = 0
+    for ch in t:
+        c = ord(ch)
+        if c in (0xFE0F, 0x200D):
+            continue
+        n += 1 if any(a <= c <= b for a, b in LIGHT) and c != 0x20E3 else 2
+    return n
 
 
 def base(sym):
@@ -99,13 +111,26 @@ def main():
         lines += [f'⏱ {data["window"]}, 24h change', 'Which one is on your list? 👇', '', '#Hotcoin #Crypto #TradFi']
         return '\n'.join(lines)
 
-    caps = {'x': caption(True), 'facebook': caption(False), 'linkedin': caption(False)}
+    def short_caption():
+        """Fallback for X without Premium: must fit 280 weighted chars, the poster carries the reasons."""
+        for handles, prices in ((True, True), (False, True), (True, False), (False, False)):
+            lines = [f'👀 What to Watch Today on Hotcoin | {now.strftime("%b %-d")}', '']
+            for g in items:
+                lines.append(' '.join(x for x in (f'${g["sym"]}', g['handle'] if handles else '',
+                                                  f'{price(g["last"])} {pct(g["ch"])}' if prices else '') if x))
+            lines += ['', 'Which one is on your list? 👇', '#Hotcoin #Crypto #TradFi']
+            t = '\n'.join(lines)
+            if x_len(t) <= 280:
+                return t
+        return t
+
+    caps = {'x': caption(True), 'x-short': short_caption(), 'facebook': caption(False), 'linkedin': caption(False)}
     for k, v in caps.items():
         if '—' in v:
             sys.exit('em dash in caption, rewrite the "why" lines')
         open(os.path.join(out, f'{k}.txt'), 'w').write(v)
     print(json.dumps({'dir': out, 'image': os.path.join(out, 'sq-watch.png'), 'items': items,
-                      'x_len': len(caps['x'])}, ensure_ascii=False, indent=1))
+                      'x_len': x_len(caps['x']), 'x_short_len': x_len(caps['x-short'])}, ensure_ascii=False, indent=1))
 
 
 if __name__ == '__main__':
