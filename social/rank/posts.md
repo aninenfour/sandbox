@@ -71,3 +71,25 @@ CoinMarketCap 衍生品交易所排名第 24 名 🔓
 
 #Hotcoin #CoinMarketCap #合约交易 #加密货币
 ```
+
+---
+
+## Tiếng Việt (4:5 → X / LinkedIn / Facebook)
+
+Video: `hotcoin-tradfi/out/rank/hotcoin-cmc-top24-vi-4x5.mp4`
+
+```
+Mở khóa thứ hạng mới. 🔓
+
+Hotcoin chính thức lọt Top 24 sàn giao dịch phái sinh trên @CoinMarketCap!
+
+📊 Hợp đồng mở (OI): $1.08B
+⚡ Khối lượng futures 24h: $8.0B
+🧩 575 cặp giao dịch futures
+
+Và đây mới chỉ là khởi đầu.
+
+Giao dịch futures ngay 👉 hotcoin.com
+
+#Hotcoin #CoinMarketCap #Futures #Crypto
+```

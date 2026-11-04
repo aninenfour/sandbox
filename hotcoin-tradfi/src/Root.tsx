@@ -138,6 +138,7 @@ export const Root: React.FC = () => (
     <Composition id="CmcRank-zh-9x16" component={CmcRank} defaultProps={{lang: "zh" as const}} durationInFrames={RANK_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="CmcRank-en-4x5" component={CmcRank} defaultProps={{lang: "en" as const}} durationInFrames={RANK_DURATION} fps={30} width={1080} height={1350} />
     <Composition id="CmcRank-zh-4x5" component={CmcRank} defaultProps={{lang: "zh" as const}} durationInFrames={RANK_DURATION} fps={30} width={1080} height={1350} />
+    <Composition id="CmcRank-vi-4x5" component={CmcRank} defaultProps={{lang: "vi" as const}} durationInFrames={RANK_DURATION} fps={30} width={1080} height={1350} />
     <Composition id="Style2Logo" component={Style2Logo} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2TradFi" component={Style2TradFi} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2Next90" component={Style2Next90} durationInFrames={1} fps={30} width={1080} height={1350} />

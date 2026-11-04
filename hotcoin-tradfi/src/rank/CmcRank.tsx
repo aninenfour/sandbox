@@ -16,12 +16,17 @@ const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const ip = (f: number, a: number[], b: number[]) => interpolate(f, a, b, cl);
 const sp = (f: number, d = 14, s = 170) => spring({frame: f, fps: FPS, config: {damping: d, stiffness: s}});
 
-type Lang = 'en' | 'zh';
+type Lang = 'en' | 'zh' | 'vi';
 const COPY = {
   en: {
     title: 'Derivatives Exchanges', sub: 'CoinMarketCap ranking · Nov 4, 2026', colName: 'Name', colOI: 'Open Interest', locked: 'Top 24 derivatives exchange',
     lockedSub: 'on CoinMarketCap', stats: [['Open interest', 1.08, '$', 'B', 2], ['24h futures volume', 8.0, '$', 'B', 1], ['Futures pairs', 575, '', '', 0]] as const,
     tag: ['And we\'re just', 'getting started.'], cta: 'Trade futures on Hotcoin', badge: '#24 ON COINMARKETCAP',
+  },
+  vi: {
+    title: 'Sàn giao dịch phái sinh', sub: 'Xếp hạng CoinMarketCap · 04/11/2026', colName: 'Tên', colOI: 'Hợp đồng mở', locked: 'Top 24 sàn phái sinh',
+    lockedSub: 'trên CoinMarketCap', stats: [['Hợp đồng mở (OI)', 1.08, '$', 'B', 2], ['Khối lượng futures 24h', 8.0, '$', 'B', 1], ['Cặp giao dịch futures', 575, '', '', 0]] as const,
+    tag: ['Và đây mới chỉ', 'là khởi đầu.'], cta: 'Giao dịch futures trên Hotcoin', badge: '#24 TRÊN COINMARKETCAP',
   },
   zh: {
     title: '衍生品交易所排名', sub: 'CoinMarketCap · 2026年11月4日', colName: '名称', colOI: '持仓量', locked: '衍生品交易所第 24 名',
@@ -75,7 +80,7 @@ export const CmcRank: React.FC<{lang: Lang}> = ({lang}) => {
   const {width: W, height: H} = useVideoConfig();
   useLangFonts(lang);
   const c = COPY[lang];
-  const FONT = lang === 'zh' ? '"Inter Tight", NotoSC, sans-serif' : '"Inter Tight", sans-serif';
+  const FONT = lang === 'zh' ? '"Inter Tight", NotoSC, sans-serif' : '"Inter Tight", Inter, sans-serif';
   const tall = H / W > 1.5, k = tall ? 1 : 0.86; // 4:5 gets slightly smaller type
   const ink = '#F5F7F2', muted = 'rgba(245,247,242,0.55)';
 
