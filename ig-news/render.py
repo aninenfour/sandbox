@@ -213,6 +213,10 @@ def main():
             spec['slides'] = [x for x in spec['slides'] if x['kind'] != 'end']
         if len(spec['slides']) != 4:
             print(f"WARNING: Academy/research carousel has {len(spec['slides'])} slides; must be exactly 4 (cover + 3)")
+        N = len(spec['slides'])  # counter + number follow the real position; no 'Swipe' on the last slide
+        for k, x in enumerate(spec['slides'], 1):
+            if x['kind'] == 'tslide':
+                x['of'] = f'{k}/{N}'; x['num'] = f'{k:02d}'; x['_last'] = (k == N)
     files = []
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')

@@ -150,8 +150,8 @@ def kinds(g):
     uri, foot, inline = g['uri'], g['foot'], g['inline']
     sym_dark = uri('symbol-dark.svg', g['ROOT'] / 'assets')
 
-    def pfoot(sw='Swipe'):
-        return foot(sw).replace(g['SYM'], sym_dark)
+    def pfoot(sw='Swipe', last=False):
+        return foot(sw, last).replace(g['SYM'], sym_dark)
 
     def tcover(s, base):
         hero = f'<div class="thero" style="background-image:url({uri(s["hero"], base)});background-position:{s.get("hero_pos","center")};{("background-color:"+s["hero_bg"]+";background-size:"+s.get("hero_fit","70%")+";background-repeat:no-repeat") if s.get("hero_bg") else ""}"></div>' if s.get('hero') else ''
@@ -165,7 +165,7 @@ def kinds(g):
         top = s.get('body_top', 400)
         return f'''<div class="slide paper"><div class="acad"><span class="dot"></span>Hotcoin Academy</div><div class="tch">{_esc(s.get("of",""))}</div>
 <div class="tnum">{_esc(s.get("num",""))}</div><div class="ttl">{inline(s["title"])}</div>
-<div class="tbody fitbody" data-bottom="{s.get("body_bottom",1180)}" style="top:{top}px;font-size:{s.get("size",34)}px">{"".join(f"<p>{inline(p)}</p>" for p in s.get("paras", []))}</div>{vis}{src}{pfoot()}</div>'''
+<div class="tbody fitbody" data-bottom="{s.get("body_bottom",1180)}" style="top:{top}px;font-size:{s.get("size",34)}px">{"".join(f"<p>{inline(p)}</p>" for p in s.get("paras", []))}</div>{vis}{src}{pfoot(last=s.get("_last", False))}</div>'''
 
     def wcover(s, base):
         return f'''<div class="slide wk"><div class="wph {"bw" if s.get("bw",True) else ""}" style="background-image:url({uri(s["photo"], base)});background-position:{s.get("photo_pos","center")}"></div><div class="wgrad"></div>
