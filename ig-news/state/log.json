@@ -991,5 +991,24 @@
    "BlackRock IBIT (~800K, mid-2026 reports)"
   ],
   "note": "Figures rounded with ~; IBIT figure from mid-2026 reports, flagged as latest public."
+ },
+ {
+  "id": "2026-11-05-whatif-netflix",
+  "type": "reel-whatif",
+  "style": "light",
+  "slot": "2026-11-05T21:30:00+08:00",
+  "title": "$96 = a year of Netflix (2011) or Netflix stock -> $1,530",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(4:5)",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance NFLX split-adj closes 2011-07-12 4.161, 2026-11-04 66.39"
+  ],
+  "note": "2012 low $18 (-81%), 2021 peak $1,591, 2022 -75%, 2025 peak $3,049. Drawn popcorn icon."
  }
 ]
