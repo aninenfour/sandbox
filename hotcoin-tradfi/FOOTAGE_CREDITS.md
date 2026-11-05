@@ -342,3 +342,15 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 ## PolitiFi drawdown graphic (src/politifi/Wiped.tsx)
 - US Capitol dome photo: J. Amill Santiago on Unsplash, https://unsplash.com/photos/SVtBYkvai1M (Unsplash License). Halftoned and masked with scripts/halftone-capitol.py.
 - Coin logos: CoinGecko. Market caps: CoinMarketCap daily history.
+
+## Altseason watch carousel (social/altseason)
+Photos from Unsplash (Unsplash License), backgrounds removed with rembg (isnet-general-use):
+- Binoculars: Ran Berkovich, https://unsplash.com/photos/kSLNVacFehs
+- Bitcoin coin: Kanchanara, https://unsplash.com/photos/7E3QGntO66M
+- Balance scale: Elena Mozhvilo, https://unsplash.com/photos/j06gLuKK0GM
+- Thermometer: Bianca Ackermann, https://unsplash.com/photos/gR8QukPoAvQ
+- Dollar bills: Giorgio Trovato, https://unsplash.com/photos/WyxqQpyFNk8
+- Wooden block rocket: Random Thinking, https://unsplash.com/photos/3lyDYaYj3pQ
+- Megaphone: Oleg Laptev, https://unsplash.com/photos/QRKJwE6yfJo
+- Red traffic light: Erwan Hesry, https://unsplash.com/photos/IqB5MPcQp6k
+Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), Binance ETHBTC, DefiLlama stablecoins.
