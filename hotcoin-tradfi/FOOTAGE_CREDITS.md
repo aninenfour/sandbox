@@ -346,7 +346,7 @@ All archival footage is public domain. It was found via movingimagearchive.com, 
 ## Altseason watch carousel (social/altseason)
 Photos from Unsplash (Unsplash License), backgrounds removed with rembg (isnet-general-use):
 - Binoculars: Ran Berkovich, https://unsplash.com/photos/kSLNVacFehs (earlier cover, replaced)
-- Cover, person with binoculars (B/W): shayan ramesht, https://unsplash.com/photos/P-RkJ8CsDhw
+- Cover, hand holding binoculars (B/W): Nathan Thomassin, https://unsplash.com/photos/Lk8bAFjPYqM
 - Bitcoin coin: Kanchanara, https://unsplash.com/photos/7E3QGntO66M
 - Balance scale: Elena Mozhvilo, https://unsplash.com/photos/j06gLuKK0GM
 - Thermometer: Bianca Ackermann, https://unsplash.com/photos/gR8QukPoAvQ

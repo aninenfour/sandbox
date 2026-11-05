@@ -103,7 +103,7 @@ slides.push(page(1, `
     <div style="font-weight:800;font-size:212px;letter-spacing:-13px;line-height:.86;margin-top:10px">Alt<br>season</div>
     <div style="font-size:76px;font-weight:600;letter-spacing:-2.5px;line-height:1.02;margin-top:30px">is it coming?<br><em style="font-size:86px">5 signs</em> to watch.</div>
   </div>
-  <img class="cut" src="${A('watcher-bw.png')}" style="width:780px;right:-30px;bottom:0;filter:drop-shadow(0 20px 40px rgba(11,14,17,.25))">
+  <img class="cut" src="${A('hand-bw.png')}" style="width:590px;right:-50px;bottom:0;filter:drop-shadow(0 24px 40px rgba(11,14,17,.28))">
   <div style="position:absolute;right:64px;top:250px;display:flex;flex-direction:column;gap:16px;align-items:flex-end;z-index:4">
     ${[['BTC.D', last(dom).toFixed(2) + '%'], ['ETH/BTC', last(eb).toFixed(4)], ['ALT INDEX', last(asi) + '/100']].map(([k, v], j) => `<div style="background:#fff;border-radius:16px;padding:14px 20px;font-family:'JetBrains Mono';font-size:22px;box-shadow:0 10px 30px rgba(11,14,17,.1);transform:rotate(${[3, -2, 2][j]}deg)"><span style="color:${GRAY}">${k}</span> <b>${v}</b></div>`).join('')}
   </div>
