@@ -1,0 +1,71 @@
+{
+ "date": "NOV 5",
+ "window": "Prices at Nov 5 11:58 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Back above $80K after a dip to $75.7K on Wednesday",
+   "last": 80584.95,
+   "ch": 5.34,
+   "vol": 1053191463.96,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Led majors Wed, up 6.6% to a two-week high",
+   "last": 2426.87,
+   "ch": 7.89,
+   "vol": 250565862.36,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "INJ",
+   "name": "Injective",
+   "kind": "crypto",
+   "handle": "@injective",
+   "why": "One of Hotcoin's biggest 24h movers with real volume",
+   "last": 8.063,
+   "ch": 13.43,
+   "vol": 5229204.2,
+   "logo": "inj",
+   "bg": "#4d3dff",
+   "glow": "#4d3dff"
+  },
+  {
+   "sym": "LITEB",
+   "name": "Lumentum",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Q1 FY27 results after the US close, call 06:00 Fri UTC+8",
+   "last": 606.08,
+   "ch": -5.41,
+   "vol": 622486.18,
+   "logo": "liteb",
+   "bg": "#ffffff",
+   "glow": "#f0af3f"
+  },
+  {
+   "sym": "IRENB",
+   "name": "IREN",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Q1 FY27 results today, call 06:00 Fri UTC+8",
+   "last": 21.05,
+   "ch": -7.14,
+   "vol": 722412.06,
+   "logo": "irenb",
+   "bg": "#0a344f",
+   "glow": "#0b344f"
+  }
+ ]
+}

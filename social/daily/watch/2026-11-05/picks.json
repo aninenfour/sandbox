@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Back above $80K after a dip to $75.7K on Wednesday"},
+ {"sym": "ETH", "kind": "crypto", "why": "Led majors Wed, up 6.6% to a two-week high"},
+ {"sym": "INJ", "kind": "crypto", "why": "One of Hotcoin's biggest 24h movers with real volume"},
+ {"sym": "LITEB", "kind": "tradfi", "name": "Lumentum", "handle": "", "why": "Q1 FY27 results after the US close, call 06:00 Fri UTC+8"},
+ {"sym": "IRENB", "kind": "tradfi", "name": "IREN", "handle": "", "why": "Q1 FY27 results today, call 06:00 Fri UTC+8"}
+]}

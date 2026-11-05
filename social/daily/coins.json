@@ -248,5 +248,26 @@
   "twitter": null,
   "image": "https://coin-images.coingecko.com/coins/images/55684/large/coingeckoupdate.png?1755203747",
   "logo": "useless"
+ },
+ "ETH": {
+  "id": "ethereum",
+  "name": "Ethereum",
+  "twitter": "ethereum",
+  "image": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+  "logo": "eth"
+ },
+ "INJ": {
+  "id": "injective-protocol",
+  "name": "Injective",
+  "twitter": "injective",
+  "image": "https://coin-images.coingecko.com/coins/images/12882/large/Other_200x200.png?1738782212",
+  "logo": "inj"
+ },
+ "IRENB": {
+  "id": "iren-limited-bstocks-tokenized-stock",
+  "name": "IREN Limited (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102175302/large/irenb.png?1786082915",
+  "logo": "irenb"
  }
 }
