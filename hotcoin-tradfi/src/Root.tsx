@@ -37,6 +37,7 @@ import {ApiSlide1, ApiSlide2, ApiSlide3, ApiSlide4} from './api/ApiCarousel';
 import {RedBlue} from './politifi/RedBlue';
 import {Wiped} from './politifi/Wiped';
 import {CmcRank, RANK_DURATION} from './rank/CmcRank';
+import {SaleFlow, SALE_DURATION} from './sale/SaleFlow';
 import {ScaryStories, ScaryStoriesTall, ScaryThumb, ScaryThumbTall, SCARY_DURATION} from './halloween/ScaryStories';
 import {ScaryStories2, ScaryStories2Tall, ScaryThumb2, ScaryThumb2Tall, SCARY2_DURATION} from './halloween/ScaryStories2';
 import {HalloweenGiveaway} from './halloween/Giveaway';
@@ -139,6 +140,7 @@ export const Root: React.FC = () => (
     <Composition id="CmcRank-en-4x5" component={CmcRank} defaultProps={{lang: "en" as const}} durationInFrames={RANK_DURATION} fps={30} width={1080} height={1350} />
     <Composition id="CmcRank-zh-4x5" component={CmcRank} defaultProps={{lang: "zh" as const}} durationInFrames={RANK_DURATION} fps={30} width={1080} height={1350} />
     <Composition id="CmcRank-vi-4x5" component={CmcRank} defaultProps={{lang: "vi" as const}} durationInFrames={RANK_DURATION} fps={30} width={1080} height={1350} />
+    <Composition id="SaleFlow" component={SaleFlow} durationInFrames={SALE_DURATION} fps={30} width={1080} height={1350} />
     <Composition id="Style2Logo" component={Style2Logo} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2TradFi" component={Style2TradFi} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2Next90" component={Style2Next90} durationInFrames={1} fps={30} width={1080} height={1350} />
