@@ -157,3 +157,12 @@ White background, light motion design (default in stories/whatif.js; `"theme":"d
 - **Academy / research carousels: exactly 4 slides** (cover + 3 content), **no CTA end slide on any channel**. render.py strips `end` and warns if the count is not 4.
 - **News carousels:** 4 content slides + CTA end slide on IG/FB only. On X never post the CTA slide: X gets slides 01-04.
 - **Every carousel also goes to the Hotcoin Research X account** (Publer: "Hotcoin Research"), 4 images, no CTA, short factual caption, ~1.5 h after the IG post (avoid same caption as the main X account).
+
+### WHAT IF v2 template (owner, Nov 5) — default for new WHAT IF Reels
+`"template": "v2"` in whatif.json → stories/whatif2.js.
+- Cover + intro never show the result (cover asks "WHICH ONE WINS?").
+- The stock is a coin with its real ticker (`invest.ticker`, `invest.color`).
+- Versus screen: two panels + VS badge, chosen panel ringed, coin flies to the chart.
+- `mode`: `lump` (one-time money, e.g. a console) or `dca` (little by little: subscriptions, a new phone every 2 years, PC upgrades). Series rows are [date, worth, spent].
+- Moving camera: the coin stays near the centre, years scroll left, the $ scale re-fits, so the coin climbs/falls in place. Two counters (paid vs stock), reveal shows both + "Nx MORE".
+- Use real price histories for DCA (e.g. Netflix US standard plan: $7.99 2011 → $19.99 2026) and say "price only" in the caption.

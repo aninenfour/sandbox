@@ -67,7 +67,9 @@ def main():
     shutil.rmtree(frames, ignore_errors=True); frames.mkdir(parents=True)
     kit = (ROOT / 'stories' / 'kit.js').read_text()
     if (post / 'whatif.json').exists():  # WHAT IF price-dot Reel: shared template + the post's data
-        scene = 'window.SPEC=' + (post / 'whatif.json').read_text() + ';\n' + (ROOT / 'stories' / 'whatif.js').read_text()
+        spec_txt = (post / 'whatif.json').read_text()
+        tpl = 'whatif2.js' if json.loads(spec_txt).get('template') == 'v2' else 'whatif.js'   # v2 (owner, Nov 5)
+        scene = 'window.SPEC=' + spec_txt + ';\n' + (ROOT / 'stories' / tpl).read_text()
     else:
         scene = (post / 'scene.js').read_text()
     import base64
