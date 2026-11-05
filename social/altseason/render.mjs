@@ -85,7 +85,7 @@ const sign = ({i, n, title, what, kpi, chips, chartSvg, rule, color, label, now,
   ${img}
   <div class="row"><div class="rule"><small>ALTSEASON SIGNAL</small><p>${rule}</p></div>
   <div class="now"><small>NOW</small>${status(color, label)}<p>${now}</p></div></div>
-  <footer>${src}</footer>`);
+  `);
 
 // ---------- data ----------
 const dom = D.dom, eb = D.ethbtc, asi = D.asi, st = D.stable, alt = D.alt;
@@ -100,15 +100,14 @@ const slides = [];
 slides.push(page(1, `
   <div style="position:absolute;left:-120px;top:520px;width:900px;height:900px;border-radius:999px;background:${LIME}"></div>
   <div style="position:absolute;left:64px;top:190px;z-index:2">
-    <div style="font-family:'JetBrains Mono';font-weight:500;font-size:23px;letter-spacing:3px;color:${GRAY}">MARKET GUIDE · LIVE DATA · ${D.asof.toUpperCase()}</div>
-    <div style="font-weight:800;font-size:212px;letter-spacing:-13px;line-height:.86;margin-top:34px">Alt<br>season</div>
+    <div style="font-weight:800;font-size:212px;letter-spacing:-13px;line-height:.86;margin-top:10px">Alt<br>season</div>
     <div style="font-size:76px;font-weight:600;letter-spacing:-2.5px;line-height:1.02;margin-top:30px">is it coming?<br><em style="font-size:86px">5 signs</em> to watch.</div>
   </div>
-  <img class="cut" src="${A('binoculars.png')}" style="width:780px;right:-90px;top:930px;transform:rotate(-8deg)">
+  <img class="cut" src="${A('binoculars.png')}" style="width:800px;right:-90px;top:900px;transform:rotate(-8deg);filter:grayscale(1) contrast(1.25) brightness(1.35) drop-shadow(0 30px 30px rgba(11,14,17,.3))">
   <div style="position:absolute;right:64px;top:250px;display:flex;flex-direction:column;gap:16px;align-items:flex-end;z-index:4">
     ${[['BTC.D', last(dom).toFixed(2) + '%'], ['ETH/BTC', last(eb).toFixed(4)], ['ALT INDEX', last(asi) + '/100']].map(([k, v], j) => `<div style="background:#fff;border-radius:16px;padding:14px 20px;font-family:'JetBrains Mono';font-size:22px;box-shadow:0 10px 30px rgba(11,14,17,.1);transform:rotate(${[3, -2, 2][j]}deg)"><span style="color:${GRAY}">${k}</span> <b>${v}</b></div>`).join('')}
   </div>
-  <div style="position:absolute;left:64px;bottom:64px;z-index:4;font-size:30px;font-weight:600;display:flex;align-items:center;gap:14px">Swipe for the checklist <span style="font-size:40px">→</span></div>`));
+  <div style="position:absolute;left:64px;bottom:64px;z-index:4;font-size:30px;font-weight:600;display:flex;align-items:center;gap:14px">Read the thread <span style="font-size:40px">↓</span></div>`));
 
 // 2 BTC dominance
 slides.push(sign({i: 2, n: '01', title: 'Bitcoin <em>dominance</em>', what: "BTC's share of the whole crypto market.",
