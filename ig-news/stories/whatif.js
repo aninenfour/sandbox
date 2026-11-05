@@ -88,6 +88,15 @@ function icon(kind, x, y, r, t) {
     ctx.fillStyle = '#1B1F23'; ctx.beginPath(); ctx.arc(-w / 2 - jw * .25, -h * .18, r * .13, 0, 7); ctx.fill();
     ctx.beginPath(); ctx.arc(w / 2 + jw * .25, h * .18, r * .13, 0, 7); ctx.fill();
     ctx.fillStyle = 'rgba(255,255,255,.9)'; for (const [dx, dy] of [[0, -1], [1, 0], [0, 1], [-1, 0]]) { ctx.beginPath(); ctx.arc(w / 2 + jw * .25 + dx * r * .1, -h * .2 + dy * r * .1, r * .045, 0, 7); ctx.fill(); }
+  } else if (kind === 'popcorn') {   // striped popcorn box, generic (no logos)
+    const w = r * 1.3, h = r * 1.35;
+    ctx.shadowColor = 'rgba(20,40,10,.25)'; ctx.shadowBlur = 18;
+    ctx.fillStyle = '#FFF4D6'; for (const [px, py, pr] of [[-.45, -.75, .36], [0, -.92, .4], [.45, -.75, .36], [-.22, -.55, .34], [.25, -.55, .34]]) { ctx.beginPath(); ctx.arc(px * r, py * r, pr * r, 0, 7); ctx.fill(); }
+    ctx.shadowBlur = 0; ctx.fillStyle = 'rgba(232,180,60,.5)'; for (const [px, py] of [[-.3, -.85], [.15, -.98], [.4, -.7]]) { ctx.beginPath(); ctx.arc(px * r, py * r, r * .08, 0, 7); ctx.fill(); }
+    ctx.beginPath(); ctx.moveTo(-w / 2, -h * .35); ctx.lineTo(w / 2, -h * .35); ctx.lineTo(w * .38, h * .65); ctx.lineTo(-w * .38, h * .65); ctx.closePath(); ctx.save(); ctx.clip();
+    ctx.fillStyle = '#FFFFFF'; ctx.fillRect(-w, -h, w * 2, h * 2); ctx.fillStyle = '#E5322D';
+    for (let k = -3; k <= 3; k += 2) ctx.fillRect(k * w / 8 - w / 16, -h, w / 8, h * 2);
+    ctx.restore(); ctx.strokeStyle = 'rgba(0,0,0,.12)'; ctx.lineWidth = 3; ctx.stroke();
   } else if (kind === 'cash') {
     ctx.rotate(-.06);
     for (const [dx, dy, c] of [[14, 14, '#BFE3A8'], [0, 0, '#5DB23A']]) { ctx.fillStyle = c; ctx.beginPath(); ctx.roundRect(-r * 1.1 + dx, -r * .62 + dy, r * 2.2, r * 1.24, 18); ctx.fill(); }
