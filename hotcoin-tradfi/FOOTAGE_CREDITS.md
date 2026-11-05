@@ -355,3 +355,6 @@ Photos from Unsplash (Unsplash License), backgrounds removed with rembg (isnet-g
 - Megaphone: Oleg Laptev, https://unsplash.com/photos/QRKJwE6yfJo
 - Red traffic light: Erwan Hesry, https://unsplash.com/photos/IqB5MPcQp6k
 Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), Binance ETHBTC, DefiLlama stablecoins.
+
+## On sale carousel (social/dips)
+- Bitcoin coin photo: Kanchanara, https://unsplash.com/photos/7E3QGntO66M. Coin logos: CoinGecko.
