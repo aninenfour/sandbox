@@ -34,6 +34,7 @@
 → ~~The 1929 crash in 4 steps~~ (2026-10-29)
 → ~~Satoshi's whitepaper and disappearance~~ (2026-11-01)
 → ~~The man who sold the Eiffel Tower~~ (2026-11-03)
+→ ~~The FTX collapse in nine days~~ (2026-11-05)
 Sorted by next anniversary (see Learnings: anniversary hooks win). Use the dated one when a posting day lands on or a day after its date; fill the gaps with the evergreen list. Fact-check the date in the run as always.
 → Nov 15, 1923: Weimar hyperinflation ends (Rentenmark introduced)
 → Nov 21, 1834: Hetty Green, the witch of Wall Street, is born
@@ -84,3 +85,4 @@ Week of 2026-11-03 (4 reels, small sample, no watch-time data from Publer):
 | 2026-10-29 | 1929 crash (Black Tuesday anniversary, margin buying) | Story (date) | https://www.instagram.com/reel/DfFei4DCl2y/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/4101410140161216 | 285 (8L 0C 2S) | 335 (5L) | 294 (1L) | posted on the 97th anniversary; 21 images, 51.9 s, cover set; music lofi-01 (inferred); posted 00:51 Beijing |
 | 2026-11-01 | Satoshi's whitepaper (18th anniversary, Oct 31 2008) and disappearance | Open loop | https://www.instagram.com/reel/DfNLW5MAkBp/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1434494208229883 | 1,176 (25L 0C 1S) | 328 (4L) | 70 (1L 1C) | whitepaper turned 18 the day before; 20 images, 54.6 s, cover set; music dreamy-jazz (inferred); posted 00:38 Beijing |
 | 2026-11-03 | The man who sold the Eiffel Tower (Victor Lustig, 1925) | Warning | https://www.instagram.com/reel/DfSWLmrk-gR/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1804114520643768 | | | | evergreen gap-filler (no anniversary near), psychology/scam angle; 20 images (Canva quota cooldowns, s21 dropped), 53.7 s, cover set; music lofi-02; posted 00:53 Beijing |
+| 2026-11-05 | FTX collapse in nine days (4th anniversary week, Nov 2 to 11, 2022) | Number (date) | https://www.instagram.com/reel/DfXexwegDct/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/2377635742996935 | | | | trend tie-in to the Binance hack / exchange-trust news; crypto category; 21 images, 58.6 s, cover set (s14 shocked face); music sleepy-cat; posted 00:38 Beijing (Nov 6) |

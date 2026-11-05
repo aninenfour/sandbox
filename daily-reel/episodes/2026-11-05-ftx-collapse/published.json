@@ -1,0 +1,17 @@
+{
+ "instagram": {
+  "state": "published",
+  "link": "https://www.instagram.com/reel/DfXexwegDct/",
+  "error": null
+ },
+ "tiktok": {
+  "state": "published",
+  "link": null,
+  "error": null
+ },
+ "facebook": {
+  "state": "published",
+  "link": "https://www.facebook.com/reel/2377635742996935",
+  "error": null
+ }
+}
