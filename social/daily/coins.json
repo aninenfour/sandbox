@@ -269,5 +269,12 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102175302/large/irenb.png?1786082915",
   "logo": "irenb"
+ },
+ "XTZ": {
+  "id": "tezos",
+  "name": "Tezos",
+  "twitter": "tezos",
+  "image": "https://coin-images.coingecko.com/coins/images/976/large/Tezos-logo.png?1696502091",
+  "logo": "xtz"
  }
 }
