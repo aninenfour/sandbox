@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "US October jobs report today, 21:30 UTC+8"},
+ {"sym": "ETH", "kind": "crypto", "why": "Fell over 7% Thursday amid $1.1B in crypto liquidations"},
+ {"sym": "NVDAB", "kind": "tradfi", "why": "Fell 9.3% Thursday as the chip selloff hit AI names"},
+ {"sym": "MUB", "kind": "tradfi", "name": "Micron", "why": "Fell 17.5% Thursday in a broad memory chip selloff"},
+ {"sym": "MRNAB", "kind": "tradfi", "name": "Moderna", "handle": "moderna_tx", "why": "Q3 results today, call 21:00 UTC+8"}
+]}

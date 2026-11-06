@@ -1,0 +1,21 @@
+{
+ "twitter": {
+  "state": "published",
+  "link": "https://x.com/1065817584396713984/status/2118554305120673891",
+  "id": "6aed51100acc11d34455a709",
+  "error": "X post is live but the caption was cut: fix it on X (edit) and check publish.py",
+  "verified_full_text": false
+ },
+ "facebook": {
+  "state": "published",
+  "link": "https://www.facebook.com/107965200554050_1656268539625247",
+  "id": "6aed512b1710035d7b35fa29",
+  "error": null
+ },
+ "linkedin": {
+  "state": "published",
+  "link": "https://www.linkedin.com/feed/update/urn:li:share:7524320159445196800",
+  "id": "6aed51320acc11d34455a741",
+  "error": null
+ }
+}

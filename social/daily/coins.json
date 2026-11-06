@@ -276,5 +276,26 @@
   "twitter": "tezos",
   "image": "https://coin-images.coingecko.com/coins/images/976/large/Tezos-logo.png?1696502091",
   "logo": "xtz"
+ },
+ "NVDAB": {
+  "id": "nvidia-bstocks",
+  "name": "NVIDIA (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102173743/large/nvidia-tokenized-bStocks-nvdab.png?1781196662",
+  "logo": "nvdab"
+ },
+ "MUB": {
+  "id": "micron-technology-bstock",
+  "name": "Micron Technology (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102173741/large/micron-technology-tokenized-bStocks-mub.png?1781196189",
+  "logo": "mub"
+ },
+ "MRNAB": {
+  "id": "moderna-bstocks-tokenized-stock",
+  "name": "Moderna (bStocks Tokenized Stock)",
+  "twitter": null,
+  "image": "https://coin-images.coingecko.com/coins/images/102179140/large/mrnab.png?1791293265",
+  "logo": "mrnab"
  }
 }

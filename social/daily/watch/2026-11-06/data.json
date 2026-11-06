@@ -1,0 +1,71 @@
+{
+ "date": "NOV 6",
+ "window": "Prices at Nov 6 11:43 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "US October jobs report today, 21:30 UTC+8",
+   "last": 75979.99,
+   "ch": -5.91,
+   "vol": 1267641049.61,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Fell over 7% Thursday amid $1.1B in crypto liquidations",
+   "last": 2235.65,
+   "ch": -8.13,
+   "vol": 291719161.85,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA",
+   "kind": "tradfi",
+   "handle": "@nvidia",
+   "why": "Fell 9.3% Thursday as the chip selloff hit AI names",
+   "last": 185.34,
+   "ch": -7.07,
+   "vol": 607883.61,
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "MUB",
+   "name": "Micron",
+   "kind": "tradfi",
+   "handle": "@MicronTech",
+   "why": "Fell 17.5% Thursday in a broad memory chip selloff",
+   "last": 689.46,
+   "ch": -11.92,
+   "vol": 566921.21,
+   "logo": "mub",
+   "bg": "#63027b",
+   "glow": "#6d0288"
+  },
+  {
+   "sym": "MRNAB",
+   "name": "Moderna",
+   "kind": "tradfi",
+   "handle": "@moderna_tx",
+   "why": "Q3 results today, call 21:00 UTC+8",
+   "last": 239.45,
+   "ch": -6.61,
+   "vol": 723968.79,
+   "logo": "mrnab",
+   "bg": "#f0f4fd",
+   "glow": "#f0a82c"
+  }
+ ]
+}
