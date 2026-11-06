@@ -55,15 +55,13 @@ function track9({cx, cy, R, band, text, idp}) {
   const d = `M ${cx - 0.75 * R} ${cy + 2.35 * R} C ${cx + 0.55 * R} ${cy + 2.35 * R} ${cx + R} ${cy + 1.5 * R} ${cx + R} ${cy + 0.4 * R} L ${cx + R} ${cy} A ${R} ${R} 0 1 1 ${cx - R} ${cy} A ${R} ${R} 0 1 1 ${cx + R} ${cy}`;
   const lane = band / 3;
   return `<svg width="100%" height="100%" style="position:absolute;inset:0;overflow:visible">
-    <defs><path id="${idp}" d="${d}"/></defs>
+    <defs><path id="${idp}" d="${d}"/><path id="${idp}c" d="M ${cx + R} ${cy} A ${R} ${R} 0 1 1 ${cx - R} ${cy} A ${R} ${R} 0 1 1 ${cx + R} ${cy}"/></defs>
     <use href="#${idp}" fill="none" stroke="${INK}" stroke-width="${band}" stroke-linecap="butt"/>
     <use href="#${idp}" fill="none" stroke="${LIME}" stroke-width="${lane + 3}" stroke-opacity="1"/>
     <use href="#${idp}" fill="none" stroke="${INK}" stroke-width="${lane - 3}"/>
     <use href="#${idp}" fill="none" stroke="rgba(184,242,106,.35)" stroke-width="2" stroke-dasharray="2 18" transform="translate(0,0)"/>
     <text font-family="Archivo" font-stretch="125%" font-weight="900" font-size="${lane * 0.5}" fill="${LIME}" letter-spacing="3" dy="${lane * 0.18}">
-      <textPath href="#${idp}" startOffset="7%">${text.repeat(4)}</textPath></text>
-    <!-- start line at the tail end -->
-    ${[0, 1, 2].map((k) => `<text x="${cx - 0.75 * R + 26}" y="${cy + 2.35 * R - band / 2 + lane * (k + 0.66)}" font-family="JetBrains Mono" font-weight="700" font-size="${lane * 0.42}" fill="${LIME}">${k + 1}</text>`).join('')}
+      <textPath href="#${idp}c" startOffset="0" textLength="${2 * Math.PI * R - 6}" lengthAdjust="spacing">${text.repeat(/[\u4e00-\u9fff]/.test(text) ? 2 : 1)}</textPath></text>
     <rect x="${cx - 0.75 * R + 4}" y="${cy + 2.35 * R - band / 2}" width="10" height="${band}" fill="#fff"/>
   </svg>`;
 }
@@ -75,21 +73,27 @@ const header = (t, dark) => `<div style="position:absolute;left:64px;top:60px;di
 
 function kv(t) {
   const zh = t.lang === 'zh';
-  return `<!doctype html><html><head><meta charset="utf-8"><style>${base(1080, 1080, LIME)}</style></head><body class="${t.lang}">
-  ${track9({cx: 930, cy: 350, R: 180, band: 144, text: t.track, idp: 'p9'})}
+  return `<!doctype html><html><head><meta charset="utf-8"><style>${base(1600, 900, LIME)}</style></head><body class="${t.lang}">
+  ${track9({cx: 1250, cy: 330, R: 222, band: 166, text: t.track, idp: 'p9'})}
+  <div style="position:absolute;left:${1250 - 140}px;top:${330 - 140}px;width:280px;height:280px;border-radius:999px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:4;transform:rotate(-8deg)">
+    <div class="mono" style="font-weight:700;font-size:${zh ? 22 : 19}px;letter-spacing:2px;background:${INK};color:${LIME};padding:6px 12px;border-radius:8px">${t.lucky[0]}</div>
+    <div style="font-family:'Archivo';font-stretch:125%;font-weight:900;font-size:76px;letter-spacing:-3px;line-height:1;margin-top:10px">9×99</div>
+    <div style="font-family:'Archivo';font-stretch:125%;font-weight:900;font-size:30px;letter-spacing:1px">USDT</div>
+    <div style="font-family:${zh ? "'Noto Sans SC'" : "'Archivo'"};font-weight:700;font-size:${zh ? 19 : 17}px;margin-top:6px;text-align:center;line-height:1.2">${zh ? '注册即可抽奖' : 'Just register to enter'}</div>
+  </div>
   ${header(t, false)}
-  <div style="position:absolute;left:64px;top:200px;z-index:4">
+  <div style="position:absolute;left:80px;top:170px;z-index:4">
     <div class="mono" style="display:inline-block;font-weight:700;font-size:21px;letter-spacing:2px;background:${INK};color:${LIME};padding:9px 16px;border-radius:10px">${t.kicker}</div>
-    <div class="wide" style="font-size:${zh ? 124 : 76}px;line-height:${zh ? 1.05 : 0.92};margin-top:26px">${t.head[0]}<br>${t.head[1]}</div>
+    <div class="wide" style="font-size:${zh ? 92 : 84}px;line-height:${zh ? 1.05 : 0.92};margin-top:22px">${t.head[0]}<br>${t.head[1]}</div>
     <div style="margin-top:${zh ? 26 : 34}px;display:flex;align-items:flex-end;gap:16px">
       <div class="${zh ? '' : 'wide'}" style="font-family:${zh ? "'Noto Sans SC'" : 'inherit'};font-weight:900;font-size:${zh ? 40 : 34}px;line-height:1.1;margin-bottom:22px">${zh ? t.upto : t.upto.replace(' ', '<br>')}</div>
-      <div class="wide" style="font-family:'Archivo';font-stretch:125%;font-size:190px;line-height:.82;letter-spacing:-6px">${t.reward}</div>
+      <div class="wide" style="font-family:'Archivo';font-stretch:125%;font-size:170px;line-height:.82;letter-spacing:-6px">${t.reward}</div>
       <div class="wide" style="font-family:'Archivo';font-stretch:125%;font-size:46px;margin-bottom:12px">${t.unit}</div>
     </div>
     <div style="font-weight:700;font-size:30px;margin-top:22px;font-family:${zh ? "'Noto Sans SC'" : "'Archivo'"}">${t.pool}</div>
     <div class="mono" style="display:inline-block;font-weight:700;font-size:22px;letter-spacing:1.5px;margin-top:16px;border-top:3px solid ${INK};padding-top:12px">⏱ ${t.dates}</div>
   </div>
-  <div style="position:absolute;left:64px;bottom:64px;display:flex;align-items:center;gap:18px;z-index:4">
+  <div style="position:absolute;left:80px;bottom:60px;display:flex;align-items:center;gap:18px;z-index:4">
     <div class="wide" style="font-size:${zh ? 34 : 30}px;background:${INK};color:${LIME};padding:22px 44px;border-radius:999px;font-family:${zh ? "'Noto Sans SC'" : "'Archivo'"}">${t.cta}</div>
     <div class="wide" style="font-size:${zh ? 26 : 24}px;border:3px solid ${INK};padding:19px 30px;border-radius:999px;font-family:'Archivo','Noto Sans SC'">${t.tag}</div>
   </div>
@@ -141,7 +145,7 @@ function steps(t) {
 }
 
 const browser = await chromium.launch();
-for (const [name, html, w, h] of [['kv-en', kv(T.en), 1080, 1080], ['kv-zh', kv(T.zh), 1080, 1080], ['steps-en', steps(T.en), 1080, 1350], ['steps-zh', steps(T.zh), 1080, 1350]]) {
+for (const [name, html, w, h] of [['kv-en', kv(T.en), 1600, 900], ['kv-zh', kv(T.zh), 1600, 900], ['steps-en', steps(T.en), 1080, 1350], ['steps-zh', steps(T.zh), 1080, 1350]]) {
   const ctx = await browser.newContext({viewport: {width: w, height: h}, deviceScaleFactor: 2});
   const pg = await ctx.newPage();
   const f = `${DIR}/_${name}.html`; fs.writeFileSync(f, html);
