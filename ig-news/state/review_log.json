@@ -214,5 +214,16 @@
   ],
   "changes": "none (WHAT IF v2 shipped Nov 5; numbers for Netflix v2 and Academy 4-slide not in yet)",
   "owner_decision": "Academy as short Reels 3-4x/week? Pending. earshot install approval pending."
+ },
+ {
+  "date": "2026-11-07",
+  "looked_at": "IG insights Nov 5-7",
+  "findings": [
+   "Netflix WHAT IF v2 Reel: only 7 reach / 10 views (Switch v1-light got 121). One data point; Tesla v2 (Nov 6) not in yet.",
+   "Possible causes: 1 s static cover at the start (weak first-second hold), or IG holding back a near-duplicate after the v1 drafts were swapped.",
+   "News carousels 22-27, Academy 4-slide 22. Team FTX-anniversary Reel 121."
+  ],
+  "changes": "none yet; if Tesla v2 also lands under ~30, cut the static cover to 0.3 s and start the motion on frame 1 (cover still used as thumbnail).",
+  "owner_decision": "Academy-as-Reels; earshot install permission."
  }
 ]
