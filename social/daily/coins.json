@@ -297,5 +297,26 @@
   "twitter": null,
   "image": "https://coin-images.coingecko.com/coins/images/102179140/large/mrnab.png?1791293265",
   "logo": "mrnab"
+ },
+ "AEON": {
+  "id": "aeon-3",
+  "name": "AEON",
+  "twitter": "AEON_Community",
+  "image": "https://coin-images.coingecko.com/coins/images/102174851/large/aeon_logo.png?1785139024",
+  "logo": "aeon"
+ },
+ "SQQQB": {
+  "id": "proshares-ultrapro-short-qqq-bstocks-tokenized-stock",
+  "name": "ProShares UltraPro Short QQQ (bStocks Tokenized Stock)",
+  "twitter": null,
+  "image": "https://coin-images.coingecko.com/coins/images/102179142/large/sqqqb.png?1791294123",
+  "logo": "sqqqb"
+ },
+ "ACT": {
+  "id": "act-i-the-ai-prophecy",
+  "name": "Act I The AI Prophecy",
+  "twitter": "ACTICOMMUNITY",
+  "image": "https://coin-images.coingecko.com/coins/images/50984/large/ai_prophecy.jpg?1729653897",
+  "logo": "act"
  }
 }

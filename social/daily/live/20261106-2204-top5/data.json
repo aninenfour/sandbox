@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 6 22:04 (UTC+8)",
+ "date": "NOV 6",
+ "gainers": [
+  {
+   "sym": "UAI",
+   "name": "UnifAI Network",
+   "ch": 71.64,
+   "logo": "uai",
+   "bg": "#181b24",
+   "glow": "#8890f5"
+  },
+  {
+   "sym": "AEON",
+   "name": "AEON",
+   "ch": 14.88,
+   "logo": "aeon",
+   "bg": "#ffffff",
+   "glow": "#58f286"
+  },
+  {
+   "sym": "SQQQB",
+   "name": "ProShares UltraPro Short QQQ (bStocks Tokenized Stock)",
+   "ch": 10.91,
+   "logo": "sqqqb",
+   "bg": "#f0f4fd",
+   "glow": "#005568"
+  },
+  {
+   "sym": "FAI",
+   "name": "",
+   "ch": 10.02,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "ACT",
+   "name": "Act I The AI Prophecy",
+   "ch": 9.1,
+   "logo": "act",
+   "bg": "#221828",
+   "glow": "#fdd0e2"
+  }
+ ]
+}
