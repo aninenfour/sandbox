@@ -1063,5 +1063,20 @@
    "https://decrypt.co/382758/treasury-cuts-off-crypto-exchange-mexc-us-financial-system",
    "https://www.theblock.co/news/regulation/2026-11-06-treasury-cuts-off-mexc-global-over-alleged-16-billion-in-transactions-linked-to-iran-north-korea-and-russia-435957"
   ]
+ },
+ {
+  "id": "2026-11-07-academy-stoploss",
+  "type": "tutorial",
+  "slides": 4,
+  "slot": "2026-11-07T19:00:00+08:00",
+  "title": "A stop-loss is the exit you plan before you need it",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "note": "Educational example; recovery math exact (1/(1-L)-1). Photo Unsplash (Arturo Anez)."
  }
 ]
