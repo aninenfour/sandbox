@@ -1010,5 +1010,23 @@
    "Yahoo Finance NFLX split-adj closes 2011-07-12 4.161, 2026-11-04 66.39"
   ],
   "note": "2012 low $18 (-81%), 2021 peak $1,591, 2022 -75%, 2025 peak $3,049. Drawn popcorn icon."
+ },
+ {
+  "id": "2026-11-06-paraguay-ueno",
+  "type": "news",
+  "slot": "2026-11-06T11:20:00+08:00",
+  "title": "A bank collapse just brought down Paraguay's president",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "https://decrypt.co/382676/paraguay-president-resigns-bank-lockout-bitcoin-fixes-this",
+   "https://cointelegraph.com/news/paraguay-president-resigns-after-collapse-ueno-digital-bank"
+  ],
+  "note": "Planned 10:00; worker restarts pushed it to 11:20. Pena photo Wikimedia. 19:00 Academy not built this run."
  }
 ]
