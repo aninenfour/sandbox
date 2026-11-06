@@ -56,7 +56,7 @@ function rrect(x, y, w, h, r, fill, stroke, shadow) {
   if (stroke) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); ctx.strokeStyle = stroke; ctx.lineWidth = 3; ctx.stroke(); }
 }
 function coin(x, y, r, t = 0, flip = 0) {           // the stock = a coin with its real ticker
-  ctx.save(); ctx.translate(x, y); ctx.scale(Math.cos(flip) || .02, 1);
+  ctx.save(); ctx.translate(x, y); ctx.scale(Math.max(.06, Math.abs(Math.cos(flip))), 1);   // spin without mirrored text
   ctx.shadowColor = 'rgba(20,40,10,.3)'; ctx.shadowBlur = r * .5; ctx.shadowOffsetY = r * .12;
   ctx.fillStyle = COIN; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.shadowColor = 'transparent';
   ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.lineWidth = r * .08; ctx.beginPath(); ctx.arc(0, 0, r * .84, 0, 7); ctx.stroke();
@@ -83,6 +83,16 @@ function obj(kind, x, y, r) {                      // the thing you buy (generic
     ctx.fillStyle = '#FF4B3A'; ctx.beginPath(); ctx.roundRect(w / 2 - jw * .6, -h / 2, jw * 1.6, h, [0, h * .45, h * .45, 0]); ctx.fill();
     ctx.fillStyle = '#2B2F33'; ctx.beginPath(); ctx.roundRect(-w / 2, -h / 2, w, h, 10); ctx.fill();
     ctx.fillStyle = '#11161B'; ctx.beginPath(); ctx.roundRect(-w / 2 + r * .1, -h / 2 + r * .1, w - r * .2, h - r * .2, 6); ctx.fill();
+  } else if (kind === 'car') {        // generic electric sedan, side view (no logos)
+    ctx.shadowColor = 'rgba(20,40,10,.22)'; ctx.shadowBlur = 16;
+    ctx.fillStyle = '#E8E9EB'; ctx.beginPath(); ctx.moveTo(-r * 1.25, r * .25); ctx.quadraticCurveTo(-r * 1.3, -r * .15, -r * .8, -r * .22);
+    ctx.quadraticCurveTo(-r * .35, -r * .72, r * .25, -r * .66); ctx.quadraticCurveTo(r * .75, -r * .55, r * 1.05, -r * .18);
+    ctx.quadraticCurveTo(r * 1.3, -r * .1, r * 1.28, r * .25); ctx.closePath(); ctx.fill(); ctx.shadowBlur = 0;
+    ctx.fillStyle = '#2B3540'; ctx.beginPath(); ctx.moveTo(-r * .62, -r * .26); ctx.quadraticCurveTo(-r * .25, -r * .6, r * .22, -r * .56);
+    ctx.quadraticCurveTo(r * .62, -r * .46, r * .82, -r * .22); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#C8102E'; ctx.fillRect(-r * 1.2, r * .02, r * 2.45, r * .06);
+    for (const wx of [-r * .72, r * .78]) { ctx.fillStyle = '#1C1F23'; ctx.beginPath(); ctx.arc(wx, r * .28, r * .3, 0, 7); ctx.fill();
+      ctx.fillStyle = '#B9BEC5'; ctx.beginPath(); ctx.arc(wx, r * .28, r * .14, 0, 7); ctx.fill(); }
   } else if (kind === 'phone') {
     ctx.fillStyle = '#1C1F23'; ctx.beginPath(); ctx.roundRect(-r * .55, -r, r * 1.1, r * 2, r * .2); ctx.fill();
     const g = ctx.createLinearGradient(0, -r, 0, r); g.addColorStop(0, '#8EC5FF'); g.addColorStop(1, '#C69CFF');
