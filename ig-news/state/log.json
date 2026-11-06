@@ -1046,5 +1046,22 @@
   "sources": [
    "Yahoo Finance TSLA split-adj closes 2016-03-31 15.318, 2026-11-05 343.69"
   ]
+ },
+ {
+  "id": "2026-11-07-mexc-treasury",
+  "type": "news",
+  "slot": "2026-11-07T10:00:00+08:00",
+  "title": "US cuts crypto exchange MEXC off over $16B in illicit flows",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "https://decrypt.co/382758/treasury-cuts-off-crypto-exchange-mexc-us-financial-system",
+   "https://www.theblock.co/news/regulation/2026-11-06-treasury-cuts-off-mexc-global-over-alleged-16-billion-in-transactions-linked-to-iran-north-korea-and-russia-435957"
+  ]
  }
 ]
