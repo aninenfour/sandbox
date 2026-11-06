@@ -1028,5 +1028,23 @@
    "https://cointelegraph.com/news/paraguay-president-resigns-after-collapse-ueno-digital-bank"
   ],
   "note": "Planned 10:00; worker restarts pushed it to 11:20. Pena photo Wikimedia. 19:00 Academy not built this run."
+ },
+ {
+  "id": "2026-11-06-whatif-tesla",
+  "type": "reel-whatif-v2",
+  "mode": "lump",
+  "slot": "2026-11-06T21:30:00+08:00",
+  "title": "$1,000 Tesla deposit (2016) or $1,000 in TSLA -> $22,437",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(4:5)",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance TSLA split-adj closes 2016-03-31 15.318, 2026-11-05 343.69"
+  ]
  }
 ]
