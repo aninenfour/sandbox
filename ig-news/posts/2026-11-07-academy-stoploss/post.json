@@ -1,0 +1,9 @@
+{"type":"tutorial","style":"v2","slides":[
+ {"kind":"nhero","photo":"chart.jpg","photo_pos":"50% 50%","tag":"TRADING 101","headline":"A stop-loss is the [exit] you plan before you need it"},
+ {"kind":"tslide","title":"How it <span class='g'>works</span>","paras":["Buy at <g>$100</g>, set a stop at <g>$90</g>. The price falls to $70: the stop sells near $90. You lose about <g>10%</g>, not 30%."],
+  "visual":{"type":"line","title":"Example: price after you buy, $","series":[100,102,99,101,97,95,93,91,89,86,82,78,75,72,70],"marker":8}},
+ {"kind":"tslide","title":"Why small losses <span class='g'>matter</span>","paras":["The bigger the loss, the harder the climb back. That is the whole point of cutting early."],
+  "visual":{"type":"stats","items":[{"v":"+11%","l":"to recover a -10% loss","color":"#3E8E1E"},{"v":"+43%","l":"to recover a -30% loss","color":"#E58A2D"},{"v":"+100%","l":"to recover a -50% loss","color":"#E5322D"}]}},
+ {"kind":"tslide","title":"3 rules <span class='g'>to use it</span>","paras":["A stop is a plan, not a guarantee. Not financial advice."],
+  "visual":{"type":"table","cols":["Rule","Why"],"rows":[["Set it when you enter","Decide calmly, not in a panic"],["Size it to your plan","e.g. risk 1-2% of the account"],["Expect gaps","Fast moves can skip past your price"]]}}
+]}
