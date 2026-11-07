@@ -225,5 +225,15 @@
   ],
   "changes": "none yet; if Tesla v2 also lands under ~30, cut the static cover to 0.3 s and start the motion on frame 1 (cover still used as thumbnail).",
   "owner_decision": "Academy-as-Reels; earshot install permission."
+ },
+ {
+  "date": "2026-11-08",
+  "looked_at": "IG insights Nov 5-8",
+  "findings": [
+   "Tesla WHAT IF v2: 106 reach / 118 views, in line with Switch (121). So v2 + static cover frame is fine; Netflix's 8 reach was most likely IG holding back the swapped-in near-duplicate.",
+   "News carousels 17-37 (Paraguay 37 best, face cover). Academy holders 28. Team FTX story Reel 131."
+  ],
+  "changes": "none. Rule kept: avoid swapping a scheduled Reel for a near-identical one on the same evening when possible (render right the first time).",
+  "owner_decision": "Academy-as-Reels; earshot permission; tier lists to light theme?"
  }
 ]
