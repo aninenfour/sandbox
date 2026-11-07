@@ -8,7 +8,7 @@ import * as THREE from 'three';
 import {RoomEnvironment} from 'three/examples/jsm/environments/RoomEnvironment.js';
 
 const LIME = '#B8F26A', GREEN = '#7EC25A', GOLD = '#F2C94C';
-export const ET = {menu: 140, click: 206, item: 236, land: 284, grow: 400, rain: 560, end: 720};
+export const ET = {menu: 200, click: 266, item: 296, land: 344, grow: 460, rain: 620, end: 780};
 const cl = (x: number) => Math.max(0, Math.min(1, x));
 const ease = (x: number) => { x = cl(x); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
 const out = (x: number) => 1 - Math.pow(1 - cl(x), 3);

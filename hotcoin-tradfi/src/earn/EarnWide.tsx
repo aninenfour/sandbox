@@ -90,7 +90,6 @@ const End: React.FC<{f: number}> = ({f}) => {
           <span style={{color: LIME}}>20 USDT</span> voucher + fixed interest + up to <span style={{color: LIME}}>1,000 USDT</span> in milestone rewards</div>
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 26, marginTop: 26}}>
           <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 26, background: LIME, color: INK, padding: '16px 32px', borderRadius: 999, boxShadow: '0 0 40px rgba(184,242,106,.5)'}}>PRESS START · hotcoin.com</div>
-          <div style={{fontFamily: MONO, fontSize: 18, letterSpacing: 1.5, color: 'rgba(238,242,234,.55)', textAlign: 'left', lineHeight: 1.6}}>ENDS NOV 16, 2026 · 12:00 UTC+8<br />LIMITED REWARDS · FIRST COME, FIRST SERVED</div>
         </div>
       </div>
     </AbsoluteFill>
@@ -117,9 +116,9 @@ export const EarnWide: React.FC = () => {
         <div style={{position: 'absolute', left: PANEL - 20, top: 120, bottom: 120, width: 1.5, background: 'linear-gradient(180deg, rgba(184,242,106,0), rgba(184,242,106,.45), rgba(184,242,106,0))'}} />
         <Img src={staticFile('brand/logo-official-white.png')} style={{position: 'absolute', left: 96, top: 80, height: 40}} />
         <div style={{position: 'absolute', left: 96, bottom: 80, fontFamily: MONO, fontSize: 18, letterSpacing: 3, color: LIME, border: '1.5px solid rgba(184,242,106,.5)', borderRadius: 99, padding: '8px 16px'}}>EARN REWARDS BOOST · ENDS NOV 16</div>
-        <Block f={f} a={8} b={74} k="QUICK QUESTION" h={<>Is your crypto just sitting there,<br /><span style={{color: 'rgba(238,242,234,.55)'}}>idle?</span></>} />
-        <Block f={f} a={78} b={ET.menu + 8} k="HONESTLY" h={<span style={{color: LIME}}>SO<br />BORING.</span>} big />
-        <Block f={f} a={ET.menu + 12} b={ET.item} k="PUT IT TO WORK" h={<>Hotcoin<br /><span style={{color: LIME}}>Earn.</span></>} s="Subscribe to fixed-term Earn for the first time with 500 USDT or more." />
+        <Block f={f} a={6} b={112} k="QUICK QUESTION" h={<>Is your crypto just sitting there,<br /><span style={{color: 'rgba(238,242,234,.55)'}}>idle?</span></>} />
+        <Block f={f} a={116} b={ET.menu + 6} k="HONESTLY" h={<span style={{color: LIME}}>SO<br />BORING.</span>} big />
+        <Block f={f} a={ET.menu + 10} b={ET.item} k="THE FIX" h={<>Put it on<br /><span style={{color: LIME}}>Hotcoin Earn.</span></>} s={<>Earn <b style={{color: WHITE}}>fixed interest</b> plus a <b style={{color: LIME}}>20 USDT voucher</b>. First fixed-term subscription of 500 USDT or more.</>} />
         <Block f={f} a={ET.land - 6} b={ET.grow + 20} k="ITEM GET" h={<><span style={{color: LIME}}>+20 USDT</span><br />voucher.</>} s="Futures Trial Funds. Trade futures with it, and the profit is yours." />
         <Block f={f} a={ET.grow + 24} b={ET.rain} k="ON TOP OF THAT" h={<>Fixed interest,<br /><span style={{color: LIME}}>every day.</span></>} s={<>Hit milestones for up to <b style={{color: WHITE}}>1,000 USDT</b> in Earn Trial Funds. Both rewards stack.</>} />
         <Block f={f} a={ET.rain + 4} b={MERGE + 4} k="RESULT" h={<>More<br /><span style={{color: LIME}}>money.</span></>} big />

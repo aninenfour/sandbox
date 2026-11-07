@@ -3,7 +3,7 @@
 # Mirrors ET in src/earn/EarnScene.tsx. Output public/earn/beat.wav.
 import numpy as np, soundfile as sf, os
 SR, FPS = 48000, 30
-ET = dict(menu=140, click=206, item=236, land=284, grow=400, rain=560, end=720)
+ET = dict(menu=200, click=266, item=296, land=344, grow=460, rain=620, end=780)
 DUR = ET['end'] / FPS; N = int(DUR * SR); L = np.zeros(N); R = np.zeros(N); rng = np.random.default_rng(2)
 s = lambda fr: fr / FPS
 def add(x, at, pan=0.0, g=1.0):
