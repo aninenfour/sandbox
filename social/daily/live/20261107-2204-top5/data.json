@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 7 22:04 (UTC+8)",
+ "date": "NOV 7",
+ "gainers": [
+  {
+   "sym": "EBU",
+   "name": "",
+   "ch": 32.29,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "QNTB",
+   "name": "Quantinuum (bStocks Tokenized Stock)",
+   "ch": 15.99,
+   "logo": "qntb",
+   "bg": "#000000",
+   "glow": "#ffb32d"
+  },
+  {
+   "sym": "RKLBB",
+   "name": "Rocket Lab (bStocks Tokenized Stock)",
+   "ch": 10.89,
+   "logo": "rklbb",
+   "bg": "#13171a",
+   "glow": "#ffb22c"
+  },
+  {
+   "sym": "UP",
+   "name": "Unitas",
+   "ch": 9.47,
+   "logo": "up",
+   "bg": "#000809",
+   "glow": "#494e4f"
+  },
+  {
+   "sym": "MET",
+   "name": "Meteora",
+   "ch": 8.74,
+   "logo": "met",
+   "bg": "#12121c",
+   "glow": "#f46a00"
+  }
+ ]
+}

@@ -332,5 +332,26 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102175183/large/Amatb.png?1785456031",
   "logo": "amatb"
+ },
+ "QNTB": {
+  "id": "quantinuum-bstocks-tokenized-stock",
+  "name": "Quantinuum (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174765/large/qntb.png?1784797341",
+  "logo": "qntb"
+ },
+ "UP": {
+  "id": "unitas",
+  "name": "Unitas",
+  "twitter": "UnitasLabs",
+  "image": "https://coin-images.coingecko.com/coins/images/71531/large/Logo_Mark_200.png?1772722048",
+  "logo": "up"
+ },
+ "MET": {
+  "id": "meteora",
+  "name": "Meteora",
+  "twitter": "MeteoraAG",
+  "image": "https://coin-images.coingecko.com/coins/images/69110/large/meteora.png?1757517561",
+  "logo": "met"
  }
 }
