@@ -35,6 +35,7 @@
 → ~~Satoshi's whitepaper and disappearance~~ (2026-11-01)
 → ~~The man who sold the Eiffel Tower~~ (2026-11-03)
 → ~~The FTX collapse in nine days~~ (2026-11-05)
+→ ~~The Mississippi Bubble (John Law)~~ (2026-11-07)
 Sorted by next anniversary (see Learnings: anniversary hooks win). Use the dated one when a posting day lands on or a day after its date; fill the gaps with the evergreen list. Fact-check the date in the run as always.
 → Nov 15, 1923: Weimar hyperinflation ends (Rentenmark introduced)
 → Nov 21, 1834: Hetty Green, the witch of Wall Street, is born
@@ -51,7 +52,7 @@ Sorted by next anniversary (see Learnings: anniversary hooks win). Use the dated
 → Aug 15, 1971: Nixon ends the gold standard
 → Sep 16, 1992: Black Wednesday
 → Sep 23, 1998: LTCM bailout
-→ Evergreen (no fixed date, use between anniversaries): The Mississippi Bubble · Satoshi's lost coins
+→ Evergreen (no fixed date, use between anniversaries): Satoshi's lost coins
 
 ## Hook bank (first line of every script; rotate types, log the type used)
 Adapted for third-person money stories. Never first person, never a price prediction.
@@ -86,3 +87,4 @@ Week of 2026-11-03 (4 reels, small sample, no watch-time data from Publer):
 | 2026-11-01 | Satoshi's whitepaper (18th anniversary, Oct 31 2008) and disappearance | Open loop | https://www.instagram.com/reel/DfNLW5MAkBp/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1434494208229883 | 1,176 (25L 0C 1S) | 328 (4L) | 70 (1L 1C) | whitepaper turned 18 the day before; 20 images, 54.6 s, cover set; music dreamy-jazz (inferred); posted 00:38 Beijing |
 | 2026-11-03 | The man who sold the Eiffel Tower (Victor Lustig, 1925) | Warning | https://www.instagram.com/reel/DfSWLmrk-gR/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1804114520643768 | | | | evergreen gap-filler (no anniversary near), psychology/scam angle; 20 images (Canva quota cooldowns, s21 dropped), 53.7 s, cover set; music lofi-02; posted 00:53 Beijing |
 | 2026-11-05 | FTX collapse in nine days (4th anniversary week, Nov 2 to 11, 2022) | Number (date) | https://www.instagram.com/reel/DfXexwegDct/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/2377635742996935 | | | | trend tie-in to the Binance hack / exchange-trust news; crypto category; 21 images, 58.6 s, cover set (s14 shocked face); music sleepy-cat; posted 00:38 Beijing (Nov 6) |
+| 2026-11-07 | The Mississippi Bubble (John Law, 1716 to 1720) | Contrarian | https://www.instagram.com/reel/DfcnXAgjY6X/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/2293992411441617 | | | | evergreen gap-filler (Weimar anniversary Nov 15 next), history/markets, ties to the market-down-37% mood; 21 images (s17 regenerated to remove an anachronistic Eiffel Tower), 56.2 s, cover set (s01 Law face); music sweet-september; posted 00:36 Beijing (Nov 8) |
