@@ -1078,5 +1078,23 @@
    "x_research"
   ],
   "note": "Educational example; recovery math exact (1/(1-L)-1). Photo Unsplash (Arturo Anez)."
+ },
+ {
+  "id": "2026-11-07-reel-tier-decade",
+  "type": "reel-tier",
+  "slot": "2026-11-07T21:30:00+08:00",
+  "title": "Best assets of the decade, ranked",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(square)",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance closes 2016-11-07 vs 2026-11-06: BTC 703->75931, NVDA 1.78->186.64, TSLA 12.88->358.22, AAPL 27.60->342.37, META 122.15->610.15, SPX 2131.52->7376.86, Gold fut 1278.3->4074.9"
+  ],
+  "note": "ETH left out: no verified Nov 2016 price (Yahoo history starts 2017, CoinGecko history blocked)."
  }
 ]
