@@ -1,0 +1,15 @@
+{"music":"399","title":"Best assets of the decade",
+ "tier":{"tiers":["S","A","B","C"],
+  "legend":"10-year price gain, Nov 2016 to Nov 2026",
+  "items":[
+   {"name":"Gold","tier":"C","logo":"XAUT.svg","why":"3.2x: $1,278 to $4,075 an ounce"},
+   {"name":"S&P 500","tier":"C","logo":"SPY.png","why":"3.5x: 2,132 to 7,377"},
+   {"name":"Meta","tier":"C","logo":"META.png","why":"5.0x: $122 to $610"},
+   {"name":"Apple","tier":"B","logo":"AAPL.png","why":"12.4x: $27.60 to $342"},
+   {"name":"Tesla","tier":"A","logo":"TSLA.png","why":"27.8x: $12.88 to $358"},
+   {"name":"Nvidia","tier":"S","logo":"NVDA.png","why":"105x: $1.78 to $187"},
+   {"name":"Bitcoin","tier":"S","logo":"BTC.svg","why":"108x: $703 to $75,931"}]},
+ "slides":[
+  {"photo":"hook.jpg","pos":"50% 40%","hook":true,"tag":"TIER LIST","text":"Best assets of\nthe decade, [ranked]"},
+  {"kind":"tier_all"},
+  {"kind":"cta"}]}
