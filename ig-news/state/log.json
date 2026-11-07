@@ -1096,5 +1096,40 @@
    "Yahoo Finance closes 2016-11-07 vs 2026-11-06: BTC 703->75931, NVDA 1.78->186.64, TSLA 12.88->358.22, AAPL 27.60->342.37, META 122.15->610.15, SPX 2131.52->7376.86, Gold fut 1278.3->4074.9"
   ],
   "note": "ETH left out: no verified Nov 2016 price (Yahoo history starts 2017, CoinGecko history blocked)."
+ },
+ {
+  "id": "2026-11-08-fbi-agent-crypto",
+  "type": "news",
+  "slot": "2026-11-08T10:00:00+08:00",
+  "title": "An FBI agent stole $2.47M in crypto from his own cases",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "The Block",
+   "Cointelegraph"
+  ],
+  "note": "Cover photo swapped from a CHP badge (wrong agency) to a neutral code screen + FBI seal."
+ },
+ {
+  "id": "2026-11-08-weekly-nov9",
+  "type": "weekly",
+  "slot": "2026-11-08T19:00:00+08:00",
+  "title": "What's on this week Nov 9-15",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research(01,03,04,05)"
+  ],
+  "sources": [
+   "stockti earnings calendar",
+   "CPI date: thriveinmarkets + financecalendar (BLS page unreachable)"
+  ]
  }
 ]
