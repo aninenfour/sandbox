@@ -1,0 +1,71 @@
+{
+ "date": "NOV 7",
+ "window": "Prices at Nov 7 11:42 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "US October CPI due Tuesday, 21:30 UTC+8",
+   "last": 75820.29,
+   "ch": -0.12,
+   "vol": 782502283.72,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Slipped to about $2,230 after Friday's 165K jobs print",
+   "last": 2241.56,
+   "ch": 0.34,
+   "vol": 185481637.31,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "PIEVERSE",
+   "name": "Pieverse",
+   "kind": "crypto",
+   "handle": "@pieverse_io",
+   "why": "One of Hotcoin's biggest 24h movers with real volume",
+   "last": 1.4077,
+   "ch": 11.51,
+   "vol": 677297.46,
+   "logo": "pieverse",
+   "bg": "#ffffff",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "RKLBB",
+   "name": "Rocket Lab",
+   "kind": "tradfi",
+   "handle": "@RocketLab",
+   "why": "Q3 results Monday after the US close",
+   "last": 53.67,
+   "ch": 14.26,
+   "vol": 670791.23,
+   "logo": "rklbb",
+   "bg": "#13171a",
+   "glow": "#ffb22c"
+  },
+  {
+   "sym": "AMATB",
+   "name": "Applied Materials",
+   "kind": "tradfi",
+   "handle": "@Applied4Tech",
+   "why": "Reports Thursday after the US close",
+   "last": 333.41,
+   "ch": 0.3,
+   "vol": 614749.94,
+   "logo": "amatb",
+   "bg": "#1d8dc5",
+   "glow": "#1d8dc5"
+  }
+ ]
+}

@@ -318,5 +318,19 @@
   "twitter": "ACTICOMMUNITY",
   "image": "https://coin-images.coingecko.com/coins/images/50984/large/ai_prophecy.jpg?1729653897",
   "logo": "act"
+ },
+ "RKLBB": {
+  "id": "rocket-lab-bstocks-tokenized-stock",
+  "name": "Rocket Lab (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174593/large/rklbb-bstocks.png?1784151033",
+  "logo": "rklbb"
+ },
+ "AMATB": {
+  "id": "applied-materials-bstocks-tokenized-stock",
+  "name": "Applied Materials (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102175183/large/Amatb.png?1785456031",
+  "logo": "amatb"
  }
 }

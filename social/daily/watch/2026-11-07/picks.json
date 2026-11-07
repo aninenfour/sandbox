@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "US October CPI due Tuesday, 21:30 UTC+8"},
+ {"sym": "ETH", "kind": "crypto", "why": "Slipped to about $2,230 after Friday's 165K jobs print"},
+ {"sym": "PIEVERSE", "kind": "crypto", "why": "One of Hotcoin's biggest 24h movers with real volume"},
+ {"sym": "RKLBB", "kind": "tradfi", "why": "Q3 results Monday after the US close"},
+ {"sym": "AMATB", "kind": "tradfi", "name": "Applied Materials", "handle": "Applied4Tech", "why": "Reports Thursday after the US close"}
+]}
