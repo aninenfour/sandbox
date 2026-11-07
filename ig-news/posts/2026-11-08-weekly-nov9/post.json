@@ -1,0 +1,14 @@
+{"type":"weekly","slides":[
+ {"kind":"wcover","photo":"cover.jpg","photo_pos":"50% 40%","title":["What's on","this week"],"range":"Nov 9 – 15 · US inflation + AI earnings"},
+ {"kind":"wday","day":["Monday","9 November"],"bg":"linear-gradient(160deg,#0f2a4a,#2f6db5 50%,#9cc3f0)","photo":"chart.jpg","photo_pos":"50% 50%",
+  "events":[{"t":"Take-Two (GTA VI maker) results","time":"US day","badges":[{"t":"EARNINGS"}]},
+            {"t":"Lucid ($LCID) results","time":"after US close","badges":[{"t":"EARNINGS"}]}]},
+ {"kind":"wday","day":["Tuesday","10 November"],"bg":"linear-gradient(160deg,#2b1b5a,#8e3fae 50%,#e05d8b)","photo":"capitol.jpg","photo_pos":"50% 40%",
+  "events":[{"t":"US inflation (CPI) for October","time":"21:30 UTC+8","badges":[{"t":"HIGH IMPACT","c":"hi"}]}]},
+ {"kind":"wday","day":["Wednesday","11 November"],"bg":"linear-gradient(160deg,#ff7a3d,#f2a65a 45%,#c9b8a8)","photo":"courier.jpg","photo_pos":"50% 50%",
+  "events":[{"t":"CoreWeave ($CRWV) results","time":"~05:00 UTC+8","badges":[{"t":"EARNINGS"}]},
+            {"t":"Singles' Day (11.11), China's biggest shopping day","time":"all day","badges":[{"t":"MACRO"}]},
+            {"t":"4 years since FTX filed for bankruptcy","time":"2022","badges":[{"t":"CRYPTO"}]}]},
+ {"kind":"wday","day":["Friday","13 November"],"bg":"linear-gradient(160deg,#0b3d2e,#1f8a5b 50%,#9be07a)","photo":"tech.jpg","photo_pos":"50% 50%",
+  "events":[{"t":"Cisco ($CSCO) + Applied Materials ($AMAT) results","time":"~05:00 UTC+8","badges":[{"t":"EARNINGS"}]}]},
+ {"kind":"end"}]}
