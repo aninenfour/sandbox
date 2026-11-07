@@ -42,6 +42,7 @@ import {Anniv9Flow, ANNIV9_DURATION} from './anniv9/Anniv9Flow';
 import {Anniv9Stack, ANNIV9S_DURATION} from './anniv9/Anniv9Stack';
 import {Anniv9Dots, ANNIV9D_DURATION} from './anniv9/Anniv9Dots';
 import {EarnPS2, EARN_DURATION} from './earn/EarnPS2';
+import {EarnWide, EARNW_DURATION} from './earn/EarnWide';
 import {ScaryStories, ScaryStoriesTall, ScaryThumb, ScaryThumbTall, SCARY_DURATION} from './halloween/ScaryStories';
 import {ScaryStories2, ScaryStories2Tall, ScaryThumb2, ScaryThumb2Tall, SCARY2_DURATION} from './halloween/ScaryStories2';
 import {HalloweenGiveaway} from './halloween/Giveaway';
@@ -156,6 +157,7 @@ export const Root: React.FC = () => (
     <Composition id="Anniv9D-en-4x5" component={Anniv9Dots} defaultProps={{lang: "en" as const}} durationInFrames={ANNIV9D_DURATION} fps={30} width={1080} height={1350} />
     <Composition id="Anniv9D-zh-4x5" component={Anniv9Dots} defaultProps={{lang: "zh" as const}} durationInFrames={ANNIV9D_DURATION} fps={30} width={1080} height={1350} />
     <Composition id="EarnPS2-4x5" component={EarnPS2} durationInFrames={EARN_DURATION} fps={30} width={1080} height={1350} />
+    <Composition id="EarnWide-16x9" component={EarnWide} durationInFrames={EARNW_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="Style2Logo" component={Style2Logo} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2TradFi" component={Style2TradFi} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="Style2Next90" component={Style2Next90} durationInFrames={1} fps={30} width={1080} height={1350} />

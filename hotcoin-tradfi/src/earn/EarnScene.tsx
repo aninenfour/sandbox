@@ -8,7 +8,7 @@ import * as THREE from 'three';
 import {RoomEnvironment} from 'three/examples/jsm/environments/RoomEnvironment.js';
 
 const LIME = '#B8F26A', GREEN = '#7EC25A', GOLD = '#F2C94C';
-export const ET = {menu: 96, click: 150, item: 176, land: 220, grow: 300, rain: 420, end: 540};
+export const ET = {menu: 140, click: 206, item: 236, land: 284, grow: 400, rain: 560, end: 720};
 const cl = (x: number) => Math.max(0, Math.min(1, x));
 const ease = (x: number) => { x = cl(x); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
 const out = (x: number) => 1 - Math.pow(1 - cl(x), 3);
@@ -31,7 +31,7 @@ const Cam: React.FC<{f: number}> = ({f}) => {
   const {camera, size} = useThree();
   const tall = size.height / size.width > 1.1;
   const keys: [number, number[], number[]][] = [
-    [0, [0.9, 1.5, 7.2], [0.2, 1.15, 0]], [ET.menu, [0.4, 1.5, 7.0], [1.9, 1.0, 0]], [ET.item, [0, 1.7, 6.8], [0, 1.75, 0]],
+    [0, [0.9, 1.5, 7.2], [0.2, 1.15, 0]], [ET.menu, [0.9, 1.5, 7.2], [0.2, 1.15, 0]], [ET.item, [0, 1.7, 6.8], [0, 1.75, 0]],
     [ET.grow, [2.5, 3.6, 10.5], [0, 1.4, 0]], [ET.rain, [0, 4.2, 12.5], [0, 1.8, 0]], [ET.end, [0, 4.6, 13.5], [0, 2, 0]],
   ];
   let i = 0; while (i < keys.length - 2 && f >= keys[i + 1][0]) i++;
