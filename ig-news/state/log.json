@@ -1150,5 +1150,39 @@
    "Yahoo Finance BTC-USD daily closes 2021-11-08 ($67,567) to 2026-11-08 ($75,771)"
   ],
   "note": "$5/day is an assumption, stated in caption."
+ },
+ {
+  "id": "2026-11-09-vitalik-eth-sov",
+  "type": "news",
+  "slot": "2026-11-09T10:00:00+08:00",
+  "title": "Vitalik: ETH is a store of value, not a fee-burning token",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "The Block",
+   "Cointelegraph"
+  ]
+ },
+ {
+  "id": "2026-11-09-academy-eth-vs-btc",
+  "type": "academy",
+  "slot": "2026-11-09T19:00:00+08:00",
+  "title": "Crypto 101: Bitcoin vs Ethereum",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "bitcoin.org whitepaper / ethereum.org (launch, Merge, PoS, ~99.95% energy cut, EIP-1559 burn)",
+   "Supply ~19.95M BTC: blockchain.com, CoinGecko"
+  ]
  }
 ]

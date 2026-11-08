@@ -1,0 +1,105 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "coins.jpg",
+   "photo_pos": "50% 50%",
+   "tag": "CRYPTO 101",
+   "headline": "Bitcoin vs Ethereum: same crypto, [different jobs]"
+  },
+  {
+   "kind": "tslide",
+   "title": "Two <span class='g'>different jobs</span>",
+   "paras": [
+    "Bitcoin is built to be <g>money</g>. Ethereum is built to run <g>apps</g>: stablecoins, DeFi, NFTs."
+   ],
+   "visual": {
+    "type": "table",
+    "cols": [
+     "",
+     "Bitcoin",
+     "Ethereum"
+    ],
+    "rows": [
+     [
+      "Launched",
+      "Jan 2009",
+      "Jul 2015"
+     ],
+     [
+      "Created by",
+      "Satoshi Nakamoto",
+      "Vitalik Buterin + team"
+     ],
+     [
+      "Main job",
+      "Digital money",
+      "App platform"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "tslide",
+   "title": "Supply: <span class='g'>cap vs no cap</span>",
+   "paras": [
+    "Bitcoin stops at <g>21M</g>, and about 95% is already mined. Ethereum has <g>no cap</g>; part of every fee is burned instead."
+   ],
+   "visual": {
+    "type": "donut",
+    "title": "Bitcoin: mined vs left (of 21M)",
+    "center": "~95%",
+    "colors": [
+     "#3E8E1E",
+     "#C9CED3"
+    ],
+    "items": [
+     {
+      "l": "Already mined",
+      "v": 19950000,
+      "txt": "~19.95M"
+     },
+     {
+      "l": "Left to mine",
+      "v": 1050000,
+      "txt": "~1.05M"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "tslide",
+   "title": "How they <span class='g'>stay secure</span>",
+   "paras": [
+    "Bitcoin miners use electricity. Since the 2022 Merge, Ethereum validators lock up ETH instead."
+   ],
+   "visual": {
+    "type": "table",
+    "cols": [
+     "",
+     "Bitcoin",
+     "Ethereum"
+    ],
+    "rows": [
+     [
+      "Security",
+      "Proof of work",
+      "Proof of stake"
+     ],
+     [
+      "New block",
+      "~10 minutes",
+      "~12 seconds"
+     ],
+     [
+      "Energy",
+      "High",
+      "~99.95% less after Merge"
+     ]
+    ]
+   }
+  }
+ ]
+}
