@@ -1131,5 +1131,24 @@
    "stockti earnings calendar",
    "CPI date: thriveinmarkets + financecalendar (BLS page unreachable)"
   ]
+ },
+ {
+  "id": "2026-11-08-whatif-latte-btc",
+  "type": "reel-whatif-v2",
+  "mode": "dca",
+  "slot": "2026-11-08T21:30:00+08:00",
+  "title": "$5 latte a day for 5 years vs $5/day in BTC: $9,135 vs ~$16,123",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(4:5)",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance BTC-USD daily closes 2021-11-08 ($67,567) to 2026-11-08 ($75,771)"
+  ],
+  "note": "$5/day is an assumption, stated in caption."
  }
 ]
