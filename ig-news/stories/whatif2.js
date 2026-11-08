@@ -93,6 +93,14 @@ function obj(kind, x, y, r) {                      // the thing you buy (generic
     ctx.fillStyle = '#C8102E'; ctx.fillRect(-r * 1.2, r * .02, r * 2.45, r * .06);
     for (const wx of [-r * .72, r * .78]) { ctx.fillStyle = '#1C1F23'; ctx.beginPath(); ctx.arc(wx, r * .28, r * .3, 0, 7); ctx.fill();
       ctx.fillStyle = '#B9BEC5'; ctx.beginPath(); ctx.arc(wx, r * .28, r * .14, 0, 7); ctx.fill(); }
+  } else if (kind === 'coffee') {     // generic takeaway cup (no logos)
+    ctx.shadowColor = 'rgba(20,40,10,.22)'; ctx.shadowBlur = 16;
+    ctx.fillStyle = '#FFFFFF'; ctx.beginPath(); ctx.moveTo(-r * .55, -r * .62); ctx.lineTo(r * .55, -r * .62); ctx.lineTo(r * .42, r * .95); ctx.lineTo(-r * .42, r * .95); ctx.closePath(); ctx.fill(); ctx.shadowBlur = 0;
+    ctx.fillStyle = '#8B5A3C'; ctx.beginPath(); ctx.moveTo(-r * .5, -r * .05); ctx.lineTo(r * .5, -r * .05); ctx.lineTo(r * .46, r * .45); ctx.lineTo(-r * .46, r * .45); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#2B2F33'; ctx.beginPath(); ctx.roundRect(-r * .66, -r * .86, r * 1.32, r * .28, r * .08); ctx.fill();
+    ctx.fillStyle = '#3B4046'; ctx.beginPath(); ctx.roundRect(-r * .48, -r * 1.02, r * .96, r * .2, r * .06); ctx.fill();
+    ctx.strokeStyle = 'rgba(140,90,60,.5)'; ctx.lineWidth = r * .06; ctx.lineCap = 'round';
+    for (const dx of [-.18, .12]) { ctx.beginPath(); ctx.moveTo(dx * r, -r * 1.12); ctx.bezierCurveTo(dx * r - r * .12, -r * 1.3, dx * r + r * .12, -r * 1.42, dx * r, -r * 1.6); ctx.stroke(); }
   } else if (kind === 'phone') {
     ctx.fillStyle = '#1C1F23'; ctx.beginPath(); ctx.roundRect(-r * .55, -r, r * 1.1, r * 2, r * .2); ctx.fill();
     const g = ctx.createLinearGradient(0, -r, 0, r); g.addColorStop(0, '#8EC5FF'); g.addColorStop(1, '#C69CFF');
