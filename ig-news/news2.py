@@ -153,10 +153,10 @@ def kinds(G):
         h = s.get('h', 560)
         bars = ''
         for it in items:
-            col = it.get('color') or (RED if it.get('neg') else (GREEN if it.get('hi') else '#C9D2C6'))
+            col = it.get('color') or (RED if it.get('neg') else (GREEN if it.get('hi') or it.get('pos') else '#C9D2C6'))  # pos = gain (green), Nov 9 style review
             lg = f'<div class="n2-lg" style="background-image:url({uri(it["logo"], base)})"></div>' if it.get('logo') else ''
             bh = max(14, int((h - 230) * abs(it['v']) / mx))
-            bars += (f'<div class="n2-bar"><div class="n2-bv" style="color:{RED if it.get("neg") else INK}">{H.escape(it["txt"])}</div>'
+            bars += (f'<div class="n2-bar"><div class="n2-bv" style="color:{RED if it.get("neg") else ('#2F7D1E' if it.get('pos') else INK)}">{H.escape(it["txt"])}</div>'
                      f'<div class="n2-bb" style="height:{bh}px;background:{col}"></div>{lg}<div class="n2-bl">{H.escape(it["l"])}</div></div>')
         inner = f'{t}<div class="n2-card" style="top:{y}px;height:{h}px;padding:40px 0 30px"><div class="n2-bars">{bars}</div></div>{lines(s, y + h + 44)}{src(s)}'
         return frame(s, inner)

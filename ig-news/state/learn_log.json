@@ -43,5 +43,19 @@
   ],
   "experiment": "all Reels in frame style; 2 of 7 Reels use a number + question hook answered with past data; max 1 tier list. Judge vs W43 Reel averages: IG ~76 reach, FB ~147 reach, plus saves/comments.",
   "last_experiment_result": "Tier lists: first one strong (IG 148 reach, 43 comments), then fading with 3 in a week (105, then 66 with 0 likes). FB: tier YTD 188, ATH 112. Yellow keywords shipped on all Reels; no clear lift. Best Reel on FB was the gold ticker review in the new frame style (228 reach). Verdict: keep tier lists but cap at 1/week; keyword markup stays (now green in frame style)."
+ },
+ {
+  "week": "2026-W45",
+  "patterns": [
+   "story-first Reels win 3-10x",
+   "Reels > carousels 3-5x",
+   "faces > objects on covers"
+  ],
+  "shipped": [
+   "green gain bars in news charts",
+   "WHAT IF v2 default + X 4:5 + Research X carousels"
+  ],
+  "experiment": "story-first WHAT IF hooks (person/moment in hook line); baseline ~110 IG reach",
+  "last_experiment_result": "v2 template held reach (Tesla 106 vs Switch 121)"
  }
 ]
