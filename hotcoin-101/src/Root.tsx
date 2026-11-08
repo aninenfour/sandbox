@@ -29,11 +29,13 @@ import { Ep15, EP15_TOTAL } from './ep15/Ep15';
 import { Ep16, EP16_TOTAL } from './ep16/Ep16';
 import { Ep17, EP17_TOTAL } from './ep17/Ep17';
 import { Ep18, EP18_TOTAL } from './ep18/Ep18';
+import { Ep19, EP19_TOTAL } from './ep19/Ep19';
 import { Thumb14A, Thumb14AV, Thumb14B, Thumb14BV } from './thumbs/Thumbs14';
 import { Thumb15A, Thumb15AV, Thumb15B, Thumb15BV } from './thumbs/Thumbs15';
 import { Thumb16A, Thumb16AV, Thumb16B, Thumb16BV } from './thumbs/Thumbs16';
 import { Thumb17A, Thumb17AV, Thumb17B, Thumb17BV } from './thumbs/Thumbs17';
 import { Thumb18A, Thumb18AV, Thumb18B, Thumb18BV } from './thumbs/Thumbs18';
+import { Thumb19A, Thumb19AV, Thumb19B, Thumb19BV } from './thumbs/Thumbs19';
 import { HwSlide1, HwSlide2, HwSlide3, HwSlide4, HW_W, HW_H } from './halloween/Slides';
 
 // Two thumbnails per release (A/B), each in 16:9 (1920x1080, exported to
@@ -59,6 +61,10 @@ const THUMBS = [
   { id: 'thumb-018-b-16x9', component: Thumb18B, width: 1920, height: 1080 },
   { id: 'thumb-018-a-9x16', component: Thumb18AV, width: 1080, height: 1920 },
   { id: 'thumb-018-b-9x16', component: Thumb18BV, width: 1080, height: 1920 },
+  { id: 'thumb-019-a-16x9', component: Thumb19A, width: 1920, height: 1080 },
+  { id: 'thumb-019-b-16x9', component: Thumb19B, width: 1920, height: 1080 },
+  { id: 'thumb-019-a-9x16', component: Thumb19AV, width: 1080, height: 1920 },
+  { id: 'thumb-019-b-9x16', component: Thumb19BV, width: 1080, height: 1920 },
   // Halloween carousel, 4 slides at 4:5
   { id: 'halloween-1', component: HwSlide1, width: HW_W, height: HW_H },
   { id: 'halloween-2', component: HwSlide2, width: HW_W, height: HW_H },
@@ -74,6 +80,7 @@ const NOTEBOOK_EPISODES = [
   { slug: 'liquidity-noticed-when-gone', component: Ep16, units: EP16_TOTAL },
   { slug: 'bonds-lending-to-a-government', component: Ep17, units: EP17_TOTAL },
   { slug: 'risk-of-ruin', component: Ep18, units: EP18_TOTAL },
+  { slug: 'market-under-a-tree', component: Ep19, units: EP19_TOTAL },
 ];
 
 // Notebook look (FILE 013 onward) sign-off comps

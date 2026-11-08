@@ -1,0 +1,113 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 5.835,
+ "words": [
+  {
+   "word": "Every",
+   "start": 0.0,
+   "end": 0.376,
+   "at": 0.0,
+   "until": 11.3
+  },
+  {
+   "word": "market",
+   "start": 0.458,
+   "end": 0.941,
+   "at": 13.7,
+   "until": 28.2
+  },
+  {
+   "word": "starts",
+   "start": 1.022,
+   "end": 1.506,
+   "at": 30.7,
+   "until": 45.2
+  },
+  {
+   "word": "as",
+   "start": 1.568,
+   "end": 1.694,
+   "at": 47.0,
+   "until": 50.8
+  },
+  {
+   "word": "an",
+   "start": 1.726,
+   "end": 1.788,
+   "at": 51.8,
+   "until": 53.6
+  },
+  {
+   "word": "agreement",
+   "start": 1.854,
+   "end": 2.447,
+   "at": 55.6,
+   "until": 73.4
+  },
+  {
+   "word": "about",
+   "start": 2.494,
+   "end": 2.729,
+   "at": 74.8,
+   "until": 81.9
+  },
+  {
+   "word": "who",
+   "start": 2.776,
+   "end": 2.918,
+   "at": 83.3,
+   "until": 87.5
+  },
+  {
+   "word": "gets",
+   "start": 2.993,
+   "end": 3.294,
+   "at": 89.8,
+   "until": 98.8
+  },
+  {
+   "word": "to",
+   "start": 3.326,
+   "end": 3.388,
+   "at": 99.8,
+   "until": 101.6
+  },
+  {
+   "word": "trade,",
+   "start": 3.498,
+   "end": 4.329,
+   "at": 104.9,
+   "until": 129.9
+  },
+  {
+   "word": "and",
+   "start": 4.376,
+   "end": 4.518,
+   "at": 131.3,
+   "until": 135.5
+  },
+  {
+   "word": "at",
+   "start": 4.549,
+   "end": 4.612,
+   "at": 136.5,
+   "until": 138.4
+  },
+  {
+   "word": "what",
+   "start": 4.687,
+   "end": 4.988,
+   "at": 140.6,
+   "until": 149.6
+  },
+  {
+   "word": "price.",
+   "start": 5.067,
+   "end": 5.835,
+   "at": 152.0,
+   "until": 175.1
+  }
+ ],
+ "tempo": 0.85
+}

@@ -13,7 +13,7 @@ Exactly eight files, nothing else:
 1. `hotcoin-101-epNN-<slug>-9x16.mp4` · 60fps, with voiceover and music (from FILE 013; 001 to 012 were silent)
 2. `hotcoin-101-epNN-<slug>-16x9.mp4` · 60fps, with voiceover and music
 3. `hotcoin-101-epNN-voiceover.md` — only the copy-paste block, no timecodes, no direction notes
-4. `hotcoin-101-epNN-posts.md` — X (main post + reply), Instagram (caption + first-comment hashtags), LinkedIn, Telegram, YouTube (16:9 title, Shorts title under 40 chars, description with footer, tags, pinned comment)
+4. `hotcoin-101-epNN-posts.md` — X (main post + reply), TikTok, Instagram (caption + first-comment hashtags), Facebook, LinkedIn, Telegram, YouTube (16:9 title, Shorts title under 40 chars, description with footer, tags, pinned comment)
 5. `hotcoin-101-epNN-thumb-a-16x9.jpg` · 1280x720 thumbnail, variant A
 6. `hotcoin-101-epNN-thumb-b-16x9.jpg` · 1280x720 thumbnail, variant B
 7. `hotcoin-101-epNN-thumb-a-9x16.jpg` · 1080x1920 cover, variant A
@@ -108,6 +108,8 @@ The logo's green dot, alone. From FILE 013 it is a proper character (`src/compan
 - Never mention that the video is made in code.
 - Social copy: human, one or two emoji per post at most, arrow lists (→) not bullets, cashtags on X ($BTC), no first-person brand voice.
 - Instagram captions end with "Follow @hotcoinex for the rest of the series." then "Hotcoin 101 · File NNN · Money, explained". Hashtags go in the first comment and include #hotcoin #hotcoinex.
+- **Write each platform its own copy (from FILE 019).** X is short and punchy (a hook, two or three lines, the file tag; the video carries the rest). TikTok and Instagram are long and keyword-rich, because people search them like search engines: name the topic in plain search words ("how did Wall Street start", "stock market history"), the key facts, then hashtags (TikTok inline, Instagram in the first comment). Facebook sits in between. `epNN-posts.md` has a section for each.
+- **Where it goes (Publer, workspace "hotcoin"):** the vertical cut goes to TikTok (Hotcoin Exchange), Instagram (Hotcoin Exchange, as a reel) and Facebook (Hotcoin, as a reel); the 16:9 cut goes to X on **Hotcoin Research** (Alex's "Academy" account). Publer only takes media from a public URL, so the upload copies (with thumbnail A as a half-second first frame, since the connector can't set a cover) are committed to `deliver/social/` and fetched from the repo's raw URL. X refuses a caption it has seen before, even from a deleted post.
 
 ---
 

@@ -1,0 +1,134 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 8.0,
+ "words": [
+  {
+   "word": "In",
+   "start": 0.0,
+   "end": 0.076,
+   "at": 0.0,
+   "until": 2.3
+  },
+  {
+   "word": "seventeen",
+   "start": 0.122,
+   "end": 0.533,
+   "at": 3.7,
+   "until": 16.0
+  },
+  {
+   "word": "ninety-two,",
+   "start": 0.577,
+   "end": 1.752,
+   "at": 17.3,
+   "until": 52.6
+  },
+  {
+   "word": "twenty-four",
+   "start": 1.785,
+   "end": 2.133,
+   "at": 53.5,
+   "until": 64.0
+  },
+  {
+   "word": "guys",
+   "start": 2.21,
+   "end": 2.514,
+   "at": 66.3,
+   "until": 75.4
+  },
+  {
+   "word": "in",
+   "start": 2.54,
+   "end": 2.59,
+   "at": 76.2,
+   "until": 77.7
+  },
+  {
+   "word": "New",
+   "start": 2.629,
+   "end": 2.743,
+   "at": 78.9,
+   "until": 82.3
+  },
+  {
+   "word": "York",
+   "start": 2.804,
+   "end": 3.048,
+   "at": 84.1,
+   "until": 91.4
+  },
+  {
+   "word": "met",
+   "start": 3.086,
+   "end": 3.2,
+   "at": 92.6,
+   "until": 96.0
+  },
+  {
+   "word": "under",
+   "start": 3.238,
+   "end": 3.429,
+   "at": 97.1,
+   "until": 102.9
+  },
+  {
+   "word": "a",
+   "start": 3.505,
+   "end": 3.581,
+   "at": 105.1,
+   "until": 107.4
+  },
+  {
+   "word": "tree",
+   "start": 3.672,
+   "end": 4.038,
+   "at": 110.2,
+   "until": 121.1
+  },
+  {
+   "word": "and,",
+   "start": 4.114,
+   "end": 4.876,
+   "at": 123.4,
+   "until": 146.3
+  },
+  {
+   "word": "well,",
+   "start": 4.952,
+   "end": 5.943,
+   "at": 148.6,
+   "until": 178.3
+  },
+  {
+   "word": "accidentally",
+   "start": 6.002,
+   "end": 6.705,
+   "at": 180.1,
+   "until": 201.2
+  },
+  {
+   "word": "started",
+   "start": 6.752,
+   "end": 7.086,
+   "at": 202.6,
+   "until": 212.6
+  },
+  {
+   "word": "Wall",
+   "start": 7.116,
+   "end": 7.238,
+   "at": 213.5,
+   "until": 217.1
+  },
+  {
+   "word": "Street.",
+   "start": 7.292,
+   "end": 8.0,
+   "at": 218.8,
+   "until": 240.0
+  }
+ ],
+ "tempo": 1.05
+}
