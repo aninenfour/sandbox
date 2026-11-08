@@ -367,5 +367,19 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102174367/large/nbisb-bstocks.png?1783453205",
   "logo": "nbisb"
+ },
+ "RSR": {
+  "id": "reserve-rights-token",
+  "name": "Reserve Rights",
+  "twitter": "reserveprotocol",
+  "image": "https://coin-images.coingecko.com/coins/images/8365/large/RSR_Blue_Circle_1000.png?1721777856",
+  "logo": "rsr"
+ },
+ "EDGE": {
+  "id": "edgex",
+  "name": "edgeX",
+  "twitter": "edgeX_exchange",
+  "image": "https://coin-images.coingecko.com/coins/images/102172616/large/edgex.png?1774332310",
+  "logo": "edge"
  }
 }
