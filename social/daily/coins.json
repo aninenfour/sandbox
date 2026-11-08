@@ -353,5 +353,19 @@
   "twitter": "MeteoraAG",
   "image": "https://coin-images.coingecko.com/coins/images/69110/large/meteora.png?1757517561",
   "logo": "met"
+ },
+ "CRWVB": {
+  "id": "coreweave-bstocks-tokenized-stock",
+  "name": "CoreWeave (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174775/large/coreweave.png?1784798895",
+  "logo": "crwvb"
+ },
+ "NBISB": {
+  "id": "nebius-bstocks-tokenized-stock",
+  "name": "Nebius (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174367/large/nbisb-bstocks.png?1783453205",
+  "logo": "nbisb"
  }
 }

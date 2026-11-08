@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "US October CPI due Tuesday, 21:30 UTC+8"},
+ {"sym": "ETH", "kind": "crypto", "why": "Spot ether ETFs saw a 6th straight week of outflows"},
+ {"sym": "ACT", "kind": "crypto", "why": "One of Hotcoin's biggest 24h movers with real volume"},
+ {"sym": "CRWVB", "kind": "tradfi", "name": "CoreWeave", "handle": "CoreWeave", "why": "Q3 results Tuesday after the US close"},
+ {"sym": "NBISB", "kind": "tradfi", "name": "Nebius", "handle": "nebiusai", "why": "Q3 results Thursday before the US open"}
+]}

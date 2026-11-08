@@ -1,0 +1,71 @@
+{
+ "date": "NOV 8",
+ "window": "Prices at Nov 8 11:43 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "US October CPI due Tuesday, 21:30 UTC+8",
+   "last": 75869.94,
+   "ch": 0.05,
+   "vol": 337196407.94,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Spot ether ETFs saw a 6th straight week of outflows",
+   "last": 2237.94,
+   "ch": -0.18,
+   "vol": 80754659.58,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "ACT",
+   "name": "Act I The AI Prophecy",
+   "kind": "crypto",
+   "handle": "@ACTICOMMUNITY",
+   "why": "One of Hotcoin's biggest 24h movers with real volume",
+   "last": 0.01166,
+   "ch": 13.86,
+   "vol": 313983.6,
+   "logo": "act",
+   "bg": "#221828",
+   "glow": "#fdd0e2"
+  },
+  {
+   "sym": "CRWVB",
+   "name": "CoreWeave",
+   "kind": "tradfi",
+   "handle": "@CoreWeave",
+   "why": "Q3 results Tuesday after the US close",
+   "last": 46.16,
+   "ch": -0.04,
+   "vol": 532088.76,
+   "logo": "crwvb",
+   "bg": "#f0f3fa",
+   "glow": "#173ade"
+  },
+  {
+   "sym": "NBISB",
+   "name": "Nebius",
+   "kind": "tradfi",
+   "handle": "@nebiusai",
+   "why": "Q3 results Thursday before the US open",
+   "last": 129.3,
+   "ch": -0.32,
+   "vol": 538293.09,
+   "logo": "nbisb",
+   "bg": "#e1ff4f",
+   "glow": "#e1ff4f"
+  }
+ ]
+}
