@@ -395,5 +395,12 @@
   "twitter": "tethergold",
   "image": "https://coin-images.coingecko.com/coins/images/10481/large/logo.png?1774627372",
   "logo": "xaut"
+ },
+ "INC": {
+  "id": "world-assets",
+  "name": "WorldAssets",
+  "twitter": "WorldAssets_",
+  "image": "https://coin-images.coingecko.com/coins/images/69686/large/worldassets_400x400.jpg?1759307208",
+  "logo": "inc"
  }
 }

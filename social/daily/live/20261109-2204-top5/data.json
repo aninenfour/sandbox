@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 9 22:04 (UTC+8)",
+ "date": "NOV 9",
+ "gainers": [
+  {
+   "sym": "INC",
+   "name": "WorldAssets",
+   "ch": 52.39,
+   "logo": "inc",
+   "bg": "#000000",
+   "glow": "#ffee08"
+  },
+  {
+   "sym": "EBU",
+   "name": "",
+   "ch": 33.18,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "PIEVERSE",
+   "name": "Pieverse",
+   "ch": 23.06,
+   "logo": "pieverse",
+   "bg": "#ffffff",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "EDGE",
+   "name": "edgeX",
+   "ch": 15.37,
+   "logo": "edge",
+   "bg": "#23fd73",
+   "glow": "#23fd73"
+  },
+  {
+   "sym": "UP",
+   "name": "Unitas",
+   "ch": 12.37,
+   "logo": "up",
+   "bg": "#000809",
+   "glow": "#494e4f"
+  }
+ ]
+}
