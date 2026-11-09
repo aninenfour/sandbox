@@ -52,13 +52,17 @@ Sorted by next anniversary (see Learnings: anniversary hooks win). Use the dated
 → Aug 15, 1971: Nixon ends the gold standard
 → Sep 16, 1992: Black Wednesday
 → Sep 23, 1998: LTCM bailout
-→ Evergreen (no fixed date, use between anniversaries): Satoshi's lost coins
+→ Evergreen (no fixed date, use between anniversaries; person-led first, see Learnings 2026-11-09):
+  → Gregor MacGregor sells shares in Poyais, a country that didn't exist (1822, scam/psychology, same angle as the Eiffel con)
+  → James Howells and the hard drive with about 8,000 BTC in a Newport landfill (2013 on, crypto + person, good for TikTok)
+  → Ronald Read, the Vermont janitor who quietly left an $8 million portfolio (died 2014, psychology/markets)
+  → Satoshi's lost coins
 
 ## Hook bank (first line of every script; rotate types, log the type used)
 Adapted for third-person money stories. Never first person, never a price prediction.
 → Curiosity: "Nobody talks about this, but the richest man in history..."
 → Contrarian: "The smartest investor of 1720 was the worst one."
-→ Number: "One man turned $100 into $1 billion in a single day. Here's how."
+→ Number: "One man turned $100 into $1 billion in a single day. Here's how." (only with a person in the line; number-on-a-company hooks were the 2 worst IG reels, see Learnings 2026-11-09)
 → Story: "In 1636, a single flower cost more than a house."
 → Mistake: "This was the biggest money mistake of the 20th century."
 → Warning: "If you've ever chased a pump, this story is for you."
@@ -77,14 +81,20 @@ Week of 2026-11-03 (4 reels, small sample, no watch-time data from Publer):
 → Never post two story reels the same day: the pizza reel went out ~6 h after Newton and reached 7 people on TikTok (vs 330 to 400 for the others).
 → IG reels get likes and saves but almost no comments (0 on all four). The closing question isn't pulling replies yet.
 
+Week of 2026-11-09 (3 reels; Publer still returns no watch time, completion or saves):
+→ Hook with a person doing something impossible-sounding, not a number. On Instagram the two breakouts are both "a person + a paradox" first lines: Satoshi ("a stranger sent one email, then vanished", now 1,267 IG views) and the Eiffel Tower con ("a con man sold the Eiffel Tower", 1,206). The two Number hooks are the two worst IG reels so far: FTX ("a $32 billion exchange died in nine days", 146) and pizza (156). Put a named or described person in line one; if a number is the hook, attach it to that person, not to a company or market.
+→ Anniversary is a bonus, not the driver (revises last week's learning). The evergreen Eiffel reel matched Satoshi on IG, while the FTX anniversary-week reel was the weakest IG reel of the run. Still use the dated topic when it lands, but between dates pick the strongest person-led story rather than forcing a weak date tie-in.
+→ TikTok leans crypto: FTX (668) is the best story reel on TikTok yet and #2 on the account's TikTok that week, behind only the Nvidia console-vs-chip comparison (865); Satoshi 453. History-only reels sit at 220 to 400. Instagram is the opposite: crypto FTX flopped there.
+→ Comments are still 0 on every Instagram reel (7 of 7) and 0 on TikTok for these 3; Facebook views fell to 67 to 99 (from ~300 for 1929/pizza). Mississippi got the series' first IG shares (7) within a day.
+
 ## Results log
 | Date | Topic | Hook type | Instagram | TikTok | Facebook | IG views | TT views | FB views | Notes |
-<!-- Views as of the weekly review (IG/FB = video views, TT = reach, Publer has no TikTok view count). L/C/S = likes/comments/saves. -->
+<!-- Views as of the weekly review (IG/FB = video views, TT = reach, Publer has no TikTok view count). L/C/S = likes/comments/saves; Sh = shares (from 2026-11-09 Publer returns shares, not saves). -->
 |---|---|---|---|---|---|---|---|---|---|
 | 2026-10-27 | Newton FOMO (South Sea Bubble) | Curiosity / superlative | https://www.instagram.com/reel/De_t0laFPxt/ | @hotcoin.com | https://www.facebook.com/reel/4635565790054485 | 160 (3L 0C 1S) | 403 (9L 3C) | 83 (0L) | first episode, red bodies (pre-green style); ~48 s; music curiosity (inferred from day rotation); posted 19:09 Beijing |
 | 2026-10-27 | Bitcoin pizza (10,000 BTC, 2010) | Number | https://www.instagram.com/reel/DfAVZruDOJM/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1110473388296151 | 152 (8L 0C 2S) | 7 (1L) | 279 (2L) | second post of the day (first scheduled run); green style, 53.6 s, BTC ~$80k tie-in; music curiosity (inferred); posted 00:55 Beijing, ~6 h after Newton |
 | 2026-10-29 | 1929 crash (Black Tuesday anniversary, margin buying) | Story (date) | https://www.instagram.com/reel/DfFei4DCl2y/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/4101410140161216 | 285 (8L 0C 2S) | 335 (5L) | 294 (1L) | posted on the 97th anniversary; 21 images, 51.9 s, cover set; music lofi-01 (inferred); posted 00:51 Beijing |
 | 2026-11-01 | Satoshi's whitepaper (18th anniversary, Oct 31 2008) and disappearance | Open loop | https://www.instagram.com/reel/DfNLW5MAkBp/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1434494208229883 | 1,176 (25L 0C 1S) | 328 (4L) | 70 (1L 1C) | whitepaper turned 18 the day before; 20 images, 54.6 s, cover set; music dreamy-jazz (inferred); posted 00:38 Beijing |
-| 2026-11-03 | The man who sold the Eiffel Tower (Victor Lustig, 1925) | Warning | https://www.instagram.com/reel/DfSWLmrk-gR/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1804114520643768 | | | | evergreen gap-filler (no anniversary near), psychology/scam angle; 20 images (Canva quota cooldowns, s21 dropped), 53.7 s, cover set; music lofi-02; posted 00:53 Beijing |
-| 2026-11-05 | FTX collapse in nine days (4th anniversary week, Nov 2 to 11, 2022) | Number (date) | https://www.instagram.com/reel/DfXexwegDct/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/2377635742996935 | | | | trend tie-in to the Binance hack / exchange-trust news; crypto category; 21 images, 58.6 s, cover set (s14 shocked face); music sleepy-cat; posted 00:38 Beijing (Nov 6) |
-| 2026-11-07 | The Mississippi Bubble (John Law, 1716 to 1720) | Contrarian | https://www.instagram.com/reel/DfcnXAgjY6X/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/2293992411441617 | | | | evergreen gap-filler (Weimar anniversary Nov 15 next), history/markets, ties to the market-down-37% mood; 21 images (s17 regenerated to remove an anachronistic Eiffel Tower), 56.2 s, cover set (s01 Law face); music sweet-september; posted 00:36 Beijing (Nov 8) |
+| 2026-11-03 | The man who sold the Eiffel Tower (Victor Lustig, 1925) | Warning | https://www.instagram.com/reel/DfSWLmrk-gR/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1804114520643768 | 1,206 (14L 0C 0Sh) | 353 (3L) | 72 (0L) | evergreen gap-filler (no anniversary near), psychology/scam angle; 20 images (Canva quota cooldowns, s21 dropped), 53.7 s, cover set; music lofi-02; posted 00:53 Beijing |
+| 2026-11-05 | FTX collapse in nine days (4th anniversary week, Nov 2 to 11, 2022) | Number (date) | https://www.instagram.com/reel/DfXexwegDct/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/2377635742996935 | 146 (2L 0C 0Sh) | 668 (8L) | 67 (0L) | trend tie-in to the Binance hack / exchange-trust news; crypto category; 21 images, 58.6 s, cover set (s14 shocked face); music sleepy-cat; posted 00:38 Beijing (Nov 6) |
+| 2026-11-07 | The Mississippi Bubble (John Law, 1716 to 1720) | Contrarian | https://www.instagram.com/reel/DfcnXAgjY6X/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/2293992411441617 | 375 (5L 0C 7Sh, ~1 day old) | 220 (0L, ~1 day old) | 99 (0L) | evergreen gap-filler (Weimar anniversary Nov 15 next), history/markets, ties to the market-down-37% mood; 21 images (s17 regenerated to remove an anachronistic Eiffel Tower), 56.2 s, cover set (s01 Law face); music sweet-september; posted 00:36 Beijing (Nov 8) |
