@@ -1184,5 +1184,25 @@
    "bitcoin.org whitepaper / ethereum.org (launch, Merge, PoS, ~99.95% energy cut, EIP-1559 burn)",
    "Supply ~19.95M BTC: blockchain.com, CoinGecko"
   ]
+ },
+ {
+  "id": "2026-11-09-whatif-minecraft-msft",
+  "type": "reel-whatif-v2",
+  "mode": "lump",
+  "slot": "2026-11-09T21:30:00+08:00",
+  "title": "$27 Minecraft in 2011 vs $27 in MSFT: $566 (21x)",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(4:5)",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance MSFT weekly closes 2011-11-14 ($25.30) to 2026-11-02 ($530.61)",
+   "Minecraft full release Nov 18, 2011 at $26.95; Microsoft bought Mojang Sep 2014 for $2.5B (Microsoft press release, BBC)"
+  ],
+  "note": "Story-first hook experiment (W45). Price only."
  }
 ]
