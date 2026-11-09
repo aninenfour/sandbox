@@ -101,6 +101,14 @@ function obj(kind, x, y, r) {                      // the thing you buy (generic
     ctx.fillStyle = '#3B4046'; ctx.beginPath(); ctx.roundRect(-r * .48, -r * 1.02, r * .96, r * .2, r * .06); ctx.fill();
     ctx.strokeStyle = 'rgba(140,90,60,.5)'; ctx.lineWidth = r * .06; ctx.lineCap = 'round';
     for (const dx of [-.18, .12]) { ctx.beginPath(); ctx.moveTo(dx * r, -r * 1.12); ctx.bezierCurveTo(dx * r - r * .12, -r * 1.3, dx * r + r * .12, -r * 1.42, dx * r, -r * 1.6); ctx.stroke(); }
+  } else if (kind === 'block') {      // generic voxel grass block, isometric (no logos)
+    const k = r * .8;
+    ctx.shadowColor = 'rgba(20,40,10,.22)'; ctx.shadowBlur = 16;
+    ctx.fillStyle = '#7CC242'; ctx.beginPath(); ctx.moveTo(0, -k); ctx.lineTo(k * .95, -k * .5); ctx.lineTo(0, 0); ctx.lineTo(-k * .95, -k * .5); ctx.closePath(); ctx.fill(); ctx.shadowBlur = 0;
+    ctx.fillStyle = '#8B5E3C'; ctx.beginPath(); ctx.moveTo(-k * .95, -k * .5); ctx.lineTo(0, 0); ctx.lineTo(0, k * 1.05); ctx.lineTo(-k * .95, k * .55); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#6E4A2F'; ctx.beginPath(); ctx.moveTo(k * .95, -k * .5); ctx.lineTo(0, 0); ctx.lineTo(0, k * 1.05); ctx.lineTo(k * .95, k * .55); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#5FA52E'; for (const sg of [-1, 1]) { ctx.beginPath(); ctx.moveTo(sg * k * .95, -k * .5); ctx.lineTo(0, 0); ctx.lineTo(0, k * .25); ctx.lineTo(sg * k * .95, -k * .25); ctx.closePath(); ctx.fill(); }
+    ctx.fillStyle = 'rgba(0,0,0,.12)'; for (const [px, py] of [[-.55, .25], [-.3, .55], [.4, .3], [.62, .05], [.25, .7]]) ctx.fillRect(px * k - k * .07, py * k, k * .14, k * .14);
   } else if (kind === 'phone') {
     ctx.fillStyle = '#1C1F23'; ctx.beginPath(); ctx.roundRect(-r * .55, -r, r * 1.1, r * 2, r * .2); ctx.fill();
     const g = ctx.createLinearGradient(0, -r, 0, r); g.addColorStop(0, '#8EC5FF'); g.addColorStop(1, '#C69CFF');
