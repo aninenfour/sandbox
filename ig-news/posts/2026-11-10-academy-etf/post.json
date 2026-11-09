@@ -1,0 +1,9 @@
+{"type":"tutorial","style":"v2","slides":[
+ {"kind":"nhero","photo":"spy.jpg","photo_pos":"50% 50%","tag":"STOCKS 101","headline":"An ETF is one share that holds [hundreds of stocks]"},
+ {"kind":"tslide","title":"How it <span class='g'>works</span>","paras":["A fund buys a basket of assets. You buy one share of the fund on the stock exchange, <g>like any stock</g>."],
+  "visual":{"type":"stats","items":[{"v":"1 share","l":"of SPY, an S&P 500 ETF","color":"#3E8E1E"},{"v":"500","l":"US companies inside it","color":"#3E8E1E"},{"v":"~0.09%","l":"yearly fee (SPY)","color":"#E58A2D"}]}},
+ {"kind":"tslide","title":"ETF vs <span class='g'>other choices</span>","paras":["The big pluses: <g>spread out</g> risk, low fees, and you can buy or sell any time the market is open."],
+  "visual":{"type":"table","cols":["","Single stock","ETF"],"rows":[["You own","1 company","A basket"],["One company crashes","You feel it all","A small part"],["Trade during the day","Yes","Yes"]]}},
+ {"kind":"tslide","title":"From stocks <span class='g'>to Bitcoin</span>","paras":["ETFs now hold gold and crypto too. Not financial advice."],
+  "visual":{"type":"timeline","items":[{"y":"1993","t":"First US ETF: SPY, the S&P 500"},{"y":"2004","t":"Gold ETF GLD launches"},{"y":"2024","t":"Spot <g>Bitcoin</g> ETFs, Jan"},{"y":"2024","t":"Spot <g>Ether</g> ETFs, Jul"}]}}
+]}

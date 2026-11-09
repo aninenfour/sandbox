@@ -1223,5 +1223,22 @@
    "The Block",
    "CoinDesk (headlines)"
   ]
+ },
+ {
+  "id": "2026-11-10-academy-etf",
+  "type": "academy",
+  "slot": "2026-11-10T19:00:00+08:00",
+  "title": "Stocks 101: what is an ETF",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "SSGA SPY fact sheet (1993 launch, 0.0945% expense ratio)",
+   "SEC spot BTC ETF approval Jan 10 2024; spot ETH ETFs trading Jul 23 2024 (Reuters, CNBC); GLD Nov 2004 (SPDR)"
+  ]
  }
 ]
