@@ -24,6 +24,7 @@ Newest rules win over older ones and over PLAYBOOK.md wording where they conflic
 - Catchy, never false: no "hacked" unless it was a hack, no "banned" unless it is banned, "suspected" stays if the number is unconfirmed.
 - Caption line 1 = the cover hook rewritten as one sentence, ending with 👇.
 - The closing question must be **easy and personal, answerable in one word or one emoji**: "Bullish or bearish? 🟢/🔴", "Would you hold it? Yes/No", "Which one got you? 1–5". Not abstract ("Can P2P really be shut down?"). Hotcoin's "what's your reason to trade?" got 49 comments on 161 reach; the desk's abstract questions got 0–1.
+  - **Review Nov 10: the desk drifted back to abstract questions** ("Should exchanges be held to bank-level rules?", "Who should guard seized crypto?", "Is ETH a store of value like Bitcoin?"): all 0 comments. Before scheduling, rewrite to a one-tap answer: "Would you still use MEXC? Yes/No", "Trust the FBI with your coins? 👍/👎", "ETH: store of value? 🟢/🔴".
 
 - Reels may also hook with a **bold claim plus a number** instead of a list promise ("Bitcoin lost 24% in a year. Apple made 36%."), as long as the number is verified (weekly scan W42: "$140K is the new poor", "Bitcoin won't 100x anymore").
 
