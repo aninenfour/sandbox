@@ -76,6 +76,14 @@ def x_check(link, text):
             time.sleep(10)
             continue
         live = ((d.get('note_tweet') or {}).get('text') or '') + '\n' + (d.get('text') or '')
+        if d.get('note_tweet') and not d['note_tweet'].get('text'):
+            # syndication returns only the note id for long posts: read the full text from fxtwitter instead
+            f = subprocess.run(['curl', '-s', '-m', '30', f'https://api.fxtwitter.com/status/{tid}'],
+                               capture_output=True, text=True)
+            try:
+                live = ((json.loads(f.stdout).get('tweet') or {}).get('text') or '') + '\n' + live
+            except ValueError:
+                pass
         norm = lambda s: re.sub(r'\s+', ' ', s).strip()
         last = [l for l in text.strip().splitlines() if l.strip()][-1]
         return norm(last) in norm(live) and len(norm(live)) >= len(norm(text)) * 0.9

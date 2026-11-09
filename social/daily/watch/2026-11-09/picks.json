@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Closed a 5th straight losing week, near $74,700"},
+ {"sym": "ETH", "kind": "crypto", "why": "Dipped to $2,063 Sunday as long liquidations hit"},
+ {"sym": "STABLE", "kind": "crypto", "why": "One of Hotcoin's biggest 24h movers with real volume"},
+ {"sym": "RKLBB", "kind": "tradfi", "why": "Q3 results after the US close, call 06:00 Tue UTC+8"},
+ {"sym": "XAUT", "kind": "tradfi", "why": "Near $4,100 ahead of US October CPI on Tuesday"}
+]}

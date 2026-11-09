@@ -1,0 +1,71 @@
+{
+ "date": "NOV 9",
+ "window": "Prices at Nov 9 11:43 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Closed a 5th straight losing week, near $74,700",
+   "last": 75112.02,
+   "ch": -0.99,
+   "vol": 546149172.51,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Dipped to $2,063 Sunday as long liquidations hit",
+   "last": 2147.11,
+   "ch": -4.05,
+   "vol": 132152360.46,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "STABLE",
+   "name": "​​Stable",
+   "kind": "crypto",
+   "handle": "@stable",
+   "why": "One of Hotcoin's biggest 24h movers with real volume",
+   "last": 0.02755,
+   "ch": 8.33,
+   "vol": 803075.8,
+   "logo": "stable",
+   "bg": "#001f1e",
+   "glow": "#143f34"
+  },
+  {
+   "sym": "RKLBB",
+   "name": "Rocket Lab",
+   "kind": "tradfi",
+   "handle": "@RocketLab",
+   "why": "Q3 results after the US close, call 06:00 Tue UTC+8",
+   "last": 54.04,
+   "ch": 1.04,
+   "vol": 590952.35,
+   "logo": "rklbb",
+   "bg": "#13171a",
+   "glow": "#ffb22c"
+  },
+  {
+   "sym": "XAUT",
+   "name": "Tether Gold",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Near $4,100 ahead of US October CPI on Tuesday",
+   "last": 4110.6,
+   "ch": 1.24,
+   "vol": 5458528.56,
+   "logo": "xaut",
+   "bg": "#ffffff",
+   "glow": "#d3b25b"
+  }
+ ]
+}

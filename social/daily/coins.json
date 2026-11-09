@@ -381,5 +381,19 @@
   "twitter": "edgeX_exchange",
   "image": "https://coin-images.coingecko.com/coins/images/102172616/large/edgex.png?1774332310",
   "logo": "edge"
+ },
+ "STABLE": {
+  "id": "stable-2",
+  "name": "​​Stable",
+  "twitter": "stable",
+  "image": "https://coin-images.coingecko.com/coins/images/69242/large/stable-logotype-framed-square-light.png?1762753913",
+  "logo": "stable"
+ },
+ "XAUT": {
+  "id": "tether-gold",
+  "name": "Tether Gold",
+  "twitter": "tethergold",
+  "image": "https://coin-images.coingecko.com/coins/images/10481/large/logo.png?1774627372",
+  "logo": "xaut"
  }
 }
