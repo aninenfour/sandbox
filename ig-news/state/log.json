@@ -1204,5 +1204,24 @@
    "Minecraft full release Nov 18, 2011 at $26.95; Microsoft bought Mojang Sep 2014 for $2.5B (Microsoft press release, BBC)"
   ],
   "note": "Story-first hook experiment (W45). Price only."
+ },
+ {
+  "id": "2026-11-10-nyse-avalanche",
+  "type": "news",
+  "slot": "2026-11-10T10:00:00+08:00",
+  "title": "NYSE picks Avalanche to settle tokenized stocks 24/7",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "Decrypt",
+   "Cointelegraph",
+   "The Block",
+   "CoinDesk (headlines)"
+  ]
  }
 ]

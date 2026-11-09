@@ -1,0 +1,18 @@
+{"type":"news","style":"v2","date":"NOV 10","slides":[
+ {"kind":"nhero","photo":"nyse.jpg","photo_pos":"50% 40%","tag":"TOKENIZED STOCKS","badge":{"src":"AVAX.svg","pos":"tr","fit":"80%","size":240},"headline":"The NYSE picks a crypto blockchain to [settle stocks] 24/7"},
+ {"kind":"nrows","tag":"THE DEAL","title":"Avalanche runs the plumbing","rows":[
+   {"emoji":"🏛️","l":"Who","sub":"NYSE's planned tokenized stock venue","v":"NYSE"},
+   {"emoji":"⛓️","l":"Blockchain","sub":"\"core ledger\" for clearing and settlement","v":"Avalanche","pos":true},
+   {"emoji":"🕒","l":"Hours","sub":"trading, clearing and settlement","v":"24/7","pos":true}],
+  "text":["Launch could come [before end of 2026], if regulators approve."]},
+ {"kind":"nrows","tag":"WHY IT MATTERS","title":"Stocks today vs the plan","rows":[
+   {"emoji":"⏰","l":"US stock hours today","sub":"weekdays only","v":"9:30-4pm","neg":true},
+   {"emoji":"🐢","l":"Settlement today","sub":"often takes","v":"1+ day","neg":true},
+   {"emoji":"⚡","l":"Tokenized plan","sub":"recorded and settled onchain","v":"24/7","pos":true}],
+  "text":["The blockchain sits under the [market's core plumbing], not just one fund."]},
+ {"kind":"nrows","tag":"MARKET","title":"AVAX jumps, Wall St. races","rows":[
+   {"emoji":"📈","l":"AVAX on the news","sub":"top gainer in the top 100","v":"+10%","pos":true},
+   {"emoji":"🦑","l":"Nasdaq","sub":"$100M into Kraken's parent, tokenized stocks","v":"Q2 2027"},
+   {"emoji":"🧪","l":"NYSE testing","sub":"talks with Ava Labs began","v":"~1 year ago"}],
+  "text":["Would you trade stocks [at 3am on a Sunday]?"]},
+ {"kind":"end"}]}
