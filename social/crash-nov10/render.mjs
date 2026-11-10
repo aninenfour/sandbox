@@ -50,7 +50,7 @@ const reason = (n, title, big, unit, text) => `<div style="padding:30px 0;border
   </div></div>`;
 
 const slides = [
-  page(`<img src="file://${DIR}/assets/meme.png" style="position:absolute;left:50%;top:60px;height:1130px;transform:translateX(-50%);border-radius:24px">
+  page(`<img src="file://${DIR}/assets/meme.png" style="position:absolute;left:50%;top:120px;height:1100px;transform:translateX(-50%);border-radius:24px">
     <img src="${LOGO}" style="position:absolute;right:72px;bottom:58px;height:34px">`),
   page(`${head(2, 'MARKET CHECK')}
     <div style="position:absolute;left:72px;top:180px">
