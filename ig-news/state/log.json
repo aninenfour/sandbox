@@ -1240,5 +1240,25 @@
    "SSGA SPY fact sheet (1993 launch, 0.0945% expense ratio)",
    "SEC spot BTC ETF approval Jan 10 2024; spot ETH ETFs trading Jul 23 2024 (Reuters, CNBC); GLD Nov 2004 (SPDR)"
   ]
+ },
+ {
+  "id": "2026-11-10-whatif-spotify",
+  "type": "reel-whatif-v2",
+  "mode": "dca",
+  "slot": "2026-11-10T21:30:00+08:00",
+  "title": "$10/month Spotify Premium since Apr 2018 vs $10/month in SPOT: $1,040 vs ~$3,209 (3.1x)",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(4:5)",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance SPOT weekly closes 2018-04-02 ($147.92) to 2026-11-09 ($609.10)",
+   "Spotify direct listing NYSE Apr 3, 2018 (Reuters, CNBC)"
+  ],
+  "note": "Calendar said 'since 2015' but SPOT only listed in Apr 2018, so start moved. $10/month assumed (US Premium was $9.99 until 2023, higher since), stated in caption."
  }
 ]
