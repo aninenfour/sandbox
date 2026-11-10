@@ -1,0 +1,17 @@
+{"type":"news","style":"v2","date":"NOV 11","slides":[
+ {"kind":"nhero","photo":"citi.jpg","photo_pos":"50% 40%","tag":"STABLECOINS","headline":"Goldman, Citi and 19 others put [$270M] into their own stablecoin"},
+ {"kind":"nrows","tag":"THE PLAN","title":"Project Faro","rows":[
+   {"emoji":"🏦","l":"Backers","sub":"Goldman, Citi, Santander, Deutsche Bank, UBS...","v":"21 firms"},
+   {"emoji":"💵","l":"Funding","sub":"enough for 5 years of operations","v":"~$270M","pos":true},
+   {"emoji":"🗓️","l":"US dollar coin","sub":"euro and other G7 coins to follow","v":"H1 2027"}],
+  "text":["Still missing: a [CEO and a final name]."]},
+ {"kind":"nbars","tag":"THE TARGET","title":"Who runs stablecoins today","bars":[
+   {"l":"USDT + USDC","v":85,"txt":"~85%","hi":true},
+   {"l":"Everyone else","v":15,"txt":"~15%"}],
+  "text":["Tether and Circle dominate. The banks want [a piece of it]."]},
+ {"kind":"nrows","tag":"THE RACE","title":"Banks vs crypto natives","rows":[
+   {"emoji":"🇪🇺","l":"Qivalis","sub":"euro coin, licensed by the Dutch central bank","v":"37 banks"},
+   {"emoji":"💳","l":"Open USD","sub":"led by Stripe, Visa a founding partner","v":"Rival"},
+   {"emoji":"🔀","l":"Overlap","sub":"BBVA and Rabobank sit in more than one","v":"Hedging"}],
+  "text":["Would you hold a [bank stablecoin] over USDT?"]},
+ {"kind":"end"}]}

@@ -1260,5 +1260,23 @@
    "Spotify direct listing NYSE Apr 3, 2018 (Reuters, CNBC)"
   ],
   "note": "Calendar said 'since 2015' but SPOT only listed in Apr 2018, so start moved. $10/month assumed (US Premium was $9.99 until 2023, higher since), stated in caption."
+ },
+ {
+  "id": "2026-11-11-banks-stablecoin",
+  "type": "news",
+  "slot": "2026-11-11T10:00:00+08:00",
+  "title": "Goldman, Citi and 19 others commit ~$270M to bank stablecoin Project Faro",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "Cointelegraph",
+   "Decrypt",
+   "CoinDesk (headline), all citing Bloomberg"
+  ]
  }
 ]
