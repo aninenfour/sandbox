@@ -109,6 +109,13 @@ function obj(kind, x, y, r) {                      // the thing you buy (generic
     ctx.fillStyle = '#6E4A2F'; ctx.beginPath(); ctx.moveTo(k * .95, -k * .5); ctx.lineTo(0, 0); ctx.lineTo(0, k * 1.05); ctx.lineTo(k * .95, k * .55); ctx.closePath(); ctx.fill();
     ctx.fillStyle = '#5FA52E'; for (const sg of [-1, 1]) { ctx.beginPath(); ctx.moveTo(sg * k * .95, -k * .5); ctx.lineTo(0, 0); ctx.lineTo(0, k * .25); ctx.lineTo(sg * k * .95, -k * .25); ctx.closePath(); ctx.fill(); }
     ctx.fillStyle = 'rgba(0,0,0,.12)'; for (const [px, py] of [[-.55, .25], [-.3, .55], [.4, .3], [.62, .05], [.25, .7]]) ctx.fillRect(px * k - k * .07, py * k, k * .14, k * .14);
+  } else if (kind === 'headphones') { // generic over-ear headphones (no logos)
+    ctx.shadowColor = 'rgba(20,40,10,.22)'; ctx.shadowBlur = 16;
+    ctx.strokeStyle = '#2B2F33'; ctx.lineWidth = r * .16; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.arc(0, r * .1, r * .78, Math.PI * 1.08, Math.PI * 1.92); ctx.stroke(); ctx.shadowBlur = 0;
+    for (const sg of [-1, 1]) {
+      ctx.fillStyle = '#2B2F33'; ctx.beginPath(); ctx.roundRect(sg * r * .78 - r * .22, -r * .05, r * .44, r * .72, r * .18); ctx.fill();
+      ctx.fillStyle = '#1DB954'; ctx.beginPath(); ctx.roundRect(sg * r * .78 - (sg > 0 ? r * .22 : -r * .06), r * .05, r * .16, r * .52, r * .07); ctx.fill(); }
   } else if (kind === 'phone') {
     ctx.fillStyle = '#1C1F23'; ctx.beginPath(); ctx.roundRect(-r * .55, -r, r * 1.1, r * 2, r * .2); ctx.fill();
     const g = ctx.createLinearGradient(0, -r, 0, r); g.addColorStop(0, '#8EC5FF'); g.addColorStop(1, '#C69CFF');
