@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 10 22:04 (UTC+8)",
+ "date": "NOV 10",
+ "gainers": [
+  {
+   "sym": "DPN",
+   "name": "",
+   "ch": 17.4,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "PIEVERSE",
+   "name": "Pieverse",
+   "ch": 14.97,
+   "logo": "pieverse",
+   "bg": "#ffffff",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "ACT",
+   "name": "Act I The AI Prophecy",
+   "ch": 9.94,
+   "logo": "act",
+   "bg": "#221828",
+   "glow": "#fdd0e2"
+  },
+  {
+   "sym": "SOXLB",
+   "name": "Semicon Bull 3X ETF (bStocks Tokenized ETF)",
+   "ch": 9.69,
+   "logo": "soxlb",
+   "bg": "#0063a6",
+   "glow": "#0063a6"
+  },
+  {
+   "sym": "DPS",
+   "name": "",
+   "ch": 9.66,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  }
+ ]
+}

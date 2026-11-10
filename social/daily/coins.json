@@ -416,5 +416,12 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102174366/large/spyb-bstocks.png?1783452995",
   "logo": "spyb"
+ },
+ "SOXLB": {
+  "id": "semicon-bull-3x-etf-bstocks-tokenized-stock",
+  "name": "Semicon Bull 3X ETF (bStocks Tokenized ETF)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174369/large/soxlb-bstocks.png?1783453750",
+  "logo": "soxlb"
  }
 }
