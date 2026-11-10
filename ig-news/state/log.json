@@ -1278,5 +1278,22 @@
    "Decrypt",
    "CoinDesk (headline), all citing Bloomberg"
   ]
+ },
+ {
+  "id": "2026-11-11-academy-alibaba",
+  "type": "academy",
+  "slot": "2026-11-11T19:00:00+08:00",
+  "title": "Money History: Alibaba, $68 IPO to $310 to $103",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "Yahoo Finance BABA weekly closes (peak 309.92 wk of 2020-10-19, low 63.74 wk of 2022-10-24, 102.72 now)",
+   "IPO $68 / $25B Sep 19 2014, Ant IPO halted Nov 2020, $2.8B SAMR fine Apr 2021 (Reuters, BBC)"
+  ]
  }
 ]
