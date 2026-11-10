@@ -402,5 +402,19 @@
   "twitter": "WorldAssets_",
   "image": "https://coin-images.coingecko.com/coins/images/69686/large/worldassets_400x400.jpg?1759307208",
   "logo": "inc"
+ },
+ "AVAX": {
+  "id": "avalanche-2",
+  "name": "Avalanche",
+  "twitter": "avax",
+  "image": "https://coin-images.coingecko.com/coins/images/12559/large/Avalanche_Circle_RedWhite_Trans.png?1696512369",
+  "logo": "avax"
+ },
+ "SPYB": {
+  "id": "spy-bstocks-tokenized-stock",
+  "name": "SPY (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174366/large/spyb-bstocks.png?1783452995",
+  "logo": "spyb"
  }
 }

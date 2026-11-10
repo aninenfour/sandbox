@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Below $75K into US October CPI, 21:30 UTC+8"},
+ {"sym": "ETH", "kind": "crypto", "why": "Near $2,100 ahead of tonight's US CPI print"},
+ {"sym": "AVAX", "kind": "crypto", "why": "Top 24h mover on Hotcoin with real volume"},
+ {"sym": "CRWVB", "kind": "tradfi", "name": "CoreWeave", "handle": "CoreWeave", "why": "Q3 results after the US close, call 06:00 Wed UTC+8"},
+ {"sym": "SPYB", "kind": "tradfi", "why": "US CPI lands an hour before the US open"}
+]}

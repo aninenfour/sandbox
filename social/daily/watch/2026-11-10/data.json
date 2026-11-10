@@ -1,0 +1,71 @@
+{
+ "date": "NOV 10",
+ "window": "Prices at Nov 10 11:42 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Below $75K into US October CPI, 21:30 UTC+8",
+   "last": 74499.9,
+   "ch": -0.81,
+   "vol": 718123912.21,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Near $2,100 ahead of tonight's US CPI print",
+   "last": 2110.6,
+   "ch": -1.66,
+   "vol": 169745275.27,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "AVAX",
+   "name": "Avalanche",
+   "kind": "crypto",
+   "handle": "@avax",
+   "why": "Top 24h mover on Hotcoin with real volume",
+   "last": 8.607,
+   "ch": 6.94,
+   "vol": 2928425.26,
+   "logo": "avax",
+   "bg": "#e84142",
+   "glow": "#e84142"
+  },
+  {
+   "sym": "CRWVB",
+   "name": "CoreWeave",
+   "kind": "tradfi",
+   "handle": "@CoreWeave",
+   "why": "Q3 results after the US close, call 06:00 Wed UTC+8",
+   "last": 48.64,
+   "ch": 4.33,
+   "vol": 668523.07,
+   "logo": "crwvb",
+   "bg": "#f0f3fa",
+   "glow": "#173ade"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "US CPI lands an hour before the US open",
+   "last": 753.34,
+   "ch": 1.62,
+   "vol": 644923.19,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  }
+ ]
+}
