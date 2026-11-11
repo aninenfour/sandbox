@@ -1333,5 +1333,23 @@
    "Yahoo Finance BTC-USD year-end closes (own calc)",
    "The Block (Derive 31% odds sub-$70K Christmas; stablecoin supply -$14.2B)"
   ]
+ },
+ {
+  "id": "2026-11-12-academy-2026-scoreboard",
+  "type": "academy",
+  "slot": "2026-11-12T19:00:00+08:00",
+  "title": "Data Day: 2026 so far, stocks +11%, gold -8%, Bitcoin -16% (+3.7% inflation)",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "Yahoo Finance closes Dec 31 2025 vs Nov 11 2026 (^GSPC, ^IXIC, GC=F, BTC-USD)",
+   "CPI +3.7% y/y Sept 2026: BLS release + FRED CPIAUCNS (via search)"
+  ],
+  "note": "Calendar topic 'what $100 buys vs 2020 (CPI)' swapped: BLS/FRED blocked from container, Oct index level unverifiable."
  }
 ]

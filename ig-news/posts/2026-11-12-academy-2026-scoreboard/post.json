@@ -1,0 +1,9 @@
+{"type":"tutorial","style":"v2","slides":[
+ {"kind":"nhero","photo":"spy.jpg","photo_pos":"50% 50%","tag":"DATA DAY · 2026 SO FAR","headline":"2026 so far: stocks [+11%], gold -8%, Bitcoin -16%"},
+ {"kind":"tslide","title":"The 2026 <span class='g'>scoreboard</span>","paras":["Price change from the Dec 31, 2025 close to Nov 11, 2026."],
+  "visual":{"type":"table","cols":["","Dec 31","Now","2026"],"rows":[["S&P 500","6,846","7,619","<g>+11.3%</g>"],["Nasdaq","23,242","25,466","<g>+9.6%</g>"],["Gold, $/oz","4,341","3,986","-8.2%"],["Bitcoin","$87.5K","$73.8K","-15.6%"]]}},
+ {"kind":"tslide","title":"Now add <span class='g'>inflation</span>","paras":["US prices rose <g>3.7%</g> in the year to September. Your money has to beat that just to stand still."],
+  "visual":{"type":"stats","items":[{"v":"+7.6%","l":"S&P 500 after inflation, roughly","color":"#3E8E1E"},{"v":"-12%","l":"Gold after inflation, roughly","color":"#E5322D"},{"v":"-19%","l":"Bitcoin after inflation, roughly","color":"#E5322D"}]}},
+ {"kind":"tslide","title":"What <span class='g'>to take away</span>","paras":["One year is a snapshot, not a verdict. Not financial advice."],
+  "visual":{"type":"table","cols":["Lesson","Why"],"rows":[["Assets take turns","BTC led 2024, gold led 2025"],["Cash loses too","~3.7% a year to inflation"],["Spread it out","No single winner every year"]]}}
+]}
