@@ -1315,5 +1315,23 @@
    "IPO Sep 19 2014 at $68, first-day close $93.89 (Reuters, CNBC)"
   ],
   "note": "Honest low-return WHAT IF (1.1x): lesson = timing. Calendar said $100 at IPO; retail could only buy at market, so first-day close used."
+ },
+ {
+  "id": "2026-11-12-btc-two-losing-years",
+  "type": "news",
+  "slot": "2026-11-12T10:00:00+08:00",
+  "title": "Bitcoin on track for first 2 losing years in a row (2025 -6%, 2026 -16% YTD)",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "Decrypt (Nov 11)",
+   "Yahoo Finance BTC-USD year-end closes (own calc)",
+   "The Block (Derive 31% odds sub-$70K Christmas; stablecoin supply -$14.2B)"
+  ]
  }
 ]
