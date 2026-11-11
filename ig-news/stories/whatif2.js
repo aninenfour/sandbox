@@ -116,6 +116,14 @@ function obj(kind, x, y, r) {                      // the thing you buy (generic
     for (const sg of [-1, 1]) {
       ctx.fillStyle = '#2B2F33'; ctx.beginPath(); ctx.roundRect(sg * r * .78 - r * .22, -r * .05, r * .44, r * .72, r * .18); ctx.fill();
       ctx.fillStyle = '#1DB954'; ctx.beginPath(); ctx.roundRect(sg * r * .78 - (sg > 0 ? r * .22 : -r * .06), r * .05, r * .16, r * .52, r * .07); ctx.fill(); }
+  } else if (kind === 'cart') {       // generic shopping cart (no logos)
+    ctx.shadowColor = 'rgba(20,40,10,.22)'; ctx.shadowBlur = 16;
+    ctx.fillStyle = '#FF6A00'; ctx.beginPath(); ctx.moveTo(-r * .8, -r * .55); ctx.lineTo(r * .9, -r * .55); ctx.lineTo(r * .7, r * .3); ctx.lineTo(-r * .62, r * .3); ctx.closePath(); ctx.fill(); ctx.shadowBlur = 0;
+    ctx.strokeStyle = 'rgba(255,255,255,.55)'; ctx.lineWidth = r * .05;
+    for (const k of [-.35, .05, .45]) { ctx.beginPath(); ctx.moveTo(k * r, -r * .5); ctx.lineTo(k * r * .92, r * .26); ctx.stroke(); }
+    ctx.strokeStyle = '#2B2F33'; ctx.lineWidth = r * .1; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(-r * 1.15, -r * .85); ctx.lineTo(-r * .92, -r * .85); ctx.lineTo(-r * .62, r * .48); ctx.lineTo(r * .72, r * .48); ctx.stroke();
+    ctx.fillStyle = '#2B2F33'; for (const wx of [-r * .45, r * .55]) { ctx.beginPath(); ctx.arc(wx, r * .72, r * .14, 0, 7); ctx.fill(); }
   } else if (kind === 'phone') {
     ctx.fillStyle = '#1C1F23'; ctx.beginPath(); ctx.roundRect(-r * .55, -r, r * 1.1, r * 2, r * .2); ctx.fill();
     const g = ctx.createLinearGradient(0, -r, 0, r); g.addColorStop(0, '#8EC5FF'); g.addColorStop(1, '#C69CFF');
