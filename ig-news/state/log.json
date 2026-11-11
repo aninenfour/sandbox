@@ -1295,5 +1295,25 @@
    "Yahoo Finance BABA weekly closes (peak 309.92 wk of 2020-10-19, low 63.74 wk of 2022-10-24, 102.72 now)",
    "IPO $68 / $25B Sep 19 2014, Ant IPO halted Nov 2020, $2.8B SAMR fine Apr 2021 (Reuters, BBC)"
   ]
+ },
+ {
+  "id": "2026-11-11-whatif-alibaba",
+  "type": "reel-whatif-v2",
+  "mode": "lump",
+  "slot": "2026-11-11T21:30:00+08:00",
+  "title": "$100 in BABA at first-day close (Sep 2014) = $109 today; peak $330 in 2020",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(4:5)",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance BABA weekly closes: first-day close $93.89 (Sep 19 2014), peak wk 2020-10-19 $309.92, 2026-11-10 $102.72",
+   "IPO Sep 19 2014 at $68, first-day close $93.89 (Reuters, CNBC)"
+  ],
+  "note": "Honest low-return WHAT IF (1.1x): lesson = timing. Calendar said $100 at IPO; retail could only buy at market, so first-day close used."
  }
 ]
