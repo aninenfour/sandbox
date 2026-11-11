@@ -1,0 +1,32 @@
+{
+ "items": [
+  {
+   "sym": "BTC",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Fell below $73K Tuesday after hot October CPI"
+  },
+  {
+   "sym": "ETH",
+   "kind": "crypto",
+   "why": "Near $2,060 as markets price a December Fed hike"
+  },
+  {
+   "sym": "ICP",
+   "kind": "crypto",
+   "why": "Top 24h mover on Hotcoin with real volume"
+  },
+  {
+   "sym": "NBISB",
+   "kind": "tradfi",
+   "name": "Nebius",
+   "handle": "nebiusai",
+   "why": "Q3 results Thursday, call 21:00 UTC+8"
+  },
+  {
+   "sym": "XAUT",
+   "kind": "tradfi",
+   "why": "Below $4,100 after core CPI beat forecasts"
+  }
+ ]
+}

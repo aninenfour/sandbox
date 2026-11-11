@@ -423,5 +423,12 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102174369/large/soxlb-bstocks.png?1783453750",
   "logo": "soxlb"
+ },
+ "ICP": {
+  "id": "internet-computer",
+  "name": "Internet Computer",
+  "twitter": "dfinity",
+  "image": "https://coin-images.coingecko.com/coins/images/14495/large/Internet_Computer_logo.png?1696514180",
+  "logo": "icp"
  }
 }

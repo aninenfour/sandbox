@@ -1,0 +1,71 @@
+{
+ "date": "NOV 11",
+ "window": "Prices at Nov 11 11:48 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Fell below $73K Tuesday after hot October CPI",
+   "last": 73740.01,
+   "ch": -1.06,
+   "vol": 826355775.5,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Near $2,060 as markets price a December Fed hike",
+   "last": 2061.79,
+   "ch": -2.4,
+   "vol": 191416315.91,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "ICP",
+   "name": "Internet Computer",
+   "kind": "crypto",
+   "handle": "@dfinity",
+   "why": "Top 24h mover on Hotcoin with real volume",
+   "last": 2.592,
+   "ch": 8.45,
+   "vol": 1102986.13,
+   "logo": "icp",
+   "bg": "#ffffff",
+   "glow": "#29abe2"
+  },
+  {
+   "sym": "NBISB",
+   "name": "Nebius",
+   "kind": "tradfi",
+   "handle": "@nebiusai",
+   "why": "Q3 results Thursday, call 21:00 UTC+8",
+   "last": 147.8,
+   "ch": 5.93,
+   "vol": 581342.32,
+   "logo": "nbisb",
+   "bg": "#e1ff4f",
+   "glow": "#e1ff4f"
+  },
+  {
+   "sym": "XAUT",
+   "name": "Tether Gold",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Below $4,100 after core CPI beat forecasts",
+   "last": 4041.65,
+   "ch": -1.35,
+   "vol": 8225945.39,
+   "logo": "xaut",
+   "bg": "#ffffff",
+   "glow": "#d3b25b"
+  }
+ ]
+}
