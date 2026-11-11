@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 11 22:04 (UTC+8)",
+ "date": "NOV 11",
+ "gainers": [
+  {
+   "sym": "UNC",
+   "name": "",
+   "ch": 29.72,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "MVLLB",
+   "name": "GraniteShares 2X Long MRVL ETF (bStocks Tokenized ETF)",
+   "ch": 28.13,
+   "logo": "mvllb",
+   "bg": "#f0f4fa",
+   "glow": "#f8ab25"
+  },
+  {
+   "sym": "SOXLB",
+   "name": "Semicon Bull 3X ETF (bStocks Tokenized ETF)",
+   "ch": 23.19,
+   "logo": "soxlb",
+   "bg": "#0063a6",
+   "glow": "#0063a6"
+  },
+  {
+   "sym": "UP",
+   "name": "Unitas",
+   "ch": 18.14,
+   "logo": "up",
+   "bg": "#000809",
+   "glow": "#494e4f"
+  },
+  {
+   "sym": "RKLBB",
+   "name": "Rocket Lab (bStocks Tokenized Stock)",
+   "ch": 17.58,
+   "logo": "rklbb",
+   "bg": "#13171a",
+   "glow": "#ffb22c"
+  }
+ ]
+}

@@ -430,5 +430,12 @@
   "twitter": "dfinity",
   "image": "https://coin-images.coingecko.com/coins/images/14495/large/Internet_Computer_logo.png?1696514180",
   "logo": "icp"
+ },
+ "MVLLB": {
+  "id": "graniteshares-2x-long-mrvl-etf-bstocks-tokenized-stock",
+  "name": "GraniteShares 2X Long MRVL ETF (bStocks Tokenized ETF)",
+  "twitter": null,
+  "image": "https://coin-images.coingecko.com/coins/images/102174763/large/MVLLB.png?1784796608",
+  "logo": "mvllb"
  }
 }
