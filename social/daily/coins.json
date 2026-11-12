@@ -437,5 +437,12 @@
   "twitter": null,
   "image": "https://coin-images.coingecko.com/coins/images/102174763/large/MVLLB.png?1784796608",
   "logo": "mvllb"
+ },
+ "DJTB": {
+  "id": "trump-media-technology-group-cord-bstocks-tokenized-stock",
+  "name": "Trump Media & Technology Group Corp (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102175855/large/bstocks_DJTB_64.png?1787792389",
+  "logo": "djtb"
  }
 }

@@ -1,0 +1,21 @@
+{
+ "twitter": {
+  "state": "published",
+  "link": "https://x.com/1065817584396713984/status/2120880456174338378",
+  "id": "6af5c7750acc11d344695e7d",
+  "error": null,
+  "verified_full_text": true
+ },
+ "facebook": {
+  "state": "published",
+  "link": "https://www.facebook.com/107965200554050_1663546978897403",
+  "id": "6af5c791f9116176eb11269d",
+  "error": null
+ },
+ "linkedin": {
+  "state": "published",
+  "link": "https://www.linkedin.com/feed/update/urn:li:share:7526646339418542082",
+  "id": "6af5c79d0acc11d344695efb",
+  "error": null
+ }
+}

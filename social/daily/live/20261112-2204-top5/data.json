@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 12 22:04 (UTC+8)",
+ "date": "NOV 12",
+ "gainers": [
+  {
+   "sym": "DJTB",
+   "name": "Trump Media & Technology Group Corp (bStocks Tokenized Stock)",
+   "ch": 14.35,
+   "logo": "djtb",
+   "bg": "#ffffff",
+   "glow": "#f7bd58"
+  },
+  {
+   "sym": "UP",
+   "name": "Unitas",
+   "ch": 14.01,
+   "logo": "up",
+   "bg": "#000809",
+   "glow": "#494e4f"
+  },
+  {
+   "sym": "TPTC",
+   "name": "",
+   "ch": 12.54,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "CCDOG",
+   "name": "",
+   "ch": 8.06,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "ARX",
+   "name": "Arcium",
+   "ch": 6.95,
+   "logo": "arx",
+   "bg": "#6d45ff",
+   "glow": "#6d45ff"
+  }
+ ]
+}
