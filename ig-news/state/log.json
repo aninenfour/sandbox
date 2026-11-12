@@ -1368,5 +1368,25 @@
   "sources": [
    "Yahoo Finance ^GSPC daily closes 1990-01-02 to 2026-11-11 (own calc: 61 F13s, 60.7% up vs 53.6% all days, avg +0.33%, ex-Mar-2020 +0.18%)"
   ]
+ },
+ {
+  "id": "2026-11-12-whatif-ps5-sony",
+  "type": "reel-whatif-v2",
+  "mode": "lump",
+  "slot": "2026-11-12T21:30:00+08:00",
+  "title": "PS5 at launch ($499, Nov 12 2020) vs $499 in Sony: $737 (1.5x)",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(4:5)",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance SONY weekly closes, split-adjusted (5:1 Oct 2024): wk of 2020-11-09 $17.94 -> 2026-11-11 $26.49",
+   "PS5 US launch Nov 12, 2020 at $499 (Sony PlayStation Blog, The Verge)"
+  ],
+  "note": "First Reel with word-by-word ending + new hook rules (direct question)."
  }
 ]
