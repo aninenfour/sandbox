@@ -11,6 +11,23 @@ Newest rules win over older ones and over PLAYBOOK.md wording where they conflic
 - Don't touch posts that are already scheduled or published.
 - Done Oct 29: news v2 (news2.py) + Academy v2. See PLAYBOOK §4/§6. Before/after: research/2026-W44/style-revision-before-after.jpg.
 
+## OWNER FEEDBACK, Nov 12 (mandatory)
+- **No empty space on Academy slides.** We are a visual account: every chapter slide that has room left gets a related photo
+  (`"photo"`, `"photo_cap"` on a tslide). The renderer only shows it when there is >= 200 px free.
+- **Two Academy layouts, alternate between posts** (`"variant": "a"` or `"b"` in post.json): A = chart, text, photo fills the
+  bottom; B = photo header band with the title on it, chart card overlapping. Never two posts in a row with the same variant.
+  Pick 3 different related photos per post (Unsplash / Wikimedia), never reuse last week's.
+- **Talk like a person, not a press release.** Academy covers can open a question the slides answer ("Alibaba stock: $68, then
+  $310, now $103. What happened?"), slide 2 starts the walk-through ("So, let's break it down"). Banned: slogan triplets,
+  "Here's the thing", "the X was the product", "paid the owners", words nobody says out loud.
+- **Reels: length follows the story.** WHAT IF chart time = ~2.2 s per year (14-60 s), so a 12-year story is ~50 s and a
+  20-year one can run 70-90 s. Override with `"chart_secs"` when needed.
+- **Reel closing lines: plain spoken sentences**, max ~4 words each, e.g. "SO, GOOD BUY?" / "SELL IN 2020: 3.3x." /
+  "HOLD TILL NOW: 1.1x." They now appear word by word and stay (no typewriter, no cursor).
+- **Hooks that work in finance short video (Nov 12 scan):** a concrete number, a mistake ("Never buy X without..."), a contrarian
+  claim, or a direct question to the viewer. Prefer these over a date + fact line.
+- Comment replies: parked by the owner (later).
+
 ## Hooks (cover headline + caption first line)
 - **CLEAR FIRST (owner, Oct 28).** A stranger must understand the cover with no other slide: name the thing + the result/number in plain words. Riddles and teasers that hide the answer are banned.
   - Bad: "$1,000 since 2020. Who won?" · "Is this the end?" · "Robinhood just did something wild"

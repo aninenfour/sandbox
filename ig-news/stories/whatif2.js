@@ -16,9 +16,23 @@ const money = v => '$' + Math.round(v).toLocaleString('en-US');
 const COIN = S.invest.color || '#3E9B27';
 
 // ---- timeline (seconds)
-const T = {cover: 1.0, hook: 1.0, vs: 3.6, pick: 7.2, c0: 8.2, c1: 25.2, rev: 26.0, out: 31.0};
-const LESSON = S.lesson, L0 = T.out + .5, LT = lessonTimes(L0, LESSON, 19);
-const LEND = LT[LT.length - 1] + LESSON[LESSON.length - 1].t.length / 19;
+// Owner, Nov 12: length follows the story, not a fixed 40 s. The chart runs ~2.2 s per year (14-60 s),
+// or spec.chart_secs; long histories can make a 60-90 s Reel.
+const YEARS = (Date.parse(PTS[N - 1][0]) - Date.parse(PTS[0][0])) / 3.156e10;
+const CH = S.chart_secs || Math.min(60, Math.max(14, YEARS * 2.2));
+const T = {cover: 1.0, hook: 1.0, vs: 3.6, pick: 7.2, c0: 8.2}; T.c1 = T.c0 + CH; T.rev = T.c1 + .8; T.out = T.rev + 5.0;
+const LESSON = S.lesson, L0 = T.out + .5, WPS = 3.2;   // words per second
+const LT = (() => { let c = L0; return LESSON.map(l => { const x = c; c += l.t.split(' ').length / WPS + .45; return x; }); })();
+const LEND = LT[LT.length - 1] + LESSON[LESSON.length - 1].t.split(' ').length / WPS;
+function lesson2(t) {  // each word rises in and stays; nothing is ever erased or retyped
+  ctx.font = '800 84px "Inter Display", Inter, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+  LESSON.forEach((l, i) => { const ws = l.t.split(' '), sp = ctx.measureText(' ').width, wid = ws.map(w => ctx.measureText(w).width);
+    let x = W / 2 - (wid.reduce((a, b) => a + b, 0) + sp * (ws.length - 1)) / 2; const y = 800 + i * 120;
+    ws.forEach((w, j) => { const k = easeOut(prog(t, LT[i] + j / WPS, LT[i] + j / WPS + .28));
+      if (k > 0) { ctx.globalAlpha = k; ctx.fillStyle = l.c || P.white; ctx.fillText(w, x, y + 26 * (1 - k)); }
+      x += wid[j] + sp; });
+  }); ctx.globalAlpha = 1; ctx.textAlign = 'center';
+}
 const ENDT = LEND + 2.8;                       // the lesson holds ~3 s (owner, Nov 3)
 window.DURATION = ENDT + 3.4;
 window.COVER_T = 0.02;                         // frame 0 is the cover = default thumbnail everywhere
@@ -38,7 +52,7 @@ window.CUES = (() => {
   PTS.forEach((p, i) => { const y = +p[0].slice(0, 4); if (y !== y0) { c.push({t: evTime(i), s: 'key', pitch: 1}); y0 = y; } });
   EV.forEach(e => c.push({t: evTime(e.i), s: e.c === 'red' ? 'crash' : 'chime'}));
   c.push({t: T.rev - .05, s: 'cut'}, {t: T.rev + .6, s: 'cash'}, {t: T.rev + 2.0, s: 'stamp'}, {t: T.rev + 2.1, s: 'cheer'});
-  let k = L0; LESSON.forEach(l => { for (let i = 0; i < l.t.length; i++) if (l.t[i] !== ' ') c.push({t: k + i / 19, s: 'key'}); k += l.t.length / 19 + .35; });
+  LESSON.forEach((l, i) => l.t.split(' ').forEach((w, j) => c.push({t: LT[i] + j / WPS, s: 'key'})));
   c.push({t: T.out - .4, s: 'pad'}, {t: ENDT + .6, s: 'chime'});
   return c;
 })();
@@ -262,7 +276,7 @@ function draw(t) {
         ctx.fillStyle = P.green; ctx.beginPath(); ctx.roundRect(-230, -60, 460, 120, 60); ctx.fill(); txt(S.reveal.mult, 0, 4, 64, '#FFFFFF', 900, 'center', a); ctx.restore(); }
       txt(S.reveal.note, W / 2, 1420, 32, P.dim, 600, 'center', a * prog(t, T.rev + 2.6, T.rev + 3.0)); } }
   // 5. lesson + end card
-  if (t >= L0 - .4) lesson(t, L0, LESSON, 800, 19);
+  if (t >= L0 - .4) lesson2(t);
   endcard(t, ENDT);
   corner(.7 * (1 - prog(t, L0 - .5, L0)));
   ctx.restore();

@@ -222,6 +222,16 @@ ACADEMY_CSS = """
 .ttl{top:138px !important;left:190px !important;font-size:56px !important}
 .vis{bottom:auto !important}
 .tsrc{display:none !important}
+/* Owner, Nov 12: no empty space on Academy slides; visual-first. Layout A = photo fills the free space under the text. */
+.tphoto{position:absolute;left:62px;right:62px;border-radius:30px;background-size:cover;background-position:center;box-shadow:0 12px 40px rgba(0,0,0,.10);overflow:hidden}
+.tphoto .cap{position:absolute;left:0;right:0;bottom:0;padding:60px 30px 22px;font-size:24px;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+/* Layout B = photo header band with the title on it, chart card overlapping its bottom edge. */
+.paper.vb .thead{position:absolute;left:0;right:0;top:0;height:560px;background-size:cover;background-position:center}
+.paper.vb .thead:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,14,.72) 0%,rgba(10,12,14,.35) 45%,rgba(243,242,236,0) 78%,#F3F2EC 100%)}
+.paper.vb .acad,.paper.vb .tch,.paper.vb .ttl{color:#fff !important;z-index:2}
+.paper.vb .tnum{color:#7EC25A !important;z-index:2}
+.paper.vb .ttl .g{color:#9BE07A !important}
+.paper.vb .vis{z-index:3}
 """
 
 # Graphic on top for Academy chapter slides: title row, then the chart/visual, then the text under it.
@@ -231,14 +241,25 @@ ACADEMY_JS = """
   if (!v || !t || !b) return;
   const sl = t.closest('.slide').getBoundingClientRect();
   const top = Math.max(t.getBoundingClientRect().bottom, document.querySelector('.tnum').getBoundingClientRect().bottom) - sl.top + 34;
-  v.style.top = top + 'px';
+  const vb = t.closest('.slide').classList.contains('vb'), ph = document.querySelector('.tphoto');
+  v.style.top = (vb ? Math.max(top + 40, 330) : top) + 'px';
   b.style.top = (v.getBoundingClientRect().bottom - sl.top + 40) + 'px';
+  if (ph) {  // layout A: photo takes the free space; chart keeps its size
+    const y = b.getBoundingClientRect().bottom - sl.top + 34, hh = 1205 - y;
+    if (hh < 200) { ph.style.display = 'none'; } else { ph.style.top = y + 'px'; ph.style.height = hh + 'px'; return; }
+  }
   // grow the graphic into the free space (owner: graphics first, not small charts)
   const free = 1190 - (b.getBoundingClientRect().bottom - sl.top);
-  const vh = v.getBoundingClientRect().height, z = Math.min(1.7, Math.max(1, (vh + free - 20) / vh));
-  if (z > 1.02 && !v.querySelector('svg, .sg')) {  // HTML visuals (stats, tables) scale up; SVG charts are sized in render.py
+  const vh = v.getBoundingClientRect().height, z = Math.min(v.querySelector('.sg') ? 1.3 : 1.7, Math.max(1, (vh + free - 20) / vh));
+  if (z > 1.02 && !v.querySelector('svg')) {  // HTML visuals (stats, tables) scale up; SVG charts are sized in render.py
     v.style.right = 'auto'; v.style.width = (956 / z) + 'px'; v.style.transformOrigin = 'top left'; v.style.transform = `scale(${z})`;
-    b.style.top = (top + v.getBoundingClientRect().height + 40) + 'px';
+    b.style.top = (v.getBoundingClientRect().bottom - sl.top + 40) + 'px';
+  }
+  if (vb) {  // layout B: push the chart + text down to the footer, the photo band grows to fill the top
+    const vt = v.getBoundingClientRect().top - sl.top, hc = b.getBoundingClientRect().bottom - sl.top - vt;
+    const nt = Math.max(vt, 1190 - hc), d = nt - vt;
+    v.style.top = (parseFloat(v.style.top) + d) + 'px'; b.style.top = (parseFloat(b.style.top) + d) + 'px';
+    document.querySelector('.thead').style.height = (nt + 150) + 'px';
   }
 }
 """

@@ -163,9 +163,16 @@ def kinds(g):
         vis = vis_html(s['visual'], g, base) if s.get('visual') else ''
         src = f'<div class="tsrc">Source: {_esc(s["source"])}</div>' if s.get('source') else ''
         top = s.get('body_top', 400)
-        return f'''<div class="slide paper"><div class="acad"><span class="dot"></span>Hotcoin Academy</div><div class="tch">{_esc(s.get("of",""))}</div>
+        # Owner, Nov 12: fill empty space with a related photo. layout 'a' = photo under the text, 'b' = photo header band.
+        lay = s.get('layout', 'a'); ph = ''; head = ''
+        if s.get('photo') and lay == 'b':
+            head = f'<div class="thead" style="background-image:url({uri(s["photo"], base)});background-position:{s.get("photo_pos","center")}"></div>'
+        elif s.get('photo'):
+            cap = f'<div class="cap">{_esc(s["photo_cap"])}</div>' if s.get('photo_cap') else ''
+            ph = f'<div class="tphoto" style="background-image:url({uri(s["photo"], base)});background-position:{s.get("photo_pos","center")}">{cap}</div>'
+        return f'''<div class="slide paper{' vb' if head else ''}">{head}<div class="acad"><span class="dot"></span>Hotcoin Academy</div><div class="tch">{_esc(s.get("of",""))}</div>
 <div class="tnum">{_esc(s.get("num",""))}</div><div class="ttl">{inline(s["title"])}</div>
-<div class="tbody fitbody" data-bottom="{s.get("body_bottom",1180)}" style="top:{top}px;font-size:{s.get("size",34)}px">{"".join(f"<p>{inline(p)}</p>" for p in s.get("paras", []))}</div>{vis}{src}{pfoot(last=s.get("_last", False))}</div>'''
+<div class="tbody fitbody" data-bottom="{s.get("body_bottom",1180)}" style="top:{top}px;font-size:{s.get("size",34)}px">{"".join(f"<p>{inline(p)}</p>" for p in s.get("paras", []))}</div>{vis}{ph}{src}{pfoot(last=s.get("_last", False))}</div>'''
 
     def wcover(s, base):
         return f'''<div class="slide wk"><div class="wph {"bw" if s.get("bw",True) else ""}" style="background-image:url({uri(s["photo"], base)});background-position:{s.get("photo_pos","center")}"></div><div class="wgrad"></div>

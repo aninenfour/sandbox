@@ -213,6 +213,9 @@ def main():
             spec['slides'] = [x for x in spec['slides'] if x['kind'] != 'end']
         if len(spec['slides']) != 4:
             print(f"WARNING: Academy/research carousel has {len(spec['slides'])} slides; must be exactly 4 (cover + 3)")
+        if spec.get('variant') in ('a', 'b'):  # owner, Nov 12: two Academy layouts, alternate between posts
+            for x in spec['slides']:
+                if x['kind'] == 'tslide': x.setdefault('layout', spec['variant'])
         N = len(spec['slides'])  # counter + number follow the real position; no 'Swipe' on the last slide
         for k, x in enumerate(spec['slides'], 1):
             if x['kind'] == 'tslide':
