@@ -358,3 +358,5 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 
 ## On sale carousel (social/dips)
 - Bitcoin coin photo: Kanchanara, https://unsplash.com/photos/7E3QGntO66M. Coin logos: CoinGecko.
+
+- CoinGlass logo (cow mark + wordmark): official files from cdn.coinglasscdn.com (icon_200.png, icon_600_315.png), used for the Hotcoin x CoinGlass collab post, Nov 2026. Fetched by social/coinglass-collab/fetch-logos.py.
