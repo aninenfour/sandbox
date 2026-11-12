@@ -1,0 +1,71 @@
+{
+ "date": "NOV 12",
+ "window": "Prices at Nov 12 11:44 (UTC+8)",
+ "items": [
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA",
+   "kind": "tradfi",
+   "handle": "@nvidia",
+   "why": "Fell ~8% after hours on a WSJ report about its CEO",
+   "last": 160.39,
+   "ch": -7.12,
+   "vol": 553222.1,
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Spot ETFs saw 4 straight days of outflows to Nov 10",
+   "last": 73727.22,
+   "ch": -0.02,
+   "vol": 726673666.62,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "AMATB",
+   "name": "Applied Materials",
+   "kind": "tradfi",
+   "handle": "@Applied4Tech",
+   "why": "Q4 results after the US close, call 05:30 UTC+8",
+   "last": 385.76,
+   "ch": -0.38,
+   "vol": 628402.84,
+   "logo": "amatb",
+   "bg": "#1d8dc5",
+   "glow": "#1d8dc5"
+  },
+  {
+   "sym": "CRWVB",
+   "name": "CoreWeave",
+   "kind": "tradfi",
+   "handle": "@CoreWeave",
+   "why": "Jumped 24.7% Wednesday after its Q3 earnings beat",
+   "last": 56.83,
+   "ch": 0.12,
+   "vol": 642219.87,
+   "logo": "crwvb",
+   "bg": "#f0f3fa",
+   "glow": "#173ade"
+  },
+  {
+   "sym": "INJ",
+   "name": "Injective",
+   "kind": "crypto",
+   "handle": "@injective",
+   "why": "Down over 10% in 24h on Hotcoin, on heavy volume",
+   "last": 7.483,
+   "ch": -10.85,
+   "vol": 3710600.27,
+   "logo": "inj",
+   "bg": "#4d3dff",
+   "glow": "#4d3dff"
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "NVDAB", "kind": "tradfi", "why": "Fell ~8% after hours on a WSJ report about its CEO"},
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Spot ETFs saw 4 straight days of outflows to Nov 10"},
+ {"sym": "AMATB", "kind": "tradfi", "name": "Applied Materials", "handle": "Applied4Tech", "why": "Q4 results after the US close, call 05:30 UTC+8"},
+ {"sym": "CRWVB", "kind": "tradfi", "name": "CoreWeave", "handle": "CoreWeave", "why": "Jumped 24.7% Wednesday after its Q3 earnings beat"},
+ {"sym": "INJ", "kind": "crypto", "why": "Down over 10% in 24h on Hotcoin, on heavy volume"}
+]}
