@@ -25,7 +25,10 @@ const LESSON = S.lesson, L0 = T.out + .5, WPS = 3.2;   // words per second
 const LT = (() => { let c = L0; return LESSON.map(l => { const x = c; c += l.t.split(' ').length / WPS + .45; return x; }); })();
 const LEND = LT[LT.length - 1] + LESSON[LESSON.length - 1].t.split(' ').length / WPS;
 function lesson2(t) {  // each word rises in and stays; nothing is ever erased or retyped
-  ctx.font = '800 84px "Inter Display", Inter, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+  ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+  let fs = 84; ctx.font = `800 ${fs}px "Inter Display", Inter, sans-serif`;   // one size for all lines, shrunk to fit 960 px
+  const widest = Math.max(...LESSON.map(l => ctx.measureText(l.t).width)); if (widest > 960) fs = Math.floor(84 * 960 / widest);
+  ctx.font = `800 ${fs}px "Inter Display", Inter, sans-serif`;
   LESSON.forEach((l, i) => { const ws = l.t.split(' '), sp = ctx.measureText(' ').width, wid = ws.map(w => ctx.measureText(w).width);
     let x = W / 2 - (wid.reduce((a, b) => a + b, 0) + sp * (ws.length - 1)) / 2; const y = 800 + i * 120;
     ws.forEach((w, j) => { const k = easeOut(prog(t, LT[i] + j / WPS, LT[i] + j / WPS + .28));
@@ -138,6 +141,14 @@ function obj(kind, x, y, r) {                      // the thing you buy (generic
     ctx.strokeStyle = '#2B2F33'; ctx.lineWidth = r * .1; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     ctx.beginPath(); ctx.moveTo(-r * 1.15, -r * .85); ctx.lineTo(-r * .92, -r * .85); ctx.lineTo(-r * .62, r * .48); ctx.lineTo(r * .72, r * .48); ctx.stroke();
     ctx.fillStyle = '#2B2F33'; for (const wx of [-r * .45, r * .55]) { ctx.beginPath(); ctx.arc(wx, r * .72, r * .14, 0, 7); ctx.fill(); }
+  } else if (kind === 'ps5') {        // generic tall white console with a dark core (no logos)
+    ctx.shadowColor = 'rgba(20,40,10,.25)'; ctx.shadowBlur = 18;
+    ctx.fillStyle = '#16181C'; ctx.beginPath(); ctx.roundRect(-r * .17, -r * .95, r * .34, r * 1.9, r * .08); ctx.fill(); ctx.shadowBlur = 0;
+    ctx.fillStyle = '#F4F5F7';
+    for (const sg of [-1, 1]) { ctx.beginPath(); ctx.moveTo(sg * r * .15, -r * 1.05); ctx.quadraticCurveTo(sg * r * .62, -r * .7, sg * r * .5, -r * .1);
+      ctx.quadraticCurveTo(sg * r * .42, r * .5, sg * r * .55, r * 1.0); ctx.lineTo(sg * r * .15, r * .95); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = 'rgba(0,0,0,.12)'; ctx.lineWidth = 3; ctx.stroke(); }
+    ctx.fillStyle = '#3B7BFF'; ctx.globalAlpha = .7; ctx.fillRect(-r * .02, -r * .9, r * .04, r * 1.8); ctx.globalAlpha = 1;
   } else if (kind === 'phone') {
     ctx.fillStyle = '#1C1F23'; ctx.beginPath(); ctx.roundRect(-r * .55, -r, r * 1.1, r * 2, r * .2); ctx.fill();
     const g = ctx.createLinearGradient(0, -r, 0, r); g.addColorStop(0, '#8EC5FF'); g.addColorStop(1, '#C69CFF');
