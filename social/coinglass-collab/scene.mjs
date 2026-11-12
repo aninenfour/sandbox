@@ -7,9 +7,11 @@ export const LIME = '#B8F26A', GREEN = '#7EC25A', DEEP = '#2F5A17', INK = '#0B0E
 
 const css = (W, H) => `@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=block');
 *{margin:0;padding:0;box-sizing:border-box}
-body{width:${W}px;height:${H}px;overflow:hidden;position:relative;font-family:'Inter Tight',sans-serif;color:#fff;
+body{width:${W}px;height:${H}px;overflow:hidden;position:relative;font-family:'Inter Tight','Noto Sans SC',sans-serif;color:#fff;
   background:radial-gradient(ellipse 85% 65% at 50% 40%,#93D46A 0%,${GREEN} 45%,#4F8A31 100%)}
-.m{font-family:'JetBrains Mono',monospace}.abs{position:absolute}
+.m{font-family:'JetBrains Mono','Noto Sans SC',monospace}
+@font-face{font-family:'Noto Sans SC';font-weight:700;src:url(file:///home/user/sandbox/hotcoin-tradfi/public/fonts/NotoSansSC-700.ttf)}
+@font-face{font-family:'Noto Sans SC';font-weight:800 900;src:url(file:///home/user/sandbox/hotcoin-tradfi/public/fonts/NotoSansSC-900.ttf)}.abs{position:absolute}
 .grid{position:absolute;inset:0;width:100%;height:100%;mask-image:radial-gradient(ellipse 80% 75% at 50% 45%,#000 35%,transparent 100%)}
 .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.3px);background-size:5px 5px}
 .tile{position:absolute;border-radius:22%}
@@ -93,7 +95,13 @@ export function wide() {
 
 // 4:5 animated page. window.setT(t) poses every element for time t (seconds).
 export const DUR = 13;
-export function feed() {
+// On-screen copy per language. Chinese uses Noto Sans SC (hotcoin-tradfi/public/fonts).
+const TXT = {
+  en: {kick: 'COINGLASS · RANKING', live: 'Hotcoin is live on CoinGlass.', top: 'Top derivatives exchanges', now: 'Now ranked on CoinGlass.', s: ['24H VOLUME', 'OPEN INTEREST', 'TAKER / MAKER'], ls: '-2px'},
+  zh: {kick: 'COINGLASS · 排名', live: 'Hotcoin 已上线 CoinGlass', top: '衍生品交易所排名', now: 'Hotcoin 登上 CoinGlass 排名', s: ['24H 成交量', '未平仓合约', '吃单 / 挂单费率'], ls: '0px'},
+};
+export function feed(lang = 'en') {
+  const T = TXT[lang];
   const W = 1080, H = 1350, s = 330;
   const others = Array.from({length: 30}, (_, i) => i + 1); // 30 anonymous exchanges, in rank order without Hotcoin
   const rowHtml = others.map((i) => `<div class="row other" id="o${i}">
@@ -107,20 +115,20 @@ export function feed() {
     <div class="o13" id="o13fill" style="color:rgba(255,255,255,.12)">13</div>
     <div class="o13" id="o13line" style="color:transparent;-webkit-text-stroke:5px rgba(255,255,255,.9)">13</div></div>
   <img id="logo" src="${BR}logo-mono-white.svg" class="abs" style="left:72px;top:74px;height:36px">
-  <div class="m abs" style="right:72px;top:80px;font-size:18px;letter-spacing:3px">COINGLASS · RANKING</div>
+  <div class="m abs" style="right:72px;top:80px;font-size:18px;letter-spacing:3px">${T.kick}</div>
   <div id="title" class="abs" style="left:72px;right:72px;top:168px;display:flex;align-items:center;gap:18px">
-    <img src="${AS}coinglass-mark.svg" style="height:58px"><div style="font-weight:800;font-size:50px;letter-spacing:-1.5px">Top derivatives exchanges</div></div>
+    <img src="${AS}coinglass-mark.svg" style="height:58px"><div style="font-weight:800;font-size:50px;letter-spacing:${lang == 'zh' ? 0 : -1.5}px">${T.top}</div></div>
   <div id="list">${rowHtml}</div>
   <div class="row hot" id="hot"><div class="m" id="hr" style="font-size:34px;font-weight:700;width:96px;color:${DEEP}">#13</div>
     <img src="${BR}logo-black.svg" style="height:36px"><div style="flex:1"></div><div class="m" style="font-size:28px;font-weight:700">$6.17B</div></div>
-  <div id="head" class="abs" style="left:72px;right:72px;top:976px;font-weight:800;font-size:64px;letter-spacing:-2px;line-height:1.05">Now ranked on CoinGlass.</div>
+  <div id="head" class="abs" style="left:72px;right:72px;top:976px;font-weight:800;font-size:64px;letter-spacing:${T.ls};line-height:1.05">${T.now}</div>
   <div id="strip" class="abs" style="left:72px;right:72px;bottom:80px;display:flex;border-top:1.5px solid rgba(255,255,255,.3);padding-top:28px">
-    ${[['24H VOLUME', 'v1'], ['OPEN INTEREST', 'v2'], ['TAKER / MAKER', 'v3']].map(([k, id], i) => `<div style="flex:1;${i ? 'border-left:1.5px solid rgba(255,255,255,.3);padding-left:28px' : ''}">
+    ${[[T.s[0], 'v1'], [T.s[1], 'v2'], [T.s[2], 'v3']].map(([k, id], i) => `<div style="flex:1;${i ? 'border-left:1.5px solid rgba(255,255,255,.3);padding-left:28px' : ''}">
       <div class="m" style="font-size:15px;letter-spacing:2px;color:rgba(255,255,255,.75)">${k}</div><div id="${id}" style="font-weight:700;font-size:${i == 2 ? 32 : 44}px;margin-top:8px"></div></div>`).join('')}</div>
   <div id="collab" class="abs" style="inset:0">
     <div style="perspective:1300px;position:absolute;inset:0">${tile('cg', 365, 580, s, cgFace, cgArt(s))}${tile('hc', 715, 560, s, hcFace, hcArt(s))}</div>
     ${plus(540, 572, 84)}${marks(540, 900, 50)}
-    <div id="ctitle" class="abs" style="left:0;right:0;top:1080px;text-align:center;font-weight:800;font-size:60px;letter-spacing:-2px">Hotcoin is live on CoinGlass.</div>
+    <div id="ctitle" class="abs" style="left:0;right:0;top:1080px;text-align:center;font-weight:800;font-size:60px;letter-spacing:${T.ls}">${T.live}</div>
   </div>
   <script>window.QUIET=[[0,40,1080,90],[0,150,1080,110],[0,860,1080,440]];${BG}
   const $=id=>document.getElementById(id), cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), mix=(a,b,u)=>a+(b-a)*u;
