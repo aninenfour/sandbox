@@ -38,7 +38,7 @@ const plus = (x, y, d) => `<div id="plus" class="plus" style="left:${x - d / 2}p
 const marks = (cx, y, h) => `<div id="marks" class="abs" style="left:0;right:0;top:${y}px;display:flex;justify-content:center;align-items:center;gap:${h * 1.6}px">
   <img src="${AS}coinglass-logo.svg" style="height:${h * 1.3}px">
   <div style="width:2px;height:${h * 1.1}px;background:rgba(255,255,255,.55)"></div>
-  <img src="${BR}logo-mono-white.svg" style="height:${h * .82}px"></div>`;
+  <img src="${BR}logo-mono-white.png" style="height:${h * .9}px"></div>`;
 
 // Background: faint grid plus light pulses that travel along grid lines, and two slow soft light beams.
 const BG = `
@@ -114,13 +114,13 @@ export function feed(lang = 'en') {
   <div id="o13w" class="abs" style="inset:0">
     <div class="o13" id="o13fill" style="color:rgba(255,255,255,.12)">13</div>
     <div class="o13" id="o13line" style="color:transparent;-webkit-text-stroke:5px rgba(255,255,255,.9)">13</div></div>
-  <img id="logo" src="${BR}logo-mono-white.svg" class="abs" style="left:72px;top:74px;height:36px">
+  <img id="logo" src="${BR}logo-mono-white.png" class="abs" style="left:72px;top:72px;height:40px">
   <div class="m abs" style="right:72px;top:80px;font-size:18px;letter-spacing:3px">${T.kick}</div>
   <div id="title" class="abs" style="left:72px;right:72px;top:168px;display:flex;align-items:center;gap:18px">
     <img src="${AS}coinglass-mark.svg" style="height:58px"><div style="font-weight:800;font-size:50px;letter-spacing:${lang == 'zh' ? 0 : -1.5}px">${T.top}</div></div>
   <div id="list">${rowHtml}</div>
   <div class="row hot" id="hot"><div class="m" id="hr" style="font-size:34px;font-weight:700;width:96px;color:${DEEP}">#13</div>
-    <img src="${BR}logo-black.svg" style="height:36px"><div style="flex:1"></div><div class="m" style="font-size:28px;font-weight:700">$6.17B</div></div>
+    <img src="${BR}logo-official-black.png" style="height:40px"><div style="flex:1"></div><div class="m" style="font-size:28px;font-weight:700">$6.17B</div></div>
   <div id="head" class="abs" style="left:72px;right:72px;top:976px;font-weight:800;font-size:64px;letter-spacing:${T.ls};line-height:1.05">${T.now}</div>
   <div id="strip" class="abs" style="left:72px;right:72px;bottom:80px;display:flex;border-top:1.5px solid rgba(255,255,255,.3);padding-top:28px">
     ${[[T.s[0], 'v1'], [T.s[1], 'v2'], [T.s[2], 'v3']].map(([k, id], i) => `<div style="flex:1;${i ? 'border-left:1.5px solid rgba(255,255,255,.3);padding-left:28px' : ''}">

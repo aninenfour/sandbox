@@ -13,7 +13,7 @@ const page = (bg, body) => `<!doctype html><html><head><meta charset="utf-8"><st
 <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.3px);background-size:5px 5px"></div>${body}</body></html>`;
 const stats = [['24H VOLUME', '$6.17B'], ['OPEN INTEREST', '$155.44M'], ['TAKER / MAKER', '0.06% / 0.02%']];
 const strip = (line = 'rgba(255,255,255,.3)', label = 'rgba(255,255,255,.75)') => `<div style="position:absolute;left:72px;right:72px;bottom:80px;display:flex;border-top:1.5px solid ${line};padding-top:28px">${stats.map(([k, v], i) => `<div style="flex:1;${i ? `border-left:1.5px solid ${line};padding-left:28px` : ''}"><div class="m" style="font-size:15px;letter-spacing:2px;color:${label}">${k}</div><div style="font-weight:700;font-size:${v.length > 9 ? 32 : 44}px;margin-top:8px">${v}</div></div>`).join('')}</div>`;
-const head = (logo = 'white', tag = 'COINGLASS · RANKING', tc = '#fff') => `<img src="${BR}${logo === "white" ? "logo-mono-white.svg" : "logo-official-" + logo + ".png"}" style="position:absolute;left:72px;top:72px;height:40px">
+const head = (logo = 'white', tag = 'COINGLASS · RANKING', tc = '#fff') => `<img src="${BR}${logo === "white" ? "logo-mono-white.png" : "logo-official-" + logo + ".png"}" style="position:absolute;left:72px;top:72px;height:40px">
   <div class="m" style="position:absolute;right:72px;top:80px;font-size:18px;letter-spacing:3px;color:${tc}">${tag}</div>`;
 const chrome = `background:linear-gradient(170deg,#FFFFFF 0%,#F4F7EF 30%,#C9D3BE 52%,#FFFFFF 70%,#DDE5D3 100%);-webkit-background-clip:text;color:transparent`;
 
@@ -48,7 +48,7 @@ const G3 = page(GREEN, `
   <div style="position:absolute;left:72px;right:72px;top:820px">
     <div style="display:flex;align-items:center;height:120px;background:#fff;border-radius:24px;padding:0 40px;color:${INK};box-shadow:0 30px 60px rgba(20,40,8,.35)">
       <div class="m" style="font-size:34px;font-weight:700;width:80px;color:${DEEP}">#13</div>
-      <img src="${BR}logo-black.svg" style="height:36px"><div style="flex:1"></div>
+      <img src="${BR}logo-official-black.png" style="height:40px"><div style="flex:1"></div>
       <div class="m" style="font-size:28px;font-weight:700">$6.17B</div></div>
     <div style="font-weight:800;font-size:64px;letter-spacing:-2px;line-height:1.05;margin-top:36px">Now ranked on CoinGlass.</div></div>
   ${strip()}`);
