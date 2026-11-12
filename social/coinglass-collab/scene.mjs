@@ -31,13 +31,13 @@ const tile = (id, x, y, s, face, art) => `<div id="${id}" class="tile" style="le
 const cgFace = `radial-gradient(circle at 30% 20%,#2A2F33 0%,${INK} 55%,#000 100%)`;
 const hcFace = `radial-gradient(circle at 30% 20%,#4E8A2C 0%,#2C5516 55%,#1B3A0C 100%)`;
 const cgArt = (s) => `<img src="${AS}coinglass-mark.png" style="position:absolute;left:50%;top:50%;height:${s * 0.56}px;transform:translate(-50%,-50%)">`;
-const hcArt = (s) => `<img src="${BR}symbol-official-white.png" style="position:absolute;left:50%;top:50%;height:${s * 0.46}px;transform:translate(-50%,-50%)">`;
+const hcArt = (s) => `<img src="${BR}symbol-lime-dot.png" style="position:absolute;left:50%;top:50%;height:${s * 0.46}px;transform:translate(-50%,-50%)">`;
 const plus = (x, y, d) => `<div id="plus" class="plus" style="left:${x - d / 2}px;top:${y - d / 2}px;width:${d}px;height:${d}px">
   <svg width="${d * .5}" height="${d * .5}" viewBox="0 0 10 10"><path d="M5 1V9M1 5H9" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg></div>`;
 const marks = (cx, y, h) => `<div id="marks" class="abs" style="left:0;right:0;top:${y}px;display:flex;justify-content:center;align-items:center;gap:${h * 1.6}px">
   <div style="display:flex;align-items:center;gap:${h * .35}px"><img src="${AS}coinglass-mark.png" style="height:${h * 1.25}px"><img src="${AS}coinglass-word.png" style="height:${h * .78}px"></div>
   <div style="width:2px;height:${h * 1.1}px;background:rgba(255,255,255,.55)"></div>
-  <img src="${BR}logo-official-white.png" style="height:${h * .9}px"></div>`;
+  <img src="${BR}logo-mono-white.png" style="height:${h * .9}px"></div>`;
 
 // 16:9 static (collab key visual)
 export function wide() {
@@ -70,7 +70,7 @@ export function feed() {
   <div id="o13w" class="abs" style="inset:0">
     <div class="o13" id="o13fill" style="color:rgba(255,255,255,.12)">13</div>
     <div class="o13" id="o13line" style="color:transparent;-webkit-text-stroke:5px rgba(255,255,255,.9)">13</div></div>
-  <img id="logo" src="${BR}logo-official-white.png" class="abs" style="left:72px;top:72px;height:40px">
+  <img id="logo" src="${BR}logo-mono-white.png" class="abs" style="left:72px;top:72px;height:40px">
   <div class="m abs" style="right:72px;top:80px;font-size:18px;letter-spacing:3px">COINGLASS · RANKING</div>
   <div id="title" class="abs" style="left:72px;right:72px;top:168px;display:flex;align-items:center;gap:18px">
     <img src="${AS}coinglass-mark.png" style="height:58px"><div style="font-weight:800;font-size:50px;letter-spacing:-1.5px">Top derivatives exchanges</div></div>
