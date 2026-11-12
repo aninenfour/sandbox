@@ -1351,5 +1351,22 @@
    "CPI +3.7% y/y Sept 2026: BLS release + FRED CPIAUCNS (via search)"
   ],
   "note": "Calendar topic 'what $100 buys vs 2020 (CPI)' swapped: BLS/FRED blocked from container, Oct index level unverifiable."
+ },
+ {
+  "id": "2026-11-13-academy-friday13",
+  "type": "academy",
+  "variant": "b",
+  "slot": "2026-11-13T19:00:00+08:00",
+  "title": "Myth vs Fact: Friday the 13th for stocks, 61 tested since 1990",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "Yahoo Finance ^GSPC daily closes 1990-01-02 to 2026-11-11 (own calc: 61 F13s, 60.7% up vs 53.6% all days, avg +0.33%, ex-Mar-2020 +0.18%)"
+  ]
  }
 ]

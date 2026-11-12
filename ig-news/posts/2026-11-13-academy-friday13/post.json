@@ -1,0 +1,9 @@
+{"type":"tutorial","style":"v2","variant":"b","slides":[
+ {"kind":"nhero","photo":"cat1.jpg","photo_pos":"50% 50%","tag":"MYTH VS FACT · FRIDAY THE 13TH","headline":"Is Friday the 13th bad for stocks? [We checked 61 of them]"},
+ {"kind":"tslide","photo":"cat2.jpg","photo_pos":"50% 30%","title":"So, what does <span class='g'>the data say?</span>","paras":["Since 1990 the S&P 500 closed up on <g>61%</g> of Friday the 13ths. On a normal day: 54%."],
+  "visual":{"type":"bars","items":[{"l":"Any day","v":53.6,"txt":"53.6% up"},{"l":"Friday 13th","v":60.7,"txt":"60.7% up"}]}},
+ {"kind":"tslide","photo":"scr.jpg","photo_pos":"50% 40%","title":"The <span class='g'>numbers</span>","paras":["Even without the wild March 2020 day, the average was still <g>+0.18%</g>."],
+  "visual":{"type":"stats","items":[{"v":"+0.33%","l":"average Friday 13th","color":"#3E8E1E"},{"v":"+9.3%","l":"best: Mar 13, 2020","color":"#3E8E1E"},{"v":"-1.3%","l":"worst: Dec 13, 2002","color":"#E5322D"}]}},
+ {"kind":"tslide","photo":"scr2.jpg","photo_pos":"50% 50%","title":"So, <span class='g'>should you care?</span>","paras":["Nope. 61 days is a tiny sample. Not financial advice."],
+  "visual":{"type":"table","cols":["Myth","Fact"],"rows":[["Friday 13th is unlucky","It did a bit better"],["One day predicts more","It doesn't"],["Skip trading today","Plan beats calendar"]]}}
+]}
