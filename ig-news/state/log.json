@@ -1388,5 +1388,24 @@
    "PS5 US launch Nov 12, 2020 at $499 (Sony PlayStation Blog, The Verge)"
   ],
   "note": "First Reel with word-by-word ending + new hook rules (direct question)."
+ },
+ {
+  "id": "2026-11-13-nvidia-huang-exit",
+  "type": "news",
+  "slot": "2026-11-13T10:00:00+08:00",
+  "title": "Jensen Huang resigns as Nvidia CEO; Bitcoin hits 12-week low ($71.2K)",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "Decrypt (resignation, Kress interim, NVDA -14% intraday / -4.6% $165.75, AMD +5.8%)",
+   "Cointelegraph (BTC below $72K, lowest since Aug 20, -7.4% MTD; Nvidia press release quote)",
+   "The Block (BTC low $71,200)"
+  ],
+  "note": "Allegations not repeated on slides; 'press reports about his conduct' only."
  }
 ]

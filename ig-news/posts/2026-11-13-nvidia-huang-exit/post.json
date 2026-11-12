@@ -1,0 +1,18 @@
+{"type":"news","style":"v2","date":"NOV 13","slides":[
+ {"kind":"nhero","photo":"nv.jpg","photo_pos":"50% 50%","tag":"MARKETS","badge":{"src":"BTC.svg","pos":"tr","fit":"80%","size":240},"headline":"Jensen Huang quits Nvidia. [Bitcoin hits a 12-week low]"},
+ {"kind":"nrows","tag":"WHAT HAPPENED","title":"Nvidia's founder is out","rows":[
+   {"emoji":"🚪","l":"Jensen Huang","sub":"CEO, president and board seat, effective now","v":"Resigned","neg":true},
+   {"emoji":"🧑‍💼","l":"Colette Kress","sub":"CFO since 2013, stays CFO too","v":"Interim CEO"},
+   {"emoji":"🗓️","l":"Time at the top","sub":"co-founded Nvidia in 1993","v":"33 years"}],
+  "text":["Nvidia gave no reason. It followed [press reports] about his conduct."]},
+ {"kind":"nrows","tag":"THE MARKET","title":"Stocks and crypto shook","rows":[
+   {"emoji":"📉","l":"Nvidia, worst point","sub":"intraday low $148.80","v":"-14%","neg":true},
+   {"emoji":"🔁","l":"Nvidia, afternoon","sub":"back to $165.75","v":"-4.6%","neg":true},
+   {"emoji":"📈","l":"AMD and Broadcom","sub":"rivals rallied","v":"~+6%","pos":true}],
+  "text":["Wall Street read it as [bad for Nvidia], good for rivals."]},
+ {"kind":"nrows","tag":"BITCOIN","title":"Lowest since August 20","rows":[
+   {"emoji":"🪙","l":"Bitcoin low","sub":"tech sell-off spilled into crypto","v":"$71.2K","neg":true},
+   {"emoji":"📆","l":"November so far","sub":"month-to-date","v":"-7.4%","neg":true},
+   {"emoji":"🗓️","l":"Nvidia earnings","sub":"Q3 results still on schedule","v":"Tuesday"}],
+  "text":["Buying the dip or waiting? [🟢/🔴]"]},
+ {"kind":"end"}]}
