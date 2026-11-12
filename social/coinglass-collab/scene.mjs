@@ -10,12 +10,11 @@ const css = (W, H) => `@import url('https://fonts.googleapis.com/css2?family=Int
 body{width:${W}px;height:${H}px;overflow:hidden;position:relative;font-family:'Inter Tight',sans-serif;color:#fff;
   background:radial-gradient(ellipse 85% 65% at 50% 40%,#93D46A 0%,${GREEN} 45%,#4F8A31 100%)}
 .m{font-family:'JetBrains Mono',monospace}.abs{position:absolute}
-.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.07) 1.5px,transparent 1.5px);
-  background-size:${Math.round(W / 10)}px ${Math.round(W / 10)}px;background-position:center;mask-image:radial-gradient(ellipse 75% 70% at 50% 45%,#000 30%,transparent 100%)}
+.grid{position:absolute;inset:0;width:100%;height:100%;mask-image:radial-gradient(ellipse 80% 75% at 50% 45%,#000 35%,transparent 100%)}
 .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.3px);background-size:5px 5px}
-.tile{position:absolute;border-radius:22%;transform-style:preserve-3d}
+.tile{position:absolute;border-radius:22%}
 .tile .rim{position:absolute;inset:0;border-radius:inherit;padding:5px;background:linear-gradient(140deg,#fff 0%,${LIME} 22%,rgba(184,242,106,.35) 55%,#fff 100%);
-  box-shadow:0 0 30px rgba(220,255,170,.55),0 40px 80px rgba(20,45,8,.45)}
+  box-shadow:0 0 30px rgba(220,255,170,.55)}
 .tile .face{position:absolute;inset:5px;border-radius:21%;overflow:hidden}
 .tile .shine{position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.28) 45%,rgba(255,255,255,0) 60%);background-size:300% 100%}
 .tile .gloss{position:absolute;left:0;right:0;top:0;height:48%;background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,0));border-radius:21% 21% 0 0}
@@ -27,30 +26,67 @@ body{width:${W}px;height:${H}px;overflow:hidden;position:relative;font-family:'I
 .o13{position:absolute;left:-40px;top:110px;font-weight:800;font-size:860px;letter-spacing:-60px;line-height:1}`;
 
 const tile = (id, x, y, s, face, art) => `<div id="${id}" class="tile" style="left:${x - s / 2}px;top:${y - s / 2}px;width:${s}px;height:${s}px">
-  <div class="rim"></div><div class="face" style="background:${face}">${art}<div class="gloss"></div><div class="shine"></div></div></div>`;
+  <div style="position:absolute;left:-12%;right:-12%;top:55%;height:75%;background:radial-gradient(ellipse 50% 45% at 50% 50%,rgba(20,45,8,.42),rgba(20,45,8,0))"></div><div class="rim"></div><div class="face" style="background:${face}">${art}<div class="gloss"></div><div class="shine"></div></div></div>`;
 const cgFace = `radial-gradient(circle at 30% 20%,#2A2F33 0%,${INK} 55%,#000 100%)`;
 const hcFace = `radial-gradient(circle at 30% 20%,#4E8A2C 0%,#2C5516 55%,#1B3A0C 100%)`;
-const cgArt = (s) => `<img src="${AS}coinglass-mark.png" style="position:absolute;left:50%;top:50%;height:${s * 0.56}px;transform:translate(-50%,-50%)">`;
-const hcArt = (s) => `<img src="${BR}symbol-lime-dot.png" style="position:absolute;left:50%;top:50%;height:${s * 0.46}px;transform:translate(-50%,-50%)">`;
+const cgArt = (s) => `<img class="art" src="${AS}coinglass-mark.svg" style="position:absolute;left:50%;top:50%;height:${s * 0.58}px;transform:translate(-50%,-50%)">`;
+const hcArt = (s) => `<img class="art" src="${BR}symbol-lime-dot.svg" style="position:absolute;left:50%;top:50%;height:${s * 0.46}px;transform:translate(-50%,-50%)">`;
 const plus = (x, y, d) => `<div id="plus" class="plus" style="left:${x - d / 2}px;top:${y - d / 2}px;width:${d}px;height:${d}px">
   <svg width="${d * .5}" height="${d * .5}" viewBox="0 0 10 10"><path d="M5 1V9M1 5H9" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg></div>`;
 const marks = (cx, y, h) => `<div id="marks" class="abs" style="left:0;right:0;top:${y}px;display:flex;justify-content:center;align-items:center;gap:${h * 1.6}px">
-  <div style="display:flex;align-items:center;gap:${h * .35}px"><img src="${AS}coinglass-mark.png" style="height:${h * 1.25}px"><img src="${AS}coinglass-word.png" style="height:${h * .78}px"></div>
+  <img src="${AS}coinglass-logo.svg" style="height:${h * 1.3}px">
   <div style="width:2px;height:${h * 1.1}px;background:rgba(255,255,255,.55)"></div>
-  <img src="${BR}logo-mono-white.png" style="height:${h * .9}px"></div>`;
+  <img src="${BR}logo-mono-white.svg" style="height:${h * .82}px"></div>`;
+
+// Background: faint grid plus light pulses that travel along grid lines, and two slow soft light beams.
+const BG = `
+// 2D stand-in for rotateY: keeps edges anti-aliased (3D layers render jagged when zoomed)
+window.ry=d=>'skewY('+(-d*.3)+'deg) scaleX('+Math.cos(d*Math.PI/180)+')';
+// inverse, applied to the logo inside each tile so logos are never distorted
+window.tilt=(id,d)=>{document.querySelector('#'+id+' .art').style.transform='translate(-50%,-50%) scaleX('+(1/Math.cos(d*Math.PI/180))+') skewY('+(d*.3)+'deg)';};
+// text areas where light pulses are hidden (set per page)
+window.QUIET=window.QUIET||[];
+const bgc=document.getElementById('bg'), DPR=window.devicePixelRatio||1, BW=document.body.clientWidth, BH=document.body.clientHeight;
+bgc.width=BW*DPR; bgc.height=BH*DPR; const g=bgc.getContext('2d'); g.scale(DPR,DPR);
+const GS=BW/10, OX=(BW/2)%GS, OY=(BH/2)%GS;
+const rnd=(i)=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const PULSES=Array.from({length:26},(_,i)=>({v:rnd(i)<.5, k:Math.floor(rnd(i+50)*13), sp:140+rnd(i+90)*240, ph:rnd(i+130), len:180+rnd(i+170)*300, dir:rnd(i+210)<.5?1:-1}));
+window.drawBg=t=>{
+  g.clearRect(0,0,BW,BH);
+  g.strokeStyle='rgba(255,255,255,.09)'; g.lineWidth=1.5; g.beginPath();
+  for(let x=OX;x<BW;x+=GS){g.moveTo(x,0);g.lineTo(x,BH)} for(let y=OY;y<BH;y+=GS){g.moveTo(0,y);g.lineTo(BW,y)} g.stroke();
+  for(const b of [[-.4,.18,.13],[.05,-.1,.09],[.38,.14,.11]]){ // soft beams swinging from the top
+    const a=b[0]+Math.sin(t*.35+b[1]*10)*b[1]; g.save(); g.translate(BW*(.5+b[0]*.6),-60); g.rotate(a);
+    const gr=g.createLinearGradient(-220,0,220,0); gr.addColorStop(0,'rgba(240,255,215,0)'); gr.addColorStop(.5,'rgba(240,255,215,'+b[2]+')'); gr.addColorStop(1,'rgba(240,255,215,0)');
+    g.fillStyle=gr; g.fillRect(-220,0,440,BH*1.6); g.restore(); }
+  g.save(); g.beginPath(); g.rect(0,0,BW,BH); for(const q of QUIET) g.rect(q[0]+q[2],q[1],-q[2],q[3]); g.clip('evenodd');
+  g.lineCap='round';
+  for(const p of PULSES){
+    const span=(p.v?BH:BW)+p.len*2, pos=((p.ph*span+t*p.sp*p.dir)%span+span)%span-p.len;
+    const line=(p.v?OX:OY)+p.k*GS; if(line>(p.v?BW:BH))continue;
+    const x0=p.v?line:pos, y0=p.v?pos:line, x1=p.v?line:pos-p.len*p.dir, y1=p.v?pos-p.len*p.dir:line;
+    const gr=g.createLinearGradient(x1,y1,x0,y0); gr.addColorStop(0,'rgba(255,255,255,0)'); gr.addColorStop(1,'rgba(255,255,255,.95)');
+    g.strokeStyle=gr; g.lineWidth=2.6; g.shadowColor='rgba(235,255,200,1)'; g.shadowBlur=16;
+    g.beginPath(); g.moveTo(x1,y1); g.lineTo(x0,y0); g.stroke(); g.shadowBlur=0;
+    g.fillStyle='rgba(255,255,255,.95)'; g.beginPath(); g.arc(x0,y0,3.4,0,6.283); g.fill(); }
+  for(let i=0;i<14;i++){const gx=OX+Math.floor(rnd(i+300)*11)*GS, gy=OY+Math.floor(rnd(i+340)*13)*GS, a=Math.pow(Math.max(0,Math.sin(t*1.1+rnd(i+380)*6.283)),3);
+    const rg=g.createRadialGradient(gx,gy,0,gx,gy,26); rg.addColorStop(0,'rgba(245,255,225,'+(.9*a)+')'); rg.addColorStop(1,'rgba(245,255,225,0)'); g.fillStyle=rg; g.fillRect(gx-26,gy-26,52,52);}
+  g.restore();
+};`;
 
 // 16:9 static (collab key visual)
 export function wide() {
   const W = 1920, H = 1080, s = 400;
-  return `<!doctype html><html><head><meta charset="utf-8"><style>${css(W, H)}</style></head><body><div class="dots"></div><div class="grid"></div>
+  return `<!doctype html><html><head><meta charset="utf-8"><style>${css(W, H)}</style></head><body><div class="dots"></div><canvas class="grid" id="bg"></canvas>
     <div class="abs" style="left:560px;top:120px;width:800px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(230,255,190,.45),rgba(230,255,190,0) 65%)"></div>
     <div style="perspective:1400px;position:absolute;inset:0">
       ${tile('cg', 745, 450, s, cgFace, cgArt(s))}${tile('hc', 1175, 430, s, hcFace, hcArt(s))}</div>
     ${plus(960, 445, 92)}
     ${marks(960, 800, 64)}
-    <script>
-      document.getElementById('cg').style.transform='rotateY(18deg) rotateZ(-7deg)';
-      document.getElementById('hc').style.transform='rotateY(-18deg) rotateZ(7deg)';
+    <script>window.QUIET=[[0,760,1920,220]];${BG}
+      drawBg(1.9);
+      document.getElementById('cg').style.transform='rotateZ(-7deg) '+ry(18);
+      document.getElementById('hc').style.transform='rotateZ(7deg) '+ry(-18); tilt('cg',18); tilt('hc',-18);
       document.querySelectorAll('.shine').forEach(e=>e.style.backgroundPosition='60% 0');
     </script></body></html>`;
 }
@@ -65,18 +101,18 @@ export function feed() {
       <div style="width:44px;height:44px;border-radius:99px;background:rgba(255,255,255,.28);margin-right:20px"></div>
       <div style="width:${150 + (i * 53) % 130}px;height:20px;border-radius:10px;background:rgba(255,255,255,.32)"></div><div style="flex:1"></div>
       <div style="width:${90 + (i * 31) % 60}px;height:20px;border-radius:10px;background:rgba(255,255,255,.26)"></div></div>`).join('');
-  return `<!doctype html><html><head><meta charset="utf-8"><style>${css(W, H)}</style></head><body><div class="dots"></div><div class="grid" id="grid"></div>
+  return `<!doctype html><html><head><meta charset="utf-8"><style>${css(W, H)}</style></head><body><div class="dots"></div><canvas class="grid" id="bg"></canvas>
   <div id="glow" class="abs" style="left:90px;top:160px;width:900px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(230,255,190,.45),rgba(230,255,190,0) 65%)"></div>
   <div id="o13w" class="abs" style="inset:0">
     <div class="o13" id="o13fill" style="color:rgba(255,255,255,.12)">13</div>
     <div class="o13" id="o13line" style="color:transparent;-webkit-text-stroke:5px rgba(255,255,255,.9)">13</div></div>
-  <img id="logo" src="${BR}logo-mono-white.png" class="abs" style="left:72px;top:72px;height:40px">
+  <img id="logo" src="${BR}logo-mono-white.svg" class="abs" style="left:72px;top:74px;height:36px">
   <div class="m abs" style="right:72px;top:80px;font-size:18px;letter-spacing:3px">COINGLASS · RANKING</div>
   <div id="title" class="abs" style="left:72px;right:72px;top:168px;display:flex;align-items:center;gap:18px">
-    <img src="${AS}coinglass-mark.png" style="height:58px"><div style="font-weight:800;font-size:50px;letter-spacing:-1.5px">Top derivatives exchanges</div></div>
+    <img src="${AS}coinglass-mark.svg" style="height:58px"><div style="font-weight:800;font-size:50px;letter-spacing:-1.5px">Top derivatives exchanges</div></div>
   <div id="list">${rowHtml}</div>
   <div class="row hot" id="hot"><div class="m" id="hr" style="font-size:34px;font-weight:700;width:96px;color:${DEEP}">#13</div>
-    <img src="${BR}logo-official-black.png" style="height:40px"><div style="flex:1"></div><div class="m" style="font-size:28px;font-weight:700">$6.17B</div></div>
+    <img src="${BR}logo-black.svg" style="height:36px"><div style="flex:1"></div><div class="m" style="font-size:28px;font-weight:700">$6.17B</div></div>
   <div id="head" class="abs" style="left:72px;right:72px;top:976px;font-weight:800;font-size:64px;letter-spacing:-2px;line-height:1.05">Now ranked on CoinGlass.</div>
   <div id="strip" class="abs" style="left:72px;right:72px;bottom:80px;display:flex;border-top:1.5px solid rgba(255,255,255,.3);padding-top:28px">
     ${[['24H VOLUME', 'v1'], ['OPEN INTEREST', 'v2'], ['TAKER / MAKER', 'v3']].map(([k, id], i) => `<div style="flex:1;${i ? 'border-left:1.5px solid rgba(255,255,255,.3);padding-left:28px' : ''}">
@@ -86,7 +122,7 @@ export function feed() {
     ${plus(540, 572, 84)}${marks(540, 900, 50)}
     <div id="ctitle" class="abs" style="left:0;right:0;top:1080px;text-align:center;font-weight:800;font-size:60px;letter-spacing:-2px">Hotcoin is live on CoinGlass.</div>
   </div>
-  <script>
+  <script>window.QUIET=[[0,40,1080,90],[0,150,1080,110],[0,860,1080,440]];${BG}
   const $=id=>document.getElementById(id), cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), mix=(a,b,u)=>a+(b-a)*u;
   const io=u=>u<.5?4*u*u*u:1-Math.pow(-2*u+2,3)/2, oc=u=>1-Math.pow(1-u,3), oq=u=>1-Math.pow(1-u,5), ss=u=>u*u*(3-2*u);
   const seg=(t,a,b)=>cl((t-a)/(b-a));
@@ -96,8 +132,8 @@ export function feed() {
   window.setT=t=>{
     // 1. collab tiles (0 to 3.4s), then they leave
     const fl=Math.sin(t*1.3), out=io(seg(t,2.9,3.9));
-    $('cg').style.transform='translate('+(-out*264)+'px,'+(-out*383)+'px) scale('+(1-out*.69)+') rotateY('+(18+fl*4)*(1-out)+'deg) rotateZ('+(-7+fl*1.5)*(1-out)+'deg)';
-    $('hc').style.transform='translate('+(-out*487)+'px,'+(out*100)+'px) scale('+(1-out*.74)+') rotateY('+(-18-fl*4)*(1-out)+'deg) rotateZ('+(7-fl*1.5)*(1-out)+'deg)';
+    $('cg').style.transform='translate('+(-out*264)+'px,'+(-out*383)+'px) scale('+(1-out*.69)+') rotateZ('+(-7+fl*1.5)*(1-out)+'deg) '+ry((18+fl*4)*(1-out)); tilt('cg',(18+fl*4)*(1-out));
+    $('hc').style.transform='translate('+(-out*487)+'px,'+(out*100)+'px) scale('+(1-out*.74)+') rotateZ('+(7-fl*1.5)*(1-out)+'deg) '+ry((-18-fl*4)*(1-out)); tilt('hc',(-18-fl*4)*(1-out));
     $('cg').style.opacity=1-seg(t,3.7,3.95); $('hc').style.opacity=1-seg(t,3.75,4.0);
     document.querySelectorAll('#collab .shine').forEach(e=>e.style.backgroundPosition=(100-ss(seg(t,.4,2.4))*100)+'% 0');
     $('plus').style.transform='scale('+(1-io(seg(t,2.8,3.3)))+') rotate('+(io(seg(t,2.8,3.3))*90)+'deg)';
@@ -123,7 +159,7 @@ export function feed() {
     const hh=oq(seg(t,9.7,10.6)); $('head').style.opacity=hh; $('head').style.transform='translateY('+((1-hh)*40)+'px)';
     const st=oq(seg(t,10.0,11.4)); $('strip').style.opacity=seg(t,9.9,10.4); $('strip').style.transform='translateY('+((1-seg(t,9.9,10.6))*30)+'px)';
     $('v1').textContent='$'+(6.17*st).toFixed(2)+'B'; $('v2').textContent='$'+(155.44*st).toFixed(2)+'M'; $('v3').textContent=(.06*st).toFixed(2)+'% / '+(.02*st).toFixed(2)+'%';
-    $('glow').style.opacity=1-inL*.5+hero*.3;
+    $('glow').style.opacity=1-inL*.5+hero*.3; drawBg(t);
   };
   window.setT(0);
   </script></body></html>`;

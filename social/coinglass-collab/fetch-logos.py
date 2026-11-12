@@ -1,12 +1,12 @@
-# Fetches CoinGlass's official logo files from their own CDN (favicon + og image on coinglass.com)
-# and turns the white-on-black art into transparent PNGs. Output goes to assets/ (gitignored).
-import io, os, urllib.request
-from PIL import Image, ImageOps
+# Fetches CoinGlass's official logo from coinglass.com: the vector logo (cow + wordmark) inlined in their homepage HTML,
+# saved as white SVGs (full logo, and the cow mark alone via a cropped viewBox). Output goes to assets/ (gitignored).
+import os, re, urllib.request
 D = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets'); os.makedirs(D, exist_ok=True)
-def get(u): return Image.open(io.BytesIO(urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'})).read())).convert('RGB')
-def alpha(im):
-    a = ImageOps.grayscale(im); out = Image.new('RGBA', im.size, (255, 255, 255, 0)); out.putalpha(a); return out.crop(a.point(lambda v: 255 if v > 40 else 0).getbbox())
-alpha(get('https://cdn.coinglasscdn.com/static/icon_200.png')).save(f'{D}/coinglass-mark.png')
-og = get('https://cdn.coinglasscdn.com/static/icon_600_315.png')
-alpha(og.crop((440, 360, 820, 460))).save(f'{D}/coinglass-word.png')   # wordmark only, side rules cropped out
+html = urllib.request.urlopen(urllib.request.Request('https://www.coinglass.com/', headers={'User-Agent': 'Mozilla/5.0'})).read().decode()
+i = html.index('viewBox="0 0 1500 388"'); s = html.rindex('<svg', 0, i); e = html.index('</svg>', i) + 6
+body = re.sub(r'^<svg[^>]*>', '', html[s:e])
+def save(name, vb, w, h):
+    open(f'{D}/{name}', 'w').write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb}" width="{w}" height="{h}" fill="#fff">{body}')
+save('coinglass-logo.svg', '0 0 1500 388', 1500, 388)
+save('coinglass-mark.svg', '0 0 350 388', 350, 388)
 print('ok')

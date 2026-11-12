@@ -17,10 +17,13 @@ async function open(html, w, h, scale) {
   return pg;
 }
 if (mode === 'stills') {
-  let pg = await open(wide(), 1920, 1080, 2); await pg.screenshot({path: `${OUT}/collab-16x9.png`});
-  pg = await open(feed(), 1080, 1350, 2);
-  await pg.evaluate(() => setT(1.6)); await pg.screenshot({path: `${OUT}/collab-4x5.png`});
-  await pg.evaluate(() => setT(13)); await pg.screenshot({path: `${OUT}/rank-end-4x5.png`});
+  // Supersampled: render at 4x, downscale with Lanczos to 2x (16:9, 3840x2160) and 3x (4:5, 3240x4050) for crisp zoom.
+  const shot = async (pg, name, w, h) => { const raw = `${OUT}/_raw.png`; await pg.screenshot({path: raw});
+    await new Promise((r) => spawn('/usr/bin/ffmpeg', ['-y', '-loglevel', 'error', '-i', raw, '-vf', `scale=${w}:${h}:flags=lanczos`, `${OUT}/${name}`]).on('close', r)); fs.unlinkSync(raw); };
+  let pg = await open(wide(), 1920, 1080, 4); await shot(pg, 'collab-16x9.png', 3840, 2160);
+  pg = await open(feed(), 1080, 1350, 4);
+  await pg.evaluate(() => setT(1.6)); await shot(pg, 'collab-4x5.png', 3240, 4050);
+  await pg.evaluate(() => setT(13)); await shot(pg, 'rank-end-4x5.png', 3240, 4050);
 }
 if (mode === 'sheet') {
   const pg = await open(feed(), 1080, 1350, 1);
@@ -29,9 +32,9 @@ if (mode === 'sheet') {
   }
 }
 if (mode === 'video') {
-  const FPS = 60, pg = await open(feed(), 1080, 1350, 1);
+  const FPS = 60, pg = await open(feed(), 1080, 1350, 2); // 2x frames, downscaled by ffmpeg (supersampled, sharper edges)
   const ff = spawn('/usr/bin/ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',
-    '-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-pix_fmt', 'yuv420p', `${OUT}/silent.mp4`], {stdio: ['pipe', 'inherit', 'inherit']});
+    '-vf', 'scale=1080:1350:flags=lanczos', '-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-pix_fmt', 'yuv420p', `${OUT}/silent.mp4`], {stdio: ['pipe', 'inherit', 'inherit']});
   for (let i = 0; i < DUR * FPS; i++) {
     await pg.evaluate((x) => setT(x), i / FPS);
     const buf = await pg.screenshot({type: 'jpeg', quality: 95});
