@@ -1444,5 +1444,22 @@
    "Decrypt (12-week low ~$68.5K, -9.5% week, ~21% below ~$86K autumn peak, 16% above ~$59K June low, Dec hike priced)",
    "CoinDesk (headline: sixth weekly loss, AI IPO, Nvidia upheaval)"
   ]
+ },
+ {
+  "id": "2026-11-14-academy-leverage",
+  "type": "academy",
+  "variant": "a",
+  "slot": "2026-11-14T19:00:00+08:00",
+  "title": "Trading 101: 10x leverage = about 10% room before liquidation",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "Standard isolated-margin math: loss of margin at ~1/leverage adverse move, before fees and maintenance margin (exchange futures guides)"
+  ]
  }
 ]

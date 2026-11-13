@@ -1,0 +1,9 @@
+{"type":"tutorial","style":"v2","variant":"a","slides":[
+ {"kind":"nhero","photo":"cover.jpg","photo_pos":"50% 50%","tag":"TRADING 101","headline":"10x leverage: how far can price move before you're out? [About 10%]"},
+ {"kind":"tslide","photo":"p1.jpg","photo_cap":"Leverage makes small moves big, both ways","title":"So, how does <span class='g'>leverage work?</span>","paras":["You put in <g>$100</g> of margin. At 10x you control a <g>$1,000</g> position. A 1% move is now a 10% move on your money."],
+  "visual":{"type":"stats","items":[{"v":"$100","l":"your margin","color":"#0E1012"},{"v":"10x","l":"leverage","color":"#3E8E1E"},{"v":"$1,000","l":"position size","color":"#3E8E1E"}]}},
+ {"kind":"tslide","photo":"p2.jpg","photo_cap":"Higher leverage, smaller room to breathe","title":"Room before <span class='g'>liquidation</span>","paras":["Rule of thumb: <g>100 ÷ leverage</g> = the % move against you that wipes out your margin. Fees and maintenance margin make it a bit less."],
+  "visual":{"type":"table","cols":["Leverage","Move that wipes you out"],"rows":[["2x","~50%"],["5x","~20%"],["10x","~10%"],["20x","~5%"],["100x","~1%"]]}},
+ {"kind":"tslide","photo":"p3.jpg","title":"How to <span class='g'>stay in the trade</span>","paras":["Futures trading is high risk. Not financial advice."],
+  "visual":{"type":"table","cols":["Do","Why"],"rows":[["Use low leverage","More room for normal swings"],["Set a stop-loss","You choose the exit, not the liquidation"],["Size small","One bad trade won't hurt much"]]}}
+]}
