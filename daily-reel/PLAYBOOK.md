@@ -37,6 +37,7 @@
 → ~~The FTX collapse in nine days~~ (2026-11-05)
 → ~~The Mississippi Bubble (John Law)~~ (2026-11-07)
 → ~~James Howells and the landfill bitcoin~~ (2026-11-11)
+→ ~~Ronald Read, the janitor with a secret $8 million~~ (2026-11-13)
 Sorted by next anniversary (see Learnings: anniversary hooks win). Use the dated one when a posting day lands on or a day after its date; fill the gaps with the evergreen list. Fact-check the date in the run as always.
 → Nov 15, 1923: Weimar hyperinflation ends (Rentenmark introduced)
 → Nov 21, 1834: Hetty Green, the witch of Wall Street, is born
@@ -55,7 +56,6 @@ Sorted by next anniversary (see Learnings: anniversary hooks win). Use the dated
 → Sep 23, 1998: LTCM bailout
 → Evergreen (no fixed date, use between anniversaries; person-led first, see Learnings 2026-11-09):
   → Gregor MacGregor sells shares in Poyais, a country that didn't exist (1822, scam/psychology, same angle as the Eiffel con)
-  → Ronald Read, the Vermont janitor who quietly left an $8 million portfolio (died 2014, psychology/markets)
   → Satoshi's lost coins
 
 ## Hook bank (first line of every script; rotate types, log the type used)
@@ -99,3 +99,4 @@ Week of 2026-11-09 (3 reels; Publer still returns no watch time, completion or s
 | 2026-11-05 | FTX collapse in nine days (4th anniversary week, Nov 2 to 11, 2022) | Number (date) | https://www.instagram.com/reel/DfXexwegDct/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/2377635742996935 | 146 (2L 0C 0Sh) | 668 (8L) | 67 (0L) | trend tie-in to the Binance hack / exchange-trust news; crypto category; 21 images, 58.6 s, cover set (s14 shocked face); music sleepy-cat; posted 00:38 Beijing (Nov 6) |
 | 2026-11-07 | The Mississippi Bubble (John Law, 1716 to 1720) | Contrarian | https://www.instagram.com/reel/DfcnXAgjY6X/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/2293992411441617 | 375 (5L 0C 7Sh, ~1 day old) | 220 (0L, ~1 day old) | 99 (0L) | evergreen gap-filler (Weimar anniversary Nov 15 next), history/markets, ties to the market-down-37% mood; 21 images (s17 regenerated to remove an anachronistic Eiffel Tower), 56.2 s, cover set (s01 Law face); music sweet-september; posted 00:36 Beijing (Nov 8) |
 | 2026-11-11 | James Howells and the landfill bitcoin (8,000 BTC, 2013 to 2025) | Curiosity (person + paradox) | https://www.instagram.com/reel/Dfm7okxmcof/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/1410957558769903 | | | | evergreen gap-filler (Weimar anniversary Nov 15 next), crypto + person per 2026-11-09 learning; value at BTC ~$74k (CoinGecko, Nov 11); 21 images, 51.0 s, cover set (s13 shocked face); music lofi-02; posted 00:45 Beijing (Nov 12) |
+| 2026-11-13 | Ronald Read, the Vermont janitor with a secret $8 million (died 2014) | Story (person + paradox) | https://www.instagram.com/reel/DfsKSpVCS7l/ | @hotcoin.com (published, no link returned) | https://www.facebook.com/reel/2240434066502230 | | | | evergreen gap-filler (Weimar anniversary Nov 15 is next run), psychology/markets, person-led, patience angle for the -37% drawdown mood; 18 images (heavy Canva quota cooldowns; reused the Nov 11 scratch design for export), 54.3 s, cover set (s01 face); music sleepy-cat; posted 01:23 Beijing (Nov 14) |
