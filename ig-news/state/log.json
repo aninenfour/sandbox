@@ -1426,5 +1426,23 @@
    "Yahoo Finance BTC-USD weekly closes: wk of 2021-11-08 $65,467 -> wk of 2026-11-13 $68,733; low wk 2022-11-14 (-75%); first close >= start wk 2024-03-04",
    "Terra May 2022 and FTX Nov 2022 collapses (CoinDesk, Reuters)"
   ]
+ },
+ {
+  "id": "2026-11-14-btc-red-weeks",
+  "type": "news",
+  "slot": "2026-11-14T10:00:00+08:00",
+  "title": "Bitcoin: 6 red weeks in a row, the record is 9 (2022)",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story",
+   "x_research"
+  ],
+  "sources": [
+   "Yahoo Finance BTC-USD weekly closes (own streak calc: 9 wks to May 2022, 6 in Feb 2026, 6 completed now)",
+   "Decrypt (12-week low ~$68.5K, -9.5% week, ~21% below ~$86K autumn peak, 16% above ~$59K June low, Dec hike priced)",
+   "CoinDesk (headline: sixth weekly loss, AI IPO, Nvidia upheaval)"
+  ]
  }
 ]
