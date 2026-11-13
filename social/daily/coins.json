@@ -444,5 +444,12 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102175855/large/bstocks_DJTB_64.png?1787792389",
   "logo": "djtb"
+ },
+ "CBRSB": {
+  "id": "cerebras-bstocks-tokenized-stock",
+  "name": "Cerebras (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174365/large/cbrsb-bstocks.png?1783452748",
+  "logo": "cbrsb"
  }
 }

@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Fell below $70K Thursday, first time since August"},
+ {"sym": "ETH", "kind": "crypto", "why": "Under $2,000, first time since August 19"},
+ {"sym": "NBISB", "kind": "tradfi", "name": "Nebius", "handle": "nebiusai", "why": "Closed down 16.8% Thursday after trimming 2026 outlook"},
+ {"sym": "CBRSB", "kind": "tradfi", "name": "Cerebras", "handle": "cerebras", "why": "Up over 14% after hours on its Q3 beat"},
+ {"sym": "SPYB", "kind": "tradfi", "why": "US October PPI lands at 21:30 UTC+8"}
+]}

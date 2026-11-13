@@ -1,0 +1,71 @@
+{
+ "date": "NOV 13",
+ "window": "Prices at Nov 13 11:42 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Fell below $70K Thursday, first time since August",
+   "last": 69165.71,
+   "ch": -6.22,
+   "vol": 939044766.99,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Under $2,000, first time since August 19",
+   "last": 1954.1,
+   "ch": -4.82,
+   "vol": 226071647.91,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "NBISB",
+   "name": "Nebius",
+   "kind": "tradfi",
+   "handle": "@nebiusai",
+   "why": "Closed down 16.8% Thursday after trimming 2026 outlook",
+   "last": 127.3,
+   "ch": -15.87,
+   "vol": 572974.27,
+   "logo": "nbisb",
+   "bg": "#e1ff4f",
+   "glow": "#e1ff4f"
+  },
+  {
+   "sym": "CBRSB",
+   "name": "Cerebras",
+   "kind": "tradfi",
+   "handle": "@cerebras",
+   "why": "Up over 14% after hours on its Q3 beat",
+   "last": 115.04,
+   "ch": 15.15,
+   "vol": 693119.24,
+   "logo": "cbrsb",
+   "bg": "#ffffff",
+   "glow": "#f8ab25"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "US October PPI lands at 21:30 UTC+8",
+   "last": 759.15,
+   "ch": 0.18,
+   "vol": 650970.7,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  }
+ ]
+}
