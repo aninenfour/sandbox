@@ -149,6 +149,13 @@ function obj(kind, x, y, r) {                      // the thing you buy (generic
       ctx.quadraticCurveTo(sg * r * .42, r * .5, sg * r * .55, r * 1.0); ctx.lineTo(sg * r * .15, r * .95); ctx.closePath(); ctx.fill();
       ctx.strokeStyle = 'rgba(0,0,0,.12)'; ctx.lineWidth = 3; ctx.stroke(); }
     ctx.fillStyle = '#3B7BFF'; ctx.globalAlpha = .7; ctx.fillRect(-r * .02, -r * .9, r * .04, r * 1.8); ctx.globalAlpha = 1;
+  } else if (kind === 'cash') {       // plain banknote stack (no real currency design)
+    ctx.shadowColor = 'rgba(20,40,10,.22)'; ctx.shadowBlur = 16;
+    for (const [dy, c] of [[r * .32, '#5E9E45'], [r * .12, '#6FB052'], [-r * .08, '#7EC25A']]) {
+      ctx.fillStyle = c; ctx.beginPath(); ctx.roundRect(-r * 1.05, dy - r * .45, r * 2.1, r * .9, r * .1); ctx.fill(); ctx.shadowBlur = 0; }
+    ctx.strokeStyle = 'rgba(255,255,255,.55)'; ctx.lineWidth = r * .05; ctx.beginPath(); ctx.roundRect(-r * .92, -r * .44, r * 1.84, r * .72, r * .06); ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.beginPath(); ctx.arc(0, -r * .08, r * .22, 0, 7); ctx.fill();
+    ctx.fillStyle = '#3E7A2A'; ctx.font = `900 ${Math.round(r * .3)}px Inter, sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('$', 0, -r * .07);
   } else if (kind === 'phone') {
     ctx.fillStyle = '#1C1F23'; ctx.beginPath(); ctx.roundRect(-r * .55, -r, r * 1.1, r * 2, r * .2); ctx.fill();
     const g = ctx.createLinearGradient(0, -r, 0, r); g.addColorStop(0, '#8EC5FF'); g.addColorStop(1, '#C69CFF');
