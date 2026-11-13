@@ -1407,5 +1407,24 @@
    "The Block (BTC low $71,200)"
   ],
   "note": "Allegations not repeated on slides; 'press reports about his conduct' only."
+ },
+ {
+  "id": "2026-11-13-whatif-btc-top",
+  "type": "reel-whatif-v2",
+  "mode": "lump",
+  "slot": "2026-11-13T21:30:00+08:00",
+  "title": "$1,000 BTC at the Nov 2021 top: 28 months to break even, $1,050 today",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(4:5)",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance BTC-USD weekly closes: wk of 2021-11-08 $65,467 -> wk of 2026-11-13 $68,733; low wk 2022-11-14 (-75%); first close >= start wk 2024-03-04",
+   "Terra May 2022 and FTX Nov 2022 collapses (CoinDesk, Reuters)"
+  ]
  }
 ]
