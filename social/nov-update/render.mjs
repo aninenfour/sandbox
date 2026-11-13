@@ -45,6 +45,9 @@ const feats = [['9th Anniversary Champions race', 'Event'], ['Career Review', 'E
   ['Spot fee coupons', 'Spot'], ['CNY deposits via NowPay', 'Fiat'], ['Position mini mode', 'App'], ["Today's P&L", 'App'], ['Proof of Reserves', 'Trust']];
 // small robot icon for the BOTS pill (inline SVG, renders the same everywhere unlike system emoji)
 const robot = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="${INK}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3"/><circle cx="12" cy="2.6" r=".6" fill="${INK}"/><rect x="4" y="6" width="16" height="13" rx="4"/><circle cx="9" cy="12" r="1.4" fill="${INK}"/><circle cx="15" cy="12" r="1.4" fill="${INK}"/><path d="M9.5 16h5M2 11v4M22 11v4"/></svg>`;
+// one soft colour per category (same lightness, ink text); same category = same colour
+const CAT = {Event: LIME, TradFi: '#9AD7FF', Bots: '#CDBBFF', Spot: '#FFC98A', Fiat: '#8FE3C2', App: '#FFFFFF', Trust: '#F2E3A0'};
+const shield = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="${INK}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8 3v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10v-6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>`;
 S.push(page(1, `
   <div style="position:absolute;left:72px;right:72px;top:180px">
     <div class="m" style="font-size:20px;letter-spacing:3px;color:${GRAY}">WHAT'S NEW ON HOTCOIN</div>
@@ -54,7 +57,7 @@ S.push(page(1, `
     ${feats.map(([f, c], k) => `<div style="display:flex;align-items:center;gap:22px;color:#fff;${k ? 'border-top:1.5px solid rgba(255,255,255,.1);' : ''}padding-top:${k ? 12 : 0}px">
       <div class="m" style="font-size:20px;font-weight:700;color:${LIME};width:40px">${String(k + 1).padStart(2, '0')}</div>
       <div style="flex:1;font-weight:600;font-size:32px;letter-spacing:-.5px">${f}</div>
-      <div class="m" style="display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700;letter-spacing:2px;color:${INK};background:${LIME};border-radius:99px;padding:7px 16px">${c === 'Bots' ? robot : ''}${c.toUpperCase()}</div></div>`).join('')}
+      <div class="m" style="display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700;letter-spacing:2px;color:${INK};background:${CAT[c]};border-radius:99px;padding:7px 16px">${c === 'Bots' ? robot : c === 'Trust' ? shield : ''}${c.toUpperCase()}</div></div>`).join('')}
   </div>`));
 
 // 2 anniversary: step chart of the Champions pool
