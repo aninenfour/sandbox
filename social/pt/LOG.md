@@ -4,8 +4,8 @@
 |---|---|---|---|---|
 | 14/11 | 09:37 | GM | Hoje o caminho é grama (park path) | published https://x.com/1895401255163576320/status/2121583343405785414 |
 | 14/11 | 10:52 | Event key visual | Futures Loss Protection, até 20/11 07:00 | published https://x.com/1895401255163576320/status/2121602217639542830 |
-| 14/11 | 12:23 | Placar do dia | $UP +20,0% x $BTC −4,5% (24h até 12:09) | scheduled |
-| 14/11 | 14:41 | Raio-X da rede | Solana TVL −18,7% em 30 dias | scheduled |
+| 14/11 | 12:23 | Placar do dia | $UP +20,0% x $BTC −4,5% (24h até 12:09) | published https://x.com/1895401255163576320/status/2121625118791074180 |
+| 14/11 | 14:41 | Raio-X da rede | Solana TVL −18,7% em 30 dias | published https://x.com/1895401255163576320/status/2121659849926746221 |
 | 14/11 | 16:47 | Event last call | Desafio P2P, termina 15/11 07:00 | scheduled |
 | 14/11 | 19:23 | Meme | estorno do stop loss | scheduled |
 | 14/11 | 21:12 | Poll | capital cripto do Brasil | scheduled |
@@ -21,3 +21,4 @@
 
 ## Check log
 - 14/11 12:09 check 2: no new announcements (events newest 09/11, notices newest 11/11). Spot #23 ended 14/11 12:59 (results ~23/11). Stardrop KOR ended 13/11 (rewards within 7 business days).
+- 14/11 16:13 check 3: P2P page unchanged (ends 15/11 07:00 Brasília, no early end or extension notice); last call 16:47, meme 19:23, poll 21:12 queued; no failed posts. Earn Boost last-night post queued for Sun 16:53. Nothing closes before 08:00 Sun that needs a morning post.
