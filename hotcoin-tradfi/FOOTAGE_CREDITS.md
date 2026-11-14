@@ -369,3 +369,5 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - GM market down (sunlit Lisbon alley): Bart ter Haar, https://unsplash.com/photos/C5HHKkfquJo
 - 25 de Abril bridge (futures countdown, day demo): imren tutuncu, https://unsplash.com/photos/aSw7b8HA3_8
 - Man walking uphill, back view (meme of the day): Annie Spratt, https://unsplash.com/photos/Y77uRYcV9bw
+- Jensen Huang, Stanford, 30 Apr 2026 (PT TradFi review, news format only): Anderseidesvik, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Jensen_Huang_Stanford_2026-04-30_010_(cropped).jpg (converted to mono; credit in caption)
+- Coin logos UP (Unitas) and SOL: CoinGecko.
