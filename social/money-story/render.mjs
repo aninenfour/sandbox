@@ -4,6 +4,8 @@
 // "Doubtful Dollars" (1945, currency printing, hands and a $1 bill). Logged in hotcoin-tradfi/FOOTAGE_CREDITS.md. Run ./prep.sh first.
 // Data: Binance BTCUSDT daily (data-api.binance.vision), pulled Nov 14, 2026: high $87,395.67 (Sep 21), low $66,456 (Nov 14) = -24.0%.
 //   NVDA: Yahoo Finance daily, record $243.37 (Oct 6) to $148.80 intraday low (Nov 12) = -38.9%.
+//   Quick drops, peak to low: ETH -33.1% (Sep 21 to Nov 14), SOL -40.1% (Sep 27), XRP -40.9% (Sep 23), Binance daily;
+//   Nasdaq Composite -12.5% (Oct 6 to Nov 5), Yahoo Finance daily.
 // Run: PW_PATH=$(npm root -g)/playwright node social/money-story/render.mjs [sheet|video] [t1,t2,...]
 import {createRequire} from 'module';
 import fs from 'fs';
@@ -12,7 +14,7 @@ const require = createRequire(import.meta.url);
 const {chromium} = require(process.env.PW_PATH);
 const DIR = '/home/user/sandbox/social/money-story', A = 'file://' + DIR + '/assets/clips/';
 const BR = 'file:///home/user/sandbox/hotcoin-tradfi/public/brand/';
-const FPS = 30, DUR = 28;
+const FPS = 30, DUR = 29;
 const btc = JSON.parse(fs.readFileSync(DIR + '/assets/btc1d.json', 'utf8')).map((k) => +k[4]);
 const COUNT = Object.fromEntries(['street', 'floor', 'brokers', 'clock', 'floor2', 'crowd', 'press', 'money', 'hands'].map((n) => [n, fs.readdirSync(DIR + '/assets/clips/' + n).length]));
 
@@ -104,16 +106,16 @@ function plane(px, py, a, L, b = 0, shadow = true) {
 // ---------- type and pieces ----------
 const T = (s, px, py, size, o = {}) => { const {f = 'serif', color = CREAM, align = 'left', ls = 0, a = 1} = o;
   x.save(); x.globalAlpha = a; x.fillStyle = color; x.textAlign = align; x.textBaseline = 'alphabetic';
-  x.font = f === 'serif' ? \`italic 400 \${size}px 'Instrument Serif'\` : f === 'sans' ? \`800 \${size}px 'Inter Tight'\` : \`700 \${size}px 'JetBrains Mono'\`;
-  if (ls) x.letterSpacing = ls + 'px'; x.fillText(s, px, py); x.restore(); };
+  x.font = f === 'serif' ? \`800 \${size}px 'Inter Tight'\` : f === 'sans' ? \`800 \${size}px 'Inter Tight'\` : \`700 \${size}px 'JetBrains Mono'\`;
+  x.letterSpacing = (ls || (f === 'mono' ? 0 : -size * .035)) + 'px'; x.fillText(s, px, py); x.restore(); };
 const rect = (px, py, w, h, col, rot = 0) => { x.save(); x.translate(px + w / 2, py + h / 2); x.rotate(rot); x.fillStyle = col; x.fillRect(-w / 2, -h / 2, w, h); x.restore(); };
 const label = (s, px, py, size, bg, fg, rot, t, i, pad = .28) => {   // text on a cut-paper label, pops in at 12 fps
-  x.save(); x.font = \`italic 400 \${size}px 'Instrument Serif'\`; const w = x.measureText(s).width + size * pad * 2, h = size * 1.12;
+  x.save(); x.font = \`800 \${size}px 'Inter Tight'\`; x.letterSpacing = -size * .035 + 'px'; const w = x.measureText(s).width + size * pad * 2, h = size * 1.12;
   x.translate(px + jit(t, i, 3), py + jit(t, i + 9, 3)); x.rotate(rot); x.fillStyle = bg; x.fillRect(0, -h * .78, w, h); T(s, size * pad, 0, size, {color: fg}); x.restore(); };
 function strip(words, px, py, w, h, rot, t, speed, size = 64, col = CREAM, bg = INK) {   // scrolling italic word rows inside a panel
   x.save(); x.beginPath(); x.rect(px, py, w, h); x.clip(); x.fillStyle = bg; x.fillRect(px, py, w, h);
   x.translate(px + w / 2, py + h / 2); x.rotate(rot); const lh = size * 1.45, rows = Math.ceil(h / lh) + 4, line = words.join('  *  ') + '  *  ';
-  x.font = \`italic 400 \${size}px 'Instrument Serif'\`; const lw = x.measureText(line).width;
+  x.font = \`800 \${size}px 'Inter Tight'\`; x.letterSpacing = -size * .035 + 'px'; const lw = x.measureText(line).width;
   for (let r = -rows / 2; r < rows / 2; r++) { const off = ((t * speed * (r % 2 ? 1 : -.7) + r * 237) % lw + lw) % lw;
     for (let k = -2; k < 3; k++) T(line, -w + k * lw - off, r * lh, size, {color: col}); }
   x.restore(); }
@@ -135,75 +137,96 @@ function chart(px, py, w, h, prog) {
   x.restore(); }
 
 // ---------- the timeline ----------
-const W1 = ['panic', 'sell-off', 'red candles', 'fear', 'margin calls', 'headlines', 'liquidations'];
-const W2 = ['opportunity', 'patience', 'a plan', 'discipline', 'opportunity', 'a better entry'];
-let logoW = null, logoI = null;
+const W1 = ['panic', 'sell-off', 'red candles', 'fear', 'margin calls', 'liquidations'];
+const W2 = ['opportunity', 'patience', 'a plan', 'discipline', 'a better entry'];
+// quick drops (peak to low): Binance daily (crypto, Nov 14, 2026), Yahoo Finance daily (stocks)
+const DROPS = [['ETHEREUM', '-33.1%', 'SEP 21 → NOV 14'], ['SOLANA', '-40.1%', 'SEP 27 → NOV 14'], ['XRP', '-40.9%', 'SEP 23 → NOV 14'],
+  ['NVIDIA', '-38.9%', 'OCT 6 → NOV 12'], ['NASDAQ', '-12.5%', 'OCT 6 → NOV 5']];
+const DROP_POS = [[790, 330, .04], [290, 610, -.03], [790, 830, .03], [290, 1060, -.04], [790, 1180, .02]];
+const dropCard = (d, cx, cy, rot, p) => { x.save(); x.translate(cx, cy); x.rotate(rot); x.scale(p * .9, p * .9); rect(-250, -120, 500, 240, CREAM);
+  T(d[0], -215, -55, 22, {f: 'mono', color: INK, ls: 3}); T(d[1], -220, 50, 108, {f: 'sans', color: RED}); T(d[2], -215, 94, 18, {f: 'mono', color: 'rgba(11,14,17,.6)', ls: 2}); x.restore(); };
+// the V: plane dives to the bottom and climbs out
+const VX0 = -160, VY0 = 560, VBX = 540, VBY = 1090, VX1 = 1240, VY1 = 470, VB = 16.0;
+const vpos = (t) => { if (t < VB) { const u = io(seg(t, 14.9, VB)); return [mix(VX0, VBX, u), mix(VY0, VBY, Math.pow(u, .8)), mix(.55, 1.0, u)]; }
+  const u = seg(t, VB, 18.9), e = u * .55 + oc(u) * .45; return [mix(VBX, VX1, e), mix(VBY, VY1, Math.pow(e, .85)), .8]; };
+let logoW = null;
 window.draw = async (t) => {
-  const need = [];
   const at = (name, t0, sp = 1) => frame(name, Math.max(0, t - t0), sp);
-  const F = {street: at('street', 0, .8), floor: at('floor', 3.2), brokers: at('brokers', 6.4, 1.1), clock: at('clock', 7.2, .45), crowd: at('floor2', 9.2, .9),
-    press: at('press', 12.2), money: at('money', 18.4), hands: at('hands', 20.6, .9)};
+  const F = {street: at('street', 0, .8), floor: at('floor', 3.2), brokers: at('brokers', 6.0, 1.1), clock: at('clock', 6.7, .45), crowd: at('floor2', 8.6, .8),
+    press: at('press', 13.2), money: at('money', 19.2), hands: at('hands', 21.2, .9)};
   const im = {}; await Promise.all(Object.entries(F).map(async ([k, s]) => { im[k] = await img(s); }));
   x.clearRect(0, 0, W, H);
 
-  if (t < 3.45) {                               // S1 collage opener
+  if (t < 3.45) {                               // S1 red collage opener
     const e = io(seg(t, 2.9, 3.45));
-    rect(0, 0, W, H, GREEN);
-    x.save(); x.globalAlpha = 1 - e; strip(W1, 70 + jit(t, 1), 250, 600, 820, -.12, t, 40, 66); x.restore();
+    rect(0, 0, W, H, RED);
+    x.save(); x.globalAlpha = 1 - e; strip(W1, 70 + jit(t, 1), 250, 600, 820, -.12, t, 40, 58); x.restore();
     const bx = mix(600, 0, e), by = mix(150, 0, e), bw = mix(410, W, e), bh = mix(830, H, e);
-    rect(bx, by, bw, bh, LIME); ht(im.street, bx + mix(26, 0, e), by + mix(26, 0, e), bw - mix(52, 0, e), bh - mix(52, 0, e), {zoom: 1.05 + t * .03, ink: INK, pap: LIME, con: 1.5, bri: .2, cell: 4.4});
+    rect(bx, by, bw, bh, CREAM); ht(im.street, bx + mix(26, 0, e), by + mix(26, 0, e), bw - mix(52, 0, e), bh - mix(52, 0, e), {zoom: 1.05 + t * .03, ink: INK, pap: CREAM, con: 1.5, bri: .15, cell: 4.4});
     x.save(); x.globalAlpha = 1 - e; rect(470 + jit(t, 3), 1000, 560, 120, '#fff'); T('MARKET NOTES · NOV 2026', 506, 1074, 24, {f: 'mono', color: INK, ls: 3}); x.drawImage(logoW, 72, 72, 236, 42); x.restore();
-    const u = oc(seg(t, .15, 2.9)); plane(mix(-180, 820, u), mix(860, 520, u) + Math.sin(t * 3) * 12, -.32 + Math.sin(t * 2.2) * .05, 420, 0);
-  } else if (t < 6.4) {                         // S2 full screen trading floor
+    const u = oc(seg(t, .15, 2.9)); plane(mix(-180, 820, u), mix(520, 820, u) + Math.sin(t * 3) * 12, .32 + Math.sin(t * 2.2) * .05, 420, 0);
+  } else if (t < 6.0) {                         // S2 trading floor
     ht(im.floor, 0, 0, W, H, {zoom: 1.05 + (t - 3.2) * .035, ink: CREAM, pap: INK, inv: 1, con: 1.6, cell: 4.6});
-    lines(250, 455, 580, 440, oc(seg(t, 3.6, 4.1)));
-    if (t > 4.0) label('When markets', 92, 700, 112, LIME, INK, -.04, t, 1);
-    if (t > 4.6) label('fall,', 560, 830, 112, CREAM, INK, .03, t, 2);
+    lines(250, 455, 580, 440, oc(seg(t, 3.5, 4.0)));
+    if (t > 3.8) label('When markets', 92, 700, 96, RED, CREAM, -.04, t, 1);
+    if (t > 4.4) label('fall,', 560, 830, 96, CREAM, INK, .03, t, 2);
     T('NYSE FLOOR · 1932', 72, 1278, 20, {f: 'mono', color: CREAM, ls: 3, a: .8});
-  } else if (t < 9.2) {                         // S3 brokers rushing + clock card
-    ht(im.brokers, 0, 0, W, H, {zoom: 1.12 - (t - 6.4) * .02, px: -.3, ink: CREAM, pap: INK, inv: 1, con: 1.6, cell: 4.6});
-    if (t > 7.2) { const p = ob(seg(st(t), 7.2, 7.6)); x.save(); x.translate(800, 380); x.rotate(.06); x.scale(p, p); rect(-190, -190, 380, 380, CREAM); ht(im.clock, -172, -172, 344, 344, {ink: INK, pap: CREAM, con: 1.8, cell: 3.6, zoom: 1.25}); x.restore(); }
-    if (t > 7.8) label('panic spreads.', 90, 1060, 118, LIME, INK, -.03, t, 4);
+  } else if (t < 8.6) {                         // S3 brokers rushing + clock card
+    ht(im.brokers, 0, 0, W, H, {zoom: 1.12 - (t - 6.0) * .02, px: -.3, ink: CREAM, pap: INK, inv: 1, con: 1.6, cell: 4.6});
+    if (t > 6.7) { const p = ob(seg(st(t), 6.7, 7.1)); x.save(); x.translate(800, 380); x.rotate(.06); x.scale(p, p); rect(-190, -190, 380, 380, CREAM); ht(im.clock, -172, -172, 344, 344, {ink: INK, pap: CREAM, con: 1.8, cell: 3.6, zoom: 1.25}); x.restore(); }
+    if (t > 7.3) label('panic spreads.', 90, 1060, 96, RED, CREAM, -.03, t, 4);
     lines(60, 60, W - 120, H - 120, .55);
-  } else if (t < 12.2) {                        // S4 money drops: falling planes + BTC number
+  } else if (t < 13.2) {                        // S4 money drops: falling planes, BTC, then quick drops slam in
     ht(im.crowd, 0, 0, W, H, {zoom: 1.1, ink: CREAM, pap: INK, inv: 1, con: 1.4, bri: -.12, cell: 4.6});
-    for (let i = 0; i < 5; i++) { const s = t - 9.2 - i * .28; if (s < 0) continue; const y = -200 + s * (420 + i * 60) + s * s * 90;
-      plane(160 + i * 190 + Math.sin(s * 2 + i) * 30, y, 1.2 + Math.sin(s * 3 + i) * .25, 210 + (i % 3) * 60, Math.sin(s * 4 + i) * .6); }
-    if (t > 9.7) { const p = ob(seg(st(t), 9.7, 10.15)); x.save(); x.translate(540, 700); x.rotate(-.025); x.scale(p, p);
+    x.save(); x.globalAlpha = .28 * seg(t, 8.6, 9.0); rect(0, 0, W, H, RED); x.restore();
+    for (let i = 0; i < 6; i++) { const s = t - 8.6 - i * .26; if (s < 0) continue; const y = -200 + s * (420 + i * 60) + s * s * 110;
+      plane(120 + i * 170 + Math.sin(s * 2 + i) * 30, y, 1.25 + Math.sin(s * 3 + i) * .25, 200 + (i % 3) * 60, Math.sin(s * 4 + i) * .6); }
+    const bOut = seg(t, 10.0, 10.25);
+    if (t > 8.9 && bOut < 1) { const p = ob(seg(st(t), 8.9, 9.3)) * (1 - bOut * .45); x.save(); x.translate(540 - bOut * 250, 700 - bOut * 440); x.rotate(-.025); x.scale(p, p);
       rect(-400, -250, 800, 470, CREAM); T('BITCOIN', -350, -170, 26, {f: 'mono', color: INK, ls: 4});
-      T('-24.0%', -360, 20, 210, {f: 'sans', color: RED, ls: -8}); T('$87,396 → $66,456', -352, 110, 34, {f: 'mono', color: INK});
+      T('-24.0%', -360, 20, 200, {f: 'sans', color: RED}); T('$87,396 → $66,456', -352, 110, 34, {f: 'mono', color: INK});
       T('SEP 21 → NOV 14, 2026', -352, 170, 24, {f: 'mono', color: 'rgba(11,14,17,.6)', ls: 2}); x.restore(); }
-  } else if (t < 15.2) {                        // S5 presses + BTC chart card + NVDA tag
-    ht(im.press, 0, 0, W, H, {zoom: 1.08 + (t - 12.2) * .03, ink: CREAM, pap: INK, inv: 1, con: 1.5, cell: 4.6});
-    const p = ob(seg(st(t), 12.3, 12.7)); x.save(); x.translate(540 + jit(t, 5), 560); x.rotate(.02); x.scale(p, p); chart(-430, -300, 860, 560, io(seg(t, 12.5, 14.0))); x.restore();
-    if (t > 13.9) { const q = ob(seg(st(t), 13.9, 14.3)); x.save(); x.translate(620, 1010); x.rotate(-.04); x.scale(q, q); rect(-360, -110, 720, 220, LIME);
-      T('NVIDIA (NVDA)', -320, -40, 24, {f: 'mono', color: INK, ls: 3}); T('-38.9%', -324, 70, 104, {f: 'sans', color: INK, ls: -4}); T('from its Oct 6 record', 60, 66, 40, {color: INK}); x.restore(); }
-  } else if (t < 18.4) {                        // S6 the turn: lime floods in, plane pulls up
-    const w = io(seg(t, 15.2, 15.8)); rect(0, 0, W, H, INK); rect(0, H * (1 - w), W, H * w, LIME);
-    const u = seg(t, 15.4, 18.3), ang = mix(1.1, -.62, io(seg(t, 15.5, 16.8)));
-    plane(mix(520, 1380, io(u)) + Math.sin(t * 2) * 8, mix(1060, 660, io(u)), ang, mix(360, 470, u), Math.sin(t * 3) * .2);
-    if (t > 15.9) T('But every fall', 90, 300, 120, {color: INK});
-    if (t > 16.6) T('makes room for', 90, 420, 120, {color: INK});
-  } else if (t < 22.6) {                        // S7 money printing, opportunity
-    ht(im.money, 0, 0, W, H, {zoom: 1.1 + (t - 18.4) * .03, ink: CREAM, pap: INK, inv: 1, con: 1.4, cell: 4.6});
-    if (t > 20.6) { const p = ob(seg(st(t), 20.6, 21)); x.save(); x.translate(800, 340); x.rotate(.05); x.scale(p, p); rect(-210, -170, 420, 340, LIME); ht(im.hands, -190, -150, 380, 300, {ink: INK, pap: LIME, con: 1.6, cell: 3.8}); x.restore(); }
-    x.save(); x.translate(0, 0); strip(W2, 0, 880, W, 150, 0, t, 70, 56, LIME, INK); x.restore();
-    lines(150, 560, 780, 240, oc(seg(t, 18.6, 19.0))); if (t > 18.9) lines(162, 572, 756, 216, 1);
-    if (t > 18.9) { rect(150, 560, 780, 240, INK); T('opportunity.', 540, 730, 150, {align: 'center', color: CREAM}); }
+    if (bOut >= 1) { x.save(); x.translate(290, 260); x.rotate(-.04); x.scale(.55, .55); rect(-400, -250, 800, 470, CREAM); T('BITCOIN', -350, -170, 26, {f: 'mono', color: INK, ls: 4}); T('-24.0%', -360, 20, 200, {f: 'sans', color: RED}); x.restore(); }
+    DROPS.forEach((d, k) => { const t0 = 10.25 + k * .5; if (t < t0) return; const [cx, cy, r] = DROP_POS[k]; dropCard(d, cx + jit(t, k * 3, 2), cy, r, ob(seg(st(t, 15), t0, t0 + .22))); });
+  } else if (t < 14.9) {                        // S5 BTC chart over the presses
+    ht(im.press, 0, 0, W, H, {zoom: 1.08 + (t - 13.2) * .03, ink: CREAM, pap: INK, inv: 1, con: 1.5, cell: 4.6});
+    const p = ob(seg(st(t), 13.25, 13.6)); x.save(); x.translate(540 + jit(t, 5), 640); x.rotate(.02); x.scale(p, p); chart(-430, -300, 860, 560, io(seg(t, 13.4, 14.5))); x.restore();
+  } else if (t < 19.2) {                        // S6 THE V: red dive to the bottom, lime bursts out of it, plane climbs
+    rect(0, 0, W, H, RED);
+    const lr = io(seg(t, VB, VB + .7)) * 1900; if (lr > 0) { x.save(); x.fillStyle = LIME; x.beginPath(); x.arc(VBX, VBY, lr, 0, 7); x.fill(); x.restore(); }
+    // trail: the path the plane has flown, drawn like a chart line (down in cream on red, up in ink on lime)
+    x.save(); x.lineWidth = 9; x.lineCap = 'round'; x.lineJoin = 'round';
+    const pts = []; for (let k = 14.9; k <= Math.min(t, 18.9); k += 1 / 60) pts.push(vpos(k));
+    const down = pts.filter((_, k) => 14.9 + k / 60 <= VB), up = pts.filter((_, k) => 14.9 + k / 60 >= VB);
+    x.strokeStyle = t < VB + .3 ? CREAM : INK; x.beginPath(); down.forEach(([a, b], k) => (k ? x.lineTo(a, b) : x.moveTo(a, b))); x.stroke();
+    x.strokeStyle = INK; x.beginPath(); up.forEach(([a, b], k) => (k ? x.lineTo(a, b) : x.moveTo(a, b))); x.stroke(); x.restore();
+    if (t > VB - .05) { const q = 1 - seg(t, VB, VB + .45); x.save(); x.strokeStyle = INK; x.lineWidth = 4; x.globalAlpha = q; x.beginPath(); x.arc(VBX, VBY, 30 + (1 - q) * 160, 0, 7); x.stroke(); x.restore(); }
+    const [px, py, sc] = vpos(Math.min(t, 18.9)); const ang = t < VB ? .95 : mix(.95, -.78, io(seg(t, VB, VB + .45)));
+    const shake = t > VB && t < VB + .25 ? (rnd(Math.floor(t * 30)) - .5) * 14 : 0;
+    if (t < 18.9) plane(px + shake, py + shake * .6, ang, 460 * sc, Math.sin(t * 3) * .15);
+    if (t < VB) T('-24%  -33%  -40%  -39%', 72, 320, 70, {f: 'sans', color: CREAM, a: .9 * seg(t, 14.95, 15.2)});
+    if (t > 16.7) T('But every fall', 72, 300, 92, {color: INK});
+    if (t > 17.3) T('makes room for', 72, 410, 92, {color: INK});
+  } else if (t < 23.4) {                        // S7 money printing, opportunity
+    ht(im.money, 0, 0, W, H, {zoom: 1.1 + (t - 19.2) * .03, ink: CREAM, pap: INK, inv: 1, con: 1.4, cell: 4.6});
+    if (t > 21.2) { const p = ob(seg(st(t), 21.2, 21.6)); x.save(); x.translate(800, 340); x.rotate(.05); x.scale(p, p); rect(-210, -170, 420, 340, LIME); ht(im.hands, -190, -150, 380, 300, {ink: INK, pap: LIME, con: 1.6, cell: 3.8}); x.restore(); }
+    strip(W2, 0, 880, W, 150, 0, t, 70, 48, LIME, INK);
+    lines(150, 560, 780, 240, oc(seg(t, 19.4, 19.8)));
+    if (t > 19.7) { rect(150, 560, 780, 240, INK); lines(162, 572, 756, 216, 1); T('opportunity.', 540, 712, 112, {align: 'center', color: LIME}); }
   } else {                                      // S8 end card
     rect(0, 0, W, H, INK);
-    const p = oc(seg(t, 22.6, 23.2));
+    const p = oc(seg(t, 23.4, 24.0));
     rect(580 + jit(t, 7), mix(-900, 540, p), 420, 520, LIME); ht(im.hands, 604, mix(-876, 564, p), 372, 472, {ink: INK, pap: LIME, con: 1.6, cell: 4, zoom: 1.2});
-    x.save(); x.globalAlpha = oc(seg(t, 22.9, 23.5)); strip(['markets move', 'stay ready', 'markets move', 'stay ready'], 72, 560, 460, 500, -.12, t, 30, 46); x.restore();
-    if (t > 23.3) T('Markets move.', 72, 300, 116, {color: CREAM});
-    if (t > 23.8) T('Be ready.', 72, 420, 116, {color: LIME});
-    const lp = oc(seg(t, 24.4, 25.0)); x.save(); x.globalAlpha = lp; rect(470, 1130, 560, 120, '#fff'); T('hotcoin.com', 506, 1208, 44, {f: 'mono', color: INK}); x.drawImage(logoW, 72, 1160, 300, 54); x.restore();
-    const u = oc(seg(t, 22.7, 24.6)); plane(mix(-200, 700, u), mix(1150, 560, u) + Math.sin(t * 2.5) * 10, mix(-.6, -.25, u), 330, 0);
+    x.save(); x.globalAlpha = oc(seg(t, 23.7, 24.3)); strip(['markets move', 'stay ready', 'markets move', 'stay ready'], 72, 560, 460, 500, -.12, t, 30, 40); x.restore();
+    if (t > 24.1) T('Markets move.', 72, 300, 100, {color: CREAM});
+    if (t > 24.6) T('Be ready.', 72, 410, 100, {color: LIME});
+    const lp = oc(seg(t, 25.2, 25.8)); x.save(); x.globalAlpha = lp; rect(470, 1130, 560, 120, '#fff'); T('hotcoin.com', 506, 1208, 44, {f: 'mono', color: INK}); x.drawImage(logoW, 72, 1160, 300, 54); x.restore();
+    const u = oc(seg(t, 23.5, 25.4)); plane(mix(-200, 700, u), mix(1150, 560, u) + Math.sin(t * 2.5) * 10, mix(-.6, -.25, u), 330, 0);
   }
   grain(t);
   return true;
 };
-window.init = async () => { await document.fonts.load("italic 64px 'Instrument Serif'"); await document.fonts.load("800 64px 'Inter Tight'"); await document.fonts.load("700 24px 'JetBrains Mono'");
+window.init = async () => { await document.fonts.load("800 64px 'Inter Tight'"); await document.fonts.load("700 24px 'JetBrains Mono'");
   logoW = await img(BR + 'logo-mono-white.png'); await prepBill(); makeGrain(); return true; };
 </script></body></html>`;
 
@@ -216,7 +239,7 @@ pg.on('pageerror', (e) => console.error('page error', e.message));
 await pg.goto('file://' + f, {waitUntil: 'networkidle'}); await pg.evaluate(() => window.init());
 const shot = async () => Buffer.from((await pg.evaluate(() => document.getElementById('c').toDataURL('image/jpeg', .93))).split(',')[1], 'base64');
 if (mode === 'sheet') {
-  const ts = (process.argv[3] || '0,1.5,3.0,4.8,7.9,10.6,13.0,14.6,16.9,19.6,21.2,25.5').split(',').map(Number);
+  const ts = (process.argv[3] || '1.5,4.8,7.6,9.6,10.6,12.9,14.2,15.5,16.2,17.8,20.4,26').split(',').map(Number);
   for (const t of ts) { await pg.evaluate((v) => window.draw(v), t); fs.writeFileSync(`${DIR}/out/s-${t}.jpg`, await shot()); }
 } else {
   const [a0, a1] = mode === 'range' ? process.argv[3].split(',').map(Number) : [0, DUR], out = mode === 'range' ? 'part.mp4' : 'silent.mp4';

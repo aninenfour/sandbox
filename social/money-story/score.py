@@ -2,7 +2,7 @@
 # markets fall, quiet clock ticks and paper flutters, a short breath at 15.2 s, then a warm major chord with light plucks.
 # Run: python3 social/money-story/score.py social/money-story/out/score.wav
 import sys, numpy as np, soundfile as sf
-SR, DUR, TURN, END = 48000, 28.0, 15.2, 22.6
+SR, DUR, TURN, END = 48000, 29.0, 16.0, 23.4
 N = int(SR * DUR); t = np.arange(N) / SR; rng = np.random.default_rng(3)
 L = np.zeros(N); R = np.zeros(N)
 def add(sig, at, g, pan=0.0):
@@ -28,16 +28,30 @@ for k, b in enumerate(beat): add(kick, b, .32 if k % 2 == 0 else .2)
 # 3. clock ticks in the panic scene (6.4 to 9.2 s)
 n = int(.05 * SR); u = np.arange(n) / SR
 tick = (np.sin(2 * np.pi * 1900 * u) + .4 * np.sin(2 * np.pi * 3100 * u)) * np.exp(-u * 160) * (1 - np.exp(-u * 4000))
-for k, b in enumerate(np.arange(6.5, 9.2, .5)): add(tick, b, .05, -.3 if k % 2 else .3)
+for k, b in enumerate(np.arange(6.1, 8.6, .5)): add(tick, b, .05, -.3 if k % 2 else .3)
 # 4. soft paper flutters for planes (band-limited noise, smooth envelope)
 def flutter(d):
     n = int(d * SR); x = rng.standard_normal(n); uu = np.linspace(0, 1, n); e = np.sin(np.pi * uu) ** 2 * (0.6 + 0.4 * np.sin(2 * np.pi * 14 * uu * d) ** 2)
     return lp(x - lp(x, 400), 2600) * e
-for at, d, g, p in [(0.3, 2.4, .05, -.2), (9.3, 1.2, .04, .3), (9.7, 1.2, .035, -.3), (10.2, 1.3, .035, .2), (15.5, 2.4, .05, 0), (22.7, 1.8, .045, -.2)]:
+for at, d, g, p in [(0.3, 2.4, .05, -.2), (8.7, 1.2, .04, .3), (9.2, 1.2, .035, -.3), (9.8, 1.3, .035, .2), (23.5, 1.8, .045, -.2)]:
     add(flutter(d), at, g, p)
 # 5. falling tone under the BTC drop (9.4 to 12 s), quiet
 n = int(2.6 * SR); u = np.arange(n) / SR; f = 440 * 2 ** (-u / 1.6)
-add(np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * u / 2.6) ** 2, 9.4, .025)
+add(np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * u / 2.6) ** 2, 8.8, .022)
+# 5b. soft paper slaps as the drop cards land (BTC, then 5 quick ones)
+def slap():
+    n = int(.12 * SR); x = rng.standard_normal(n); uu = np.arange(n) / SR
+    return lp(x, 1800) * np.exp(-uu * 45) * (1 - np.exp(-uu * 2500)) + np.sin(2 * np.pi * 90 * uu) * np.exp(-uu * 30) * .6
+for k, at in enumerate([8.9] + [10.25 + i * .5 for i in range(5)]): add(slap(), at, .12 if k == 0 else .085, (-.3, .3)[k % 2])
+# 5c. the V: tone dives into the bottom (14.9 to 16.0), low thud at the bottom, tone climbs out (16.0 to 17.8)
+n = int(1.1 * SR); u = np.arange(n) / SR; f = 520 * 2 ** (-u * 1.8)
+add(np.sin(2 * np.pi * np.cumsum(f) / SR) * (u / 1.1) ** 1.5, 14.9, .035)
+add(flutter(1.1), 14.9, .05, -.1)
+n = int(.8 * SR); u = np.arange(n) / SR
+add(np.sin(2 * np.pi * (42 + 50 * np.exp(-u * 18)) * u) * np.exp(-u * 4) * (1 - np.exp(-u * 500)), 16.0, .45)
+n = int(1.8 * SR); u = np.arange(n) / SR; f = 220 * 2 ** (u * 1.2)
+add(np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * u / 1.8) ** 2, 16.0, .03)
+add(flutter(1.8), 16.05, .05, .2)
 # 6. the turn: warm A major pad swell + plucks
 warm = sum(voice(f, 1.004) * g for f, g in [(110, .8), (164.81, .6), (220, .6), (277.18, .5), (329.63, .45), (440, .25)])
 add(lp(warm * w(TURN + .25, DUR, 1.6, 2.2), 900 + 1400 * np.clip((t - TURN) / 6, 0, 1)), 0, .065)
@@ -49,7 +63,7 @@ for k, at in enumerate(np.arange(TURN + .6, END + 2.2, .375)):
 # 7. end bell under the logo
 n = int(3.5 * SR); u = np.arange(n) / SR
 bell = sum(a * np.sin(2 * np.pi * f * u) * np.exp(-u * d) for f, a, d in [(880, 1, 1.3), (1318.5, .45, 2), (1760, .25, 2.8)]) * (1 - np.exp(-u * 500))
-add(bell, 24.4, .06)
+add(bell, 25.2, .06)
 
 mix = np.stack([L, R], 1); mix *= np.clip((DUR - t) / 1.2, 0, 1)[:, None]; mix *= 0.6 / np.abs(mix).max()
 sf.write(sys.argv[1], mix, SR, subtype='PCM_24'); print('ok')
