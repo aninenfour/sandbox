@@ -1,0 +1,14 @@
+{"music":"399","title":"Video game stocks, 5 years",
+ "tier":{"tiers":["A","B","C","F"],
+  "legend":"5-year price change, Nov 2021 to Nov 2026",
+  "items":[
+   {"name":"Unity","tier":"F","logo":"U.png","why":"-71%: $182 to $53"},
+   {"name":"Roblox","tier":"F","logo":"RBLX.png","why":"-49%: $98 to $50"},
+   {"name":"Sony","tier":"C","logo":"SONY.png","why":"+12%: $24.20 to $27.07"},
+   {"name":"Take-Two","tier":"B","logo":"TTWO.png","why":"+23%: $186 to $228"},
+   {"name":"Nintendo","tier":"B","logo":"NTDOY.png","why":"+25%: $11.00 to $13.70"},
+   {"name":"S&P 500","tier":"A","logo":"SPY.png","why":"+63%: 4,649 to 7,562"}]},
+ "slides":[
+  {"photo":"hook.jpg","pos":"50% 50%","hook":true,"tag":"TIER LIST","text":"5 years of game stocks:\n[none beat the S&P 500]"},
+  {"kind":"tier_all"},
+  {"kind":"cta"}]}
