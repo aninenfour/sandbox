@@ -1,66 +1,94 @@
-# Score for the money story (29 s). Music is original (numpy): soft pulse and dark pad while markets fall, then a warm major
-# chord with light plucks after the turn at 16 s. Sound effects are real CC0 recordings (Kenney.nl), see assets/sfx.
+# Music-led score for the money story (29 s, 120 BPM, 1 bar = 2 s). Original, made with numpy; no samples in the music.
+#  0 to 14 s  "the fall": A minor groove (Am F Dm E), kick, clap, hats, plucky bass, 16th arpeggio, brightness slowly opening.
+# 14 to 16 s  build: pad holds E, snare roll + noise riser, then a beat of air.
+# 16 s        the drop on the bottom of the V: A major (A E F#m D), pumping chords, a hook melody, sparkle.
+# Sound effects are a quiet bed under the music: real CC0 recordings (Kenney.nl) in assets/sfx.
 # Run: python3 social/money-story/score.py social/money-story/out/score.wav
 import os, sys, numpy as np, soundfile as sf
-SR, DUR, TURN, END = 48000, 29.0, 16.0, 23.4
-N = int(SR * DUR); t = np.arange(N) / SR; rng = np.random.default_rng(3)
-L = np.zeros(N); R = np.zeros(N)
-def add(sig, at, g, pan=0.0):
-    i = int(at * SR); n = min(len(sig), N - i)
-    if n > 0: L[i:i+n] += sig[:n] * g * (1 - pan) ** .5; R[i:i+n] += sig[:n] * g * (1 + pan) ** .5
-def lp(x, fc):   # one-pole low-pass, fc scalar or array
-    fc = np.broadcast_to(np.asarray(fc, float), x.shape); a = np.exp(-2 * np.pi * fc / SR); y = np.empty_like(x); s = 0.0
-    for k in range(len(x)): s = (1 - a[k]) * x[k] + a[k] * s; y[k] = s
-    return y
-def env(n, a, r): u = np.arange(n) / SR; return np.minimum(1, u / a) * np.exp(-u / r)
-def voice(f, d=1.003): ph = 2 * np.pi * f * t; return (np.sin(ph) + .45 * np.sin(ph * d + 1) + .2 * np.sin(2 * ph * .999)) / 1.65
-w = lambda a, b, fa=.6, fb=.8: np.clip((t - a) / fa, 0, 1) * np.clip((b - t) / fb, 0, 1)
+SR, DUR, BPM = 48000, 29.0, 120
+BEAT = 60 / BPM; BAR = 4 * BEAT; DROP = 16.0
+N = int(SR * DUR); t = np.arange(N) / SR; rng = np.random.default_rng(9)
+L = np.zeros(N); R = np.zeros(N); KICKS = []
+def add(sig, at, g, pan=0.0, bus=None):
+    bl, br = bus if bus else (L, R); i = int(at * SR); n = min(len(sig), N - i)
+    if n > 0 and i >= 0: bl[i:i+n] += sig[:n] * g * np.sqrt(1 - pan); br[i:i+n] += sig[:n] * g * np.sqrt(1 + pan)
+mtof = lambda m: 440 * 2 ** ((m - 69) / 12)
+def saw(f, n, harm=10, bright=1.0):   # band-limited saw via additive harmonics; brightness tilts the upper harmonics
+    u = np.arange(n) / SR; return sum(np.sin(2 * np.pi * f * k * u) / k * bright ** (k - 1) for k in range(1, harm + 1) if f * k < 16000) * .6
+def adsr(n, a=.005, d=.2, s=.0, r=.05):
+    u = np.arange(n) / SR; e = np.where(u < a, u / a, s + (1 - s) * np.exp(-(u - a) / d)); m = int(r * SR); e[-m:] *= np.linspace(1, 0, m); return e
+noise = lambda n: rng.standard_normal(n)
+hp = lambda x, k=1: np.diff(x, k, prepend=np.zeros(k))
 
-# 1. dark pad (A minor, low) under the fall
-dark = sum(voice(f) * g for f, g in [(55, 1), (110, .8), (130.81, .55), (164.81, .5)])
-add(lp(dark * w(0, TURN + .1, 1.0, .35), 500 + 300 * np.clip(t / TURN, 0, 1)), 0, .07)
-# 2. heartbeat pulse, slowly speeding up
-beat, x_ = [], 0.4
-while x_ < TURN - .3: beat.append(x_); x_ += .66 - .18 * (x_ / TURN)
-n = int(.35 * SR); u = np.arange(n) / SR
-kick = np.sin(2 * np.pi * (48 + 40 * np.exp(-u * 30)) * u) * np.exp(-u * 9) * (1 - np.exp(-u * 600))
-for k, b in enumerate(beat): add(kick, b, .24 if k % 2 == 0 else .15)
-# 3. sound effects: real recordings only, Kenney "RPG Audio" + "Impact Sounds" (CC0, kenney.nl), in assets/sfx
+# ---- music bus (gets the sidechain pump) ----
+ML = np.zeros(N); MR = np.zeros(N); MUS = (ML, MR)
+FALL = [(57, [57, 60, 64]), (53, [53, 57, 60]), (50, [50, 53, 57]), (52, [52, 56, 59])]   # Am F Dm E
+RISE = [(57, [57, 61, 64]), (52, [52, 56, 59]), (54, [54, 57, 61]), (50, [50, 54, 57])]   # A E F#m D
+def section(prog, start, bars, b0, b1, major):
+    for bi in range(bars):
+        root, ch = prog[bi % 4]; at = start + bi * BAR; u = bi / max(1, bars - 1); br = b0 + (b1 - b0) * u
+        n = int(BAR * SR) + int(.1 * SR)
+        pad = sum(saw(mtof(m + 12), n, 8, br) + saw(mtof(m + 12) * 1.004, n, 8, br) for m in ch) / 6
+        add(pad * adsr(n, .08, 9, .9, .1), at, .07 if major else .055, 0, MUS)
+        for s in range(8):                                            # bass: 8ths with an octave bounce
+            m = root - 12 + (12 if s % 4 == 3 else 0); nn = int(.24 * SR)
+            add(saw(mtof(m), nn, 6, .55) * adsr(nn, .004, .12, .25, .04), at + s * BEAT / 2, .2, 0, MUS)
+        arp = [ch[0], ch[1], ch[2], ch[1] + 12, ch[2], ch[1], ch[0] + 12, ch[2]]
+        steps, dt = (16, BEAT / 4) if not major else (8, BEAT / 2)
+        for s in range(steps):
+            m = arp[s % 8] + 12; nn = int(.18 * SR)
+            add(saw(mtof(m), nn, 5, br * .8) * adsr(nn, .002, .07, 0, .03), at + s * dt, .05 + .025 * u, (-.35, .35)[s % 2], MUS)
+section(FALL, 0.0, 7, .25, .6, False)                                 # 0 to 14 s
+n = int(2.0 * SR); add(sum(saw(mtof(m + 12), n, 6, .4) for m in [52, 56, 59]) / 4 * adsr(n, .05, 9, .9, .3), 14.0, .06, 0, MUS)
+section(RISE, DROP, 6, .55, .8, True)                                 # 16 to 28 s
+def pluck(f, d=.6):
+    n = int(d * SR); u = np.arange(n) / SR
+    return (np.sin(2 * np.pi * f * u) + .35 * np.sin(4 * np.pi * f * u) + .12 * np.sin(6 * np.pi * f * u)) * np.exp(-u * 6) * (1 - np.exp(-u * 800))
+hook = [(0, 76), (.5, 73), (1, 71), (1.5, 73), (2.5, 69), (3, 71), (4, 76), (4.5, 78), (5, 76), (5.5, 73), (6.5, 71), (7, 69)]
+for rep in range(3):
+    for b, m in hook: add(pluck(mtof(m)), DROP + .5 + rep * 4 + b * BEAT, .13, .15, MUS)
+add(pluck(mtof(93), 1.4) + pluck(mtof(88), 1.4) * .7, DROP, .08, -.2, MUS)
+n = int(2.6 * SR); add(sum(saw(mtof(m), n, 6, .5) for m in [57, 61, 64, 69]) / 4 * adsr(n, .01, 1.2, 0, .4), 26.6, .1, 0, MUS)
+
+# ---- drums ----
+def kick():
+    n = int(.32 * SR); u = np.arange(n) / SR; f = 46 + 110 * np.exp(-u * 32)
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-u * 7) * (1 - np.exp(-u * 900)) + noise(n) * np.exp(-u * 300) * .05
+def clap():
+    n = int(.22 * SR); u = np.arange(n) / SR
+    e = sum(np.exp(-np.maximum(0, u - o) * 60) * (u >= o) for o in (0, .011, .022)) * .5 + np.exp(-np.maximum(0, u - .03) * 18) * (u >= .03)
+    return hp(noise(n)) * .45 * e
+def hat(open_=False):
+    n = int((.16 if open_ else .04) * SR); u = np.arange(n) / SR; return hp(noise(n), 2) * np.exp(-u * (18 if open_ else 90)) * .4
+for b in range(int(DUR / BEAT)):
+    at = b * BEAT; pre = at < DROP
+    if 15.0 <= at < DROP or at >= DUR - 1.5 or at < 2.0: continue   # 1 bar intro, break before the drop, clean ending
+    add(kick(), at, .5 if pre else .58); KICKS.append(at)
+    if b % 2 == 1: add(clap(), at, .12 if pre else .15, .05)
+    add(hat(), at, .025, -.25); add(hat(open_=not pre), at + BEAT / 2, .035, .25)
+n = int(.08 * SR); u = np.arange(n) / SR; snare = (hp(noise(n)) * .6 + np.sin(2 * np.pi * 190 * u) * .4) * np.exp(-u * 35)
+k, at = 0, 14.0
+while at < 15.82:                                                     # build: snare roll speeding up
+    add(snare, at, .04 + .12 * (at - 14.0) / 1.82, (-.15, .15)[k % 2]); at += .25 if at < 15.0 else .125 if at < 15.5 else .0625; k += 1
+n = int(1.6 * SR); u = np.arange(n) / SR; add(hp(noise(n)) * (u / 1.6) ** 2.5, 14.3, .06)
+
+# sidechain pump on the music bus, then sum
+duck = np.ones(N)
+for kt in KICKS:
+    i = int(kt * SR); n = min(int(.32 * SR), N - i); duck[i:i+n] = np.minimum(duck[i:i+n], 1 - .5 * np.exp(-np.arange(n) / SR * 9))
+L += ML * duck; R += MR * duck
+
+# ---- sound effects: a quiet bed under the music, real CC0 recordings ----
 SFX = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets', 'sfx')
-def smp(name, speed=1.0):   # load, normalize to peak 1, optional varispeed (slower = lower and longer)
-    x, sr = sf.read(os.path.join(SFX, name + '.wav')); x = x if x.ndim == 1 else x.mean(1); x = x / (np.abs(x).max() + 1e-9)
+def smp(name, speed=1.0):
+    x, _ = sf.read(os.path.join(SFX, name + '.wav')); x = x if x.ndim == 1 else x.mean(1); x = x / (np.abs(x).max() + 1e-9)
     if speed != 1.0: x = np.interp(np.arange(0, len(x) - 1, speed), np.arange(len(x)), x)
-    fade = min(len(x), int(.01 * SR)); x[-fade:] *= np.linspace(1, 0, fade); return x
-# paper plane flights: soft cloth swishes and paper flips
-add(smp('cloth1', .8), 0.3, .16, -.3); add(smp('bookFlip1'), 1.5, .08, .2)
-for k in range(6): add(smp(['cloth2', 'cloth3', 'cloth4'][k % 3], .9), 8.6 + k * .26, .07, (-.4, .4)[k % 2])
-# labels and cards landing: paper flips and book placements
-for at, g in [(3.8, .07), (4.4, .07), (7.3, .07)]: add(smp('bookFlip2', 1.1), at, g, -.1)
-add(smp('bookPlace3'), 6.7, .16, .3)                                              # clock card
-for k, at in enumerate(np.arange(6.1, 8.6, .5)): add(smp('impactWood_light_000' if k % 2 else 'impactWood_light_002', 1.15), at, .045, (-.3, .3)[k % 2])
-add(smp('bookPlace1'), 8.9, .26, 0)                                               # BTC card
-for k in range(5): add(smp(['bookPlace2', 'bookPlace3', 'bookPlace1'][k % 3], 1.05), 10.25 + k * .5, .19, (-.35, .35)[k % 2])
-add(smp('bookPlace2'), 13.25, .18, .1)                                            # chart card
-# the V: a long swish into the dive, a soft heavy impact at the bottom, flip and swish on the climb
-add(smp('cloth4', .62), 14.95, .2, -.2)
-add(smp('impactSoft_heavy_000', .85), 15.98, .55, 0); add(smp('impactSoft_medium_001', .7), 16.0, .25, 0)
-add(smp('bookFlip3', .9), 16.08, .12, .2); add(smp('cloth2', .75), 16.2, .17, .35)
-# opportunity and money: coins
-add(smp('bookPlace1', 1.1), 19.7, .1, 0); add(smp('handleCoins'), 21.2, .16, .3)
-# end card: block drops, plane glides in, coins under the logo
-add(smp('bookPlace2', .9), 23.45, .18, .2); add(smp('cloth3', .8), 23.6, .13, -.3); add(smp('handleCoins2'), 25.25, .1, .1)
-# 6. the turn: warm A major pad swell + plucks
-warm = sum(voice(f, 1.004) * g for f, g in [(110, .8), (164.81, .6), (220, .6), (277.18, .5), (329.63, .45), (440, .25)])
-add(lp(warm * w(TURN, DUR, .5, 2.2), 900 + 1400 * np.clip((t - TURN) / 6, 0, 1)), 0, .065)
-notes = [440, 554.37, 659.26, 880, 659.26, 554.37]
-for k, at in enumerate(np.arange(TURN + .2, END + 2.2, .375)):
-    f = notes[k % len(notes)]; n = int(1.2 * SR); u = np.arange(n) / SR
-    pl = (np.sin(2 * np.pi * f * u) + .3 * np.sin(4 * np.pi * f * u)) * np.exp(-u * 5) * (1 - np.exp(-u * 900))
-    add(pl, at, .03 + .012 * (k % 2), .25 if k % 2 else -.25)
-# 7. end bell under the logo
-n = int(3.5 * SR); u = np.arange(n) / SR
-bell = sum(a * np.sin(2 * np.pi * f * u) * np.exp(-u * d) for f, a, d in [(880, 1, 1.3), (1318.5, .45, 2), (1760, .25, 2.8)]) * (1 - np.exp(-u * 500))
-add(bell, 25.2, .06)
+    f = min(len(x), int(.01 * SR)); x[-f:] *= np.linspace(1, 0, f); return x
+add(smp('cloth1', .8), 0.4, .04, -.3)
+add(smp('bookPlace1'), 8.9, .06, 0)
+for k in range(5): add(smp(['bookPlace2', 'bookPlace3', 'bookPlace1'][k % 3], 1.05), 10.25 + k * .5, .045, (-.3, .3)[k % 2])
+add(smp('impactSoft_heavy_000', .85), 15.98, .1, 0)
+add(smp('handleCoins'), 21.2, .045, .3)
 
-mix = np.stack([L, R], 1); mix *= np.clip((DUR - t) / 1.2, 0, 1)[:, None]; mix *= 0.6 / np.abs(mix).max()
+mix = np.stack([L, R], 1); mix *= (np.clip(t / .05, 0, 1) * np.clip((DUR - t) / 1.0, 0, 1))[:, None]; mix *= 0.7 / np.abs(mix).max()
 sf.write(sys.argv[1], mix, SR, subtype='PCM_24'); print('ok')

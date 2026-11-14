@@ -25,4 +25,11 @@ if [ ! -s assets/sfx/bookPlace1.wav ]; then
            impact-sounds/Audio/{impactSoft_heavy_000,impactSoft_heavy_002,impactSoft_medium_001,impactWood_light_000,impactWood_light_002}.ogg; do
     /usr/bin/ffmpeg -y -loglevel error -i assets/kenney/$f -ar 48000 -ac 1 assets/sfx/$(basename $f .ogg).wav; done
 fi
+# Coin logos: CoinGecko only (api.coingecko.com image field). Stocks (NVDA, Nasdaq) get plain ticker badges, no brand logos.
+mkdir -p assets/logos
+for id in bitcoin ethereum solana ripple; do
+  [ -s assets/logos/$id.png ] && continue
+  u=$(curl -sS "https://api.coingecko.com/api/v3/coins/$id?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false" | python3 -c "import json,sys;print(json.load(sys.stdin)['image']['large'])")
+  curl -sSL -o assets/logos/$id.png "$u"; sleep 3
+done
 echo prepared

@@ -140,11 +140,15 @@ function chart(px, py, w, h, prog) {
 const W1 = ['panic', 'sell-off', 'red candles', 'fear', 'margin calls', 'liquidations'];
 const W2 = ['opportunity', 'patience', 'a plan', 'discipline', 'a better entry'];
 // quick drops (peak to low): Binance daily (crypto, Nov 14, 2026), Yahoo Finance daily (stocks)
-const DROPS = [['ETHEREUM', '-33.1%', 'SEP 21 → NOV 14'], ['SOLANA', '-40.1%', 'SEP 27 → NOV 14'], ['XRP', '-40.9%', 'SEP 23 → NOV 14'],
-  ['NVIDIA', '-38.9%', 'OCT 6 → NOV 12'], ['NASDAQ', '-12.5%', 'OCT 6 → NOV 5']];
+// logo: CoinGecko image for coins; stocks get a plain ticker badge (no third-party brand logos)
+const DROPS = [['ETHEREUM', '-33.1%', 'SEP 21 → NOV 14', 'ethereum'], ['SOLANA', '-40.1%', 'SEP 27 → NOV 14', 'solana'], ['XRP', '-40.9%', 'SEP 23 → NOV 14', 'ripple'],
+  ['NVIDIA', '-38.9%', 'OCT 6 → NOV 12', '#NVDA'], ['NASDAQ', '-12.5%', 'OCT 6 → NOV 5', '#IXIC']];
+const LOGO = {};
+const mark = (k, cx, cy, d) => { if (k[0] === '#') { x.save(); x.fillStyle = INK; x.beginPath(); x.roundRect(cx - d * .75, cy - d * .38, d * 1.5, d * .76, d * .2); x.fill(); x.restore();
+  T(k.slice(1), cx, cy + d * .13, d * .34, {f: 'mono', color: CREAM, align: 'center', ls: 1}); } else if (LOGO[k]) x.drawImage(LOGO[k], cx - d / 2, cy - d / 2, d, d); };
 const DROP_POS = [[790, 330, .04], [290, 610, -.03], [790, 830, .03], [290, 1060, -.04], [790, 1180, .02]];
 const dropCard = (d, cx, cy, rot, p) => { x.save(); x.translate(cx, cy); x.rotate(rot); x.scale(p * .9, p * .9); rect(-250, -120, 500, 240, CREAM);
-  T(d[0], -215, -55, 22, {f: 'mono', color: INK, ls: 3}); T(d[1], -220, 50, 108, {f: 'sans', color: RED}); T(d[2], -215, 94, 18, {f: 'mono', color: 'rgba(11,14,17,.6)', ls: 2}); x.restore(); };
+  T(d[0], -215, -55, 22, {f: 'mono', color: INK, ls: 3}); mark(d[3], 180, -52, 64); T(d[1], -220, 50, 108, {f: 'sans', color: RED}); T(d[2], -215, 94, 18, {f: 'mono', color: 'rgba(11,14,17,.6)', ls: 2}); x.restore(); };
 // the V: plane dives to the bottom and climbs out
 const VX0 = -160, VY0 = 560, VBX = 540, VBY = 1090, VX1 = 1240, VY1 = 470, VB = 16.0;
 const vpos = (t) => { if (t < VB) { const u = io(seg(t, 14.9, VB)); return [mix(VX0, VBX, u), mix(VY0, VBY, Math.pow(u, .8)), mix(.55, 1.0, u)]; }
@@ -183,10 +187,10 @@ window.draw = async (t) => {
       plane(120 + i * 170 + Math.sin(s * 2 + i) * 30, y, 1.25 + Math.sin(s * 3 + i) * .25, 200 + (i % 3) * 60, Math.sin(s * 4 + i) * .6); }
     const bOut = seg(t, 10.0, 10.25);
     if (t > 8.9 && bOut < 1) { const p = ob(seg(st(t), 8.9, 9.3)) * (1 - bOut * .45); x.save(); x.translate(540 - bOut * 250, 700 - bOut * 440); x.rotate(-.025); x.scale(p, p);
-      rect(-400, -250, 800, 470, CREAM); T('BITCOIN', -350, -170, 26, {f: 'mono', color: INK, ls: 4});
+      rect(-400, -250, 800, 470, CREAM); T('BITCOIN', -350, -170, 26, {f: 'mono', color: INK, ls: 4}); mark('bitcoin', 330, -190, 76);
       T('-24.0%', -360, 20, 200, {f: 'sans', color: RED}); T('$87,396 → $66,456', -352, 110, 34, {f: 'mono', color: INK});
       T('SEP 21 → NOV 14, 2026', -352, 170, 24, {f: 'mono', color: 'rgba(11,14,17,.6)', ls: 2}); x.restore(); }
-    if (bOut >= 1) { x.save(); x.translate(290, 260); x.rotate(-.04); x.scale(.55, .55); rect(-400, -250, 800, 470, CREAM); T('BITCOIN', -350, -170, 26, {f: 'mono', color: INK, ls: 4}); T('-24.0%', -360, 20, 200, {f: 'sans', color: RED}); x.restore(); }
+    if (bOut >= 1) { x.save(); x.translate(290, 260); x.rotate(-.04); x.scale(.55, .55); rect(-400, -250, 800, 470, CREAM); T('BITCOIN', -350, -170, 26, {f: 'mono', color: INK, ls: 4}); mark('bitcoin', 330, -190, 76); T('-24.0%', -360, 20, 200, {f: 'sans', color: RED}); x.restore(); }
     DROPS.forEach((d, k) => { const t0 = 10.25 + k * .5; if (t < t0) return; const [cx, cy, r] = DROP_POS[k]; dropCard(d, cx + jit(t, k * 3, 2), cy, r, ob(seg(st(t, 15), t0, t0 + .22))); });
   } else if (t < 14.9) {                        // S5 BTC chart over the presses
     ht(im.press, 0, 0, W, H, {zoom: 1.08 + (t - 13.2) * .03, ink: CREAM, pap: INK, inv: 1, con: 1.5, cell: 4.6});
@@ -227,7 +231,7 @@ window.draw = async (t) => {
   return true;
 };
 window.init = async () => { await document.fonts.load("800 64px 'Inter Tight'"); await document.fonts.load("700 24px 'JetBrains Mono'");
-  logoW = await img(BR + 'logo-mono-white.png'); await prepBill(); makeGrain(); return true; };
+  logoW = await img(BR + 'logo-mono-white.png'); for (const k of ['bitcoin', 'ethereum', 'solana', 'ripple']) LOGO[k] = await img(A.replace('/clips/', '/logos/') + k + '.png'); await prepBill(); makeGrain(); return true; };
 </script></body></html>`;
 
 const mode = process.argv[2] || 'sheet';
