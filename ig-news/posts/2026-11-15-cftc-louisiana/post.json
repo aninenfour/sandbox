@@ -1,0 +1,22 @@
+{"type": "news", "style": "v2", "date": "NOV 15", "slides": [
+ {"kind": "nhero", "photo": "selig.jpg", "photo_pos": "50% 18%", "tag": "TRENDING",
+  "headline": "{Louisiana blocks} Kalshi and Polymarket. [The CFTC sues back]"},
+ {"kind": "nbig", "tag": "WHAT HAPPENED", "title": "A state judge said no",
+  "kicker": "FIRMS BLOCKED IN LOUISIANA", "big": "31", "neg": true,
+  "label": "Kalshi, Polymarket, Robinhood, Coinbase, Crypto.com and more",
+  "text": ["Order of Nov 12: no event bets for people in the state without a [state license]."],
+  "source": "The Block; Washington Times; casino.org"},
+ {"kind": "nrows", "tag": "THE FIGHT", "title": "How the week went",
+  "rows": [
+   {"emoji": "⚖️", "l": "Nov 12", "sub": "state sues, judge blocks the apps", "v": "Ban", "neg": true},
+   {"emoji": "🏛️", "l": "Nov 13", "sub": "CFTC and Justice Dept. sue Louisiana", "v": "Lawsuit", "pos": true},
+   {"emoji": "📅", "l": "Nov 30", "sub": "court hearing on a longer ban", "v": "Next"}
+  ],
+  "text": ["Louisiana is the [12th state] the CFTC has taken to court over this."],
+  "source": "The Block; CFTC via Washington Times"},
+ {"kind": "nphoto", "tag": "WHY IT MATTERS", "title": "Who makes the rules?", "photo": "capitol.jpg", "photo_pos": "50% 30%",
+  "overlay": "Washington or the states?",
+  "text": ["CFTC chief Michael Selig calls it [\"naked lawfare\"]. The state says it has run gambling rules for {250 years}."],
+  "source": "The Block; Washington Times"},
+ {"kind": "end"}
+]}
