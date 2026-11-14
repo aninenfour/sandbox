@@ -1483,9 +1483,9 @@
   {
     "id": "2026-11-15-gta-prices",
     "type": "owner-request",
-    "slot": "2026-11-15T12:30:00+08:00",
+    "slot": "2026-11-14T23:25:00+08:00",
     "title": "GTA V to GTA VI: 13 years of prices (BTC 506x, NVDA 411x, TSLA 35x, AAPL 22x, TTWO 13x, S&P 4.4x)",
-    "status": "scheduled",
+    "status": "published",
     "platforms": [
       "ig",
       "fb",
@@ -1497,6 +1497,6 @@
       "Yahoo Finance split-adjusted closes Sep 17 2013 vs Nov 13 2026",
       "GTA VI Nov 19 2026: TechRadar, Tom's Guide"
     ],
-    "note": "Owner asked (format seen on coinsauce/billionsofficiel). No game logos/art used. v2 (Nov 14): rebuilt visual-first as 2x2 photo grids after owner feedback; v1 text-first posts moved to draft; v2 media at commit 869fe75."
+    "note": "Owner asked (format seen on coinsauce/billionsofficiel). No game logos/art used. v2 (Nov 14): rebuilt visual-first as 2x2 photo grids after owner feedback; v1 text-first posts moved to draft; v2 media at commit 869fe75. Owner asked to post now: published Nov 14 23:25 on all 4."
   }
 ]
