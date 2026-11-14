@@ -1,5 +1,5 @@
 // Hotcoin Português (Brazil): news formats. pt-BR, Brasília time.
-// Top coin: Hotcoin public API api.hotcoinfin.com/v1/market/ticker, snapshot 2026-11-14 11:38 UTC (08:38 Brasília), 24h change:
+// Top coin: Hotcoin public API api.hotcoinfin.com/v1/market/ticker, snapshot 2026-11-14 15:09 UTC (12:09 Brasília), 24h change: UP/USDT +20.03% (last 0.15931), BTC/USDT -4.51% (last 65,726.73). Earlier snapshot 11:38 UTC:
 //   UP/USDT +23.24% (last 0.175), BTC/USDT -2.96% (last 67,177.64). UP = Unitas (CoinGecko id unitas), logo from CoinGecko.
 // Chain review: DefiLlama. Solana TVL 4.811B (2026-11-14) vs 5.919B (2026-10-15) = -18.7%; vs 5.226B (2026-11-07) = -7.9%.
 //   DEX volume 24h 1.56B, 30d 52.3B (-26.4% vs prior 30d); fees 24h 9.14M, 30d 324.6M (-23.4%). Logo from CoinGecko.
@@ -33,16 +33,16 @@ const placar = `<!doctype html><html><head>${head}</head><body>
 <img src="${L('logo-official-white.png')}" style="position:absolute;left:72px;top:64px;height:38px">
 <div class="b" style="position:absolute;left:72px;right:72px;top:150px;font-size:88px;font-weight:800;letter-spacing:-2px;line-height:.95;font-variation-settings:'opsz' 96,'wdth' 85">Placar do dia.</div>
 <div style="position:absolute;left:60px;right:60px;top:330px;background:#050607;border:6px solid #1C2227;border-radius:22px;padding:36px 40px 40px;box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 40px rgba(0,0,0,.8)">
-  <div class="mm" style="display:flex;justify-content:space-between;font-size:18px;letter-spacing:3px;color:#7D868E"><span>HOTCOIN · 24H</span><span>14/11 · 08:38 BRASÍLIA</span></div>
+  <div class="mm" style="display:flex;justify-content:space-between;font-size:18px;letter-spacing:3px;color:#7D868E"><span>HOTCOIN · 24H</span><span>14/11 · 12:09 BRASÍLIA</span></div>
   <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-top:30px;gap:10px">
     <div style="text-align:center"><img src="${N('up.png')}" style="width:120px;height:120px;border-radius:50%;background:#fff"><div class="d" style="font-size:54px;margin-top:14px">UP</div></div>
     <div class="d" style="font-size:44px;color:#5B636B">×</div>
     <div style="text-align:center"><div style="width:120px;height:120px;border-radius:50%;margin:0 auto;border:4px solid #2A3137;display:grid;place-items:center" class="d"><span style="font-size:44px;color:#9AA2A9">₿</span></div><div class="d" style="font-size:54px;margin-top:14px;color:#9AA2A9">BTC</div></div>
   </div>
   <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-top:24px">
-    <div class="d" style="text-align:center;font-size:118px;color:${LIME};text-shadow:0 0 30px rgba(184,242,106,.45)">+23,2</div>
+    <div class="d" style="text-align:center;font-size:118px;color:${LIME};text-shadow:0 0 30px rgba(184,242,106,.45)">+20,0</div>
     <div class="d" style="font-size:60px;color:#5B636B">:</div>
-    <div class="d" style="text-align:center;font-size:118px;color:#F6465D;text-shadow:0 0 30px rgba(246,70,93,.35)">-3,0</div>
+    <div class="d" style="text-align:center;font-size:118px;color:#F6465D;text-shadow:0 0 30px rgba(246,70,93,.35)">-4,5</div>
   </div>
   <div class="mm" style="text-align:center;font-size:18px;letter-spacing:3px;color:#7D868E;margin-top:8px">VARIAÇÃO EM %</div>
 </div>
