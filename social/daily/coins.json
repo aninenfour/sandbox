@@ -451,5 +451,19 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102174365/large/cbrsb-bstocks.png?1783452748",
   "logo": "cbrsb"
+ },
+ "NIGHT": {
+  "id": "midnight-3",
+  "name": "Midnight",
+  "twitter": "MidnightNtwrk",
+  "image": "https://coin-images.coingecko.com/coins/images/71015/large/midnight.png?1765193080",
+  "logo": "night"
+ },
+ "PEARL": {
+  "id": "pearl-2",
+  "name": "Pearl",
+  "twitter": "prlnet",
+  "image": "https://coin-images.coingecko.com/coins/images/102173580/large/pearl.png?1780324634",
+  "logo": "pearl"
  }
 }

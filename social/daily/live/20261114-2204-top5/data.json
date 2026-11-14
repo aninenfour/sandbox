@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 14 22:04 (UTC+8)",
+ "date": "NOV 14",
+ "gainers": [
+  {
+   "sym": "UP",
+   "name": "Unitas",
+   "ch": 25.3,
+   "logo": "up",
+   "bg": "#000809",
+   "glow": "#494e4f"
+  },
+  {
+   "sym": "MYC",
+   "name": "",
+   "ch": 15.69,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "SOXSB",
+   "name": "Direxion SOXS · bStocks",
+   "ch": 13.77,
+   "logo": "soxsb",
+   "bg": "#0063a6",
+   "glow": "#0063a6"
+  },
+  {
+   "sym": "NIGHT",
+   "name": "Midnight",
+   "ch": 10.25,
+   "logo": "night",
+   "bg": "#0a0a0a",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "PEARL",
+   "name": "Pearl",
+   "ch": 8.73,
+   "logo": "pearl",
+   "bg": "#ffffff",
+   "glow": "#e4e3e3"
+  }
+ ]
+}
