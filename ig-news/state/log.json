@@ -1479,5 +1479,24 @@
    "Yahoo Finance daily closes Nov 11 2021 vs Nov 13 2026: TTWO 185.71->227.82, NTDOY 11.00->13.70, SONY 24.20->27.07 (split-adj), RBLX 98.12->49.91, U 182.13->52.81, ^GSPC 4,649->7,562"
   ],
   "note": "EA left out: taken private in 2026, no full Yahoo history. Logos: financialmodelingprep image-stock; Roblox inverted to dark for contrast."
+ },
+ {
+  "id": "2026-11-15-gta-prices",
+  "type": "owner-request",
+  "slot": "2026-11-15T12:30:00+08:00",
+  "title": "GTA V to GTA VI: 13 years of prices (BTC 506x, NVDA 411x, TSLA 35x, AAPL 22x, TTWO 13x, S&P 4.4x)",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok",
+   "x_main"
+  ],
+  "sources": [
+   "CoinMarketCap historical BTC close Sep 17 2013 $131.66; Yahoo BTC-USD ~$66,675 Nov 14 2026",
+   "Yahoo Finance split-adjusted closes Sep 17 2013 vs Nov 13 2026",
+   "GTA VI Nov 19 2026: TechRadar, Tom's Guide"
+  ],
+  "note": "Owner asked (format seen on coinsauce/billionsofficiel). No game logos/art used."
  }
 ]
