@@ -70,3 +70,7 @@ plus ready-to-post copy for X, Instagram, LinkedIn, TikTok and Telegram. Read th
 - Ask before using any paid/AI generation connector (Higgsfield, Canva AI) every time.
 - Never ask for API keys in chat and never commit keys; keys go in environment settings.
 - Commit and push finished work with a clear message.
+
+## 7. Hotcoin Português (X, Brazil audience)
+- Separate channel with its own rules: read `social/pt/RUNBOOK.md` before any work on it. pt-BR copy, Brasília time, post only to the Hotcoin Português X account.
+- Its own visual system (Bricolage Grotesque, Martian Mono, Doto, Girassol; mono photos with one lime line; official-artwork event key visuals) is approved for that channel only.
