@@ -360,3 +360,9 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Bitcoin coin photo: Kanchanara, https://unsplash.com/photos/7E3QGntO66M. Coin logos: CoinGecko.
 
 - CoinGlass logo (cow mark + wordmark): official files from cdn.coinglasscdn.com (icon_200.png, icon_600_315.png), used for the Hotcoin x CoinGlass collab post, Nov 2026. Fetched by social/coinglass-collab/fetch-logos.py.
+
+## PT channel (social/pt, Nov 2026), Unsplash License, treated mono + grain in social/pt/art/treat.py
+- Hallway (Partidas board bg): Manuel Palmeira, https://unsplash.com/photos/sURd6ViiuhU
+- Cup on marble (Earn receipt bg, cup recoloured to brand green): Ryan Kwok, https://unsplash.com/photos/_GU2LOQrE7k
+- Elevador da Bica tram (A subida): Who's Denilo ?, https://unsplash.com/photos/PbrvABXEEh8
+- Man walking uphill, back view (reserve): Annie Spratt, https://unsplash.com/photos/Y77uRYcV9bw
