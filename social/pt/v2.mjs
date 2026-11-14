@@ -53,7 +53,7 @@ const board = `<!doctype html><html><head>${head}</head><body style="background:
     <div class="mm" style="font-size:16px;font-weight:700;letter-spacing:1.5px;padding:12px 16px;border-radius:10px;white-space:nowrap;${chip(r)}">${r.st}</div>
   </div>`).join('')}
 </div>
-<div class="n" style="position:absolute;left:72px;right:72px;bottom:60px;font-style:italic;font-size:44px;color:rgba(255,255,255,.85)">Não perca o comboio.</div>
+<div class="n" style="position:absolute;left:72px;right:72px;bottom:60px;font-weight:500;font-size:44px;color:rgba(255,255,255,.85)">Não perca o comboio.</div>
 </body></html>`;
 
 // ---------- 2) TALAO: Earn Boost as a shop receipt ----------
@@ -67,7 +67,7 @@ const receipt = `<!doctype html><html><head>${head}</head><body style="backgroun
 </div>
 <div style="position:absolute;left:72px;top:170px;right:72px">
   <div class="b" style="font-size:90px;font-weight:800;letter-spacing:-1.5px;line-height:.95;font-variation-settings:'opsz' 96,'wdth' 88">5.000 USDT em Earn?</div>
-  <div class="n" style="font-style:italic;font-size:64px;line-height:1.05;margin-top:6px;color:#4A4439">Eis o seu talão.</div>
+  <div class="n" style="font-weight:500;font-size:64px;line-height:1.05;margin-top:6px;color:#4A4439">Eis o seu talão.</div>
 </div>
 <div style="position:absolute;left:230px;top:400px;width:620px;transform:rotate(-2.2deg);filter:drop-shadow(0 30px 40px rgba(60,45,20,.22)) drop-shadow(0 4px 6px rgba(60,45,20,.15))">
   <div class="mm" style="background:#FCFBF8;padding:46px 46px 40px;font-size:21px;line-height:1.55;-webkit-mask:linear-gradient(#000,#000) top/100% calc(100% - 18px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/36px 18px repeat-x">
@@ -110,13 +110,13 @@ const paper = `<!doctype html><html><head>${head}</head><body style="background:
 <div style="position:absolute;left:72px;right:72px;top:64px">
   <div style="display:flex;justify-content:space-between;align-items:center"><img src="${L('logo-official-black.png')}" style="height:34px"><div class="mm" style="font-size:15px;letter-spacing:2px">Nº 01 · SÁBADO</div></div>
   <div style="border-top:3px solid ${INK};margin-top:22px"></div>
-  <div class="n" style="text-align:center;font-weight:600;font-size:100px;letter-spacing:-2px;line-height:1.1;padding:4px 0 0;white-space:nowrap;font-variation-settings:'opsz' 72">Portugal <i style="font-weight:400">Explicado</i></div>
+  <div class="n" style="text-align:center;font-weight:600;font-size:100px;letter-spacing:-2px;line-height:1.1;padding:4px 0 0;white-space:nowrap;font-variation-settings:'opsz' 72">Portugal <span style="font-weight:400">Explicado</span></div>
   <div class="mm" style="display:flex;justify-content:space-between;border-top:1.5px solid ${INK};border-bottom:1.5px solid ${INK};padding:10px 0;font-size:15px;letter-spacing:2px;margin-top:6px"><span>LISBOA</span><span>14 DE NOVEMBRO DE 2026</span><span>CRIPTO · REGRAS</span></div>
 </div>
 <div style="position:absolute;left:72px;top:320px;width:936px;height:360px;overflow:hidden">${calcada(936, 360)}</div>
 <div style="position:absolute;left:72px;right:72px;top:722px">
   <div class="b" style="font-size:94px;font-weight:800;letter-spacing:-1.8px;line-height:.95;font-variation-settings:'opsz' 96,'wdth' 82">Cripto em Portugal já&nbsp;tem&nbsp;regras.</div>
-  <div class="n" style="font-size:36px;line-height:1.25;margin-top:20px;color:#3F444A"><i>Desde 1 de julho, o MiCA é lei cá. O que muda, em três números.</i></div>
+  <div class="n" style="font-size:36px;line-height:1.25;margin-top:20px;color:#3F444A">Desde 1 de julho, o MiCA é lei cá. O que muda, em três números.</div>
 </div>
 <div style="position:absolute;left:72px;right:72px;top:1060px;display:flex;border-top:3px solid ${INK}">
   ${nums.map(([n, t], i) => `<div style="flex:1;padding:22px ${i < 2 ? 26 : 0}px 0 ${i ? 26 : 0}px;${i < 2 ? 'border-right:1.5px solid ' + INK : ''}">
