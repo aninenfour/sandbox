@@ -31,7 +31,7 @@ const line = (pts) => { const d = 'M' + pts.map((p) => p.map((v) => v.toFixed(1)
   <circle cx="${e[0]}" cy="${e[1]}" r="12" fill="${LIME}"/><circle cx="${e[0]}" cy="${e[1]}" r="28" fill="none" stroke="${LIME}" stroke-width="3" opacity=".6"/></svg>`; };
 
 // --- Event key visual (official hero object + clear details) ---
-function keyVisual({hero, heroW, chipTxt, h1, label, big, unit, facts, deadline, qr}) {
+function keyVisual({hero, heroW, heroTop, chipTxt, h1, label, big, unit, facts, deadline, qr}) {
   return `<!doctype html><html><head>${head}</head><body>
 <div style="position:absolute;inset:0;background:radial-gradient(620px 420px at 50% 34%,rgba(184,242,106,.22),transparent 70%),radial-gradient(900px 600px at 50% 120%,rgba(126,194,90,.10),transparent 70%)"></div>
 <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1.4px,transparent 1.5px);background-size:24px 24px;mask-image:linear-gradient(180deg,#000 0%,#000 45%,transparent 70%)"></div>
@@ -40,7 +40,7 @@ function keyVisual({hero, heroW, chipTxt, h1, label, big, unit, facts, deadline,
   <polygon points="630,90 890,120 890,590 630,560" fill="rgba(255,255,255,.035)" stroke="rgba(184,242,106,.35)" stroke-width="1.5"/>
   <ellipse cx="540" cy="585" rx="300" ry="34" fill="rgba(184,242,106,.18)"/>
 </svg>
-<img src="${O(hero)}" style="position:absolute;left:${540 - heroW / 2}px;top:${590 - heroW * .62}px;width:${heroW}px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))">
+<img src="${O(hero)}" style="position:absolute;left:${540 - heroW / 2}px;top:${heroTop ?? 590 - heroW * .62}px;width:${heroW}px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))">
 <div style="position:absolute;left:72px;right:72px;top:64px;display:flex;justify-content:space-between;align-items:center">
   <img src="${L('logo-official-white.png')}" style="height:40px">
   <div class="i" style="font-size:22px;font-weight:600;color:${LIME};background:rgba(184,242,106,.12);border:1px solid rgba(184,242,106,.35);padding:10px 18px;border-radius:12px">${chipTxt}</div>
@@ -60,6 +60,9 @@ function keyVisual({hero, heroW, chipTxt, h1, label, big, unit, facts, deadline,
 const kvFutures = keyVisual({hero: 'futures-loss-protection-hero.png', heroW: 760, chipTxt: 'Hotcoin Futuros',
   h1: 'Primeiro trade em futuros? Se der prejuízo, a gente cobre.', label: 'Fundo de compensação', big: '200.000', unit: 'USDT',
   facts: ['100% da perda líquida, até 50 USDT', 'Pago em Futures Trial Funds', '1.000 vagas para novos usuários'], deadline: 'Até sexta, 20/11, 07:00 (Brasília)', qr: 'qr-futures.png'});
+const kvP2P = keyVisual({hero: 'HotcoinP2PEcosystemChallenge1-hero.png', heroW: 300, heroTop: 196, chipTxt: 'Hotcoin P2P',
+  h1: 'Última chamada: seu primeiro trade P2P vale bônus.', label: 'No 1º trade P2P de 200 USDT ou mais', big: '20', unit: 'USDT',
+  facts: ['Pago em Futures Trial Funds', 'Mais tarefas: até 100 USDT em Earn Trial Funds', 'Clique em "Join Now" antes de operar'], deadline: 'Até domingo, 15/11, 07:00 (Brasília)', qr: 'qr-p2p.png'});
 const kvEarn = keyVisual({hero: 'HotcoinEarnRewardsBoost1-hero.png', heroW: 560, chipTxt: 'Hotcoin Earn',
   h1: 'Seu USDT rendendo. E ainda vem bônus.', label: 'Prêmios em jogo', big: '100.000', unit: 'USDT',
   facts: ['+20 USDT em Futures Trial Funds na 1ª aplicação', 'Até 1.000 USDT em Earn Trial Funds por faixa', 'Faixas não acumulam: vale a maior'], deadline: 'Até segunda, 16/11, 01:00 (Brasília)', qr: 'qr-earn.png'});
@@ -160,7 +163,7 @@ const meme2 = meme('hallway-t.jpg', '0 -300px', 'eu indo na agência pedir pro g
 
 const br = await chromium.launch();
 const pg = await br.newPage({viewport: {width: 1080, height: 1350}, deviceScaleFactor: 2});
-for (const [n, h] of [['gm', gm], ['kv-futuros', kvFutures], ['kv-earn', kvEarn], ['anuncio-sndkb', anuncio], ['agenda', agenda], ['meme-miojo', meme1], ['talao', talao], ['meme-estorno', meme2]]) {
+for (const [n, h] of [['kv-p2p', kvP2P], ['gm', gm], ['kv-futuros', kvFutures], ['kv-earn', kvEarn], ['anuncio-sndkb', anuncio], ['agenda', agenda], ['meme-miojo', meme1], ['talao', talao], ['meme-estorno', meme2]]) {
   await pg.setContent(h, {waitUntil: 'networkidle'}); await pg.evaluate(() => document.fonts.ready); await pg.waitForTimeout(500);
   await pg.screenshot({path: `${OUT}/${n}.png`}); console.log('ok', n);
 }
