@@ -1,11 +1,11 @@
 // Milestone planner for the PT channel. Usage: node social/pt/tracker/plan.mjs [ISO-datetime]
-// For each tracked event it prints the status at that moment (Lisbon time) and which update post is due:
+// For each tracked event it prints the status at that moment (Brasília time by default; PT_TZ=Europe/Lisbon for Portugal) and which update post is due:
 // LAUNCH (first 24h), MIDTERM (crossed 50% in the last 24h), 48H, LAST DAY (<24h left), ENDED (ended in the last 24h), RESULTS (7 business days after end).
 import fs from 'fs';
 const {events} = JSON.parse(fs.readFileSync(new URL('./events.json', import.meta.url)));
 const now = new Date(process.argv[2] || Date.now());
 const H = 3600e3;
-const lis = (d) => d.toLocaleString('pt-PT', {timeZone: 'Europe/Lisbon', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'});
+const lis = (d) => d.toLocaleString('pt-PT', {timeZone: process.env.PT_TZ || 'America/Sao_Paulo', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'});
 for (const e of events) {
   const s = new Date(e.start), end = e.end ? new Date(e.end) : null;
   let status, due = [];

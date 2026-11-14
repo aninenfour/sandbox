@@ -1,0 +1,370 @@
+<title>Hotcoin Português Daily Run</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Inter+Tight:wght@400;500;600&family=Martian+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;600&display=swap">
+<style>
+/* Layout: one long run-sheet. Day timeline with posts beside their slot, then the systems behind it. Every section has an English note and a Chinese note. */
+:root{
+  --paper:#F6F7F4; --card:#FFFFFF; --ink:#0B0E11; --muted:#5E656C; --rule:#E2E5E1;
+  --lime:#B8F26A; --limeInk:#3F6B12; --check:#2A5BD7; --warn:#B4541A; --chip:#EEF1EC; --zh:#F1F5EA;
+  --display:'Bricolage Grotesque','Inter Tight',system-ui,sans-serif;
+  --body:'Inter Tight',system-ui,sans-serif;
+  --mono:'Martian Mono',ui-monospace,Menlo,monospace;
+  --cn:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0B0E11; --card:#13171B; --ink:#EDEFEC; --muted:#9AA2A9; --rule:#252B30;
+  --lime:#B8F26A; --limeInk:#B8F26A; --check:#7FA2FF; --warn:#F0A060; --chip:#1B2126; --zh:#161D14; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0B0E11; --card:#13171B; --ink:#EDEFEC; --muted:#9AA2A9; --rule:#252B30;
+  --lime:#B8F26A; --limeInk:#B8F26A; --check:#7FA2FF; --warn:#F0A060; --chip:#1B2126; --zh:#161D14; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 80px}
+h1,h2,h3{font-family:var(--display);font-variation-settings:'opsz' 96;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,7vw,76px);line-height:.95;font-weight:800;font-variation-settings:'opsz' 96,'wdth' 85}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800;line-height:1.05}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.muted{color:var(--muted)}
+a{color:inherit;text-decoration-color:var(--lime);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--check);outline-offset:2px}
+section{margin-top:72px;display:grid;gap:20px}
+.lede{max-width:66ch;font-size:18px;color:var(--muted)}
+.zh{font-family:var(--cn);font-size:15px;line-height:1.75;background:var(--zh);border-radius:10px;padding:10px 14px;max-width:72ch}
+.zh::before{content:"中文";font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--limeInk);margin-right:10px;font-weight:600}
+.stats{display:flex;flex-wrap:wrap;gap:10px}
+.stat{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:12px 16px;display:grid;gap:2px;min-width:140px}
+.stat b{font-family:var(--display);font-size:28px;font-weight:800;line-height:1}
+.day{display:grid;border-left:2px solid var(--rule);margin-left:8px}
+.slot{position:relative;padding:0 0 40px 28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:28px;align-items:start}
+.slot::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--ink);border:3px solid var(--paper)}
+.slot.check::before{background:var(--check)}
+.slot.check{grid-template-columns:minmax(0,1fr)}
+.time{font-family:var(--mono);font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.kind{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--chip);margin-left:8px;vertical-align:2px}
+.kind.trig{background:var(--lime);color:#0B0E11}
+.kind.chk{background:var(--check);color:#fff}
+.slot .text{display:grid;gap:12px;min-width:0}
+.why{font-size:14px;color:var(--muted);border-left:3px solid var(--lime);padding-left:12px}
+.post{background:var(--card);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin:0}
+.post img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:var(--chip)}
+.cap{padding:14px 16px 16px;font-size:14px;white-space:pre-line;overflow-wrap:anywhere}
+.cap .acct{font-weight:600;display:block;margin-bottom:4px;white-space:normal}
+.log{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;font-family:var(--mono);font-size:12.5px;line-height:1.7;overflow-x:auto;white-space:pre}
+.log .ok{color:var(--limeInk)} .log .hit{color:var(--warn)} .log .dim{color:var(--muted)}
+.textpost{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:18px;font-size:15px;white-space:pre-line}
+.gantt{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:18px;overflow-x:auto}
+.gantt svg{display:block;min-width:760px;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.box{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:10px;align-content:start;min-width:0}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.formats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px}
+.fmt{display:grid;gap:8px;align-content:start}
+.fmt img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12px;border:1px solid var(--rule)}
+.memes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:16px}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.t{font-family:var(--mono);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}
+td .sk{color:var(--muted);text-decoration:line-through}
+td .ex{color:var(--limeInk);font-weight:600}
+@media (max-width:760px){.slot{grid-template-columns:minmax(0,1fr)}}
+</style>
+
+<div class="wrap">
+<header style="display:grid;gap:20px">
+  <p class="mono muted">Hotcoin Português · X · audience Brazil · Brasília time (UTC−3)</p>
+  <h1>Sunday 15 November, run by the tracker</h1>
+  <p class="lede">One full posting day for the Brazilian audience: three website checks, eight posts, every event post triggered by a real deadline from hotcoin.com. Event posts use Hotcoin's own official artwork, rebuilt as clear key visuals. Copy is pt-BR; notes are in English and Chinese.</p>
+  <p class="zh">巴西受众的一天完整发布示范：每天三次检查官网公告，共八条帖子。所有活动帖都由官网真实截止时间自动触发，活动海报使用 Hotcoin 官方公告中的 3D 主视觉重新排版。文案为巴西葡语，时间为巴西利亚时间（UTC−3）。</p>
+  <div class="stats">
+    <div class="stat"><b>3</b><span class="muted">site checks</span></div>
+    <div class="stat"><b>8</b><span class="muted">posts (7 image, 1 text)</span></div>
+    <div class="stat"><b>5</b><span class="muted">live events tracked</span></div>
+    <div class="stat"><b>0</b><span class="muted">posts on :00 or :30</span></div>
+  </div>
+</header>
+
+<section aria-labelledby="day">
+  <h2 id="day">The day, slot by slot</h2>
+  <p class="zh">逐时段展示当天内容。发布时间刻意错开整点和半点，避免被 X 识别为自动化账号。</p>
+  <div class="day">
+
+    <div class="slot check"><div class="text">
+      <p><span class="time">07:50</span><span class="kind chk">Check 1 · before work</span></p>
+      <p>Read the announcements lists (events and official notices), compare with the tracker, recompute every event, queue today's drafts.</p>
+<div class="log"><span class="dim">$ fetch hotcoin.com/en_US/support/nav/2 (events) + nav/2?id=…853076992 (official notices)</span>
+<span class="ok">✓ events: nothing new since 09/11 · notices: SNDKB 8:1 split (11/11) already queued for Mon</span>
+<span class="dim">$ node social/pt/tracker/plan.mjs 2026-11-15T10:50Z        (Brasília 07:50)</span>
+Desafio P2P                   fim 15/11 07:00   TERMINOU             <span class="hit">ENDED → results post +7 business days</span>
+Earn Boost                    fim 16/11 01:00   93% · faltam 0d 17h  <span class="hit">LAST DAY</span>
+Proteção de perdas (futuros)  fim 20/11 07:00   65% · faltam 4d 23h  <span class="hit">5-DAY KEY VISUAL</span>
+Wall Street Earnings (TradFi) fim 19/11 12:59   70% · faltam 4d 5h   → week agenda
+NEFE Earn                     até esgotar       EM CURSO
+<span class="ok">→ drafts in Publer: 10:36 key visual, 12:47 agenda, 16:43 receipt</span></div>
+      <p class="zh">早间检查：抓取活动公告与官方公告两个列表，与追踪表对比。今天 P2P 活动已结束（7 个工作日后发结果帖），Earn Boost 进入最后一天，合约亏损保护还剩 5 天。</p>
+    </div></div>
+
+    <div class="slot">
+      <div class="text"><p><span class="time">08:19</span><span class="kind">GM</span></p><h3>GM, touching grass</h3>
+        <p class="why">Morning photo, one lime line following the path to the walker.</p>
+        <p class="zh">早安帖：真实照片，一条荧光绿线沿着小路指向行人，品牌元素克制。</p></div>
+      <figure class="post"><img src="img/gm.jpg" alt="Park path in black and white with a lime line leading to a walker, headline GM." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>GM ☀️ Hoje o caminho é grama. Gráfico só depois do almoço.
+#Hotcoin #GM</figcaption></figure>
+    </div>
+
+    <div class="slot">
+      <div class="text"><p><span class="time">10:36</span><span class="kind trig">Event key visual · 5 days left</span></p><h3>Futures loss protection</h3>
+        <p class="why">Official 100% artwork from the announcement banner, rebuilt as a 4:5 key visual: one hook line, the pool as the big number, three facts with the reward type, the deadline in Brasília time and a QR to the event page.</p>
+        <p class="zh">活动主视觉：使用官网公告横幅中的官方 3D「100%」素材，重新做成 4:5 海报。标题一句话说清卖点，大数字为奖池，下方三条要点注明奖励类型（合约体验金），截止时间为巴西利亚时间，二维码直达活动页。</p></div>
+      <figure class="post"><img src="img/kv-futuros.jpg" alt="Dark key visual with the official 3D 100% artwork, 200.000 USDT pool, three facts and a QR code." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>Primeiro trade em futuros? Se der prejuízo, a gente cobre 🛡️
+
+→ 100% da perda líquida no 1º trade (volume a partir de 500 USDT), até 50 USDT
+→ Pago em Futures Trial Funds
+→ 1.000 vagas para novos usuários
+
+Até sexta, 20/11, 07:00 (Brasília). Clique em "Join Now" antes de operar.
+👉 <a href="https://www.hotcoin.com/en_US/announcement/futures-loss-protection/">hotcoin.com/…/futures-loss-protection</a>
+
+Futuros envolvem alto risco. #Hotcoin #Futuros</figcaption></figure>
+    </div>
+
+    <div class="slot check"><div class="text">
+      <p><span class="time">11:43</span><span class="kind chk">Check 2 · midday</span></p>
+<div class="log"><span class="ok">✓ no new announcements · no rule changes on live event pages</span>
+<span class="dim">If a new event appears: download its official banner, cut out the 3D object, build the key visual,
+convert UTC+8 → Brasília (−11 h), add to events.json, draft a launch post, ask for approval.</span></div>
+      <p class="zh">午间检查：如有新活动，自动下载官方横幅、抠出 3D 主体、生成主视觉海报，时间换算为巴西利亚时间（UTC+8 减 11 小时），写入追踪表并生成待审核草稿。</p>
+    </div></div>
+
+    <div class="slot">
+      <div class="text"><p><span class="time">12:47</span><span class="kind">What to watch · PT version</span></p><h3>The week as a calendar</h3>
+        <p class="why">Main channel runs a price list. PT gets the week in Brasília hours, market dates mixed with Hotcoin closing times.</p>
+        <p class="zh">本周看点（葡语版）：与主账号的价格列表不同，这里用日历形式展示本周关键时间点，结合市场事件（英伟达财报、美联储纪要）与 Hotcoin 活动截止时间。</p></div>
+      <figure class="post"><img src="img/agenda.jpg" alt="Week calendar Monday to Friday with five marked Brasília times; Nvidia results highlighted." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>A semana em cinco horários 🗓️
+
+Seg 01:00 · Earn Boost termina
+Ter 18:20 · Nvidia, resultado do 3º tri ($NVDAB)
+Qua 16:00 · Fed, ata de outubro
+Qui 12:59 · TradFi Wall Street termina
+Sex 07:00 · Proteção de futuros termina
+
+Horário de Brasília. Qual deles mexe com a sua carteira? 👇
+Não é recomendação de investimento. #Hotcoin</figcaption></figure>
+    </div>
+
+    <div class="slot">
+      <div class="text"><p><span class="time">14:22</span><span class="kind">Meme of the day</span></p><h3>Serious photo, unhinged caption</h3>
+        <p class="why">Black and white street photo played straight; the joke is all in the line. Brazilian everyday reference (Sunday churrasco), no product.</p>
+        <p class="zh">每日梗图：照片严肃、文字离谱，反差制造笑点。「告诉家人周日烤肉变泡面」是巴西人熟悉的生活梗，不带产品推广。</p></div>
+      <figure class="post"><img src="img/meme-miojo.jpg" alt="Meme: elderly man seen from behind walking up an old street; caption about Sunday barbecue turning into instant noodles." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>domingo tá difícil 😭
+#Hotcoin</figcaption></figure>
+    </div>
+
+    <div class="slot check"><div class="text">
+      <p><span class="time">16:29</span><span class="kind chk">Check 3 · afternoon</span></p>
+<div class="log"><span class="ok">✓ Earn Boost closes 01:00 Brasília (tonight) → last-night post confirmed for 16:43</span>
+<span class="dim">Also watched: early sell-outs (NEFE allocation), cap changes, new official notices for tomorrow.</span></div>
+      <p class="zh">下午检查：确认 Earn Boost 今晚 01:00（巴西利亚时间）结束，最后一晚提醒帖照常发布；同时关注额度售罄与新公告。</p>
+    </div></div>
+
+    <div class="slot">
+      <div class="text"><p><span class="time">16:43</span><span class="kind trig">Last night · Earn Boost</span></p><h3>The receipt and the green cup</h3>
+        <p class="why">Worked example instead of a tier table: what 5,000 USDT in fixed-term Earn returns in bonuses, reward types named, tiers that don't stack stated.</p>
+        <p class="zh">Earn Boost 最后一晚：以收据形式举例（5,000 USDT 定期理财可得多少奖励），注明奖励类型，并说明档位不叠加。保留绿色咖啡杯。</p></div>
+      <figure class="post"><img src="img/talao.jpg" alt="Receipt on a marble cafe counter next to a green cup, total bonus 120 USDT." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>Última noite do Earn Boost ☕
+
+Aplique em Earn prazo fixo até segunda, 01:00 (Brasília):
+→ 1ª aplicação a partir de 500 USDT: +20 USDT em Futures Trial Funds
+→ Faixas de até 1.000 USDT em Earn Trial Funds (vale só a maior)
+
+👉 <a href="https://www.hotcoin.com/en_US/announcement/HotcoinEarnRewardsBoost1/">hotcoin.com/…/HotcoinEarnRewardsBoost1</a>
+Não é recomendação de investimento. #Hotcoin #Earn</figcaption></figure>
+    </div>
+
+    <div class="slot">
+      <div class="text"><p><span class="time">19:47</span><span class="kind">Text post · poll</span></p><h3>Community question</h3>
+        <p class="why">No image. Regional rivalry gets replies; answers feed next week's content.</p>
+        <p class="zh">纯文字投票：城市之争最容易引发互动，评论内容可作为下周选题。</p></div>
+      <div class="textpost">Pergunta séria: qual é a capital cripto do Brasil? 🇧🇷
+
+🅰️ São Paulo
+🅱️ Rio
+🅲 Floripa
+🅳 BH
+
+Defendam aí 👇</div>
+    </div>
+
+    <div class="slot">
+      <div class="text"><p><span class="time">21:19</span><span class="kind">Late meme</span></p><h3>Asking the bank to refund a stop loss</h3>
+        <p class="why">Night slot is looser. Lone figure in a long corridor, deadly serious. The caption does the rest.</p>
+        <p class="zh">晚间梗图：空旷长廊里的孤独背影，配文「去银行找经理退回我的止损」，荒诞又真实。</p></div>
+      <figure class="post"><img src="img/meme-estorno.jpg" alt="Meme: lone person in a long dark corridor; caption about asking the bank manager to refund a stop loss." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>alguém tem o 0800? 🥲
+#Hotcoin</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="formats">
+  <h2 id="formats">Event formats</h2>
+  <p class="lede">Every event gets a clear graphic built from Hotcoin's own announcement artwork. Official notices (delistings, splits, rebrands) get their own card that opens with "Anúncio oficial". Stock photos stay for GM, memes and mood posts.</p>
+  <p class="zh">活动类内容一律使用清晰的活动海报，素材来自官网公告的官方 3D 主视觉；官方公告（下架、拆股、更名等）使用以「官方公告」开头的独立卡片样式；图库照片只用于早安、梗图和氛围帖。</p>
+  <div class="formats">
+    <div class="fmt"><img src="img/kv-futuros.jpg" alt="Futures key visual" loading="lazy" width="860" height="1075"><h3>Key visual · launch / countdown</h3><p class="muted">Official 3D object, one hook, pool, three facts, deadline, QR.</p></div>
+    <div class="fmt"><img src="img/kv-earn.jpg" alt="Earn key visual with official vault artwork" loading="lazy" width="860" height="1075"><h3>Key visual · Earn</h3><p class="muted">Same system, the official vault. Used on launch day.</p></div>
+    <div class="fmt"><img src="img/anuncio-sndkb.jpg" alt="Official announcement card for the SNDKB 8-for-1 split" loading="lazy" width="860" height="1075"><h3>Anúncio oficial</h3><p class="muted">Clean notice: what happens, when (Brasília), what changes in your balance. Queued Mon.</p></div>
+    <div class="fmt"><img src="img/talao.jpg" alt="Receipt with green cup" loading="lazy" width="860" height="1075"><h3>Recibo</h3><p class="muted">Worked reward example for Earn and challenges.</p></div>
+  </div>
+  <div class="textpost" style="font-size:14px"><b>Anúncio oficial, caption</b>
+📢 Anúncio oficial: SNDKB/USDT
+
+O SNDK faz desdobramento de 8 por 1.
+→ 19/11, 05:00 (Brasília): negociação suspensa, ordens abertas canceladas
+→ 20/11, 07:00: retorno previsto, sujeito a novo aviso
+→ 1 SNDKB vira 8 SNDKB (previsto)
+
+👉 <a href="https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistandRelisttheSNDKBUSDTSpotTradingPairFollowingStockSplit/">hotcoin.com/…/SNDKB…StockSplit</a></div>
+</section>
+
+<section aria-labelledby="memes">
+  <h2 id="memes">Meme rules</h2>
+  <div class="memes">
+    <div class="box"><h3>How they're made</h3><ul>
+      <li>Photo is serious, black and white, anonymous (back view or tiny figure). Free license only.</li>
+      <li>Caption is lowercase, X-screenshot style, Brazilian everyday life: churrasco, miojo, gerente do banco, 0800, Pix, fim do mês.</li>
+      <li>No copyrighted meme templates, no real people, no politics, no football club bashing.</li>
+      <li>Never a product pitch inside a meme. The account name does the branding.</li></ul></div>
+    <div class="box"><h3>Next lines in the bank</h3><ul>
+      <li>"eu explicando pro meu pai que 'diversificar' foi comprar 4 memecoins"</li>
+      <li>"o Pix de volta do meu amigo que disse que ia me pagar quando o BTC subisse"</li>
+      <li>"minha mãe vendo o extrato depois de eu dizer que 'cripto é igual poupança'"</li></ul></div>
+  </div>
+  <p class="zh">梗图规则：照片严肃、黑白、匿名（背影或远景小人物），仅用免费授权图；文字小写、模仿推文截图风格，取材巴西日常（烤肉、泡面、银行经理、客服热线、Pix、月底）。不用有版权的梗图模板，不出现真实人物，不涉政治，梗图里不做产品推广。</p>
+</section>
+
+<section aria-labelledby="tracker">
+  <h2 id="tracker">Event tracker</h2>
+  <p class="lede">Every event from the announcements lives in <span class="mono" style="text-transform:none">social/pt/tracker/events.json</span>. The planner turns each into milestone posts: launch, halfway, 48 h left, last day, ended, results (7 business days after the end). Shown in Brasília time.</p>
+  <p class="zh">活动追踪：所有官网活动记录在 events.json 中，程序按时间自动生成节点帖子：上线、过半、剩 48 小时、最后一天、结束、结果公布（结束后 7 个工作日）。图中为巴西利亚时间。</p>
+  <div class="gantt"><svg id="g" viewBox="0 0 1000 360" role="img" aria-label="Timeline of Hotcoin events from 1 to 21 November in Brasília time with milestones and a marker for Sunday 15 November 07:50"></svg></div>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--ink)"></i>Event running</span>
+    <span><i class="sw" style="background:var(--lime)"></i>Last 24 h (last-day post)</span>
+    <span><i class="sw" style="background:var(--check)"></i>Now (Sun 07:50 Brasília)</span>
+    <span>◆ Halfway post</span>
+  </div>
+</section>
+
+<section aria-labelledby="loop">
+  <h2 id="loop">Three checks a day</h2>
+  <div class="grid3">
+    <div class="box"><p class="mono muted">~07:40 Brasília · before work</p><h3>Plan the day</h3>
+      <ul><li>Fetch both announcement lists and each live event page</li><li>New event → official banner, cut-out, key visual, tracker entry</li><li>Run the planner, draft the day into Publer</li></ul>
+      <p class="zh">上班前：抓取两个公告列表；新活动自动生成海报并入表；生成当天草稿。</p></div>
+    <div class="box"><p class="mono muted">~12:05 Brasília · midday</p><h3>Catch launches</h3>
+      <ul><li>Launch post in the next free slot</li><li>Mark events that ended, schedule results posts</li><li>Move posts if a pool sold out early</li></ul>
+      <p class="zh">午间：新活动插入下一个空档；结束的活动安排结果帖；额度提前售罄则调整排期。</p></div>
+    <div class="box"><p class="mono muted">~16:10 Brasília · afternoon</p><h3>Confirm the evening</h3>
+      <ul><li>Re-check tonight's closing times</li><li>Watch caps and first-come pools</li><li>Flag anything uncertain to you before it posts</li></ul>
+      <p class="zh">下午：复核当晚截止时间，关注先到先得额度，不确定的内容先报给你再发。</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="timing">
+  <h2 id="timing">Never the same day twice</h2>
+  <p class="lede">The scheduler shifts every slot by 6 to 38 minutes, never lands on :00, :15, :30 or :45, skips optional posts on some days and adds an extra on others. Below is its real output for the coming week (<span class="mono" style="text-transform:none">tracker/schedule.mjs</span>).</p>
+  <p class="zh">防自动化识别：每个时段随机偏移 6 至 38 分钟，从不落在整点、一刻、半点；部分日子随机少发一条，部分日子多发一条。下表为脚本实际生成的下周时间表。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Day</th><th>Generated plan (Brasília)</th></tr></thead>
+    <tbody>
+      <tr><td class="t">Mon 16</td><td>08:21 GM · 10:40 event · <span class="sk">12:xx agenda</span> · 14:39 meme · 16:53 reminder · 19:26 text · 21:39 night meme</td></tr>
+      <tr><td class="t">Tue 17</td><td>08:59 GM · 10:23 event · 14:01 meme · 16:44 reminder · 19:03 text · <span class="sk">night slot</span></td></tr>
+      <tr><td class="t">Wed 18</td><td>08:51 GM · 10:32 event · 14:49 meme · 17:39 reminder · 19:20 text</td></tr>
+      <tr><td class="t">Thu 19</td><td>08:24 GM · 09:47 event · <span class="sk">meme</span> · 17:51 reminder (quiet day)</td></tr>
+      <tr><td class="t">Fri 20</td><td>08:29 GM · 09:49 event · 12:26 agenda · 17:37 reminder · <span class="ex">19:07 extra short text</span> · 20:08 poll</td></tr>
+      <tr><td class="t">Sat 21</td><td>08:14 GM · 10:05 event · 11:58 recibo · 14:34 meme · 16:57 reminder · 19:48 text</td></tr>
+    </tbody></table></div>
+</section>
+
+<section aria-labelledby="next">
+  <h2 id="next">Next stage: generated branded objects</h2>
+  <div class="grid3">
+    <div class="box"><h3>What gets added</h3><p>A recurring series of everyday Brazilian objects carrying the Hotcoin mark, shot like lifestyle photography: a lime green cafezinho cup, a havaianas-style flip-flop on Copacabana sand, a cuia de chimarrão, a coxinha box with a seal.</p></div>
+    <div class="box"><h3>How the logo stays real</h3><p>The image model renders the object with a blank label. The official logo PNG is placed on it in code. The model never draws the logo.</p></div>
+    <div class="box"><h3>What it needs</h3><p>An image API key (fal.ai or Replicate) in environment settings. About a cent or two per image, each batch approved before spending.</p></div>
+  </div>
+  <p class="zh">下一阶段（接入图像生成 API 后）：推出「品牌生活物件」系列，以巴西日常物品为主角（绿色咖啡杯、科帕卡巴纳沙滩上的人字拖、马黛茶杯、炸鸡腿 coxinha 包装盒），拍成生活方式摄影风格。模型只生成空白标签的物体，官方 Logo 由代码后期贴合，确保 Logo 不变形、不伪造。每张约 1 到 2 美分，每批生成前先审批。</p>
+</section>
+
+<section aria-labelledby="week">
+  <h2 id="week">The weekly rhythm</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Day</th><th>Morning</th><th>Midday</th><th>Afternoon</th><th>Evening</th></tr></thead>
+    <tbody>
+      <tr><td class="t">Mon</td><td>GM</td><td>Agenda da semana · Anúncio oficial</td><td>Event countdown</td><td>Text or night meme</td></tr>
+      <tr><td class="t">Tue</td><td>Event key visual</td><td>Brasil Explicado (local news)</td><td>Meme of the day</td><td>Event reminder</td></tr>
+      <tr><td class="t">Wed</td><td>GM</td><td>Ganhar com a Hotcoin (recibo)</td><td>Local number of the day</td><td>Poll</td></tr>
+      <tr><td class="t">Thu</td><td>Event key visual</td><td>Line on a photo (Earn or futures)</td><td>Meme of the day</td><td>Text post</td></tr>
+      <tr><td class="t">Fri</td><td>GM</td><td>Weekend last calls</td><td>Glossário (one term)</td><td>Branded object (stage 2)</td></tr>
+      <tr><td class="t">Sat</td><td>GM</td><td>Real vs dólar quiz</td><td colspan="2">Light: one meme or text post</td></tr>
+      <tr><td class="t">Sun</td><td>GM</td><td>Agenda for the week</td><td>Meme</td><td>Text post</td></tr>
+    </tbody></table></div>
+  <p class="zh">每周节奏：周一本周看点与官方公告；周二活动海报与巴西本地新闻；周三理财收据与投票；周四活动海报；周五周末截止提醒与名词解释；周六轻量内容；周日早安、下周看点与梗图。追踪程序触发的活动节点帖优先，会挤占当时的固定栏目。</p>
+</section>
+
+<section aria-labelledby="notes">
+  <h2 id="notes">Notes</h2>
+  <div class="box">
+    <ul>
+      <li><b>Local photos.</b> The photos in this demo are from Lisbon and generic places. From now on GM and mood photos come from Brazil: São Paulo, Rio, Floripa, BH, Salvador.</li>
+      <li><b>Approval mode.</b> Default is drafts in Publer for approval. GM, memes and text posts can switch to auto-publish if you want.</li>
+      <li><b>Sources.</b> hotcoin.com announcements (checked 14 Nov 2026); Nvidia IR, Q3 FY27 call on 17 Nov; Federal Reserve calendar, minutes on 18 Nov at 2 pm ET. Photos under the Unsplash License, credited in FOOTAGE_CREDITS.md. Hero objects are Hotcoin's own banner artwork.</li>
+    </ul>
+    <p class="zh">说明：本示范中的照片多为里斯本或通用场景，之后早安和氛围帖改用巴西城市照片（圣保罗、里约、弗洛里亚诺波利斯、贝洛奥里藏特、萨尔瓦多）。默认所有帖子先进 Publer 草稿待审批，早安、梗图和纯文字帖可改为自动发布。数据来源：Hotcoin 官网公告（11 月 14 日核对）、英伟达投资者关系、美联储日程。</p>
+  </div>
+</section>
+</div>
+
+<script>
+(function(){
+  const ev=[
+    ['Spot All-Round #23','2026-11-01T00:00:00+08:00','2026-11-14T23:59:00+08:00'],
+    ['P2P Challenge','2026-11-05T18:00:00+08:00','2026-11-15T18:00:00+08:00'],
+    ['Wall Street Earnings','2026-11-06T00:00:00+08:00','2026-11-19T23:59:00+08:00'],
+    ['Earn Boost','2026-11-06T12:00:00+08:00','2026-11-16T12:00:00+08:00'],
+    ['Futures Loss Protection','2026-11-06T18:00:00+08:00','2026-11-20T18:00:00+08:00'],
+    ['Stardrop x KOR','2026-11-07T00:00:00+08:00','2026-11-13T23:59:00+08:00'],
+    ['NEFE Earn','2026-11-09T00:00:00+08:00',null]
+  ];
+  const BRT=-3*3600e3;
+  const t0=Date.parse('2026-11-01T00:00:00-03:00'), t1=Date.parse('2026-11-22T00:00:00-03:00'), now=Date.parse('2026-11-15T07:50:00-03:00');
+  const X0=190, X1=980, x=t=>X0+(t-t0)/(t1-t0)*(X1-X0), rowH=38, top=40;
+  const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const ink=css('--ink'), lime=css('--lime'), rule=css('--rule'), muted=css('--muted'), chk=css('--check'), paper=css('--paper');
+  let s='';
+  for(let d=1; d<=21; d+=2){const xx=x(Date.parse(`2026-11-${String(d).padStart(2,'0')}T00:00:00-03:00`));
+    s+=`<line x1="${xx}" x2="${xx}" y1="${top-10}" y2="${top+ev.length*rowH}" stroke="${rule}" stroke-width="1"/><text x="${xx}" y="${top-16}" font-family="Martian Mono, monospace" font-size="11" fill="${muted}" text-anchor="middle">${d}/11</text>`;}
+  ev.forEach((e,i)=>{const y=top+i*rowH+8, a=Date.parse(e[1]), b=e[2]?Date.parse(e[2]):t1;
+    s+=`<text x="0" y="${y+15}" font-family="Inter Tight, sans-serif" font-size="14" fill="${ink}">${e[0]}</text>`;
+    s+=`<rect x="${x(a)}" y="${y}" width="${Math.max(2,x(b)-x(a))}" height="20" rx="4" fill="${ink}" opacity="${b<now?0.35:1}"/>`;
+    if(e[2]){s+=`<rect x="${x(b-864e5)}" y="${y}" width="${x(b)-x(b-864e5)}" height="20" rx="4" fill="${lime}" opacity="${b<now?0.5:1}"/>`;
+      const m=(a+b)/2; s+=`<rect x="${x(m)-5}" y="${y+5}" width="10" height="10" fill="${lime}" stroke="${ink}" stroke-width="1.5" transform="rotate(45 ${x(m)} ${y+10})"/>`;}
+    else s+=`<text x="${x(b)-6}" y="${y+15}" font-family="Martian Mono, monospace" font-size="10" fill="${paper}" text-anchor="end">até esgotar →</text>`;
+  });
+  const nx=x(now); s+=`<line x1="${nx}" x2="${nx}" y1="${top-6}" y2="${top+ev.length*rowH+4}" stroke="${chk}" stroke-width="2.5"/><text x="${nx+6}" y="${top+ev.length*rowH+20}" font-family="Martian Mono, monospace" font-size="11" fill="${chk}">dom 15/11 07:50</text>`;
+  const g=document.getElementById('g'); g.setAttribute('viewBox',`0 0 1000 ${top+ev.length*rowH+34}`); g.innerHTML=s;
+})();
+</script>
