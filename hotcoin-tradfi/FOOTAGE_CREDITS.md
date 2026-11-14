@@ -366,3 +366,5 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Cup on marble (Earn receipt bg, cup recoloured to brand green): Ryan Kwok, https://unsplash.com/photos/_GU2LOQrE7k
 - Elevador da Bica tram (A subida): Who's Denilo ?, https://unsplash.com/photos/PbrvABXEEh8
 - Man walking uphill, back view (reserve): Annie Spratt, https://unsplash.com/photos/Y77uRYcV9bw
+- GM touching grass (hand on grass, grass recoloured lime): Liana S, https://unsplash.com/photos/a-YCd5VqGuk
+- GM market down (silhouette with umbrella on wet cobbles, warm light recoloured green): Artem Shuba, https://unsplash.com/photos/3mGBTIOdeyY
