@@ -1461,5 +1461,23 @@
   "sources": [
    "Standard isolated-margin math: loss of margin at ~1/leverage adverse move, before fees and maintenance margin (exchange futures guides)"
   ]
+ },
+ {
+  "id": "2026-11-14-reel-tier-gaming",
+  "type": "reel-tier",
+  "slot": "2026-11-14T21:30:00+08:00",
+  "title": "Tier list: video game stocks, 5 years, none beat the S&P 500",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(square)",
+   "ig_story"
+  ],
+  "sources": [
+   "Yahoo Finance daily closes Nov 11 2021 vs Nov 13 2026: TTWO 185.71->227.82, NTDOY 11.00->13.70, SONY 24.20->27.07 (split-adj), RBLX 98.12->49.91, U 182.13->52.81, ^GSPC 4,649->7,562"
+  ],
+  "note": "EA left out: taken private in 2026, no full Yahoo history. Logos: financialmodelingprep image-stock; Roblox inverted to dark for contrast."
  }
 ]
