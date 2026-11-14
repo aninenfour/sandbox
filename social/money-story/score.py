@@ -1,7 +1,7 @@
-# Original score for the money story (28 s). numpy + soundfile, no samples. Gentle by design: soft pulse and dark pad while
-# markets fall, quiet clock ticks and paper flutters, a short breath at 15.2 s, then a warm major chord with light plucks.
+# Score for the money story (29 s). Music is original (numpy): soft pulse and dark pad while markets fall, then a warm major
+# chord with light plucks after the turn at 16 s. Sound effects are real CC0 recordings (Kenney.nl), see assets/sfx.
 # Run: python3 social/money-story/score.py social/money-story/out/score.wav
-import sys, numpy as np, soundfile as sf
+import os, sys, numpy as np, soundfile as sf
 SR, DUR, TURN, END = 48000, 29.0, 16.0, 23.4
 N = int(SR * DUR); t = np.arange(N) / SR; rng = np.random.default_rng(3)
 L = np.zeros(N); R = np.zeros(N)
@@ -24,39 +24,36 @@ beat, x_ = [], 0.4
 while x_ < TURN - .3: beat.append(x_); x_ += .66 - .18 * (x_ / TURN)
 n = int(.35 * SR); u = np.arange(n) / SR
 kick = np.sin(2 * np.pi * (48 + 40 * np.exp(-u * 30)) * u) * np.exp(-u * 9) * (1 - np.exp(-u * 600))
-for k, b in enumerate(beat): add(kick, b, .32 if k % 2 == 0 else .2)
-# 3. clock ticks in the panic scene (6.4 to 9.2 s)
-n = int(.05 * SR); u = np.arange(n) / SR
-tick = (np.sin(2 * np.pi * 1900 * u) + .4 * np.sin(2 * np.pi * 3100 * u)) * np.exp(-u * 160) * (1 - np.exp(-u * 4000))
-for k, b in enumerate(np.arange(6.1, 8.6, .5)): add(tick, b, .05, -.3 if k % 2 else .3)
-# 4. soft paper flutters for planes (band-limited noise, smooth envelope)
-def flutter(d):
-    n = int(d * SR); x = rng.standard_normal(n); uu = np.linspace(0, 1, n); e = np.sin(np.pi * uu) ** 2 * (0.6 + 0.4 * np.sin(2 * np.pi * 14 * uu * d) ** 2)
-    return lp(x - lp(x, 400), 2600) * e
-for at, d, g, p in [(0.3, 2.4, .05, -.2), (8.7, 1.2, .04, .3), (9.2, 1.2, .035, -.3), (9.8, 1.3, .035, .2), (23.5, 1.8, .045, -.2)]:
-    add(flutter(d), at, g, p)
-# 5. falling tone under the BTC drop (9.4 to 12 s), quiet
-n = int(2.6 * SR); u = np.arange(n) / SR; f = 440 * 2 ** (-u / 1.6)
-add(np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * u / 2.6) ** 2, 8.8, .022)
-# 5b. soft paper slaps as the drop cards land (BTC, then 5 quick ones)
-def slap():
-    n = int(.12 * SR); x = rng.standard_normal(n); uu = np.arange(n) / SR
-    return lp(x, 1800) * np.exp(-uu * 45) * (1 - np.exp(-uu * 2500)) + np.sin(2 * np.pi * 90 * uu) * np.exp(-uu * 30) * .6
-for k, at in enumerate([8.9] + [10.25 + i * .5 for i in range(5)]): add(slap(), at, .12 if k == 0 else .085, (-.3, .3)[k % 2])
-# 5c. the V: tone dives into the bottom (14.9 to 16.0), low thud at the bottom, tone climbs out (16.0 to 17.8)
-n = int(1.1 * SR); u = np.arange(n) / SR; f = 520 * 2 ** (-u * 1.8)
-add(np.sin(2 * np.pi * np.cumsum(f) / SR) * (u / 1.1) ** 1.5, 14.9, .035)
-add(flutter(1.1), 14.9, .05, -.1)
-n = int(.8 * SR); u = np.arange(n) / SR
-add(np.sin(2 * np.pi * (42 + 50 * np.exp(-u * 18)) * u) * np.exp(-u * 4) * (1 - np.exp(-u * 500)), 16.0, .45)
-n = int(1.8 * SR); u = np.arange(n) / SR; f = 220 * 2 ** (u * 1.2)
-add(np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * u / 1.8) ** 2, 16.0, .03)
-add(flutter(1.8), 16.05, .05, .2)
+for k, b in enumerate(beat): add(kick, b, .24 if k % 2 == 0 else .15)
+# 3. sound effects: real recordings only, Kenney "RPG Audio" + "Impact Sounds" (CC0, kenney.nl), in assets/sfx
+SFX = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets', 'sfx')
+def smp(name, speed=1.0):   # load, normalize to peak 1, optional varispeed (slower = lower and longer)
+    x, sr = sf.read(os.path.join(SFX, name + '.wav')); x = x if x.ndim == 1 else x.mean(1); x = x / (np.abs(x).max() + 1e-9)
+    if speed != 1.0: x = np.interp(np.arange(0, len(x) - 1, speed), np.arange(len(x)), x)
+    fade = min(len(x), int(.01 * SR)); x[-fade:] *= np.linspace(1, 0, fade); return x
+# paper plane flights: soft cloth swishes and paper flips
+add(smp('cloth1', .8), 0.3, .16, -.3); add(smp('bookFlip1'), 1.5, .08, .2)
+for k in range(6): add(smp(['cloth2', 'cloth3', 'cloth4'][k % 3], .9), 8.6 + k * .26, .07, (-.4, .4)[k % 2])
+# labels and cards landing: paper flips and book placements
+for at, g in [(3.8, .07), (4.4, .07), (7.3, .07)]: add(smp('bookFlip2', 1.1), at, g, -.1)
+add(smp('bookPlace3'), 6.7, .16, .3)                                              # clock card
+for k, at in enumerate(np.arange(6.1, 8.6, .5)): add(smp('impactWood_light_000' if k % 2 else 'impactWood_light_002', 1.15), at, .045, (-.3, .3)[k % 2])
+add(smp('bookPlace1'), 8.9, .26, 0)                                               # BTC card
+for k in range(5): add(smp(['bookPlace2', 'bookPlace3', 'bookPlace1'][k % 3], 1.05), 10.25 + k * .5, .19, (-.35, .35)[k % 2])
+add(smp('bookPlace2'), 13.25, .18, .1)                                            # chart card
+# the V: a long swish into the dive, a soft heavy impact at the bottom, flip and swish on the climb
+add(smp('cloth4', .62), 14.95, .2, -.2)
+add(smp('impactSoft_heavy_000', .85), 15.98, .55, 0); add(smp('impactSoft_medium_001', .7), 16.0, .25, 0)
+add(smp('bookFlip3', .9), 16.08, .12, .2); add(smp('cloth2', .75), 16.2, .17, .35)
+# opportunity and money: coins
+add(smp('bookPlace1', 1.1), 19.7, .1, 0); add(smp('handleCoins'), 21.2, .16, .3)
+# end card: block drops, plane glides in, coins under the logo
+add(smp('bookPlace2', .9), 23.45, .18, .2); add(smp('cloth3', .8), 23.6, .13, -.3); add(smp('handleCoins2'), 25.25, .1, .1)
 # 6. the turn: warm A major pad swell + plucks
 warm = sum(voice(f, 1.004) * g for f, g in [(110, .8), (164.81, .6), (220, .6), (277.18, .5), (329.63, .45), (440, .25)])
-add(lp(warm * w(TURN + .25, DUR, 1.6, 2.2), 900 + 1400 * np.clip((t - TURN) / 6, 0, 1)), 0, .065)
+add(lp(warm * w(TURN, DUR, .5, 2.2), 900 + 1400 * np.clip((t - TURN) / 6, 0, 1)), 0, .065)
 notes = [440, 554.37, 659.26, 880, 659.26, 554.37]
-for k, at in enumerate(np.arange(TURN + .6, END + 2.2, .375)):
+for k, at in enumerate(np.arange(TURN + .2, END + 2.2, .375)):
     f = notes[k % len(notes)]; n = int(1.2 * SR); u = np.arange(n) / SR
     pl = (np.sin(2 * np.pi * f * u) + .3 * np.sin(4 * np.pi * f * u)) * np.exp(-u * 5) * (1 - np.exp(-u * 900))
     add(pl, at, .03 + .012 * (k % 2), .25 if k % 2 else -.25)
