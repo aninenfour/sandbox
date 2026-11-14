@@ -180,8 +180,8 @@ window.draw = async (t) => {
       T('NVIDIA (NVDA)', -320, -40, 24, {f: 'mono', color: INK, ls: 3}); T('-38.9%', -324, 70, 104, {f: 'sans', color: INK, ls: -4}); T('from its Oct 6 record', 60, 66, 40, {color: INK}); x.restore(); }
   } else if (t < 18.4) {                        // S6 the turn: lime floods in, plane pulls up
     const w = io(seg(t, 15.2, 15.8)); rect(0, 0, W, H, INK); rect(0, H * (1 - w), W, H * w, LIME);
-    const u = seg(t, 15.4, 18.3), ang = mix(1.1, -1.25, io(seg(t, 15.5, 16.8)));
-    plane(mix(420, 640, u) + Math.sin(t * 2) * 10, mix(980, 520, io(u)) - Math.pow(seg(t, 17.2, 18.4), 2) * 900, ang, mix(380, 520, u), Math.sin(t * 3) * .2);
+    const u = seg(t, 15.4, 18.3), ang = mix(1.1, -.62, io(seg(t, 15.5, 16.8)));
+    plane(mix(520, 1380, io(u)) + Math.sin(t * 2) * 8, mix(1060, 660, io(u)), ang, mix(360, 470, u), Math.sin(t * 3) * .2);
     if (t > 15.9) T('But every fall', 90, 300, 120, {color: INK});
     if (t > 16.6) T('makes room for', 90, 420, 120, {color: INK});
   } else if (t < 22.6) {                        // S7 money printing, opportunity
@@ -219,9 +219,10 @@ if (mode === 'sheet') {
   const ts = (process.argv[3] || '0,1.5,3.0,4.8,7.9,10.6,13.0,14.6,16.9,19.6,21.2,25.5').split(',').map(Number);
   for (const t of ts) { await pg.evaluate((v) => window.draw(v), t); fs.writeFileSync(`${DIR}/out/s-${t}.jpg`, await shot()); }
 } else {
+  const [a0, a1] = mode === 'range' ? process.argv[3].split(',').map(Number) : [0, DUR], out = mode === 'range' ? 'part.mp4' : 'silent.mp4';
   const ff = spawn('/usr/bin/ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-', '-vf', 'scale=1080:1350:flags=lanczos',
-    '-c:v', 'libx264', '-preset', 'slow', '-crf', '17', '-pix_fmt', 'yuv420p', `${DIR}/out/silent.mp4`], {stdio: ['pipe', 'inherit', 'inherit']});
-  for (let i = 0; i < DUR * FPS; i++) { await pg.evaluate((v) => window.draw(v), i / FPS); const b = await shot(); if (!ff.stdin.write(b)) await new Promise((r) => ff.stdin.once('drain', r)); if (i % 60 === 0) console.log('frame', i); }
+    '-c:v', 'libx264', '-preset', 'slow', '-crf', '17', '-pix_fmt', 'yuv420p', `${DIR}/out/${out}`], {stdio: ['pipe', 'inherit', 'inherit']});
+  for (let i = Math.round(a0 * FPS); i < Math.round(a1 * FPS); i++) { await pg.evaluate((v) => window.draw(v), i / FPS); const b = await shot(); if (!ff.stdin.write(b)) await new Promise((r) => ff.stdin.once('drain', r)); if (i % 60 === 0) console.log('frame', i); }
   ff.stdin.end(); await new Promise((r) => ff.on('close', r));
 }
 await browser.close(); fs.unlinkSync(f); console.log('done', mode);
