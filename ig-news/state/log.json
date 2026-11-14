@@ -1498,5 +1498,53 @@
       "GTA VI Nov 19 2026: TechRadar, Tom's Guide"
     ],
     "note": "Owner asked (format seen on coinsauce/billionsofficiel). No game logos/art used. v2 (Nov 14): rebuilt visual-first as 2x2 photo grids after owner feedback; v1 text-first posts moved to draft; v2 media at commit 869fe75. Owner asked to post now: published Nov 14 23:25 on all 4."
+  },
+  {
+    "id": "2026-11-15-cftc-louisiana",
+    "type": "news",
+    "slot": "2026-11-15T10:00:00+08:00",
+    "title": "Louisiana blocks Kalshi and Polymarket; the CFTC sues back",
+    "score": 10,
+    "layouts": [
+      "nbig",
+      "nrows",
+      "nphoto"
+    ],
+    "status": "scheduled",
+    "platforms": [
+      "ig",
+      "fb",
+      "ig_story",
+      "x_research"
+    ],
+    "sources": [
+      "The Block (Nov 12 TRO by Judge Jeffrey Johnson, 31 entities, Nov 30 hearing; CFTC+DOJ suit Nov 13 E.D. La.; Murrill 'obsequious standard bearer')",
+      "Casino.org (CFTC's 12th state suit; Selig 'naked lawfare'; Murrill 'regulated by states for 250 years')",
+      "Washington Times / rg.org (case 26-2612, 31 entities, Nov 30)"
+    ],
+    "note": "Gate: hook 3, relevance 2, fresh 3, visual 2. Cover: Michael Selig official portrait (Commons, public domain); no logo badge. Beat ETF-outflow story (overlaps BTC red-weeks angle) and Kava $3.8M hack (small)."
+  },
+  {
+    "id": "2026-11-15-academy-week-nov16",
+    "type": "academy",
+    "variant": "b",
+    "slot": "2026-11-15T19:00:00+08:00",
+    "title": "What's on this week Nov 16-22: Nvidia Q3, Fed minutes, GTA VI",
+    "status": "scheduled",
+    "platforms": [
+      "ig",
+      "fb",
+      "ig_story",
+      "x_research"
+    ],
+    "sources": [
+      "Nvidia IR: Q3 FY27 call Tue Nov 17 2pm PT, results ~1:20pm PT; Q3 outlook $108.0B +/-2%, Q2 revenue $96.2B",
+      "FOMC minutes Wed Nov 18 2pm ET: Schaeffer's, FXStreet, fedratecalc",
+      "US retail sales Nov 17: Newsquawk, Global-View",
+      "Home Depot Nov 17, Lowe's/TJX Nov 18, Walmart Nov 19: MarketBeat, Investing.com, Opening Bell Daily",
+      "ZRO unlock Nov 20: Tokenomist, CoinGabbar",
+      "GTA VI Nov 19: TechRadar, Tom's Guide"
+    ],
+    "note": "Weekly preview built as Academy v2 (nhero + 3 tslides, layout B photo header) to meet the 4-slide rule. December hike odds not given as a number (only early-Nov FedWatch readings found). Photos Unsplash: Nowakowski, Berezovsky, Woroniecki, Soares."
   }
 ]
