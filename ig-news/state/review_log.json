@@ -1,275 +1,288 @@
 [
- {
-  "date": "2026-10-18",
-  "metrics_summary": "IG 7d: Reels lead reach (Hotcoin 'Same tears' 1,326; desk Reel '5 rules' 101 reach, 3 saves). Desk news carousels 22-35 reach, 0-1 comments (Ledger 35, USDC 23, Russia 22, Stablecoins 101 17). Personal-question post 'what's your reason to trade?' 161 reach, 49 comments. Oct 17 posts (MSCI, BTC/gold/S&P, Reel 5 mistakes) not in analytics yet. FB: desk posts not in top 10 by reach.",
-  "findings": [
-   "Reels reach ~3-4x carousels on IG; carousels are under 0.4% reach rate",
-   "Desk closing questions are abstract and draw ~0 comments; Hotcoin's personal one-word questions draw dozens",
-   "Tutorial cover subtitle collided with the hero circle on the Oct 17 Academy post (fixed by hand at render time)",
-   "Hooks Oct 17-18 follow STYLE_NOTES (numbers, known names, short red twist); no clipped text in last 24h renders"
-  ],
-  "changes": [
-   "STYLE_NOTES: closing question must be one-word/emoji answerable",
-   "render.py + extra_templates.py: tcover subtitle auto-placed under title, shrinks to stay clear of hero (tested on Stablecoins 101 and BTC/gold covers)"
-  ],
-  "skipped": false
- },
- {
-  "date": "2026-10-19",
-  "metrics_summary": "IG Oct 15-19: Reels lead (5 rules 104 reach/3 saves, 5 mistakes 54); carousels 25-48 (Ledger 48, MSCI 39). Sunday posts and the tier-list Reel not in analytics yet. Best times (30d): Mon 19:00 by far (score 1469), then Sat 16:00, Fri 17:00: matches current slots, no move.",
-  "findings": [
-   "Story frames for Academy and weekly posts were tagged 'Hotcoin News'",
-   "Last-24h covers/slides clean (ETF, hacks, Tesla, weekly, tier Reel); hooks follow STYLE_NOTES (numbers, known names, one-word closing questions)",
-   "Weekly learning run 30 min earlier already shipped yellow keywords + name/number hook rule"
-  ],
-  "changes": [
-   "cta.render_story: Story tag follows post type (Hotcoin News / Hotcoin Academy / This week); tested on Tesla Academy + hacks Stories. Already-scheduled Stories left as they are (cosmetic)."
-  ],
-  "skipped": false
- },
- {
-  "date": "2026-10-20",
-  "metrics_summary": "Not re-pulled: the review fired together with a 7h-late news run; Oct 19 numbers from the weekly + daily reviews still current.",
-  "findings": [
-   "Mon 15:40 run was interrupted after rendering (no schedule); recovered at 06:52: Tue 19:00 + 21:30 scheduled, plus Tue 11:00 news",
-   "Last-24h renders checked at build time: Fear & Greed carousel, ATH tier Reel (legend shortened to fit), Bitcoin myths Reel, JPM Coin carousel"
-  ],
-  "changes": [],
-  "skipped": true
- },
- {
-  "date": "2026-10-21",
-  "metrics_summary": "IG last 7 days, by reach: Hotcoin zoo Reel 143; desk tier-list Reel (1y returns) 134 reach / 42 likes / 43 comments (63% engagement, best of the week by far); 5 rules Reel 108; myths Reel 81 (9 comments); weekly preview 71 (10 comments); ETF news 60; Ledger 59; Richard Heart 57 (1 like). Tue posts (JPM, Fear & Greed, ATH tier Reel) <24h, not judged.",
-  "findings": [
-   "Reels still beat carousels on reach (69-134 vs 57-71); tier list is the clear comment driver, consistent with the W43 experiment",
-   "Personality/legal news (Richard Heart) was the weakest post of the week",
-   "Last-24h renders checked at build: DCA vs lump sum Academy (fixed clipped chart label before scheduling), square tier Reel for X (no promo card). Hooks follow STYLE_NOTES.",
-   "Owner rules from Oct 20 in force: 1 news/day, slower Reels, tracker doc now writable"
-  ],
-  "changes": [],
-  "skipped": true,
-  "ideas_for_owner": [
-   "Tier lists win comments by ~5x; the Monday learning run will judge the experiment and may propose 2-3 tier lists a week instead of 2"
-  ]
- },
- {
-  "date": "2026-10-22",
-  "metrics_summary": "IG Oct 19-22 by reach: myths Reel 84; GM 78; ETF news 70; ATH tier Reel 67 (12 likes, 0 comments); Q3 hacks 41; Tesla Academy 31 (58% eng.); JPM Coin news 21; Fear & Greed Academy 14. Wed posts (JPM 10%, DCA, HYPE Reel) <24h.",
-  "findings": [
-   "Tuesday was weak across the board (account-level dip; Hotcoin's own GM post also halved, 78 -> 39)",
-   "Second tier list (crypto-only, ATH) got 0 comments vs 43 for the stocks-vs-crypto one: the cross-market comparison drove the debate, not the format alone",
-   "Carousels keep trailing Reels on reach",
-   "Last-24h renders checked at build: JPM 10% news, DCA Academy, HYPE Reel"
-  ],
-  "changes": [
-   "STYLE_NOTES: tier lists mix stocks/gold with crypto"
-  ],
-  "skipped": false
- },
- {
-  "date": "2026-10-23",
-  "metrics_summary": "IG reach is falling account-wide. Hotcoin's own GM posts: 78 (Mon) -> 43 (Tue) -> 23 (Wed) -> 15 (Thu). Desk Wed posts: JPM 10% news 22, DCA Academy 7, HYPE Reel 10 (Reels were 70-140 last week). ATH tier Reel (Tue) 92 reach, 0 comments.",
-  "findings": [
-   "Drop hits every post type and Hotcoin's own non-desk posts too, so it looks account-level (distribution), not a template or hook problem",
-   "Nothing in the desk output changed on Oct 20-21 except the slower Reel pacing and 1 news/day; carousels and GM posts fell the same way, so pacing is not the cause",
-   "Last-24h renders checked at build: SpaceX-Tesla news, volatility Academy, 2026 tier Reel + X square cut"
-  ],
-  "changes": [],
-  "skipped": true,
-  "ideas_for_owner": [
-   "Check Instagram > Settings > Account Status for any restriction or recommendation-eligibility warning",
-   "If none, it may be a normal dip; the Monday learning run will compare full-week numbers"
-  ]
- },
- {
-  "date": "2026-10-24",
-  "metrics_summary": "Reach still low account-wide: 2026 tier Reel 42 (0 comments), Hotcoin GM posts 30-32, Hotcoin's own Halloween Reel 8, volatility Academy 25 (10 likes). Fri posts not in insights yet. No failed posts on Oct 23.",
-  "findings": [
-   "Low distribution continues for every poster on the account, including Hotcoin's own Reel (8 reach): still points to an account-level cause, not desk content",
-   "Tier list with cross-market names did not revive comments this time (0), so the dip outweighs format effects right now",
-   "Last-24h renders checked at build: ETF inflows news, hashrate Academy, red-flags Reel"
-  ],
-  "changes": [],
-  "skipped": true,
-  "ideas_for_owner": [
-   "Still recommend checking Instagram Account Status; if clear, consider one boosted test post to see if paid reach behaves normally"
-  ]
- },
- {
-  "date": "2026-10-25",
-  "metrics_summary": "Top 7-day reach (IG): Hotcoin's own whale/slang Reel 158, Oct 18 tier Reel 148 (43 comments), ATH tier Reel 101, myths Reel 88; 2026 YTD tier Reel 66 with 0 likes. Oct 23-24 posts not in insights yet. All Oct 24 posts published (NovaTech news, 2%-a-week Academy, gold Reel in new frame style + stories); no failures.",
-  "findings": [
-   "Reach still well below the Oct 16-18 level for desk and Hotcoin's own posts alike",
-   "Owner changed the Reel look on Oct 24 (frame style now default); judge its effect in the Monday weekly run once 2-3 Reels have data",
-   "Last-24h renders checked at build time: NovaTech carousel, 2%-a-week Academy, gold Reel (frame)"
-  ],
-  "changes": [],
-  "skipped": true,
-  "ideas_for_owner": [
-   "Instagram Account Status check still open (reach dip since ~Oct 20)"
-  ]
- },
- {
-  "date": "2026-10-26",
-  "metrics_summary": "7-day numbers were pulled 30 min earlier by the W44 weekly run (FB: gold frame-style Reel 228 reach, best of the week; IG Reels 47-107). No failed posts Oct 24-26. Sun posts (BTC < $80K news, weekly preview, MSFT Reel) went out as scheduled.",
-  "findings": [
-   "Nothing new since the weekly run; its changes (tier cap, question-hook rule) already shipped",
-   "Last-24h renders checked at build: BTC below $80K carousel (red stat values fix), weekly preview (clock photo added to empty Sunday slide), MSFT Reel frames"
-  ],
-  "changes": [],
-  "skipped": true,
-  "ideas_for_owner": [
-   "Instagram Account Status check still open (reach dip since ~Oct 20)"
-  ]
- },
- {
-  "date": "2026-10-27",
-  "metrics_summary": "Mon news (CoinDCX) and Academy (Fed days) published on IG; Mon 21:30 Reel missing: it was built but never scheduled because the worker restarted mid-run.",
-  "findings": [
-   "One slot lost to an interrupted run, not to content",
-   "Last-24h renders checked at build: CoinDCX carousel, Fed-days Academy (cover title fixed), Strategy vs Bitcoin Reel (red {keyword} for losses added)"
-  ],
-  "changes": [
-   "PLAYBOOK: gap check at the start of each run (built-but-not-scheduled posts get re-used in the next open slot)"
-  ],
-  "skipped": false,
-  "ideas_for_owner": [
-   "Story Reel 'The Tower' is waiting for your OK before it goes on the Mon/Wed/Fri 12:30 schedule",
-   "Instagram Account Status check still open"
-  ]
- },
- {
-  "date": "2026-10-28",
-  "metrics_summary": "No failed posts Oct 26-28. Tue news (NBA prediction markets), Academy (95% of BTC mined) and the Strategy vs Bitcoin Reel went out on IG/FB; first TikTok (same Reel, TikTok cut) published 21:36 and logged in the TikTok doc.",
-  "findings": [
-   "TikTok pipeline works end to end (render --tiktok, Publer, doc link swap)",
-   "Last-24h renders checked at build: NBA carousel, BTC supply Academy (era labels fixed), Strategy Reel + TikTok cut (safe zones checked)"
-  ],
-  "changes": [],
-  "skipped": true,
-  "ideas_for_owner": [
-   "Story Reel 'The Tower' still waiting for approval; today's 12:30 story slot stays empty until you OK it",
-   "Instagram Account Status check still open"
-  ]
- },
- {
-  "date": "2026-10-29",
-  "looked_at": "IG+FB insights Oct 27-28 (Oct 28 posts not in insights yet); renders from the last 24 h (v2 test renders, GTA what-if frames)",
-  "findings": [
-   "Tue slideshow Reel (MSTR) 18 IG / 76 FB reach vs the team's story-led 'money story' Reels (Newton 123, Bitcoin pizza 128 IG; 207 FB): story/visual video beats slideshows ~7x on IG, supports the Oct 28 switch to WHAT IF + stick-figure stories",
-   "Desk carousels on Tue: 13-14 IG reach, 19 FB: still very low; the v2 graphic-first redesign (shipped this morning) is the fix to judge from Thursday"
-  ],
-  "changes": "no change needed (full style revision v2 shipped 05:00 today; don't stack more changes before it has data)",
-  "owner_decision": "Approve stick-figure Ep 1 'The Tower' so story Reels can start (they match what performs best)."
- },
- {
-  "date": "2026-10-30",
-  "looked_at": "IG+FB insights Oct 28-29 (Thu v2 posts not in insights yet); Xbox WHAT IF frames",
-  "findings": [
-   "WHAT IF #1 (GTA vs Nvidia): IG 66 reach / 90 views, FB 76. ~3.7x the last slideshow Reel on IG (18) but half the team's story Reels (bond explainer 141, Bitcoin pizza 130 IG; pizza 257 FB). Those state the payoff in the first second; ours opened on '2004' and '$50'.",
-   "Old-style carousels Wed: Robinhood 16 IG / 17 FB, gold vs BTC 12 IG / 16 FB. The v2 + nhero covers are the fix; judge Thu/Fri posts tomorrow."
-  ],
-  "changes": "whatif.js: optional 'hook' (2 caps lines, payoff) shown from frame 1; PLAYBOOK \u00a77b says always set it. Tested on the Xbox spec (no overlap).",
-  "owner_decision": "Approve stick-figure Ep 1 'The Tower' (still pending; Friday 12:30 slot stays empty until then)."
- },
- {
-  "date": "2026-10-31",
-  "looked_at": "IG+FB insights Oct 29-30: first v2 carousels (Fed, Big Tech), Binance breaking carousel + explainer Reel, Xbox WHAT IF; team Reels",
-  "findings": [
-   "v2 carousels still get ~11-17 reach (Fed 11/17, Big Tech 13/15). The breaking Binance carousel (nhero cover) got 34 IG, 3x, but that is mostly the topic. Carousels get little distribution whatever the design.",
-   "Binance explainer Reel: 78 IG / 79 FB, our best desk Reel this week. Xbox WHAT IF: 29 IG / 65 FB, below GTA (66 IG).",
-   "Team's 'on this exact day' history Reel (1929 crash, posted Oct 29): 162 IG / 263 FB, best of the week again."
-  ],
-  "changes": "STYLE_NOTES: anniversary 'on this exact day' hook rule + upcoming dates to use.",
-  "owner_decision": "Carousels reach ~10-15 people vs Reels 30-260. Suggest turning the daily 19:00 Academy into a short animated Reel 3-4x a week (same data, chart animates) and keeping 1 carousel a day (news). Also still waiting: stick-figure Ep 1 OK."
- },
- {
-  "date": "2026-11-04",
-  "looked_at": "IG insights Oct 31-Nov 3; election WHAT IF v2 (light) published IG/FB/TikTok/X Nov 3 21:30, no IG numbers yet",
-  "findings": [
-   "Team whatif-anniversary Reel (Satoshi, Nov 2): 1,110 IG reach, best of the week by far.",
-   "Desk carousels/photos still 9-36 reach (weekly preview 9, Binance update 36). Tier list Reel 21.",
-   "Desk output was thin Nov 1-2 because worker restarts cut runs off before scheduling."
-  ],
-  "changes": "none today (WHAT IF v2 light theme shipped Nov 3 on owner request)",
-  "owner_decision": "Reels outperform carousels 10-50x: move the 19:00 Academy to short Reels 3-4x/week? Still pending."
- },
- {
-  "date": "2026-11-05",
-  "looked_at": "IG insights Nov 3-5 (desk election + Switch WHAT IF Reels and Tesla/SpaceX news not reported yet)",
-  "findings": [
-   "Team 'money story' Reels keep winning: Eiffel Tower con 1,003 reach, Satoshi 1,110. Story hook in line 1 ('In 1925, a con man sold the Eiffel Tower').",
-   "Team 101 Reel (losses math) 124. Static photos/carousels 12-16."
-  ],
-  "changes": "none (4-slide Academy + Research X + WHAT IF cover/4:5 shipped Nov 4)",
-  "owner_decision": "Academy as short Reels 3-4x/week? Still pending."
- },
- {
-  "date": "2026-11-06",
-  "looked_at": "IG insights Nov 3-6",
-  "findings": [
-   "Switch vs Nvidia WHAT IF (light, cover frame): 121 reach, 3.3% engagement, best desk Reel since Binance; matches team 101 Reel (126).",
-   "Tesla/SpaceX news 56 reach (Musk face cover) vs midterms news 12 (Capitol photo): faces again beat buildings.",
-   "Team money-story Reel (Eiffel Tower con) 1,051 still far ahead."
-  ],
-  "changes": "none (WHAT IF v2 shipped Nov 5; numbers for Netflix v2 and Academy 4-slide not in yet)",
-  "owner_decision": "Academy as short Reels 3-4x/week? Pending. earshot install approval pending."
- },
- {
-  "date": "2026-11-07",
-  "looked_at": "IG insights Nov 5-7",
-  "findings": [
-   "Netflix WHAT IF v2 Reel: only 7 reach / 10 views (Switch v1-light got 121). One data point; Tesla v2 (Nov 6) not in yet.",
-   "Possible causes: 1 s static cover at the start (weak first-second hold), or IG holding back a near-duplicate after the v1 drafts were swapped.",
-   "News carousels 22-27, Academy 4-slide 22. Team FTX-anniversary Reel 121."
-  ],
-  "changes": "none yet; if Tesla v2 also lands under ~30, cut the static cover to 0.3 s and start the motion on frame 1 (cover still used as thumbnail).",
-  "owner_decision": "Academy-as-Reels; earshot install permission."
- },
- {
-  "date": "2026-11-08",
-  "looked_at": "IG insights Nov 5-8",
-  "findings": [
-   "Tesla WHAT IF v2: 106 reach / 118 views, in line with Switch (121). So v2 + static cover frame is fine; Netflix's 8 reach was most likely IG holding back the swapped-in near-duplicate.",
-   "News carousels 17-37 (Paraguay 37 best, face cover). Academy holders 28. Team FTX story Reel 131."
-  ],
-  "changes": "none. Rule kept: avoid swapping a scheduled Reel for a near-identical one on the same evening when possible (render right the first time).",
-  "owner_decision": "Academy-as-Reels; earshot permission; tier lists to light theme?"
- },
- {
-  "date": "2026-11-09",
-  "looked_at": "skipped: weekly learning (W45) ran 30 min earlier with full IG/FB numbers and a style change (green gain bars)",
-  "changes": "none",
-  "owner_decision": "Academy-as-Reels; earshot permission; tier lists light theme?"
- },
- {
-  "date": "2026-11-10",
-  "looked_at": "IG 7-day reach Nov 6-9: team story Reel (Mississippi Bubble) 445; WHAT IF v2 Reels latte 120 / Tesla 111; tier list 65; news 46-50 (Vitalik 12 so far); Academy stop-loss 14. Nov 9 Academy + Minecraft Reel too fresh to judge.",
-  "changes": "STYLE_NOTES: news closing questions drifted back to abstract (0 comments); added this week's bad examples and one-tap rewrites.",
-  "owner_decision": "Academy-as-Reels (carousels reach 10-50 vs Reels 110-445); earshot permission; tier lists light theme?"
- },
- {
-  "date": "2026-11-11",
-  "looked_at": "IG Nov 9-10: Minecraft WHAT IF (story-first hook) 107 reach, same as ~110 baseline; Vitalik news 21; ETH vs BTC Academy 19; NYSE news 16 (10 h in, first one-tap question). Nov 10 Academy ETF + Spotify Reel too fresh.",
-  "changes": "none (W45 hook experiment still running; one-tap question rule just shipped, judge after 3+ posts)",
-  "owner_decision": "Academy-as-Reels (carousels 15-50 reach vs Reels ~110); earshot permission; tier lists light theme?"
- },
- {
-  "date": "2026-11-12",
-  "looked_at": "IG Nov 10-11: Spotify WHAT IF (dca, subscription) only 31 reach vs ~110 baseline; NYSE news 23; banks stablecoin news 13; ETF Academy 9. Alibaba Academy + Reel not in insights yet.",
-  "changes": "none. Watch: both subscription-vs-stock DCA Reels underperformed (Netflix v2 8, Spotify 31) while lump/latte ~110-120; if the next subscription one also lands <50, prefer lump-sum topics.",
-  "owner_decision": "Academy-as-Reels (Academy carousels now 9-19 reach); earshot permission; tier lists light theme?"
- },
- {
-  "date": "2026-11-13",
-  "looked_at": "IG Nov 11-12: team money-story Reel (landfill BTC) 123; Alibaba WHAT IF (1.1x, low-return lesson) 67; news 13-19; Alibaba Academy 14. PS5 Reel + Friday-13 Academy (first layout B) not in insights yet.",
-  "changes": "none (Nov 12 owner-driven changes shipped yesterday; judge after a few posts)",
-  "owner_decision": "Academy-as-Reels; earshot permission; tier lists light theme; $5 trial voucher pitch awaiting devs/risk control"
- },
- {
-  "date": "2026-11-14",
-  "looked_at": "IG Nov 12-13: PS5 vs Sony Reel (first word-by-word ending, direct-question hook) 110, back at baseline after Alibaba 67; landfill money-story Reel 127; BTC two-losing-years news 31 (best news this week); Nvidia news 20; 2026 scoreboard Academy 19. Friday-13 Academy (layout B) + BTC-top Reel not in insights yet.",
-  "changes": "none",
-  "owner_decision": "Academy-as-Reels; earshot permission; tier lists light theme; $5 trial voucher pitch awaiting devs/risk control"
- }
+  {
+    "date": "2026-10-18",
+    "metrics_summary": "IG 7d: Reels lead reach (Hotcoin 'Same tears' 1,326; desk Reel '5 rules' 101 reach, 3 saves). Desk news carousels 22-35 reach, 0-1 comments (Ledger 35, USDC 23, Russia 22, Stablecoins 101 17). Personal-question post 'what's your reason to trade?' 161 reach, 49 comments. Oct 17 posts (MSCI, BTC/gold/S&P, Reel 5 mistakes) not in analytics yet. FB: desk posts not in top 10 by reach.",
+    "findings": [
+      "Reels reach ~3-4x carousels on IG; carousels are under 0.4% reach rate",
+      "Desk closing questions are abstract and draw ~0 comments; Hotcoin's personal one-word questions draw dozens",
+      "Tutorial cover subtitle collided with the hero circle on the Oct 17 Academy post (fixed by hand at render time)",
+      "Hooks Oct 17-18 follow STYLE_NOTES (numbers, known names, short red twist); no clipped text in last 24h renders"
+    ],
+    "changes": [
+      "STYLE_NOTES: closing question must be one-word/emoji answerable",
+      "render.py + extra_templates.py: tcover subtitle auto-placed under title, shrinks to stay clear of hero (tested on Stablecoins 101 and BTC/gold covers)"
+    ],
+    "skipped": false
+  },
+  {
+    "date": "2026-10-19",
+    "metrics_summary": "IG Oct 15-19: Reels lead (5 rules 104 reach/3 saves, 5 mistakes 54); carousels 25-48 (Ledger 48, MSCI 39). Sunday posts and the tier-list Reel not in analytics yet. Best times (30d): Mon 19:00 by far (score 1469), then Sat 16:00, Fri 17:00: matches current slots, no move.",
+    "findings": [
+      "Story frames for Academy and weekly posts were tagged 'Hotcoin News'",
+      "Last-24h covers/slides clean (ETF, hacks, Tesla, weekly, tier Reel); hooks follow STYLE_NOTES (numbers, known names, one-word closing questions)",
+      "Weekly learning run 30 min earlier already shipped yellow keywords + name/number hook rule"
+    ],
+    "changes": [
+      "cta.render_story: Story tag follows post type (Hotcoin News / Hotcoin Academy / This week); tested on Tesla Academy + hacks Stories. Already-scheduled Stories left as they are (cosmetic)."
+    ],
+    "skipped": false
+  },
+  {
+    "date": "2026-10-20",
+    "metrics_summary": "Not re-pulled: the review fired together with a 7h-late news run; Oct 19 numbers from the weekly + daily reviews still current.",
+    "findings": [
+      "Mon 15:40 run was interrupted after rendering (no schedule); recovered at 06:52: Tue 19:00 + 21:30 scheduled, plus Tue 11:00 news",
+      "Last-24h renders checked at build time: Fear & Greed carousel, ATH tier Reel (legend shortened to fit), Bitcoin myths Reel, JPM Coin carousel"
+    ],
+    "changes": [],
+    "skipped": true
+  },
+  {
+    "date": "2026-10-21",
+    "metrics_summary": "IG last 7 days, by reach: Hotcoin zoo Reel 143; desk tier-list Reel (1y returns) 134 reach / 42 likes / 43 comments (63% engagement, best of the week by far); 5 rules Reel 108; myths Reel 81 (9 comments); weekly preview 71 (10 comments); ETF news 60; Ledger 59; Richard Heart 57 (1 like). Tue posts (JPM, Fear & Greed, ATH tier Reel) <24h, not judged.",
+    "findings": [
+      "Reels still beat carousels on reach (69-134 vs 57-71); tier list is the clear comment driver, consistent with the W43 experiment",
+      "Personality/legal news (Richard Heart) was the weakest post of the week",
+      "Last-24h renders checked at build: DCA vs lump sum Academy (fixed clipped chart label before scheduling), square tier Reel for X (no promo card). Hooks follow STYLE_NOTES.",
+      "Owner rules from Oct 20 in force: 1 news/day, slower Reels, tracker doc now writable"
+    ],
+    "changes": [],
+    "skipped": true,
+    "ideas_for_owner": [
+      "Tier lists win comments by ~5x; the Monday learning run will judge the experiment and may propose 2-3 tier lists a week instead of 2"
+    ]
+  },
+  {
+    "date": "2026-10-22",
+    "metrics_summary": "IG Oct 19-22 by reach: myths Reel 84; GM 78; ETF news 70; ATH tier Reel 67 (12 likes, 0 comments); Q3 hacks 41; Tesla Academy 31 (58% eng.); JPM Coin news 21; Fear & Greed Academy 14. Wed posts (JPM 10%, DCA, HYPE Reel) <24h.",
+    "findings": [
+      "Tuesday was weak across the board (account-level dip; Hotcoin's own GM post also halved, 78 -> 39)",
+      "Second tier list (crypto-only, ATH) got 0 comments vs 43 for the stocks-vs-crypto one: the cross-market comparison drove the debate, not the format alone",
+      "Carousels keep trailing Reels on reach",
+      "Last-24h renders checked at build: JPM 10% news, DCA Academy, HYPE Reel"
+    ],
+    "changes": [
+      "STYLE_NOTES: tier lists mix stocks/gold with crypto"
+    ],
+    "skipped": false
+  },
+  {
+    "date": "2026-10-23",
+    "metrics_summary": "IG reach is falling account-wide. Hotcoin's own GM posts: 78 (Mon) -> 43 (Tue) -> 23 (Wed) -> 15 (Thu). Desk Wed posts: JPM 10% news 22, DCA Academy 7, HYPE Reel 10 (Reels were 70-140 last week). ATH tier Reel (Tue) 92 reach, 0 comments.",
+    "findings": [
+      "Drop hits every post type and Hotcoin's own non-desk posts too, so it looks account-level (distribution), not a template or hook problem",
+      "Nothing in the desk output changed on Oct 20-21 except the slower Reel pacing and 1 news/day; carousels and GM posts fell the same way, so pacing is not the cause",
+      "Last-24h renders checked at build: SpaceX-Tesla news, volatility Academy, 2026 tier Reel + X square cut"
+    ],
+    "changes": [],
+    "skipped": true,
+    "ideas_for_owner": [
+      "Check Instagram > Settings > Account Status for any restriction or recommendation-eligibility warning",
+      "If none, it may be a normal dip; the Monday learning run will compare full-week numbers"
+    ]
+  },
+  {
+    "date": "2026-10-24",
+    "metrics_summary": "Reach still low account-wide: 2026 tier Reel 42 (0 comments), Hotcoin GM posts 30-32, Hotcoin's own Halloween Reel 8, volatility Academy 25 (10 likes). Fri posts not in insights yet. No failed posts on Oct 23.",
+    "findings": [
+      "Low distribution continues for every poster on the account, including Hotcoin's own Reel (8 reach): still points to an account-level cause, not desk content",
+      "Tier list with cross-market names did not revive comments this time (0), so the dip outweighs format effects right now",
+      "Last-24h renders checked at build: ETF inflows news, hashrate Academy, red-flags Reel"
+    ],
+    "changes": [],
+    "skipped": true,
+    "ideas_for_owner": [
+      "Still recommend checking Instagram Account Status; if clear, consider one boosted test post to see if paid reach behaves normally"
+    ]
+  },
+  {
+    "date": "2026-10-25",
+    "metrics_summary": "Top 7-day reach (IG): Hotcoin's own whale/slang Reel 158, Oct 18 tier Reel 148 (43 comments), ATH tier Reel 101, myths Reel 88; 2026 YTD tier Reel 66 with 0 likes. Oct 23-24 posts not in insights yet. All Oct 24 posts published (NovaTech news, 2%-a-week Academy, gold Reel in new frame style + stories); no failures.",
+    "findings": [
+      "Reach still well below the Oct 16-18 level for desk and Hotcoin's own posts alike",
+      "Owner changed the Reel look on Oct 24 (frame style now default); judge its effect in the Monday weekly run once 2-3 Reels have data",
+      "Last-24h renders checked at build time: NovaTech carousel, 2%-a-week Academy, gold Reel (frame)"
+    ],
+    "changes": [],
+    "skipped": true,
+    "ideas_for_owner": [
+      "Instagram Account Status check still open (reach dip since ~Oct 20)"
+    ]
+  },
+  {
+    "date": "2026-10-26",
+    "metrics_summary": "7-day numbers were pulled 30 min earlier by the W44 weekly run (FB: gold frame-style Reel 228 reach, best of the week; IG Reels 47-107). No failed posts Oct 24-26. Sun posts (BTC < $80K news, weekly preview, MSFT Reel) went out as scheduled.",
+    "findings": [
+      "Nothing new since the weekly run; its changes (tier cap, question-hook rule) already shipped",
+      "Last-24h renders checked at build: BTC below $80K carousel (red stat values fix), weekly preview (clock photo added to empty Sunday slide), MSFT Reel frames"
+    ],
+    "changes": [],
+    "skipped": true,
+    "ideas_for_owner": [
+      "Instagram Account Status check still open (reach dip since ~Oct 20)"
+    ]
+  },
+  {
+    "date": "2026-10-27",
+    "metrics_summary": "Mon news (CoinDCX) and Academy (Fed days) published on IG; Mon 21:30 Reel missing: it was built but never scheduled because the worker restarted mid-run.",
+    "findings": [
+      "One slot lost to an interrupted run, not to content",
+      "Last-24h renders checked at build: CoinDCX carousel, Fed-days Academy (cover title fixed), Strategy vs Bitcoin Reel (red {keyword} for losses added)"
+    ],
+    "changes": [
+      "PLAYBOOK: gap check at the start of each run (built-but-not-scheduled posts get re-used in the next open slot)"
+    ],
+    "skipped": false,
+    "ideas_for_owner": [
+      "Story Reel 'The Tower' is waiting for your OK before it goes on the Mon/Wed/Fri 12:30 schedule",
+      "Instagram Account Status check still open"
+    ]
+  },
+  {
+    "date": "2026-10-28",
+    "metrics_summary": "No failed posts Oct 26-28. Tue news (NBA prediction markets), Academy (95% of BTC mined) and the Strategy vs Bitcoin Reel went out on IG/FB; first TikTok (same Reel, TikTok cut) published 21:36 and logged in the TikTok doc.",
+    "findings": [
+      "TikTok pipeline works end to end (render --tiktok, Publer, doc link swap)",
+      "Last-24h renders checked at build: NBA carousel, BTC supply Academy (era labels fixed), Strategy Reel + TikTok cut (safe zones checked)"
+    ],
+    "changes": [],
+    "skipped": true,
+    "ideas_for_owner": [
+      "Story Reel 'The Tower' still waiting for approval; today's 12:30 story slot stays empty until you OK it",
+      "Instagram Account Status check still open"
+    ]
+  },
+  {
+    "date": "2026-10-29",
+    "looked_at": "IG+FB insights Oct 27-28 (Oct 28 posts not in insights yet); renders from the last 24 h (v2 test renders, GTA what-if frames)",
+    "findings": [
+      "Tue slideshow Reel (MSTR) 18 IG / 76 FB reach vs the team's story-led 'money story' Reels (Newton 123, Bitcoin pizza 128 IG; 207 FB): story/visual video beats slideshows ~7x on IG, supports the Oct 28 switch to WHAT IF + stick-figure stories",
+      "Desk carousels on Tue: 13-14 IG reach, 19 FB: still very low; the v2 graphic-first redesign (shipped this morning) is the fix to judge from Thursday"
+    ],
+    "changes": "no change needed (full style revision v2 shipped 05:00 today; don't stack more changes before it has data)",
+    "owner_decision": "Approve stick-figure Ep 1 'The Tower' so story Reels can start (they match what performs best)."
+  },
+  {
+    "date": "2026-10-30",
+    "looked_at": "IG+FB insights Oct 28-29 (Thu v2 posts not in insights yet); Xbox WHAT IF frames",
+    "findings": [
+      "WHAT IF #1 (GTA vs Nvidia): IG 66 reach / 90 views, FB 76. ~3.7x the last slideshow Reel on IG (18) but half the team's story Reels (bond explainer 141, Bitcoin pizza 130 IG; pizza 257 FB). Those state the payoff in the first second; ours opened on '2004' and '$50'.",
+      "Old-style carousels Wed: Robinhood 16 IG / 17 FB, gold vs BTC 12 IG / 16 FB. The v2 + nhero covers are the fix; judge Thu/Fri posts tomorrow."
+    ],
+    "changes": "whatif.js: optional 'hook' (2 caps lines, payoff) shown from frame 1; PLAYBOOK §7b says always set it. Tested on the Xbox spec (no overlap).",
+    "owner_decision": "Approve stick-figure Ep 1 'The Tower' (still pending; Friday 12:30 slot stays empty until then)."
+  },
+  {
+    "date": "2026-10-31",
+    "looked_at": "IG+FB insights Oct 29-30: first v2 carousels (Fed, Big Tech), Binance breaking carousel + explainer Reel, Xbox WHAT IF; team Reels",
+    "findings": [
+      "v2 carousels still get ~11-17 reach (Fed 11/17, Big Tech 13/15). The breaking Binance carousel (nhero cover) got 34 IG, 3x, but that is mostly the topic. Carousels get little distribution whatever the design.",
+      "Binance explainer Reel: 78 IG / 79 FB, our best desk Reel this week. Xbox WHAT IF: 29 IG / 65 FB, below GTA (66 IG).",
+      "Team's 'on this exact day' history Reel (1929 crash, posted Oct 29): 162 IG / 263 FB, best of the week again."
+    ],
+    "changes": "STYLE_NOTES: anniversary 'on this exact day' hook rule + upcoming dates to use.",
+    "owner_decision": "Carousels reach ~10-15 people vs Reels 30-260. Suggest turning the daily 19:00 Academy into a short animated Reel 3-4x a week (same data, chart animates) and keeping 1 carousel a day (news). Also still waiting: stick-figure Ep 1 OK."
+  },
+  {
+    "date": "2026-11-04",
+    "looked_at": "IG insights Oct 31-Nov 3; election WHAT IF v2 (light) published IG/FB/TikTok/X Nov 3 21:30, no IG numbers yet",
+    "findings": [
+      "Team whatif-anniversary Reel (Satoshi, Nov 2): 1,110 IG reach, best of the week by far.",
+      "Desk carousels/photos still 9-36 reach (weekly preview 9, Binance update 36). Tier list Reel 21.",
+      "Desk output was thin Nov 1-2 because worker restarts cut runs off before scheduling."
+    ],
+    "changes": "none today (WHAT IF v2 light theme shipped Nov 3 on owner request)",
+    "owner_decision": "Reels outperform carousels 10-50x: move the 19:00 Academy to short Reels 3-4x/week? Still pending."
+  },
+  {
+    "date": "2026-11-05",
+    "looked_at": "IG insights Nov 3-5 (desk election + Switch WHAT IF Reels and Tesla/SpaceX news not reported yet)",
+    "findings": [
+      "Team 'money story' Reels keep winning: Eiffel Tower con 1,003 reach, Satoshi 1,110. Story hook in line 1 ('In 1925, a con man sold the Eiffel Tower').",
+      "Team 101 Reel (losses math) 124. Static photos/carousels 12-16."
+    ],
+    "changes": "none (4-slide Academy + Research X + WHAT IF cover/4:5 shipped Nov 4)",
+    "owner_decision": "Academy as short Reels 3-4x/week? Still pending."
+  },
+  {
+    "date": "2026-11-06",
+    "looked_at": "IG insights Nov 3-6",
+    "findings": [
+      "Switch vs Nvidia WHAT IF (light, cover frame): 121 reach, 3.3% engagement, best desk Reel since Binance; matches team 101 Reel (126).",
+      "Tesla/SpaceX news 56 reach (Musk face cover) vs midterms news 12 (Capitol photo): faces again beat buildings.",
+      "Team money-story Reel (Eiffel Tower con) 1,051 still far ahead."
+    ],
+    "changes": "none (WHAT IF v2 shipped Nov 5; numbers for Netflix v2 and Academy 4-slide not in yet)",
+    "owner_decision": "Academy as short Reels 3-4x/week? Pending. earshot install approval pending."
+  },
+  {
+    "date": "2026-11-07",
+    "looked_at": "IG insights Nov 5-7",
+    "findings": [
+      "Netflix WHAT IF v2 Reel: only 7 reach / 10 views (Switch v1-light got 121). One data point; Tesla v2 (Nov 6) not in yet.",
+      "Possible causes: 1 s static cover at the start (weak first-second hold), or IG holding back a near-duplicate after the v1 drafts were swapped.",
+      "News carousels 22-27, Academy 4-slide 22. Team FTX-anniversary Reel 121."
+    ],
+    "changes": "none yet; if Tesla v2 also lands under ~30, cut the static cover to 0.3 s and start the motion on frame 1 (cover still used as thumbnail).",
+    "owner_decision": "Academy-as-Reels; earshot install permission."
+  },
+  {
+    "date": "2026-11-08",
+    "looked_at": "IG insights Nov 5-8",
+    "findings": [
+      "Tesla WHAT IF v2: 106 reach / 118 views, in line with Switch (121). So v2 + static cover frame is fine; Netflix's 8 reach was most likely IG holding back the swapped-in near-duplicate.",
+      "News carousels 17-37 (Paraguay 37 best, face cover). Academy holders 28. Team FTX story Reel 131."
+    ],
+    "changes": "none. Rule kept: avoid swapping a scheduled Reel for a near-identical one on the same evening when possible (render right the first time).",
+    "owner_decision": "Academy-as-Reels; earshot permission; tier lists to light theme?"
+  },
+  {
+    "date": "2026-11-09",
+    "looked_at": "skipped: weekly learning (W45) ran 30 min earlier with full IG/FB numbers and a style change (green gain bars)",
+    "changes": "none",
+    "owner_decision": "Academy-as-Reels; earshot permission; tier lists light theme?"
+  },
+  {
+    "date": "2026-11-10",
+    "looked_at": "IG 7-day reach Nov 6-9: team story Reel (Mississippi Bubble) 445; WHAT IF v2 Reels latte 120 / Tesla 111; tier list 65; news 46-50 (Vitalik 12 so far); Academy stop-loss 14. Nov 9 Academy + Minecraft Reel too fresh to judge.",
+    "changes": "STYLE_NOTES: news closing questions drifted back to abstract (0 comments); added this week's bad examples and one-tap rewrites.",
+    "owner_decision": "Academy-as-Reels (carousels reach 10-50 vs Reels 110-445); earshot permission; tier lists light theme?"
+  },
+  {
+    "date": "2026-11-11",
+    "looked_at": "IG Nov 9-10: Minecraft WHAT IF (story-first hook) 107 reach, same as ~110 baseline; Vitalik news 21; ETH vs BTC Academy 19; NYSE news 16 (10 h in, first one-tap question). Nov 10 Academy ETF + Spotify Reel too fresh.",
+    "changes": "none (W45 hook experiment still running; one-tap question rule just shipped, judge after 3+ posts)",
+    "owner_decision": "Academy-as-Reels (carousels 15-50 reach vs Reels ~110); earshot permission; tier lists light theme?"
+  },
+  {
+    "date": "2026-11-12",
+    "looked_at": "IG Nov 10-11: Spotify WHAT IF (dca, subscription) only 31 reach vs ~110 baseline; NYSE news 23; banks stablecoin news 13; ETF Academy 9. Alibaba Academy + Reel not in insights yet.",
+    "changes": "none. Watch: both subscription-vs-stock DCA Reels underperformed (Netflix v2 8, Spotify 31) while lump/latte ~110-120; if the next subscription one also lands <50, prefer lump-sum topics.",
+    "owner_decision": "Academy-as-Reels (Academy carousels now 9-19 reach); earshot permission; tier lists light theme?"
+  },
+  {
+    "date": "2026-11-13",
+    "looked_at": "IG Nov 11-12: team money-story Reel (landfill BTC) 123; Alibaba WHAT IF (1.1x, low-return lesson) 67; news 13-19; Alibaba Academy 14. PS5 Reel + Friday-13 Academy (first layout B) not in insights yet.",
+    "changes": "none (Nov 12 owner-driven changes shipped yesterday; judge after a few posts)",
+    "owner_decision": "Academy-as-Reels; earshot permission; tier lists light theme; $5 trial voucher pitch awaiting devs/risk control"
+  },
+  {
+    "date": "2026-11-14",
+    "looked_at": "IG Nov 12-13: PS5 vs Sony Reel (first word-by-word ending, direct-question hook) 110, back at baseline after Alibaba 67; landfill money-story Reel 127; BTC two-losing-years news 31 (best news this week); Nvidia news 20; 2026 scoreboard Academy 19. Friday-13 Academy (layout B) + BTC-top Reel not in insights yet.",
+    "changes": "none",
+    "owner_decision": "Academy-as-Reels; earshot permission; tier lists light theme; $5 trial voucher pitch awaiting devs/risk control"
+  },
+  {
+    "date": "2026-11-15",
+    "metrics_summary": "IG Nov 12-14: landfill money-story Reel 131, PS5 vs Sony Reel 112; BTC-top WHAT IF Reel 23 and Ronald Read money-story Reel 12 (~29h old, both well under the ~110 baseline); news 14-35; Academy 15-24. GTA grid (posted Nov 14 23:25 on owner request) and tier-list Reel not in insights yet.",
+    "findings": [
+      "Leverage Academy (layout A, photos in free space) and BTC 6-red-weeks news render clean: no clipping, CTA current",
+      "Two Reels in a row far under baseline: watch 1 more day before acting, could be distribution noise",
+      "Carousels still stuck at 14-35 reach"
+    ],
+    "changes": [],
+    "skipped": true,
+    "looked_at": "IG insights Nov 12-14; all slides for 2026-11-14 leverage Academy and BTC red weeks news",
+    "owner_decision": "Academy-as-Reels (carousels stuck at 14-35); earshot permission; tier lists light theme; $5 trial voucher pitch awaiting devs/risk control"
+  }
 ]
