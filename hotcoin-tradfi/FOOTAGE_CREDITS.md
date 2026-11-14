@@ -360,3 +360,10 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Bitcoin coin photo: Kanchanara, https://unsplash.com/photos/7E3QGntO66M. Coin logos: CoinGecko.
 
 - CoinGlass logo (cow mark + wordmark): official files from cdn.coinglasscdn.com (icon_200.png, icon_600_315.png), used for the Hotcoin x CoinGlass collab post, Nov 2026. Fetched by social/coinglass-collab/fetch-logos.py.
+
+## Money story video (social/money-story, Nov 2026)
+- "Nation's Market Place" (1932, Dynamic Pictures), Prelinger Archives via archive.org
+  (archive.org/details/0474_Nations_Market_Place_01_11_58_00): Wall Street, NYSE trading floor, brokers, exchange clock,
+  newspaper presses. Prelinger Archives collection, distributed for free reuse.
+- "Doubtful Dollars" (1945), Prelinger Archives via archive.org (archive.org/details/doubtful_dollars), Public Domain mark:
+  currency printing, hands with banknotes, $1 bill used as the paper plane texture.
