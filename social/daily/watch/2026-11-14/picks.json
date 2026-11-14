@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Slid under $67K Friday, down 17% over the past month"},
+ {"sym": "ETH", "kind": "crypto", "why": "Down 21% over the past month, steeper than BTC"},
+ {"sym": "INJ", "kind": "crypto", "why": "Up over 7% in 24h while the wider market fell"},
+ {"sym": "NVDAB", "kind": "tradfi", "why": "Week ahead: Q3 results Tuesday after the US close"},
+ {"sym": "SPYB", "kind": "tradfi", "why": "Week ahead: Fed minutes out Thu 03:00 UTC+8"}
+]}

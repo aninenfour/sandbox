@@ -1,0 +1,71 @@
+{
+ "date": "NOV 14",
+ "window": "Prices at Nov 14 12:56 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Slid under $67K Friday, down 17% over the past month",
+   "last": 67134.42,
+   "ch": -2.2,
+   "vol": 1122944334.21,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Down 21% over the past month, steeper than BTC",
+   "last": 1900.86,
+   "ch": -1.34,
+   "vol": 259384574.26,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "INJ",
+   "name": "Injective",
+   "kind": "crypto",
+   "handle": "@injective",
+   "why": "Up over 7% in 24h while the wider market fell",
+   "last": 8.046,
+   "ch": 11.7,
+   "vol": 5578947.92,
+   "logo": "inj",
+   "bg": "#4d3dff",
+   "glow": "#4d3dff"
+  },
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA",
+   "kind": "tradfi",
+   "handle": "@nvidia",
+   "why": "Week ahead: Q3 results Tuesday after the US close",
+   "last": 161.72,
+   "ch": -1.77,
+   "vol": 615019.39,
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Week ahead: Fed minutes out Thu 03:00 UTC+8",
+   "last": 750.32,
+   "ch": -1.07,
+   "vol": 718124.12,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  }
+ ]
+}
