@@ -1,0 +1,359 @@
+<title>Hotcoin Português Daily Run</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Inter+Tight:wght@400;500;600&family=Martian+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one long run-sheet. A day timeline down the page, posts as phone-width cards beside their schedule slot, then the systems behind it. */
+:root{
+  --paper:#F6F7F4; --card:#FFFFFF; --ink:#0B0E11; --muted:#5E656C; --rule:#E2E5E1;
+  --lime:#B8F26A; --limeInk:#3F6B12; --check:#2A5BD7; --warn:#B4541A; --chip:#EEF1EC;
+  --display:'Bricolage Grotesque', 'Inter Tight', system-ui, sans-serif;
+  --body:'Inter Tight', system-ui, sans-serif;
+  --mono:'Martian Mono', ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0B0E11; --card:#13171B; --ink:#EDEFEC; --muted:#9AA2A9; --rule:#252B30;
+  --lime:#B8F26A; --limeInk:#B8F26A; --check:#7FA2FF; --warn:#F0A060; --chip:#1B2126; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0B0E11; --card:#13171B; --ink:#EDEFEC; --muted:#9AA2A9; --rule:#252B30;
+  --lime:#B8F26A; --limeInk:#B8F26A; --check:#7FA2FF; --warn:#F0A060; --chip:#1B2126; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 80px}
+h1,h2,h3{font-family:var(--display);font-variation-settings:'opsz' 96;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,7vw,76px);line-height:.95;font-weight:800;font-variation-settings:'opsz' 96,'wdth' 85}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800;line-height:1.05}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.muted{color:var(--muted)}
+a{color:inherit;text-decoration-color:var(--lime);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--check);outline-offset:2px}
+section{margin-top:72px;display:grid;gap:24px}
+.lede{max-width:64ch;font-size:18px;color:var(--muted)}
+.hero{display:grid;gap:20px}
+.stats{display:flex;flex-wrap:wrap;gap:10px}
+.stat{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:12px 16px;display:grid;gap:2px;min-width:140px}
+.stat b{font-family:var(--display);font-size:28px;font-weight:800;line-height:1}
+/* timeline */
+.day{display:grid;gap:0;border-left:2px solid var(--rule);margin-left:8px}
+.slot{position:relative;padding:0 0 40px 28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:28px;align-items:start}
+.slot::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--ink);border:3px solid var(--paper)}
+.slot.check::before{background:var(--check)}
+.slot.check{grid-template-columns:minmax(0,1fr)}
+.time{font-family:var(--mono);font-size:14px;font-weight:600}
+.kind{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--chip);margin-left:8px;vertical-align:2px}
+.kind.trig{background:var(--lime);color:#0B0E11}
+.kind.chk{background:var(--check);color:#fff}
+.slot .text{display:grid;gap:12px;min-width:0}
+.why{font-size:14px;color:var(--muted);border-left:3px solid var(--lime);padding-left:12px}
+.post{background:var(--card);border:1px solid var(--rule);border-radius:16px;overflow:hidden}
+.post img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:var(--chip)}
+.cap{padding:14px 16px 16px;font-size:14px;white-space:pre-line;overflow-wrap:anywhere}
+.cap .acct{font-weight:600;display:block;margin-bottom:4px;white-space:normal}
+.log{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;font-family:var(--mono);font-size:12.5px;line-height:1.7;overflow-x:auto;white-space:pre}
+.log .ok{color:var(--limeInk)} .log .hit{color:var(--warn)} .log .dim{color:var(--muted)}
+.textpost{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:18px;font-size:15px;white-space:pre-line}
+/* gantt */
+.gantt{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:18px;overflow-x:auto}
+.gantt svg{display:block;min-width:760px;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+/* grids */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.box{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:10px;align-content:start;min-width:0}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.formats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px}
+.fmt{display:grid;gap:8px}
+.fmt img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12px;border:1px solid var(--rule)}
+.week{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:16px}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.t{font-family:var(--mono);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.flag{border:1.5px solid var(--warn);border-radius:16px;padding:20px;display:grid;gap:10px;background:var(--card)}
+@media (max-width:760px){.slot{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:no-preference){.post img{transition:transform .3s}.post:hover img{transform:scale(1.01)}}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <p class="mono muted">Hotcoin Português · X · demo of one posting day</p>
+  <h1>Sunday 15 November, run by the tracker</h1>
+  <p class="lede">One full day on the PT channel: three website checks, eight posts, every event post triggered by a real deadline from the hotcoin.com announcements. Posters below are the actual renders. Copy is in European Portuguese with Lisbon times; English notes are for the team.</p>
+  <div class="stats">
+    <div class="stat"><b>3</b><span class="muted">site checks</span></div>
+    <div class="stat"><b>8</b><span class="muted">posts (6 image, 2 text)</span></div>
+    <div class="stat"><b>5</b><span class="muted">live events tracked</span></div>
+    <div class="stat"><b>0</b><span class="muted">overlap with main channel</span></div>
+  </div>
+</header>
+
+<section aria-labelledby="day">
+  <h2 id="day">The day, slot by slot</h2>
+  <div class="day">
+
+    <div class="slot check">
+      <div class="text">
+        <p><span class="time">08:00</span><span class="kind chk">Check 1 · before work</span></p>
+        <p>Read the announcements list, compare it with the tracker, recompute every event's position, draft what is due today.</p>
+<div class="log"><span class="dim">$ fetch hotcoin.com/en_US/support/nav/2  →  10 items, newest 2026-11-09</span>
+<span class="ok">✓ no new announcements since last check</span>
+<span class="dim">$ node social/pt/tracker/plan.mjs 2026-11-15T08:00Z</span>
+Desafio P2P                   fim 15/11 10:00   99% · faltam 0d 2h   <span class="hit">LAST DAY</span>
+Earn Boost                    fim 16/11 04:00   92% · faltam 0d 20h  <span class="hit">LAST DAY</span>
+Proteção de perdas (futuros)  fim 20/11 10:00   64% · faltam 5d 2h   <span class="hit">5 DAYS (10:00)</span>
+Wall Street Earnings (TradFi) fim 19/11 15:59   69% · faltam 4d 7h   → in week agenda
+NEFE Earn                     até esgotar       EM CURSO
+Stardrop x KOR                fim 13/11 15:59   TERMINOU
+Spot All-Round #23            fim 14/11 15:59   TERMINOU
+<span class="ok">→ drafts queued in Publer: 09:00 board, 10:00 bridge, 17:00 receipt</span></div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="text">
+        <p><span class="time">08:30</span><span class="kind">GM</span></p>
+        <h3>GM, touching grass</h3>
+        <p class="why">Morning photo, one lime line that follows the mown path to the walker. Same device as the tram post: the line sits on something real and points at it.</p>
+      </div>
+      <figure class="post" style="margin:0"><img src="img/0830-gm.jpg" alt="Black and white park, a lime line follows the path up to a person walking away, headline GM." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>GM ☀️ Hoje o caminho é relva. Os gráficos ficam para depois.
+#Hotcoin #GM</figcaption></figure>
+    </div>
+
+    <div class="slot">
+      <div class="text">
+        <p><span class="time">09:00</span><span class="kind trig">Last call · P2P closes 10:00</span></p>
+        <h3>Partidas: the morning board</h3>
+        <p class="why">Triggered by the tracker: P2P Challenge has under 24 h left. The board doubles as the daily status of every live event, so it is the one post a newcomer needs.</p>
+      </div>
+      <figure class="post" style="margin:0"><img src="img/0900-partidas.jpg" alt="Departures board listing five live Hotcoin events with Lisbon closing times." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>Última chamada 🚉 O Desafio P2P fecha hoje às 10:00 (Lisboa).
+
+1.º trade P2P de pelo menos 200 USDT: 20 USDT em Futures Trial Funds. Clique em "Join Now" antes de negociar.
+
+👉 <a href="https://www.hotcoin.com/en_US/announcement/HotcoinP2PEcosystemChallenge1/">hotcoin.com/…/HotcoinP2PEcosystemChallenge1</a>
+
+Negociar futuros envolve risco elevado. #Hotcoin #P2P</figcaption></figure>
+    </div>
+
+    <div class="slot">
+      <div class="text">
+        <p><span class="time">10:00</span><span class="kind trig">Countdown · 5 days left</span></p>
+        <h3>The bridge: day 9 of 14</h3>
+        <p class="why">The line runs along the deck of the 25 de Abril bridge and stops at today (9 of 14 days). The rest of the span is dashed to the closing date. Progress shown with a real object, no progress bar.</p>
+      </div>
+      <figure class="post" style="margin:0"><img src="img/1000-ponte.jpg" alt="25 de Abril bridge in black and white, a lime line along the deck stops at day 9 of 14, dashed to 20.11." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>Faltam 5 dias 🌉
+
+Novo em futuros? O 1.º trade (volume a partir de 500 USDT) tem 100% da perda líquida coberta, até 50 USDT, em Futures Trial Funds. Para os primeiros 1.000 utilizadores.
+
+Fecha a 20.11 às 10:00 (Lisboa).
+👉 <a href="https://www.hotcoin.com/en_US/announcement/futures-loss-protection/">hotcoin.com/…/futures-loss-protection</a>
+
+Negociar futuros envolve risco elevado. #Hotcoin</figcaption></figure>
+    </div>
+
+    <div class="slot check">
+      <div class="text">
+        <p><span class="time">12:00</span><span class="kind chk">Check 2 · midday</span></p>
+<div class="log"><span class="dim">$ fetch announcements  →  newest still 2026-11-09</span>
+<span class="ok">✓ nothing new · P2P closed 10:00 → marked TERMINOU, results post scheduled for +7 business days</span>
+<span class="dim">If a new event appears here: parse period + reward type, convert UTC+8 → Lisbon,
+add to events.json, draft a LAUNCH post for the next free slot, ping for approval.</span></div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="text">
+        <p><span class="time">12:30</span><span class="kind">What to watch · PT version</span></p>
+        <h3>The week as a calendar</h3>
+        <p class="why">Main channel runs a ticker list with prices. PT gets the week as a calendar in Lisbon hours, mixing market dates (Nvidia results, Fed minutes) with Hotcoin closing times. Sunday is the right day for it.</p>
+      </div>
+      <figure class="post" style="margin:0"><img src="img/1230-agenda.jpg" alt="White week calendar Monday to Friday with five marked times; Nvidia results highlighted." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>A semana em cinco horas marcadas 🗓️
+
+Seg 04:00 · Earn Boost fecha
+Ter 21:20 · Nvidia, resultados do 3.º trimestre ($NVDAB)
+Qua 19:00 · Fed, atas de outubro
+Qui 15:59 · TradFi Wall Street fecha
+Sex 10:00 · Proteção de futuros fecha
+
+Horas de Lisboa. Qual delas mexe com a sua carteira? 👇
+Não é aconselhamento financeiro. #Hotcoin #Nvidia #Fed</figcaption></figure>
+    </div>
+
+    <div class="slot">
+      <div class="text">
+        <p><span class="time">14:00</span><span class="kind">Meme of the day</span></p>
+        <h3>Six red weeks, one Lisbon hill</h3>
+        <p class="why">Own meme from a free photo (back view, anonymous), never a copyrighted meme template. Ties to a fact the Research account already posted (BTC closed 6 straight red weeks).</p>
+      </div>
+      <figure class="post" style="margin:0"><img src="img/1400-meme.jpg" alt="Elderly man seen from behind walking slowly up a Lisbon street, meme caption above." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>Domingo à tarde, sem pressa. O importante é continuar a subir a calçada 🫡
+#Hotcoin #Bitcoin</figcaption></figure>
+    </div>
+
+    <div class="slot check">
+      <div class="text">
+        <p><span class="time">16:00</span><span class="kind chk">Check 3 · afternoon</span></p>
+<div class="log"><span class="ok">✓ no changes · Earn Boost: 12 h left → 17:00 last-night post confirmed</span>
+<span class="dim">Also checks: rule edits on live event pages (reward amounts, caps), early sell-outs (NEFE allocation).</span></div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="text">
+        <p><span class="time">17:00</span><span class="kind trig">Last night · Earn Boost</span></p>
+        <h3>The receipt on the counter</h3>
+        <p class="why">Worked example instead of a tier table: what 5,000 USDT in fixed-term Earn returns in bonuses. States reward types and that tiers do not stack.</p>
+      </div>
+      <figure class="post" style="margin:0"><img src="img/1700-talao.jpg" alt="Receipt lying on a marble cafe counter showing a 120 USDT bonus total for a 5,000 USDT subscription." loading="lazy" width="860" height="1075">
+        <figcaption class="cap"><span class="acct">@Hotcoin Português</span>Última noite do Earn Boost ☕
+
+Subscreva Earn a prazo fixo até às 04:00 de segunda (Lisboa):
+→ 1.ª subscrição a partir de 500 USDT: +20 USDT em Futures Trial Funds
+→ Escalões até 1.000 USDT em Earn Trial Funds (conta só o mais alto)
+
+👉 <a href="https://www.hotcoin.com/en_US/announcement/HotcoinEarnRewardsBoost1/">hotcoin.com/…/HotcoinEarnRewardsBoost1</a>
+Não é aconselhamento financeiro. #Hotcoin #Earn</figcaption></figure>
+    </div>
+
+    <div class="slot">
+      <div class="text">
+        <p><span class="time">19:00</span><span class="kind">Text post · poll</span></p>
+        <h3>Community question</h3>
+        <p class="why">No image. The kind of question PT Twitter answers: local rivalry, low effort to reply, gives us the next week's content angle.</p>
+      </div>
+      <div class="textpost">Pergunta séria: qual é a cidade mais cripto de Portugal? 🇵🇹
+
+🅰️ Lisboa
+🅱️ Porto
+🅲 Braga
+🅳 Funchal
+
+Justifiquem 👇</div>
+    </div>
+
+    <div class="slot">
+      <div class="text">
+        <p><span class="time">21:30</span><span class="kind">Text post · Sunday night</span></p>
+        <h3>Local humour, no product</h3>
+        <p class="why">Keeps the account human between event posts. Neutral, no team names, no politics.</p>
+      </div>
+      <div class="textpost">Domingo à noite em Portugal:
+50% a ver o jogo
+50% a ver o gráfico
+100% a jurar que amanhã começa o ginásio</div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="tracker">
+  <h2 id="tracker">Event tracker</h2>
+  <p class="lede">Every event from the announcements list lives in <span class="mono" style="text-transform:none">social/pt/tracker/events.json</span>. The planner turns each one into milestone posts automatically: launch, halfway, 48 h left, last day, ended, and results (7 business days after the end).</p>
+  <div class="gantt"><svg id="g" viewBox="0 0 1000 360" role="img" aria-label="Timeline of Hotcoin events from 1 to 21 November with milestones and a marker for Sunday 15 November 08:00"></svg></div>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--ink)"></i>Event running</span>
+    <span><i class="sw" style="background:var(--lime)"></i>Last 24 h (last-day post)</span>
+    <span><i class="sw" style="background:var(--check)"></i>Now (Sun 08:00 Lisbon)</span>
+    <span>◆ Halfway post</span>
+  </div>
+</section>
+
+<section aria-labelledby="loop">
+  <h2 id="loop">The three daily checks</h2>
+  <div class="grid3">
+    <div class="box"><p class="mono muted">08:00 Lisbon · before work</p><h3>Plan the day</h3>
+      <ul><li>Fetch the announcements list and every live event page</li><li>Add new events, re-read rules on changed ones</li><li>Run the planner, draft the day's posts into Publer for approval</li></ul></div>
+    <div class="box"><p class="mono muted">12:00 Lisbon · midday</p><h3>Catch launches</h3>
+      <ul><li>New announcement → launch post in the next free slot</li><li>Event that ended this morning → mark it, schedule results post</li><li>Move posts if something sold out early</li></ul></div>
+    <div class="box"><p class="mono muted">16:00 Lisbon · afternoon</p><h3>Confirm the evening</h3>
+      <ul><li>Re-check closing times for tonight's last-call posts</li><li>Watch caps and allocations (first-come pools)</li><li>Hand the evening queue over, flag anything uncertain</li></ul></div>
+  </div>
+  <p class="muted" style="max-width:70ch">How it runs: three scheduled tasks fire into this workspace at those times. Each one runs the checks, updates the tracker and leaves drafts in Publer. Nothing publishes without your approval unless you switch that on. Ready to schedule as soon as you say go.</p>
+</section>
+
+<section aria-labelledby="formats">
+  <h2 id="formats">The PT format library</h2>
+  <p class="lede">Each format is a real object or place, so the feed never repeats a layout two days running. Green appears once per image, as a line or a dot on something real.</p>
+  <div class="formats">
+    <div class="fmt"><img src="img/v3-03-subida.jpg" alt="Tram climbing a Lisbon hill with a lime line on the rail" loading="lazy" width="860" height="1075"><h3>Line on a photo</h3><p class="muted">Rails, paths, bridge decks, alleys. For Earn, countdowns, GM.</p></div>
+    <div class="fmt"><img src="img/0900-partidas.jpg" alt="Departures board" loading="lazy" width="860" height="1075"><h3>Partidas</h3><p class="muted">Daily event status as a station board.</p></div>
+    <div class="fmt"><img src="img/1700-talao.jpg" alt="Receipt" loading="lazy" width="860" height="1075"><h3>Talão</h3><p class="muted">Worked reward examples as a café receipt.</p></div>
+    <div class="fmt"><img src="img/1230-agenda.jpg" alt="Week calendar" loading="lazy" width="860" height="1075"><h3>Agenda</h3><p class="muted">PT What to Watch, Sundays and Mondays.</p></div>
+    <div class="fmt"><img src="img/v2-03-jornal.jpg" alt="Newspaper front page" loading="lazy" width="860" height="1075"><h3>Portugal Explicado</h3><p class="muted">Local news, one topic, three numbers.</p></div>
+    <div class="fmt"><img src="img/gm-02-sol.jpg" alt="Lisbon alley in morning sun with a falling lime line" loading="lazy" width="860" height="1075"><h3>GM, red day</h3><p class="muted">Market down, still a morning post.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="next">
+  <h2 id="next">Next stage: generated branded objects</h2>
+  <div class="grid3">
+    <div class="box"><h3>What gets added</h3><p>A recurring series of everyday Portuguese objects carrying the Hotcoin mark, shot like lifestyle photography, in the spirit of the branded-object posts you shared: a lime bica cup, a tram ticket, a pastel de nata box with a seal, a beach towel on the Algarve sand.</p></div>
+    <div class="box"><h3>How the logo stays real</h3><p>The image model generates the object with a blank label. The official logo PNG is composited onto it in code. The model never draws the logo, so it is never distorted or faked.</p></div>
+    <div class="box"><h3>What it needs</h3><p>An API key for an image model (fal.ai or Replicate, saved in environment settings). Roughly a cent or two per image. Each batch is approved before it is spent.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="week">
+  <h2 id="week">The weekly rhythm</h2>
+  <div class="week"><table>
+    <thead><tr><th>Day</th><th>Morning</th><th>Midday</th><th>Afternoon</th><th>Evening</th></tr></thead>
+    <tbody>
+      <tr><td class="t">Mon</td><td>GM</td><td>Agenda da semana</td><td>Event countdown</td><td>Text post</td></tr>
+      <tr><td class="t">Tue</td><td>Partidas board</td><td>Portugal Explicado</td><td>Meme of the day</td><td>Event post if due</td></tr>
+      <tr><td class="t">Wed</td><td>GM</td><td>Ganhar com a Hotcoin (Talão)</td><td>Local news, one number</td><td>Poll</td></tr>
+      <tr><td class="t">Thu</td><td>Partidas board</td><td>Line-on-photo (Earn or futures)</td><td>Meme of the day</td><td>Text post</td></tr>
+      <tr><td class="t">Fri</td><td>GM</td><td>Weekend last calls</td><td>Glossário (one term)</td><td>Branded object (from stage 2)</td></tr>
+      <tr><td class="t">Sat</td><td>GM</td><td>Euro lens quiz</td><td colspan="2">Light: one meme or text post</td></tr>
+      <tr><td class="t">Sun</td><td>GM</td><td>Agenda for the week</td><td>Meme</td><td>Text post</td></tr>
+    </tbody></table></div>
+  <p class="muted">Event milestone posts from the tracker take priority and move the slot they land on.</p>
+</section>
+
+<section aria-labelledby="open">
+  <h2 id="open">Before this goes live</h2>
+  <div class="flag">
+    <h3>Three decisions needed</h3>
+    <ul style="margin:0;padding-left:18px;display:grid;gap:8px">
+      <li><b>MiCA.</b> Portugal's rules have been in force since 1 July 2026. Check with compliance whether event promos can target residents of Portugal.</li>
+      <li><b>Portugal or Brazil.</b> The copy is European Portuguese with Lisbon time. Confirm the audience.</li>
+      <li><b>Approval mode.</b> Drafts for approval (default), or auto-publish for GM, memes and text posts only.</li>
+    </ul>
+  </div>
+  <p class="muted" style="font-size:13px">Sources: hotcoin.com announcements (checked 14 Nov 2026); Nvidia investor relations, Q3 FY27 call set for 17 Nov; Federal Reserve November 2026 calendar, minutes on 18 Nov at 2 pm ET; Hotcoin Research post of 14 Nov for the six red weeks. Photos: Unsplash License, credited in FOOTAGE_CREDITS.md.</p>
+</section>
+</div>
+
+<script>
+(function(){
+  const ev=[
+    ['Spot All-Round #23','2026-11-01T00:00:00+08:00','2026-11-14T23:59:00+08:00'],
+    ['P2P Challenge','2026-11-05T18:00:00+08:00','2026-11-15T18:00:00+08:00'],
+    ['Wall Street Earnings','2026-11-06T00:00:00+08:00','2026-11-19T23:59:00+08:00'],
+    ['Earn Boost','2026-11-06T12:00:00+08:00','2026-11-16T12:00:00+08:00'],
+    ['Futures Loss Protection','2026-11-06T18:00:00+08:00','2026-11-20T18:00:00+08:00'],
+    ['Stardrop x KOR','2026-11-07T00:00:00+08:00','2026-11-13T23:59:00+08:00'],
+    ['NEFE Earn','2026-11-09T00:00:00+08:00',null]
+  ];
+  const t0=Date.parse('2026-11-01T00:00:00Z'), t1=Date.parse('2026-11-22T00:00:00Z'), now=Date.parse('2026-11-15T08:00:00Z');
+  const X0=190, X1=980, x=t=>X0+(t-t0)/(t1-t0)*(X1-X0), rowH=38, top=40;
+  const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const ink=css('--ink'), lime=css('--lime'), rule=css('--rule'), muted=css('--muted'), chk=css('--check');
+  let s='';
+  for(let d=1; d<=21; d+=2){const xx=x(Date.parse(`2026-11-${String(d).padStart(2,'0')}T00:00:00Z`));
+    s+=`<line x1="${xx}" x2="${xx}" y1="${top-10}" y2="${top+ev.length*rowH}" stroke="${rule}" stroke-width="1"/><text x="${xx}" y="${top-16}" font-family="Martian Mono, monospace" font-size="11" fill="${muted}" text-anchor="middle">${d}.11</text>`;}
+  ev.forEach((e,i)=>{const y=top+i*rowH+8, a=Date.parse(e[1]), b=e[2]?Date.parse(e[2]):t1;
+    s+=`<text x="0" y="${y+15}" font-family="Inter Tight, sans-serif" font-size="14" fill="${ink}">${e[0]}</text>`;
+    s+=`<rect x="${x(a)}" y="${y}" width="${Math.max(2,x(b)-x(a))}" height="20" rx="4" fill="${ink}" opacity="${b<now?0.35:1}"/>`;
+    if(e[2]){s+=`<rect x="${x(b-864e5)}" y="${y}" width="${x(b)-x(b-864e5)}" height="20" rx="4" fill="${lime}" opacity="${b<now?0.5:1}"/>`;
+      const m=(a+b)/2; s+=`<rect x="${x(m)-5}" y="${y+5}" width="10" height="10" fill="${lime}" stroke="${ink}" stroke-width="1.5" transform="rotate(45 ${x(m)} ${y+10})"/>`;}
+    else s+=`<text x="${x(b)-6}" y="${y+15}" font-family="Martian Mono, monospace" font-size="10" fill="${css('--paper')}" text-anchor="end">até esgotar →</text>`;
+  });
+  const nx=x(now); s+=`<line x1="${nx}" x2="${nx}" y1="${top-6}" y2="${top+ev.length*rowH+4}" stroke="${chk}" stroke-width="2.5"/><text x="${nx+6}" y="${top+ev.length*rowH+20}" font-family="Martian Mono, monospace" font-size="11" fill="${chk}">dom 15.11 08:00</text>`;
+  const g=document.getElementById('g'); g.setAttribute('viewBox',`0 0 1000 ${top+ev.length*rowH+34}`); g.innerHTML=s;
+})();
+</script>

@@ -1,0 +1,24 @@
+{
+  "_note": "Hotcoin live events tracked for the PT channel. Times are UTC+8 as published; the planner converts to Lisbon. Checked 2026-11-14 against hotcoin.com/en_US/support/nav/2 (announcements list).",
+  "events": [
+    {"id": "p2p-challenge-1", "pt": "Desafio P2P", "start": "2026-11-05T18:00:00+08:00", "end": "2026-11-15T18:00:00+08:00",
+     "url": "https://www.hotcoin.com/en_US/announcement/HotcoinP2PEcosystemChallenge1/",
+     "hook": "1.º trade P2P de 200 USDT: 20 USDT em Futures Trial Funds", "reward_type": "Futures Trial Funds / Earn Trial Funds"},
+    {"id": "earn-boost-1", "pt": "Earn Boost", "start": "2026-11-06T12:00:00+08:00", "end": "2026-11-16T12:00:00+08:00",
+     "url": "https://www.hotcoin.com/en_US/announcement/HotcoinEarnRewardsBoost1/",
+     "hook": "Até 1.000 USDT em Earn Trial Funds; escalões não acumulam", "reward_type": "Earn Trial Funds + 20 USDT Futures Trial Funds"},
+    {"id": "futures-loss-protection", "pt": "Proteção de perdas em futuros", "start": "2026-11-06T18:00:00+08:00", "end": "2026-11-20T18:00:00+08:00",
+     "url": "https://www.hotcoin.com/en_US/announcement/futures-loss-protection/",
+     "hook": "1.º trade de futuros: 100% da perda líquida, até 50 USDT", "reward_type": "Futures Trial Funds"},
+    {"id": "wall-street-earnings", "pt": "Época de resultados de Wall Street (TradFi)", "start": "2026-11-06T00:00:00+08:00", "end": "2026-11-19T23:59:00+08:00",
+     "url": "https://www.hotcoin.com/en_US/announcement/wall-street-earnings-season/",
+     "hook": "Até 1.060 USDT em Futures Trial Funds a negociar TradFi", "reward_type": "Futures Trial Funds"},
+    {"id": "nefe-earn", "pt": "NEFE Earn", "start": "2026-11-09T00:00:00+08:00", "end": null,
+     "url": "https://www.hotcoin.com/en_US/announcement/HotcoinNEFEEarnLimitedOffer/",
+     "hook": "Até 15% APR, prazo fixo de 180 dias, até esgotar", "reward_type": "Earn APR"},
+    {"id": "stardrop-kor", "pt": "Stardrop x KOR", "start": "2026-11-07T00:00:00+08:00", "end": "2026-11-13T23:59:00+08:00",
+     "url": "https://www.hotcoin.com/en_US/announcement/stardrop-kor/", "hook": "Prémios em KOR creditados até 7 dias úteis após o fim", "reward_type": "KOR"},
+    {"id": "spot-challenge-23", "pt": "Spot All-Round #23", "start": "2026-11-01T00:00:00+08:00", "end": "2026-11-14T23:59:00+08:00",
+     "url": "https://www.hotcoin.com/en_US/announcement/spot-all-round-challenge-23/", "hook": "Prémios de 300.000 USDT", "reward_type": "USDT"}
+  ]
+}

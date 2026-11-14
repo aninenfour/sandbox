@@ -365,6 +365,7 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Hallway (Partidas board bg): Manuel Palmeira, https://unsplash.com/photos/sURd6ViiuhU
 - Cup on marble (Earn receipt bg, cup recoloured to brand green): Ryan Kwok, https://unsplash.com/photos/_GU2LOQrE7k
 - Elevador da Bica tram (A subida): Who's Denilo ?, https://unsplash.com/photos/PbrvABXEEh8
-- Man walking uphill, back view (reserve): Annie Spratt, https://unsplash.com/photos/Y77uRYcV9bw
 - GM touching grass (park path, walker seen from behind): Joakim Kingstrom, https://unsplash.com/photos/nT4yhOd5SF4
 - GM market down (sunlit Lisbon alley): Bart ter Haar, https://unsplash.com/photos/C5HHKkfquJo
+- 25 de Abril bridge (futures countdown, day demo): imren tutuncu, https://unsplash.com/photos/aSw7b8HA3_8
+- Man walking uphill, back view (meme of the day): Annie Spratt, https://unsplash.com/photos/Y77uRYcV9bw
