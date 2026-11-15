@@ -1,0 +1,46 @@
+{
+ "window": "24H to Nov 15 22:04 (UTC+8)",
+ "date": "NOV 15",
+ "gainers": [
+  {
+   "sym": "GNR",
+   "name": "",
+   "ch": 40.11,
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "ULTIMA",
+   "name": "Ultima",
+   "ch": 37.53,
+   "logo": "ultima",
+   "bg": "#0d5bdb",
+   "glow": "#0d5bdb"
+  },
+  {
+   "sym": "JCT",
+   "name": "Janction",
+   "ch": 21.93,
+   "logo": "jct",
+   "bg": "#000001",
+   "glow": "#e9a16f"
+  },
+  {
+   "sym": "DNA",
+   "name": "NeoSoul",
+   "ch": 13.83,
+   "logo": "dna",
+   "bg": "#000000",
+   "glow": "#ff9330"
+  },
+  {
+   "sym": "MEGA",
+   "name": "MegaETH",
+   "ch": 9.98,
+   "logo": "mega",
+   "bg": "#312c2e",
+   "glow": "#dfd9d9"
+  }
+ ]
+}

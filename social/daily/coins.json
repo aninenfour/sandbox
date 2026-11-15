@@ -472,5 +472,26 @@
   "twitter": "solana",
   "image": "https://coin-images.coingecko.com/coins/images/4128/large/solana.png?1718769756",
   "logo": "sol"
+ },
+ "ULTIMA": {
+  "id": "ultima",
+  "name": "Ultima",
+  "twitter": "UltimaEcosystem",
+  "image": "https://coin-images.coingecko.com/coins/images/31844/large/ULTIMA-200x200.png?1763090865",
+  "logo": "ultima"
+ },
+ "DNA": {
+  "id": "neosoul",
+  "name": "NeoSoul",
+  "twitter": "NeoSoulAI",
+  "image": "https://coin-images.coingecko.com/coins/images/102179566/large/dna.png?1792145606",
+  "logo": "dna"
+ },
+ "MEGA": {
+  "id": "megaeth",
+  "name": "MegaETH",
+  "twitter": "megaeth",
+  "image": "https://coin-images.coingecko.com/coins/images/69995/large/9fcb2fa4-b240-46e2-9016-c4f6101a139d.jpeg?1778485816",
+  "logo": "mega"
  }
 }
