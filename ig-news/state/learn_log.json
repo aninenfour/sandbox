@@ -57,5 +57,20 @@
   ],
   "experiment": "story-first WHAT IF hooks (person/moment in hook line); baseline ~110 IG reach",
   "last_experiment_result": "v2 template held reach (Tesla 106 vs Switch 121)"
+ },
+ {
+  "week": "2026-W46",
+  "patterns": [
+   "one known object/person beats DCA or downside on every channel",
+   "visual first, number second (GTA grid TikTok 915, best of week)",
+   "TikTok rewards people stories (likes 20-25) even when IG doesn't"
+  ],
+  "shipped": [
+   "ngrid visual-first photo grid slide (news2.py/render.py), rotation rule in PLAYBOOK",
+   "WHAT IF = single purchases only, DCA retired",
+   "viral hook rules: then-vs-now price, one object close-up, Ranking X; calendar to Dec 13"
+  ],
+  "experiment": "one ngrid slide per news/Academy carousel (5/7 Academy, 4/7 news); judge IG reach+saves+shares vs W46 (news ~29, Academy ~21)",
+  "last_experiment_result": "DROP story-first WHAT IF hooks: WHAT IF IG avg 76 vs ~110 baseline; object choice mattered, not hook wording"
  }
 ]

@@ -41,6 +41,13 @@ Every number, date, name and quote must match **two independent sources** (or on
 - (Alternative cover) **`ncover`**: real photo card on top + up to 2 floating stat `chips` ({v, l, neg}) with the key numbers + `headline` (one sentence, ≤ 9 words, `[green highlight]` on the key thing, `{red}` on the twist). Optional `insets` (logos).
 - **Slides 2–3: two DIFFERENT graphic layouts**, chosen for the data: `nbars` (2–5 values to compare), `nbig` (one number that matters; `neg` for bad news, `spark` list for a trend, `delta` pill), `nrows` (3–5 facts as stat rows with logo/emoji, like Hotcoin's X gainer/unlock posts), `nphoto` (second real photo with a one-line `overlay`). Each takes `tag` (WHAT HAPPENED / WHY IT MATTERS / THE CATCH / BY THE NUMBERS), a short `title`, `text` lines and `source`. **Don't repeat yesterday's pair** (check `layouts` in the last log.json news entry) and log `"layouts": ["nbars","nbig"]`.
 - Example: `ig-news/posts/_test-robinhood-v2/post.json` (all five layouts).
+- **`ngrid` = visual-first photo grid (W46, owner Nov 14 "visual first, text numbers later").** Full-bleed 2-4 photo cells, each
+  `{photo, label, value, sub?, logo?, neg?, photo_pos?}`, plus optional `pill` (+`pill_neg`), `title`, `text` (one line).
+  Example: `ig-news/posts/_test-ngrid/post.json`. **Rotation rule:** every news post and every Academy post uses `ngrid` for
+  exactly ONE content slide when the story has 2-4 comparable numbers (prices then/now, assets side by side, winners vs losers);
+  the other content slides stay on the light layouts (nbars / nbig / nrows / nphoto for news, tslide A/B for Academy), so at
+  least 2 carousel layouts are always in rotation. Log it in `layouts` like the others. No ngrid when there is no real photo for
+  every cell; never two ngrid slides in a row on the same post.
 - **No source line on the slides (owner, Oct 29).** Keep `source` in post.json for the log, and put sources in the first comment / caption.
 - **Collision check (owner, Oct 29):** render.py prints `WARNING slide N collision: ...` for overlapping boxes, cut-off text and anything off the slide edge. A post with any warning is not finished: shorten the text or change the layout, re-render, and only schedule when render.py prints no WARNING lines. Still look at the contact sheet yourself.
 Voice: confident, plain English, slightly provocative hook, no hype words ("moon", "huge"), no price predictions, no trading advice.
@@ -66,7 +73,7 @@ Covers: one strong photo of a face (crop to eyes in the top third) plus 1–2 ci
 
 ## 6. Tutorial: Hotcoin Academy (light paper style, 6–8 slides)
 **v2 (Oct 29): add `"style": "v2"` to post.json.** Same slide kinds, new fonts, and on every chapter slide the chart/visual sits **on top** (right under the title) and grows to fill the slide; 1–2 short paragraphs go under it (≤ 40 words). Cover title = the result in plain words (see STYLE_NOTES hooks), e.g. "Bitcoin turned $1,000 into <hl2>$8,648.</hl2>", never a riddle like "$1,000 since 2020. Who won?".
-Topics rotate across: coin/stock deep dive (what it is, tokenomics, chart, holders), on-chain data (stablecoin supply, ETF flows, exchange reserves, fees), how-to (read a funding rate, what an unlock does, how ETFs work), history (a famous cycle, hack or launch), investment explainer (DCA vs lump sum, with real historical numbers). Tie to the week's news where possible.
+Visual-first chapter (W46): one of the 3 chapters can be an `ngrid` slide (it counts toward the 4 slides and gets the page number). Topics rotate across: coin/stock deep dive (what it is, tokenomics, chart, holders), on-chain data (stablecoin supply, ETF flows, exchange reserves, fees), how-to (read a funding rate, what an unlock does, how ETFs work), history (a famous cycle, hack or launch), investment explainer (DCA vs lump sum, with real historical numbers). Tie to the week's news where possible.
 Slide kinds: `tcover` (title with `<span class='hl2'>word</span>` highlight, `sub`, `hero` image, `chapters` list) → `tslide` ×4–6 (`num`, `of`, `title`, `paras`, one `visual`) → `end`.
 Visuals: `line` (series + labels + marks), `bars` (+/− values), `donut`, `table`, `timeline`, `stats`, `image`. **At least 3 slides with a data visual, all from real data.** Free sources (no key):
 - Prices/history: `https://api.coingecko.com/api/v3/coins/<id>/market_chart?vs_currency=usd&days=365&interval=daily`
@@ -164,5 +171,6 @@ White background, light motion design (default in stories/whatif.js; `"theme":"d
 - The stock is a coin with its real ticker (`invest.ticker`, `invest.color`).
 - Versus screen: two panels + VS badge, chosen panel ringed, coin flies to the chart.
 - `mode`: `lump` (one-time money, e.g. a console) or `dca` (little by little: subscriptions, a new phone every 2 years, PC upgrades). Series rows are [date, worth, spent].
+  **W46: use `lump` only.** DCA/subscription WHAT IFs reached 8-48 on IG vs 113-131 for single purchases; pick one known object with a launch price (anniversaries first).
 - Moving camera: the coin stays near the centre, years scroll left, the $ scale re-fits, so the coin climbs/falls in place. Two counters (paid vs stock), reveal shows both + "Nx MORE".
 - Use real price histories for DCA (e.g. Netflix US standard plan: $7.99 2011 → $19.99 2026) and say "price only" in the caption.

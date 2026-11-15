@@ -28,6 +28,28 @@ Newest rules win over older ones and over PLAYBOOK.md wording where they conflic
   claim, or a direct question to the viewer. Prefer these over a date + fact line.
 - Comment replies: parked by the owner (later).
 
+## WEEKLY LEARNING W46 (Nov 16): visual first, single-thing hooks
+- **New slide kind `ngrid` (visual-first photo grid), from the GTA V/VI grid the owner asked for on Nov 14.** 2-4 full-bleed
+  real photos fill the slide. Each cell has one green label block ("S&P 500", "1 Bitcoin, Dec 31") and ONE big number. Optional:
+  a result pill where the cells meet (`"pill": "506x"`, `"pill_neg": true` for a loss), a short `title` (max ~6 words) and one
+  bottom line `text` (max ~12 words). The photo is the slide; the number is the second thing you read. No tables, no paragraphs.
+  - 2 cells = then / now (same thing, two dates). 3 cells = the winner big on top + 2 below. 4 cells = 2x2 comparison.
+  - Photos: a different real photo per cell (Unsplash / Commons / press), recognisable at thumbnail size (coin, gold bars,
+    the exchange floor, the product). Logos only as the small round `logo` in the cell.
+  - Before/after: research/2026-W46/before_after.jpg (Nov 12 Academy table vs the same numbers as ngrid).
+- **Hook rules from the W46 viral check** (YouTube Shorts scan + our own TikTok numbers):
+  1. **Then vs now price of one thing everyone knows** ("1990 vs 2026 McDonald's prices", Mark Tilbury, 14M views; our GTA grid,
+     915 TikTok reach, best post of the week). WHAT IF hook = the thing + year + price, then the stock:
+     Before: "$10 A MONTH SINCE 2018 / MUSIC OR STOCK?" After: "PS5 IN 2020: $499. / SAME $499 IN SONY?"
+  2. **One object, one story, never a subscription.** Single purchases did 113-131 IG reach (PS5, Minecraft, landfill BTC);
+     DCA / subscription WHAT IFs did 8-48 (Netflix, Spotify) and the "bought the top" downside one did 29. DCA WHAT IFs are
+     retired from the 21:30 slot until a test says otherwise. Show the object close up in the first frame (Diet Coke silver bar
+     reveal, humphrey, 1.7M).
+  3. **"Ranking X" of things people use** (Graham Stephan: credit cards 2.2M, money books 453K, money habits 284K). For the
+     Saturday tier list and Academy: rank familiar products or habits, not only tickers. Cover: "Ranking 6 ways to hold Bitcoin".
+- Academy / news covers keep the face + one number + short question pattern ("Binance hacked for $6B?", "$800K bottom?"),
+  answered with past data only.
+
 ## Hooks (cover headline + caption first line)
 - **CLEAR FIRST (owner, Oct 28).** A stranger must understand the cover with no other slide: name the thing + the result/number in plain words. Riddles and teasers that hide the answer are banned.
   - Bad: "$1,000 since 2020. Who won?" · "Is this the end?" · "Robinhood just did something wild"
@@ -64,6 +86,7 @@ Examples (before → better):
   Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
 
 ## Changelog
+- 2026-11-16 (weekly learning W46): `ngrid` visual-first photo grid slide added (news + Academy); WHAT IF slot = single purchases only (DCA retired); then-vs-now and "Ranking X" hook rules.
 - 2026-10-31 (daily review): "on this exact day" anniversary hooks win. The team's 1929 Black Tuesday Reel (posted on Oct 29) reached 162 IG / 263 FB, the best of the week. When a story, launch or crash has an anniversary in the next 7 days, post it ON that day and open with "On this exact day in YEAR..." (e.g. Xbox 360 launch Nov 22, PS5 Nov 12, ChatGPT Nov 30, Bitcoin whitepaper Oct 31).
 - 2026-10-30 (owner): WHAT IF dots/cards must be instantly readable: brand logos or clean product cut-outs, never dark photo crops.
 - 2026-10-29 (owner): covers use real faces of the people behind the story (CEOs, officials, founders) with the company logo badge; place/product photos only when no person fits.

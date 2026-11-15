@@ -10,6 +10,9 @@ Slide kinds (pick a different graphic for slides 2 and 3, and don't repeat yeste
   nbig    one giant number on a green card (+ optional sparkline / delta pill), short lines under
   nrows   3-5 glass rows (logo/emoji, label, value) like Hotcoin's X unlock/gainer posts, short lines under
   nphoto  second photo on top with a one-line overlay fact, short lines under
+  ngrid   VISUAL-FIRST photo grid (owner, Nov 14: "visual first, text numbers later"): 2-4 full-bleed photo cells
+          (2 = then/now rows, 3 = big top + 2, 4 = 2x2), each with a green label block + one big number, an optional
+          multiple/result pill where the cells meet, an optional short headline and one bottom line. News AND Academy.
 """
 import base64, html as H, pathlib, re
 
@@ -93,6 +96,36 @@ CSS = """
 .v2 .n2-pf{position:absolute;left:44px;right:44px;border-radius:44px;background-size:cover;background-position:center;z-index:2;box-shadow:0 30px 70px rgba(14,26,18,.22);overflow:hidden}
 .v2 .n2-pf:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%%,rgba(0,0,0,.78))}
 .v2 .n2-pf .n2-ov{position:absolute;left:44px;right:44px;bottom:40px;color:#fff;font-family:'Archivo';font-weight:800;font-stretch:110%%;font-size:54px;line-height:1.05;letter-spacing:-.02em;z-index:2}
+
+/* visual-first photo grid (weekly style review W46; format of the GTA V/VI grid, Nov 15) */
+.v2.n2-gs{background:#0B0E11}
+.v2.n2-gs:before{display:none}
+.v2 .n2-grid{position:absolute;inset:0;display:grid;gap:5px;z-index:1}
+.v2 .n2-grid.c2{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+.v2 .n2-grid.c3{grid-template-columns:1fr 1fr;grid-template-rows:1.15fr 1fr}
+.v2 .n2-grid.c3 .n2-gc:first-child{grid-column:1 / span 2}
+.v2 .n2-grid.c4{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.v2 .n2-gc{position:relative;background-size:cover;background-position:center;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:96px 26px 70px}
+.v2 .n2-gc:before{content:'';position:absolute;inset:0;background:radial-gradient(closest-side at 50%% 55%%,rgba(5,8,10,.62),rgba(5,8,10,.28) 85%%),linear-gradient(180deg,rgba(5,8,10,.25),rgba(5,8,10,.45))}
+.v2 .n2-gc.hd{padding-top:190px}
+.v2 .n2-grid.c2 .n2-gc{padding-top:70px}
+.v2 .n2-grid.c2 .n2-gc.hd{padding-top:170px}
+.v2 .n2-gc.bot{padding-bottom:150px}
+.v2 .n2-gc.txt.bot{padding-bottom:230px}
+.v2 .n2-gc>*{position:relative;z-index:2}
+.v2 .n2-glg{width:96px;height:96px;border-radius:50%%;border:5px solid #fff;background:#fff center/66%% no-repeat;box-shadow:0 10px 30px rgba(0,0,0,.4);margin-bottom:18px;flex:none}
+.v2 .n2-gl{font-family:'Archivo';font-weight:900;font-stretch:108%%;font-size:46px;letter-spacing:-.02em;line-height:1.05;background:%(green)s;color:#0B0E11;padding:4px 16px;border-radius:8px;text-align:center;max-width:100%%}
+.v2 .n2-gl.neg{background:#FF5A52;color:#fff}
+.v2 .n2-gv{width:100%%;text-align:center;white-space:nowrap;font-family:'Archivo';font-weight:900;font-stretch:115%%;letter-spacing:-.035em;line-height:1;color:#fff;margin-top:18px;text-shadow:0 6px 30px rgba(0,0,0,.6)}
+.v2 .n2-gv.neg{color:#FF6A62}
+.v2 .n2-gsub{font-family:'Archivo';font-weight:800;font-stretch:110%%;font-size:26px;letter-spacing:.1em;color:rgba(255,255,255,.88);margin-top:12px;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.v2 .n2-gp{position:absolute;left:50%%;transform:translate(-50%%,-50%%);z-index:6;background:%(green)s;color:#0B0E11;font-family:'Archivo';font-weight:900;font-stretch:112%%;font-size:54px;letter-spacing:-.02em;padding:12px 34px;border-radius:999px;border:6px solid #0B0E11;box-shadow:0 12px 40px rgba(0,0,0,.5);white-space:nowrap}
+.v2 .n2-gp.neg{background:#FF5A52;color:#fff}
+.v2 .n2-gh{position:absolute;left:40px;right:40px;top:104px;z-index:6;text-align:center;font-family:'Archivo';font-weight:900;font-stretch:100%%;font-size:54px;line-height:1.04;letter-spacing:-.02em;color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.7);text-wrap:balance}
+.v2 .n2-gh .n2-hl{background:none;color:%(green)s;padding:0}
+.v2 .n2-gshade{position:absolute;left:0;right:0;bottom:0;height:300px;z-index:4;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.92) 45%%)}
+.v2 .n2-gt{position:absolute;left:64px;right:64px;bottom:100px;z-index:5;color:#fff;font-size:36px;font-weight:700;line-height:1.3;text-align:center}
+.v2 .n2-gt .n2-hl{color:#0B0E11}
 """
 
 
@@ -210,7 +243,37 @@ def kinds(G):
                 f'<div class="n2-hbox">{tag}<div class="n2-hhl fithero" data-max="{s.get("max", 118)}" style="font-size:{s.get("max", 118)}px">{mark(s["headline"])}</div></div>'
                 f'<div class="n2-hft"><div>@hotcoinex</div><div>Swipe<span class="n2-ar"></span></div></div></div>')
 
-    return {'nhero': nhero, 'ncover': ncover, 'nbars': nbars, 'nbig': nbig, 'nrows': nrows, 'nphoto': nphoto}
+    def ngrid(s, base):  # visual-first photo grid (weekly style review W46): photo first, number second
+        cells = s['cells'][:4]; n = len(cells)
+        assert n >= 2, 'ngrid needs 2-4 cells'
+        bottom = {2: [1], 3: [1, 2], 4: [2, 3]}[n]
+        top = {2: [0], 3: [0], 4: [0, 1]}[n]
+        has_t = bool(s.get('text'))
+        out = ''
+        for i, c in enumerate(cells):
+            cls = 'n2-gc' + (' bot' if i in bottom else '') + (' hd' if i in top and s.get('title') else '') + (' txt' if has_t else '')
+            lg = (f'<div class="n2-glg" style="background-image:url({uri(c["logo"], base)});background-color:{c.get("logo_bg", "#fff")}"></div>'
+                  if c.get('logo') else '')
+            neg = ' neg' if c.get('neg') else ''
+            size = c.get('size', {2: 140, 3: 120, 4: 104}[n] if i or n != 3 else 150)
+            sub = f'<div class="n2-gsub">{H.escape(c["sub"])}</div>' if c.get('sub') else ''
+            lab = f'<div class="n2-gl{neg}">{H.escape(c["label"])}</div>' if c.get('label') else ''
+            val = f'<div class="n2-gv fitn{neg}" style="font-size:{size}px">{H.escape(c["value"])}</div>' if c.get('value') else ''
+            out += (f'<div class="{cls}" style="background-image:url({uri(c["photo"], base)});background-position:{c.get("photo_pos", "center")}">'
+                    f'{lg}{lab}{val}{sub}</div>')
+        pill = ''
+        if s.get('pill'):
+            y = {2: 675, 3: 718, 4: 675}[n]
+            pill = f'<div class="n2-gp{" neg" if s.get("pill_neg") else ""}" style="top:{y}px">{H.escape(s["pill"])}</div>'
+        head = f'<div class="n2-gh">{mark(s["title"])}</div>' if s.get('title') else ''
+        txt = f'<div class="n2-gshade"></div><div class="n2-gt">{mark(s["text"] if isinstance(s["text"], str) else " ".join(s["text"]))}</div>' if has_t else ''
+        last = s.get('_last')
+        sw = '' if last else '<div>Swipe<span class="n2-ar"></span></div>'
+        return (f'<div class="slide v2 n2-gs"><div class="n2-grid c{n}">{out}</div>{pill}'
+                f'<div class="n2-hlogo" style="font-size:32px;top:34px;left:40px"><img src="{G["SYM"]}" style="width:44px;height:44px">Hotcoin</div>{head}{txt}'
+                f'<div class="n2-hft"><div>@hotcoinex</div>{sw}</div></div>')
+
+    return {'nhero': nhero, 'ncover': ncover, 'nbars': nbars, 'nbig': nbig, 'nrows': nrows, 'nphoto': nphoto, 'ngrid': ngrid}
 
 
 # Academy / weekly slides keep their layouts but get the v2 fonts when post.json has "style": "v2".
@@ -264,7 +327,7 @@ ACADEMY_JS = """
 }
 """
 
-KINDS_V2 = {"nhero", "ncover", "nbars", "nbig", "nrows", "nphoto"}
+KINDS_V2 = {"nhero", "ncover", "nbars", "nbig", "nrows", "nphoto", "ngrid"}
 
 FIT_JS = """
 () => {
@@ -292,6 +355,7 @@ CHECK_JS = """
 () => {
   const sel = ['.n2-hlogo','.n2-badge','.n2-htag','.n2-hhl','.n2-hft','.n2-brand','.n2-chip','.n2-tagc','.n2-ttl','.n2-lines','.n2-sc','.n2-ins','.n2-k','.n2-dp','.n2-n','.n2-lb',
     '.n2-card','.n2-bigc','.n2-pf','.n2-ov','.n2-ft','.n2-bv','.n2-bl','.n2-rl','.n2-rv',
+    '.n2-gl','.n2-gv','.n2-gp','.n2-gh','.n2-gt','.n2-glg',
     '.tch','.thl','.tsub','.thero','.tnum','.ttl','.tbody','.vis','.foot'].join(',');
   const ok = [['n2-sc','n2-cph'],['n2-ins','n2-cph'],['n2-sc','n2-ins']];  // meant to sit on top of each other
   const els = [...document.querySelectorAll(sel)].filter(e => { const r = e.getBoundingClientRect(), c = getComputedStyle(e);
@@ -306,7 +370,7 @@ CHECK_JS = """
     const w = Math.min(r.right, q.right) - Math.max(r.left, q.left), h = Math.min(r.bottom, q.bottom) - Math.max(r.top, q.top);
     if (w > 4 && h > 4) out.push(`${name(a)} overlaps ${name(b)} (${Math.round(w)}x${Math.round(h)}px)`);
   }
-  for (const e of document.querySelectorAll('.n2-k,.n2-n,.n2-bv,.n2-rv,.n2-v,.n2-dp,.n2-chip,.n2-tagc'))
+  for (const e of document.querySelectorAll('.n2-gv,.n2-k,.n2-n,.n2-bv,.n2-rv,.n2-v,.n2-dp,.n2-chip,.n2-tagc'))
     if (e.scrollWidth > e.clientWidth + 2) out.push(`${name(e)} text is cut off ("${e.textContent.trim().slice(0, 30)}")`);
   for (const e of els.filter(e => !['thero', 'n2-ins', 'n2-badge'].includes(name(e)))) {
     const r = e.getBoundingClientRect(); if (r.right > 1082 || r.left < -2) out.push(`${name(e)} runs off the slide edge`); }

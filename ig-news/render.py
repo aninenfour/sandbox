@@ -3,7 +3,7 @@
 
 Usage: python3 ig-news/render.py posts/2026-10-16-usdc-eba
 Also writes media/<id>/story.jpg (1080x1920 Instagram Story announcing the post).
-Slide kinds: ncover, nbars, nbig, nrows, nphoto (news v2, see news2.py) · cover, text, end (old news) · tcover, tslide (tutorial) · wcover, wday (weekly).
+Slide kinds: ncover, nbars, nbig, nrows, nphoto, ngrid (news v2, see news2.py) · cover, text, end (old news) · tcover, tslide (tutorial) · wcover, wday (weekly).
 Inline markup in "html" fields: <g>green</g> <r>red</r> <u>underlined</u> <b>bold</b> <q>quote</q>.
 """
 import json, sys, pathlib, base64, mimetypes, html as H
@@ -218,7 +218,7 @@ def main():
                 if x['kind'] == 'tslide': x.setdefault('layout', spec['variant'])
         N = len(spec['slides'])  # counter + number follow the real position; no 'Swipe' on the last slide
         for k, x in enumerate(spec['slides'], 1):
-            if x['kind'] == 'tslide':
+            if x['kind'] in ('tslide', 'ngrid'):  # ngrid = visual-first photo grid (W46), usable as an Academy chapter
                 x['of'] = f'{k}/{N}'; x['num'] = f'{k:02d}'; x['_last'] = (k == N)
     files = []
     with sync_playwright() as p:

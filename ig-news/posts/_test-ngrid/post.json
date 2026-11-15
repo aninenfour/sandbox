@@ -1,0 +1,15 @@
+{"type":"tutorial","style":"v2","date":"NOV 12","_note":"W46 style review test: the Nov 12 '2026 scoreboard' Academy rebuilt with the visual-first ngrid layout. Same verified numbers (Yahoo Finance closes Dec 31 2025 to Nov 11 2026, BLS CPI).","slides":[
+ {"kind":"nhero","photo":"spy.jpg","photo_pos":"50% 50%","tag":"DATA DAY · 2026 SO FAR","headline":"2026 so far: stocks [+11%], gold -8%, Bitcoin -16%"},
+ {"kind":"ngrid","title":"2026 so far","cells":[
+   {"photo":"spy.jpg","label":"S&P 500","value":"+11.3%","sub":"6,846 → 7,619"},
+   {"photo":"nasdaq.jpg","label":"Nasdaq","value":"+9.6%","sub":"23,242 → 25,466"},
+   {"photo":"gold.jpg","label":"Gold","value":"-8.2%","neg":true,"sub":"$4,341 → $3,986"},
+   {"photo":"coins.jpg","label":"Bitcoin","value":"-15.6%","neg":true,"sub":"$87.5K → $73.8K"}]},
+ {"kind":"ngrid","title":"Now take out [3.7%] inflation","text":"Roughly what your money really did this year.","cells":[
+   {"photo":"spy.jpg","label":"S&P 500","value":"+7.6%"},
+   {"photo":"gold.jpg","label":"Gold","value":"-12%","neg":true},
+   {"photo":"coins.jpg","label":"Bitcoin","value":"-19%","neg":true}]},
+ {"kind":"ngrid","pill":"-15.6%","pill_neg":true,"text":"That is one year, not the whole story. Not financial advice.","cells":[
+   {"photo":"coins.jpg","logo":"../../assets/logos/BTC.svg","label":"1 Bitcoin, Dec 31","value":"$87.5K"},
+   {"photo":"coins.jpg","photo_pos":"30% 70%","logo":"../../assets/logos/BTC.svg","label":"1 Bitcoin, Nov 11","value":"$73.8K","neg":true}]}
+]}
