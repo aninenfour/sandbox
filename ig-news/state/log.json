@@ -1588,5 +1588,33 @@
    "Chainalysis via Cointelegraph/The Record: $2.2B 2024, $3.7B 2022, ~$1.8B 2023 (revised from $1.7B)"
   ],
   "note": "Photos Unsplash: CARTIST, Niranjan _ Photographs, Clint Patterson, Mike Tinnion. bars visual now takes per-item color."
+ },
+ {
+  "id": "2026-11-16-cz-binance-62k",
+  "type": "news",
+  "slot": "2026-11-16T10:00:00+08:00",
+  "title": "Bitcoin fell to $62K. CZ says Binance did not sell",
+  "score": 11,
+  "layouts": [
+   "ngrid",
+   "nrows",
+   "nbig"
+  ],
+  "ngrid_used": true,
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story(10:05)",
+   "x_research(11:00, slides 01-04)"
+  ],
+  "sources": [
+   "The Block Nov 15 (BTC low ~$62K, lowest since July; CZ on X 'No, Binance did not sell crypto'; $2.02B liquidations CoinGlass; ETF outflows 7 straight days)",
+   "Cointelegraph Hodler's Digest Nov 15 (CZ quote + 'I bought crypto'; reasons: Anthropic IPO, ETF outflows, Binance hack fears, Fed hike; Anchorage/David Lawant US sell pressure; F&G 10)",
+   "Decrypt Nov 15 (ETF outflow streak 7 days)",
+   "CoinGecko BTC daily Nov 8 00:00 UTC $75,776; hourly low Nov 15 ~$62.6K",
+   "alternative.me Fear and Greed: 28 (Nov 8) -> 10 (Nov 15)"
+  ],
+  "note": "W46 ngrid experiment: used (2-cell then/now: 1 BTC Nov 8 $75.8K vs Sunday low $62K, pill -18%). Photos: CZ Commons 'Changpeng Zhao in 2022.jpg' (Aevozer, CC BY-SA 4.0); Unsplash Traxer + Erling Loken Andersen. BNB logo cryptologos.cc as badge. ETF dollar totals left off (outlets disagree: $1.71B/$1.91B/$2.1B). Calendar Nov 16 news cell updated."
  }
 ]
