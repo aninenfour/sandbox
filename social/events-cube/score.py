@@ -4,7 +4,7 @@
 import sys, numpy as np, soundfile as sf
 SR, DUR, BPM = 48000, 24.0, 120
 BEAT = 60 / BPM; BAR = 4 * BEAT
-FACES = [2.2 + i * 4.6 for i in range(4)]; OUT = 2.2 + 4 * 4.6        # face turns and the outro spin
+FACES = [2.4 + i * 4.5 for i in range(4)]; OUT = 2.4 + 4 * 4.5        # face turns and the outro spin
 N = int(SR * DUR); t = np.arange(N) / SR; rng = np.random.default_rng(4)
 ML = np.zeros(N); MR = np.zeros(N); DL = np.zeros(N); DR = np.zeros(N); KICKS = []
 def add(sig, at, g, pan=0.0, bus='m'):
