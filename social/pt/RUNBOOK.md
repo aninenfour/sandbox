@@ -31,9 +31,9 @@ Read `LOG.md` (what ran, what is queued) before planning.
 - **Recibo** (Earn worked example, green cup, `talao`).
 - **Placar do dia** (top coin vs BTC, `news_br.mjs`), **Raio-X da rede** (one chain a week, DefiLlama), **Raio-X TradFi** (stock news; real person photo allowed ONLY here, licensed CC/press, credit in caption, facts only, no allegations).
 - **Meme of the day**, alternate two kinds (never the same kind two days running, skip some days):
+  - *Real meme templates* (owner rule, 15 Nov 2026): use the actual well-known templates (imgflip / knowyourmeme classics, including the people and products in them) and re-caption them in pt-BR with crypto/market jokes. Example: `meme_regret.mjs` ("não vou comprar esse mico" carousel built on the "why didn't I buy / ain't buying that brick" template). Keep a library in `art/meme/` (`template-*.jpg`).
   - *Serious photo + unhinged caption*: mono photo, lowercase X-style caption, Brazilian life (churrasco, miojo, gerente do banco, 0800, Pix, fim do mês).
-  - *Template formats rebuilt from scratch*: well-known meme layouts (regret then smug, expectativa x realidade, two-button choice, "ninguém: / eu:", before/after) recreated with Unsplash photos where people stay anonymous (face covered, back view, or cropped below the eyes) plus our own text. Example: `meme_regret.mjs` (carousel "não vou comprar esse mico"). Never paste the original template image, never copy brand/product art (draw a neutral stand-in instead).
-  - Prices inside memes are real and dated (script comments + caption). No real public figures, no politics, no club bashing, no product pitch.
+  - Hard lines that stay: no fake endorsement (never make a celebrity or brand look like they use, recommend or partner with Hotcoin), no fake Hotcoin logo use on other brands, no politics, no club bashing, no hate. Prices in memes are real and dated (script comments + caption).
 - **Text posts / polls**: city rivalry, quick questions, Sunday-night humour.
 
 ## 3. Data rules

@@ -4,8 +4,9 @@
 //  ETH: Binance ETHUSDT weekly close w/c 2026-09-28 2,727; July 2026 ~1,786 to 1,955 (~1,800); spot 2026-11-15 01:41 UTC 1,719.
 //  NVDA: Yahoo Finance weekly close w/c 2026-09-28 233.95; w/c 2026-03-23 167.52; close 2026-11-13 162.85.
 //  Pokemon Destined Rivals booster box (approx, trackers disagree): ~US$ 390 early Jan 2026 and ~US$ 564 Feb 2026 (TCGTalk, Feb 2026, TCGPlayer/eBay);
-//  ~US$ 423 Sep 2026 (TCGTalk citing PriceCharting). Unbranded card stack drawn in code; no product art used.
-// Photos (Unsplash License): 550Park (Rdeulgz_4OA, facepalm, face covered), Askas Jeremy (7TI-3jUObYg, grin, cropped below the eyes), Thomas Foster (vWgoeEYdtIY, GPU).
+//  ~US$ 423 Sep 2026 (TCGTalk citing PriceCharting). Box image cropped from the same meme template.
+// People: the well-known "why didn't I buy / ain't buying that brick" meme template (supplied by the owner, art/meme/template-regret.jpg), allowed by the meme-template rule.
+// GPU photo: Thomas Foster (Unsplash, vWgoeEYdtIY).
 // Coin logos: CoinGecko. Run: PW_PATH=$(npm root -g)/playwright node social/pt/meme_regret.mjs
 import {createRequire} from 'module';
 import fs from 'fs';
@@ -29,11 +30,11 @@ body{width:1080px;height:1350px;overflow:hidden;position:relative;background:#ff
 .tag{position:absolute;right:30px;top:70px;transform:rotate(14deg);background:#F1E8D4;border:2px solid #8B7A55;border-radius:10px 18px 18px 10px;padding:12px 22px 12px 34px;font-weight:800;font-size:40px;box-shadow:0 6px 14px rgba(0,0,0,.15)}
 .tag::before{content:"";position:absolute;left:12px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:#fff;border:2px solid #8B7A55}
 </style>`;
-const face = `<img src="${M('facepalm2.jpg')}" style="width:1250px;left:-760px;top:-40px">`;
-const grin = `<img src="${M('smile.jpg')}" style="width:1480px;left:-535px;top:-262px">`;
+const face = `<div style="position:absolute;inset:0;background:#fff url(${M('tpl-regret.png')}) 0 0/cover no-repeat"></div>`;
+const grin = `<div style="position:absolute;inset:0;background:#fff url(${M('tpl-smug.png')}) 0 0/cover no-repeat"></div>`;
 const coin = (f) => `<img src="${M(f)}" style="width:260px;height:260px;filter:drop-shadow(0 18px 24px rgba(0,0,0,.25))">`;
 const gpu = `<div style="width:320px;height:240px;border-radius:18px;overflow:hidden;box-shadow:0 18px 30px rgba(0,0,0,.25)"><img src="${M('gpu.jpg')}" style="width:420px;margin-left:-50px;margin-top:-20px"></div>`;
-const cards = `<div style="position:relative;width:240px;height:320px">${[-14, -5, 6].map((r, i) => `<div style="position:absolute;inset:0;transform:rotate(${r}deg) translate(${i * 14}px,${i * 6}px);border-radius:16px;background:linear-gradient(135deg,#1C2430,#0B0E11);border:8px solid #E9ECEF;box-shadow:0 12px 24px rgba(0,0,0,.25)"><div style="position:absolute;inset:22px;border:3px solid rgba(184,242,106,.5);border-radius:50%"></div><div style="position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:${LIME}"></div></div>`).join('')}</div>`;
+const cards = `<img src="${M('tpl-box.png')}" style="width:330px">`;
 function slide({m1, p1, q1, m2, p2, q2, obj, n}) {
   return `<!doctype html><html><head>${head}</head><body>
 <div class="panel" style="top:0"><div class="person">${face}</div><div class="quote">${q1}</div><div class="item">${obj}</div><div class="tag">${p1}</div><div class="month">${m1}</div></div>

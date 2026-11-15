@@ -10,6 +10,8 @@ plus ready-to-post copy for X, Instagram, LinkedIn, TikTok and Telegram. Read th
 - **No real people's likeness implying endorsement** (no founder/celebrity photos or quotes on promos). Stock people only
   when anonymous (back view, face covered). Footage: only freely licensed or public domain (Unsplash, NASA, Prelinger/archive.org).
   Log every outside photo/footage in `hotcoin-tradfi/FOOTAGE_CREDITS.md`.
+- **Exception, meme posts (owner decision, 15 Nov 2026):** real, well-known internet meme templates may be used as-is,
+  including the people and products in them, re-captioned with our jokes. Still never imply a person or brand endorses Hotcoin.
 - **Never name competitors** in public copy (e.g. don't mention Binance or OKX, even when their news is relevant).
   Styles can be *inspired by* competitors, never copied.
 - **Verify every number and claim** with a source before it goes on a graphic. Put the date of the data on the slide or in
