@@ -117,16 +117,17 @@ window.setT = (t) => {
   field(t, fi, nx, w);
   // overlays
   const zoom = t >= T0 && t < TOUT ? io(seg(l, .5, 1.1)) * (1 - io(seg(l, SEG - .8, SEG - .2))) : 0;
-  document.getElementById('intro').style.opacity = t < TOUT ? (1 - zoom) * (t < T0 ? oc(seg(t, 0, .6)) * 0 + 1 : 1) : 1 - seg(t, TOUT, TOUT + .5);
+  const far = cl((dist - 8.2) / 1.0);   // overlays only when the cube is pulled back
+  document.getElementById('intro').style.opacity = t < TOUT ? far : 1 - seg(t, TOUT, TOUT + .5);
   document.getElementById('intro').style.transform = 'translateY(' + (-zoom * 30) + 'px)';
-  document.getElementById('logo').style.opacity = 1 - zoom;
+  document.getElementById('logo').style.opacity = t < TOUT ? far : 1;
   const e = oc(seg(t, TOUT + 1.2, TOUT + 1.9)); const o = document.getElementById('outro'); o.style.opacity = e; o.style.transform = 'scale(' + (.96 + .04 * e) + ')';
 };
 window.ready = true; window.setT(0);
 </script></body></html>`;
 
 const mode = process.argv[2] || 'sheet';
-const f = DIR + '/_cube.html'; fs.writeFileSync(f, html);
+const f = DIR + '/_cube-' + process.pid + '.html'; fs.writeFileSync(f, html);
 const browser = await chromium.launch({args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--allow-file-access-from-files']});
 const pg = await (await browser.newContext({viewport: {width: S, height: S}, deviceScaleFactor: 1})).newPage();
 pg.on('pageerror', (e) => console.error('page error', e.message)); pg.on('console', (m) => m.type() === 'error' && console.error('console', m.text()));
