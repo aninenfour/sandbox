@@ -101,7 +101,7 @@ def svg_bars(v):
     x0 = 300 + (230 if neg else 0); span = (w - x0 - 140 * F) if not neg else min(230, w - x0 - 120 * F)
     out = []
     for k, i in enumerate(it):
-        y = k * rh; bw = abs(i['v']) / m * span; col = GREEN if i['v'] >= 0 else RED
+        y = k * rh; bw = abs(i['v']) / m * span; col = i.get('color') or (GREEN if i['v'] >= 0 else RED)
         x = x0 if i['v'] >= 0 else x0 - bw
         out.append(f'<text x="0" y="{y+rh/2+9:.0f}" font-size="{27*F:.0f}" font-weight="600" fill="#0E1012">{_esc(i["l"])}</text>'
                    f'<rect x="{x:.0f}" y="{y+12}" width="{max(bw,4):.0f}" height="{rh-24}" rx="8" fill="{col}"/>'
