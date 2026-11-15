@@ -371,3 +371,4 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Man walking uphill, back view (meme of the day): Annie Spratt, https://unsplash.com/photos/Y77uRYcV9bw
 - Jensen Huang, Stanford, 30 Apr 2026 (PT TradFi review, news format only): Anderseidesvik, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Jensen_Huang_Stanford_2026-04-30_010_(cropped).jpg (converted to mono; credit in caption)
 - Coin logos UP (Unitas) and SOL: CoinGecko.
+- PT meme carousel "não vou comprar esse mico": 550Park (https://unsplash.com/photos/Rdeulgz_4OA, facepalm, face covered), Askas Jeremy (https://unsplash.com/photos/7TI-3jUObYg, grin cropped below the eyes), Thomas Foster (https://unsplash.com/photos/vWgoeEYdtIY, GPU). BTC/ETH logos: CoinGecko.

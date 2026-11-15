@@ -30,7 +30,10 @@ Read `LOG.md` (what ran, what is queued) before planning.
 - **Agenda da semana** (Sun or Mon): week calendar with Brasília times, market dates verified.
 - **Recibo** (Earn worked example, green cup, `talao`).
 - **Placar do dia** (top coin vs BTC, `news_br.mjs`), **Raio-X da rede** (one chain a week, DefiLlama), **Raio-X TradFi** (stock news; real person photo allowed ONLY here, licensed CC/press, credit in caption, facts only, no allegations).
-- **Meme of the day**: serious mono photo + lowercase X-style caption, Brazilian life (churrasco, miojo, gerente do banco, 0800, Pix, fim do mês). No copyrighted meme templates, no real people, no politics, no club bashing, no product pitch.
+- **Meme of the day**, alternate two kinds (never the same kind two days running, skip some days):
+  - *Serious photo + unhinged caption*: mono photo, lowercase X-style caption, Brazilian life (churrasco, miojo, gerente do banco, 0800, Pix, fim do mês).
+  - *Template formats rebuilt from scratch*: well-known meme layouts (regret then smug, expectativa x realidade, two-button choice, "ninguém: / eu:", before/after) recreated with Unsplash photos where people stay anonymous (face covered, back view, or cropped below the eyes) plus our own text. Example: `meme_regret.mjs` (carousel "não vou comprar esse mico"). Never paste the original template image, never copy brand/product art (draw a neutral stand-in instead).
+  - Prices inside memes are real and dated (script comments + caption). No real public figures, no politics, no club bashing, no product pitch.
 - **Text posts / polls**: city rivalry, quick questions, Sunday-night humour.
 
 ## 3. Data rules
