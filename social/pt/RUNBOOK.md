@@ -51,6 +51,7 @@ Read `LOG.md` (what ran, what is queued) before planning.
 - Links: event page `https://www.hotcoin.com/en_US/announcement/<slug>/`.
 
 ## 5. After each run
+- Update the Google Sheet **Hotcoin Português · Post log** (id `1s304pmU3-ZIR_JUkyjMXC3ec2gCClxQeApF2IqHXct0`): one row per post (Data, Hora, Formato, Tema, Primeira imagem URL, Legenda 1ª linha, Status, Link no X, Notas), flip Agendado to Publicado with the X link once live, and rewrite row 1 (TOTAL: posts, publicados/agendados, dias ativo desde 14/11/2026, última revisão completa, data de atualização). Editing needs the Google Sheets connector; if it is not available, keep `LOG.md` current and tell the owner the sheet is behind.
 - Append to `LOG.md`: date, time, format, topic, caption first line, status (scheduled / published / failed).
 - Log new photos in `hotcoin-tradfi/FOOTAGE_CREDITS.md`.
 - Commit and push.
@@ -60,3 +61,8 @@ Read `LOG.md` (what ran, what is queued) before planning.
 - Publer error: retry once after checking `list_publer_posts` (avoid duplicates). Still failing → skip that post, note it in LOG.md, tell the owner.
 - Website unreachable: post nothing event-related that day; GM/meme/text can still go.
 - Unsure about a fact: do not post it.
+
+## Full review (every Monday at check 1, and after any rule change)
+- Pull last 7 days from Publer (`analyze_recent_performance` / `get_recent_posts`, Hotcoin Português only): best and worst posts, formats, times.
+- Check tracker accuracy, runbook rules, meme library, photo log; drop what underperformed, add one new format idea.
+- Write the date into row 1 of the Post log ("Última revisão completa") and a short note in LOG.md.
