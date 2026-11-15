@@ -22,19 +22,19 @@ const head = `<meta charset="utf-8"><style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{width:1080px;height:1350px;overflow:hidden;position:relative;background:#fff;color:${INK};font-family:'Bricolage Grotesque';font-variation-settings:'opsz' 96}
 .panel{position:absolute;left:0;right:0;height:675px;overflow:hidden}
-.person{position:absolute;left:0;top:0;width:470px;height:675px;overflow:hidden}
+.person{position:absolute;left:44px;top:36px;width:420px;height:603px;overflow:hidden;border-radius:6px}
 .person img{position:absolute}
-.quote{position:absolute;left:470px;top:56px;width:300px;font-size:44px;font-weight:800;line-height:1.06;letter-spacing:-.5px}
-.month{position:absolute;left:470px;bottom:40px;font-family:'Martian Mono';font-weight:700;font-size:40px;letter-spacing:1px}
-.item{position:absolute;right:40px;top:150px;width:300px;height:340px;display:grid;place-items:center}
-.tag{position:absolute;right:30px;top:70px;transform:rotate(14deg);background:#F1E8D4;border:2px solid #8B7A55;border-radius:10px 18px 18px 10px;padding:12px 22px 12px 34px;font-weight:800;font-size:40px;box-shadow:0 6px 14px rgba(0,0,0,.15)}
+.quote{position:absolute;left:512px;top:64px;width:270px;font-size:44px;font-weight:800;line-height:1.06;letter-spacing:-.5px}
+.month{position:absolute;left:512px;bottom:44px;font-family:'Martian Mono';font-weight:700;font-size:40px;letter-spacing:1px}
+.item{position:absolute;right:60px;top:210px;width:280px;height:340px;display:grid;place-items:center}
+.tag{position:absolute;right:40px;top:178px;transform:rotate(14deg);background:#F1E8D4;border:2px solid #8B7A55;border-radius:10px 18px 18px 10px;padding:12px 22px 12px 34px;font-weight:800;font-size:40px;box-shadow:0 6px 14px rgba(0,0,0,.15)}
 .tag::before{content:"";position:absolute;left:12px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:#fff;border:2px solid #8B7A55}
 </style>`;
 const face = `<div style="position:absolute;inset:0;background:#fff url(${M('tpl-regret.png')}) 0 0/cover no-repeat"></div>`;
 const grin = `<div style="position:absolute;inset:0;background:#fff url(${M('tpl-smug.png')}) 0 0/cover no-repeat"></div>`;
-const coin = (f) => `<img src="${M(f)}" style="width:260px;height:260px;filter:drop-shadow(0 18px 24px rgba(0,0,0,.25))">`;
+const coin = (f) => `<img src="${M(f)}" style="width:240px;height:240px;filter:drop-shadow(0 18px 24px rgba(0,0,0,.25))">`;
 const gpu = `<div style="width:320px;height:240px;border-radius:18px;overflow:hidden;box-shadow:0 18px 30px rgba(0,0,0,.25)"><img src="${M('gpu.jpg')}" style="width:420px;margin-left:-50px;margin-top:-20px"></div>`;
-const cards = `<img src="${M('tpl-box.png')}" style="width:330px">`;
+const cards = `<img src="${M('tpl-box.png')}" style="width:250px">`;
 function slide({m1, p1, q1, m2, p2, q2, obj, n}) {
   return `<!doctype html><html><head>${head}</head><body>
 <div class="panel" style="top:0"><div class="person">${face}</div><div class="quote">${q1}</div><div class="item">${obj}</div><div class="tag">${p1}</div><div class="month">${m1}</div></div>
