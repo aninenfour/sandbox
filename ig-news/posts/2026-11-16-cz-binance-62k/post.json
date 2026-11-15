@@ -1,0 +1,27 @@
+{"type": "news", "style": "v2", "date": "NOV 16", "slides": [
+ {"kind": "nhero", "photo": "cz.jpg", "photo_pos": "50% 18%", "tag": "TRENDING",
+  "badge": {"src": "../../assets/logos/BNB.svg", "pos": "tr", "fit": "62%", "size": 330},
+  "headline": "Bitcoin fell to {$62K}. CZ says [Binance did not sell]"},
+ {"kind": "ngrid", "title": "One week, one Bitcoin", "pill": "-18%", "pill_neg": true,
+  "text": "Back near [$65K] on Sunday night, still far from last week.",
+  "cells": [
+   {"photo": "btc_then.jpg", "logo": "../../assets/logos/BTC.svg", "label": "1 Bitcoin, Nov 8", "value": "$75.8K"},
+   {"photo": "btc_now.jpg", "logo": "../../assets/logos/BTC.svg", "label": "Sunday low", "value": "$62K", "neg": true, "sub": "lowest since July"}],
+  "source": "CoinGecko daily price Nov 8; The Block, Cointelegraph (low near $62K)"},
+ {"kind": "nrows", "tag": "WHAT HE SAID", "title": "What CZ blames instead",
+  "rows": [
+   {"emoji": "📉", "l": "US Bitcoin ETFs", "sub": "money out 7 days in a row", "v": "7 days", "neg": true},
+   {"emoji": "🏛️", "l": "The Fed", "sub": "markets see a rate hike in December", "v": "Hike?", "neg": true},
+   {"emoji": "🤖", "l": "Anthropic IPO", "sub": "people raising cash to buy in", "v": "IPO"},
+   {"emoji": "🔐", "l": "Binance hack", "sub": "security fears since late October", "v": "Fear"}
+  ],
+  "text": ["His words on X: [\"No, Binance did not sell crypto.\"] He says he bought this week."],
+  "source": "The Block; Cointelegraph"},
+ {"kind": "nbig", "tag": "THE MOOD", "title": "Fear and Greed Index",
+  "kicker": "OUT OF 100, NOV 15", "big": "10", "neg": true,
+  "label": "Extreme fear. It was 28 a week ago.",
+  "spark": [28, 29, 32, 29, 28, 20, 13, 10],
+  "text": ["Data from Anchorage says most of the selling came from [the US]."],
+  "source": "alternative.me Fear and Greed Index; Cointelegraph (Anchorage Digital, David Lawant)"},
+ {"kind": "end"}
+]}
