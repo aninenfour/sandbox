@@ -284,5 +284,17 @@
     "skipped": true,
     "looked_at": "IG insights Nov 12-14; all slides for 2026-11-14 leverage Academy and BTC red weeks news",
     "owner_decision": "Academy-as-Reels (carousels stuck at 14-35); earshot permission; tier lists light theme; $5 trial voucher pitch awaiting devs/risk control"
+  },
+  {
+    "date": "2026-11-16",
+    "metrics_summary": "Used the W46 weekly numbers pulled 30 min earlier: GTA 2x2 grid 915 TikTok reach (best of week); landfill BTC / Minecraft Reels 114-132 IG, 695-720 TT; carousels 16-36 IG. Louisiana news, week preview, iPhone X WHAT IF too young to judge.",
+    "findings": [
+      "All 15 slides/covers from Nov 15-16 render clean: no clipping, CTA current, photos on-topic",
+      "WHAT IF covers are still icon cards (iPhone X vs AAPL); per the visual-first lesson a real photo cover could do better, but the weekly run just shipped ngrid, so wait for its experiment before touching covers"
+    ],
+    "changes": [],
+    "skipped": true,
+    "looked_at": "Contact sheet of Nov 15-16 renders (week preview Academy, Louisiana/CFTC news, iPhone X WHAT IF cover, hot vs cold wallets Academy)",
+    "owner_decision": "TikTok photo mode for carousels by default; Academy-as-Reels; earshot install; tier lists light theme; $5 voucher pitch with devs/risk control"
   }
 ]
