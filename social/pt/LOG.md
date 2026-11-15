@@ -12,6 +12,7 @@
 | 15/11 | 12:44 | Agenda da semana | 5 horários (Earn, Nvidia, Fed, TradFi, Futuros) | scheduled |
 | 15/11 | 14:16 | Meme | churrasco virou miojo | scheduled |
 | 15/11 | 16:53 | Recibo | Última noite do Earn Boost | scheduled |
+| 16/11 | 14:37 | Meme carousel (real template) | Não vou comprar esse mico: BTC, NVDA, ETH, cartas (4 imagens) | scheduled |
 
 ## Queued ideas (not scheduled yet)
 - Mon 16/11: Anúncio oficial SNDKB 8:1 (suspensão 19/11 05:00, retorno previsto 20/11 07:00). Re-check the announcement first.
