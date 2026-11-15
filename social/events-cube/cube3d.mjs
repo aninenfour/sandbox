@@ -23,11 +23,11 @@ canvas{position:absolute;left:0;top:0;width:${S}px;height:${S}px}.m{font-family:
 <script type="importmap">{"imports":{"three":"${THREE}build/three.module.js","three/addons/":"${THREE}examples/jsm/"}}</script></head><body>
 <canvas id="bg" width="${S * 2}" height="${S * 2}"></canvas>
 <canvas id="gl"></canvas>
-<div id="intro" class="ov" style="top:70px"><span class="pill"><i></i>LIVE ON HOTCOIN</span>
-  <div style="font-size:64px;font-weight:900;letter-spacing:-3px;margin-top:22px">4 events. One cube.</div></div>
+<div id="intro" class="ov" style="top:70px"><span class="pill"><i></i>LIVE NOW</span>
+  <div style="font-size:64px;font-weight:900;letter-spacing:-3px;margin-top:22px">4 live events on Hotcoin</div></div>
 <div id="outro" class="ov" style="top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0">
-  <span class="pill"><i></i>ENDING SOON</span>
-  <div style="font-size:96px;font-weight:900;letter-spacing:-5px;line-height:.95;margin-top:26px">Don't let<br>them expire.</div>
+  <span class="pill"><i></i>4 LIVE EVENTS</span>
+  <div style="font-size:96px;font-weight:900;letter-spacing:-5px;line-height:.95;margin-top:26px">Earn with Hotcoin.<br><span style="color:#B8F26A">No matter the market.</span></div>
   <div id="dl" style="display:flex;gap:14px;margin-top:40px"></div>
   <div class="m" style="margin-top:44px;font-size:26px;font-weight:700;color:#06120A;background:#B8F26A;border-radius:99px;padding:16px 34px;box-shadow:0 0 40px rgba(184,242,106,.45)">hotcoin.com</div></div>
 <img id="logo" src="${BR}logo-official-white.png" style="position:absolute;left:50%;bottom:54px;height:34px;transform:translateX(-50%)">

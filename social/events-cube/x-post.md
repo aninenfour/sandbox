@@ -3,7 +3,8 @@ Source: hotcoin.com announcement center, Activities (checked Nov 15, 2026, 17:30
 the Earn Rewards Boost ends Nov 16 12:00 (UTC+8); post before then or drop it from the copy.
 
 ## X
-4 events live on Hotcoin right now 🟢
+4 live events on Hotcoin 🟢
+Earn with Hotcoin, no matter the market.
 
 🛡️ Futures Loss Compensation: 200,000 USDT pool, first futures trade loss covered 100% (up to 50 USDT) · ends Nov 20
 📈 Wall Street Earnings Season: up to 1,060 USDT in futures trial funds for TradFi trading · ends Nov 19
@@ -22,6 +23,6 @@ Futures trading is high risk. Not financial advice.
 • Earn Rewards Boost: 20 USDT futures trial funds on your first fixed-term Earn of 500 USDT+, plus up to 1,000 USDT in Earn trial funds (one tier only, tiers don't stack). Ends Nov 16, 12:00 (UTC+8).
 • NEFE Earn Limited Offer: est. 15% APR, 180-day fixed term, while quota lasts.
 
-Rewards end soon. Join today at hotcoin.com
+Earn with Hotcoin, no matter the market. Join at hotcoin.com
 Futures trading is high risk. Estimated APR is not guaranteed. Not financial advice.
 #Hotcoin #crypto #futures #earn
