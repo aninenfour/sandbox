@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Dipped under $65K Saturday after 7 days of ETF outflows"},
+ {"sym": "ETH", "kind": "crypto", "why": "Broke below $1,800 Saturday, 7th week of ETF outflows"},
+ {"sym": "SOL", "kind": "crypto", "why": "Fell 11% in 24h Saturday, steepest of the majors", "handle": "solana"},
+ {"sym": "NVDAB", "kind": "tradfi", "why": "Week ahead: Q3 results Tue, first since CEO change"},
+ {"sym": "SPYB", "kind": "tradfi", "why": "Week ahead: Warsh speaks Tue, Fed minutes Thu (UTC+8)"}
+]}

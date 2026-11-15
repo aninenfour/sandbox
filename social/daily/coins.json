@@ -465,5 +465,12 @@
   "twitter": "prlnet",
   "image": "https://coin-images.coingecko.com/coins/images/102173580/large/pearl.png?1780324634",
   "logo": "pearl"
+ },
+ "SOL": {
+  "id": "solana",
+  "name": "Solana",
+  "twitter": "solana",
+  "image": "https://coin-images.coingecko.com/coins/images/4128/large/solana.png?1718769756",
+  "logo": "sol"
  }
 }

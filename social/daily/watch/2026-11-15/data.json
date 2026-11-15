@@ -1,0 +1,71 @@
+{
+ "date": "NOV 15",
+ "window": "Prices at Nov 15 12:51 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Dipped under $65K Saturday after 7 days of ETF outflows",
+   "last": 65047.31,
+   "ch": -3.08,
+   "vol": 1483581097.52,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Broke below $1,800 Saturday, 7th week of ETF outflows",
+   "last": 1819.09,
+   "ch": -4.26,
+   "vol": 351380690.59,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "SOL",
+   "name": "Solana",
+   "kind": "crypto",
+   "handle": "@solana",
+   "why": "Fell 11% in 24h Saturday, steepest of the majors",
+   "last": 71.13,
+   "ch": -5.93,
+   "vol": 35445937.4,
+   "logo": "sol",
+   "bg": "#ffffff",
+   "glow": "#8d4df7"
+  },
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA",
+   "kind": "tradfi",
+   "handle": "@nvidia",
+   "why": "Week ahead: Q3 results Tue, first since CEO change",
+   "last": 161.31,
+   "ch": -0.24,
+   "vol": 736931.32,
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Week ahead: Warsh speaks Tue, Fed minutes Thu (UTC+8)",
+   "last": 749.15,
+   "ch": -0.17,
+   "vol": 790743.13,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  }
+ ]
+}
