@@ -19,7 +19,9 @@ SPEC.json (graphic + render settings; photo paths are relative to the spec file)
 A raw .html graphic (1080x1920 page) also works; then meme/audio settings come from the CLI flags only.
 
 Writes OUT/memereact.mp4, OUT/cover.jpg (= frame 0), OUT/thumb_tiktok.jpg (same), OUT/graphic.png, OUT/contact.jpg.
-Keep the right ~130 px and the bottom ~20% free of key text (TikTok buttons and caption).
+Safe zone (TikTok + IG Reels UI): keep key content out of the top 220 px, bottom 440 px and right 160 px from y=700 down.
+OUT/safezones.jpg shows the cover with those zones in red; check it.
+Background carries the Hotcoin symbol as a faint watermark (wm_opacity, default 0.06). Handle text: "Hotcoin".
 """
 import argparse, base64, html as H, json, pathlib, re, subprocess, sys, tempfile
 
@@ -53,14 +55,17 @@ def build_html(spec, base):
     side_html = ''
     if side:
         ph = ''
-        if side.get('photo'):
+        if side.get('icon'):
+            ph = (f'<div class="sicon2" style="background-image:url({_b64(base / side["icon"], _img_mime(side["icon"]))})"></div>')
+        elif side.get('photo'):
             ph = (f'<div class="sphoto" style="background-image:url({_b64(base / side["photo"], _img_mime(side["photo"]))});'
                   f'background-position:{side.get("photo_pos", "50% 50%")};background-size:{int(100 * side.get("photo_zoom", 1.0))}%"></div>')
         side_html = (f'<div class="side"><div class="sdlabel">{H.escape(side.get("label", ""))}</div>{ph}'
                      f'<div class="sdval" style="color:{tone(side.get("tone"))}">{H.escape(side.get("value", ""))}</div>'
                      f'<div class="sdsub">{H.escape(side.get("sub", ""))}</div></div>')
     logo = _b64(ROOT / 'assets' / 'symbol-dark.svg', 'image/svg+xml')
-    handle = H.escape(spec.get('handle', '@hotcoinex'))
+    handle = H.escape(spec.get('handle', 'Hotcoin'))
+    wm = _b64(ROOT / 'assets' / 'symbol-dark.svg', 'image/svg+xml')
     n = max(1, len(stats))
     val_px = spec.get('value_px') or {1: 180, 2: 132, 3: 100}.get(n, 100)
     return f'''<!doctype html><html><head><meta charset="utf-8"><style>
@@ -68,10 +73,10 @@ def build_html(spec, base):
 @font-face{{font-family:'Manrope';src:url({font('Manrope.ttf')}) format('truetype');font-weight:200 800}}
 html,body{{margin:0;width:{W}px;height:{HGT}px;overflow:hidden}}
 body{{background:radial-gradient(ellipse 85% 60% at 50% 42%,#FFFFFF 0%,#EDEEF0 55%,#C9CBCF 100%);font-family:'Manrope',sans-serif;color:{INK};position:relative}}
-.brand{{position:absolute;top:70px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:12px;font:700 30px 'Manrope';color:#5B6168}}
+.brand{{position:absolute;top:{spec.get('brand_top', 250)}px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:12px;font:700 30px 'Manrope';color:#5B6168}}
 .brand img{{width:34px;height:34px}}
-.title{{position:absolute;top:150px;left:60px;right:60px;text-align:center;font:600 60px/1.15 'Manrope';letter-spacing:-.5px}}
-.row{{position:absolute;top:{300 if len(spec.get("title", "")) < 34 else 370}px;left:40px;right:40px;display:flex;justify-content:center;align-items:flex-end;gap:26px}}
+.title{{position:absolute;top:{spec.get('title_top', 320)}px;left:60px;right:160px;text-align:center;font:600 60px/1.15 'Manrope';letter-spacing:-.5px}}
+.row{{position:absolute;top:{spec.get("row_top", 470 if len(spec.get("title", "")) < 34 else 540)}px;left:40px;right:160px;display:flex;justify-content:center;align-items:flex-end;gap:26px}}
 .stat{{display:flex;flex-direction:column;align-items:center;min-width:260px}}
 .slabel{{font:800 40px 'Manrope';letter-spacing:2px;color:#3A4047}}
 .ssub{{font:600 34px 'Manrope';color:#6A7078;margin-top:6px}}
@@ -79,11 +84,14 @@ body{{background:radial-gradient(ellipse 85% 60% at 50% 42%,#FFFFFF 0%,#EDEEF0 5
 .sval{{font-family:'Archivo';font-weight:900;font-stretch:88%;font-size:{val_px}px;line-height:1;margin-top:18px;letter-spacing:-2px}}
 .arrow{{font:800 90px 'Manrope';color:#9AA0A6;padding-bottom:22px}}
 .side{{position:absolute;top:{spec.get("side_top", 720)}px;left:{spec.get("side_left", 600)}px;width:{spec.get("side_width", 360)}px;display:flex;flex-direction:column;align-items:center}}
+.sicon2{{width:{spec.get("side_photo", 260)}px;height:{spec.get("side_photo", 260)}px;margin-top:16px;background:center/contain no-repeat;filter:drop-shadow(0 10px 22px rgba(0,0,0,.18))}}
+.wm{{position:absolute;left:50%;top:{spec.get("wm_top", 46)}%;width:{spec.get("wm_size", 760)}px;height:{spec.get("wm_size", 760)}px;transform:translate(-50%,-50%);background:url({wm}) center/contain no-repeat;opacity:{spec.get("wm_opacity", 0.06)}}}
 .sdlabel{{font:700 46px 'Manrope';color:#2A3036}}
 .sphoto{{width:{spec.get("side_photo", 300)}px;height:{spec.get("side_photo", 300)}px;border-radius:50%;margin-top:16px;background-repeat:no-repeat;box-shadow:0 10px 30px rgba(0,0,0,.22);border:6px solid #fff}}
 .sdval{{font-family:'Archivo';font-weight:900;font-size:{spec.get("side_value_px", 150)}px;line-height:1;margin-top:20px;letter-spacing:-3px}}
 .sdsub{{font:700 38px 'Manrope';color:#4A5057;margin-top:8px}}
 </style></head><body>
+<div class="wm"></div>
 <div class="brand"><img src="{logo}">{handle}</div>
 <div class="title">{H.escape(spec.get("title", ""))}</div>
 <div class="row">{"".join(cells)}</div>
@@ -211,6 +219,11 @@ def main():
     run(['ffmpeg', '-y', '-v', 'error', '-i', str(mp4), '-frames:v', '1', '-q:v', '2', str(out / 'cover.jpg')])
     run(['ffmpeg', '-y', '-v', 'error', '-i', str(mp4), '-frames:v', '1', '-q:v', '2', str(out / 'thumb_tiktok.jpg')])
     run(['ffmpeg', '-y', '-v', 'error', '-i', str(mp4), '-vf', 'fps=1,scale=216:384,tile=8x2', '-frames:v', '1', '-q:v', '4', str(out / 'contact.jpg')])
+    from PIL import ImageDraw
+    sz = Image.open(out / 'cover.jpg').convert('RGB'); d = ImageDraw.Draw(sz, 'RGBA')
+    for box in [(0, 0, W, 220), (0, HGT - 440, W, HGT), (W - 160, 700, W, HGT)]:  # TikTok/IG UI: top bar, caption, buttons
+        d.rectangle(box, fill=(255, 0, 0, 70))
+    sz.save(out / 'safezones.jpg', quality=85)
     meas = run(['ffmpeg', '-v', 'info', '-i', str(mp4), '-af', 'ebur128', '-f', 'null', '-']).stderr
     i_lufs = re.findall(r'I:\s+(-?[\d.]+) LUFS', meas)
     print(f'OK {mp4}  {dur:.1f}s  key={key}  loudness={i_lufs[-1] if i_lufs else "?"} LUFS')
