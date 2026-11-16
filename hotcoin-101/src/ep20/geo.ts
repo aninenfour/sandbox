@@ -54,9 +54,9 @@ export const geo = (W: number, H: number, v: boolean) => {
   const subTop = tTop + tS * 0.98;
 
   // the block: a photo card and a bus with seats
-  const photo = v ? {x: cx - 210, y: cy - 60, w: 300, h: 330, rot: -5} : {x: 330, y: cy + 10, w: 320, h: 360, rot: -5};
+  const photo = v ? {x: cx - 210, y: cy - 130, w: 300, h: 330, rot: -5} : {x: 330, y: cy + 10, w: 320, h: 360, rot: -5};
   const bus = v ? {x: cx, y: cy + 420, w: 960, h: 440, cols: 7, rows: 3} : {x: 1200, y: cy + 40, w: 1040, h: 460, cols: 8, rows: 3};
-  const clock = v ? {x: cx + 250, y: cy - 60, r: 90} : {x: bus.x + bus.w / 2 - 70, y: bus.y - bus.h / 2 - 110, r: 66};
+  const clock = v ? {x: cx + 250, y: cy - 130, r: 90} : {x: bus.x + bus.w / 2 - 70, y: bus.y - bus.h / 2 - 110, r: 66};
   const mySeat = v ? 19 : 21;
 
   // the auction: a short bus and a queue of bidders
