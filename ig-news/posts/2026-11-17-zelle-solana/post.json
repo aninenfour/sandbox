@@ -1,0 +1,21 @@
+{"type": "news", "style": "v2", "date": "NOV 17", "slides": [
+ {"kind": "nhero", "photo": "phones.jpg", "photo_pos": "40% 35%", "tag": "TRENDING",
+  "badge": {"src": "../../assets/logos/SOL.svg", "pos": "tr", "fit": "58%", "size": 330, "bg": "#000"},
+  "headline": "Zelle picks [Solana] for its own dollar stablecoin"},
+ {"kind": "ngrid", "title": "From US phones to India", "pill": "ZLUSD",
+  "text": "Coin: [ZelleUSD], issued by Anchorage Digital Bank.",
+  "cells": [
+   {"photo": "nyc.jpg", "photo_pos": "50% 60%", "label": "Zelle in the US, 2025", "value": "$1.2T", "sub": "sent through the app"},
+   {"photo": "mumbai.jpg", "photo_pos": "60% 60%", "label": "First stop abroad: India", "value": "End 2026", "sub": "the plan, no exact date"}],
+  "source": "Cointelegraph, Crypto Briefing (Nov 16, Breakpoint)"},
+ {"kind": "nbars", "tag": "WHY IT MATTERS", "title": "Stablecoins by chain",
+  "bars": [{"l": "Ethereum", "v": 130.7, "txt": "$130.7B"}, {"l": "Tron", "v": 93.2, "txt": "$93.2B"}, {"l": "Solana", "v": 13.9, "txt": "$13.9B", "hi": true}],
+  "text": ["Solana is small today. Zelle is run by banks like [JPMorgan] and Wells Fargo."],
+  "source": "DefiLlama stablecoins by chain, Nov 17"},
+ {"kind": "nbig", "tag": "THE CATCH", "title": "A private test, for now",
+  "kicker": "SENT ON STAGE, AMOUNT HIDDEN", "big": "$1.25M",
+  "label": "No one watching the chain could see it.",
+  "text": ["It ran on a {test network}. No real money moved and there is no launch date yet."],
+  "source": "Crypto Briefing; KuCoin News"},
+ {"kind": "end"}
+]}
