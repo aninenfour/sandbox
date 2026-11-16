@@ -28,9 +28,25 @@ Playwright/Chromium is preinstalled; `square.mjs` finds it on its own.
 7. Wait until **12:01** UTC+8 (weekends **13:00**), then publish (step 3 below) with `x.txt`.
 
 ## 2. Evening: Top 5 Gainers (run starts ~21:55, posts at 22:05)
-1. Wait until **22:04** UTC+8 so the 24h window ends at post time, then `python3 social/daily/live.py top5`.
-2. Look at the PNG and `caption.txt`. If a handle looks wrong (same ticker, different project), fix it in `coins.json` (set `"twitter"`, or `"pinned": true`) and rerun. A coin with no handle is fine untagged.
-3. Publish at **22:05** with `caption.txt`.
+Three templates rotate so the same slot doesn't look identical every night (owner, Nov 16). `live.py` picks one at random,
+seeded by the date and never the same as the last posted night:
+- **podium** (`sq-white.png`): white cards, big numbers, the original.
+- **orbit** (`sq-orbit.png`): ink background, coins climbing a lime trajectory, few numbers.
+- **news** (`sq-news.png`): off-white editorial list, small logos, one "why it moved" line per coin.
+
+1. At ~21:55 run `python3 social/daily/live.py top5 --preview`. It prints tonight's template and the current movers (writes nothing).
+2. **If the template is `news`**: research the current movers (web search, standard mode, last ~48h: listings, partnerships,
+   launches, unlocks, airdrops, earnings for `B` stocks). Write `social/daily/news/<YYYY-MM-DD>.json`:
+   `{"SYM": {"line": "...", "src": "https://..."}}`. Lines: facts only, max ~80 characters, date in brackets, no em dashes,
+   no price talk, no competitor names, no hype ("to the moon"). Only write a line you can source; otherwise leave the coin out
+   and the card shows its 24h Hotcoin volume ("No single headline...").
+3. At **22:04** UTC+8: `python3 social/daily/live.py top5`. Check `news_missing` in the output: for a coin that entered the top 5
+   after the preview, research it quickly, add its line and run `python3 social/daily/live.py top5 --rerender <dir>`
+   (same numbers, re-reads the news). Don't push the post past ~22:15 for this: a volume line is fine.
+4. Look at the PNG (path in `image`) and `caption.txt`. If a handle looks wrong (same ticker, different project), fix it in
+   `coins.json` (set `"twitter"`, or `"pinned": true`) and rerun. A coin with no handle is fine untagged.
+5. Publish at **22:05** (news nights: as soon as the card is checked) with the `image` PNG and `caption.txt`.
+6. Commit the `news/<date>.json` too on news nights.
 
 ## 3. Publish
 ```bash
