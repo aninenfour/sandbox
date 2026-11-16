@@ -1616,5 +1616,56 @@
    "alternative.me Fear and Greed: 28 (Nov 8) -> 10 (Nov 15)"
   ],
   "note": "W46 ngrid experiment: used (2-cell then/now: 1 BTC Nov 8 $75.8K vs Sunday low $62K, pill -18%). Photos: CZ Commons 'Changpeng Zhao in 2022.jpg' (Aevozer, CC BY-SA 4.0); Unsplash Traxer + Erling Loken Andersen. BNB logo cryptologos.cc as badge. ETF dollar totals left off (outlets disagree: $1.71B/$1.91B/$2.1B). Calendar Nov 16 news cell updated."
+ },
+ {
+  "id": "2026-11-16-whatif-gtx1080-nvda",
+  "type": "reel-whatif-v2",
+  "mode": "lump",
+  "look": "photo",
+  "slot": "2026-11-16T21:30:00+08:00",
+  "title": "GTX 1080 ($599, May 27 2016) vs $599 in Nvidia: $85,008 (142x)",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "tiktok",
+   "x(4:5)",
+   "ig_story(21:35)"
+  ],
+  "music": "Hip Hop 03 (Lily J, Mixkit) #739",
+  "hook_type": "then-vs-now price",
+  "sources": [
+   "Nvidia press release + TechPowerUp/PCWorld: GTX 1080 on sale May 27 2016 from $599 MSRP (Founders Edition $699)",
+   "Yahoo Finance NVDA split-adjusted closes: $1.1475 (May 27 2016) -> $162.85 (Nov 13 2026); weekly peak wk of Sep 28 2026 = $122,123",
+   "Nasdaq: NVDA close $162.85 on Nov 13 2026"
+  ],
+  "note": "First WHAT IF with the photo look. Thumbnail check: frame 0 fill 36%, no warnings; Publer thumb confirmed = photo cover. Buy photo = GeForce card cropped so 'RTX' text is out of frame. 47.4 s."
+ },
+ {
+  "id": "2026-11-17-academy-nvidia-earnings",
+  "type": "academy",
+  "variant": "b",
+  "slot": "2026-11-17T19:00:00+08:00",
+  "title": "Stocks 101: Nvidia expects $108B this quarter. Is that enough? (how to read earnings)",
+  "status": "scheduled",
+  "layouts": [
+   "nhero",
+   "ngrid",
+   "tslide-bars",
+   "tslide-table"
+  ],
+  "ngrid_used": true,
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story(19:05)",
+   "tiktok_photo(19:02)",
+   "x_research(20:30, slides 01-04)"
+  ],
+  "sources": [
+   "Nvidia IR: Q3 revenue $18.12B (FY24), $35.08B (FY25), $57.0B (FY26, +62% y/y; Neowin, Outlook Business); Q3 FY27 outlook $108.0B +/-2%; results ~1:20pm PT Nov 17",
+   "Aug 27 2025: Q3 FY26 outlook $54.0B vs LSEG $53.14B, shares -2.5% after hours, some analysts >$60B (TheFly/TipRanks, BNN Bloomberg, Advisor Perspectives)"
+  ],
+  "note": "Photos Unsplash: Abhishek Kumar, Christian Wiediger, Bermix Studio, Taylor Vick, Anne Nygard, Adam Smigielski."
  }
 ]
