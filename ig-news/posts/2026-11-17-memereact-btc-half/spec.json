@@ -1,0 +1,62 @@
+{
+  "title": "Bitcoin vs its all-time high",
+  "handle": "@hotcoinex",
+  "stats": [
+    {
+      "label": "RECORD",
+      "sub": "Oct 6, 2025",
+      "value": "$126K",
+      "tone": "pos"
+    },
+    {
+      "label": "NOW",
+      "sub": "Nov 16, 2026",
+      "value": "$64.5K",
+      "tone": "neg"
+    }
+  ],
+  "arrow": true,
+  "side": {
+    "label": "Bitcoin",
+    "photo": "coin.jpg",
+    "photo_pos": "50% 50%",
+    "photo_zoom": 1.7,
+    "value": "-49%",
+    "sub": "from the top",
+    "tone": "neg"
+  },
+  "side_top": 700,
+  "side_left": 610,
+  "side_width": 370,
+  "side_photo": 300,
+  "meme": {
+    "start": 5.8,
+    "end": 12.3,
+    "loops": 2,
+    "crop": [
+      72,
+      320,
+      576,
+      876
+    ],
+    "scale": 1.4,
+    "x": -140,
+    "key": "auto",
+    "similarity": 0.28,
+    "blend": 0.06,
+    "feather_right": 160,
+    "volume": 0
+  },
+  "audio": {
+    "start": 0.6,
+    "fade_out": 1.2,
+    "lufs": -14
+  },
+  "sources": {
+    "record": "CoinGecko API ath $126,080 on 2025-10-06; Coinbase daily high 2025-10-06 $126,296",
+    "now": "Nov 16 2026 ~11:50 UTC: CoinGecko $64,479, Coinbase $64,457, Kraken $64,461, Yahoo BTC-USD $64,507",
+    "meme": "https://greenscreenmemes.com/ronaldo-crying-after-being-eliminated-by-spain-green-screen/",
+    "music": "https://archive.org/details/SadViolinMLGSoundEffectsHD",
+    "photo": "Unsplash, Yumu (cdd20), photo SI0BSvfn15Q"
+  }
+}
