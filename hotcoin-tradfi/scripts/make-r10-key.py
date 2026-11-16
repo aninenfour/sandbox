@@ -7,7 +7,8 @@ Writes public/ronaldinho/key.webm: VP9 with alpha, subject crop only, 50 fps, or
 
 Steps per frame (float32, 16-bit input):
   1. colour-difference matte: d = G - max(R, B). Backdrop measures 0.18..0.24, subject <= 0.02.
-  2. garbage matte: largest connected blob of the hard matte, holes filled, dilated; bright pink tracking crosses cut out.
+  0. pink tracking crosses repainted in backdrop green before keying (never cut from the alpha).
+  2. garbage matte: largest connected blob of the hard matte, holes filled, dilated.
   3. edge refinement: small erode on the soft alpha + 1px feather, so no green halo.
   4. despill: G limited to the mean of R and B where it exceeds it.
   5. grade: magenta studio rim light neutralised (lime rim is added in the Remotion composite), +exposure,
@@ -26,6 +27,19 @@ LO, HI = 0.035, 0.150          # d below LO = solid, above HI = backdrop
 
 def key(img):
     """img: HxWx3 float32 RGB 0..1 (already cropped). Returns RGBA float32, graded."""
+    # Pink tracking crosses: repaint them in backdrop green BEFORE keying, so the normal key decides the edge.
+    # (Cutting them out of the alpha with a safety margin bit into his neck where a cross sits right beside it.)
+    # Core = bright saturated pink (V ~0.8). Its anti-aliased fringe is repainted only where bright (V > 0.42);
+    # his magenta-lit skin is much darker (V < 0.3), so it is never touched.
+    img = img.copy()
+    hsv0 = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+    core = ((hsv0[..., 0] > 320) & (hsv0[..., 1] > 0.33) & (hsv0[..., 2] > 0.6)).astype(np.uint8)
+    n3, lab3, st3, _ = cv2.connectedComponentsWithStats(core, 8)
+    big = np.isin(lab3, [i for i in range(1, n3) if st3[i, cv2.CC_STAT_AREA] > 150])
+    if big.any():
+        zone = cv2.dilate(big.astype(np.uint8), np.ones((11, 11), np.uint8)) > 0
+        fix = zone & ((hsv0[..., 2] > 0.42) | big) & ~((hsv0[..., 1] < 0.12) & (hsv0[..., 2] > 0.7))  # never white shirt
+        img[fix] = np.array([0.21, 0.43, 0.20], np.float32)
     R, G, B = img[..., 0], img[..., 1], img[..., 2]
     d = G - np.maximum(R, B)
     a = 1.0 - np.clip((d - LO) / (HI - LO), 0, 1)
@@ -46,15 +60,6 @@ def key(img):
     garbage = cv2.dilate(blob, np.ones((9, 9), np.uint8))
     a = a * garbage
     a[holes] = 1.0
-    # pink tracking crosses: bright saturated pink (V ~0.8); the magenta rim on him is far darker (V < 0.5)
-    hsv0 = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
-    pk = ((hsv0[..., 0] > 320) & (hsv0[..., 1] > 0.33) & (hsv0[..., 2] > 0.6)).astype(np.uint8)
-    pk = cv2.dilate(pk, np.ones((5, 5), np.uint8))
-    n3, lab3, st3, _ = cv2.connectedComponentsWithStats(pk, 8)
-    for i in range(1, n3):
-        if st3[i, cv2.CC_STAT_AREA] > 300:  # crosses are ~2-4k px at 4K; ignore specks
-            m = (lab3 == i).astype(np.uint8)
-            a[cv2.dilate(m, np.ones((21, 21), np.uint8)) > 0] = 0
 
     # tighten edge by ~1px and feather
     a = cv2.erode(a, np.ones((3, 3), np.uint8))
