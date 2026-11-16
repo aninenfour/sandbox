@@ -10,3 +10,6 @@ get 1489 whoosh-soft.mp3; get 2350 sparkle.mp3; get 1143 impact.mp3
 /usr/bin/ffmpeg -v error -y -i public/sfx/r10/clunk.mp3 -af loudnorm=I=-16:TP=-1 -ar 48000 public/sfx/r10/clunk.wav && rm public/sfx/r10/clunk.mp3
 python3 scripts/make-foley.py   # foley/hit.wav
 mkdir -p public/music && curl -sfL -o public/music/r10-spanish-heart.mp3 https://assets.mixkit.co/music/974/974.mp3
+# aura edit: "Thunder" (Mixkit 318) + a low-cut copy for the end card (no 808 boom after he leaves)
+curl -sfL -o public/music/r10-thunder.mp3 https://assets.mixkit.co/music/318/318.mp3
+/usr/bin/ffmpeg -v error -y -i public/music/r10-thunder.mp3 -af "highpass=f=180:poles=2,highpass=f=180:poles=2" -c:a libmp3lame -q:a 2 public/music/r10-thunder-hp.mp3
