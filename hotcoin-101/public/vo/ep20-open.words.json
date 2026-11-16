@@ -1,0 +1,161 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 8.48,
+ "words": [
+  {
+   "word": "Ever",
+   "start": 0,
+   "end": 0.24,
+   "at": 0,
+   "until": 7.2
+  },
+  {
+   "word": "paid",
+   "start": 0.304,
+   "end": 0.56,
+   "at": 9.1,
+   "until": 16.8
+  },
+  {
+   "word": "more",
+   "start": 0.608,
+   "end": 0.8,
+   "at": 18.2,
+   "until": 24
+  },
+  {
+   "word": "in",
+   "start": 0.827,
+   "end": 0.88,
+   "at": 24.8,
+   "until": 26.4
+  },
+  {
+   "word": "fees",
+   "start": 0.96,
+   "end": 1.28,
+   "at": 28.8,
+   "until": 38.4
+  },
+  {
+   "word": "than",
+   "start": 1.312,
+   "end": 1.44,
+   "at": 39.4,
+   "until": 43.2
+  },
+  {
+   "word": "the",
+   "start": 1.46,
+   "end": 1.52,
+   "at": 43.8,
+   "until": 45.6
+  },
+  {
+   "word": "thing",
+   "start": 1.56,
+   "end": 1.76,
+   "at": 46.8,
+   "until": 52.8
+  },
+  {
+   "word": "you",
+   "start": 1.78,
+   "end": 1.84,
+   "at": 53.4,
+   "until": 55.2
+  },
+  {
+   "word": "were",
+   "start": 1.872,
+   "end": 2,
+   "at": 56.2,
+   "until": 60
+  },
+  {
+   "word": "sending?",
+   "start": 2.05,
+   "end": 2.72,
+   "at": 61.5,
+   "until": 81.6
+  },
+  {
+   "word": "You",
+   "start": 2.92,
+   "end": 3.52,
+   "at": 87.6,
+   "until": 105.6
+  },
+  {
+   "word": "weren't",
+   "start": 3.547,
+   "end": 3.84,
+   "at": 106.4,
+   "until": 115.2
+  },
+  {
+   "word": "paying",
+   "start": 3.874,
+   "end": 4.08,
+   "at": 116.2,
+   "until": 122.4
+  },
+  {
+   "word": "a",
+   "start": 4.12,
+   "end": 4.16,
+   "at": 123.6,
+   "until": 124.8
+  },
+  {
+   "word": "bank.",
+   "start": 4.256,
+   "end": 4.72,
+   "at": 127.7,
+   "until": 141.6
+  },
+  {
+   "word": "You",
+   "start": 4.88,
+   "end": 5.36,
+   "at": 146.4,
+   "until": 160.8
+  },
+  {
+   "word": "were,",
+   "start": 5.424,
+   "end": 6,
+   "at": 162.7,
+   "until": 180
+  },
+  {
+   "word": "well,",
+   "start": 6.064,
+   "end": 6.72,
+   "at": 181.9,
+   "until": 201.6
+  },
+  {
+   "word": "losing",
+   "start": 6.823,
+   "end": 7.44,
+   "at": 204.7,
+   "until": 223.2
+  },
+  {
+   "word": "an",
+   "start": 7.467,
+   "end": 7.52,
+   "at": 224,
+   "until": 225.6
+  },
+  {
+   "word": "auction.",
+   "start": 7.59,
+   "end": 8.48,
+   "at": 227.7,
+   "until": 254.4
+  }
+ ]
+}

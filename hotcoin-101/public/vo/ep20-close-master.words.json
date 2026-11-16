@@ -1,0 +1,225 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 12.279,
+ "words": [
+  {
+   "word": "Fees",
+   "start": 0.0,
+   "end": 0.372,
+   "at": 0.0,
+   "until": 11.2
+  },
+  {
+   "word": "aren't",
+   "start": 0.428,
+   "end": 0.698,
+   "at": 12.8,
+   "until": 20.9
+  },
+  {
+   "word": "a",
+   "start": 0.721,
+   "end": 0.744,
+   "at": 21.6,
+   "until": 22.3
+  },
+  {
+   "word": "tax.",
+   "start": 0.907,
+   "end": 1.488,
+   "at": 27.2,
+   "until": 44.6
+  },
+  {
+   "word": "They're",
+   "start": 1.619,
+   "end": 2.233,
+   "at": 48.6,
+   "until": 67.0
+  },
+  {
+   "word": "an",
+   "start": 2.264,
+   "end": 2.326,
+   "at": 67.9,
+   "until": 69.8
+  },
+  {
+   "word": "auction,",
+   "start": 2.407,
+   "end": 3.907,
+   "at": 72.2,
+   "until": 117.2
+  },
+  {
+   "word": "and",
+   "start": 3.953,
+   "end": 4.093,
+   "at": 118.6,
+   "until": 122.8
+  },
+  {
+   "word": "every",
+   "start": 4.155,
+   "end": 4.465,
+   "at": 124.7,
+   "until": 133.9
+  },
+  {
+   "word": "time",
+   "start": 4.54,
+   "end": 4.837,
+   "at": 136.2,
+   "until": 145.1
+  },
+  {
+   "word": "you",
+   "start": 4.884,
+   "end": 5.023,
+   "at": 146.5,
+   "until": 150.7
+  },
+  {
+   "word": "hit",
+   "start": 5.07,
+   "end": 5.209,
+   "at": 152.1,
+   "until": 156.3
+  },
+  {
+   "word": "send,",
+   "start": 5.321,
+   "end": 6.233,
+   "at": 159.6,
+   "until": 187.0
+  },
+  {
+   "word": "you're",
+   "start": 6.279,
+   "end": 6.605,
+   "at": 188.4,
+   "until": 198.2
+  },
+  {
+   "word": "one",
+   "start": 6.651,
+   "end": 6.791,
+   "at": 199.5,
+   "until": 203.7
+  },
+  {
+   "word": "of",
+   "start": 6.822,
+   "end": 6.884,
+   "at": 204.7,
+   "until": 206.5
+  },
+  {
+   "word": "the",
+   "start": 6.907,
+   "end": 6.977,
+   "at": 207.2,
+   "until": 209.3
+  },
+  {
+   "word": "bidders.",
+   "start": 7.023,
+   "end": 7.907,
+   "at": 210.7,
+   "until": 237.2
+  },
+  {
+   "word": "So",
+   "start": 8.248,
+   "end": 8.93,
+   "at": 247.4,
+   "until": 267.9
+  },
+  {
+   "word": "check",
+   "start": 8.992,
+   "end": 9.302,
+   "at": 269.8,
+   "until": 279.1
+  },
+  {
+   "word": "how",
+   "start": 9.349,
+   "end": 9.488,
+   "at": 280.5,
+   "until": 284.6
+  },
+  {
+   "word": "busy",
+   "start": 9.563,
+   "end": 9.86,
+   "at": 286.9,
+   "until": 295.8
+  },
+  {
+   "word": "the",
+   "start": 9.884,
+   "end": 9.953,
+   "at": 296.5,
+   "until": 298.6
+  },
+  {
+   "word": "road",
+   "start": 10.009,
+   "end": 10.233,
+   "at": 300.3,
+   "until": 307.0
+  },
+  {
+   "word": "is",
+   "start": 10.294,
+   "end": 10.419,
+   "at": 308.8,
+   "until": 312.6
+  },
+  {
+   "word": "before",
+   "start": 10.472,
+   "end": 10.791,
+   "at": 314.2,
+   "until": 323.7
+  },
+  {
+   "word": "you",
+   "start": 10.837,
+   "end": 10.977,
+   "at": 325.1,
+   "until": 329.3
+  },
+  {
+   "word": "pay",
+   "start": 11.023,
+   "end": 11.163,
+   "at": 330.7,
+   "until": 334.9
+  },
+  {
+   "word": "for",
+   "start": 11.209,
+   "end": 11.349,
+   "at": 336.3,
+   "until": 340.5
+  },
+  {
+   "word": "the",
+   "start": 11.372,
+   "end": 11.442,
+   "at": 341.2,
+   "until": 343.3
+  },
+  {
+   "word": "ride.",
+   "start": 11.535,
+   "end": 12.279,
+   "at": 346.1,
+   "until": 368.4
+  }
+ ],
+ "tempo": 0.86
+}

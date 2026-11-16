@@ -84,6 +84,9 @@ Older looks (`terminal`, `flat`, `cutPaper`, `white`) stay as they are for 001 t
 - Full-page visuals register in `src/design/Visuals.ts` (index figures, leverage figures). Add new episode figures there.
 - Numbers on screen must be defensible. If a live figure can't be verified, show the shape, not a number. Label approximations and illustrative charts on screen.
 - Promotion stays minimal: logo, colours, a light "on Hotcoin" CTA line.
+- **Real photos and news images (Alex, FILE 020):** use them freely, the way any news or YouTube explainer does: real people (founders, traders), news photos, screenshots, project artwork, the best image for the story whatever its licence. Use fresh images for recent news and period images for old stories. Every real image carries a small source line on screen ("PHOTO: TECHCRUNCH", "IMAGE: YUGA LABS VIA DECRYPT"). Short clips only, credited the same way. Keep the files in `public/epNN/`.
+- **Hooks in thumbnails (Alex, FILE 020):** a thumbnail is a reason to watch, not a topic label. Lead with the question the viewer has had ("PAID $50 TO SEND $20?") or the real number that shocks ("$150M ON GAS FEES"), never just the episode title.
+- **Play with the mascot (Alex, FILE 020):** fight visual fatigue with gags tied to the story: it swells like a bubble and pops, gets bounced off a closing door, tumbles down falling stairs, rides along with the thing being explained.
 - Episode list and topics: `schedule/build_schedule.py` (`EP` list, 60 episodes).
 
 ---
