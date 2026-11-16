@@ -4,7 +4,7 @@
 //   sq-mark    light grey, giant Hotcoin mark, five coins in a podium row
 //   sq-cards   collectible-card fan
 //   sq-orbit   ink, coins climbing a lime trajectory, few numbers (daily rotation)
-//   sq-news    off-white editorial list, small logos, one news line per coin (daily rotation)
+//   sq-race    off-white race track, coins speeding to a checkered finish, few numbers (daily rotation)
 //   node social/daily/square.mjs [names...]
 import {createRequire} from 'module';
 import {spawn} from 'child_process';
@@ -272,7 +272,7 @@ body{background:#07090A;color:#F2F4EF}
 .ft{position:absolute;left:64px;right:64px;bottom:52px;display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:2px;color:#8A919C}
 </style></head><body><div class="s"><div class="bgl"></div><div class="dots"></div>
 <svg width="1080" height="1080" style="position:absolute;inset:0"><path d="${curve}" fill="none" stroke="#B8F26A" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" opacity=".7"/></svg>
-<div class="head"><img src="/hotcoin-tradfi/public/brand/logo-official-white.png"><h1>Top 5 Gainers<em>climbing tonight</em></h1><div class="pill"><span class="dot"></span>${D.window}</div></div>
+<div class="head"><img src="/hotcoin-tradfi/public/brand/logo-official-white.png"><h1>Top 5 Gainers<em>climbing today</em></h1><div class="pill"><span class="dot"></span>${D.window}</div></div>
 ${D.gainers.map((g, i) => {
     const p = P[i], one = i === 0, fs = one ? 40 : 26, cs = one ? 22 : 17;
     return `<div class="co" style="left:${p.x}px;top:${p.y}px;--g:${g.glow}88">${bezel(g, p.s, metalFor(i + 1))}
@@ -282,40 +282,44 @@ ${D.gainers.map((g, i) => {
 </div></body></html>`;
 };
 
-// ---------- news: why they moved, small logos, editorial off-white ----------
-const NEWS = () => {
-  const vol = (v) => v >= 1e6 ? '$' + (v / 1e6).toFixed(1) + 'M' : '$' + Math.round(v / 1e3) + 'K';
-  const why = (g) => g.news || `No single headline. ${vol(g.vol || 0)} traded on Hotcoin in 24h.`;
+// ---------- race: five lanes, coins speeding to a checkered finish ----------
+// Lane order = rank. #1 touches the finish line; the rest sit back in rank order (visual, not to scale).
+const RACE = () => {
+  const X0 = 470, X1 = 896, max = D.gainers[0].ch;
+  const xs = D.gainers.map((g) => X0 + (X1 - X0) * Math.max(0, g.ch) / max);
   return `${HEAD}<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=block" rel="stylesheet"><style>
 body{background:#F4F1EA;color:#0B0E11}
-.top{position:relative;display:flex;justify-content:space-between;align-items:center;padding-bottom:22px;border-bottom:3px solid #0B0E11}
-.top img{height:40px}
-.top .k{font-family:'JetBrains Mono';font-weight:800;font-size:16px;letter-spacing:3px}
-.head h1{font-size:64px;margin-top:30px;letter-spacing:-2.5px}
-.head h1 em{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-size:84px;letter-spacing:-1px;color:#4E8F2E}
-.pill{background:#fff;color:#0B0E11;margin-top:18px}
-.list{position:relative;flex:1;display:flex;flex-direction:column;margin-top:26px;border-top:1.5px solid #0B0E1122}
-.r{flex:1;display:grid;grid-template-columns:40px 60px 230px 1fr;align-items:center;gap:0 20px;border-bottom:1.5px solid #0B0E1122}
-.r .n{font-family:'JetBrains Mono';font-weight:800;font-size:22px;color:#8A8F96}
-.r .lg{width:60px;height:60px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1.5px #0B0E1118}
-.r .lg img{width:100%;height:100%;object-fit:cover;display:block}
-.r .sym{font-family:Unbounded;font-weight:900;font-size:28px;letter-spacing:-.5px;line-height:1.05}
-.r .ch{font-family:Unbounded;font-weight:900;font-size:24px;color:#14A04B;margin-top:4px}
-.r .w{font-size:23px;font-weight:600;line-height:1.28;color:#1F2328;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.r .w.q{color:#7A7F86;font-weight:500}
-.ft{position:relative;display:flex;justify-content:space-between;margin-top:20px;font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:2px;color:#6B7280}
+.head h1{font-size:60px;margin-top:30px;line-height:1.05}
+.head h1 em{display:block;font-family:'Instrument Serif';font-style:italic;font-weight:400;font-size:72px;letter-spacing:-1px;color:#4E8F2E;margin-top:2px}
+.pill{background:#fff;color:#0B0E11}
+.track{position:absolute;left:64px;right:64px;top:400px;height:580px;border-radius:28px;background:#0B0E11;overflow:hidden;box-shadow:0 30px 60px rgba(11,14,17,.18)}
+.track .tex{position:absolute;inset:0;background-image:radial-gradient(#ffffff10 1.3px,transparent 1.5px);background-size:18px 18px}
+.fin{position:absolute;top:0;bottom:0;left:${X1 + 40 - 64}px;width:28px;background:conic-gradient(#fff 25%,#0B0E11 0 50%,#fff 0 75%,#0B0E11 0) 0 0/28px 28px;opacity:.9}
+.ln{position:absolute;left:0;right:0;height:116px;display:flex;align-items:center}
+.ln + .ln{border-top:2px dashed #ffffff1f}
+.ln .n{position:absolute;left:26px;font-family:'JetBrains Mono';font-weight:800;font-size:18px;color:#8A919C}
+.ln .sym{position:absolute;left:68px;font-family:Unbounded;font-weight:900;font-size:28px;color:#F2F4EF;letter-spacing:-.5px}
+.ln .tr{position:absolute;height:16px;border-radius:999px;top:50px}
+.ln .cn{position:absolute;top:16px}
+.ln .chip{position:absolute;top:36px;font-family:'JetBrains Mono';font-weight:800;font-size:18px;border-radius:999px;background:#B8F26A;color:#0B0E11;padding:5px 11px;white-space:nowrap;margin-top:4px}
+.ln.one .chip{background:#fff}
+.ft{position:absolute;left:64px;right:64px;bottom:44px;display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:2px;color:#6B7280}
 </style></head><body><div class="s">
-${mark(760, 560, 330, '#0B0E11', '#7EC25A', 0.035)}
-<div class="top"><img src="/hotcoin-tradfi/public/brand/logo-official-black.png"><span class="k">${D.date} · TOP 5 GAINERS</span></div>
-<div class="head"><h1>Why they <em>moved</em></h1><div class="pill"><span class="dot"></span>${D.window}</div></div>
-<div class="list">${D.gainers.map((g, i) => `<div class="r"><div class="n">0${i + 1}</div><div class="lg">${face(g, 60)}</div>
-  <div><div class="sym" style="${g.sym.length > 6 ? 'font-size:22px' : ''}">${g.sym}</div><div class="ch">${pct(g.ch)}</div></div>
-  <div class="w${g.news ? '' : ' q'}">${why(g)}</div></div>`).join('')}</div>
-<div class="ft"><span>24H CHANGE · SPOT</span><span>HOTCOIN.COM</span></div>
+${mark(640, 640, -120, '#0B0E11', '#7EC25A', 0.04)}
+<div class="head"><img src="/hotcoin-tradfi/public/brand/logo-official-black.png"><h1>Top 5 Gainers<em>racing ahead today</em></h1><div class="pill"><span class="dot"></span>${D.window}</div></div>
+<div class="track"><div class="tex"></div><div class="fin"></div>
+${D.gainers.map((g, i) => {
+    const cx = xs[i] - 64, start = 200;
+    return `<div class="ln${i === 0 ? ' one' : ''}" style="top:${i * 116}px"><span class="n">0${i + 1}</span><span class="sym" style="${g.sym.length > 6 ? 'font-size:20px' : g.sym.length > 4 ? 'font-size:23px' : ''}">${g.sym}</span>
+  <div class="tr" style="left:${start}px;width:${cx - start}px;background:linear-gradient(90deg,transparent,${g.glow}cc)"></div>
+  <span class="chip" style="right:${1016 - 64 - cx + 52}px">${pct(g.ch)}</span>
+  <div class="cn" style="left:${cx - 42}px">${bezel(g, 84, metalFor(i + 1))}</div></div>`;
+  }).join('')}</div>
+<div class="ft"><span>${D.date} · 24H CHANGE · SPOT</span><span>HOTCOIN.COM</span></div>
 </div></body></html>`;
 };
 
-const PAGES = {'sq-orbit': ORBIT, 'sq-news': NEWS, 'sq-watch': WATCH, 'sq-white': () => POD(false), 'sq-black': () => POD(true), 'sq-mark': MARK, 'sq-cards': CARDS, 'sq-top1': TOP1};
+const PAGES = {'sq-orbit': ORBIT, 'sq-race': RACE, 'sq-watch': WATCH, 'sq-white': () => POD(false), 'sq-black': () => POD(true), 'sq-mark': MARK, 'sq-cards': CARDS, 'sq-top1': TOP1};
 const want = process.argv.slice(2);
 fs.mkdirSync(DIR + '/build', {recursive: true});
 const server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1', '--directory', ROOT], {stdio: 'ignore'});
