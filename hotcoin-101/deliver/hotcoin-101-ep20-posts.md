@@ -5,18 +5,21 @@ Facts used on screen and below (checked):
 - CryptoKitties, December 2017: the craze took about 10 to 15% of Ethereum traffic, and about 30,000 transactions were stuck waiting (BBC, CoinDesk, TechCrunch).
 - Otherside land sale (Yuga Labs), 30 April 2022: buyers spent roughly 55,000 to 64,000 ETH on gas, about $157M to $183M (Decrypt, The Defiant).
 - Dencun upgrade, 13 March 2024: median fees on rollups such as Base and Optimism fell to a few cents (DL News, The Defiant).
+- Fees today (Nov 2026): Ethereum gas mostly well under 1 gwei through 2026, so a plain L1 transfer usually costs cents; L2s a fraction of a cent. Captions say "usually costs cents" because a rush can still spike it.
 - The $50 / $20 open and the gwei bids in the auction scene are labelled illustrative on screen.
 
 ## X (Hotcoin Research, 16:9 video)
 
-**Main post** (short: X rewards a punchy line, the video does the rest)
+**Main post** (as published, 16 Nov 2026: short, playful, tags the projects and people)
 
 ```
-Ever paid $50 in fees to send $20?
+$150M on gas fees in one night. Not bad… right? 😅
 
-You weren't paying a bank. You lost an auction ⛽
+That was @yugalabs' Otherside land sale, 2022. Back in 2017 @CryptoKitties jammed Ethereum with ~30k stuck txs.
 
-Hotcoin 101 · File 020
+Proof people will pay real money for blockspace on @VitalikButerin's network ⛽
+
+Why fees are an auction, and why they're cents now 👇
 ```
 
 **Reply, 20 to 40 minutes later**
@@ -170,3 +173,9 @@ gas fees, ethereum gas fees, why are gas fees so high, what is gas, blockspace, 
 ```
 What's the most you've ever paid in fees for one transaction? 👇
 ```
+
+## Published 16 Nov 2026
+
+- X (Hotcoin Research), Facebook (Hotcoin, video), LinkedIn (Hotcoin, video): 16:9 cut, cover = thumbnail B
+- TikTok (Hotcoin Exchange), Instagram (Hotcoin Exchange, reel): 9:16 cut, cover = thumbnail B
+- The FB, LinkedIn, TikTok and IG captions went out as above plus one line on today's low L1 fees.
