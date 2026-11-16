@@ -106,6 +106,7 @@ export const Root: React.FC = () => (
     <Composition id="R10Teaser" component={R10Teaser} durationInFrames={R10_DURATION} fps={R10_FPS} width={1920} height={1080} />
     <Composition id="R10Wide" component={R10Ambassador} defaultProps={{tall: false}} durationInFrames={R10A_DURATION} fps={R10A_FPS} width={1920} height={1080} />
  <Composition id="R10Aura" component={R10Aura} durationInFrames={R10AURA_DURATION} fps={R10AURA_FPS} width={1920} height={1080} />
+    <Composition id="R10AuraTall" component={R10Aura} durationInFrames={R10AURA_DURATION} fps={R10AURA_FPS} width={1080} height={1920} />
     <Composition id="R10Tall" component={R10Ambassador} defaultProps={{tall: true}} durationInFrames={R10A_DURATION} fps={R10A_FPS} width={1080} height={1920} />
     <Composition id="PolicyMoney" component={PolicyMoney} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="PolicyMoves" component={PolicyMoves} durationInFrames={1} fps={30} width={1080} height={1350} />

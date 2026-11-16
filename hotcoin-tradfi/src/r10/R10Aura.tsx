@@ -8,7 +8,7 @@
 //   no text hidden behind him (words sit either side); no deep end boom.
 import React from 'react';
 import '@fontsource/inter-tight/800.css';
-import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFrame, Easing} from 'remotion';
+import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig, Easing} from 'remotion';
 
 export const R10AURA_FPS = 30;
 const BEAT = 60 / 95;                       // 0.6316 s
@@ -27,7 +27,8 @@ const INK = '#050607', LIME = '#B8F26A', GREEN = '#7EC25A', WHITE = '#F3F5F1';
 const SANS = '"Inter Tight", sans-serif', MONO = '"JetBrains Mono", monospace', SERIF = '"Instrument Serif", serif';
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const ease = Easing.bezier(0.16, 1, 0.3, 1);
-const W = 1920, H = 1080;
+// layout is set per render from the composition size (16:9 or 9:16), like AuraEdit
+let W = 1920, H = 1080, TALL = false;
 
 // beat phase helpers (in frames)
 const beatIndex = (f: number) => Math.floor(f / R10AURA_FPS / BEAT);
@@ -38,7 +39,7 @@ const barPulse = (f: number) => (beatIndex(f) % 4 === 0 ? pulse(f, 9) : 0);
 // ---------- background patterns ----------
 const Rays: React.FC<{f: number; o: number}> = ({f, o}) => (
   <AbsoluteFill style={{opacity: o, mixBlendMode: 'screen'}}>
-    <div style={{position: 'absolute', left: W / 2 - 1400, top: H * 0.42 - 1400, width: 2800, height: 2800, borderRadius: '50%', transform: `rotate(${f * 0.25}deg)`,
+    <div style={{position: 'absolute', left: W / 2 - 1400, top: (TALL ? 700 : H * 0.42) - 1400, width: 2800, height: 2800, borderRadius: '50%', transform: `rotate(${f * 0.25}deg)`,
       background: 'repeating-conic-gradient(from 0deg, rgba(184,242,106,.10) 0deg 3deg, rgba(184,242,106,0) 3deg 15deg)',
       WebkitMaskImage: 'radial-gradient(closest-side, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 72%)', maskImage: 'radial-gradient(closest-side, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 72%)'}} />
   </AbsoluteFill>
@@ -57,7 +58,7 @@ const Halftone: React.FC<{f: number; o: number}> = ({f, o}) => {
 };
 
 // sonar rings born on every beat from the centre
-const Rings: React.FC<{f: number; o: number; cy?: number}> = ({f, o, cy = H * 0.44}) => {
+const Rings: React.FC<{f: number; o: number; cy?: number}> = ({f, o, cy = TALL ? 700 : H * 0.44}) => {
   const k = beatIndex(f);
   return (
     <AbsoluteFill style={{opacity: o}}>
@@ -95,7 +96,7 @@ const Intro: React.FC<{f: number}> = ({f}) => {
   const sc = k === 0 ? 1 + 0.04 * (1 - Math.exp(-t / 8)) : 1 + 0.18 * Math.exp(-t / 3.5);  // slam (beat 0 is a slow push)
   const blur = k === 0 ? 0 : Math.max(0, 6 - t * 2.5);   // frame 1 is crisp
   const charge = k >= 3 ? interpolate(f, [fr(beatS(3)), DROP], [0, 1], clamp) : 0;   // the 10 charges up into the drop
-  const size = s.big === '10' ? 620 + charge * 220 : s.serif ? 300 : 360;
+  const size = (s.big === '10' ? 620 + charge * 220 : s.serif ? 300 : 360) * (TALL ? 0.82 : 1);
   return (
     <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
       <div style={{transform: `scale(${sc})`, filter: `blur(${blur}px)`, textAlign: 'center'}}>
@@ -110,9 +111,9 @@ const Intro: React.FC<{f: number}> = ({f}) => {
 };
 
 // ---------- him ----------
-const PS = 0.7, PW = 1500 * PS, PH = 1620 * PS;
 const Person: React.FC<{f: number}> = ({f}) => {
   if (f < DROP) return null;
+  const PS = TALL ? 0.95 : 0.7, PW = 1500 * PS, PH = 1620 * PS;
   const enter = interpolate(f, [DROP, DROP + 8], [0, 1], {...clamp, easing: ease});
   const exit = interpolate(f, [OUT1 - 2, OUT1 + 6], [0, 1], {...clamp, easing: ease});
   const p = pulse(f, 6), bp = barPulse(f);
@@ -120,7 +121,7 @@ const Person: React.FC<{f: number}> = ({f}) => {
   const shake = bp * 6;
   const sx = Math.sin(f * 2.3) * shake, sy = Math.cos(f * 1.7) * shake;
   const glow = 18 + 30 * p;
-  const left = W / 2 - PW / 2, top = H - PH + 40;
+  const left = W / 2 - PW / 2, top = H - PH + (TALL ? 70 : 40);
   const style: React.CSSProperties = {width: PW, height: PH};
   const grade = `grayscale(1) contrast(1.3) brightness(1.08) drop-shadow(0 0 ${glow}px rgba(184,242,106,${0.45 + 0.4 * p})) drop-shadow(0 0 4px rgba(184,242,106,.8))`;
   const clipFrame = Math.min(f, CLIP_END - 1);
@@ -186,6 +187,25 @@ const Captions: React.FC<{f: number}> = ({f}) => {
     const serif = i === 2 && w === 'MAGIC';
     return <Word key={idx} w={w} lt={lt} lime={isHi} serif={serif} align={align} size={fit(w, 150)} />;
   });
+  if (TALL) {
+    const row = (list: string[], offset: number) => {
+      const size = Math.min(124, 960 / (list.join(' ').length * 0.62));
+      return (
+        <div style={{display: 'flex', justifyContent: 'center', gap: size * 0.28, alignItems: 'baseline'}}>
+          {list.map((w, k) => {
+            const idx = offset + k;
+            const lt = (t - p.t[Math.min(idx, p.t.length - 1)]) * R10AURA_FPS;
+            return <Word key={idx} w={w} lt={lt} lime={idx >= p.hi && offset > 0} serif={i === 2 && w === 'MAGIC'} align="left" size={size} />;
+          })}
+        </div>
+      );
+    };
+    return (
+      <AbsoluteFill style={{opacity: out}}>
+        <div style={{position: 'absolute', left: 50, right: 50, top: 190, display: 'flex', flexDirection: 'column', gap: 6}}>{row(p.L, 0)}{row(p.R, p.L.length)}</div>
+      </AbsoluteFill>
+    );
+  }
   return (
     <AbsoluteFill style={{opacity: out}}>
       <div style={{position: 'absolute', left: 90, top: 330, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>{render(p.L, 0, 'left')}</div>
@@ -200,9 +220,11 @@ const NameStrip: React.FC<{f: number}> = ({f}) => {
   if (f < a || f > b + 8) return null;
   const o = interpolate(f, [a, a + 6, b, b + 8], [0, 1, 1, 0], clamp);
   return (
-    <div style={{position: 'absolute', left: 0, right: 0, bottom: 56, display: 'flex', justifyContent: 'center', opacity: o}}>
+    <div style={{position: 'absolute', left: 0, right: 0, bottom: TALL ? 360 : 56, display: 'flex', justifyContent: 'center', opacity: o}}>
       <div style={{background: 'rgba(5,6,7,.82)', border: '1px solid rgba(184,242,106,.5)', padding: '12px 26px', fontFamily: MONO, fontWeight: 500, fontSize: 24, color: WHITE, letterSpacing: 0.5, textAlign: 'center', lineHeight: 1.45}}>
-        <span style={{color: LIME, fontWeight: 700}}>R10</span>  ·  Hotcoin Ambassador (Brazil)  ·  <span style={{color: GREEN}}>Embaixador da Hotcoin (Brasil)</span>
+        {TALL
+          ? <><div style={{color: LIME, fontWeight: 700}}>R10</div><div>Hotcoin Ambassador (Brazil)</div><div style={{color: GREEN}}>Embaixador da Hotcoin (Brasil)</div></>
+          : <><span style={{color: LIME, fontWeight: 700}}>R10</span>  ·  Hotcoin Ambassador (Brazil)  ·  <span style={{color: GREEN}}>Embaixador da Hotcoin (Brasil)</span></>}
       </div>
     </div>
   );
@@ -219,7 +241,7 @@ const Outro: React.FC<{f: number}> = ({f}) => {
   return (
     <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
       <div style={{transform: `scale(${sc})`, fontFamily: serif ? SERIF : SANS, fontStyle: serif ? 'italic' : 'normal', fontWeight: serif ? 400 : 800,
-        fontSize: serif ? 340 : 168, letterSpacing: serif ? 0 : -6, color: serif ? LIME : WHITE, textShadow: serif ? '0 0 80px rgba(184,242,106,.6)' : '0 0 50px rgba(184,242,106,.25)', whiteSpace: 'nowrap'}}>
+        fontSize: serif ? (TALL ? 300 : 340) : (TALL ? 116 : 168), letterSpacing: serif ? 0 : (TALL ? -4 : -6), color: serif ? LIME : WHITE, textShadow: serif ? '0 0 80px rgba(184,242,106,.6)' : '0 0 50px rgba(184,242,106,.25)', whiteSpace: 'nowrap'}}>
         {serif ? 'magic.' : cur.w}
       </div>
     </AbsoluteFill>
@@ -234,16 +256,16 @@ const EndCard: React.FC<{f: number}> = ({f}) => {
   return (
     <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', textAlign: 'center'}}>
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-        <div style={{...row(0), display: 'flex', alignItems: 'center', gap: 26, marginBottom: 46}}>
-          <Img src={staticFile('brand/logo-official-white.png')} style={{height: 56}} />
-          <div style={{width: 2, height: 56, background: 'rgba(243,245,241,.45)'}} />
-          <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 54, letterSpacing: 3, color: WHITE, lineHeight: 1}}>RONALDINHO</div>
+        <div style={{...row(0), display: 'flex', alignItems: 'center', gap: 26, marginBottom: TALL ? 70 : 46}}>
+          <Img src={staticFile('brand/logo-official-white.png')} style={{height: TALL ? 50 : 56}} />
+          <div style={{width: 2, height: TALL ? 50 : 56, background: 'rgba(243,245,241,.45)'}} />
+          <div style={{fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 46 : 54, letterSpacing: 3, color: WHITE, lineHeight: 1}}>RONALDINHO</div>
         </div>
-        <div style={{...row(3), fontFamily: SANS, fontWeight: 800, fontSize: 128, lineHeight: 1, letterSpacing: -4, color: WHITE}}>
-          Play your way. Make it <span style={{fontFamily: SERIF, fontStyle: 'italic', fontWeight: 400, fontSize: 152, letterSpacing: 0, color: LIME, textShadow: '0 0 50px rgba(184,242,106,.5)'}}>magic.</span>
+        <div style={{...row(3), fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 112 : 128, lineHeight: TALL ? 1.08 : 1, letterSpacing: -4, color: WHITE}}>
+          Play your way.{TALL ? <br /> : ' '}Make it <span style={{fontFamily: SERIF, fontStyle: 'italic', fontWeight: 400, fontSize: TALL ? 134 : 152, letterSpacing: 0, color: LIME, textShadow: '0 0 50px rgba(184,242,106,.5)'}}>magic.</span>
         </div>
-        <div style={{...row(7), marginTop: 50, background: LIME, color: INK, borderRadius: 999, padding: '18px 42px', fontFamily: SANS, fontWeight: 800, fontSize: 40}}>hotcoin.com</div>
-        <div style={{...row(10), marginTop: 44, fontFamily: MONO, fontWeight: 500, fontSize: 27, lineHeight: 1.5, color: 'rgba(243,245,241,.92)'}}>
+        <div style={{...row(7), marginTop: TALL ? 80 : 50, background: LIME, color: INK, borderRadius: 999, padding: TALL ? '22px 48px' : '18px 42px', fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 46 : 40}}>hotcoin.com</div>
+        <div style={{...row(10), marginTop: TALL ? 90 : 44, fontFamily: MONO, fontWeight: 500, fontSize: TALL ? 32 : 27, lineHeight: 1.5, color: 'rgba(243,245,241,.92)'}}>
           <div>Hotcoin Ambassador (Brazil)</div>
           <div style={{color: GREEN}}>Embaixador da Hotcoin (Brasil)</div>
         </div>
@@ -281,6 +303,8 @@ const Sound: React.FC = () => {
 
 export const R10Aura: React.FC = () => {
   const f = useCurrentFrame();
+  const {width, height} = useVideoConfig();
+  W = width; H = height; TALL = height > width;
   const inVoice = f >= DROP && f < OUT1;
   // background intensity by section
   const rays = f < DROP ? 0.6 : inVoice ? 1 : 0.7;
