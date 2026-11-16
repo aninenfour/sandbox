@@ -1,0 +1,59 @@
+{
+ "title": "Monopoly money\n_beat_ Bitcoin",
+ "handle": "",
+ "title_top": 250,
+ "title_px": 104,
+ "row_top": 520,
+ "icon_px": 190,
+ "stats": [
+  {
+   "label": "",
+   "sub": "",
+   "icon": "BTC.svg",
+   "value": "-49%",
+   "tone": "neg",
+   "name": "Bitcoin"
+  },
+  {
+   "label": "",
+   "sub": "",
+   "icon": "monopoly.jpg",
+   "value": "+61%",
+   "tone": "pos",
+   "name": "Hasbro"
+  }
+ ],
+ "arrow": false,
+ "value_px": 130,
+ "punch": {
+  "text": "Fake money is up. Mine is not. 🎲",
+  "top": 1050,
+  "left": 560,
+  "width": 340
+ },
+ "meme": {
+  "start": 5.8,
+  "end": 12.3,
+  "loops": 2,
+  "crop": [
+   72,
+   320,
+   576,
+   876
+  ],
+  "scale": 1.25,
+  "x": -110,
+  "key": "auto",
+  "similarity": 0.28,
+  "blend": 0.06,
+  "feather_right": 160,
+  "volume": 0,
+  "y_offset": 70
+ },
+ "audio": {
+  "start": 0.6,
+  "fade_out": 1.2,
+  "lufs": -14
+ },
+ "wm_opacity": 0.07
+}

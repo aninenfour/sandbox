@@ -50,7 +50,8 @@ def build_html(spec, base):
         icon = f'<div class="sicon" style="background-image:url({_b64(base / s["icon"], _img_mime(s["icon"]))})"></div>' if s.get('icon') else ''
         cells.append(f'<div class="stat"><div class="slabel">{H.escape(s.get("label", ""))}</div>'
                      f'<div class="ssub">{H.escape(s.get("sub", ""))}</div>{icon}'
-                     f'<div class="sval" style="color:{tone(s.get("tone"))}">{H.escape(s["value"])}</div></div>')
+                     f'<div class="sval" style="color:{tone(s.get("tone"))}">{H.escape(s["value"])}</div>'
+                     + (f'<div class="slabel2">{H.escape(s["name"])}</div>' if s.get('name') else '') + '</div>')
     side = spec.get('side')
     side_html = ''
     if side:
@@ -63,6 +64,8 @@ def build_html(spec, base):
         side_html = (f'<div class="side"><div class="sdlabel">{H.escape(side.get("label", ""))}</div>{ph}'
                      f'<div class="sdval" style="color:{tone(side.get("tone"))}">{H.escape(side.get("value", ""))}</div>'
                      f'<div class="sdsub">{H.escape(side.get("sub", ""))}</div></div>')
+    pu = spec.get('punch')
+    punch_html = (f'<div class="punch" style="top:{pu.get("top", 1060)}px;left:{pu.get("left", 560)}px;width:{pu.get("width", 360)}px">{H.escape(pu["text"])}</div>' if pu else '')
     logo = _b64(ROOT / 'assets' / 'symbol-dark.svg', 'image/svg+xml')
     handle = H.escape(spec.get('handle', ''))
     # title: *word* = red highlight, _word_ = green highlight
@@ -85,12 +88,15 @@ body{{background:radial-gradient(ellipse 85% 60% at 50% 42%,#FFFFFF 0%,#EDEEF0 5
 .stat{{display:flex;flex-direction:column;align-items:center;min-width:260px}}
 .slabel{{font:800 40px 'Manrope';letter-spacing:2px;color:#3A4047}}
 .ssub{{font:600 34px 'Manrope';color:#6A7078;margin-top:6px}}
-.sicon{{width:150px;height:150px;border-radius:50%;background-size:cover;background-position:center;margin-top:18px;box-shadow:0 8px 24px rgba(0,0,0,.18)}}
+.sicon{{width:{spec.get('icon_px', 150)}px;height:{spec.get('icon_px', 150)}px;border-radius:50%;background-size:cover;background-position:center;margin-top:18px;box-shadow:0 8px 24px rgba(0,0,0,.18)}}
 .sval{{font-family:'Archivo';font-weight:900;font-stretch:88%;font-size:{val_px}px;line-height:1;margin-top:18px;letter-spacing:-2px}}
 .arrow{{font:800 90px 'Manrope';color:#9AA0A6;padding-bottom:22px}}
 .side{{position:absolute;top:{spec.get("side_top", 720)}px;left:{spec.get("side_left", 600)}px;width:{spec.get("side_width", 360)}px;display:flex;flex-direction:column;align-items:center}}
 .sicon2{{width:{spec.get("side_photo", 260)}px;height:{spec.get("side_photo", 260)}px;margin-top:16px;background:center/contain no-repeat;filter:drop-shadow(0 10px 22px rgba(0,0,0,.18))}}
 .wm{{position:absolute;left:50%;top:{spec.get("wm_top", 46)}%;width:{spec.get("wm_size", 760)}px;height:{spec.get("wm_size", 760)}px;transform:translate(-50%,-50%);background:url({wm}) center/contain no-repeat;opacity:{spec.get("wm_opacity", 0.06)}}}
+.punch{{position:absolute;background:#fff;border-radius:34px;padding:26px 30px;font:800 46px/1.15 'Manrope';color:{INK};box-shadow:0 12px 30px rgba(0,0,0,.18);text-align:center}}
+.punch:after{{content:'';position:absolute;left:-26px;bottom:40px;border:16px solid transparent;border-right:26px solid #fff;border-left:0}}
+.slabel2{{font:700 38px 'Manrope';color:#2A3036;margin-top:14px}}
 .sdlabel{{font:700 46px 'Manrope';color:#2A3036}}
 .sphoto{{width:{spec.get("side_photo", 300)}px;height:{spec.get("side_photo", 300)}px;border-radius:50%;margin-top:16px;background-repeat:no-repeat;box-shadow:0 10px 30px rgba(0,0,0,.22);border:6px solid #fff}}
 .sdval{{font-family:'Archivo';font-weight:900;font-size:{spec.get("side_value_px", 150)}px;line-height:1;margin-top:20px;letter-spacing:-3px}}
@@ -101,6 +107,7 @@ body{{background:radial-gradient(ellipse 85% 60% at 50% 42%,#FFFFFF 0%,#EDEEF0 5
 <div class="title">{title_html}</div>
 <div class="row">{"".join(cells)}</div>
 {side_html}
+{punch_html}
 </body></html>'''
 
 
