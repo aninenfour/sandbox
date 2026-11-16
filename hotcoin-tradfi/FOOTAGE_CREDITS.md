@@ -376,10 +376,13 @@ team's Google Drive into `public/ronaldinho/main.mp4` (gitignored). Hotcoin hold
 `scripts/make-r10-key.py`. Brand rule: only real footage of him, and every public asset ends with
 "Hotcoin Ambassador (Brazil)" + "Embaixador da Hotcoin (Brasil)".
 
+**Music:** "Spanish Heart" (Mixkit music 974, Mixkit free licence), instrumental, drop at 7.95 s aligned to the ball strike.
+
 **Sound effects:** Mixkit, free sound effects licence (commercial use, no attribution), fetched by `scripts/fetch-r10-sfx.sh`:
-referee whistle (616), hitting soccer ball (2112), stadium joy shouting crowd (3022), cinematic whoosh fast transition (1492),
+electric switch (1808, floodlight clunks), hitting soccer ball (2112), stadium joy shouting crowd (3022), cinematic whoosh fast transition (1492),
 air woosh (1489), magic sparkle whoosh (2350), cinematic whoosh deep impact (1143). Each one was checked with CLAP zero-shot audio
-tagging (laion/clap-htsat-unfused) before use; two mislabelled files (2111 "crowd at the stadium", 2108 "quick kick") tagged as
+tagging (laion/clap-htsat-unfused) before use, including against cartoon / slide whistle / boing labels (the v1 "whistle", 616,
+was a slide whistle and was dropped; so was the repo foley thump.wav). Low hit under the strike: repo foley `hit.wav`. Two mislabelled files (2111 "crowd at the stadium", 2108 "quick kick") tagged as
 plain whooshes and were rejected.
 
 **Everything else** (pitch, floodlights, the 10, name plate, captions) is drawn in code. Captions translate his pt-BR lines

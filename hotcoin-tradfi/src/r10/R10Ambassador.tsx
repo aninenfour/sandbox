@@ -5,14 +5,18 @@
 //   "a gente se vê na Hotcoin" 4.34-5.60. Clip length 5.68 s.
 // Brand rule from the team: every public asset with him ends with BOTH lines:
 //   "Hotcoin Ambassador (Brazil)" + "Embaixador da Hotcoin (Brasil)". Only real footage of him, nothing generated.
-// SFX: Mixkit free sound effects licence (see FOOTAGE_CREDITS.md), chosen and checked with CLAP tagging.
+// Music: "Spanish Heart" (Mixkit free licence), drop at 7.95 s aligned to HIT. SFX: Mixkit + repo foley
+// (see FOOTAGE_CREDITS.md), each checked with CLAP tagging, including against cartoon labels.
 import React from 'react';
 import '@fontsource/inter-tight/800.css';
 import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig, Easing} from 'remotion';
 
 export const R10A_FPS = 30;
-export const R10A_DURATION = 330;
-const V = 46;                 // frame where his clip (and voice) starts
+export const R10A_DURATION = 396;  // 13.2 s, ends on a bar line of the music
+// Intro: dark stadium, floodlight banks clunk on (LIGHTS), the 10 draws, music drops on HIT (ball strike).
+const LIGHTS = [12, 30, 48];
+const HIT = 96;               // = music drop (track 7.95 s), bars every 60 frames after this
+const V = HIT + 14;           // frame where his clip (and voice) starts
 const CLIP_END = V + 170;     // 5.68 s
 const END = CLIP_END + 6;     // end card starts
 
@@ -35,13 +39,25 @@ const WORD_T = [[0.0, 0.66, 0.74], [1.62, 1.84, 1.96], [2.68, 2.92, 2.98, 3.26],
 
 type L = {w: number; h: number; tall: boolean};
 
+// floodlight strike: off, a quick double flicker, then on (with a slow settle)
+const strike = (f: number, at: number) => {
+  const t = f - at;
+  if (t < 0) return 0;
+  if (t < 2) return 0.9;
+  if (t < 4) return 0.25;
+  if (t < 5) return 1;
+  return interpolate(t, [5, 20], [1.15, 1], clamp);
+};
+// camera dolly over the pitch: quick glide in the intro, then a slow drift
+const dollyAt = (f: number) => 7 * (1 - Math.exp(-f / 45)) + f * 0.03;
+
 // ---------- background world ----------
 // true perspective pitch: ground plane projected from a camera above the halfway line, slowly dollying forward
 const Pitch: React.FC<{l: L; f: number}> = ({l, f}) => {
   const {w, h} = l;
   const hz = h * (l.tall ? 0.40 : 0.36);          // horizon
   const F = w * (l.tall ? 1.1 : 0.9), camH = 9;    // focal length (px), camera height (m)
-  const cx = w / 2, dolly = f * 0.035;             // metres per frame
+  const cx = w / 2, dolly = dollyAt(f);
   const P = (x: number, z: number) => [cx + (F * x) / z, hz + (F * camH) / z];
   const near = 2.2, far = 140;
   const stripes: React.ReactNode[] = [];
@@ -90,29 +106,33 @@ const Pitch: React.FC<{l: L; f: number}> = ({l, f}) => {
 
 const World: React.FC<{l: L; f: number}> = ({l, f}) => {
   const flick = 0.92 + 0.08 * Math.sin(f * 0.21) * Math.sin(f * 0.057);
+  const lt = [strike(f, LIGHTS[0]), strike(f, LIGHTS[1])];
+  const wash = strike(f, LIGHTS[2]);
   return (
     <AbsoluteFill style={{background: `radial-gradient(120% 90% at 50% 38%, #12452A 0%, #0A2416 42%, #061009 75%, ${INK} 100%)`, overflow: 'hidden'}}>
-      <Pitch l={l} f={f} />
+      <div style={{position: 'absolute', inset: 0, opacity: 0.3 + 0.7 * Math.min(1, wash)}}><Pitch l={l} f={f} /></div>
       {/* horizon haze over the far pitch */}
       <AbsoluteFill style={{background: `linear-gradient(180deg, rgba(7,9,10,0) 0%, rgba(10,36,22,0) ${l.tall ? 44 : 38}%, rgba(18,69,42,.55) ${l.tall ? 55 : 50}%, rgba(7,9,10,0) ${l.tall ? 72 : 70}%)`}} />
       {/* floodlight beams */}
       {[-1, 1].map((sd) => (
         <div key={sd} style={{position: 'absolute', top: -l.h * 0.12, left: sd < 0 ? -l.w * 0.08 : undefined, right: sd > 0 ? -l.w * 0.08 : undefined,
-          width: l.w * 0.75, height: l.h * 1.1, opacity: 0.55 * flick,
+          width: l.w * 0.75, height: l.h * 1.1, opacity: 0.55 * flick * lt[sd < 0 ? 0 : 1],
           background: `conic-gradient(from ${sd < 0 ? 125 : 205}deg at ${sd < 0 ? '8% 6%' : '92% 6%'}, rgba(205,255,170,0) 0deg, rgba(205,255,170,.20) 12deg, rgba(205,255,170,.05) 22deg, rgba(205,255,170,0) 30deg)`,
           filter: 'blur(18px)', mixBlendMode: 'screen'}} />
       ))}
       {/* floodlight heads */}
       {[-1, 1].map((sd) => (
         <div key={'h' + sd} style={{position: 'absolute', top: l.h * 0.02, left: sd < 0 ? l.w * 0.02 : undefined, right: sd > 0 ? l.w * 0.02 : undefined,
-          width: 260, height: 160, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(235,255,215,.55), rgba(184,242,106,.12) 60%, rgba(0,0,0,0))', filter: 'blur(6px)', opacity: flick}} />
+          width: 260, height: 160, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(235,255,215,.55), rgba(184,242,106,.12) 60%, rgba(0,0,0,0))', filter: 'blur(6px)', opacity: flick * (0.12 + 0.88 * lt[sd < 0 ? 0 : 1])}} />
       ))}
       {/* stadium bokeh along the horizon */}
       {Array.from({length: 26}).map((_, i) => {
         const x = ((i * 137.5) % 100); const y = (l.tall ? 40 : 34) + ((i * 53) % 9);
         const r = 10 + ((i * 31) % 22); const tw = 0.35 + 0.35 * Math.sin(f * 0.05 + i);
-        return <div key={'b' + i} style={{position: 'absolute', left: `${x}%`, top: `${y}%`, width: r, height: r, borderRadius: '50%', background: i % 3 ? 'rgba(184,242,106,.35)' : 'rgba(240,255,230,.4)', filter: 'blur(3px)', opacity: tw}} />;
+        return <div key={'b' + i} style={{position: 'absolute', left: `${x}%`, top: `${y}%`, width: r, height: r, borderRadius: '50%', background: i % 3 ? 'rgba(184,242,106,.35)' : 'rgba(240,255,230,.4)', filter: 'blur(3px)', opacity: tw * (0.25 + 0.75 * Math.min(1, wash))}} />;
       })}
+      {/* house lights down before the strike: darken the whole world, lifts with each bank */}
+      <AbsoluteFill style={{background: INK, opacity: Math.max(0, 0.78 - 0.17 * lt[0] - 0.17 * lt[1] - 0.44 * Math.min(1, wash)), pointerEvents: 'none'}} />
     </AbsoluteFill>
   );
 };
@@ -125,9 +145,9 @@ const Vignette = () => <AbsoluteFill style={{background: 'radial-gradient(130% 1
 // ---------- the big 10 ----------
 const Ten: React.FC<{l: L; f: number}> = ({l, f}) => {
   const size = l.tall ? 1050 : 980;
-  const draw = interpolate(f, [0, 30], [0, 1], {...clamp, easing: ease});
-  const fill = interpolate(f, [28, 31, 46], [0, 1, 0], clamp);          // lime flash on the kick
-  const push = interpolate(f, [0, END], [1, 1.12], clamp);
+  const draw = interpolate(f, [LIGHTS[2], HIT - 6], [0, 1], {...clamp, easing: ease});
+  const fill = interpolate(f, [HIT - 1, HIT + 1, HIT + 11], [0, 1, 0], clamp);  // lime flash on the drop
+  const push = interpolate(f, [0, END], [1.06, 1.16], clamp) - interpolate(f, [HIT, HIT + 10], [0, 0.03], {...clamp, easing: ease}) + interpolate(f, [HIT - 1, HIT + 1, HIT + 12], [0, 0.05, 0], clamp);
   const exit = interpolate(f, [CLIP_END - 4, END + 8], [1, 0], clamp);
   const x = l.tall ? l.w / 2 : l.w * 0.645;
   const y = l.tall ? l.h * 0.47 : l.h * 0.5;
@@ -135,8 +155,8 @@ const Ten: React.FC<{l: L; f: number}> = ({l, f}) => {
     <div style={{position: 'absolute', left: x, top: y, transform: `translate(-50%,-50%) scale(${push})`, opacity: exit}}>
       <svg width={size * 1.25} height={size} viewBox={`0 0 ${size * 1.25} ${size}`} style={{overflow: 'visible'}}>
         <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle" fontFamily="Inter Tight" fontWeight={800} fontSize={size} letterSpacing={-size * 0.06}
-          fill={`rgba(184,242,106,${0.06 + fill * 0.8})`} stroke={LIME} strokeWidth={3} strokeOpacity={0.75}
-          strokeDasharray="5200" strokeDashoffset={5200 * (1 - draw)}>10</text>
+          fill={`rgba(184,242,106,${0.06 + fill * 0.8})`} stroke={LIME} strokeWidth={3}
+          strokeDasharray="9000" strokeDashoffset={9000 * (1 - draw)} strokeOpacity={draw > 0.05 ? 0.75 : 0}>10</text>
       </svg>
     </div>
   );
@@ -175,7 +195,7 @@ const personBox = (l: L) => {
 const Person: React.FC<{l: L; f: number}> = ({l, f}) => {
   const {fps} = useVideoConfig();
   const b = personBox(l);
-  const enter = spring({frame: f - (V - 10), fps, config: {damping: 200, mass: 0.9}, durationInFrames: 22});
+  const enter = spring({frame: f - (HIT + 9), fps, config: {damping: 200, mass: 0.9}, durationInFrames: 22});
   // gentle push + small punch-ins on each phrase
   let punch = 0;
   PHRASES.forEach((p, i) => {
@@ -210,7 +230,7 @@ const Person: React.FC<{l: L; f: number}> = ({l, f}) => {
 
 // ---------- top lockup ----------
 const Lockup: React.FC<{l: L; f: number; at?: number}> = ({l, f}) => {
-  const o = interpolate(f, [4, 16], [0, 1], {...clamp, easing: ease});
+  const o = interpolate(f, [LIGHTS[2] + 4, LIGHTS[2] + 18], [0, 1], {...clamp, easing: ease});
   const h = l.tall ? 46 : 38;
   const exit = interpolate(f, [CLIP_END - 2, END + 4], [1, 0], clamp);
   return (
@@ -359,27 +379,42 @@ const EndCard: React.FC<{l: L; f: number}> = ({l, f}) => {
 };
 
 // ---------- sound ----------
-// [frame, file, volume]
-const SFX: [number, string, number][] = [
-  [0, 'r10/whistle.mp3', 0.45],          // kickoff whistle under the 10 drawing
-  [27, 'r10/kick.mp3', 0.9],             // ball strike = lime flash on the 10
-  [V - 16, 'r10/whoosh-soft.mp3', 0.55], // he rises in
-  [s2f(0.55), 'r10/whoosh-fast.mp3', 0.4], // name plate wipe
-  [s2f(2.80), 'r10/sparkle.mp3', 0.45],  // "magic" arc
-  [CLIP_END - 10, 'r10/whoosh-fast.mp3', 0.75], // stripe wipe
-  [END - 4, 'r10/impact.mp3', 0.8],      // end card lands
+// Every cue is placed so its transient (measured peak, seconds into the file) lands on the frame given.
+// All checked with CLAP against "cartoon / slide whistle / boing / toy" labels: none score above 0.00.
+const PEAK: Record<string, number> = {
+  'r10/clunk.wav': 0.269, 'r10/kick.mp3': 0.252, 'foley/hit.wav': 0.005, 'r10/whoosh-soft.mp3': 0.713,
+  'r10/whoosh-fast.mp3': 1.087, 'r10/sparkle.mp3': 0.455, 'r10/impact.mp3': 0.629,
+};
+// [frame the transient lands on, file, volume, optional seconds trimmed off the start]
+const SFX: [number, string, number, number?][] = [
+  [LIGHTS[0], 'r10/clunk.wav', 0.55],       // floodlight bank 1
+  [LIGHTS[1], 'r10/clunk.wav', 0.6],        // bank 2
+  [LIGHTS[2], 'r10/clunk.wav', 0.8],        // pitch wash
+  [HIT, 'r10/whoosh-soft.mp3', 0.35],       // air pulled into the strike
+  [HIT, 'r10/kick.mp3', 0.95],              // ball strike = music drop = lime 10
+  [HIT, 'foley/hit.wav', 0.9],              // low body under the strike
+  [s2f(0.62), 'r10/whoosh-fast.mp3', 0.3],  // name plate wipe
+  [s2f(2.86), 'r10/sparkle.mp3', 0.35],     // "magic" arc
+  [CLIP_END + 5, 'r10/whoosh-fast.mp3', 0.6, 0.85], // stripe wipe; lead-in trimmed so it never covers "Hotcoin"
+  [END + 2, 'r10/impact.mp3', 0.6],         // end card lands
 ];
+const MUSIC_DROP = 7.95;  // seconds into "Spanish Heart" where the full beat enters
 
 const Sound: React.FC = () => {
   const f = useCurrentFrame();
-  // stadium bed: low under the voice, swells on the end card
-  const crowd = interpolate(f, [0, 10, V - 4, V + 4, CLIP_END - 6, END + 6, R10A_DURATION - 30, R10A_DURATION], [0, 0.22, 0.22, 0.07, 0.07, 0.42, 0.3, 0], clamp);
+  const music = interpolate(f, [0, 8, HIT - 2, HIT, V - 6, V + 2, CLIP_END + 1, END + 6, R10A_DURATION - 24, R10A_DURATION],
+    [0, 0.42, 0.42, 0.6, 0.6, 0.095, 0.095, 0.5, 0.5, 0], clamp);
+  const crowd = interpolate(f, [0, LIGHTS[2], LIGHTS[2] + 10, V - 4, V + 4, CLIP_END + 1, END + 8, R10A_DURATION - 30, R10A_DURATION],
+    [0, 0.04, 0.16, 0.16, 0.025, 0.025, 0.26, 0.2, 0], clamp);
   return (
     <>
+      <Audio src={staticFile('music/r10-spanish-heart.mp3')} startFrom={Math.round((MUSIC_DROP - HIT / R10A_FPS) * R10A_FPS)} volume={() => music} />
       <Audio src={staticFile('sfx/r10/crowd.mp3')} volume={() => crowd} />
       <Sequence from={V} layout="none"><Audio src={staticFile('ronaldinho/voice.wav')} volume={1} /></Sequence>
-      {SFX.map(([at, file, vol], i) => (
-        <Sequence key={i} from={Math.max(0, at)} layout="none"><Audio src={staticFile('sfx/' + file)} volume={vol} /></Sequence>
+      {SFX.map(([at, file, vol, trim = 0], i) => (
+        <Sequence key={i} from={Math.max(0, at - Math.round((PEAK[file] - trim) * R10A_FPS))} layout="none">
+          <Audio src={staticFile('sfx/' + file)} startFrom={Math.round(trim * R10A_FPS)} volume={vol} />
+        </Sequence>
       ))}
     </>
   );
