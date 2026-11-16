@@ -493,5 +493,12 @@
   "twitter": "megaeth",
   "image": "https://coin-images.coingecko.com/coins/images/69995/large/9fcb2fa4-b240-46e2-9016-c4f6101a139d.jpeg?1778485816",
   "logo": "mega"
+ },
+ "QQQB": {
+  "id": "invesco-qqq-trust-bstocks-tokenized-stock",
+  "name": "Invesco QQQ Trust (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174259/large/bstocks_qqqb.png?1782837726",
+  "logo": "qqqb"
  }
 }

@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Spot ETFs: 7 straight days of outflows, $1.91B total"},
+ {"sym": "ETH", "kind": "crypto", "why": "ETH ETFs: 7 red weeks in a row, one off the record"},
+ {"sym": "AVAX", "kind": "crypto", "why": "Only crypto ETF group with net inflows last week"},
+ {"sym": "NVDAB", "kind": "tradfi", "why": "Q3 results Tue after US close (Wed 06:00 UTC+8)"},
+ {"sym": "SPYB", "kind": "tradfi", "why": "Fed Chair Warsh speaks at 01:00 Tue (UTC+8)"}
+]}

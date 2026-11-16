@@ -1,0 +1,71 @@
+{
+ "date": "NOV 16",
+ "window": "Prices at Nov 16 11:57 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Spot ETFs: 7 straight days of outflows, $1.91B total",
+   "last": 65110.01,
+   "ch": 0.45,
+   "vol": 839128376.08,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "ETH ETFs: 7 red weeks in a row, one off the record",
+   "last": 1827.0,
+   "ch": 0.49,
+   "vol": 202191195.5,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "AVAX",
+   "name": "Avalanche",
+   "kind": "crypto",
+   "handle": "@avax",
+   "why": "Only crypto ETF group with net inflows last week",
+   "last": 7.228,
+   "ch": 1.27,
+   "vol": 3910119.82,
+   "logo": "avax",
+   "bg": "#e84142",
+   "glow": "#e84142"
+  },
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA",
+   "kind": "tradfi",
+   "handle": "@nvidia",
+   "why": "Q3 results Tue after US close (Wed 06:00 UTC+8)",
+   "last": 162.62,
+   "ch": 1.01,
+   "vol": 652178.69,
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Fed Chair Warsh speaks at 01:00 Tue (UTC+8)",
+   "last": 752.89,
+   "ch": 0.47,
+   "vol": 712401.01,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  }
+ ]
+}
