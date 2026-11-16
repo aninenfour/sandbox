@@ -107,6 +107,14 @@
   "slot": "2026-11-17T12:30:00+08:00",
   "format": "video",
   "topic": "MEME REACT: Bitcoin -49% from its record ($126K -> $64.5K), crying Ronaldo",
+  "status": "draft",
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-17-memereact-btc-rice",
+  "slot": "2026-11-17T12:30:00+08:00",
+  "format": "video",
+  "topic": "MEME REACT: Bitcoin -49%, Rice +63%, crying Ronaldo",
   "status": "scheduled",
   "doc_row": false
  }
