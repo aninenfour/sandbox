@@ -13,10 +13,11 @@
 | 15/11 | 12:44 | Agenda da semana | 5 horários (Earn, Nvidia, Fed, TradFi, Futuros) | published https://x.com/1895401255163576320/status/2121992791689482396 |
 | 15/11 | 14:16 | Meme | churrasco virou miojo | published https://x.com/1895401255163576320/status/2122015946034327767 |
 | 15/11 | 15:34 | Placar do dia | $JCT +12,2% x $BTC −2,0% (24h até 12:08) | published https://x.com/1895401255163576320/status/2122035573233701002 |
-| 15/11 | 16:53 | Recibo | Última noite do Earn Boost | published |
-| 15/11 | 21:23 | Text | Domingo à noite no Brasil (Fantástico x gráfico) | published |
-| 16/11 | 08:21 | GM | São Paulo, linha sobe a avenida | scheduled |
-| 16/11 | 10:42 | Anúncio oficial | ANTHROPICUSDT vira ANTUSDT (liquidação 17/11 00:45) | scheduled (link in reply) |
+| 15/11 | 16:53 | Recibo | Última noite do Earn Boost | published https://x.com/1895401255163576320/status/2122055455627173941 |
+| 15/11 | 21:23 | Text | Domingo à noite no Brasil (Fantástico x gráfico) | published https://x.com/1895401255163576320/status/2122123398608294261 |
+| 16/11 | 08:21 | GM | São Paulo, linha sobe a avenida | published https://x.com/1895401255163576320/status/2122288997133168844 |
+| 16/11 | 10:42 | Anúncio oficial | ANTHROPICUSDT vira ANTUSDT (liquidação 17/11 00:45) | published https://x.com/1895401255163576320/status/2122324478105420190 |
+| 16/11 | 12:39 | Placar do dia | $RAIN +113,5% x $BTC −0,3% (24h até 12:11) | scheduled |
 | 16/11 | 14:37 | Meme carousel (real template) | Não vou comprar esse mico: BTC, NVDA, ETH, cartas (4 imagens) | scheduled |
 
 ## Queued ideas (not scheduled yet)
@@ -33,3 +34,4 @@
 - 15/11 16:13 check 3: Earn Boost page unchanged (ends 16/11 01:00 Brasília, no sold-out notice); last-night post 16:53 and night text 21:23 queued; no failures. Nothing closes before 08:00 Mon except Earn Boost (covered). Mon: SNDKB Anúncio oficial + Nvidia TradFi review to verify at check 1; meme carousel 14:37 queued.
 - 16/11 07:44 check 1 + WEEKLY FULL REVIEW: new notice ANTHROPICUSDT -> ANTUSDT (16/11) turned into an Anúncio oficial. SNDKB unchanged. Earn Boost ended 01:00.
   Review (Publer, 7 days, ~200 followers so tiny numbers): best = GM Pão de Açúcar (4) and Raio-X Solana (4); event promos with links = 0. Changes: event/notice links go in the first reply (follow_up_comments), not the main post; keep GM + data posts daily; team also posts videos directly on this account (NFP, whitepaper, PoR), avoid overlapping topics.
+- 16/11 12:11 check 2: no new announcements. Placar RAIN verified (CoinGecko rain, price matches). NOTE: other posts now go to this account too (team/other workflow): 'O que assistir hoje no Hotcoin' (PT translation of main What to Watch, 05:55), SpaceX/$SPCX news (05:07), WatcherGuru quote (06:57). Flagged to owner to avoid overlap and overposting.
