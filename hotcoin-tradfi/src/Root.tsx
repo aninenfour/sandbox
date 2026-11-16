@@ -56,6 +56,7 @@ import {EthMaintenance, ZanoResume} from './notice/Notice';
 import {Style2Logo, Style2TradFi, Style2Next90} from './style2/Style2';
 import {PolicyMoney, PolicyMoves, PolicyOdds, PolicyVote} from './policy26/PolicyPulse';
 import {R10Teaser, R10_DURATION, R10_FPS} from './r10/R10Teaser';
+import {R10Ambassador, R10A_DURATION, R10A_FPS} from './r10/R10Ambassador';
 import {ChainBase, ChainDex, ChainStables, ChainPeak} from './chains26/ChainPulse';
 import {GMFilm, GM_DURATION, GM_FPS} from './gm/GM';
 import {IPhone1, IPhone2, IPhone3, IPhone4} from './iphone/IPhoneSeason';
@@ -102,6 +103,8 @@ export const Root: React.FC = () => (
     <Composition id="ChainStables" component={ChainStables} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="ChainPeak" component={ChainPeak} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="R10Teaser" component={R10Teaser} durationInFrames={R10_DURATION} fps={R10_FPS} width={1920} height={1080} />
+    <Composition id="R10Wide" component={R10Ambassador} defaultProps={{tall: false}} durationInFrames={R10A_DURATION} fps={R10A_FPS} width={1920} height={1080} />
+    <Composition id="R10Tall" component={R10Ambassador} defaultProps={{tall: true}} durationInFrames={R10A_DURATION} fps={R10A_FPS} width={1080} height={1920} />
     <Composition id="PolicyMoney" component={PolicyMoney} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="PolicyMoves" component={PolicyMoves} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="PolicyOdds" component={PolicyOdds} durationInFrames={1} fps={30} width={1080} height={1350} />

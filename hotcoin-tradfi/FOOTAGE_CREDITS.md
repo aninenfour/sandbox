@@ -369,3 +369,18 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
   currency printing, hands with banknotes, $1 bill used as the paper plane texture.
 - Sound effects (paper flips, book placements, cloth swishes, coins, soft impacts, wood taps): Kenney "RPG Audio" and
   "Impact Sounds" by Kenney Vleugels (kenney.nl), CC0 1.0. Music in the video is original (score.py).
+
+## Ronaldinho ambassador spot (`src/r10/R10Ambassador.tsx`, compositions R10Wide 16:9 and R10Tall 9:16)
+**Footage:** original Hotcoin green-screen shoot with Ronaldinho, `MAIN_0004 (main part).MP4` (4K, 10-bit, 50 fps), from the
+team's Google Drive into `public/ronaldinho/main.mp4` (gitignored). Hotcoin holds full edit rights. Keyed and graded by
+`scripts/make-r10-key.py`. Brand rule: only real footage of him, and every public asset ends with
+"Hotcoin Ambassador (Brazil)" + "Embaixador da Hotcoin (Brasil)".
+
+**Sound effects:** Mixkit, free sound effects licence (commercial use, no attribution), fetched by `scripts/fetch-r10-sfx.sh`:
+referee whistle (616), hitting soccer ball (2112), stadium joy shouting crowd (3022), cinematic whoosh fast transition (1492),
+air woosh (1489), magic sparkle whoosh (2350), cinematic whoosh deep impact (1143). Each one was checked with CLAP zero-shot audio
+tagging (laion/clap-htsat-unfused) before use; two mislabelled files (2111 "crowd at the stadium", 2108 "quick kick") tagged as
+plain whooshes and were rejected.
+
+**Everything else** (pitch, floodlights, the 10, name plate, captions) is drawn in code. Captions translate his pt-BR lines
+(Whisper transcript): "Aqui é o Ronaldinho, jogue do seu jeito, faça a magia acontecer. A gente se vê na Hotcoin."
