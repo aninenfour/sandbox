@@ -64,7 +64,10 @@ def build_html(spec, base):
                      f'<div class="sdval" style="color:{tone(side.get("tone"))}">{H.escape(side.get("value", ""))}</div>'
                      f'<div class="sdsub">{H.escape(side.get("sub", ""))}</div></div>')
     logo = _b64(ROOT / 'assets' / 'symbol-dark.svg', 'image/svg+xml')
-    handle = H.escape(spec.get('handle', 'Hotcoin'))
+    handle = H.escape(spec.get('handle', ''))
+    # title: *word* = red highlight, _word_ = green highlight
+    title_html = re.sub(r'\*(.+?)\*', r'<span class="hlr">\1</span>', H.escape(spec.get('title', '')))
+    title_html = re.sub(r'_(.+?)_', r'<span class="hlg">\1</span>', title_html).replace('\n', '<br>')
     wm = _b64(ROOT / 'assets' / 'symbol-dark.svg', 'image/svg+xml')
     n = max(1, len(stats))
     val_px = spec.get('value_px') or {1: 180, 2: 132, 3: 100}.get(n, 100)
@@ -75,7 +78,9 @@ html,body{{margin:0;width:{W}px;height:{HGT}px;overflow:hidden}}
 body{{background:radial-gradient(ellipse 85% 60% at 50% 42%,#FFFFFF 0%,#EDEEF0 55%,#C9CBCF 100%);font-family:'Manrope',sans-serif;color:{INK};position:relative}}
 .brand{{position:absolute;top:{spec.get('brand_top', 250)}px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:12px;font:700 30px 'Manrope';color:#5B6168}}
 .brand img{{width:34px;height:34px}}
-.title{{position:absolute;top:{spec.get('title_top', 320)}px;left:60px;right:160px;text-align:center;font:600 60px/1.15 'Manrope';letter-spacing:-.5px}}
+.title{{position:absolute;top:{spec.get('title_top', 250)}px;left:50px;right:{spec.get('title_right', 50)}px;text-align:center;font-family:'Archivo';font-weight:900;font-stretch:80%;font-size:{spec.get('title_px', 96)}px;line-height:1.02;letter-spacing:-1px;text-transform:uppercase}}
+.hlr{{color:#fff;background:{RED};padding:0 14px;border-radius:12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}}
+.hlg{{color:#fff;background:{GREEN};padding:0 14px;border-radius:12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}}
 .row{{position:absolute;top:{spec.get("row_top", 470 if len(spec.get("title", "")) < 34 else 540)}px;left:40px;right:160px;display:flex;justify-content:center;align-items:flex-end;gap:26px}}
 .stat{{display:flex;flex-direction:column;align-items:center;min-width:260px}}
 .slabel{{font:800 40px 'Manrope';letter-spacing:2px;color:#3A4047}}
@@ -92,8 +97,8 @@ body{{background:radial-gradient(ellipse 85% 60% at 50% 42%,#FFFFFF 0%,#EDEEF0 5
 .sdsub{{font:700 38px 'Manrope';color:#4A5057;margin-top:8px}}
 </style></head><body>
 <div class="wm"></div>
-<div class="brand"><img src="{logo}">{handle}</div>
-<div class="title">{H.escape(spec.get("title", ""))}</div>
+{f'<div class="brand"><img src="{logo}">{handle}</div>' if handle else ''}
+<div class="title">{title_html}</div>
 <div class="row">{"".join(cells)}</div>
 {side_html}
 </body></html>'''
