@@ -48,7 +48,7 @@ Read `LOG.md` (what ran, what is queued) before planning.
 - **Captions ≤ 280 characters** (a URL counts as 23) unless we learn the account has X Premium.
 - Times: from `schedule.mjs`; never :00/:15/:30/:45; at least 60 min between posts; skip or add a post some days.
 - Risk lines in caption: futures → "Futuros envolvem alto risco."; earn/price → "Não é recomendação de investimento." No em dashes anywhere.
-- Links: event page `https://www.hotcoin.com/en_US/announcement/<slug>/`.
+- Links: event page `https://www.hotcoin.com/en_US/announcement/<slug>/`, posted as the first reply (`follow_up_comments`, delay 0), not in the main post (review 16/11: link posts got 0 engagement).
 
 ## 5. After each run
 - Update the Google Sheet **Hotcoin Português · Post log** (id `1s304pmU3-ZIR_JUkyjMXC3ec2gCClxQeApF2IqHXct0`): one row per post (Data, Hora, Formato, Tema, Primeira imagem URL, Legenda 1ª linha, Status, Link no X, Notas), flip Agendado to Publicado with the X link once live, and rewrite row 1 (TOTAL: posts, publicados/agendados, dias ativo desde 14/11/2026, última revisão completa, data de atualização). Editing needs the Google Sheets connector; if it is not available, keep `LOG.md` current and tell the owner the sheet is behind.

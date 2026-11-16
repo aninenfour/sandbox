@@ -13,13 +13,16 @@
 | 15/11 | 12:44 | Agenda da semana | 5 horários (Earn, Nvidia, Fed, TradFi, Futuros) | published https://x.com/1895401255163576320/status/2121992791689482396 |
 | 15/11 | 14:16 | Meme | churrasco virou miojo | published https://x.com/1895401255163576320/status/2122015946034327767 |
 | 15/11 | 15:34 | Placar do dia | $JCT +12,2% x $BTC −2,0% (24h até 12:08) | published https://x.com/1895401255163576320/status/2122035573233701002 |
-| 15/11 | 16:53 | Recibo | Última noite do Earn Boost | scheduled |
-| 15/11 | 21:23 | Text | Domingo à noite no Brasil (Fantástico x gráfico) | scheduled |
+| 15/11 | 16:53 | Recibo | Última noite do Earn Boost | published |
+| 15/11 | 21:23 | Text | Domingo à noite no Brasil (Fantástico x gráfico) | published |
+| 16/11 | 08:21 | GM | São Paulo, linha sobe a avenida | scheduled |
+| 16/11 | 10:42 | Anúncio oficial | ANTHROPICUSDT vira ANTUSDT (liquidação 17/11 00:45) | scheduled (link in reply) |
 | 16/11 | 14:37 | Meme carousel (real template) | Não vou comprar esse mico: BTC, NVDA, ETH, cartas (4 imagens) | scheduled |
 
 ## Queued ideas (not scheduled yet)
-- Mon 16/11: Anúncio oficial SNDKB 8:1 (suspensão 19/11 05:00, retorno previsto 20/11 07:00). Re-check the announcement first.
-- Mon 16/11 or Tue 17/11: Raio-X TradFi Nvidia (resultado ter 17/11 18:20). Re-verify facts the day of posting.
+- Wed 18/11: Anúncio oficial SNDKB 8:1 (suspensão 19/11 05:00, retorno previsto 20/11 07:00), re-check first.
+- Tue 17/11 evening: Nvidia result post (numbers from Nvidia IR after 18:20).
+- Thu/Fri: Futures loss protection last call (ends 20/11 07:00) on Thu evening.
 - Results posts: P2P Challenge (ended 15/11 07:00) results due ~24/11; Spot #23 results ~23/11.
 
 ## Check log
@@ -28,3 +31,5 @@
 - 15/11 07:44 check 1: no new announcements. P2P ended 07:00 (results ~24/11). Earn Boost last day (closes 16/11 01:00). Added GM 08:21 (Rio) and night text 21:23. Google Sheet log needs the Sheets connector to be updated.
 - 15/11 12:08 check 2: no new announcements. Placar: GNR (+39,5%) and UNC (+14,4%) skipped (no verified CoinGecko match), JCT = Janction verified (price matches), scheduled 15:34. GM published.
 - 15/11 16:13 check 3: Earn Boost page unchanged (ends 16/11 01:00 Brasília, no sold-out notice); last-night post 16:53 and night text 21:23 queued; no failures. Nothing closes before 08:00 Mon except Earn Boost (covered). Mon: SNDKB Anúncio oficial + Nvidia TradFi review to verify at check 1; meme carousel 14:37 queued.
+- 16/11 07:44 check 1 + WEEKLY FULL REVIEW: new notice ANTHROPICUSDT -> ANTUSDT (16/11) turned into an Anúncio oficial. SNDKB unchanged. Earn Boost ended 01:00.
+  Review (Publer, 7 days, ~200 followers so tiny numbers): best = GM Pão de Açúcar (4) and Raio-X Solana (4); event promos with links = 0. Changes: event/notice links go in the first reply (follow_up_comments), not the main post; keep GM + data posts daily; team also posts videos directly on this account (NFP, whitepaper, PoR), avoid overlapping topics.
