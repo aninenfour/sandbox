@@ -117,5 +117,14 @@
   "topic": "MEME REACT: Bitcoin -49%, Rice +63%, crying Ronaldo",
   "status": "scheduled",
   "doc_row": false
+ },
+ {
+  "id": "2026-11-17-zelle-solana",
+  "slot": "2026-11-17T10:02:00+08:00",
+  "format": "photo",
+  "topic": "News carousel (photo mode): Zelle picks Solana for ZelleUSD",
+  "hook": "Zelle moved $1.2 trillion in 2025. Now it picked Solana for its own dollar stablecoin",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]

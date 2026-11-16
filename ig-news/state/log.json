@@ -1698,5 +1698,33 @@
    "BTC: CoinGecko ATH $126,080 2025-10-06 + Coinbase; now $64.5K (CoinGecko/Coinbase/Kraken/Yahoo, Nov 16 2026)",
    "Rough rice futures: Yahoo ZR=F $11.03 (2025-10-06) -> $18.02 (2026-11-13); TradingEconomics ~$17.9 Nov 6 2026"
   ]
+ },
+ {
+  "id": "2026-11-17-zelle-solana",
+  "type": "news",
+  "slot": "2026-11-17T10:00:00+08:00",
+  "title": "Zelle picks Solana for its own dollar stablecoin (ZelleUSD)",
+  "score": 11,
+  "layouts": [
+   "ngrid",
+   "nbars",
+   "nbig"
+  ],
+  "ngrid_used": true,
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story(10:05)",
+   "tiktok_photo(10:02, tt/01-04)",
+   "x_research(11:00, slides 01-04)"
+  ],
+  "sources": [
+   "Cointelegraph Nov 16 (Zelle on stage at Breakpoint 2026: ZLUSD on Solana; EWS banks incl. JPMorgan, Wells Fargo; >$1.2T US payments 2025; issuer Anchorage Digital Bank; India first corridor, live by end 2026; privacy feature)",
+   "Crypto Briefing Nov 16 x2 (same facts + $1.25M confidential ZLUSD transfer on Solana devnet, amount hidden; no consumer launch date)",
+   "KuCoin News flash (ZelleUSD on Solana, $1.25M confidential transfer)",
+   "DefiLlama stablecoinchains Nov 17: Ethereum $130.7B, Tron $93.2B, Solana $13.9B"
+  ],
+  "note": "Score 11/12 (hook 3, relevance 3, fresh 3, visual 2: no real photo of the Zelle execs, so cover = Unsplash phone-payment photo + SOL badge). Ethereum stablecoin total: Token Terminal (via Cointelegraph) $150.5B vs DefiLlama $130.7B, used DefiLlama. BofA as EWS member only in one source, left out. Runner-up: Tom Lee/Bitmine 4.97% of ETH supply (Block+Decrypt), skipped as too close to yesterday's crash story. Jensen Huang CEO story not used (Nvidia already at 19:00 Academy). Photos Unsplash: David Dvoracek (phones), Daniel Early (NYC taxi), Om Kamath (Mumbai). ngrid 2-cell US $1.2T vs India End 2026."
  }
 ]
