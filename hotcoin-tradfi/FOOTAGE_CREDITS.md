@@ -373,3 +373,4 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Coin logos UP (Unitas) and SOL: CoinGecko.
 - PT meme carousel "não vou comprar esse mico": 550Park (https://unsplash.com/photos/Rdeulgz_4OA, facepalm, face covered), Askas Jeremy (https://unsplash.com/photos/7TI-3jUObYg, grin cropped below the eyes), Thomas Foster (https://unsplash.com/photos/vWgoeEYdtIY, GPU). BTC/ETH logos: CoinGecko.
 - GM 15/11 (Pão de Açúcar from Botafogo/Urca beach): Jonathan Borba, https://unsplash.com/photos/j_ibL7ytVBY
+- GM 16/11 (São Paulo avenue from above): André Ravazzi, https://unsplash.com/photos/5qTZBQFYXew
