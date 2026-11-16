@@ -1667,5 +1667,21 @@
    "Aug 27 2025: Q3 FY26 outlook $54.0B vs LSEG $53.14B, shares -2.5% after hours, some analysts >$60B (TheFly/TipRanks, BNN Bloomberg, Advisor Perspectives)"
   ],
   "note": "Photos Unsplash: Abhishek Kumar, Christian Wiediger, Bermix Studio, Taylor Vick, Anne Nygard, Adam Smigielski."
+ },
+ {
+  "id": "2026-11-17-memereact-btc-half",
+  "type": "reel-memereact",
+  "slot": "2026-11-17T12:30:00+08:00",
+  "title": "MEME REACT #1: Bitcoin vs its all-time high, $126K -> $64.5K (-49%), crying Ronaldo + sad violin",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "tiktok"
+  ],
+  "sources": [
+   "CoinGecko API: ATH $126,080 on 2025-10-06, price $64,479 on 2026-11-16 11:48 UTC (-48.9%)",
+   "Coinbase BTC-USD daily: Oct 6 2025 high $126,296; Nov 16 2026 $64,457; Kraken $64,461; Yahoo BTC-USD $64,507"
+  ],
+  "note": "First MEME REACT (owner Nov 16). Meme: greenscreenmemes.com/ronaldo-crying-after-being-eliminated-by-spain-green-screen/ (5.8-12.3 s x2, cut before broadcaster logo). Music: archive.org SadViolinMLGSoundEffectsHD. Photo: Unsplash Yumu (SI0BSvfn15Q). 13.0 s, -14 LUFS. Frame-0 cover confirmed in Publer."
  }
 ]

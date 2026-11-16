@@ -119,6 +119,25 @@ Every Reel also goes to **TikTok** (Publer account "Hotcoin Exchange (TikTok)") 
 - **Thumbnail (owner, Nov 16: "TikTok stories have no thumbnail").** Cause: TikTok uses a frame of the video as the cover, and the light WHAT IF Reels were almost all white: frame 0 had ~10% content and the frames from ~1.2 s to ~4 s were blank white (only thin hook text), so the TikTok grid tile looked empty. Fix: (1) every WHAT IF uses `"look": "photo"` (§ WHAT IF photo look): frame 0 is the photo cover and no frame is blank; (2) story.py prints a `thumbnail check` and writes `media/<id>/thumb_tiktok.jpg` (= frame 0): if it warns, fix the video before scheduling; (3) never start a video with a fade-in from black/white. Publer's API supports a TikTok cover only on the media object (`media[].thumbnails[]` + `default_thumbnail` index); no timestamp offset and no `network_options` field, and our `submit_publer_posts` can't set media fields, so frame 0 is the cover. After scheduling, `list_publer_posts` shows the TikTok post's `image`: download it and confirm it is the photo cover.
 - Log every TikTok post in `state/tiktok_log.json` and in the Google Doc **"Hotcoin TikTok releases"** (id in `state/tracker.json` → `tiktok_doc_id`; columns Date | Time | Topic | Hook | Status / TikTok link | First frame, newest first; thumbnail = `media/<id>/thumb_tiktok.jpg`). When the post is live, replace "Scheduled" with the TikTok link.
 
+## 7d. MEME REACT (owner, Nov 16: "This style is next, add it to the mix")
+A 12-20 s looping Reel: ONE static, very clear news graphic on a light grey gradient (small title, then 1-3 big bold numbers, an optional photo + big result on the right) and a keyed-out green-screen meme of a famous person reacting, bottom-left and big, with mood music under it. Reference: the owner's crying-Messi "Last 5 Year Performance" video. First one: posts/2026-11-17-memereact-btc-half (Bitcoin -49% from the top, crying Ronaldo, sad violin).
+- **When:** a big news item with a clear mood (crash, record high, shock, absurd number). Max ~2 per week to start. Channels: **IG Reel + TikTok only**, same slot (default 12:30 when free), one `submit_publer_posts` call per account (IG `post_type: "reel"`; TikTok `post_type: "video"` + the §7c `network_options`). Numbers verified with two independent sources, as always; put a date on any live price ("Nov 16, 2026").
+- **Graphic:** readable on a phone in 1 s. Title + 1-3 big numbers (green up, red down), real photos only (a coin photo, a face, a product), never drawn logos, no em dashes, small @hotcoinex mark on top. Keep key text out of the right ~130 px and the bottom ~20% (TikTok buttons/caption), and leave the bottom-left ~55% x 50% for the meme.
+- **Meme source:** https://greenscreenmemes.com (`/?s=crying`, `/?s=shocked`, `/top-100-green-screen-meme-videos/`; the page HTML links the clip on media.greenscreenmemes.com) or YouTube via yt-dlp. Download into its own empty scratch dir, then copy the clip into the post folder. Watch the clip (ffmpeg contact sheet at 1-5 fps): pick the segment where the face is big, cut before any broadcaster logo/watermark, find the subject box (straight cut edges of the source go against the frame edge or get `feather_right`).
+- **Run:** `python3 ig-news/memereact.py ig-news/posts/<id>/spec.json --meme <clip> --audio <track|meme> --out ig-news/media/<id>` (spec fields are in the script docstring: title, stats, side, meme start/end/loops/crop/scale/x/feather, audio start/fade, -14 LUFS two-pass loudnorm). Writes memereact.mp4 (1080x1920, 30 fps, H.264 + AAC), cover.jpg (= frame 0), thumb_tiktok.jpg, graphic.png, contact.jpg.
+- **Frame-0 cover rule:** the video starts on the full graphic AND the meme face (no fade-in); TikTok and IG use frame 0 as the cover (Publer can't set covers). Read cover.jpg and contact.jpg before scheduling, and after scheduling download the post `image` from `list_publer_posts` to confirm.
+- **Mood to music** (prefer the meme's own iconic sound when it fits; else archive.org, pixabay/freesound are blocked; else a short fal instrumental):
+
+| Mood | Music |
+|---|---|
+| Sad / crash | sad violin (archive.org SadViolinMLGSoundEffectsHD), slow piano |
+| Shock / disbelief | dramatic sting / "dun dun dun", suspense drone |
+| Hype / record high | upbeat trap or epic orchestral hit |
+| Funny / absurd | the meme's own audio, comedic plucks |
+| Calm / relief | lo-fi |
+
+- Captions: IG = hook with the number + emoji list (2 lines) + question + follow block + 4-5 hashtags (#CryptoMemes works); first comment = sources + meme/music/photo credit + "Not financial advice." TikTok = §7c style. Log in state/log.json (`type: "reel-memereact"`) and state/tiktok_log.json.
+
 ## 8. Render, check, host, schedule
 ```bash
 P=ig-news/posts/<YYYY-MM-DD>-<slug>          # post.json + photos live here
