@@ -142,6 +142,18 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--rule); font-famil
 
 
 
+
+/* telegram pack */
+.tg { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.tg .shot { border-radius: 18px; overflow: hidden; border: 2px solid var(--fg); background: #1C1C1E; max-width: 100%; }
+.tg .shot img { width: 100%; display: block; }
+.tg .side { display: grid; gap: 18px; min-width: 0; }
+.tg .stats { display: flex; flex-wrap: wrap; gap: 8px; }
+.tg .plan { list-style: none; padding: 0; margin: 0; display: grid; }
+.tg .plan li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding-block: 12px; border-bottom: 1px solid var(--rule); font-size: 15px; }
+.tg .plan li::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--green); margin-top: 6px; }
+@media (max-width: 900px) { .tg { grid-template-columns: 1fr; } }
+
 /* in real life */
 .irl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .irl .item { display: grid; gap: 10px; align-content: start; min-width: 0; }
@@ -354,6 +366,33 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--rule); font-famil
 
   <section>
     <div class="head">
+      <p class="eyebrow"><span lang="en">Already live</span><span lang="zh">已上线</span></p>
+      <h2><span lang="en">Hotcoin Dot Emoji on Telegram</span><span lang="zh">Telegram 上的 Hotcoin Dot 表情</span></h2>
+      <p class="sub"><span lang="en">The dot is already in our community's hands. Our Telegram has a custom emoji pack built on it, and people use it in chats today. It was drawn before the narrator existed, so the faces still have two eyes. Next step: redo it in the one-eye style so the pack, the videos and the logo are one character.</span><span lang="zh">圆点已经在社群里被使用了。我们的 Telegram 有一套基于它的自定义表情包，大家现在就在聊天里使用。这套表情做于讲解员角色之前，所以还是两只眼睛。下一步：按一只眼睛的风格重做，让表情包、视频和 Logo 成为同一个角色。</span></p>
+    </div>
+    <div class="tg">
+      <div class="shot"><img src="@@tg:tg-pack@@" alt="the current Hotcoin Dot Emoji pack on Telegram: 20 green two-eyed faces and 22 icons"></div>
+      <div class="side">
+        <div class="stats">
+          <span class="chip g"><span lang="en">Live on Telegram</span><span lang="zh">Telegram 已上线</span></span>
+          <span class="chip"><span lang="en">42 emoji</span><span lang="zh">42 个表情</span></span>
+          <span class="chip"><span lang="en">20 dot faces</span><span lang="zh">20 个圆点表情</span></span>
+          <span class="chip"><span lang="en">22 icons</span><span lang="zh">22 个图标</span></span>
+        </div>
+        <h3><span lang="en">The redo plan</span><span lang="zh">重做计划</span></h3>
+        <ul class="plan">
+          <li><span><span lang="en">Redraw the 20 faces with one eye, keeping each expression: happy, crying, love, cool, thinking, angry, sleepy, star-struck, party.</span><span lang="zh">20 个表情脸全部改为一只眼睛，保留原有表情：开心、哭、爱心、酷、思考、生气、犯困、星星眼、派对。</span></span></li>
+          <li><span><span lang="en">Keep the flame tuft and the little hands, since they read well at emoji size.</span><span lang="zh">保留头顶小火苗和小手，在表情尺寸下辨识度很高。</span></span></li>
+          <li><span><span lang="en">Add the new meme poses as stickers: side eye, one-lens shades, money eye, HODL hug, "it is what it is".</span><span lang="zh">把新的梗图姿势加入贴纸：斜眼、单片墨镜、见钱眼开、抱紧比特币、"就这样吧"。</span></span></li>
+          <li><span><span lang="en">Keep the 22 icons (medals, gift, rocket, chart, NEW, HOT) as they are. They already match our green.</span><span lang="zh">22 个图标（奖牌、礼物、火箭、图表、NEW、HOT）保持不变，已经符合我们的绿色。</span></span></li>
+          <li><span><span lang="en">Swap the pack in place so everyone who added it gets the new faces automatically.</span><span lang="zh">在原表情包上直接更新，已添加的用户会自动获得新表情。</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
       <p class="eyebrow"><span lang="en">Meme pack, concept art</span><span lang="zh">表情包概念图</span></p>
       <h2><span lang="en">Made to be shared</span><span lang="zh">为传播而生</span></h2>
       <p class="sub"><span lang="en">Six meme poses for social replies, stickers and community chats. The soft 3D "app mascot" look is a deliberate step away from the clean video style, built for reposting. These are AI concepts made from our character, for the team to react to before we commit to a final set.</span><span lang="zh">六个可用于社媒回复、表情包和社群聊天的梗图姿势。柔和的 3D "App 吉祥物"质感有意区别于视频里的简洁风格，专为转发而设计。以下为基于我们角色生成的 AI 概念图，供团队先看反应，再决定最终版本。</span></p>
@@ -402,7 +441,7 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--rule); font-famil
       <p class="sub"><span lang="en">Ideas for the team to discuss. The character already exists as production art, so each of these is mostly rendering, not drawing.</span><span lang="zh">供团队讨论的方向。角色已是成品素材，以下每一项主要是导出渲染，而不是重新绘制。</span></p>
     </div>
     <div class="ideas">
-      <div class="idea"><span class="t"><span lang="en">Community</span><span lang="zh">社群</span></span><h3><span lang="en">Sticker pack</span><span lang="zh">表情包</span></h3><p><span lang="en">Ten moods as Telegram and WeChat stickers: "to the moon", "rekt", "wen listing".</span><span lang="zh">十种情绪做成 Telegram 和微信表情包："冲月"、"爆仓"、"何时上币"。</span></p></div>
+      <div class="idea"><span class="t"><span lang="en">Community</span><span lang="zh">社群</span></span><h3><span lang="en">Sticker pack</span><span lang="zh">表情包</span></h3><p><span lang="en">The Telegram pack, redone in one-eye style, then WeChat: "to the moon", "rekt", "wen listing".</span><span lang="zh">先把 Telegram 表情包改成一只眼睛的风格，再推出微信版："冲月"、"爆仓"、"何时上币"。</span></p></div>
       <div class="idea"><span class="t"><span lang="en">Social</span><span lang="zh">社媒</span></span><h3><span lang="en">Reaction GIFs</span><span lang="zh">反应动图</span></h3><p><span lang="en">Short loops for replies on X: the pop, the stair tumble, the shocked stare.</span><span lang="zh">用于 X 回复的短循环动图：爆炸、滚台阶、震惊脸。</span></p></div>
       <div class="idea"><span class="t"><span lang="en">Product</span><span lang="zh">产品</span></span><h3><span lang="en">App moments</span><span lang="zh">App 场景</span></h3><p><span lang="en">Loading states, empty states, order filled, deposit arrived.</span><span lang="zh">加载中、空状态、订单成交、充值到账。</span></p></div>
       <div class="idea"><span class="t"><span lang="en">Marketing</span><span lang="zh">营销</span></span><h3><span lang="en">Campaign host</span><span lang="zh">活动主持</span></h3><p><span lang="en">Listing announcements and promos fronted by the dot, in any language.</span><span lang="zh">上币公告、活动推广由圆点出镜，任何语言都适用。</span></p></div>
