@@ -32,6 +32,7 @@ import { Ep17, EP17_TOTAL } from './ep17/Ep17';
 import { Ep18, EP18_TOTAL } from './ep18/Ep18';
 import { Ep19, EP19_TOTAL } from './ep19/Ep19';
 import { Ep20, EP20_TOTAL } from './ep20/Ep20';
+import { Ep20zh, EP20ZH_TOTAL } from './ep20zh/Ep20zh';
 import { Thumb14A, Thumb14AV, Thumb14B, Thumb14BV } from './thumbs/Thumbs14';
 import { Thumb15A, Thumb15AV, Thumb15B, Thumb15BV } from './thumbs/Thumbs15';
 import { Thumb16A, Thumb16AV, Thumb16B, Thumb16BV } from './thumbs/Thumbs16';
@@ -89,6 +90,7 @@ const NOTEBOOK_EPISODES = [
   { slug: 'risk-of-ruin', component: Ep18, units: EP18_TOTAL },
   { slug: 'market-under-a-tree', component: Ep19, units: EP19_TOTAL },
   { slug: 'gas-fees', component: Ep20, units: EP20_TOTAL },
+  { slug: 'gas-fees-zh', component: Ep20zh, units: EP20ZH_TOTAL },
 ];
 
 // Notebook look (FILE 013 onward) sign-off comps

@@ -23,10 +23,10 @@ export const theme = (g: Ground) =>
     : {bg: INK, fg: PAPER, faint: 'rgba(237,236,231,0.14)', ghost: 'rgba(237,236,231,0.3)', note: GREEN};
 
 export const FONT = {
-  display: 'Anton, "Arial Narrow", sans-serif',
-  hand: 'Caveat, "Comic Sans MS", cursive',
-  mono: '"JetBrains Mono", ui-monospace, monospace',
-  brand: 'Inter, sans-serif',
+  display: 'Anton, "ZCOOL QingKe HuangYou", "Arial Narrow", sans-serif',
+  hand: 'Caveat, "ZCOOL KuaiLe", "Comic Sans MS", cursive',
+  mono: '"JetBrains Mono", "Noto Sans SC", ui-monospace, monospace',
+  brand: 'Inter, "Noto Sans SC", sans-serif',
 };
 
 // Lockup geometry, measured from public/brand/hotcoin-lockup-{dark,light}.png

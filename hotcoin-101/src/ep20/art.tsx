@@ -143,7 +143,7 @@ export const BusyGauge: React.FC<{r: number; v: number}> = ({r, v}) => {
 };
 
 /** a toll booth with a fee board on a post. origin at the booth's bottom centre. sign text above */
-export const Booth: React.FC<{sign: string; signColor?: string; arm?: number}> = ({sign, signColor = INK, arm = 0}) => (
+export const Booth: React.FC<{sign: string; signColor?: string; arm?: number; label?: string}> = ({sign, signColor = INK, arm = 0, label = 'FEE'}) => (
   <g>
     <rect x={-80} y={-230} width={160} height={230} rx={10} fill={CREAM} stroke={INK} strokeWidth={LW} />
     <rect x={-56} y={-196} width={112} height={78} rx={8} fill="#BFD7E2" stroke={INK} strokeWidth={LW} />
@@ -157,7 +157,7 @@ export const Booth: React.FC<{sign: string; signColor?: string; arm?: number}> =
     <line x1={0} y1={-284} x2={0} y2={-330} stroke={INK} strokeWidth={6} />
     <rect x={-120} y={-440} width={240} height={110} rx={14} fill={PAPER} stroke={INK} strokeWidth={LW} />
     <text x={0} y={-404} textAnchor="middle" fontFamily={FONT.mono} fontSize={20} letterSpacing={4} fill={INK} opacity={0.6}>
-      FEE
+      {label}
     </text>
     <text x={0} y={-345} textAnchor="middle" fontFamily={FONT.display} fontSize={56} fill={signColor}>
       {sign}
