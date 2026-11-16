@@ -17,8 +17,10 @@
 | 15/11 | 21:23 | Text | Domingo à noite no Brasil (Fantástico x gráfico) | published https://x.com/1895401255163576320/status/2122123398608294261 |
 | 16/11 | 08:21 | GM | São Paulo, linha sobe a avenida | published https://x.com/1895401255163576320/status/2122288997133168844 |
 | 16/11 | 10:42 | Anúncio oficial | ANTHROPICUSDT vira ANTUSDT (liquidação 17/11 00:45) | published https://x.com/1895401255163576320/status/2122324478105420190 |
-| 16/11 | 12:39 | Placar do dia | $RAIN +113,5% x $BTC −0,3% (24h até 12:11) | scheduled |
-| 16/11 | 14:37 | Meme carousel (real template) | Não vou comprar esse mico: BTC, NVDA, ETH, cartas (4 imagens) | scheduled |
+| 16/11 | 12:39 | Placar do dia | $RAIN +113,5% x $BTC −0,3% (24h até 12:11) | published https://x.com/1895401255163576320/status/2122353921528143997 |
+| 16/11 | 14:37 | Meme carousel (real template) | Não vou comprar esse mico: BTC, NVDA, ETH, cartas (4 imagens) | published https://x.com/1895401255163576320/status/2122383639811969224 |
+| 16/11 | 17:44 | Raio-X TradFi | Nvidia: Huang deixa CEO, resultado 17/11 18:20 | scheduled |
+| 16/11 | 19:31 | Poll | Nvidia depois do resultado | scheduled |
 
 ## Queued ideas (not scheduled yet)
 - Wed 18/11: Anúncio oficial SNDKB 8:1 (suspensão 19/11 05:00, retorno previsto 20/11 07:00), re-check first.
@@ -35,3 +37,4 @@
 - 16/11 07:44 check 1 + WEEKLY FULL REVIEW: new notice ANTHROPICUSDT -> ANTUSDT (16/11) turned into an Anúncio oficial. SNDKB unchanged. Earn Boost ended 01:00.
   Review (Publer, 7 days, ~200 followers so tiny numbers): best = GM Pão de Açúcar (4) and Raio-X Solana (4); event promos with links = 0. Changes: event/notice links go in the first reply (follow_up_comments), not the main post; keep GM + data posts daily; team also posts videos directly on this account (NFP, whitepaper, PoR), avoid overlapping topics.
 - 16/11 12:11 check 2: no new announcements. Placar RAIN verified (CoinGecko rain, price matches). NOTE: other posts now go to this account too (team/other workflow): 'O que assistir hoje no Hotcoin' (PT translation of main What to Watch, 05:55), SpaceX/$SPCX news (05:07), WatcherGuru quote (06:57). Flagged to owner to avoid overlap and overposting.
+- 16/11 16:14 check 3: no new announcements (events newest 09/11, notices newest ANTHROPICUSDT 16/11). Placar RAIN 12:39 and meme carousel 14:37 published. Evening: Nvidia review 17:44 + poll 19:31 already queued; no extra evening post (team posts already make today 9+). Nothing closes before 08:00 Tue (ANTUSDT relist est. 17/11 09:00; Wall Street Earnings ends 19/11 12:59; futures protection 20/11 07:00). Tue: Nvidia result post after 18:20.
