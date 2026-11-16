@@ -290,8 +290,10 @@ ACADEMY_CSS = """
 .tphoto .cap{position:absolute;left:0;right:0;bottom:0;padding:60px 30px 22px;font-size:24px;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6))}
 /* Layout B = photo header band with the title on it, chart card overlapping its bottom edge. */
 .paper.vb .thead{position:absolute;left:0;right:0;top:0;height:560px;background-size:cover;background-position:center}
-.paper.vb .thead:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,14,.72) 0%,rgba(10,12,14,.35) 45%,rgba(243,242,236,0) 78%,#F3F2EC 100%)}
+/* Review Nov 17: title must stay readable on bright/busy photos (Nvidia slide 4: green words over a green RTX box). Darker scrim behind the title zone + soft text shadow. */
+.paper.vb .thead:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,14,.82) 0%,rgba(10,12,14,.66) 30%,rgba(10,12,14,.30) 52%,rgba(243,242,236,0) 78%,#F3F2EC 100%)}
 .paper.vb .acad,.paper.vb .tch,.paper.vb .ttl{color:#fff !important;z-index:2}
+.paper.vb .ttl,.paper.vb .tnum{text-shadow:0 2px 18px rgba(0,0,0,.55)}
 .paper.vb .tnum{color:#7EC25A !important;z-index:2}
 .paper.vb .ttl .g{color:#9BE07A !important}
 .paper.vb .vis{z-index:3}

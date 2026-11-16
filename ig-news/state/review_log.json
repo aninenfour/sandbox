@@ -296,5 +296,21 @@
     "skipped": true,
     "looked_at": "Contact sheet of Nov 15-16 renders (week preview Academy, Louisiana/CFTC news, iPhone X WHAT IF cover, hot vs cold wallets Academy)",
     "owner_decision": "TikTok photo mode for carousels by default; Academy-as-Reels; earshot install; tier lists light theme; $5 voucher pitch with devs/risk control"
+  },
+  {
+    "date": "2026-11-17",
+    "metrics_summary": "IG Nov 14-16: CZ/Bitcoin $62K news (first ngrid then/now) 49 reach, best desk news in over a week (others 13-28); iPhone X WHAT IF Reel 101 IG / 72 FB, tier-list Reel 112, GTA grid 52 IG; Academy/week preview carousels 13-16. Team's Weimar money-story Reel 206 IG, gas-fees Reel 101. GTX 1080 WHAT IF (first photo look) and hot/cold wallets Academy too young. Best times (IG 30d) still led by late-night slots driven by the team's money-story Reels: no slot change.",
+    "findings": [
+      "Nvidia earnings Academy (variant B, scheduled Nov 17 19:00): slide 4 title sits on a busy RTX card photo, the green 'next forecast' runs onto a bright green patch and the white words over big grey RTX letters: readable but weak. Not a broken render, so the scheduled post stays as is.",
+      "CZ $62K news, hot/cold wallets Academy, Nvidia ngrid slide 2, GTX 1080 photo-look WHAT IF and the rice MEME REACT all render clean: no clipping, CTA current, facts and times match post.json sources.",
+      "Rice MEME REACT: in about a third of the loop Ronaldo turns away (back of head) and once his hair covers the small 'Bitcoin' label; for the next MEME REACT pick a clip segment where the face stays toward camera. Owner approved this one, no change.",
+      "Hooks all follow STYLE_NOTES (number + thing, one-tap questions). Possible punchier CZ cover: 'Bitcoin -18% in a week. CZ: we didn't sell'."
+    ],
+    "changes": [
+      "news2.py ACADEMY_CSS: Academy layout B header scrim darker behind the title zone (.82/.66/.30 instead of .72/.35) plus soft text shadow on title and number. Tested by re-rendering the Nvidia earnings Academy to scratch: RTX letters now muted, title clearly readable, chart and photo unchanged."
+    ],
+    "skipped": false,
+    "looked_at": "Publer IG + FB insights Nov 9-17, IG best times 30d; contact sheets of CZ $62K news, hot/cold wallets and Nvidia earnings Academy (all slides + Stories), GTX 1080 WHAT IF contact sheet, rice and Ronaldo MEME REACT contact sheets",
+    "owner_decision": "Academy-as-Reels (carousels still 13-16 IG while ngrid news hit 49); earshot install; tier lists light theme; $5 voucher pitch with devs/risk control"
   }
 ]
