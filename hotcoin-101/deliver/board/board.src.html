@@ -154,6 +154,23 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--rule); font-famil
 .tg .plan li::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--green); margin-top: 6px; }
 @media (max-width: 900px) { .tg { grid-template-columns: 1fr; } }
 
+
+/* current alternative */
+.alt { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.alt figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.alt img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; border: 1px solid var(--tile-line); display: block; }
+.alt figcaption { font-size: 13px; color: var(--muted); }
+.vs { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; margin-top: 32px; }
+.vs h3 { padding-bottom: 10px; border-bottom: 3px solid var(--fg); margin-bottom: 4px; }
+.vs .col { min-width: 0; }
+.vs ul { list-style: none; padding: 0; margin: 0; }
+.vs li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding-block: 11px; border-bottom: 1px solid var(--rule); font-size: 15px; }
+.vs li::before { content: ""; width: 12px; height: 12px; margin-top: 6px; }
+.vs .no li::before { background: var(--red); border-radius: 2px; }
+.vs .yes li::before { background: var(--green); border-radius: 50%; }
+@media (max-width: 900px) { .vs { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 620px) { .alt { grid-template-columns: 1fr; } }
+
 /* in real life */
 .irl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .irl .item { display: grid; gap: 10px; align-content: start; min-width: 0; }
@@ -431,6 +448,40 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--rule); font-famil
       <div class="item"><div class="pic"><img src="@@irl:vinyl-a@@" alt="boxed vinyl figure of the dot on a trading desk"></div><div class="meta"><h3><span lang="en">Collector figure</span><span lang="zh">收藏手办</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">A boxed vinyl figure for the trading desk. Limited runs for milestones.</span><span lang="zh">放在交易桌上的盒装手办。里程碑时限量发售。</span></p></div>
       <div class="item"><div class="pic"><img src="@@irl:infl-b@@" alt="giant inflatable dot at a conference booth"></div><div class="meta"><h3><span lang="en">Booth inflatable</span><span lang="zh">展位充气模型</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">A 3-metre dot you can spot from across the expo hall. Instant selfie queue.</span><span lang="zh">3 米高的圆点，展馆另一头都能看到。自带合影排队效应。</span></p></div>
       <div class="item"><div class="pic"><img src="@@irl:squish-b@@" alt="hand squeezing a stress ball of the dot in front of a red chart"></div><div class="meta"><h3><span lang="en">Stress ball</span><span lang="zh">解压球</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">For red days. Squeeze it and the eye bulges.</span><span lang="zh">专为绿少红多的日子准备。一捏，眼睛就鼓出来。</span></p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <p class="eyebrow"><span lang="en">The current alternative</span><span lang="zh">现有的另一种方案</span></p>
+      <h2><span lang="en">Why not the full logo?</span><span lang="zh">为什么不用完整 Logo？</span></h2>
+      <p class="sub"><span lang="en">Our Chinese social channels already turn the whole logo into a character: the white stroke with the green dot, plus arms and legs. It is recognisable, but it has never settled into one look, and it is hard to make as a real object.</span><span lang="zh">我们的中文社媒已经把整个 Logo 做成了角色：白色笔画加绿色圆点，再加上手脚。它辨识度高，但始终没有固定成统一的形象，而且很难做成实物。</span></p>
+    </div>
+    <div class="alt">
+      <figure><img src="@@alt:alt-1@@" alt="full-logo character running, no face, the dot as a flat green disc"><figcaption><span lang="en">No face, the dot is a flat disc</span><span lang="zh">没有五官，圆点是扁平圆片</span></figcaption></figure>
+      <figure><img src="@@alt:alt-2@@" alt="full-logo character with two eyes and a smile on the stroke"><figcaption><span lang="en">Two eyes and a smile on the stroke</span><span lang="zh">笔画上有两只眼睛和微笑</span></figcaption></figure>
+      <figure><img src="@@alt:alt-3@@" alt="plush version of the full logo with an open mouth and a separate green ball"><figcaption><span lang="en">Plush with an open mouth, the dot becomes a ball</span><span lang="zh">毛绒版张着嘴，圆点变成了球</span></figcaption></figure>
+    </div>
+    <p class="cap"><span lang="en">Hotcoin Chinese social media, three posts, three different characters</span><span lang="zh">Hotcoin 中文社媒：三条内容，三个不同的角色</span></p>
+    <div class="vs">
+      <div class="col no">
+        <h3><span lang="en">Full-logo character</span><span lang="zh">完整 Logo 角色</span></h3>
+        <ul>
+          <li><span><span lang="en">Not settled: the face, the mouth and the dot's shape change from post to post.</span><span lang="zh">形象不统一：五官、嘴巴和圆点的形状每次都不一样。</span></span></li>
+          <li><span><span lang="en">Heavy, angled form with the dot hanging off one side. As a toy it is top-heavy and needs a stand.</span><span lang="zh">造型笨重且倾斜，圆点挂在一侧。做成玩具头重脚轻，需要支架。</span></span></li>
+          <li><span><span lang="en">Two parts, two colours, thin limbs and many seams: costly moulds and weak joints in mass production.</span><span lang="zh">两个部件、两种颜色、细长四肢、接缝多：量产时模具成本高、连接处容易坏。</span></span></li>
+          <li><span><span lang="en">At emoji size the white stroke turns into a blob.</span><span lang="zh">缩小到表情尺寸时，白色笔画会糊成一团。</span></span></li>
+        </ul>
+      </div>
+      <div class="col yes">
+        <h3><span lang="en">The dot</span><span lang="zh">小绿点</span></h3>
+        <ul>
+          <li><span><span lang="en">One look everywhere: the same sphere and eye in videos, stickers and merch.</span><span lang="zh">处处一致：视频、贴纸和周边中是同一个球体、同一只眼睛。</span></span></li>
+          <li><span><span lang="en">A ball stands on its own, rolls, squeezes and survives a bag.</span><span lang="zh">球体自己就能立住，能滚、能捏，放包里也不怕压。</span></span></li>
+          <li><span><span lang="en">One shape, one colour, one eye: the cheapest possible mould, from keychain to 3-metre inflatable.</span><span lang="zh">一个形状、一种颜色、一只眼睛：从钥匙扣到 3 米充气模型，模具成本最低。</span></span></li>
+          <li><span><span lang="en">Reads at 24 pixels, and still turns back into the logo at the end of every video.</span><span lang="zh">24 像素也能看清，而且每支视频结尾都会变回 Logo。</span></span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
