@@ -163,6 +163,7 @@ White background, light motion design (default in stories/whatif.js; `"theme":"d
 ### Carousel length + CTA + X accounts (owner, Nov 4)
 - **Academy / research carousels: exactly 4 slides** (cover + 3 content), **no CTA end slide on any channel**. render.py strips `end` and warns if the count is not 4.
 - **News carousels:** 4 content slides + CTA end slide on IG/FB only. On X never post the CTA slide: X gets slides 01-04.
+- **Every carousel also goes to TikTok as a photo post** (owner, Nov 16; the GTA 2x2 grid reached 915 on TikTok vs 16-36 for IG carousels): `platform: "tiktok"`, `post_type: "photo"`, `media_urls` = content slides only (news 01-04, Academy 01-04; never the CTA slide), resized to 1080x1350 copies in `media/<id>/tt/`. Same slot as IG +2 min. TikTok caption style from §7c (hook with number + 👇, 1-2 lines, comment question, "Not financial advice.", 4-5 hashtags, no follow line, no link in bio). Log it in state/tiktok_log.json.
 - **Every carousel also goes to the Hotcoin Research X account** (Publer: "Hotcoin Research"), 4 images, no CTA, short factual caption, ~1.5 h after the IG post (avoid same caption as the main X account).
 
 ### WHAT IF v2 template (owner, Nov 5) — default for new WHAT IF Reels
