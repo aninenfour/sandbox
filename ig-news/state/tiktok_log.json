@@ -1,68 +1,86 @@
 [
- {
-  "id": "2026-10-31-reel-tier-crashes",
-  "slot": "2026-10-31T21:30:00+08:00",
-  "topic": "Tier list: scariest crashes ever",
-  "hook": "Scariest market crashes ever, ranked",
-  "file": "ig-news/media/2026-10-31-reel-tier-crashes/reel_tiktok.mp4",
-  "status": "scheduled",
-  "doc_row": true
- },
- {
-  "id": "2026-10-30-whatif-prime-amzn",
-  "slot": "2026-10-30T21:30:00+08:00",
-  "topic": "WHAT IF: Amazon Prime vs Amazon stock",
-  "hook": "$79 on Amazon Prime in 2005 vs $79 in Amazon stock",
-  "file": "ig-news/media/2026-10-30-whatif-prime-amzn/story.mp4",
-  "status": "scheduled",
-  "doc_row": true
- },
- {
-  "id": "2026-10-30-reel-binance-hack",
-  "slot": "2026-10-30T09:05:00+08:00",
-  "topic": "BREAKING: Binance $5.7B hack explainer",
-  "hook": "$5.7 BILLION gone from Binance in one evening",
-  "file": "ig-news/media/2026-10-30-reel-binance-hack/story.mp4",
-  "status": "published (link pending)",
-  "doc_row": true
- },
- {
-  "id": "2026-10-29-whatif-xbox-msft",
-  "slot": "2026-10-29T21:30:00+08:00",
-  "topic": "WHAT IF: Xbox 360 vs Microsoft",
-  "hook": "$399 on an Xbox 360 in 2005 vs $399 in Microsoft",
-  "file": "ig-news/media/2026-10-29-whatif-xbox-msft/story.mp4",
-  "status": "scheduled",
-  "doc_row": true
- },
- {
-  "id": "2026-10-28-whatif-gta-nvda",
-  "slot": "2026-10-28T21:30:00+08:00",
-  "topic": "WHAT IF: GTA San Andreas vs Nvidia",
-  "hook": "$50 on GTA San Andreas in 2004 vs $50 in Nvidia",
-  "caption": "$50 on GTA San Andreas in 2004 vs $50 in Nvidia 👇 one of them is worth $90,244 now ... #fintok #nvidia #gta #stocks #investing",
-  "file": "ig-news/media/2026-10-28-whatif-gta-nvda/story.mp4",
-  "status": "scheduled",
-  "doc_row": true
- },
- {
-  "id": "2026-10-26-reel-mstr-vs-btc",
-  "slot": "2026-10-27T21:30:00+08:00",
-  "topic": "Strategy vs Bitcoin (ticker review)",
-  "hook": "Why did Strategy fall 2x harder than BTC?",
-  "caption": "Bitcoin is down 37% from its peak. Strategy ($MSTR) is down 74%. Here's why it falls 2x harder 👇 ... #bitcoin #stocks #crypto #investing #fintok",
-  "file": "ig-news/media/2026-10-26-reel-mstr-vs-btc/reel_tiktok.mp4",
-  "status": "published",
-  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7701339657975369012",
-  "doc_row": true
- },
- {
-  "id": "2026-11-15-whatif-iphonex-aapl",
-  "slot": "2026-11-15T21:30:00+08:00",
-  "topic": "WHAT IF: iPhone X vs Apple stock",
-  "hook": "$999 on an iPhone X in 2017, or $999 in Apple stock?",
-  "file": "ig-news/media/2026-11-15-whatif-iphonex-aapl/story.mp4",
-  "status": "scheduled",
-  "doc_row": false
- }
+  {
+    "id": "2026-10-31-reel-tier-crashes",
+    "slot": "2026-10-31T21:30:00+08:00",
+    "topic": "Tier list: scariest crashes ever",
+    "hook": "Scariest market crashes ever, ranked",
+    "file": "ig-news/media/2026-10-31-reel-tier-crashes/reel_tiktok.mp4",
+    "status": "scheduled",
+    "doc_row": true
+  },
+  {
+    "id": "2026-10-30-whatif-prime-amzn",
+    "slot": "2026-10-30T21:30:00+08:00",
+    "topic": "WHAT IF: Amazon Prime vs Amazon stock",
+    "hook": "$79 on Amazon Prime in 2005 vs $79 in Amazon stock",
+    "file": "ig-news/media/2026-10-30-whatif-prime-amzn/story.mp4",
+    "status": "scheduled",
+    "doc_row": true
+  },
+  {
+    "id": "2026-10-30-reel-binance-hack",
+    "slot": "2026-10-30T09:05:00+08:00",
+    "topic": "BREAKING: Binance $5.7B hack explainer",
+    "hook": "$5.7 BILLION gone from Binance in one evening",
+    "file": "ig-news/media/2026-10-30-reel-binance-hack/story.mp4",
+    "status": "published (link pending)",
+    "doc_row": true
+  },
+  {
+    "id": "2026-10-29-whatif-xbox-msft",
+    "slot": "2026-10-29T21:30:00+08:00",
+    "topic": "WHAT IF: Xbox 360 vs Microsoft",
+    "hook": "$399 on an Xbox 360 in 2005 vs $399 in Microsoft",
+    "file": "ig-news/media/2026-10-29-whatif-xbox-msft/story.mp4",
+    "status": "scheduled",
+    "doc_row": true
+  },
+  {
+    "id": "2026-10-28-whatif-gta-nvda",
+    "slot": "2026-10-28T21:30:00+08:00",
+    "topic": "WHAT IF: GTA San Andreas vs Nvidia",
+    "hook": "$50 on GTA San Andreas in 2004 vs $50 in Nvidia",
+    "caption": "$50 on GTA San Andreas in 2004 vs $50 in Nvidia 👇 one of them is worth $90,244 now ... #fintok #nvidia #gta #stocks #investing",
+    "file": "ig-news/media/2026-10-28-whatif-gta-nvda/story.mp4",
+    "status": "scheduled",
+    "doc_row": true
+  },
+  {
+    "id": "2026-10-26-reel-mstr-vs-btc",
+    "slot": "2026-10-27T21:30:00+08:00",
+    "topic": "Strategy vs Bitcoin (ticker review)",
+    "hook": "Why did Strategy fall 2x harder than BTC?",
+    "caption": "Bitcoin is down 37% from its peak. Strategy ($MSTR) is down 74%. Here's why it falls 2x harder 👇 ... #bitcoin #stocks #crypto #investing #fintok",
+    "file": "ig-news/media/2026-10-26-reel-mstr-vs-btc/reel_tiktok.mp4",
+    "status": "published",
+    "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7701339657975369012",
+    "doc_row": true
+  },
+  {
+    "id": "2026-11-15-whatif-iphonex-aapl",
+    "slot": "2026-11-15T21:30:00+08:00",
+    "topic": "WHAT IF: iPhone X vs Apple stock",
+    "hook": "$999 on an iPhone X in 2017, or $999 in Apple stock?",
+    "file": "ig-news/media/2026-11-15-whatif-iphonex-aapl/story.mp4",
+    "status": "scheduled",
+    "doc_row": false
+  },
+  {
+    "id": "2026-11-16-cz-binance-62k",
+    "slot": "2026-11-16T13:00:00+08:00",
+    "format": "photo",
+    "topic": "News carousel (photo mode): BTC to $62K, CZ says Binance did not sell",
+    "status": "scheduled",
+    "doc_row": false,
+    "note": "first carousels on TikTok (owner, Nov 16)"
+  },
+  {
+    "id": "2026-11-16-academy-hot-cold-wallets",
+    "slot": "2026-11-16T19:02:00+08:00",
+    "format": "photo",
+    "topic": "Academy carousel (photo mode): hot vs cold wallets, $3.4B stolen in 2025",
+    "status": "scheduled",
+    "doc_row": false,
+    "note": "first carousels on TikTok (owner, Nov 16)"
+  }
 ]
