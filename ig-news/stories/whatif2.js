@@ -3,6 +3,7 @@
 // a new phone every 2 years...); a moving camera: the coin stays near the centre while the years scroll past and the
 // scale re-fits, so the coin climbs and falls in place. Light theme. Key content stays inside y 300-1500
 // (IG 4:5 grid and the X 4:5 cut).
+// "look": "photo" (Nov 16, default for new WHAT IFs): photo-first restyle, see the block at the end of this file.
 // SPEC (whatif.json, "template": "v2"):
 //   mode: "lump" | "dca"; year; cover: [lines]; hook: "line\nline"; question
 //   buy: {label, sub, icon, counter}     icon: popcorn | console | phone | cash
@@ -14,6 +15,7 @@ Object.assign(P, {bg1: '#FFFFFF', bg2: '#EEF3EA', white: '#0E1A12', dim: '#6B756
 if (window.HOTCOIN_LOGO_DARK) LOGO.src = window.HOTCOIN_LOGO_DARK;
 const money = v => '$' + Math.round(v).toLocaleString('en-US');
 const COIN = S.invest.color || '#3E9B27';
+let INKC = '14,26,18';                         // chart grid/tick ink (photo look: white)
 
 // ---- timeline (seconds)
 // Owner, Nov 12: length follows the story, not a fixed 40 s. The chart runs ~2.2 s per year (14-60 s),
@@ -225,19 +227,19 @@ function chart(t, a) {
   txt(PTS[Math.min(i, N - 1)][0].slice(0, 4), W / 2, 1060, 330, P.white, 900, 'center', a * .05);
   // grid lines with $ labels (the scale re-fits, so they glide)
   const step = (() => { const raw = mx / 4, p = Math.pow(10, Math.floor(Math.log10(raw))); return [1, 2, 2.5, 5, 10].map(m => m * p).find(s => s >= raw); })();
-  for (let v = step; v < mx; v += step) { const y = Y(v); ctx.globalAlpha = a * .5; ctx.strokeStyle = 'rgba(14,26,18,.10)'; ctx.lineWidth = 2;
+  for (let v = step; v < mx; v += step) { const y = Y(v); ctx.globalAlpha = a * .5; ctx.strokeStyle = `rgba(${INKC},.10)`; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(40, y); ctx.lineTo(W - 40, y); ctx.stroke(); txt(money(v), W - 46, y - 22, 28, P.dim, 700, 'right', a * .8); }
   // year ticks scroll under the chart
   let py = '';
   PTS.forEach((p, j) => { if (j > fi) return; const y = p[0].slice(0, 4); if (y !== py) { py = y; const x = X(j);
-    if (x > 30 && x < W - 30) { ctx.globalAlpha = a * .7; ctx.fillStyle = 'rgba(14,26,18,.25)'; ctx.fillRect(x - 1, CY1 + 10, 2, 18); txt(y, x, CY1 + 52, 30, P.dim, 700, 'center', a * .9); } } });
+    if (x > 30 && x < W - 30) { ctx.globalAlpha = a * .7; ctx.fillStyle = `rgba(${INKC},.25)`; ctx.fillRect(x - 1, CY1 + 10, 2, 18); txt(y, x, CY1 + 52, 30, P.dim, 700, 'center', a * .9); } } });
   const j0 = Math.max(0, Math.floor(fi - (HX + 60) / PXP));
   // money spent (grey) and the stock (green, red while under what you spent)
   ctx.globalAlpha = a; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
   const path = (c, v) => { ctx.beginPath(); ctx.moveTo(X(j0), Y(at(j0, c))); for (let j = j0 + 1; j <= i; j++) ctx.lineTo(X(j), Y(at(j, c))); ctx.lineTo(X(fi), Y(v)); };
   const g = ctx.createLinearGradient(0, CY0, 0, CY1); g.addColorStop(0, 'rgba(62,155,39,.30)'); g.addColorStop(1, 'rgba(62,155,39,0)');
   path(1, cur); ctx.lineTo(X(fi), CY1); ctx.lineTo(X(j0), CY1); ctx.closePath(); ctx.fillStyle = g; ctx.fill();
-  ctx.setLineDash(S.mode === 'dca' ? [] : [16, 14]); path(2, spent); ctx.strokeStyle = 'rgba(14,26,18,.35)'; ctx.lineWidth = 7; ctx.stroke(); ctx.setLineDash([]);
+  ctx.setLineDash(S.mode === 'dca' ? [] : [16, 14]); path(2, spent); ctx.strokeStyle = `rgba(${INKC},.35)`; ctx.lineWidth = 7; ctx.stroke(); ctx.setLineDash([]);
   path(1, cur); ctx.strokeStyle = cur >= spent ? P.green : P.red; ctx.lineWidth = 10; ctx.stroke();
   EV.forEach(e => { if (e.i > fi) return; const x = X(e.i); if (x < 20) return; ctx.globalAlpha = a; ctx.fillStyle = e.c === 'red' ? P.red : P.green;
     ctx.beginPath(); ctx.arc(x, Y(at(e.i, 1)), 12, 0, 7); ctx.fill(); });
@@ -299,4 +301,81 @@ function draw(t) {
   corner(.7 * (1 - prog(t, L0 - .5, L0)));
   ctx.restore();
   const f = 1 - prog(t, T.cover, T.cover + .35); if (f > 0) cover(f);   // cover dissolves into the hook
+}
+
+// ---- "look": "photo" (W47, owner Nov 16: "the new visual for WHAT IF"): photo-first, same family as the ngrid / GTA grid.
+// Frame 0 = a designed cover built from 2 real photos (the thing bought on top, the asset below), big label pills, then
+// the number. Every later scene sits on a dimmed photo backdrop (never a blank frame: TikTok/Publer thumbnails), the
+// purchase rides the chart as a round photo inset, and the end card is the photo split again with the result pill.
+// Spec: "look": "photo", buy.photo / invest.photo = image files in the post folder (real photos: Unsplash, Commons, press;
+// no drawn logos), optional buy.photo_y / invest.photo_y = focal point 0..1 (default .5), optional "photo_title".
+const IM = {}; for (const [k, src] of Object.entries(window.IMGS || {})) { IM[k] = new Image(); IM[k].src = src; }
+if (S.look === 'photo') {
+  Object.assign(P, {bg1: 'rgba(8,11,9,.80)', bg2: '#0A0D0B', white: '#FFFFFF', dim: '#D3DAD5', green: '#7EC25A'});
+  INKC = '255,255,255'; IM.__logo = LOGO; if (window.HOTCOIN_LOGO) LOGO.src = window.HOTCOIN_LOGO;
+  LESSON.forEach(l => { if (l.c === '#3E9B27') l.c = P.green; });
+  const PB = IM[S.buy.photo], PI = IM[S.invest.photo], FB = S.buy.photo_y ?? .5, FI = S.invest.photo_y ?? .5;
+  let NOW = 0;
+  const photo = (im, x, y, w, h, fy = .5) => { if (!im || !im.naturalWidth) { ctx.fillStyle = '#1A201C'; ctx.fillRect(x, y, w, h); return; }
+    const s = Math.max(w / im.naturalWidth, h / im.naturalHeight), sw = w / s, sh = h / s;
+    ctx.drawImage(im, (im.naturalWidth - sw) / 2, (im.naturalHeight - sh) * fy, sw, sh, x, y, w, h); };
+  const shade = (y0, y1, a0, a1) => { const g = ctx.createLinearGradient(0, y0, 0, y1); g.addColorStop(0, `rgba(0,0,0,${a0})`); g.addColorStop(1, `rgba(0,0,0,${a1})`); ctx.fillStyle = g; ctx.fillRect(-80, y0, W + 160, y1 - y0); };
+  const split = dark => { photo(PB, -80, -80, W + 160, H / 2 + 80, FB); photo(PI, -80, H / 2, W + 160, H / 2 + 80, FI);
+    ctx.fillStyle = `rgba(0,0,0,${dark})`; ctx.fillRect(-80, -80, W + 160, H + 160); ctx.fillStyle = '#0A0D0B'; ctx.fillRect(-80, H / 2 - 3, W + 160, 6); };
+  const PILLF = '900 %spx "Inter Display", Inter, sans-serif';
+  const bigPill = (s, x, y, size, bg, fg = '#0A0A0A', rot = 0, a = 1) => { ctx.save(); ctx.globalAlpha = a; ctx.translate(x, y); ctx.rotate(rot);
+    ctx.font = PILLF.replace('%s', size); const w = ctx.measureText(s).width + size * 1.1, h = size * 1.55;
+    ctx.shadowColor = 'rgba(0,0,0,.45)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 8; ctx.fillStyle = bg; ctx.beginPath(); ctx.roundRect(-w / 2, -h / 2, w, h, h * .28); ctx.fill();
+    ctx.shadowColor = 'transparent'; ctx.fillStyle = fg; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s, 0, size * .05); ctx.restore(); };
+  const photoDot = (im, x, y, r, fy = .5) => { ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = r * .4; ctx.fillStyle = '#FFFFFF';
+    ctx.beginPath(); ctx.arc(x, y, r + r * .1, 0, 7); ctx.fill(); ctx.restore(); ctx.save(); ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.clip();
+    photo(im, x - r, y - r, 2 * r, 2 * r, fy); ctx.restore(); };
+  const txt0 = txt, rrect0 = rrect, draw0 = draw, lesson0 = lesson2;
+  txt = (...a) => { ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 20; ctx.shadowOffsetY = 4; txt0(...a); ctx.restore(); };
+  lesson2 = t => { ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 20; lesson0(t); ctx.restore(); };
+  const GLASS = {'#FFFFFF': 'rgba(10,14,12,.72)', '#FFF3F1': 'rgba(48,14,12,.62)', '#EEF8E8': 'rgba(16,44,14,.70)'};
+  rrect = (x, y, w, h, r, fill, stroke) => rrect0(x, y, w, h, r, GLASS[fill] || fill, stroke && (fill === '#EEF8E8' ? 'rgba(126,194,90,.7)' : 'rgba(255,255,255,.22)'));
+  obj = (kind, x, y, r) => photoDot(PB, x, y, r, FB);          // the purchase = a round crop of its real photo
+  sky = () => {                                                 // backdrop by scene: split photos, the asset photo under the chart
+    const k = easeInOut(prog(NOW, T.c0 - .6, T.c0)) * (1 - easeInOut(prog(NOW, T.rev, T.rev + .8)));
+    split(lerp(.5, .78, easeInOut(prog(NOW, T.vs - .2, T.vs + 1.2))));
+    if (k > 0) { ctx.globalAlpha = k; photo(PI, -80, -80, W + 160, H + 160, FI); ctx.fillStyle = 'rgba(6,10,8,.72)'; ctx.fillRect(-80, -80, W + 160, H + 160); ctx.globalAlpha = 1; }
+  };
+  versus = (k, a, sz = 1, yTop = 560, dimL = 0) => {           // two photo cards
+    const pw = 430 * sz, ph = 620 * sz, gap = 40 * sz;
+    const lx = lerp(-pw, W / 2 - gap / 2 - pw, easeOut(k)), rx = lerp(W, W / 2 + gap / 2, easeOut(k));
+    [[lx, PB, FB, S.buy, '#FFFFFF', a * (1 - dimL * .7)], [rx, PI, FI, S.invest, P.green, a]].forEach(([x, im, fy, o, pc, al]) => {
+      ctx.save(); ctx.globalAlpha = al; ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 40; ctx.beginPath(); ctx.roundRect(x, yTop, pw, ph, 40 * sz); ctx.fillStyle = '#000'; ctx.fill();
+      ctx.shadowColor = 'transparent'; ctx.clip(); photo(im, x, yTop, pw, ph, fy); const g = ctx.createLinearGradient(0, yTop + ph * .45, 0, yTop + ph);
+      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.85)'); ctx.fillStyle = g; ctx.fillRect(x, yTop, pw, ph); ctx.restore();
+      bigPill(o.label.toUpperCase(), x + pw / 2, yTop + ph * .76, 40 * sz, pc, '#0A0A0A', 0, al);
+      txt(o.sub, x + pw / 2, yTop + ph * .9, 32 * sz, '#FFFFFF', 700, 'center', al, pw - 30); });
+    return {lx, rx, pw, ph};
+  };
+  cover = a => {                                                // frame 0: two real photos, label pills, then the number
+    ctx.save(); ctx.globalAlpha = a; split(0); ctx.globalAlpha = a;
+    shade(-80, 620, .85, 0); shade(560, H / 2, 0, .55); shade(H / 2, 1250, .45, .1); shade(1220, H + 80, 0, .9);
+    bigPill('WHAT IF?', W / 2, 330, 44, P.green, '#0A0A0A', 0, a);
+    txt(S.photo_title || 'BACK IN ' + S.year, W / 2, 445, 92, '#FFFFFF', 900, 'center', a);
+    const p0 = money(PTS[0][2]);
+    bigPill(S.buy.label.toUpperCase(), W / 2, 690, 62, '#FFFFFF', '#0A0A0A', -.02, a);
+    txt(p0, W / 2, 815, 150, '#FFFFFF', 900, 'center', a);
+    bigPill(S.invest.label.toUpperCase(), W / 2, 1110, 62, P.green, '#0A0A0A', -.02, a);
+    txt(money(PTS[0][1]) + ' → ?', W / 2, 1235, 150, P.green, 900, 'center', a);
+    txt('WHICH ONE WINS?', W / 2, 1420, 68, '#FFFFFF', 900, 'center', a);
+    ctx.restore(); vsBadge(W / 2, H / 2, .8, a); corner(.9 * a);
+  };
+  const endSplit = t => {                                       // end card: the photo split again with the result
+    const k = easeOut(prog(t, ENDT, ENDT + .7)); if (k <= 0) return;
+    ctx.save(); ctx.globalAlpha = k; split(.25); shade(-80, 560, .8, 0); shade(560, H / 2, 0, .5); shade(H / 2, 1250, .45, .1); shade(1300, 1480, .15, .9); ctx.fillStyle = 'rgba(0,0,0,.97)'; ctx.fillRect(-80, 1470, W + 160, H);
+    txt(S.buy.counter.toUpperCase(), W / 2, 560, 48, '#FFFFFF', 800, 'center', k);
+    txt(money(PTS[N - 1][2]), W / 2, 690, 150, '#FFFFFF', 900, 'center', k);
+    txt(S.invest.counter.toUpperCase(), W / 2, 1110, 48, '#FFFFFF', 800, 'center', k);
+    txt(money(PTS[N - 1][1]), W / 2, 1240, 150, P.green, 900, 'center', k);
+    const s = lerp(1.6, 1, easeOut(prog(t, ENDT + .5, ENDT + .8)));
+    if (t > ENDT + .5) { ctx.save(); ctx.translate(W / 2, H / 2); ctx.scale(s, s); bigPill(S.reveal.mult, 0, 0, 70, P.green, '#0A0A0A', -.04, k); ctx.restore(); }
+    ctx.restore(); endcard(t, ENDT + .9);
+  };
+  draw = t => { NOW = t; draw0(t); if (t >= T.cover + .35) endSplit(t); };
+  window.CUES.push({t: ENDT + .5, s: 'stamp'});
 }

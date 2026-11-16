@@ -4,7 +4,8 @@
 Usage: python3 ig-news/story.py ig-news/posts/<id> [--music <mixkit id>] [--frames-only]
   WHAT IF Reels (owner, Oct 28): a post with whatif.json uses the shared stories/whatif.js template instead of scene.js.
   reads <post>/scene.js (defines draw(t), window.DURATION, window.CUES) on top of ig-news/stories/kit.js,
-  writes ig-news/media/<id>/story.mp4 (1080x1920, 30 fps) + cover.jpg + contact.jpg (one frame per second).
+  writes ig-news/media/<id>/story.mp4 (1080x1920, 30 fps) + cover.jpg + contact.jpg (one frame per second)
+  + thumb_tiktok.jpg (= frame 0, the TikTok/IG cover) and prints a thumbnail check (frame 0 fill, near-blank early frames).
 One 9:16 file goes to IG Reels, FB Reels and X (no promo card, no CTA on X).
 Sound is synthesized from the scene's CUES (thunk, hop, whoosh, creak, crash, thud, stamp, key, chime, cheer)
 over a Mixkit music bed that stops at the 'cut' cue.
@@ -97,6 +98,15 @@ def main():
     cw, ch = 216, 384; sheet = Image.new('RGB', (cw * 10, ch * ((len(picks) + 9) // 10)))
     for k, f in enumerate(picks): sheet.paste(Image.open(f).resize((cw, ch)), ((k % 10) * cw, (k // 10) * ch))
     sheet.save(out / 'contact.jpg', quality=80)
+    # TikTok thumbnail check (Nov 16): TikTok shows a frame of the video as the cover (Publer's submit can't attach a
+    # cover image), so frame 0 must be the designed cover and no early frame may be near-blank. "fill" = share of pixels
+    # that differ from the frame's dominant colour; the old white WHAT IF frames were 1-7% (read as "no thumbnail").
+    def fill(f):
+        a = np.asarray(Image.open(f).convert('L').resize((108, 192)), float); return float((np.abs(a - np.median(a)) > 40).mean())
+    f0 = fill(frames / '0000.jpg'); weak = [i / FPS for i in range(0, min(n, 5 * FPS), 3) if fill(frames / f'{i:04d}.jpg') < .08]
+    Image.open(frames / '0000.jpg').save(out / 'thumb_tiktok.jpg', quality=90)
+    print(f'thumbnail check: frame 0 fill {f0:.0%}' + ('' if f0 >= .25 else '  WARNING: frame 0 is mostly empty, TikTok will look blank'))
+    if weak: print(f'  WARNING: near-blank frames in the first 5 s at {weak[0]:.1f}-{weak[-1]:.1f} s (use "look": "photo")')
     if '--frames-only' in sys.argv: return
     # sound: synthesized cues + music bed until the 'cut' cue
     mix = np.zeros(int((dur + 2.5) * SR))
