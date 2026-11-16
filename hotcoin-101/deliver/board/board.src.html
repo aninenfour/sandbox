@@ -154,9 +154,7 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--rule); font-famil
 .irl .big h3 { font-size: 22px; }
 
 /* meme pack */
-.memes { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
-.memes .meme { grid-column: span 2; }
-.memes .meme.wide { grid-column: span 3; }
+.memes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .meme { display: grid; gap: 10px; align-content: start; min-width: 0; }
 .meme .pic { aspect-ratio: 1; border-radius: 14px; overflow: hidden; border: 2px solid var(--fg); background: #fff; max-width: 100%; }
 .meme .pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -170,7 +168,7 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--rule); font-famil
 .takes img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; border: 1px solid var(--tile-line); display: block; background: #fff; }
 .takes figcaption { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.04em; }
 .aiflag { display: inline-flex; gap: 8px; align-items: center; font-family: var(--mono); font-size: 12px; color: var(--muted); }
-@media (max-width: 900px) { .memes { grid-template-columns: repeat(2, 1fr); } .memes .meme, .memes .meme.wide { grid-column: auto; } .takes { grid-template-columns: repeat(4, 1fr); } .irl { grid-template-columns: repeat(2, 1fr); } .irl .big { grid-column: span 2; grid-row: auto; } }
+@media (max-width: 900px) { .memes { grid-template-columns: repeat(2, 1fr); } .takes { grid-template-columns: repeat(4, 1fr); } .irl { grid-template-columns: repeat(2, 1fr); } .irl .big { grid-column: span 2; grid-row: auto; } }
 @media (max-width: 620px) { .memes { grid-template-columns: 1fr; } .irl { grid-template-columns: 1fr; } .irl .big { grid-column: auto; } }
 
 @media (max-width: 900px) {
@@ -358,12 +356,13 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--rule); font-famil
     <div class="head">
       <p class="eyebrow"><span lang="en">Meme pack, concept art</span><span lang="zh">表情包概念图</span></p>
       <h2><span lang="en">Made to be shared</span><span lang="zh">为传播而生</span></h2>
-      <p class="sub"><span lang="en">Five meme poses for social replies, stickers and community chats. The soft 3D "app mascot" look is a deliberate step away from the clean video style, built for reposting. These are AI concepts made from our character, for the team to react to before we commit to a final set.</span><span lang="zh">五个可用于社媒回复、表情包和社群聊天的梗图姿势。柔和的 3D "App 吉祥物"质感有意区别于视频里的简洁风格，专为转发而设计。以下为基于我们角色生成的 AI 概念图，供团队先看反应，再决定最终版本。</span></p>
+      <p class="sub"><span lang="en">Six meme poses for social replies, stickers and community chats. The soft 3D "app mascot" look is a deliberate step away from the clean video style, built for reposting. These are AI concepts made from our character, for the team to react to before we commit to a final set.</span><span lang="zh">六个可用于社媒回复、表情包和社群聊天的梗图姿势。柔和的 3D "App 吉祥物"质感有意区别于视频里的简洁风格，专为转发而设计。以下为基于我们角色生成的 AI 概念图，供团队先看反应，再决定最终版本。</span></p>
       <p class="aiflag"><span class="dot"></span><span lang="en">Seedream 5.5 for the 3D mascot looks, Nano Banana Pro as a second opinion. Memes and real-life mockups together cost about $1.40.</span><span lang="zh">3D 吉祥物风格使用 Seedream 5.5，Nano Banana Pro 作为对照。表情包与实物效果图合计成本约 1.40 美元。</span></p>
     </div>
     <div class="memes">
-      <div class="meme wide"><div class="pic"><img src="@@meme:shades1-a@@" alt="the dot with one round sunglass lens over its one eye, grinning, thumbs up"></div><div class="meta"><h3><span lang="en">Deal with it</span><span lang="zh">稳得很</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">One eye, one lens. For green candles and good calls.</span><span lang="zh">一只眼，一片墨镜。适合大阳线和神预测。</span></p></div>
-      <div class="meme wide"><div class="pic coral"><img src="@@meme:lips-b@@" alt="two dots as eyes with lips between them, text it is what it is"></div><div class="meta"><h3><span lang="en">It is what it is</span><span lang="zh">就这样吧</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">Two dots and a pair of lips. For sideways markets and red Mondays.</span><span lang="zh">两个圆点加一张嘴。适合横盘和黑色星期一。</span></p></div>
+      <div class="meme"><div class="pic"><img src="@@meme:butt-a@@" alt="the dot from behind, looking back with a side eye"></div><div class="meta"><h3><span lang="en">The side eye</span><span lang="zh">斜眼看你</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">Turned away, looking back, judging your trade. Peak reply energy.</span><span lang="zh">背过身回头一瞥，默默评判你的操作。回复神器。</span></p></div>
+      <div class="meme"><div class="pic"><img src="@@meme:shades1-a@@" alt="the dot with one round sunglass lens over its one eye, grinning, thumbs up"></div><div class="meta"><h3><span lang="en">Deal with it</span><span lang="zh">稳得很</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">One eye, one lens. For green candles and good calls.</span><span lang="zh">一只眼，一片墨镜。适合大阳线和神预测。</span></p></div>
+      <div class="meme"><div class="pic coral"><img src="@@meme:lips-b@@" alt="two dots as eyes with lips between them, text it is what it is"></div><div class="meta"><h3><span lang="en">It is what it is</span><span lang="zh">就这样吧</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">Two dots and a pair of lips. For sideways markets and red Mondays.</span><span lang="zh">两个圆点加一张嘴。适合横盘和黑色星期一。</span></p></div>
       <div class="meme"><div class="pic"><img src="@@meme:wtf-a@@" alt="blurry close-up of the dot looking shocked"></div><div class="meta"><h3><span lang="en">Wait, what</span><span lang="zh">啊这</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">Crunched on purpose, like it's been reposted 400 times. For liquidations.</span><span lang="zh">故意做糊，像被转发了 400 次。适合爆仓时刻。</span></p></div>
       <div class="meme"><div class="pic"><img src="@@meme:money-a@@" alt="the dot with a dollar-sign eye and cash raining"></div><div class="meta"><h3><span lang="en">Money eye</span><span lang="zh">见钱眼开</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">Dollar-sign pupil, cash raining. Payouts, rewards, airdrops.</span><span lang="zh">美元符号瞳孔，钞票满天飞。适合返佣、奖励、空投。</span></p></div>
       <div class="meme"><div class="pic"><img src="@@meme:btc-a@@" alt="the dot hugging a bitcoin"></div><div class="meta"><h3><span lang="en">HODL hug</span><span lang="zh">抱紧比特币</span></h3><span class="m">Seedream 5.5</span></div><p><span lang="en">Holding on tight, whatever the chart says.</span><span lang="zh">不管 K 线怎么走，抱紧不放。</span></p></div>
