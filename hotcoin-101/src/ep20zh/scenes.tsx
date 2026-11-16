@@ -161,7 +161,7 @@ export const OpenScene: React.FC<SP> = ({g}) => {
           <Burst r={90} t={burst} color={RED} />
         </At>
       </Svg>
-      <Head g={g} at={ow('sending') - 6} text="转 $20 收 $50？" color={th.fg} />
+      <Head g={g} at={ow('sending') - 6} text="转 $20，手续费 $50?" color={th.fg} size={g.v ? 96 : undefined} />
       <Mono x={g.v ? 0 : g.head.x + 4} w={g.v ? g.W : undefined} align={g.v ? 'center' : 'left'} y={g.head.y + g.head.size * 0.95} text="示意 · 网络拥堵时的手续费" ground="paper" at={ow('sending') + 2} size={20} />
       <Note at={ow('bank') - 4} ground="paper" text="付给银行？" strike size={g.v ? 42 : 46} x={g.v ? g.cx - 320 : p.x - 240} y={g.v ? gy + 60 : gy + 40} rotate={-3} />
       <Note at={ow('auction') - 2} ground="paper" tone="red" text="拍卖里出局了" size={g.v ? 46 : 50} x={g.v ? g.cx - 40 : b.x - 470} y={g.v ? gy + 140 : signY - 10} rotate={-3} />

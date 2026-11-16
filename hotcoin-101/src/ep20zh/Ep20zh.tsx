@@ -6,7 +6,7 @@ import {geo, S, seatAt, T, type Geo} from './geo';
 import {AuctionScene, BlockScene, busFull, CloseScene, LayerTwoScene, OpenScene, popAt, SpikesScene, TitleScene} from './scenes';
 
 // FILE 020 (中文) · Gas 费：为什么转账要花钱
-import '@fontsource/zcool-qingke-huangyou/400.css';
+import './cjk-display.css';
 import '@fontsource/zcool-kuaile/400.css';
 import '@fontsource/noto-sans-sc/500.css';
 import {continueRender, delayRender} from 'remotion';
@@ -133,7 +133,7 @@ const ZH = ZH_GLYPHS;
 const useZhFonts = () => {
   const [handle] = React.useState(() => delayRender('Chinese fonts'));
   React.useEffect(() => {
-    const fams = ['"ZCOOL QingKe HuangYou"', '"ZCOOL KuaiLe"', '"Noto Sans SC"'];
+    const fams = ['"HC Display CJK"', '"ZCOOL KuaiLe"', '"Noto Sans SC"'];
     Promise.all(fams.map((f) => document.fonts.load(`40px ${f}`, ZH)))
       .then(() => document.fonts.ready)
       .then(() => continueRender(handle))

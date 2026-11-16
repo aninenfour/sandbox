@@ -59,7 +59,7 @@ export const geo = (W: number, H: number, v: boolean) => {
   // title
   const tS = v ? 220 : 320;
   const tTop = v ? H * 0.31 : H * 0.29;
-  const tW = antonWidth('GAS ', tS, 0.005) + tS * 0.8;
+  const tW = antonWidth('GAS ', tS, 0.005) + tS * 1.0;
   const tBase = tTop + ANTON_METRICS.baseline * tS;
   const tr = tS * 0.1;
   const tDot = {x: cx + tW / 2 + tS * 0.03 + tr, y: tBase - tr, r: tr};
