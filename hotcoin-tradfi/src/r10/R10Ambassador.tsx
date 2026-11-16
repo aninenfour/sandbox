@@ -230,7 +230,7 @@ const Person: React.FC<{l: L; f: number}> = ({l, f}) => {
 
 // ---------- top lockup ----------
 const Lockup: React.FC<{l: L; f: number; at?: number}> = ({l, f}) => {
-  const o = interpolate(f, [LIGHTS[2] + 4, LIGHTS[2] + 18], [0, 1], {...clamp, easing: ease});
+  const o = interpolate(f, [s2f(1.3), s2f(1.3) + 14], [0, 1], {...clamp, easing: ease});
   const h = l.tall ? 46 : 38;
   const exit = interpolate(f, [CLIP_END - 2, END + 4], [1, 0], clamp);
   return (
@@ -396,14 +396,13 @@ const SFX: [number, string, number, number?][] = [
   [s2f(0.62), 'r10/whoosh-fast.mp3', 0.3],  // name plate wipe
   [s2f(2.86), 'r10/sparkle.mp3', 0.35],     // "magic" arc
   [CLIP_END + 5, 'r10/whoosh-fast.mp3', 0.6, 0.85], // stripe wipe; lead-in trimmed so it never covers "Hotcoin"
-  [END + 2, 'r10/impact.mp3', 0.6],         // end card lands
 ];
 const MUSIC_DROP = 7.95;  // seconds into "Spanish Heart" where the full beat enters
 
 const Sound: React.FC = () => {
   const f = useCurrentFrame();
   const music = interpolate(f, [0, 8, HIT - 2, HIT, V - 6, V + 2, CLIP_END + 1, END + 6, R10A_DURATION - 24, R10A_DURATION],
-    [0, 0.42, 0.42, 0.6, 0.6, 0.095, 0.095, 0.5, 0.5, 0], clamp);
+    [0, 0.26, 0.26, 0.38, 0.38, 0.065, 0.065, 0.24, 0.24, 0], clamp);
   const crowd = interpolate(f, [0, LIGHTS[2], LIGHTS[2] + 10, V - 4, V + 4, CLIP_END + 1, END + 8, R10A_DURATION - 30, R10A_DURATION],
     [0, 0.04, 0.16, 0.16, 0.025, 0.025, 0.26, 0.2, 0], clamp);
   return (
