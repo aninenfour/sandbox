@@ -1,0 +1,16 @@
+{"type":"tutorial","style":"v2","variant":"b","slides":[
+ {"kind":"nhero","photo":"cover.jpg","photo_pos":"50% 25%","tag":"STOCKS 101","headline":"Nvidia expects [$108B] this quarter. Is that enough?"},
+ {"kind":"ngrid","title":"Nvidia sales, same quarter each year","pill":"6x","text":"Check 1: did sales beat the [$108B] forecast?","cells":[
+   {"photo":"g0.jpg","label":"Aug-Oct 2023","value":"$18.1B"},
+   {"photo":"g1.jpg","label":"Aug-Oct 2024","value":"$35.1B"},
+   {"photo":"g2.jpg","label":"Aug-Oct 2025","value":"$57.0B"},
+   {"photo":"g3.jpg","label":"2026 forecast","value":"$108B"}]},
+ {"kind":"tslide","photo":"p1.jpg","photo_pos":"50% 45%","title":"Check 2: beat <span class='g'>what, exactly?</span>","paras":["Aug 2025: Nvidia guided <g>$54B</g>, above what analysts expected. The stock still fell 2.5% after hours. Some analysts had hoped for over $60B."],
+  "visual":{"type":"bars","title":"Next-quarter sales, Aug 2025 ($ billions)","items":[{"l":"Analysts","v":53.1,"txt":"$53.1B"},{"l":"Nvidia's guide","v":54.0,"txt":"$54.0B"},{"l":"Some hoped","v":60,"txt":"$60B+"},{"l":"Actual, Nov","v":57.0,"txt":"$57.0B"}]},
+  "source":"Nvidia IR, Reuters/LSEG, Bloomberg"},
+ {"kind":"tslide","photo":"p2.jpg","photo_pos":"50% 40%","title":"Check 3: the <span class='g'>next forecast</span>","paras":["The new outlook for next quarter often moves the stock more than the last quarter does. Not financial advice."],
+  "visual":{"type":"table","cols":["When (UTC+8)","What"],"rows":[["Wed 05:20","Sales vs $108B"],["Wed 05:20","New forecast"],["Wed 06:00","Call with the bosses"],["Wed 22:30","US market opens"]]},
+  "source":"Nvidia IR"}
+],
+"sources":["Nvidia IR: Q3 FY24 revenue $18.12B, Q3 FY25 $35.08B, Q3 FY26 $57.0B (+62% y/y, Neowin/Outlook Business); Q2 FY27 $96.2B; Q3 FY27 outlook $108.0B +/-2%; results ~1:20pm PT Nov 17, call 2pm PT","Aug 27 2025: Q3 FY26 outlook $54.0B +/-2% vs LSEG consensus $53.14B, shares -2.5% after hours, some analysts projected >$60B (TipRanks/TheFly, BNN Bloomberg, Advisor Perspectives/Bloomberg)"],
+"photo_credits":["Nvidia office: Abhishek Kumar / Unsplash","GeForce card: Christian Wiediger / Unsplash","Chip: Bermix Studio / Unsplash","Servers: Taylor Vick / Unsplash","Market screen: Anne Nygård / Unsplash","Phone and chart: Adam Śmigielski / Unsplash"]}
