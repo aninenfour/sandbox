@@ -500,5 +500,12 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102174259/large/bstocks_qqqb.png?1782837726",
   "logo": "qqqb"
+ },
+ "SKR": {
+  "id": "seeker",
+  "name": "Seeker",
+  "twitter": "solanamobile",
+  "image": "https://coin-images.coingecko.com/coins/images/70974/large/seeker-logo.jpg?1764922774",
+  "logo": "skr"
  }
 }

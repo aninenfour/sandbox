@@ -1,0 +1,58 @@
+{
+ "window": "24H to Nov 16 22:04 (UTC+8)",
+ "date": "NOV 16",
+ "day": "2026-11-16",
+ "template": "race",
+ "gainers": [
+  {
+   "sym": "RAIN",
+   "name": "Rain",
+   "ch": 52.21,
+   "vol": 463939.47,
+   "handle": "@rain__protocol",
+   "logo": "rain",
+   "bg": "#111300",
+   "glow": "#e5fe00"
+  },
+  {
+   "sym": "RAVE",
+   "name": "",
+   "ch": 45.18,
+   "vol": 139268.74,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "CROSS",
+   "name": "",
+   "ch": 20.46,
+   "vol": 216048.49,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "MYC",
+   "name": "",
+   "ch": 18.11,
+   "vol": 231333.76,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "SKR",
+   "name": "Seeker",
+   "ch": 15.09,
+   "vol": 383187.35,
+   "handle": "@solanamobile",
+   "logo": "skr",
+   "bg": "#000000",
+   "glow": "#9AA3B5"
+  }
+ ]
+}
