@@ -1,5 +1,6 @@
 import React from 'react';
 import { Composition, Still } from 'remotion';
+import { BoardMood } from './lab/BoardMood';
 import { Episode, durationOf, EpisodeScript } from './Episode';
 import { FORMATS, SERIES } from './design/tokens';
 import { ep01 } from './episodes/ep01-history-of-investment';
@@ -100,6 +101,7 @@ const EPISODES: EpisodeScript[] = [ep01, ep02, ep03, ep04, ep05, ep06, ep07, ep0
 
 export const RemotionRoot: React.FC = () => (
   <>
+    <Still id="board-mood" component={BoardMood} width={560} height={560} defaultProps={{ mood: 'neutral' as const, ground: 'paper' as const }} />
     {THUMBS.map((t) => (
       <Still key={t.id} id={t.id} component={t.component} width={t.width} height={t.height} />
     ))}

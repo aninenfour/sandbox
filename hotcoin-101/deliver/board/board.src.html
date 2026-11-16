@@ -1,0 +1,375 @@
+<title>The Green Dot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: a character model sheet from the Hotcoin 101 notebook. Paper sheet in light, charcoal sheet in dark; portraits sit on paper tiles in both. */
+:root {
+  --paper: #EDECE7;
+  --bg: #EDECE7;
+  --sheet: #F5F4EF;
+  --fg: #15171A;
+  --muted: #5C6066;
+  --rule: rgba(21, 23, 26, 0.14);
+  --green: #7EC25A;
+  --green-ink: #3F7A2A;
+  --red: #F0453F;
+  --tile: #EDECE7;
+  --tile-line: rgba(21, 23, 26, 0.12);
+  --chip-bg: #15171A;
+  --chip-fg: #EDECE7;
+  --display: "Anton", "Noto Sans SC", "Impact", "Arial Narrow", sans-serif;
+  --body: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "Noto Sans SC", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --hand: "Caveat", "Noto Sans SC", "Comic Sans MS", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15171A; --sheet: #1C1F23; --fg: #EDECE7; --muted: #A2A6AB; --rule: rgba(237, 236, 231, 0.14);
+    --green-ink: #9AD47A; --tile: #EDECE7; --tile-line: rgba(237, 236, 231, 0.18); --chip-bg: #EDECE7; --chip-fg: #15171A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15171A; --sheet: #1C1F23; --fg: #EDECE7; --muted: #A2A6AB; --rule: rgba(237, 236, 231, 0.14);
+  --green-ink: #9AD47A; --tile: #EDECE7; --tile-line: rgba(237, 236, 231, 0.18); --chip-bg: #EDECE7; --chip-fg: #15171A;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+html[data-lang="en"] [lang="zh"], html[data-lang="zh"] [lang="en"] { display: none !important; }
+html[data-lang="zh"] body { line-height: 1.75; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+section { padding-block: 56px; border-top: 1px solid var(--rule); }
+
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--rule); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+.file { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); display: flex; gap: 10px; align-items: center; min-width: 0; }
+.file b { color: var(--fg); font-weight: 500; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); flex: none; }
+.lang { display: inline-flex; border: 1px solid var(--fg); border-radius: 999px; overflow: hidden; flex: none; }
+.lang button { font: 500 13px/1 var(--mono); padding: 8px 14px; border: 0; background: transparent; color: var(--fg); cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--chip-bg); color: var(--chip-fg); }
+.lang button:focus-visible, .chip:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+h1, h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: 0.005em; line-height: 0.95; margin: 0; text-wrap: balance; }
+html[data-lang="zh"] h1, html[data-lang="zh"] h2 { font-family: "Noto Sans SC", var(--display); font-weight: 900; letter-spacing: 0.02em; line-height: 1.15; }
+h1 { font-size: clamp(48px, 9vw, 112px); }
+h2 { font-size: clamp(34px, 5.2vw, 60px); }
+h3 { font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+p { margin: 0; }
+.lead { font-size: 19px; max-width: 60ch; color: var(--fg); }
+.sub { color: var(--muted); max-width: 62ch; }
+.note { font-family: var(--hand); font-weight: 700; font-size: 26px; color: var(--green-ink); line-height: 1.1; }
+html[data-lang="zh"] .note { font-family: "Noto Sans SC", var(--hand); font-weight: 500; font-size: 18px; }
+.head { display: grid; gap: 14px; margin-bottom: 32px; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; padding-block: 48px 56px; border-top: 0; }
+.hero .copy { display: grid; gap: 22px; min-width: 0; }
+.hero h1 .g { color: var(--green); }
+.hero .stage { position: relative; min-width: 0; }
+.frame { border-radius: 14px; overflow: hidden; border: 2px solid var(--fg); background: var(--paper); aspect-ratio: 16 / 9; max-width: 100%; }
+.frame video, .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cap { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 12px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--fg); color: var(--fg); }
+.chip.g { background: var(--green); border-color: var(--green); color: #15171A; }
+
+/* what it is */
+.three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.three > div { display: grid; gap: 8px; align-content: start; min-width: 0; padding-top: 16px; border-top: 3px solid var(--fg); }
+.three .k { font-family: var(--display); font-size: 40px; line-height: 1; }
+html[data-lang="zh"] .three .k { font-family: "Noto Sans SC", var(--display); font-weight: 900; font-size: 30px; }
+
+/* moods */
+.moods { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.mood { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.mood img { width: 100%; aspect-ratio: 1; border-radius: 12px; background: var(--tile); border: 1px solid var(--tile-line); display: block; }
+.mood .n { font-family: var(--display); font-size: 22px; text-transform: uppercase; line-height: 1; display: flex; justify-content: space-between; gap: 6px; align-items: baseline; }
+.mood .n small { font-family: "Noto Sans SC", var(--body); font-size: 14px; font-weight: 700; color: var(--muted); }
+.mood p { font-size: 14px; color: var(--muted); line-height: 1.45; }
+
+.poses { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 40px; }
+.poses .mood img.ink { background: #15171A; }
+
+/* moves */
+.moves { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
+.move { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding-block: 16px; border-bottom: 1px solid var(--rule); min-width: 0; }
+.move code { font-family: var(--mono); font-size: 13px; color: var(--green-ink); padding-top: 2px; }
+.move p { font-size: 15px; color: var(--muted); }
+
+/* gags */
+.gags { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.gag { display: grid; gap: 10px; min-width: 0; }
+.gag .meta { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.gag .ep { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; flex: none; }
+.gag p { font-size: 15px; color: var(--muted); }
+
+/* logo blend */
+.blend { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: start; }
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding-block: 12px; border-bottom: 1px solid var(--rule); counter-increment: s; }
+.steps li::before { content: counter(s); font-family: var(--display); font-size: 26px; line-height: 1; color: var(--green-ink); }
+.steps p { font-size: 15px; color: var(--muted); }
+.strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 28px; }
+.strip figure { margin: 0; display: grid; gap: 6px; min-width: 0; }
+.strip img { width: 100%; border-radius: 8px; border: 1px solid var(--tile-line); display: block; aspect-ratio: 550 / 260; object-fit: cover; }
+.strip figcaption { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+
+/* rules + ideas */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.list { list-style: none; padding: 0; margin: 0; display: grid; }
+.list li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding-block: 12px; border-bottom: 1px solid var(--rule); font-size: 15px; }
+.list li::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--green); margin-top: 6px; }
+.list.no li::before { background: var(--red); border-radius: 2px; }
+.ideas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.idea { border: 1px solid var(--rule); border-radius: 12px; padding: 18px; display: grid; gap: 6px; align-content: start; background: var(--sheet); min-width: 0; }
+.idea .t { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.idea p { font-size: 14px; color: var(--muted); }
+
+.ask { background: var(--chip-bg); color: var(--chip-fg); border-radius: 18px; padding: 32px; display: grid; gap: 18px; }
+.ask h2 { color: var(--chip-fg); }
+.ask ol { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+.ask .note { color: var(--green); }
+
+footer { padding-block: 28px 48px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.06em; }
+
+@media (max-width: 900px) {
+  .hero, .blend, .two { grid-template-columns: 1fr; }
+  .moods { grid-template-columns: repeat(3, 1fr); }
+  .poses { grid-template-columns: repeat(3, 1fr); }
+  .ideas { grid-template-columns: repeat(2, 1fr); }
+  .strip { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 620px) {
+  section { padding-block: 40px; }
+  .three, .moves, .gags, .ideas { grid-template-columns: 1fr; }
+  .moods, .poses { grid-template-columns: repeat(2, 1fr); }
+  .move { grid-template-columns: 96px 1fr; }
+  .ask { padding: 22px; }
+  .file .hide-s { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { video { animation: none; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="file"><span class="dot"></span><b>Hotcoin 101</b><span class="hide-s"><span lang="en">Character board</span><span lang="zh">角色设定板</span></span></div>
+    <div class="lang" role="group" aria-label="Language / 语言">
+      <button type="button" id="btn-en" data-set="en" aria-pressed="true">EN</button>
+      <button type="button" id="btn-zh" data-set="zh" aria-pressed="false">中文</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="copy">
+      <p class="eyebrow"><span lang="en">Narrator of Hotcoin 101</span><span lang="zh">Hotcoin 101 系列讲解员</span></p>
+      <h1><span lang="en">The dot in our logo, <span class="g">alive.</span></span><span lang="zh">我们 Logo 里的那个点，<span class="g">活了。</span></span></h1>
+      <p class="lead"><span lang="en">Every Hotcoin 101 video is guided by one character: the green dot from the Hotcoin logo, given a single eye. It points at what matters, reacts to the story, and at the end of every video it flies back into the logo and becomes the dot again.</span><span lang="zh">每一集 Hotcoin 101 都由同一个角色带路：Hotcoin Logo 里的绿色圆点，加上一只眼睛。它指向重点、对剧情做出反应，并在每集结尾飞回 Logo，重新变回那个圆点。</span></p>
+      <div class="facts">
+        <span class="chip g"><span lang="en">Brand green #7EC25A</span><span lang="zh">品牌绿 #7EC25A</span></span>
+        <span class="chip"><span lang="en">10 moods</span><span lang="zh">10 种情绪</span></span>
+        <span class="chip"><span lang="en">20 episodes so far</span><span lang="zh">已出镜 20 集</span></span>
+        <span class="chip"><span lang="en">No words needed</span><span lang="zh">无需语言</span></span>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="frame"><video src="@@vid:logo-blend@@" autoplay muted loop playsinline preload="auto" aria-label="The dot flies into the Hotcoin logo"></video></div>
+      <p class="cap"><span lang="en">End card of FILE 020: the dot lands on the logo and goes plain</span><span lang="zh">第 020 集片尾：圆点落入 Logo，变回纯色圆点</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <p class="eyebrow"><span lang="en">What it is</span><span lang="zh">它是什么</span></p>
+      <h2><span lang="en">A narrator, not a sticker</span><span lang="zh">是讲解员，不只是贴纸</span></h2>
+    </div>
+    <div class="three">
+      <div>
+        <span class="k"><span lang="en">The logo</span><span lang="zh">就是 Logo</span></span>
+        <p><span lang="en">Same green, same circle, same size as the dot in the lockup. Every appearance is brand exposure, and every video ends with it turning back into the mark.</span><span lang="zh">与标志中的圆点同色、同形、同比例。每次出镜都是品牌曝光，每集结尾它都会变回标志本身。</span></p>
+      </div>
+      <div>
+        <span class="k"><span lang="en">One eye</span><span lang="zh">一只眼睛</span></span>
+        <p><span lang="en">No mouth, no text, no voice of its own. Emotion comes from lids, brow and pupil, so it reads the same in every market and every language.</span><span lang="zh">没有嘴、没有文字、没有自己的声音。情绪全靠眼睑、眉毛和瞳孔表达，在任何市场、任何语言中都一样好懂。</span></p>
+      </div>
+      <div>
+        <span class="k"><span lang="en">A guide</span><span lang="zh">视线向导</span></span>
+        <p><span lang="en">It looks where the viewer should look, travels to the next idea before the voice gets there, and rides along with what we explain. Viewers follow it without thinking.</span><span lang="zh">它看向观众该看的地方，在旁白之前先移动到下一个重点，并跟着讲解内容一起"出演"。观众会不自觉地跟着它走。</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <p class="eyebrow"><span lang="en">Expressions</span><span lang="zh">表情</span></p>
+      <h2><span lang="en">Ten moods</span><span lang="zh">十种情绪</span></h2>
+      <p class="sub"><span lang="en">Each mood is a set of numbers for lids, brow, pupil and tilt, so any mood blends smoothly into any other. These are real frames from the production character.</span><span lang="zh">每种情绪都是一组眼睑、眉毛、瞳孔和倾斜度的参数，所以任意两种情绪都能平滑过渡。以下均为正式角色的实际画面。</span></p>
+    </div>
+    <div class="moods">
+      <div class="mood"><img src="@@img:neutral@@" alt="neutral"><div class="n">Neutral <small>平静</small></div><p><span lang="en">Default, listening.</span><span lang="zh">默认状态，在听。</span></p></div>
+      <div class="mood"><img src="@@img:happy@@" alt="happy"><div class="n">Happy <small>开心</small></div><p><span lang="en">A point lands.</span><span lang="zh">讲到点子上。</span></p></div>
+      <div class="mood"><img src="@@img:delight@@" alt="delight"><div class="n">Delight <small>欣喜</small></div><p><span lang="en">The payoff, the logo landing.</span><span lang="zh">高潮时刻，落入 Logo。</span></p></div>
+      <div class="mood"><img src="@@img:curious@@" alt="curious"><div class="n">Curious <small>好奇</small></div><p><span lang="en">A new idea arrives.</span><span lang="zh">新概念出场。</span></p></div>
+      <div class="mood"><img src="@@img:excited@@" alt="excited"><div class="n">Excited <small>兴奋</small></div><p><span lang="en">Big number, big move.</span><span lang="zh">大数字、大动作。</span></p></div>
+      <div class="mood"><img src="@@img:surprised@@" alt="surprised"><div class="n">Surprised <small>惊讶</small></div><p><span lang="en">"Wait, really?" moments.</span><span lang="zh">"真的吗？"的瞬间。</span></p></div>
+      <div class="mood"><img src="@@img:skeptical@@" alt="skeptical"><div class="n">Skeptical <small>怀疑</small></div><p><span lang="en">Myths, hype, bad deals.</span><span lang="zh">谣言、炒作、坑人的交易。</span></p></div>
+      <div class="mood"><img src="@@img:worried@@" alt="worried"><div class="n">Worried <small>担心</small></div><p><span lang="en">Risk. The pupil trembles.</span><span lang="zh">风险来临，瞳孔会颤抖。</span></p></div>
+      <div class="mood"><img src="@@img:focused@@" alt="focused"><div class="n">Focused <small>专注</small></div><p><span lang="en">Reading a chart or a number.</span><span lang="zh">盯着图表或数字。</span></p></div>
+      <div class="mood"><img src="@@img:sleepy@@" alt="sleepy"><div class="n">Sleepy <small>犯困</small></div><p><span lang="en">Waiting, slow markets.</span><span lang="zh">等待、行情清淡。</span></p></div>
+    </div>
+
+    <div class="poses">
+      <div class="mood"><img src="@@img:closed@@" alt="eyes closed"><div class="n">Closed <small>闭眼</small></div><p><span lang="en">Calm before the open.</span><span lang="zh">开场前的平静。</span></p></div>
+      <div class="mood"><img src="@@img:plain@@" alt="plain logo dot"><div class="n">Plain <small>纯点</small></div><p><span lang="en">Logo mode, no face.</span><span lang="zh">Logo 模式，无五官。</span></p></div>
+      <div class="mood"><img src="@@img:look-left@@" alt="looking left"><div class="n">Look <small>注视</small></div><p><span lang="en">Points with its eye.</span><span lang="zh">用眼神指向重点。</span></p></div>
+      <div class="mood"><img src="@@img:look-up@@" alt="looking up"><div class="n">Look up <small>仰望</small></div><p><span lang="en">Headlines, price spikes.</span><span lang="zh">看标题、看暴涨。</span></p></div>
+      <div class="mood"><img class="ink" src="@@img:ink-happy@@" alt="happy on dark"><div class="n">On ink <small>深色</small></div><p><span lang="en">Works on both grounds.</span><span lang="zh">深浅背景都适用。</span></p></div>
+      <div class="mood"><img class="ink" src="@@img:ink-surprised@@" alt="surprised on dark"><div class="n">Shocked <small>震惊</small></div><p><span lang="en">Thumbnail energy.</span><span lang="zh">封面专用的张力。</span></p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <p class="eyebrow"><span lang="en">What it can do</span><span lang="zh">它能做什么</span></p>
+      <h2><span lang="en">Moves like a character</span><span lang="zh">像真正的角色一样动</span></h2>
+      <p class="sub"><span lang="en">Every move is cued to a word in the voiceover, so the dot always arrives as the idea does.</span><span lang="zh">每个动作都卡在旁白的某个词上，圆点总是和观点同时到达。</span></p>
+    </div>
+    <div class="moves">
+      <div class="move"><code>glide</code><p><span lang="en">Travels to the next idea with a small wind-up and a soft overshoot.</span><span lang="zh">带一点预备动作滑向下一个重点，到达时轻微回弹。</span></p></div>
+      <div class="move"><code>hop</code><p><span lang="en">Jumps in an arc and squashes on landing. Used for timelines and stairs.</span><span lang="zh">弧线跳跃，落地时被压扁。用于时间线、台阶。</span></p></div>
+      <div class="move"><code>drop</code><p><span lang="en">Falls in from above with a bigger squash. The cold open entrance.</span><span lang="zh">从上方掉落，压扁更明显。开场入场方式。</span></p></div>
+      <div class="move"><code>ride</code><p><span lang="en">Follows a chart line or sits inside an object: a bus seat, a crate, a tree.</span><span lang="zh">沿着走势线移动，或待在物体里：公交座位、箱子、树上。</span></p></div>
+      <div class="move"><code>size</code><p><span lang="en">Grows and shrinks on cue. It swelled like a bubble and popped in FILE 020.</span><span lang="zh">可以按节奏变大变小。第 020 集里它像泡沫一样膨胀然后爆掉。</span></p></div>
+      <div class="move"><code>full stop</code><p><span lang="en">Lands as the dot at the end of the episode title.</span><span lang="zh">落在每集标题末尾，充当句号。</span></p></div>
+      <div class="move"><code>alive</code><p><span lang="en">Blinks, breathes, glances around between moves. Never frozen.</span><span lang="zh">会眨眼、呼吸、在动作之间四处张望，从不僵住。</span></p></div>
+      <div class="move"><code>wipe</code><p><span lang="en">Page changes open as a circle out of the dot's position.</span><span lang="zh">换页时，画面以圆点为中心圆形展开。</span></p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <p class="eyebrow"><span lang="en">In the episodes</span><span lang="zh">在节目中</span></p>
+      <h2><span lang="en">Gags that teach</span><span lang="zh">寓教于乐的桥段</span></h2>
+      <p class="sub"><span lang="en">The dot acts out the idea so the lesson sticks. All clips are from published episodes.</span><span lang="zh">圆点把概念"演"出来，让知识点更好记。以下片段均来自已发布节目。</span></p>
+    </div>
+    <div class="gags">
+      <div class="gag"><div class="frame"><video src="@@vid:inflate-pop@@" autoplay muted loop playsinline preload="metadata"></video></div><div class="meta"><h3><span lang="en">Inflates, then pops</span><span lang="zh">膨胀，然后爆掉</span></h3><span class="ep">File 020</span></div><p><span lang="en">Swells with the $150M gas bill like a bubble, then bursts.</span><span lang="zh">随着 1.5 亿美元的 Gas 账单像泡沫一样膨胀，然后破裂。</span></p></div>
+      <div class="gag"><div class="frame"><video src="@@vid:stairs@@" autoplay muted loop playsinline preload="metadata"></video></div><div class="meta"><h3><span lang="en">Tumbles down the stairs</span><span lang="zh">滚下台阶</span></h3><span class="ep">File 020</span></div><p><span lang="en">Fees fall step by step, and so does the dot, landing on "cents".</span><span lang="zh">手续费一级级下降，圆点也一级级滚落，最后停在"美分"上。</span></p></div>
+      <div class="gag"><div class="frame"><video src="@@vid:door-bounce@@" autoplay muted loop playsinline preload="metadata"></video></div><div class="meta"><h3><span lang="en">Bounced off the door</span><span lang="zh">被车门弹开</span></h3><span class="ep">File 020</span></div><p><span lang="en">Bid too low, the block is full, and the door shuts in its face.</span><span lang="zh">出价太低，区块已满，车门当面关上。</span></p></div>
+      <div class="gag"><div class="frame"><video src="@@vid:boards-seat@@" autoplay muted loop playsinline preload="metadata"></video></div><div class="meta"><h3><span lang="en">Becomes the transaction</span><span lang="zh">化身一笔交易</span></h3><span class="ep">File 020</span></div><p><span lang="en">Hops into the last free seat of the block: "your transaction".</span><span lang="zh">跳进区块最后一个空座位："这就是你的交易"。</span></p></div>
+      <div class="gag"><div class="frame"><video src="@@vid:tree-drop@@" autoplay muted loop playsinline preload="metadata"></video></div><div class="meta"><h3><span lang="en">Lands in the tree</span><span lang="zh">落在树梢</span></h3><span class="ep">File 019</span></div><p><span lang="en">Drops onto the buttonwood tree where Wall Street began in 1792.</span><span lang="zh">落在 1792 年华尔街起源的梧桐树上。</span></p></div>
+      <div class="gag"><div class="frame"><video src="@@vid:gavel@@" autoplay muted loop playsinline preload="metadata"></video></div><div class="meta"><h3><span lang="en">Startled by the gavel</span><span lang="zh">被拍卖槌吓一跳</span></h3><span class="ep">File 020</span></div><p><span lang="en">"You were losing an auction." The gavel slams and it jumps.</span><span lang="zh">"你其实是在拍卖中出局了。"槌子落下，它吓得跳起来。</span></p></div>
+      <div class="gag"><div class="frame"><video src="@@vid:title-dot@@" autoplay muted loop playsinline preload="metadata"></video></div><div class="meta"><h3><span lang="en">The title's full stop</span><span lang="zh">标题的句号</span></h3><span class="ep">File 020</span></div><p><span lang="en">Flies in and becomes the period after every episode title.</span><span lang="zh">飞入画面，成为每集标题后的句号。</span></p></div>
+      <div class="gag"><div class="frame"><video src="@@vid:bidder@@" autoplay muted loop playsinline preload="metadata"></video></div><div class="meta"><h3><span lang="en">Speaks for the viewer</span><span lang="zh">代表观众</span></h3><span class="ep">File 020</span></div><p><span lang="en">Holds up the "YOU" paddle: you're one of the bidders.</span><span lang="zh">举起写着"YOU"的号牌：你也是出价人之一。</span></p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <p class="eyebrow"><span lang="en">The signature ending</span><span lang="zh">招牌结尾</span></p>
+      <h2><span lang="en">Back into the logo</span><span lang="zh">回到 Logo 里</span></h2>
+    </div>
+    <div class="blend">
+      <div class="frame"><video src="@@vid:logo-blend@@" autoplay muted loop playsinline preload="metadata"></video></div>
+      <ol class="steps">
+        <li><div><h3><span lang="en">The page opens</span><span lang="zh">画面展开</span></h3><p><span lang="en">The last scene wipes away in a circle out of the dot.</span><span lang="zh">最后一幕以圆点为中心圆形擦除。</span></p></div></li>
+        <li><div><h3><span lang="en">The lockup writes in</span><span lang="zh">标志出现</span></h3><p><span lang="en">"Hotcoin" sweeps on with a green light pass, missing one piece.</span><span lang="zh">"Hotcoin"字标随绿色光扫入场，唯独少了一个部件。</span></p></div></li>
+        <li><div><h3><span lang="en">The dot flies home</span><span lang="zh">圆点归位</span></h3><p><span lang="en">It arcs in and shrinks to exactly the size of the logo's dot.</span><span lang="zh">它划出弧线飞入，缩小到与 Logo 圆点完全一致的尺寸。</span></p></div></li>
+        <li><div><h3><span lang="en">One last look</span><span lang="zh">最后一眼</span></h3><p><span lang="en">A delighted glance at the viewer from inside the logo.</span><span lang="zh">在 Logo 里开心地看观众一眼。</span></p></div></li>
+        <li><div><h3><span lang="en">It goes plain</span><span lang="zh">变回纯色圆点</span></h3><p><span lang="en">The face fades out. What's left is the Hotcoin mark, exactly.</span><span lang="zh">五官淡出，留下的就是 Hotcoin 标志本身。</span></p></div></li>
+      </ol>
+    </div>
+    <div class="strip">
+      <figure><img src="@@jpg:blend-1@@" alt=""><figcaption>00:00</figcaption></figure>
+      <figure><img src="@@jpg:blend-2@@" alt=""><figcaption>00:10</figcaption></figure>
+      <figure><img src="@@jpg:blend-3@@" alt=""><figcaption>00:20</figcaption></figure>
+      <figure><img src="@@jpg:blend-4@@" alt=""><figcaption>00:45</figcaption></figure>
+      <figure><img src="@@jpg:blend-5@@" alt=""><figcaption>01:05</figcaption></figure>
+      <figure><img src="@@jpg:blend-6@@" alt=""><figcaption>01:32</figcaption></figure>
+    </div>
+    <p class="cap"><span lang="en">Frames in seconds and frames at 30fps, over about 3 seconds</span><span lang="zh">时间码为 秒:帧（30fps），全程约 3 秒</span></p>
+  </section>
+
+  <section>
+    <div class="head">
+      <p class="eyebrow"><span lang="en">How we use it</span><span lang="zh">使用规范</span></p>
+      <h2><span lang="en">Rules that keep it ours</span><span lang="zh">保持品牌一致的规则</span></h2>
+    </div>
+    <div class="two">
+      <ul class="list">
+        <li><span><span lang="en">Always brand green #7EC25A, always a perfect circle.</span><span lang="zh">始终使用品牌绿 #7EC25A，始终是正圆。</span></span></li>
+        <li><span><span lang="en">Every video ends with it landing on the logo and going plain.</span><span lang="zh">每支视频都以它落入 Logo、变回纯色圆点收尾。</span></span></li>
+        <li><span><span lang="en">Thumbnails: big (about a fifth of the frame) with one strong mood.</span><span lang="zh">封面中要大（约占画面五分之一），配一种强烈情绪。</span></span></li>
+        <li><span><span lang="en">Its gags act out the lesson: the joke and the point are the same thing.</span><span lang="zh">桥段必须演绎知识点：笑点就是重点。</span></span></li>
+      </ul>
+      <ul class="list no">
+        <li><span><span lang="en">Never on a green background. It disappears.</span><span lang="zh">不要放在绿色背景上，会"隐身"。</span></span></li>
+        <li><span><span lang="en">No mouth, arms or text on the character. The eye does the acting.</span><span lang="zh">不加嘴巴、手臂或文字。表演全靠眼睛。</span></span></li>
+        <li><span><span lang="en">Don't recolour it for campaigns. Props around it can change; the dot can't.</span><span lang="zh">活动中不要给它换颜色。周边道具可以变，圆点不能变。</span></span></li>
+        <li><span><span lang="en">Red stays for "down, wrong, careful", never on the dot itself.</span><span lang="zh">红色只表示"下跌、错误、注意"，绝不用在圆点本身。</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <p class="eyebrow"><span lang="en">Where it could go next</span><span lang="zh">下一步可以去哪里</span></p>
+      <h2><span lang="en">Beyond the videos</span><span lang="zh">走出视频</span></h2>
+      <p class="sub"><span lang="en">Ideas for the team to discuss. The character already exists as production art, so each of these is mostly rendering, not drawing.</span><span lang="zh">供团队讨论的方向。角色已是成品素材，以下每一项主要是导出渲染，而不是重新绘制。</span></p>
+    </div>
+    <div class="ideas">
+      <div class="idea"><span class="t"><span lang="en">Community</span><span lang="zh">社群</span></span><h3><span lang="en">Sticker pack</span><span lang="zh">表情包</span></h3><p><span lang="en">Ten moods as Telegram and WeChat stickers: "to the moon", "rekt", "wen listing".</span><span lang="zh">十种情绪做成 Telegram 和微信表情包："冲月"、"爆仓"、"何时上币"。</span></p></div>
+      <div class="idea"><span class="t"><span lang="en">Social</span><span lang="zh">社媒</span></span><h3><span lang="en">Reaction GIFs</span><span lang="zh">反应动图</span></h3><p><span lang="en">Short loops for replies on X: the pop, the stair tumble, the shocked stare.</span><span lang="zh">用于 X 回复的短循环动图：爆炸、滚台阶、震惊脸。</span></p></div>
+      <div class="idea"><span class="t"><span lang="en">Product</span><span lang="zh">产品</span></span><h3><span lang="en">App moments</span><span lang="zh">App 场景</span></h3><p><span lang="en">Loading states, empty states, order filled, deposit arrived.</span><span lang="zh">加载中、空状态、订单成交、充值到账。</span></p></div>
+      <div class="idea"><span class="t"><span lang="en">Marketing</span><span lang="zh">营销</span></span><h3><span lang="en">Campaign host</span><span lang="zh">活动主持</span></h3><p><span lang="en">Listing announcements and promos fronted by the dot, in any language.</span><span lang="zh">上币公告、活动推广由圆点出镜，任何语言都适用。</span></p></div>
+      <div class="idea"><span class="t"><span lang="en">Live</span><span lang="zh">直播</span></span><h3><span lang="en">Stream overlay</span><span lang="zh">直播挂件</span></h3><p><span lang="en">A corner companion that reacts to price moves during AMAs and streams.</span><span lang="zh">AMA 和直播时放在角落，随价格波动做出反应。</span></p></div>
+      <div class="idea"><span class="t"><span lang="en">Brand</span><span lang="zh">品牌</span></span><h3><span lang="en">Merch and events</span><span lang="zh">周边与线下</span></h3><p><span lang="en">Plush, pins and booth signage. The logo already contains the mascot.</span><span lang="zh">公仔、徽章、展位物料。Logo 本身就藏着这个吉祥物。</span></p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="ask">
+      <p class="note"><span lang="en">for the team</span><span lang="zh">请团队决定</span></p>
+      <h2><span lang="en">Three decisions</span><span lang="zh">三个决定</span></h2>
+      <ol>
+        <li><span lang="en">Give it a name. Working title: "the dot".</span><span lang="zh">给它起个名字。暂定名："小绿点"。</span></li>
+        <li><span lang="en">Approve it as Hotcoin's official mascot beyond Hotcoin 101.</span><span lang="zh">批准它成为 Hotcoin 正式吉祥物，不只用于 Hotcoin 101。</span></li>
+        <li><span lang="en">Pick the first two places from the list above to roll it out.</span><span lang="zh">从上面的方向中选出最先落地的两个。</span></li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+<footer><div class="wrap"><span lang="en">Hotcoin 101 · Money, explained · Character board, November 2026</span><span lang="zh">Hotcoin 101 · 金融知识讲堂 · 角色设定板，2026 年 11 月</span></div></footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  function set(lang) {
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+    document.querySelectorAll('[data-set]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === lang)); });
+    try { localStorage.setItem('dot-board-lang', lang); } catch (e) {}
+  }
+  var start = 'en';
+  try { start = localStorage.getItem('dot-board-lang') || 'en'; } catch (e) {}
+  if (location.hash === '#zh') start = 'zh';
+  if (location.hash === '#en') start = 'en';
+  set(start);
+  document.querySelectorAll('[data-set]').forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-set')); }); });
+  window.addEventListener('hashchange', function () { if (location.hash === '#zh' || location.hash === '#en') set(location.hash.slice(1)); });
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.setAttribute('controls', ''); });
+  }
+})();
+</script>
