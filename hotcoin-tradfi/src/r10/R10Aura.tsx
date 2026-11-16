@@ -123,7 +123,7 @@ const Person: React.FC<{f: number}> = ({f}) => {
   const glow = 18 + 30 * p;
   const left = W / 2 - PW / 2, top = H - PH + (TALL ? 70 : 40);
   const style: React.CSSProperties = {width: PW, height: PH};
-  const grade = `grayscale(1) contrast(1.3) brightness(1.08) drop-shadow(0 0 ${glow}px rgba(184,242,106,${0.45 + 0.4 * p})) drop-shadow(0 0 4px rgba(184,242,106,.8))`;
+  const grade = `grayscale(1) contrast(1.06) brightness(1.14) drop-shadow(0 0 ${glow}px rgba(184,242,106,${0.45 + 0.4 * p})) drop-shadow(0 0 4px rgba(184,242,106,.8))`;
   const clipFrame = Math.min(f, CLIP_END - 1);
   const media = (extra: React.CSSProperties) => (f < V
     ? <Img src={staticFile('ronaldinho/first.png')} style={{...style, ...extra}} />
