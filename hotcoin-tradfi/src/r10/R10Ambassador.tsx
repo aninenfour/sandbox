@@ -395,7 +395,7 @@ const SFX: [number, string, number, number?][] = [
   [HIT, 'foley/hit.wav', 0.9],              // low body under the strike
   [s2f(0.62), 'r10/whoosh-fast.mp3', 0.3],  // name plate wipe
   [s2f(2.86), 'r10/sparkle.mp3', 0.35],     // "magic" arc
-  [CLIP_END + 5, 'r10/whoosh-fast.mp3', 0.6, 0.85], // stripe wipe; lead-in trimmed so it never covers "Hotcoin"
+  [CLIP_END + 5, 'r10/whoosh-fast.mp3', 0.12, 0.85], // stripe wipe; lead-in trimmed so it never covers "Hotcoin"
 ];
 const MUSIC_DROP = 7.95;  // seconds into "Spanish Heart" where the full beat enters
 
