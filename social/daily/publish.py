@@ -84,7 +84,8 @@ def x_check(link, text):
                 live = ((json.loads(f.stdout).get('tweet') or {}).get('text') or '') + '\n' + live
             except ValueError:
                 pass
-        norm = lambda s: re.sub(r'\s+', ' ', s).strip()
+        # X shows links as 23-char t.co: compare with every URL collapsed so a link doesn't look like a cut
+        norm = lambda s: re.sub(r'\s+', ' ', re.sub(r'https?://\S+', 'URL', s)).strip()
         last = [l for l in text.strip().splitlines() if l.strip()][-1]
         return norm(last) in norm(live) and len(norm(live)) >= len(norm(text)) * 0.9
     return None

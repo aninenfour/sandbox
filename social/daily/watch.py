@@ -13,11 +13,12 @@ picks.json (written by the run after its news research, see RUNBOOK.md):
 
 Checks every symbol against Hotcoin's live ticker (exits non-zero if one is missing), takes live price and
 24h change, renders the poster (square.mjs sq-watch) and writes three captions next to picks.json:
-  x.txt (with @handles), facebook.txt and linkedin.txt (no @handles).
+  x.txt (with @handles), facebook.txt and linkedin.txt (no @handles). Each carries one Hotcoin page link (links.py).
 """
 import datetime as dt, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import links  # noqa: E402  (one Hotcoin Price/Converter page link per post)
 import live  # noqa: E402  (reuses ticker, CoinGecko resolve, logo + colour helpers)
 
 # X handles for the companies / issuers behind Hotcoin's tokenized stocks and gold tokens.
@@ -41,6 +42,7 @@ LIGHT = ((0, 4351), (8192, 8205), (8208, 8223), (8242, 8247))
 def x_len(t):
     """X's weighted length, erring high (same rule as publish.py): emoji count 2."""
     n = 0
+    t = re.sub(r'https?://\S+', 'x' * 23, t)  # X counts every link as 23
     for ch in t:
         c = ord(ch)
         if c in (0xFE0F, 0x200D):
@@ -103,12 +105,14 @@ def main():
     def pct(v):
         return f'▲{v:.2f}%' if v >= 0 else f'▼{abs(v):.2f}%'
 
+    link = links.link_line([g['sym'] for g in items])  # one Hotcoin page link per post (links.py)
+
     def caption(with_handles):
         lines = [f'👀 What to Watch Today on Hotcoin | {now.strftime("%b %-d")}', '']
         for i, g in enumerate(items, 1):
             head = ' '.join(x for x in (f'🟩 ${g["sym"]}', g['handle'] if with_handles else '', f'{price(g["last"])} {pct(g["ch"])}') if x)
             lines += [head, f'→ {g["why"]}', '']
-        lines += [f'⏱ {data["window"]}, 24h change', 'Which one is on your list? 👇', '', '#Hotcoin #Crypto #TradFi']
+        lines += [f'⏱ {data["window"]}, 24h change', link, '', 'Which one is on your list? 👇', '', '#Hotcoin #Crypto #TradFi']
         return '\n'.join(lines)
 
     def short_caption():
@@ -118,7 +122,7 @@ def main():
             for g in items:
                 lines.append(' '.join(x for x in (f'${g["sym"]}', g['handle'] if handles else '',
                                                   f'{price(g["last"])} {pct(g["ch"])}' if prices else '') if x))
-            lines += ['', 'Which one is on your list? 👇', '#Hotcoin #Crypto #TradFi']
+            lines += ['', link, '', 'Which one is on your list? 👇', '#Hotcoin #Crypto #TradFi']
             t = '\n'.join(lines)
             if x_len(t) <= 280:
                 return t

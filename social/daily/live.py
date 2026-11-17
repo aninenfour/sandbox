@@ -14,6 +14,9 @@ Coins resolved once are cached in social/daily/coins.json; edit that file to fix
 import argparse, colorsys, datetime as dt, glob, io, json, os, random, subprocess, sys, time, urllib.parse, urllib.request
 from PIL import Image
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import links  # noqa: E402  (one Hotcoin Price/Converter page link per post)
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 LOGOS = os.path.join(HERE, 'logos')
 CACHE = os.path.join(HERE, 'coins.json')
@@ -147,10 +150,12 @@ def caption(data, kind):
     top, window = data['gainers'], data['window']
     if kind == 'top1':
         g = top[0]
-        return (f'🥇 Top Gainer on Hotcoin right now\n\n{line(g)} in 24h 🚀\n⏱ {window}\n\n'
+        lk = f'{data["link"]}\n\n' if data.get('link') else ''
+        return (f'🥇 Top Gainer on Hotcoin right now\n\n{line(g)} in 24h 🚀\n⏱ {window}\n\n{lk}'
                 f'Are you in? 👇\n#Hotcoin #TopGainers')
     medals = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣']
     rows = '\n'.join(f'{m} {line(g)}' for m, g in zip(medals, top))
+    rows += f'\n\n{data["link"]}' if data.get('link') else ''  # one Hotcoin page link per post (links.py)
     t = data.get('template', 'podium')
     if t == 'orbit':
         return f'🚀 Today\'s Top 5 climbers on Hotcoin\n⏱ {window}\n\n{rows}\n\nWho makes the list tomorrow? 👇\n#Hotcoin #TopGainers'
@@ -183,6 +188,8 @@ def main():
         data = json.load(open(os.path.join(out, 'data.json')))
         if a.template != 'auto':
             data['template'] = a.template
+        if not data.get('link'):
+            data['link'] = links.link_line([g['sym'] for g in data['gainers']])
         img, cap = render(out, data, a.kind)
         print(json.dumps({'dir': out, 'image': img, 'template': data.get('template'), 'caption': cap}, ensure_ascii=False, indent=1))
         return
@@ -202,7 +209,8 @@ def main():
     out = os.path.join(HERE, 'live', now.strftime('%Y%m%d-%H%M') + '-' + a.kind)
     os.makedirs(out, exist_ok=True)
     data = {'window': window, 'date': now.strftime('%b %-d').upper(), 'day': now.strftime('%Y-%m-%d'), 'template': tpl or 'podium',
-            'gainers': [{k: g[k] for k in ('sym', 'name', 'ch', 'vol', 'handle', 'logo', 'bg', 'glow')} for g in top]}
+            'gainers': [{k: g[k] for k in ('sym', 'name', 'ch', 'vol', 'handle', 'logo', 'bg', 'glow')} for g in top],
+            'link': links.link_line([g['sym'] for g in top])}
     img, cap = render(out, data, a.kind)
     print(json.dumps({'dir': os.path.relpath(out, os.path.dirname(os.path.dirname(HERE))), 'image': img, 'template': data['template'],
                       'top': [{k: g[k] for k in ('sym', 'name', 'ch', 'vol', 'handle', 'logo')} for g in top], 'caption': cap,
