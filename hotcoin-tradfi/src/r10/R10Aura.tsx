@@ -12,7 +12,7 @@ import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, staticF
 
 export const R10AURA_FPS = 30;
 const BEAT = 60 / 95;                       // 0.6316 s
-const INTRO_BEATS = 5;                      // cover (1 beat) + four quick Hotcoin facts, then he appears
+const INTRO_BEATS = 7;                      // cover (1 beat) + stats panel builds (4 beats) and holds (2 beats), then he appears
 const DROP_S = INTRO_BEATS * BEAT;          // 1.26 s
 const OFFSET = 82.404 - DROP_S;             // track seconds = comp seconds + OFFSET
 const V_S = DROP_S + 0.3;                   // his clip starts
@@ -82,76 +82,75 @@ const Grain: React.FC<{f: number}> = ({f}) => (
   <AbsoluteFill style={{backgroundImage: `url(${staticFile('grain.png')})`, backgroundSize: '256px 256px', backgroundPosition: `${(f * 37) % 256}px ${(f * 91) % 256}px`, opacity: 0.09, mixBlendMode: 'screen'}} />
 );
 
-// ---------- intro: cover first, then the platform (team feedback 2026-11-17: no achievement slams, Hotcoin first) ----------
+// ---------- intro (team feedback 2026-11-17): text-only cover, then a Hotcoin stats panel; he is not shown before the drop ----------
 const EN = 'Hotcoin Ambassador (Brazil)', PT = 'Embaixador da Hotcoin (Brasil)';
 const COVER_END = fr(beatS(1));      // frame 0 = cover (thumbnail), held one beat
-// Hotcoin facts, one per beat. Source: hotcoin.com/en_US/about, checked 2026-11-17
-// ("2017 Year Founded · 8.1M+ Registered Users · 120+ Countries and Regions Served · 300+ spot pairs and 500+ futures pairs").
-const FACTS: {big: string; label: string}[] = [
-  {big: '2017', label: 'BUILDING SINCE'},
-  {big: '8.1M+', label: 'REGISTERED USERS'},
-  {big: '120+', label: 'COUNTRIES AND REGIONS'},
-  {big: '500+', label: 'FUTURES PAIRS · 300+ SPOT'},
-];
-const Facts: React.FC<{f: number}> = ({f}) => {
-  if (f < COVER_END || f >= DROP) return null;
-  const k = Math.min(FACTS.length - 1, beatIndex(f) - 1);
-  const x = FACTS[k];
-  const t = f - fr(beatS(k + 1));
-  const sc = 1 + 0.14 * Math.exp(-t / 3);
-  const blur = Math.max(0, 4 - t * 2.5);
-  const size = TALL ? 300 : 380;
+// line reveal: text slides up from behind its own baseline (no zoom, no blur)
+const Reveal: React.FC<{f: number; at: number; dur?: number; children: React.ReactNode; style?: React.CSSProperties}> = ({f, at, dur = 9, children, style}) => {
+  const p = interpolate(f, [at, at + dur], [0, 1], {...clamp, easing: ease});
+  return <div style={{overflow: 'hidden', paddingBottom: '0.08em', ...style}}><div style={{transform: `translateY(${(1 - p) * 110}%)`}}>{children}</div></div>;
+};
+const Lockup: React.FC<{logoH: number; nameSize: number; align: 'flex-start' | 'center'}> = ({logoH, nameSize, align}) => (
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: align, gap: logoH * 0.35}}>
+    <Img src={staticFile('brand/logo-official-white.png')} style={{height: logoH}} />
+    <div style={{display: 'flex', alignItems: 'baseline', gap: nameSize * 0.22}}>
+      <span style={{fontFamily: SANS, fontWeight: 800, fontSize: nameSize * 0.7, color: LIME, lineHeight: 1}}>×</span>
+      <span style={{fontFamily: SANS, fontWeight: 800, fontSize: nameSize, letterSpacing: -nameSize * 0.03, color: WHITE, lineHeight: 1}}>RONALDINHO</span>
+    </div>
+  </div>
+);
+// frame 0 = cover: Hotcoin x Ronaldinho + both ambassador lines, text only
+const Cover: React.FC<{f: number}> = ({f}) => {
+  if (f >= COVER_END + 8) return null;
+  const out = interpolate(f, [COVER_END, COVER_END + 8], [0, 1], {...clamp, easing: ease});
+  const size = TALL ? 56 : 60;
   return (
-    <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: TALL ? 34 : 30}}>
-        <Img src={staticFile('brand/logo-official-white.png')} style={{height: TALL ? 64 : 60}} />
-        <div style={{transform: `scale(${sc})`, filter: `blur(${blur}px)`, fontFamily: SANS, fontWeight: 800, fontSize: size, lineHeight: 0.9, letterSpacing: -size * 0.045,
-          color: WHITE, textShadow: '0 0 60px rgba(184,242,106,.3)'}}>{x.big}</div>
-        <div style={{fontFamily: MONO, fontWeight: 700, fontSize: TALL ? 38 : 40, letterSpacing: 8, color: LIME, textShadow: '0 0 24px rgba(184,242,106,.45)'}}>{x.label}</div>
+    <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', opacity: 1 - out, transform: `translateY(${-out * 60}px)`}}>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: TALL ? 56 : 48, textAlign: 'center'}}>
+        <Lockup logoH={TALL ? 96 : 104} nameSize={TALL ? 132 : 170} align="center" />
+        <div style={{width: 140, height: 5, background: LIME}} />
+        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: size, lineHeight: 1.2}}>
+          <div style={{color: WHITE}}>{EN}</div>
+          <div style={{color: LIME}}>{PT}</div>
+        </div>
       </div>
     </AbsoluteFill>
   );
 };
 
-// frame 0 = the cover: who (Hotcoin x Ronaldinho), what (ambassador, both lines), his real photo
-const Cover: React.FC<{f: number}> = ({f}) => {
-  if (f >= COVER_END + 3) return null;
-  const out = interpolate(f, [COVER_END - 1, COVER_END + 3], [1, 0], clamp);
-  const push = 1 + 0.03 * (f / COVER_END);
-  const grade = 'grayscale(1) contrast(1.06) brightness(1.14) drop-shadow(0 0 26px rgba(184,242,106,.55)) drop-shadow(0 0 4px rgba(184,242,106,.8))';
-  const ph = TALL ? 1180 : 1010, pw = ph * (1670 / 1978);
-  const photo = <Img src={staticFile('ronaldinho/cover_2.56.png')} style={{position: 'absolute', height: ph, left: TALL ? W / 2 - pw / 2 : W - pw - 60, top: H - ph + 20, filter: grade, transform: `scale(${push})`, transformOrigin: '50% 100%'}} />;
-  const lock = (logoH: number, nameSize: number, align: 'flex-start' | 'center') => (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: align, gap: logoH * 0.35}}>
-      <Img src={staticFile('brand/logo-official-white.png')} style={{height: logoH}} />
-      <div style={{display: 'flex', alignItems: 'baseline', gap: nameSize * 0.22}}>
-        <span style={{fontFamily: SANS, fontWeight: 800, fontSize: nameSize * 0.7, color: LIME, lineHeight: 1}}>×</span>
-        <span style={{fontFamily: SANS, fontWeight: 800, fontSize: nameSize, letterSpacing: -nameSize * 0.03, color: WHITE, lineHeight: 1}}>RONALDINHO</span>
+// Hotcoin stats panel, built one per beat, then held. Source: hotcoin.com/en_US/about, checked 2026-11-17
+// ("2017 Year Founded · 8.1M+ Registered Users · 120+ Countries and Regions Served · 300+ spot pairs and 500+ futures pairs").
+const FACTS: {to: number; dec: number; pre: string; suf: string; label: string}[] = [
+  {to: 2017, dec: 0, pre: '', suf: '', label: 'Founded'},
+  {to: 8.1, dec: 1, pre: '', suf: 'M+', label: 'Registered users'},
+  {to: 120, dec: 0, pre: '', suf: '+', label: 'Countries and regions'},
+  {to: 500, dec: 0, pre: '', suf: '+', label: 'Futures pairs, plus 300+ spot'},
+];
+const FACT_AT = (i: number) => fr(beatS(1 + i));
+const Facts: React.FC<{f: number}> = ({f}) => {
+  if (f < COVER_END || f >= DROP) return null;
+  const out = interpolate(f, [DROP - 6, DROP], [0, 1], clamp);
+  const num = TALL ? 150 : 176, lab = TALL ? 46 : 50;
+  const cell = (x: typeof FACTS[0], i: number) => {
+    const at = FACT_AT(i);
+    const cnt = x.to === 2017 ? 2017 : interpolate(f, [at, at + 14], [0, x.to], {...clamp, easing: ease});   // the year is not counted
+    const line = interpolate(f, [at - 2, at + 10], [0, 1], {...clamp, easing: ease});
+    return (
+      <div key={i} style={{position: 'relative', paddingTop: TALL ? 18 : 22}}>
+        <div style={{position: 'absolute', left: 0, top: 0, height: 3, width: `${line * 100}%`, background: LIME}} />
+        <Reveal f={f} at={at}><div style={{fontFamily: SANS, fontWeight: 800, fontSize: num, lineHeight: 1, letterSpacing: -num * 0.04, color: WHITE}}>{x.pre}{cnt.toFixed(x.dec)}{x.suf}</div></Reveal>
+        <Reveal f={f} at={at + 3}><div style={{fontFamily: SANS, fontWeight: 600, fontSize: lab, lineHeight: 1.15, color: LIME, marginTop: 8}}>{x.label}</div></Reveal>
       </div>
-    </div>
-  );
-  const lines = (size: number, align: 'left' | 'center') => (
-    <div style={{textAlign: align, fontFamily: SANS, fontWeight: 800, fontSize: size, lineHeight: 1.18, letterSpacing: -size * 0.01}}>
-      <div style={{color: WHITE}}>{EN}</div>
-      <div style={{color: LIME}}>{PT}</div>
-    </div>
-  );
+    );
+  };
   return (
-    <AbsoluteFill style={{opacity: out}}>
-      {photo}
-      {TALL ? (
-        <div style={{position: 'absolute', left: 60, right: 60, top: 150, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 46}}>
-          {lock(92, 132, 'center')}
-          <div style={{width: 120, height: 4, background: LIME}} />
-          {lines(52, 'center')}
+    <AbsoluteFill style={{opacity: 1 - out}}>
+      <div style={{position: 'absolute', left: TALL ? 90 : 150, right: TALL ? 90 : 150, top: TALL ? 360 : 200}}>
+        <Reveal f={f} at={COVER_END}><Img src={staticFile('brand/logo-official-white.png')} style={{height: TALL ? 64 : 58}} /></Reveal>
+        <div style={{display: 'grid', gridTemplateColumns: TALL ? '1fr' : '1fr 1fr', columnGap: 120, rowGap: TALL ? 54 : 50, marginTop: TALL ? 70 : 56}}>
+          {FACTS.map(cell)}
         </div>
-      ) : (
-        <div style={{position: 'absolute', left: 110, top: 0, bottom: 0, width: 980, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 50}}>
-          {lock(96, 150, 'flex-start')}
-          <div style={{width: 140, height: 5, background: LIME}} />
-          {lines(56, 'left')}
-        </div>
-      )}
+      </div>
     </AbsoluteFill>
   );
 };
@@ -209,13 +208,13 @@ const SIDE_W = 560;
 const fit = (word: string, max: number) => Math.min(max, SIDE_W / (word.length * 0.6));
 
 const Word: React.FC<{w: string; lt: number; lime: boolean; serif: boolean; align: 'left' | 'right'; size: number}> = ({w, lt, lime, serif, align, size}) => {
-  if (lt < 0) return null;
-  const sc = 1 + 0.35 * Math.exp(-lt / 2.5);
-  const o = Math.min(1, lt / 2 + 0.2);
+  const p = interpolate(lt, [0, 7], [0, 1], {...clamp, easing: ease});
   return (
-    <div style={{fontFamily: serif ? SERIF : SANS, fontStyle: serif ? 'italic' : 'normal', fontWeight: serif ? 400 : 800, fontSize: serif ? size * 1.25 : size,
-      lineHeight: 0.98, letterSpacing: serif ? 0 : -size * 0.03, color: lime ? LIME : WHITE, opacity: o, transform: `scale(${sc})`, transformOrigin: align === 'left' ? '0% 50%' : '100% 50%',
-      textShadow: lime ? '0 0 40px rgba(184,242,106,.55)' : '0 0 30px rgba(0,0,0,.6)', textAlign: align, whiteSpace: 'nowrap'}}>{serif ? w.toLowerCase() : w}</div>
+    <div style={{overflow: 'hidden', paddingBottom: '0.06em'}}>
+      <div style={{transform: `translateY(${(1 - p) * 110}%)`, fontFamily: serif ? SERIF : SANS, fontStyle: serif ? 'italic' : 'normal', fontWeight: serif ? 400 : 800, fontSize: serif ? size * 1.2 : size,
+        lineHeight: 1, letterSpacing: serif ? 0 : -size * 0.03, color: lime ? LIME : WHITE,
+        textShadow: '0 0 30px rgba(0,0,0,.6)', textAlign: align, whiteSpace: 'nowrap'}}>{serif ? w.toLowerCase() : w}</div>
+    </div>
   );
 };
 
@@ -225,13 +224,14 @@ const Captions: React.FC<{f: number}> = ({f}) => {
   if (f < V || f >= OUT1 || i < 0) return null;
   const p = PH_[i];
   const words = [...p.L, ...p.R];
+  const phraseSize = Math.min(...words.map((w) => fit(w, 120)));   // one size per phrase
   const out = interpolate(t, [p.b - 0.1, p.b], [1, 0], clamp);
   const render = (list: string[], offset: number, align: 'left' | 'right') => list.map((w, k) => {
     const idx = offset + k;
     const lt = (t - p.t[Math.min(idx, p.t.length - 1)]) * R10AURA_FPS;
     const isHi = idx >= p.hi && (align === 'right');
     const serif = i === 2 && w === 'MAGIC';
-    return <Word key={idx} w={w} lt={lt} lime={isHi} serif={serif} align={align} size={fit(w, 150)} />;
+    return <Word key={idx} w={w} lt={lt} lime={isHi} serif={serif} align={align} size={phraseSize} />;
   });
   if (TALL) {
     const row = (list: string[], offset: number) => {
@@ -279,17 +279,13 @@ const NameStrip: React.FC<{f: number}> = ({f}) => {
 // ---------- outro words + end card ----------
 const Outro: React.FC<{f: number}> = ({f}) => {
   if (f < OUT1 || f >= END) return null;
-  const list = [{at: OUT1, w: 'HOTCOIN WELCOMES'}, {at: OUT2, w: 'OUR AMBASSADOR'}, {at: OUT3, w: 'RONALDINHO.'}];
-  const cur = [...list].reverse().find((x) => f >= x.at)!;
-  const lt = f - cur.at;
-  const sc = 1 + 0.12 * Math.exp(-lt / 3);
-  const serif = false;
-  const lime = cur.w === 'RONALDINHO.';
+  const out = interpolate(f, [END - 6, END], [0, 1], clamp);
+  const size = TALL ? 104 : 140;
   return (
-    <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-      <div style={{transform: `scale(${sc})`, fontFamily: serif ? SERIF : SANS, fontStyle: serif ? 'italic' : 'normal', fontWeight: serif ? 400 : 800,
-        fontSize: Math.min(TALL ? 116 : 168, (W - 140) / (cur.w.length * 0.66)), letterSpacing: TALL ? -3 : -6, color: lime ? LIME : WHITE, textShadow: lime ? '0 0 70px rgba(184,242,106,.55)' : '0 0 50px rgba(184,242,106,.25)', whiteSpace: 'nowrap'}}>
-        {cur.w}
+    <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', opacity: 1 - out}}>
+      <div style={{fontFamily: SANS, fontWeight: 800, fontSize: size, lineHeight: 1.04, letterSpacing: -size * 0.03, color: WHITE, textAlign: 'center'}}>
+        <Reveal f={f} at={OUT1} dur={10}>Hotcoin welcomes</Reveal>
+        <Reveal f={f} at={OUT1 + 6} dur={10}>our <span style={{color: LIME}}>ambassador.</span></Reveal>
       </div>
     </AbsoluteFill>
   );
@@ -320,7 +316,7 @@ const EndCard: React.FC<{f: number}> = ({f}) => {
 
 // one/two-frame flashes on the big moments
 const Flash: React.FC<{f: number}> = ({f}) => {
-  const hits = [DROP, OUT1, OUT3, END];
+  const hits = [DROP];
   const h = hits.find((x) => f >= x && f < x + 3);
   if (h === undefined) return null;
   const big = h === DROP;
@@ -362,7 +358,6 @@ export const R10Aura: React.FC = () => {
       <Facts f={f} />
       <Person f={f} />
       <Captions f={f} />
-      <NameStrip f={f} />
       <Outro f={f} />
       <EndCard f={f} />
       <Flash f={f} />
