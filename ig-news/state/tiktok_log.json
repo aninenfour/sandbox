@@ -5,8 +5,9 @@
   "topic": "Tier list: scariest crashes ever",
   "hook": "Scariest market crashes ever, ranked",
   "file": "ig-news/media/2026-10-31-reel-tier-crashes/reel_tiktok.mp4",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7702823945694809364"
  },
  {
   "id": "2026-10-30-whatif-prime-amzn",
@@ -62,26 +63,31 @@
   "topic": "WHAT IF: iPhone X vs Apple stock",
   "hook": "$999 on an iPhone X in 2017, or $999 in Apple stock?",
   "file": "ig-news/media/2026-11-15-whatif-iphonex-aapl/story.mp4",
-  "status": "scheduled",
-  "doc_row": false
+  "status": "published",
+  "doc_row": false,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7708390284651990292"
  },
  {
   "id": "2026-11-16-cz-binance-62k",
   "slot": "2026-11-16T13:00:00+08:00",
   "format": "photo",
   "topic": "News carousel (photo mode): BTC to $62K, CZ says Binance did not sell",
-  "status": "scheduled",
+  "status": "published",
   "doc_row": false,
-  "note": "first carousels on TikTok (owner, Nov 16)"
+  "note": "first carousels on TikTok (owner, Nov 16)",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7708629829427399956",
+  "hook": "Bitcoin went from $75.8K to about $62K in a week"
  },
  {
   "id": "2026-11-16-academy-hot-cold-wallets",
   "slot": "2026-11-16T19:02:00+08:00",
   "format": "photo",
   "topic": "Academy carousel (photo mode): hot vs cold wallets, $3.4B stolen in 2025",
-  "status": "scheduled",
+  "status": "published",
   "doc_row": false,
-  "note": "first carousels on TikTok (owner, Nov 16)"
+  "note": "first carousels on TikTok (owner, Nov 16)",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7708723217208265985",
+  "hook": "$3.4B in crypto was stolen in 2025"
  },
  {
   "id": "2026-11-16-whatif-gtx1080-nvda",
@@ -89,10 +95,11 @@
   "format": "video",
   "topic": "WHAT IF: GTX 1080 vs Nvidia stock (photo look)",
   "hook": "A $599 GTX 1080 in 2016, or $599 in Nvidia stock?",
-  "status": "scheduled",
+  "status": "published",
   "doc_row": false,
   "thumb": "media/2026-11-16-whatif-gtx1080-nvda/thumb_tiktok.jpg",
-  "note": "first photo-look WHAT IF; Publer thumbnail = photo cover"
+  "note": "first photo-look WHAT IF; Publer thumbnail = photo cover",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7708761376726076693"
  },
  {
   "id": "2026-11-17-academy-nvidia-earnings",
@@ -100,7 +107,8 @@
   "format": "photo",
   "topic": "Academy carousel (photo mode): Nvidia expects $108B, how to read earnings",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": false,
+  "hook": "Nvidia expects $108B this quarter. Is that enough?"
  },
  {
   "id": "2026-11-17-memereact-btc-half",
@@ -115,8 +123,10 @@
   "slot": "2026-11-17T12:30:00+08:00",
   "format": "video",
   "topic": "MEME REACT: Bitcoin -49%, Rice +63%, crying Ronaldo",
-  "status": "scheduled",
-  "doc_row": false
+  "status": "published",
+  "doc_row": false,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7708992319625678132",
+  "hook": "Bitcoin -49% from its record. Rice +63% since the same day"
  },
  {
   "id": "2026-11-17-zelle-solana",
@@ -124,8 +134,9 @@
   "format": "photo",
   "topic": "News carousel (photo mode): Zelle picks Solana for ZelleUSD",
   "hook": "Zelle moved $1.2 trillion in 2025. Now it picked Solana for its own dollar stablecoin",
-  "status": "scheduled",
-  "doc_row": false
+  "status": "published",
+  "doc_row": false,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7708955061300235540"
  },
  {
   "id": "2026-11-17-whatif-airpods-btc",
@@ -144,5 +155,148 @@
   "hook": "Bitcoin fell below its 200-week average (~$68K)",
   "status": "scheduled",
   "doc_row": false
+ },
+ {
+  "id": "2026-11-03-whatif-election-spx",
+  "slot": "2026-11-03T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: $1,000 in the S&P 500 on Election Day 2000",
+  "hook": "$1,000 in the S&P 500 on Election Day 2000. What is it worth today?",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7703937614981680405",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-04-whatif-switch-nvda",
+  "slot": "2026-11-04T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Nintendo Switch vs Nvidia",
+  "hook": "$299 in 2017: the console or the chip inside it?",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7704309440144624902",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-05-whatif-netflix",
+  "slot": "2026-11-05T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Netflix plan vs Netflix stock",
+  "hook": "Netflix every month since 2011 vs the same money in Netflix stock",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7704679710902734100",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-06-whatif-tesla",
+  "slot": "2026-11-06T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Tesla deposit vs Tesla stock",
+  "hook": "2016: $1,000 deposit for a Tesla, or $1,000 in Tesla stock?",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7705050877412887816",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-07-reel-tier-decade",
+  "slot": "2026-11-07T21:30:00+08:00",
+  "format": "video",
+  "topic": "Tier list: best assets of the decade",
+  "hook": "Best assets of the decade, ranked",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7705422022087560468",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-08-whatif-latte-btc",
+  "slot": "2026-11-08T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: $5 latte a day vs Bitcoin",
+  "hook": "$5 latte every day for 5 years vs $5 a day in Bitcoin",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7705792760284056833",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-09-whatif-minecraft-msft",
+  "slot": "2026-11-09T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Minecraft vs Microsoft stock",
+  "hook": "$27 for Minecraft in 2011, or $27 in Microsoft stock?",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7706164171225730324",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-10-whatif-spotify",
+  "slot": "2026-11-10T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Spotify Premium vs Spotify stock",
+  "hook": "$10 a month on Spotify Premium, or in Spotify stock?",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7706535215778352402",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-11-whatif-alibaba",
+  "slot": "2026-11-11T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Alibaba IPO day vs shopping (Singles Day)",
+  "hook": "$100 of Alibaba stock on day one in 2014: $330 in 2020, $109 today",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7706906316886904085",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-12-whatif-ps5-sony",
+  "slot": "2026-11-12T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: PS5 vs Sony stock",
+  "hook": "PS5 at launch for $499, or $499 in Sony stock?",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7707277428342787335",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-13-whatif-btc-top",
+  "slot": "2026-11-13T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: $1,000 of Bitcoin at the 2021 top (Friday the 13th)",
+  "hook": "$1,000 of Bitcoin at the 2021 top. How long to get it back?",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7707648252937506054",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-14-reel-tier-gaming",
+  "slot": "2026-11-14T21:30:00+08:00",
+  "format": "video",
+  "topic": "Tier list: video game stocks, 5 years",
+  "hook": "Video game stocks ranked: 5 years and none beat the S&P 500",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7708019604072762625",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-15-gta-prices",
+  "slot": "2026-11-14T23:31:00+08:00",
+  "format": "photo",
+  "topic": "Photo post: GTA V to GTA VI, 13 years of prices (owner request)",
+  "hook": "GTA V came out in 2013. GTA VI drops Nov 19, 2026. 1 Bitcoin went from $132 to $66,675 in between",
+  "status": "published",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7708048776598015252",
+  "doc_row": false,
+  "note": "added to log Nov 17 from Publer (tracker backfill)"
  }
 ]

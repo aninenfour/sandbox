@@ -844,8 +844,9 @@
    "https://decrypt.co/382224/trm-and-chainalysis-tie-6-4b-binance-hack-to-north-koreas-tradertraitor",
    "https://decrypt.co/382237/binance-sets-aside-6-34b-to-cover-hack-losses-ceo-says-your-assets-are-safe"
   ],
-  "status": "scheduled",
-  "note": "Follow-up. $6.3B (Binance), TRM $6.36B, Chainalysis $6.4B; TraderTraitor (same group FBI blamed for Bybit); $6.34B set aside; ~$3B frozen; withdrawals target Sunday; PoR Monday; EIP-7702 + self-destruct (Teng). Face: Richard Teng, Decrypt lead photo (Wikimedia rate-limited)."
+  "status": "published",
+  "note": "Follow-up. $6.3B (Binance), TRM $6.36B, Chainalysis $6.4B; TraderTraitor (same group FBI blamed for Bybit); $6.34B set aside; ~$3B frozen; withdrawals target Sunday; PoR Monday; EIP-7702 + self-destruct (Teng). Face: Richard Teng, Decrypt lead photo (Wikimedia rate-limited).",
+  "ig_url": "https://www.instagram.com/p/DfJrf9wCuVE/"
  },
  {
   "id": "2026-10-31-academy-whitepaper-18",
@@ -860,8 +861,9 @@
    "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true",
    "https://blockchain.info/q/totalbc"
   ],
-  "status": "scheduled",
-  "note": "Anniversary rule (on this exact day). BTC $77,219, mcap $1.55T, supply 20,105,365, -39% from $126,198 record. Photo: Erling Loken Andersen / Unsplash."
+  "status": "published",
+  "note": "Anniversary rule (on this exact day). BTC $77,219, mcap $1.55T, supply 20,105,365, -39% from $126,198 record. Photo: Erling Loken Andersen / Unsplash.",
+  "ig_url": "https://www.instagram.com/p/DfKAHxXiuUc/"
  },
  {
   "id": "2026-10-31-reel-tier-crashes",
@@ -876,8 +878,9 @@
    "https://query1.finance.yahoo.com/v8/finance/chart/%5EIXIC",
    "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD"
   ],
-  "status": "scheduled",
-  "note": "Computed: S&P 2007-09 -56.8%, Nasdaq 2000-02 -77.9%, S&P Covid -33.9% (Feb 19-Mar 23 2020), BTC 2017-18 -83.4% (19,497->3,236 closes), BTC 2021-22 -76.6% (67,567->15,787), S&P 1987-10-19 -20.5% one day. 1929 Dow -89% and LUNA ~-100% from historical records. Readable year badges (owner Oct 30). IG+FB Reel, TikTok cut, X square (no CTA) 21:30; Story 21:35. Saturday = tier list (1/week)."
+  "status": "published",
+  "note": "Computed: S&P 2007-09 -56.8%, Nasdaq 2000-02 -77.9%, S&P Covid -33.9% (Feb 19-Mar 23 2020), BTC 2017-18 -83.4% (19,497->3,236 closes), BTC 2021-22 -76.6% (67,567->15,787), S&P 1987-10-19 -20.5% one day. 1929 Dow -89% and LUNA ~-100% from historical records. Readable year badges (owner Oct 30). IG+FB Reel, TikTok cut, X square (no CTA) 21:30; Story 21:35. Saturday = tier list (1/week).",
+  "ig_url": "https://www.instagram.com/reel/DfKRQ5PjoJV/"
  },
  {
   "date": "2026-10-31",
@@ -895,8 +898,9 @@
   "type": "weekly",
   "slot": "2026-11-03T12:00:00+08:00",
   "title": "What's on this week (Wed-Fri, Tuesday slide dropped)",
-  "status": "scheduled",
-  "note": "Missed Sun 19:00 slot due to worker restarts; rescheduled Tue 12:00 IG+FB+IG Story."
+  "status": "published",
+  "note": "Missed Sun 19:00 slot due to worker restarts; rescheduled Tue 12:00 IG+FB+IG Story.",
+  "ig_url": "https://www.instagram.com/p/DfQ-XpLiBdR/"
  },
  {
   "id": "2026-11-01-binance-90pct",
@@ -909,7 +913,7 @@
   "type": "reel-whatif",
   "slot": "2026-11-03T21:30:00+08:00",
   "title": "$1,000 in S&P 500 on Election Day 2000 -> $5,267",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -920,7 +924,8 @@
   "sources": [
    "Yahoo Finance ^GSPC daily closes 2000-11-07 1431.87, 2026-11-02 7541.40"
   ],
-  "note": "Dot = 'I voted' sticker (Unsplash, Dan Dennis). 16:00 news + 19:00 Academy skipped today (run time lost to restarts)."
+  "note": "Dot = 'I voted' sticker (Unsplash, Dan Dennis). 16:00 news + 19:00 Academy skipped today (run time lost to restarts).",
+  "ig_url": "https://www.instagram.com/reel/DfR_m0kDiBk/"
  },
  {
   "id": "2026-11-04-okx-ice-tokenized",
@@ -928,12 +933,13 @@
   "style": "v2",
   "slot": "2026-11-04T16:00:00+08:00",
   "title": "Tesla and SpaceX say NO to 24/7 tokenized stock trading",
-  "status": "scheduled",
+  "status": "published",
   "sources": [
    "https://www.coindesk.com/business/2026/11/03/amazon-tesla-and-spacex-join-okx-ice-tokenized-stock-objections-as-deadline-looms",
    "https://decrypt.co/382458/elon-musk-tesla-spacex-block-okx-ice-tokenized-stock"
   ],
-  "note": "56 objectors (Nov 2 notice), 49/62 launch picks. Musk photo Wikimedia. 19:00 Academy skipped (pending owner call on Academy-as-Reels)."
+  "note": "56 objectors (Nov 2 notice), 49/62 launch picks. Musk photo Wikimedia. 19:00 Academy skipped (pending owner call on Academy-as-Reels).",
+  "ig_url": "https://www.instagram.com/p/DfT-rfrFFwk/"
  },
  {
   "id": "2026-11-04-whatif-switch-nvda",
@@ -941,7 +947,7 @@
   "style": "light",
   "slot": "2026-11-04T21:30:00+08:00",
   "title": "$299 Switch (2017) or $299 in Nvidia -> $25,114",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -952,14 +958,15 @@
   "sources": [
    "Yahoo Finance NVDA split-adj closes 2017-03-03 2.4608, 2026-11-03 206.69"
   ],
-  "note": "Drawn generic console icon (no logos). 2021 peak $4,008 -> 2022 low $1,364 (-66%)."
+  "note": "Drawn generic console icon (no logos). 2021 peak $4,008 -> 2022 low $1,364 (-66%).",
+  "ig_url": "https://www.instagram.com/reel/DfUk5DuAmbz/"
  },
  {
   "id": "2026-11-05-midterms-crypto",
   "type": "news",
   "slot": "2026-11-05T16:00:00+08:00",
   "title": "Democrats take Congress. Bitcoin jumps back above $80K",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -970,7 +977,8 @@
    "The Block",
    "Cointelegraph",
    "Decrypt"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DfV8ek3iIjo/"
  },
  {
   "id": "2026-11-05-academy-btc-holders",
@@ -978,7 +986,7 @@
   "slides": 4,
   "slot": "2026-11-05T19:00:00+08:00",
   "title": "Who owns the most Bitcoin? A ghost is still number 1",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -990,7 +998,8 @@
    "Strategy SEC filing Sep 2026 (~846K)",
    "BlackRock IBIT (~800K, mid-2026 reports)"
   ],
-  "note": "Figures rounded with ~; IBIT figure from mid-2026 reports, flagged as latest public."
+  "note": "Figures rounded with ~; IBIT figure from mid-2026 reports, flagged as latest public.",
+  "ig_url": "https://www.instagram.com/p/DfW4B0BCGOl/"
  },
  {
   "id": "2026-11-05-whatif-netflix",
@@ -998,7 +1007,7 @@
   "style": "light",
   "slot": "2026-11-05T21:30:00+08:00",
   "title": "$96 = a year of Netflix (2011) or Netflix stock -> $1,530",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1009,14 +1018,15 @@
   "sources": [
    "Yahoo Finance NFLX split-adj closes 2011-07-12 4.161, 2026-11-04 66.39"
   ],
-  "note": "2012 low $18 (-81%), 2021 peak $1,591, 2022 -75%, 2025 peak $3,049. Drawn popcorn icon."
+  "note": "2012 low $18 (-81%), 2021 peak $1,591, 2022 -75%, 2025 peak $3,049. Drawn popcorn icon.",
+  "ig_url": "https://www.instagram.com/reel/DfXJMx0FHCn/"
  },
  {
   "id": "2026-11-06-paraguay-ueno",
   "type": "news",
   "slot": "2026-11-06T11:20:00+08:00",
   "title": "A bank collapse just brought down Paraguay's president",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1027,7 +1037,8 @@
    "https://decrypt.co/382676/paraguay-president-resigns-bank-lockout-bitcoin-fixes-this",
    "https://cointelegraph.com/news/paraguay-president-resigns-after-collapse-ueno-digital-bank"
   ],
-  "note": "Planned 10:00; worker restarts pushed it to 11:20. Pena photo Wikimedia. 19:00 Academy not built this run."
+  "note": "Planned 10:00; worker restarts pushed it to 11:20. Pena photo Wikimedia. 19:00 Academy not built this run.",
+  "ig_url": "https://www.instagram.com/p/DfYoLuWitko/"
  },
  {
   "id": "2026-11-06-whatif-tesla",
@@ -1035,7 +1046,7 @@
   "mode": "lump",
   "slot": "2026-11-06T21:30:00+08:00",
   "title": "$1,000 Tesla deposit (2016) or $1,000 in TSLA -> $22,437",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1045,14 +1056,15 @@
   ],
   "sources": [
    "Yahoo Finance TSLA split-adj closes 2016-03-31 15.318, 2026-11-05 343.69"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/reel/DfZuCCulEW1/"
  },
  {
   "id": "2026-11-07-mexc-treasury",
   "type": "news",
   "slot": "2026-11-07T10:00:00+08:00",
   "title": "US cuts crypto exchange MEXC off over $16B in illicit flows",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1062,7 +1074,8 @@
   "sources": [
    "https://decrypt.co/382758/treasury-cuts-off-crypto-exchange-mexc-us-financial-system",
    "https://www.theblock.co/news/regulation/2026-11-06-treasury-cuts-off-mexc-global-over-alleged-16-billion-in-transactions-linked-to-iran-north-korea-and-russia-435957"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DfbD1rNCiMw/"
  },
  {
   "id": "2026-11-07-academy-stoploss",
@@ -1070,21 +1083,22 @@
   "slides": 4,
   "slot": "2026-11-07T19:00:00+08:00",
   "title": "A stop-loss is the exit you plan before you need it",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
    "ig_story",
    "x_research"
   ],
-  "note": "Educational example; recovery math exact (1/(1-L)-1). Photo Unsplash (Arturo Anez)."
+  "note": "Educational example; recovery math exact (1/(1-L)-1). Photo Unsplash (Arturo Anez).",
+  "ig_url": "https://www.instagram.com/p/DfcBp6rCglf/"
  },
  {
   "id": "2026-11-07-reel-tier-decade",
   "type": "reel-tier",
   "slot": "2026-11-07T21:30:00+08:00",
   "title": "Best assets of the decade, ranked",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1095,14 +1109,15 @@
   "sources": [
    "Yahoo Finance closes 2016-11-07 vs 2026-11-06: BTC 703->75931, NVDA 1.78->186.64, TSLA 12.88->358.22, AAPL 27.60->342.37, META 122.15->610.15, SPX 2131.52->7376.86, Gold fut 1278.3->4074.9"
   ],
-  "note": "ETH left out: no verified Nov 2016 price (Yahoo history starts 2017, CoinGecko history blocked)."
+  "note": "ETH left out: no verified Nov 2016 price (Yahoo history starts 2017, CoinGecko history blocked).",
+  "ig_url": "https://www.instagram.com/reel/DfcSzZ8j7Eh/"
  },
  {
   "id": "2026-11-08-fbi-agent-crypto",
   "type": "news",
   "slot": "2026-11-08T10:00:00+08:00",
   "title": "An FBI agent stole $2.47M in crypto from his own cases",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1113,14 +1128,15 @@
    "The Block",
    "Cointelegraph"
   ],
-  "note": "Cover photo swapped from a CHP badge (wrong agency) to a neutral code screen + FBI seal."
+  "note": "Cover photo swapped from a CHP badge (wrong agency) to a neutral code screen + FBI seal.",
+  "ig_url": "https://www.instagram.com/p/Dfdoo3QCks_/"
  },
  {
   "id": "2026-11-08-weekly-nov9",
   "type": "weekly",
   "slot": "2026-11-08T19:00:00+08:00",
   "title": "What's on this week Nov 9-15",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1130,7 +1146,8 @@
   "sources": [
    "stockti earnings calendar",
    "CPI date: thriveinmarkets + financecalendar (BLS page unreachable)"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/Dfemc4UClz7/"
  },
  {
   "id": "2026-11-08-whatif-latte-btc",
@@ -1138,7 +1155,7 @@
   "mode": "dca",
   "slot": "2026-11-08T21:30:00+08:00",
   "title": "$5 latte a day for 5 years vs $5/day in BTC: $9,135 vs ~$16,123",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1149,14 +1166,15 @@
   "sources": [
    "Yahoo Finance BTC-USD daily closes 2021-11-08 ($67,567) to 2026-11-08 ($75,771)"
   ],
-  "note": "$5/day is an assumption, stated in caption."
+  "note": "$5/day is an assumption, stated in caption.",
+  "ig_url": "https://www.instagram.com/reel/Dfe3nErjBPS/"
  },
  {
   "id": "2026-11-09-vitalik-eth-sov",
   "type": "news",
   "slot": "2026-11-09T10:00:00+08:00",
   "title": "Vitalik: ETH is a store of value, not a fee-burning token",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1166,14 +1184,15 @@
   "sources": [
    "The Block",
    "Cointelegraph"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DfgNbY4CrUx/"
  },
  {
   "id": "2026-11-09-academy-eth-vs-btc",
   "type": "academy",
   "slot": "2026-11-09T19:00:00+08:00",
   "title": "Crypto 101: Bitcoin vs Ethereum",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1183,7 +1202,8 @@
   "sources": [
    "bitcoin.org whitepaper / ethereum.org (launch, Merge, PoS, ~99.95% energy cut, EIP-1559 burn)",
    "Supply ~19.95M BTC: blockchain.com, CoinGecko"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DfhLQQGD72h/"
  },
  {
   "id": "2026-11-09-whatif-minecraft-msft",
@@ -1191,7 +1211,7 @@
   "mode": "lump",
   "slot": "2026-11-09T21:30:00+08:00",
   "title": "$27 Minecraft in 2011 vs $27 in MSFT: $566 (21x)",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1203,14 +1223,15 @@
    "Yahoo Finance MSFT weekly closes 2011-11-14 ($25.30) to 2026-11-02 ($530.61)",
    "Minecraft full release Nov 18, 2011 at $26.95; Microsoft bought Mojang Sep 2014 for $2.5B (Microsoft press release, BBC)"
   ],
-  "note": "Story-first hook experiment (W45). Price only."
+  "note": "Story-first hook experiment (W45). Price only.",
+  "ig_url": "https://www.instagram.com/reel/DfhcaOEFPLY/"
  },
  {
   "id": "2026-11-10-nyse-avalanche",
   "type": "news",
   "slot": "2026-11-10T10:00:00+08:00",
   "title": "NYSE picks Avalanche to settle tokenized stocks 24/7",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1222,14 +1243,15 @@
    "Cointelegraph",
    "The Block",
    "CoinDesk (headlines)"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DfiyOrpCmxM/"
  },
  {
   "id": "2026-11-10-academy-etf",
   "type": "academy",
   "slot": "2026-11-10T19:00:00+08:00",
   "title": "Stocks 101: what is an ETF",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1239,7 +1261,8 @@
   "sources": [
    "SSGA SPY fact sheet (1993 launch, 0.0945% expense ratio)",
    "SEC spot BTC ETF approval Jan 10 2024; spot ETH ETFs trading Jul 23 2024 (Reuters, CNBC); GLD Nov 2004 (SPDR)"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DfjwEHTjZwW/"
  },
  {
   "id": "2026-11-10-whatif-spotify",
@@ -1247,7 +1270,7 @@
   "mode": "dca",
   "slot": "2026-11-10T21:30:00+08:00",
   "title": "$10/month Spotify Premium since Apr 2018 vs $10/month in SPOT: $1,040 vs ~$3,209 (3.1x)",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1259,14 +1282,15 @@
    "Yahoo Finance SPOT weekly closes 2018-04-02 ($147.92) to 2026-11-09 ($609.10)",
    "Spotify direct listing NYSE Apr 3, 2018 (Reuters, CNBC)"
   ],
-  "note": "Calendar said 'since 2015' but SPOT only listed in Apr 2018, so start moved. $10/month assumed (US Premium was $9.99 until 2023, higher since), stated in caption."
+  "note": "Calendar said 'since 2015' but SPOT only listed in Apr 2018, so start moved. $10/month assumed (US Premium was $9.99 until 2023, higher since), stated in caption.",
+  "ig_url": "https://www.instagram.com/reel/DfkBOHmlWLy/"
  },
  {
   "id": "2026-11-11-banks-stablecoin",
   "type": "news",
   "slot": "2026-11-11T10:00:00+08:00",
   "title": "Goldman, Citi and 19 others commit ~$270M to bank stablecoin Project Faro",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1277,14 +1301,15 @@
    "Cointelegraph",
    "Decrypt",
    "CoinDesk (headline), all citing Bloomberg"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DflXBYKinTP/"
  },
  {
   "id": "2026-11-11-academy-alibaba",
   "type": "academy",
   "slot": "2026-11-11T19:00:00+08:00",
   "title": "Money History: Alibaba, $68 IPO to $310 to $103",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1294,7 +1319,8 @@
   "sources": [
    "Yahoo Finance BABA weekly closes (peak 309.92 wk of 2020-10-19, low 63.74 wk of 2022-10-24, 102.72 now)",
    "IPO $68 / $25B Sep 19 2014, Ant IPO halted Nov 2020, $2.8B SAMR fine Apr 2021 (Reuters, BBC)"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DfmU3pJl9Ey/"
  },
  {
   "id": "2026-11-11-whatif-alibaba",
@@ -1302,7 +1328,7 @@
   "mode": "lump",
   "slot": "2026-11-11T21:30:00+08:00",
   "title": "$100 in BABA at first-day close (Sep 2014) = $109 today; peak $330 in 2020",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1314,14 +1340,15 @@
    "Yahoo Finance BABA weekly closes: first-day close $93.89 (Sep 19 2014), peak wk 2020-10-19 $309.92, 2026-11-10 $102.72",
    "IPO Sep 19 2014 at $68, first-day close $93.89 (Reuters, CNBC)"
   ],
-  "note": "Honest low-return WHAT IF (1.1x): lesson = timing. Calendar said $100 at IPO; retail could only buy at market, so first-day close used."
+  "note": "Honest low-return WHAT IF (1.1x): lesson = timing. Calendar said $100 at IPO; retail could only buy at market, so first-day close used.",
+  "ig_url": "https://www.instagram.com/reel/DfmmBPWieoR/"
  },
  {
   "id": "2026-11-12-btc-two-losing-years",
   "type": "news",
   "slot": "2026-11-12T10:00:00+08:00",
   "title": "Bitcoin on track for first 2 losing years in a row (2025 -6%, 2026 -16% YTD)",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1332,14 +1359,15 @@
    "Decrypt (Nov 11)",
    "Yahoo Finance BTC-USD year-end closes (own calc)",
    "The Block (Derive 31% odds sub-$70K Christmas; stablecoin supply -$14.2B)"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/Dfn70TAihp_/"
  },
  {
   "id": "2026-11-12-academy-2026-scoreboard",
   "type": "academy",
   "slot": "2026-11-12T19:00:00+08:00",
   "title": "Data Day: 2026 so far, stocks +11%, gold -8%, Bitcoin -16% (+3.7% inflation)",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1350,7 +1378,8 @@
    "Yahoo Finance closes Dec 31 2025 vs Nov 11 2026 (^GSPC, ^IXIC, GC=F, BTC-USD)",
    "CPI +3.7% y/y Sept 2026: BLS release + FRED CPIAUCNS (via search)"
   ],
-  "note": "Calendar topic 'what $100 buys vs 2020 (CPI)' swapped: BLS/FRED blocked from container, Oct index level unverifiable."
+  "note": "Calendar topic 'what $100 buys vs 2020 (CPI)' swapped: BLS/FRED blocked from container, Oct index level unverifiable.",
+  "ig_url": "https://www.instagram.com/p/Dfo5qeooepd/"
  },
  {
   "id": "2026-11-13-academy-friday13",
@@ -1358,7 +1387,7 @@
   "variant": "b",
   "slot": "2026-11-13T19:00:00+08:00",
   "title": "Myth vs Fact: Friday the 13th for stocks, 61 tested since 1990",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1367,7 +1396,8 @@
   ],
   "sources": [
    "Yahoo Finance ^GSPC daily closes 1990-01-02 to 2026-11-11 (own calc: 61 F13s, 60.7% up vs 53.6% all days, avg +0.33%, ex-Mar-2020 +0.18%)"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DfrecokjCL0/"
  },
  {
   "id": "2026-11-12-whatif-ps5-sony",
@@ -1375,7 +1405,7 @@
   "mode": "lump",
   "slot": "2026-11-12T21:30:00+08:00",
   "title": "PS5 at launch ($499, Nov 12 2020) vs $499 in Sony: $737 (1.5x)",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1387,14 +1417,15 @@
    "Yahoo Finance SONY weekly closes, split-adjusted (5:1 Oct 2024): wk of 2020-11-09 $17.94 -> 2026-11-11 $26.49",
    "PS5 US launch Nov 12, 2020 at $499 (Sony PlayStation Blog, The Verge)"
   ],
-  "note": "First Reel with word-by-word ending + new hook rules (direct question)."
+  "note": "First Reel with word-by-word ending + new hook rules (direct question).",
+  "ig_url": "https://www.instagram.com/reel/DfpK0E5Dmoh/"
  },
  {
   "id": "2026-11-13-nvidia-huang-exit",
   "type": "news",
   "slot": "2026-11-13T10:00:00+08:00",
   "title": "Jensen Huang resigns as Nvidia CEO; Bitcoin hits 12-week low ($71.2K)",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1406,7 +1437,8 @@
    "Cointelegraph (BTC below $72K, lowest since Aug 20, -7.4% MTD; Nvidia press release quote)",
    "The Block (BTC low $71,200)"
   ],
-  "note": "Allegations not repeated on slides; 'press reports about his conduct' only."
+  "note": "Allegations not repeated on slides; 'press reports about his conduct' only.",
+  "ig_url": "https://www.instagram.com/p/Dfqgn0vCiqu/"
  },
  {
   "id": "2026-11-13-whatif-btc-top",
@@ -1414,7 +1446,7 @@
   "mode": "lump",
   "slot": "2026-11-13T21:30:00+08:00",
   "title": "$1,000 BTC at the Nov 2021 top: 28 months to break even, $1,050 today",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1425,14 +1457,15 @@
   "sources": [
    "Yahoo Finance BTC-USD weekly closes: wk of 2021-11-08 $65,467 -> wk of 2026-11-13 $68,733; low wk 2022-11-14 (-75%); first close >= start wk 2024-03-04",
    "Terra May 2022 and FTX Nov 2022 collapses (CoinDesk, Reuters)"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/reel/Dfrvl5pkqOF/"
  },
  {
   "id": "2026-11-14-btc-red-weeks",
   "type": "news",
   "slot": "2026-11-14T10:00:00+08:00",
   "title": "Bitcoin: 6 red weeks in a row, the record is 9 (2022)",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1443,7 +1476,8 @@
    "Yahoo Finance BTC-USD weekly closes (own streak calc: 9 wks to May 2022, 6 in Feb 2026, 6 completed now)",
    "Decrypt (12-week low ~$68.5K, -9.5% week, ~21% below ~$86K autumn peak, 16% above ~$59K June low, Dec hike priced)",
    "CoinDesk (headline: sixth weekly loss, AI IPO, Nvidia upheaval)"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DftFaipiFyG/"
  },
  {
   "id": "2026-11-14-academy-leverage",
@@ -1451,7 +1485,7 @@
   "variant": "a",
   "slot": "2026-11-14T19:00:00+08:00",
   "title": "Trading 101: 10x leverage = about 10% room before liquidation",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1460,14 +1494,15 @@
   ],
   "sources": [
    "Standard isolated-margin math: loss of margin at ~1/leverage adverse move, before fees and maintenance margin (exchange futures guides)"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/p/DfuDO4WilA4/"
  },
  {
   "id": "2026-11-14-reel-tier-gaming",
   "type": "reel-tier",
   "slot": "2026-11-14T21:30:00+08:00",
   "title": "Tier list: video game stocks, 5 years, none beat the S&P 500",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1478,7 +1513,8 @@
   "sources": [
    "Yahoo Finance daily closes Nov 11 2021 vs Nov 13 2026: TTWO 185.71->227.82, NTDOY 11.00->13.70, SONY 24.20->27.07 (split-adj), RBLX 98.12->49.91, U 182.13->52.81, ^GSPC 4,649->7,562"
   ],
-  "note": "EA left out: taken private in 2026, no full Yahoo history. Logos: financialmodelingprep image-stock; Roblox inverted to dark for contrast."
+  "note": "EA left out: taken private in 2026, no full Yahoo history. Logos: financialmodelingprep image-stock; Roblox inverted to dark for contrast.",
+  "ig_url": "https://www.instagram.com/reel/DfuUdJPn0b9/"
  },
  {
   "id": "2026-11-15-gta-prices",
@@ -1497,7 +1533,8 @@
    "Yahoo Finance split-adjusted closes Sep 17 2013 vs Nov 13 2026",
    "GTA VI Nov 19 2026: TechRadar, Tom's Guide"
   ],
-  "note": "Owner asked (format seen on coinsauce/billionsofficiel). No game logos/art used. v2 (Nov 14): rebuilt visual-first as 2x2 photo grids after owner feedback; v1 text-first posts moved to draft; v2 media at commit 869fe75. Owner asked to post now: published Nov 14 23:25 on all 4."
+  "note": "Owner asked (format seen on coinsauce/billionsofficiel). No game logos/art used. v2 (Nov 14): rebuilt visual-first as 2x2 photo grids after owner feedback; v1 text-first posts moved to draft; v2 media at commit 869fe75. Owner asked to post now: published Nov 14 23:25 on all 4.",
+  "ig_url": "https://www.instagram.com/p/Dfuhdk4iCwo/"
  },
  {
   "id": "2026-11-15-cftc-louisiana",
@@ -1510,7 +1547,7 @@
    "nrows",
    "nphoto"
   ],
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1522,7 +1559,8 @@
    "Casino.org (CFTC's 12th state suit; Selig 'naked lawfare'; Murrill 'regulated by states for 250 years')",
    "Washington Times / rg.org (case 26-2612, 31 entities, Nov 30)"
   ],
-  "note": "Gate: hook 3, relevance 2, fresh 3, visual 2. Cover: Michael Selig official portrait (Commons, public domain); no logo badge. Beat ETF-outflow story (overlaps BTC red-weeks angle) and Kava $3.8M hack (small)."
+  "note": "Gate: hook 3, relevance 2, fresh 3, visual 2. Cover: Michael Selig official portrait (Commons, public domain); no logo badge. Beat ETF-outflow story (overlaps BTC red-weeks angle) and Kava $3.8M hack (small).",
+  "ig_url": "https://www.instagram.com/p/DfvqMvZikW1/"
  },
  {
   "id": "2026-11-15-academy-week-nov16",
@@ -1530,7 +1568,7 @@
   "variant": "b",
   "slot": "2026-11-15T19:00:00+08:00",
   "title": "What's on this week Nov 16-22: Nvidia Q3, Fed minutes, GTA VI",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1545,7 +1583,8 @@
    "ZRO unlock Nov 20: Tokenomist, CoinGabbar",
    "GTA VI Nov 19: TechRadar, Tom's Guide"
   ],
-  "note": "Weekly preview built as Academy v2 (nhero + 3 tslides, layout B photo header) to meet the 4-slide rule. December hike odds not given as a number (only early-Nov FedWatch readings found). Photos Unsplash: Nowakowski, Berezovsky, Woroniecki, Soares."
+  "note": "Weekly preview built as Academy v2 (nhero + 3 tslides, layout B photo header) to meet the 4-slide rule. December hike odds not given as a number (only early-Nov FedWatch readings found). Photos Unsplash: Nowakowski, Berezovsky, Woroniecki, Soares.",
+  "ig_url": "https://www.instagram.com/p/DfwoBhriobQ/"
  },
  {
   "id": "2026-11-15-whatif-iphonex-aapl",
@@ -1553,7 +1592,7 @@
   "mode": "lump",
   "slot": "2026-11-15T21:30:00+08:00",
   "title": "iPhone X ($999, Nov 3 2017) vs $999 in Apple: $8,253 (8.3x), AAPL record close $356.27",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1568,7 +1607,8 @@
    "Yahoo Finance AAPL split-adjusted weekly closes: $43.13 (Nov 3 2017) -> $356.27 (Nov 13 2026)",
    "Nasdaq: AAPL close $356.27 on Nov 13 2026"
   ],
-  "note": "Replaced calendar's GTA V vs Take-Two (GTA prices posted Nov 14 night). Price only, no dividends."
+  "note": "Replaced calendar's GTA V vs Take-Two (GTA prices posted Nov 14 night). Price only, no dividends.",
+  "ig_url": "https://www.instagram.com/reel/Dfw5Po6DwKW/"
  },
  {
   "id": "2026-11-16-academy-hot-cold-wallets",
@@ -1576,7 +1616,7 @@
   "variant": "a",
   "slot": "2026-11-16T19:00:00+08:00",
   "title": "Crypto 101: hot vs cold wallets ($3.4B stolen in 2025)",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1587,7 +1627,8 @@
    "Chainalysis via The Block (Dec 18 2025): $3.4B stolen in 2025, $713M from individuals, ~158K personal wallet cases",
    "Chainalysis via Cointelegraph/The Record: $2.2B 2024, $3.7B 2022, ~$1.8B 2023 (revised from $1.7B)"
   ],
-  "note": "Photos Unsplash: CARTIST, Niranjan _ Photographs, Clint Patterson, Mike Tinnion. bars visual now takes per-item color."
+  "note": "Photos Unsplash: CARTIST, Niranjan _ Photographs, Clint Patterson, Mike Tinnion. bars visual now takes per-item color.",
+  "ig_url": "https://www.instagram.com/p/DfzM1R7irUA/"
  },
  {
   "id": "2026-11-16-cz-binance-62k",
@@ -1601,7 +1642,7 @@
    "nbig"
   ],
   "ngrid_used": true,
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1615,7 +1656,8 @@
    "CoinGecko BTC daily Nov 8 00:00 UTC $75,776; hourly low Nov 15 ~$62.6K",
    "alternative.me Fear and Greed: 28 (Nov 8) -> 10 (Nov 15)"
   ],
-  "note": "W46 ngrid experiment: used (2-cell then/now: 1 BTC Nov 8 $75.8K vs Sunday low $62K, pill -18%). Photos: CZ Commons 'Changpeng Zhao in 2022.jpg' (Aevozer, CC BY-SA 4.0); Unsplash Traxer + Erling Loken Andersen. BNB logo cryptologos.cc as badge. ETF dollar totals left off (outlets disagree: $1.71B/$1.91B/$2.1B). Calendar Nov 16 news cell updated."
+  "note": "W46 ngrid experiment: used (2-cell then/now: 1 BTC Nov 8 $75.8K vs Sunday low $62K, pill -18%). Photos: CZ Commons 'Changpeng Zhao in 2022.jpg' (Aevozer, CC BY-SA 4.0); Unsplash Traxer + Erling Loken Andersen. BNB logo cryptologos.cc as badge. ETF dollar totals left off (outlets disagree: $1.71B/$1.91B/$2.1B). Calendar Nov 16 news cell updated.",
+  "ig_url": "https://www.instagram.com/p/DfyO_y1ihu_/"
  },
  {
   "id": "2026-11-16-whatif-gtx1080-nvda",
@@ -1624,7 +1666,7 @@
   "look": "photo",
   "slot": "2026-11-16T21:30:00+08:00",
   "title": "GTX 1080 ($599, May 27 2016) vs $599 in Nvidia: $85,008 (142x)",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1639,7 +1681,8 @@
    "Yahoo Finance NVDA split-adjusted closes: $1.1475 (May 27 2016) -> $162.85 (Nov 13 2026); weekly peak wk of Sep 28 2026 = $122,123",
    "Nasdaq: NVDA close $162.85 on Nov 13 2026"
   ],
-  "note": "First WHAT IF with the photo look. Thumbnail check: frame 0 fill 36%, no warnings; Publer thumb confirmed = photo cover. Buy photo = GeForce card cropped so 'RTX' text is out of frame. 47.4 s."
+  "note": "First WHAT IF with the photo look. Thumbnail check: frame 0 fill 36%, no warnings; Publer thumb confirmed = photo cover. Buy photo = GeForce card cropped so 'RTX' text is out of frame. 47.4 s.",
+  "ig_url": "https://www.instagram.com/reel/DfzeCFTDFim/"
  },
  {
   "id": "2026-11-17-academy-nvidia-earnings",
@@ -1689,7 +1732,7 @@
   "type": "reel-memereact",
   "slot": "2026-11-17T12:30:00+08:00",
   "title": "MEME REACT: Bitcoin -49%, Rice +63% (Grandma was right), crying Ronaldo + sad violin",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "tiktok"
@@ -1697,7 +1740,8 @@
   "sources": [
    "BTC: CoinGecko ATH $126,080 2025-10-06 + Coinbase; now $64.5K (CoinGecko/Coinbase/Kraken/Yahoo, Nov 16 2026)",
    "Rough rice futures: Yahoo ZR=F $11.03 (2025-10-06) -> $18.02 (2026-11-13); TradingEconomics ~$17.9 Nov 6 2026"
-  ]
+  ],
+  "ig_url": "https://www.instagram.com/reel/Df1FBAdjXJE/"
  },
  {
   "id": "2026-11-17-zelle-solana",
@@ -1711,7 +1755,7 @@
    "nbig"
   ],
   "ngrid_used": true,
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1725,7 +1769,8 @@
    "KuCoin News flash (ZelleUSD on Solana, $1.25M confidential transfer)",
    "DefiLlama stablecoinchains Nov 17: Ethereum $130.7B, Tron $93.2B, Solana $13.9B"
   ],
-  "note": "Score 11/12 (hook 3, relevance 3, fresh 3, visual 2: no real photo of the Zelle execs, so cover = Unsplash phone-payment photo + SOL badge). Ethereum stablecoin total: Token Terminal (via Cointelegraph) $150.5B vs DefiLlama $130.7B, used DefiLlama. BofA as EWS member only in one source, left out. Runner-up: Tom Lee/Bitmine 4.97% of ETH supply (Block+Decrypt), skipped as too close to yesterday's crash story. Jensen Huang CEO story not used (Nvidia already at 19:00 Academy). Photos Unsplash: David Dvoracek (phones), Daniel Early (NYC taxi), Om Kamath (Mumbai). ngrid 2-cell US $1.2T vs India End 2026."
+  "note": "Score 11/12 (hook 3, relevance 3, fresh 3, visual 2: no real photo of the Zelle execs, so cover = Unsplash phone-payment photo + SOL badge). Ethereum stablecoin total: Token Terminal (via Cointelegraph) $150.5B vs DefiLlama $130.7B, used DefiLlama. BofA as EWS member only in one source, left out. Runner-up: Tom Lee/Bitmine 4.97% of ETH supply (Block+Decrypt), skipped as too close to yesterday's crash story. Jensen Huang CEO story not used (Nvidia already at 19:00 Academy). Photos Unsplash: David Dvoracek (phones), Daniel Early (NYC taxi), Om Kamath (Mumbai). ngrid 2-cell US $1.2T vs India End 2026.",
+  "ig_url": "https://www.instagram.com/p/Df0z0dtCHtr/"
  },
  {
   "id": "2026-11-17-whatif-airpods-btc",
