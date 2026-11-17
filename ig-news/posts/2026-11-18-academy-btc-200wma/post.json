@@ -1,0 +1,126 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "variant": "a",
+ "date": "NOV 18",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "cover.jpg",
+   "photo_pos": "60% 30%",
+   "tag": "CRYPTO 101",
+   "headline": "Bitcoin fell below its [200-week average]. What happened last time?"
+  },
+  {
+   "kind": "tslide",
+   "photo": "p1.jpg",
+   "photo_pos": "50% 40%",
+   "title": "So, what is the <span class='g'>200-week average</span>?",
+   "paras": [
+    "Average Bitcoin's last 200 weekly closes (about 4 years). Today: near <g>$68,200</g>. Bitcoin: about $64.5K, 5% under."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Weekly close vs the line",
+    "items": [
+     {
+      "l": "March 2020",
+      "v": -2.5,
+      "txt": "-2.5%"
+     },
+     {
+      "l": "June 2022 break",
+      "v": -8.2,
+      "txt": "-8%"
+     },
+     {
+      "l": "Nov 2022 low",
+      "v": -32.2,
+      "txt": "-32%"
+     },
+     {
+      "l": "Nov 2026, so far",
+      "v": -4.9,
+      "txt": "-5%"
+     }
+    ]
+   },
+   "source": "Yahoo Finance BTC-USD weekly closes, own calculation"
+  },
+  {
+   "kind": "ngrid",
+   "title": "The last 2 times it broke the line",
+   "text": "One year later: [$59,302] (2021) and [$26,336] (2023).",
+   "cells": [
+    {
+     "photo": "g0.jpg",
+     "label": "March 2020",
+     "value": "$5,392",
+     "sub": "Back above in 1 week"
+    },
+    {
+     "photo": "g1.jpg",
+     "label": "June 2022",
+     "value": "$20,553",
+     "sub": "FTX low: $16,292",
+     "neg": true,
+     "photo_pos": "50% 25%"
+    },
+    {
+     "photo": "g2.jpg",
+     "label": "Nov 2026",
+     "value": "$64.5K",
+     "sub": "Line: $68.2K"
+    }
+   ]
+  },
+  {
+   "kind": "tslide",
+   "photo": "p2.jpg",
+   "photo_pos": "50% 40%",
+   "title": "What happened <span class='g'>next</span>?",
+   "paras": [
+    "Both times Bitcoin was higher a year later. But in 2022 it first fell another 21%. Past data, not a forecast."
+   ],
+   "visual": {
+    "type": "table",
+    "cols": [
+     "",
+     "2020",
+     "2022"
+    ],
+    "rows": [
+     [
+      "Weeks under",
+      "1",
+      "36"
+     ],
+     [
+      "Lowest weekly close",
+      "$5,392",
+      "$16,292"
+     ],
+     [
+      "1 year later",
+      "$59,302",
+      "$26,336"
+     ]
+    ]
+   },
+   "source": "Yahoo Finance BTC-USD weekly closes"
+  }
+ ],
+ "sources": [
+  "Yahoo Finance BTC-USD weekly closes Sep 2014 to Nov 17 2026; 200-week simple average computed: $68,184 (week of Nov 16 2026), below since week of Nov 9 2026",
+  "CoinDesk via AlphaMaven (Nov 13 2026): BTC fell below $68,000 and the 200-week average; Hotcoin X post Nov 17: 200-week average ~$68K",
+  "Prior breaks: Mar 9 2020 close $5,392 (MA $5,533), back above Mar 16; Jun 13 2022 close $20,553 (MA $22,379), lowest Nov 14 2022 $16,292 (-32.2%), back above Mar 13 2023 ($28,039); 1y later: Mar 8 2021 $59,302, Jun 12 2023 $26,336",
+  "Cointelegraph: BTC price loses 200-week trend line as 2022 repeats"
+ ],
+ "photo_credits": [
+  "Trader at laptops: Adam Nowakowski / Unsplash (MFms-wkv3Ow, D4LDw5eXhgg)",
+  "Trading desk: Jakub Zerdzicki / Unsplash (d0_1CoAsDR0)",
+  "Covid street, Mar 2020: Zoltan Tasi / Unsplash (Vj84mXDJt8Q)",
+  "Sam Bankman-Fried: Cointelegraph, CC BY 3.0, Wikimedia Commons",
+  "Bitcoin on chart: Andre Francois McKenzie / Unsplash (iGYiBhdNTpE)"
+ ]
+}
