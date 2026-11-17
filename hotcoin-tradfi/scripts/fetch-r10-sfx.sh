@@ -13,3 +13,5 @@ mkdir -p public/music && curl -sfL -o public/music/r10-spanish-heart.mp3 https:/
 # aura edit: "Thunder" (Mixkit 318) + a low-cut copy for the end card (no 808 boom after he leaves)
 curl -sfL -o public/music/r10-thunder.mp3 https://assets.mixkit.co/music/318/318.mp3
 /usr/bin/ffmpeg -v error -y -i public/music/r10-thunder.mp3 -af "highpass=f=180:poles=2,highpass=f=180:poles=2" -c:a libmp3lame -q:a 2 public/music/r10-thunder-hp.mp3
+# campaign / editorial films: low-cut copy of Spanish Heart for the part after he speaks
+/usr/bin/ffmpeg -v error -y -i public/music/r10-spanish-heart.mp3 -af "highpass=f=180:poles=2,highpass=f=180:poles=2" -c:a libmp3lame -q:a 2 public/music/r10-spanish-heart-hp.mp3
