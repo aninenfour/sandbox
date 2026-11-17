@@ -3,7 +3,7 @@ from PIL import Image
 from rembg import remove, new_session
 import numpy as np
 s=new_session('isnet-general-use')
-for n in ['futures-loss-protection','HotcoinEarnRewardsBoost1','wall-street-earnings-season','HotcoinNEFEEarnLimitedOffer','HotcoinP2PEcosystemChallenge1']:
+for n in ['spot-all-round-challenge-24','HotcoinP2PTradingSprint','futures-loss-protection','HotcoinEarnRewardsBoost1','wall-street-earnings-season','HotcoinNEFEEarnLimitedOffer','HotcoinP2PEcosystemChallenge1']:
     im=Image.open(n+'.png').convert('RGB'); w,h=im.size
     crop=im.crop((int(w*.60),0,w,h))
     cut=remove(crop,session=s)
