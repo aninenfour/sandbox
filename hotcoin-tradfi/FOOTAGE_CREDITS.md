@@ -394,3 +394,8 @@ CLAP tags its closing section "aggressive dark phonk". The end card uses a 180 H
 after he leaves. CC-licensed phonk on the Internet Archive was considered and rejected (NC licences or unverifiable uploads).
 **Facts on screen:** removed in v3 (team feedback: platform first, no achievement slams). Earlier versions used "O Bruxo", 2002 World Cup winner and
 2005 Ballon d'Or. **SFX:** Mixkit air woosh (1489) only.
+
+### Luxury film (`src/r10/R10Luxe.tsx`, composition R10Luxe, 16:9)
+Same footage and voice. **Music:** "I Can Hear Your Heartbeat" (Mixkit music 1000, Mixkit free licence), CLAP "elegant luxury
+fashion commercial" 1.00; 124.98 BPM, scene changes on bar lines. Mood reference only (not copied): a luxury-house ambassador
+film. Facts: hotcoin.com/en_US/about, checked 2026-11-17. Everything else (glass wall, light, dust, type) is drawn in code.

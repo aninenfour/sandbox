@@ -15,3 +15,5 @@ curl -sfL -o public/music/r10-thunder.mp3 https://assets.mixkit.co/music/318/318
 /usr/bin/ffmpeg -v error -y -i public/music/r10-thunder.mp3 -af "highpass=f=180:poles=2,highpass=f=180:poles=2" -c:a libmp3lame -q:a 2 public/music/r10-thunder-hp.mp3
 # campaign / editorial films: low-cut copy of Spanish Heart for the part after he speaks
 /usr/bin/ffmpeg -v error -y -i public/music/r10-spanish-heart.mp3 -af "highpass=f=180:poles=2,highpass=f=180:poles=2" -c:a libmp3lame -q:a 2 public/music/r10-spanish-heart-hp.mp3
+# luxury film: "I Can Hear Your Heartbeat" (Mixkit 1000)
+curl -sfL -o public/music/r10-luxe.mp3 https://assets.mixkit.co/music/1000/1000.mp3
