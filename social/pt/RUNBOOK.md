@@ -1,7 +1,7 @@
 # Hotcoin Português (X): Runbook
 
 Channel: **Hotcoin Português** on X, Publer account id `6af6e3c91740237b1cdd90c0` (workspace "hotcoin").
-**Post ONLY to this account.** Never to the main Hotcoin, Research, IG, FB, LinkedIn or TikTok accounts.
+**Post ONLY to this account.** Never to the main Hotcoin, Research, IG, FB, LinkedIn or TikTok accounts. Single exception: the daily English **Learn do dia** copy also goes to Hotcoin Facebook and Hotcoin Research X (owner, 17/11/2026, section 2).
 Audience: **Brazil**. Copy in **pt-BR**. Times in **Brasília (America/Sao_Paulo, UTC-3)**. Hotcoin pages publish UTC+8: subtract 11 h.
 Approval: full green light from the owner (14 Nov 2026) to publish on this channel without asking each time. Still ask before spending money (image API, Canva credits).
 
@@ -34,6 +34,7 @@ Read `LOG.md` (what ran, what is queued) before planning.
   - *Real meme templates* (owner rule, 15 Nov 2026): use the actual well-known templates (imgflip / knowyourmeme classics, including the people and products in them) and re-caption them in pt-BR with crypto/market jokes. Example: `meme_regret.mjs` ("não vou comprar esse mico" carousel built on the "why didn't I buy / ain't buying that brick" template). Keep a library in `art/meme/` (`template-*.jpg`).
   - *Serious photo + unhinged caption*: mono photo, lowercase X-style caption, Brazilian life (churrasco, miojo, gerente do banco, 0800, Pix, fim do mês).
   - Hard lines that stay: no fake endorsement (never make a celebrity or brand look like they use, recommend or partner with Hotcoin), no fake Hotcoin logo use on other brands, no politics, no club bashing, no hate. Prices in memes are real and dated (script comments + caption).
+- **Learn do dia** (max 1 per day, owner request 17/11): at check 1, re-read hotcoin.com/en_US/learn/ for new articles, add them to `tracker/learn.json` (newest first, skip dated news, outdated data, EU-only and political topics), post the next `queued` one, mark it `posted`. Nothing left → skip the day. Cover image = the article's official cover (img.hotbtech.cn). PT X: pt-BR hook + `/pt_PT/learn/<slug>/` link in first reply (note: pt_PT pages are UI-translated only, body is English). **Exception to PT-only:** the same article in English also goes to **Hotcoin Facebook** (`6a72f281aed075b6f35a33c0`, link in post) and **Hotcoin Research X** (`6ae9c2c6fae3382e748574da`, link in first reply), `/en_US/learn/<slug>/`. Nothing else ever goes to those accounts from this runbook.
 - **Text posts / polls**: city rivalry, quick questions, Sunday-night humour.
 
 ## 3. Data rules

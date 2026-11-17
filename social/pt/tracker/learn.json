@@ -1,0 +1,24 @@
+{
+ "_note": "Hotcoin Learn articles mapped 17/11/2026 from hotcoin.com/en_US/learn/ (date = cover image upload date in img.hotbtech.cn/cms/support/<date>/). pt_PT pages exist but the article body is English (only site UI is Portuguese). One Learn post per day max, newest OK first; skip days when nothing is left. PT X: pt-BR hook + pt_PT link in first reply. FB + Hotcoin Research X: English copy + en_US link.",
+ "queue": [
+  {"slug": "stock-split", "date": "2026-11-12", "title": "What Is the NVDA Stock Split? How Stock Splits Affect Share Prices", "pt_hook": "Desdobramento de ações: o que muda (e o que não muda) quando 1 ação vira 10", "note": "pairs with SNDKB 8:1 split (19-20/11)", "status": "next"},
+  {"slug": "bitcoin-rainbow-chart", "date": "2026-11-12", "title": "What Is the Bitcoin Rainbow Chart? The Nine Color Bands Explained", "pt_hook": "Gráfico arco-íris do Bitcoin: as 9 faixas explicadas", "status": "queued"},
+  {"slug": "phantom-wallet", "date": "2026-11-12", "title": "What Is Phantom Wallet? The Complete 2026 Guide", "pt_hook": "Phantom Wallet: guia completo 2026", "status": "queued"},
+  {"slug": "pancakeswap", "date": "2026-11-12", "title": "What Is PancakeSwap? The Complete Guide for 2026", "pt_hook": "PancakeSwap: guia completo 2026", "status": "queued"},
+  {"slug": "HotcoinTradFi", "date": "2026-09-10", "title": "Discover Hotcoin TradFi: Explore More Market-Linked Products in One Place", "pt_hook": "Hotcoin TradFi: ações, ETFs e mais, tudo em USDT", "status": "queued"},
+  {"slug": "Advanced-Futures-Orders-Master-Risk-Based-PositionSizing-in-1-Minute", "date": "2026-08-08", "title": "Advanced Futures Orders: Master Risk-Based Position Sizing in 1 Minute", "pt_hook": "Futuros: tamanho de posição pelo risco, em 1 minuto", "status": "queued"},
+  {"slug": "a-complete-beginner-s-guide-to-hotcoin", "date": "2025-08-05", "title": "A Complete Beginner's Guide to Hotcoin", "pt_hook": "Primeira vez na Hotcoin? Guia do iniciante", "status": "queued"},
+  {"slug": "user-operation-guide-for-spot-trading", "date": "2025-08-06", "title": "User Operation Guide for Spot Trading", "pt_hook": "Como operar no spot, passo a passo", "status": "queued"},
+  {"slug": "perpetual-contract-u-based-operation-guide", "date": "2025-08-05", "title": "Perpetual Contract U-Based Operation Guide", "pt_hook": "Futuros perpétuos em USDT, passo a passo", "status": "queued"},
+  {"slug": "follower-copy-trading-operation-guide", "date": "2025-08-05", "title": "Follower Copy Trading Operation Guide", "pt_hook": "Copy trading: como seguir um trader", "status": "queued"}
+ ],
+ "skip": {
+  "mica": "EU regulation, not relevant for Brazil (owner)",
+  "world-liberty-financial": "politically linked token; neutral-politics rule, skip unless owner asks",
+  "weekly Hotcoin Research reports (Jul to Sep 2026)": "dated market news, outdated",
+  "token reports SNDKB/BMNRB/ASML/AMZN/GRVT": "prices and data from Aug/Sep, outdated (SNDKB report predates the split)",
+  "Hotcoin-updates-PoR": "old reserve figure ($137M, Aug)",
+  "May/June product updates": "old release notes",
+  "HotcoinResearchHastheBullMarketReallyEnded...": "Nov 2025 market call, outdated"
+ }
+}

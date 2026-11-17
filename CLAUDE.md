@@ -74,5 +74,5 @@ plus ready-to-post copy for X, Instagram, LinkedIn, TikTok and Telegram. Read th
 - Commit and push finished work with a clear message.
 
 ## 7. Hotcoin Português (X, Brazil audience)
-- Separate channel with its own rules: read `social/pt/RUNBOOK.md` before any work on it. pt-BR copy, Brasília time, post only to the Hotcoin Português X account.
+- Separate channel with its own rules: read `social/pt/RUNBOOK.md` before any work on it. pt-BR copy, Brasília time, post only to the Hotcoin Português X account (one exception: the daily English Learn article copy also goes to Hotcoin Facebook and Hotcoin Research X).
 - Its own visual system (Bricolage Grotesque, Martian Mono, Doto, Girassol; mono photos with one lime line; official-artwork event key visuals) is approved for that channel only.
