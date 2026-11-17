@@ -3,7 +3,7 @@
 //   beat k at 60.298 + 0.6316 k s; downbeat at 82.404 s (hardest section, CLAP "aggressive dark phonk" 1.00).
 //   Track time = comp time + OFFSET, so the 82.404 s downbeat lands on DROP. The track fades out on its own at the end.
 // Intro (team feedback 2026-11-17): frame 0 is a clear cover (Hotcoin x Ronaldinho + both ambassador lines + real photo),
-//   then the platform (Hotcoin logo, Hotcoin symbol) before he appears. The achievement slams were removed.
+//   then four quick Hotcoin facts (hotcoin.com/en_US/about) before he appears. Outro: "Hotcoin welcomes our ambassador".
 // Rules: end card carries "Hotcoin Ambassador (Brazil)" + "Embaixador da Hotcoin (Brasil)";
 //   no text hidden behind him (words sit either side); no deep end boom.
 import React from 'react';
@@ -12,7 +12,7 @@ import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, staticF
 
 export const R10AURA_FPS = 30;
 const BEAT = 60 / 95;                       // 0.6316 s
-const INTRO_BEATS = 2;                      // cover only (team feedback 2026-11-17: no logo beats in between)
+const INTRO_BEATS = 5;                      // cover (1 beat) + four quick Hotcoin facts, then he appears
 const DROP_S = INTRO_BEATS * BEAT;          // 1.26 s
 const OFFSET = 82.404 - DROP_S;             // track seconds = comp seconds + OFFSET
 const V_S = DROP_S + 0.3;                   // his clip starts
@@ -84,7 +84,34 @@ const Grain: React.FC<{f: number}> = ({f}) => (
 
 // ---------- intro: cover first, then the platform (team feedback 2026-11-17: no achievement slams, Hotcoin first) ----------
 const EN = 'Hotcoin Ambassador (Brazil)', PT = 'Embaixador da Hotcoin (Brasil)';
-const COVER_END = DROP;      // cover holds until he appears (1.26 s)
+const COVER_END = fr(beatS(1));      // frame 0 = cover (thumbnail), held one beat
+// Hotcoin facts, one per beat. Source: hotcoin.com/en_US/about, checked 2026-11-17
+// ("2017 Year Founded · 8.1M+ Registered Users · 120+ Countries and Regions Served · 300+ spot pairs and 500+ futures pairs").
+const FACTS: {big: string; label: string}[] = [
+  {big: '2017', label: 'BUILDING SINCE'},
+  {big: '8.1M+', label: 'REGISTERED USERS'},
+  {big: '120+', label: 'COUNTRIES AND REGIONS'},
+  {big: '500+', label: 'FUTURES PAIRS · 300+ SPOT'},
+];
+const Facts: React.FC<{f: number}> = ({f}) => {
+  if (f < COVER_END || f >= DROP) return null;
+  const k = Math.min(FACTS.length - 1, beatIndex(f) - 1);
+  const x = FACTS[k];
+  const t = f - fr(beatS(k + 1));
+  const sc = 1 + 0.14 * Math.exp(-t / 3);
+  const blur = Math.max(0, 4 - t * 2.5);
+  const size = TALL ? 300 : 380;
+  return (
+    <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: TALL ? 34 : 30}}>
+        <Img src={staticFile('brand/logo-official-white.png')} style={{height: TALL ? 64 : 60}} />
+        <div style={{transform: `scale(${sc})`, filter: `blur(${blur}px)`, fontFamily: SANS, fontWeight: 800, fontSize: size, lineHeight: 0.9, letterSpacing: -size * 0.045,
+          color: WHITE, textShadow: '0 0 60px rgba(184,242,106,.3)'}}>{x.big}</div>
+        <div style={{fontFamily: MONO, fontWeight: 700, fontSize: TALL ? 38 : 40, letterSpacing: 8, color: LIME, textShadow: '0 0 24px rgba(184,242,106,.45)'}}>{x.label}</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
 
 // frame 0 = the cover: who (Hotcoin x Ronaldinho), what (ambassador, both lines), his real photo
 const Cover: React.FC<{f: number}> = ({f}) => {
@@ -252,16 +279,17 @@ const NameStrip: React.FC<{f: number}> = ({f}) => {
 // ---------- outro words + end card ----------
 const Outro: React.FC<{f: number}> = ({f}) => {
   if (f < OUT1 || f >= END) return null;
-  const list = [{at: OUT1, w: 'PLAY YOUR WAY.'}, {at: OUT2, w: 'MAKE IT'}, {at: OUT3, w: 'MAGIC.'}];
+  const list = [{at: OUT1, w: 'HOTCOIN WELCOMES'}, {at: OUT2, w: 'OUR AMBASSADOR'}, {at: OUT3, w: 'RONALDINHO.'}];
   const cur = [...list].reverse().find((x) => f >= x.at)!;
   const lt = f - cur.at;
   const sc = 1 + 0.12 * Math.exp(-lt / 3);
-  const serif = cur.w === 'MAGIC.';
+  const serif = false;
+  const lime = cur.w === 'RONALDINHO.';
   return (
     <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
       <div style={{transform: `scale(${sc})`, fontFamily: serif ? SERIF : SANS, fontStyle: serif ? 'italic' : 'normal', fontWeight: serif ? 400 : 800,
-        fontSize: serif ? (TALL ? 300 : 340) : (TALL ? 116 : 168), letterSpacing: serif ? 0 : (TALL ? -4 : -6), color: serif ? LIME : WHITE, textShadow: serif ? '0 0 80px rgba(184,242,106,.6)' : '0 0 50px rgba(184,242,106,.25)', whiteSpace: 'nowrap'}}>
-        {serif ? 'magic.' : cur.w}
+        fontSize: Math.min(TALL ? 116 : 168, (W - 140) / (cur.w.length * 0.66)), letterSpacing: TALL ? -3 : -6, color: lime ? LIME : WHITE, textShadow: lime ? '0 0 70px rgba(184,242,106,.55)' : '0 0 50px rgba(184,242,106,.25)', whiteSpace: 'nowrap'}}>
+        {cur.w}
       </div>
     </AbsoluteFill>
   );
@@ -280,14 +308,11 @@ const EndCard: React.FC<{f: number}> = ({f}) => {
           <div style={{width: 2, height: TALL ? 50 : 56, background: 'rgba(243,245,241,.45)'}} />
           <div style={{fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 46 : 54, letterSpacing: 3, color: WHITE, lineHeight: 1}}>RONALDINHO</div>
         </div>
-        <div style={{...row(3), fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 112 : 128, lineHeight: TALL ? 1.08 : 1, letterSpacing: -4, color: WHITE}}>
-          Play your way.{TALL ? <br /> : ' '}Make it <span style={{fontFamily: SERIF, fontStyle: 'italic', fontWeight: 400, fontSize: TALL ? 134 : 152, letterSpacing: 0, color: LIME, textShadow: '0 0 50px rgba(184,242,106,.5)'}}>magic.</span>
+        <div style={{...row(3), fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 76 : 96, lineHeight: 1.12, letterSpacing: -2, color: WHITE}}>
+          <div>{EN}</div>
+          <div style={{color: LIME}}>{PT}</div>
         </div>
         <div style={{...row(7), marginTop: TALL ? 80 : 50, background: LIME, color: INK, borderRadius: 999, padding: TALL ? '22px 48px' : '18px 42px', fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 46 : 40}}>hotcoin.com</div>
-        <div style={{...row(10), marginTop: TALL ? 90 : 44, fontFamily: MONO, fontWeight: 500, fontSize: TALL ? 32 : 27, lineHeight: 1.5, color: 'rgba(243,245,241,.92)'}}>
-          <div>Hotcoin Ambassador (Brazil)</div>
-          <div style={{color: GREEN}}>Embaixador da Hotcoin (Brasil)</div>
-        </div>
       </div>
     </AbsoluteFill>
   );
@@ -334,6 +359,7 @@ export const R10Aura: React.FC = () => {
       <Halftone f={f} o={half} />
       <Rings f={f} o={f < END ? 1 : 0.5} />
       <Cover f={f} />
+      <Facts f={f} />
       <Person f={f} />
       <Captions f={f} />
       <NameStrip f={f} />
