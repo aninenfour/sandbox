@@ -308,7 +308,7 @@
   "topic": "News: Nvidia Q3 beat ($115.8B vs $108B guide)",
   "hook": "Nvidia guessed $108B. It made $115.8B",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-18-memereact-nvda",
@@ -317,6 +317,6 @@
   "topic": "MEME REACT: Nvidia sales +103%, stock -35%",
   "hook": "Nvidia made a record $115.8B in 3 months. Stock still -35%",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
