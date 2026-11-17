@@ -1,0 +1,59 @@
+{
+  "title": "NVIDIA SALES _+103%_\nNVIDIA STOCK *-35%*",
+  "handle": "",
+  "stats": [
+    {
+      "label": "SALES, 3 MONTHS",
+      "sub": "to Oct 25, 2026",
+      "icon": "servers.jpg",
+      "value": "$115.8B",
+      "tone": "pos",
+      "name": "a record"
+    },
+    {
+      "label": "STOCK",
+      "sub": "Oct 6 to Nov 17",
+      "icon": "NVDA.png",
+      "value": "-35%",
+      "tone": "neg",
+      "name": "from the top"
+    }
+  ],
+  "punch": {
+    "text": "They made $115.8B. Why is my NVDA still -35%?",
+    "top": 1050,
+    "left": 596,
+    "width": 264
+  },
+  "meme": {
+    "start": 3.5,
+    "end": 5.5,
+    "loops": 7,
+    "crop": [
+      520,
+      0,
+      1040,
+      1080
+    ],
+    "scale": 0.74,
+    "x": -40,
+    "key": "auto",
+    "similarity": 0.28,
+    "blend": 0.06,
+    "feather_right": 60,
+    "volume": 0
+  },
+  "audio": {
+    "start": 0.0,
+    "fade_out": 1.2,
+    "lufs": -14
+  },
+  "wm_opacity": 0.07,
+  "sources": {
+    "sales": "Nvidia Q3 FY2027 release Nov 17 2026: revenue $115.8B, +103% y/y (CBS News: vs $57B a year ago)",
+    "stock": "Yahoo Finance NVDA closes: record $239.24 Oct 6 2026, $155.46 Nov 17 2026 (-35%); Decrypt/Yahoo: ~35% below October peak",
+    "meme": "https://greenscreenmemes.com/confused-nick-young-green-screen/",
+    "music": "Mixkit 'Comical' (id 466), Mixkit free licence",
+    "photo": "Servers: Matthieu Beaumont / Unsplash; Nvidia logo assets/logos/NVDA.png"
+  }
+}
