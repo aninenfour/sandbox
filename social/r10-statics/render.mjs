@@ -139,7 +139,45 @@ const campaign = () => {
   <div class="grain" style="opacity:.07;mix-blend-mode:screen"></div>`);
 };
 
-const STYLES = {swiss, editorial, matchday, riso, scoreboard, campaign};
+// ---------------------------------------------------------------- 7. Campaign B (mirrored: photo left, text right; cooperation-led)
+const campaign2 = () => {
+  const ph = 1640, pw = portraitW('0.02', ph), px = -330;
+  return base('#0D2418', `
+  <div class="abs" style="inset:0;background:radial-gradient(70% 90% at 25% 40%, #16402A 0%, #0D2418 55%, #081710 100%)"></div>
+  ${img('col_0.02.png', {x: px, y: -110, h: ph, extra: 'filter:saturate(.85) contrast(1.04)'})}
+  <div class="abs" style="inset:0;background:linear-gradient(270deg, rgba(8,23,16,.97) 0%, rgba(8,23,16,.8) 36%, rgba(8,23,16,0) 54%)"></div>
+  <img class="abs" src="${BRAND}logo-official-white.png" style="right:96px;top:90px;height:36px">
+  <div class="abs" style="right:96px;top:300px;width:820px;text-align:right">
+    <div class="mono" style="font-size:21px;font-weight:500;color:rgba(243,245,241,.82);letter-spacing:4px">OFFICIAL AMBASSADOR · BRASIL</div>
+    <div style="margin:22px 0 0 auto;width:64px;height:2px;background:${LIME}"></div>
+    <div class="serif" style="margin-top:26px;font-size:138px;line-height:.92;color:#F3F5F1">Hotcoin<br><span class="it" style="color:${LIME}">×</span> Ronaldinho</div>
+    <div class="sans" style="margin-top:56px;font-size:44px;font-weight:700;color:#F3F5F1;line-height:1.2">${EN}</div>
+    <div class="sans" style="font-size:44px;font-weight:700;color:${LIME};line-height:1.2">${PT}</div>
+  </div>
+  <div class="grain" style="opacity:.07;mix-blend-mode:screen"></div>`);
+};
+
+// ---------------------------------------------------------------- 8. Editorial B (welcome headline, Hotcoin facts instead of his titles)
+// Facts: hotcoin.com/en_US/about, checked 2026-11-17 (2017 Year Founded, 8.1M+ Registered Users, 120+ Countries and Regions).
+const editorial2 = () => {
+  const ph = 1060, pw = portraitW('5.62', ph), px = W - pw - 50;
+  const stat = (n, l) => `<div><div class="sans" style="font-size:70px;font-weight:800;color:${INK};letter-spacing:-2px;line-height:1">${n}</div><div class="sans" style="font-size:30px;font-weight:600;color:${INK};margin-top:8px">${l}</div></div>`;
+  return base('#ECE5D8', `
+  <div class="abs" style="left:80px;right:80px;top:66px;height:2px;background:${INK}"></div>
+  <div class="abs mono" style="left:80px;top:82px;font-size:20px;font-weight:500;color:${INK};letter-spacing:1px">HOTCOIN × RONALDINHO</div>
+  <div class="abs mono" style="left:${px - 60}px;top:82px;font-size:20px;font-weight:500;color:${INK};letter-spacing:1px">BRASIL</div>
+  ${img('col_5.62.png', {x: px, y: H - ph + 20, h: ph, extra: 'filter:saturate(.9) contrast(1.02)'})}
+  <div class="abs" style="left:80px;top:404px;width:610px;height:84px;background:${LIME};mix-blend-mode:multiply"></div>
+  <div class="abs serif" style="left:72px;top:150px;font-size:210px;line-height:.9;color:${INK};letter-spacing:-3px">Welcome,<br><span class="it">Ronaldinho.</span></div>
+  <div class="abs" style="left:80px;top:610px;width:880px;height:2px;background:${INK}"></div>
+  <div class="abs sans" style="left:80px;top:636px;font-size:50px;font-weight:800;color:${INK};letter-spacing:-1px;line-height:1.1">${EN}</div>
+  <div class="abs serif it" style="left:80px;top:700px;font-size:62px;color:${INK};line-height:1.05">${PT}</div>
+  <div class="abs" style="left:80px;top:828px;display:flex;gap:70px">${stat('2017', 'Founded')}${stat('8.1M+', 'Registered users')}${stat('120+', 'Countries and regions')}</div>
+  <img class="abs" src="${BRAND}logo-official-black.png" style="left:80px;top:1000px;height:34px">
+  <div class="grain" style="opacity:.06;mix-blend-mode:multiply"></div>`);
+};
+
+const STYLES = {swiss, editorial, matchday, riso, scoreboard, campaign, campaign2, editorial2};
 fs.mkdirSync(DIR + '/out', {recursive: true});
 const browser = await chromium.launch();
 const page = await browser.newPage({viewport: {width: W, height: H}, deviceScaleFactor: 2});
