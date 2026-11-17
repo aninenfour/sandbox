@@ -1,11 +1,11 @@
 import React from 'react';
 import {Print, RisoFilm, duration} from './film';
-import {HomeKey, InvestIntro, InvestOutro, SleepWell, SlowMornings, Snowball} from './invest';
+import {HomeKey, InvestIntro, InvestOutro, SleepWell, SlowMornings, Stacks} from './invest';
 
 // "Why we invest": the follow-up to "Why we trade", same pace and print rhythm.
 const PRINTS: Print[] = [
   {C: InvestIntro, len: 105},
-  {C: Snowball, len: 120},
+  {C: Stacks, len: 120},
   {C: HomeKey, len: 115},
   {C: SlowMornings, len: 115},
   {C: SleepWell, len: 120},

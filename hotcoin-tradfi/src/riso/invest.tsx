@@ -1,10 +1,10 @@
 import React from 'react';
-import {Corner, Dots, INK, Label, Person, Pt, Shadow, Sheet, VB, clamp, reg, toPerson, twos} from './kit';
+import {Corner, Dots, INK, Label, Person, Pt, Shadow, Sheet, VB, clamp, ease, reg, toPerson, twos} from './kit';
 import {GROUND_Y as GROUND, Intro, Outro, S} from './scenes';
 
 // "Why we invest": the same rule as "Why we trade" (one everyday thing, way too big), told slower.
 // Square cut: the part of each 9:16 print that the 1:1 version shows.
-const SQ: Record<string, VB> = {snow: [-60, 480, 1240, 1240], key: [-60, 520, 1220, 1220], mug: [-40, 330, 1340, 1340], pillow: [-40, 560, 1160, 1160]};
+const SQ: Record<string, VB> = {stack: [-60, 470, 1200, 1200], key: [-60, 520, 1220, 1220], mug: [-40, 330, 1340, 1340], pillow: [-40, 560, 1160, 1160]};
 
 const Hand: React.FC<{at: Pt; s: number; p: string}> = ({at, s, p}) => (
   <g>
@@ -13,43 +13,55 @@ const Hand: React.FC<{at: Pt; s: number; p: string}> = ({at, s, p}) => (
   </g>
 );
 
-export const InvestIntro: React.FC<S> = (props) => <Intro {...props} title={['WHY WE', 'INVEST']} sub="the long version" />;
+export const InvestIntro: React.FC<S> = (props) => <Intro {...props} title={['WHY WE', 'INVEST']} sub="" />;
 export const InvestOutro: React.FC<S> = (props) => <Outro {...props} lines={['TIME DOES', 'THE HEAVY', 'LIFTING.']} q={['what are you', 'investing for?']} />;
 
-// 1 · THE SNOWBALL: pushing a ball that keeps getting bigger.
-export const Snowball: React.FC<S & {len?: number}> = ({f, p, sq, len = 120}) => {
-  const vb = sq ? SQ.snow : undefined;
+// One giant coin: green edge with pine ridges, green face with a pine ring.
+const CW = 120, CH = 52, CRY = 30;
+const Coin: React.FC<{cx: number; top: number; p: string}> = ({cx, top, p}) => (
+  <g>
+    <g transform={reg('green')} fill={INK.green}>
+      <rect x={cx - CW} y={top} width={CW * 2} height={CH} />
+      <ellipse cx={cx} cy={top + CH} rx={CW} ry={CRY} />
+    </g>
+    <g style={{mixBlendMode: 'multiply'}} transform={reg('pine')}>
+      {Array.from({length: 11}, (_, i) => (
+        <line key={i} x1={cx - CW + 14 + i * 21.2} x2={cx - CW + 14 + i * 21.2} y1={top + 14} y2={top + CH - 8 + CRY * Math.sqrt(Math.max(0, 1 - ((i * 21.2 + 14 - CW) / CW) ** 2)) - 6}
+          stroke={INK.pine} strokeWidth={4} strokeLinecap="round" />
+      ))}
+      <rect x={cx + CW * 0.35} y={top} width={CW * 0.65} height={CH + CRY} fill={`url(#${p}-pine)`} />
+    </g>
+    {/* paper seam under the coin so each one in a stack reads separately */}
+    <path d={`M${cx - CW} ${top + CH} A${CW} ${CRY} 0 0 0 ${cx + CW} ${top + CH}`} fill="none" stroke={INK.paper} strokeWidth={9} />
+    <ellipse cx={cx} cy={top} rx={CW} ry={CRY} fill={INK.green} transform={reg('green')} />
+    <ellipse cx={cx} cy={top} rx={CW * 0.72} ry={CRY * 0.62} fill="none" stroke={INK.pine} strokeWidth={6} transform={reg('pine')} />
+  </g>
+);
+
+// 1 · STACK BY STACK: stacks of giant coins rising like a bar chart; one more goes on the tallest.
+export const Stacks: React.FC<S> = ({f, p, sq}) => {
+  const vb = sq ? SQ.stack : undefined;
   const t = twos(f);
-  const k = clamp(t / len);
-  const r = 360 + 70 * k;
-  const xb = 480 + r + 8 * Math.sin(t / 6), cy = GROUND - r;
-  const spin = t * 0.04;
-  const x = 205, y = GROUND - 280, s = 0.84;
-  const onBall = (yy: number): Pt => [xb - Math.sqrt(Math.max(0, r * r - (yy - cy) ** 2)) + 6, yy];
+  const COLS = [{x: 160, n: 3}, {x: 420, n: 5}, {x: 680, n: 7}, {x: 940, n: 10}];
+  const topOf = (n: number) => GROUND - CRY - n * CH;
+  const place = ease((t - 28) / 26);
+  const landed = topOf(11);
+  const coinTop = landed - 120 * (1 - place);
+  const settle = t > 54 ? Math.sin(clamp((t - 54) / 10) * Math.PI) * 4 : 0;
+  const release = ease((t - 62) / 18);
+  const x = 680, y = topOf(7) - 280, s = 0.8;
+  const hold = (dx: number, dy: number): Pt => [940 - CW + dx - release * 90, coinTop + CH * 0.6 + dy + release * 60];
   return (
     <Sheet p={p} f={f} vb={vb}>
-      <Corner vb={vb}><Label lines={['THE', 'SNOWBALL']} x={84} y={170} /></Corner>
-      {/* the trail it leaves behind */}
-      <Dots box={[-80, GROUND - 26, xb + 80, 52]} ink="green" cell={13} dens={(px) => 0.42 * clamp(px / 300)} />
-      <Shadow cx={xb + 30} cy={GROUND + 8} rx={r * 1.05} ry={40} />
-      <clipPath id={`${p}-ball`}><circle cx={xb} cy={cy} r={r} /></clipPath>
-      <circle cx={xb} cy={cy} r={r} fill={INK.green} transform={reg('green')} />
-      <Dots box={[xb - r, cy - r, 2 * r, 2 * r]} ink="pine" clip={`${p}-ball`}
-        dens={(px, py) => 0.62 * clamp((Math.hypot(px - (xb - 0.45 * r), py - (cy - 0.45 * r)) - 0.55 * r) / (1.1 * r))} />
-      {/* clumps that roll with the ball */}
-      <g clipPath={`url(#${p}-ball)`} fill={INK.pine} transform={reg('pine')} style={{mixBlendMode: 'multiply'}}>
-        {[0.35, 0.62, 0.8, 0.5, 0.72].map((d, i) => {
-          const a = spin + i * 1.27;
-          return <ellipse key={i} cx={xb + Math.cos(a) * d * r} cy={cy + Math.sin(a) * d * r} rx={30} ry={18} transform={`rotate(${(a * 180) / Math.PI} ${xb + Math.cos(a) * d * r} ${cy + Math.sin(a) * d * r})`} />;
-        })}
-      </g>
-      <Shadow cx={x + 20} cy={GROUND + 8} rx={190} ry={26} />
+      <Corner vb={vb}><Label lines={['STACK', 'BY STACK']} x={84} y={170} /></Corner>
+      <Shadow cx={560} cy={GROUND + 6} rx={540} ry={40} />
+      {COLS.map(({x: cx, n}) => Array.from({length: n}, (_, i) => <Coin key={`${cx}-${i}`} cx={cx} top={topOf(i + 1)} p={p} />))}
       <Person x={x} y={y} s={s} p={p} pose={{
-        lean: 20, head: -6,
-        handF: toPerson(x, y, s, 1, onBall(cy - 0.12 * r)), bendF: 1,
-        handB: toPerson(x, y, s, 1, onBall(cy + 0.08 * r)), bendB: 1,
-        footB: [-190 + 14 * Math.sin(t / 5), 318], footF: [90, 310], kneeF: -1, breathe: Math.sin(t / 7),
+        lean: 6, head: 4,
+        handF: toPerson(x, y, s, 1, hold(40, 0)), bendF: 1, handB: toPerson(x, y, s, 1, hold(8, 26)), bendB: 1,
+        footB: [-40, 330], footF: [56, 330], breathe: Math.sin(t / 8),
       }} />
+      <g transform={`translate(0 ${settle})`}><Coin cx={940} top={coinTop} p={p} /></g>
     </Sheet>
   );
 };
