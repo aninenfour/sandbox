@@ -1,0 +1,214 @@
+{
+  "slug": "ironkey-password",
+  "thumb": {
+    "text": "Ten guesses. Eight already gone.",
+    "hi": [
+      "Ten",
+      "Eight"
+    ],
+    "kicker": "True story",
+    "img": "s08",
+    "zoom": 1.6,
+    "fx": 42,
+    "fy": 34
+  },
+  "highlight": [
+    "ten",
+    "eight",
+    "seven",
+    "thousand",
+    "IronKey",
+    "password",
+    "missing",
+    "wipes",
+    "locked",
+    "million",
+    "mistakes"
+  ],
+  "scenes": [
+    {
+      "at": "One man has",
+      "img": "s10",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "to unlock a",
+      "img": "s10",
+      "mode": "close",
+      "fx": 25,
+      "fy": 85
+    },
+    {
+      "at": "and he's already",
+      "img": "s02",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Stefan Thomas",
+      "img": "s01",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "a German-born",
+      "img": "s01",
+      "mode": "close",
+      "fx": 25,
+      "fy": 15
+    },
+    {
+      "at": "he's paid",
+      "img": "s04",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "for making a",
+      "img": "s03",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Back then",
+      "img": "s04",
+      "mode": "close",
+      "fx": 55,
+      "fy": 50
+    },
+    {
+      "at": "So how do",
+      "img": "s05",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Four steps",
+      "img": "s05",
+      "mode": "close",
+      "fx": 50,
+      "fy": 55
+    },
+    {
+      "at": "Step one",
+      "step": 1
+    },
+    {
+      "at": "He keeps the",
+      "img": "s02",
+      "mode": "close",
+      "fx": 40,
+      "fy": 55
+    },
+    {
+      "at": "a tiny encrypted",
+      "img": "s06",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Step two",
+      "step": 2
+    },
+    {
+      "at": "He writes the",
+      "img": "s07",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "and the paper",
+      "img": "s08",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "goes missing",
+      "img": "s09",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Step three",
+      "step": 3
+    },
+    {
+      "at": "wipes itself",
+      "img": "s10",
+      "mode": "close",
+      "fx": 50,
+      "fy": 30
+    },
+    {
+      "at": "and he burns",
+      "img": "s12",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Step four",
+      "step": 4
+    },
+    {
+      "at": "a security firm",
+      "img": "s13",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "crack it",
+      "img": "s13",
+      "mode": "close",
+      "fx": 45,
+      "fy": 50
+    },
+    {
+      "at": "but as far",
+      "img": "s06",
+      "mode": "close",
+      "fx": 55,
+      "fy": 50
+    },
+    {
+      "at": "it's still locked",
+      "img": "s05",
+      "mode": "close",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Today those coins",
+      "img": "s15",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "four hundred fifty",
+      "img": "s15",
+      "mode": "close",
+      "fx": 50,
+      "fy": 45
+    },
+    {
+      "at": "Owning your keys",
+      "img": "s02",
+      "mode": "close",
+      "fx": 50,
+      "fy": 30
+    }
+  ]
+}
