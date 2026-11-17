@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""Hotcoin page link for the daily posts (Hotcoin social linkage plan; owner Nov 17 2026: Converter links only).
+"""Hotcoin page link for the daily posts (Hotcoin social linkage plan, owner Nov 17 2026).
 
-Every daily post carries exactly one link, always www.hotcoin.com, English, USD:
-  the Converter page of the post's lead coin   https://www.hotcoin.com/en_US/converter/<sym>/usd/
-  top5: the #1 gainer (falls back to #2, #3, ...); watch: the first pick (then the next ones).
-  If none of the post's coins has a Converter page: https://www.hotcoin.com/en_US/converter/btc/usd/
-No Price pages and no Academy (/learn/) links in these posts.
+Every daily post carries exactly one link, always www.hotcoin.com, English:
+  What to Watch (watch.py): Converter page to USD  https://www.hotcoin.com/en_US/converter/<sym>/usd/
+     the first pick that has one (then the next picks), else BTC to USD.            -> converter_line()
+  Top 5 Gainers (live.py):  Price page             https://www.hotcoin.com/en_US/price/<slug>/
+     the #1 gainer (then #2, #3, ...), else BTC's Price page.                        -> price_line()
+No Academy (/learn/) links in these posts.
 
-Pages come from Hotcoin's own converter-en_US-sitemap.xml. A page is used only if it loads (HTTP 200) and its
-<title> names the right ticker, e.g. "Convert Rain (RAIN) to US Dollar (USD) | Hotcoin".
+Pages come from Hotcoin's own en_US sitemaps. A page is used only if it loads (HTTP 200) and its <title> names
+the right ticker, e.g. "Convert Rain (RAIN) to US Dollar (USD) | Hotcoin" or "Rain (RAIN) Price Today | Hotcoin".
 
-  python3 social/daily/links.py RAIN NVDAB BTC     # prints the link line for the first that resolves
+  python3 social/daily/links.py converter ZRO NVDAB     # prints the line for the first that resolves
+  python3 social/daily/links.py price RAIN HUMA
 """
 import re, sys, urllib.request
 
@@ -18,7 +20,9 @@ SITE = 'https://www.hotcoin.com'
 LANG = 'en_US'
 FIAT = 'usd'
 SITEMAP = f'{SITE}/converter-{LANG}-sitemap.xml'
+PRICE_SITEMAP = f'{SITE}/price-{LANG}-sitemap.xml'
 _syms = None
+_slugs = None
 
 
 def _get(url):
@@ -55,8 +59,51 @@ def converter_url(sym):
     return url if status == 200 and m and f'({sym})' in m.group(1) else None
 
 
-def link_line(syms):
-    """One caption line with one Hotcoin Converter link: the first symbol that has a page, else BTC."""
+def _title_names(url, sym):
+    try:
+        status, html = _get(url)
+    except Exception:
+        return False
+    m = re.search(r'<title>([^<]*)', html)
+    return status == 200 and bool(m) and f'({sym.upper()})' in m.group(1)
+
+
+def price_slugs():
+    global _slugs
+    if _slugs is None:
+        _slugs = []
+        for _ in range(2):
+            try:
+                _, xml = _get(PRICE_SITEMAP)
+                _slugs = re.findall(rf'/{LANG}/price/([a-z0-9-]+)/', xml)
+                break
+            except Exception as e:
+                print(f'links: price sitemap failed ({e})', file=sys.stderr)
+    return _slugs
+
+
+def price_url(sym):
+    """Verified Price page URL for a Hotcoin symbol, or None (slugs end in -<sym> or equal it, e.g. layerzero-zro, rain)."""
+    low = sym.lower()
+    cands = sorted((x for x in price_slugs() if x == low or x.endswith('-' + low)), key=lambda x: (x != low, len(x)))
+    for slug in cands[:4]:
+        url = f'{SITE}/{LANG}/price/{slug}/'
+        if _title_names(url, sym):
+            return url
+    return None
+
+
+def price_line(syms):
+    """Top 5 Gainers: one Price page link, the first symbol that has one, else BTC's."""
+    for s in list(syms) + ['BTC']:
+        url = price_url(s)
+        if url:
+            return f'📊 ${s.upper()} live price and chart: {url}'
+    return f'📊 $BTC live price and chart: {SITE}/{LANG}/price/bitcoin-btc/'
+
+
+def converter_line(syms):
+    """What to Watch: one Converter (to USD) link, the first symbol that has a page, else BTC."""
     for s in list(syms) + ['BTC']:
         url = converter_url(s)
         if url:
@@ -65,4 +112,5 @@ def link_line(syms):
 
 
 if __name__ == '__main__':
-    print(link_line(sys.argv[1:] or ['BTC']))
+    kind, syms = (sys.argv[1], sys.argv[2:]) if len(sys.argv) > 1 and sys.argv[1] in ('price', 'converter') else ('converter', sys.argv[1:])
+    print((price_line if kind == 'price' else converter_line)(syms or ['BTC']))

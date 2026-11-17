@@ -15,7 +15,7 @@ import argparse, colorsys, datetime as dt, glob, io, json, os, random, subproces
 from PIL import Image
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import links  # noqa: E402  (one Hotcoin Converter link per post)
+import links  # noqa: E402  (one Hotcoin page link per post: Price page here)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 LOGOS = os.path.join(HERE, 'logos')
@@ -189,7 +189,7 @@ def main():
         if a.template != 'auto':
             data['template'] = a.template
         if not data.get('link'):
-            data['link'] = links.link_line([g['sym'] for g in data['gainers']])
+            data['link'] = links.price_line([g['sym'] for g in data['gainers']])
         img, cap = render(out, data, a.kind)
         print(json.dumps({'dir': out, 'image': img, 'template': data.get('template'), 'caption': cap}, ensure_ascii=False, indent=1))
         return
@@ -210,7 +210,7 @@ def main():
     os.makedirs(out, exist_ok=True)
     data = {'window': window, 'date': now.strftime('%b %-d').upper(), 'day': now.strftime('%Y-%m-%d'), 'template': tpl or 'podium',
             'gainers': [{k: g[k] for k in ('sym', 'name', 'ch', 'vol', 'handle', 'logo', 'bg', 'glow')} for g in top],
-            'link': links.link_line([g['sym'] for g in top])}
+            'link': links.price_line([g['sym'] for g in top])}
     img, cap = render(out, data, a.kind)
     print(json.dumps({'dir': os.path.relpath(out, os.path.dirname(os.path.dirname(HERE))), 'image': img, 'template': data['template'],
                       'top': [{k: g[k] for k in ('sym', 'name', 'ch', 'vol', 'handle', 'logo')} for g in top], 'caption': cap,

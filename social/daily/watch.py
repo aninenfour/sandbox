@@ -18,7 +18,7 @@ Checks every symbol against Hotcoin's live ticker (exits non-zero if one is miss
 import datetime as dt, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import links  # noqa: E402  (one Hotcoin Converter link per post)
+import links  # noqa: E402  (one Hotcoin page link per post: Converter here)
 import live  # noqa: E402  (reuses ticker, CoinGecko resolve, logo + colour helpers)
 
 # X handles for the companies / issuers behind Hotcoin's tokenized stocks and gold tokens.
@@ -105,7 +105,7 @@ def main():
     def pct(v):
         return f'▲{v:.2f}%' if v >= 0 else f'▼{abs(v):.2f}%'
 
-    link = links.link_line([g['sym'] for g in items])  # one Hotcoin page link per post (links.py)
+    link = links.converter_line([g['sym'] for g in items])  # one Hotcoin page link per post (links.py)
 
     def caption(with_handles):
         lines = [f'👀 What to Watch Today on Hotcoin | {now.strftime("%b %-d")}', '']

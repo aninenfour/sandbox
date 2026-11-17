@@ -9,9 +9,12 @@ Two posts a day, fully automatic (the owner approved the format on Nov 3, 2026):
 
 Both go to **X (with @handles), Facebook (no @handles) and LinkedIn (no @handles)** through `publish.py`.
 
-**Every post carries exactly one Hotcoin Converter link** (social linkage plan; owner Nov 17: Converter only, no Price or Academy links). `links.py` adds it to every caption automatically:
-the **Converter page (to USD)** of the post's lead coin (top5: the #1 gainer; watch: the first pick, falling back down the list), else BTC to USD.
-Format: `https://www.hotcoin.com/en_US/converter/<sym>/usd/`. Pages come from Hotcoin's `converter-en_US-sitemap.xml`, and a page is used only if its title names the right ticker.
+**Every post carries exactly one Hotcoin page link** (social linkage plan, owner Nov 17). `links.py` adds it automatically:
+- **What to Watch**: the **Converter page (to USD)** of the first pick that has one (falling back down the picks), else BTC to USD.
+  `https://www.hotcoin.com/en_US/converter/<sym>/usd/`
+- **Top 5 Gainers**: the **Price page** of the #1 gainer (falling back to #2, #3, ...), else BTC's Price page.
+  `https://www.hotcoin.com/en_US/price/<slug>/`
+No Academy links. Pages come from Hotcoin's en_US sitemaps, and a page is used only if its title names the right ticker.
 Check the link line in the caption before publishing.
 
 ## 0. Setup (fresh session)
