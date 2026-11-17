@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Trading below its 200-week average (~$68K) since Nov 14"},
+ {"sym": "ZRO", "kind": "crypto", "why": "25.7M ZRO unlock on Fri Nov 20, 11:00 UTC+8"},
+ {"sym": "ICP", "kind": "crypto", "why": "Ran from $2.20 to a $2.55 high on Nov 16 (UTC)"},
+ {"sym": "NVDAB", "kind": "tradfi", "why": "Q3 results today after US close (Wed 05:20 UTC+8)"},
+ {"sym": "SPYB", "kind": "tradfi", "why": "US October retail sales today, 21:30 UTC+8"}
+]}

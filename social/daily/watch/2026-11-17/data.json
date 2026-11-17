@@ -1,0 +1,71 @@
+{
+ "date": "NOV 17",
+ "window": "Prices at Nov 17 11:53 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Trading below its 200-week average (~$68K) since Nov 14",
+   "last": 64985.43,
+   "ch": -0.01,
+   "vol": 899811474.66,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ZRO",
+   "name": "LayerZero",
+   "kind": "crypto",
+   "handle": "@LayerZero_Core",
+   "why": "25.7M ZRO unlock on Fri Nov 20, 11:00 UTC+8",
+   "last": 1.531,
+   "ch": 10.54,
+   "vol": 541293.76,
+   "logo": "zro",
+   "bg": "#000000",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "ICP",
+   "name": "Internet Computer",
+   "kind": "crypto",
+   "handle": "@dfinity",
+   "why": "Ran from $2.20 to a $2.55 high on Nov 16 (UTC)",
+   "last": 2.474,
+   "ch": 10.34,
+   "vol": 1065365.51,
+   "logo": "icp",
+   "bg": "#ffffff",
+   "glow": "#29abe2"
+  },
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA",
+   "kind": "tradfi",
+   "handle": "@nvidia",
+   "why": "Q3 results today after US close (Wed 05:20 UTC+8)",
+   "last": 158.13,
+   "ch": -2.71,
+   "vol": 603396.93,
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "US October retail sales today, 21:30 UTC+8",
+   "last": 740.52,
+   "ch": -1.65,
+   "vol": 674433.11,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  }
+ ]
+}
