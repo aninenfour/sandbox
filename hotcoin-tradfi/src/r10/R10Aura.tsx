@@ -12,7 +12,8 @@ import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, staticF
 
 export const R10AURA_FPS = 30;
 const BEAT = 60 / 95;                       // 0.6316 s
-const DROP_S = 6 * BEAT;                    // 3.79 s
+const INTRO_BEATS = 2;                      // cover only (team feedback 2026-11-17: no logo beats in between)
+const DROP_S = INTRO_BEATS * BEAT;          // 1.26 s
 const OFFSET = 82.404 - DROP_S;             // track seconds = comp seconds + OFFSET
 const V_S = DROP_S + 0.3;                   // his clip starts
 const CLIP = 5.68;
@@ -20,8 +21,11 @@ const fr = (s: number) => Math.round(s * R10AURA_FPS);
 const beatS = (k: number) => k * BEAT;      // comp seconds of beat k (beat 0 = comp 0)
 const DROP = fr(DROP_S), V = fr(V_S), CLIP_END = fr(V_S + CLIP);
 // outro on the grid: words on beats 16, 17, 18; end card on beat 19
-const OUT1 = fr(beatS(16)), OUT2 = fr(beatS(17)), OUT3 = fr(beatS(18)), END = fr(beatS(19));
-export const R10AURA_DURATION = 432;   // 14.4 s; music is fully faded by frame 414, before the track's last two 808 hits (f420, f434)
+const OB = INTRO_BEATS + 10;               // outro words land on the same beats of the track as before
+const OUT1 = fr(beatS(OB)), OUT2 = fr(beatS(OB + 1)), OUT3 = fr(beatS(OB + 2)), END = fr(beatS(OB + 3));
+// the intro was 6 beats; everything after the drop sits at the same track time, so shift track-anchored frames
+const SHIFT = fr(beatS(6 - INTRO_BEATS));
+export const R10AURA_DURATION = 432 - SHIFT;   // ~11.9 s; music fully faded before the track's last two 808 hits
 
 const INK = '#050607', LIME = '#B8F26A', GREEN = '#7EC25A', WHITE = '#F3F5F1';
 const SANS = '"Inter Tight", sans-serif', MONO = '"JetBrains Mono", monospace', SERIF = '"Instrument Serif", serif';
@@ -80,8 +84,7 @@ const Grain: React.FC<{f: number}> = ({f}) => (
 
 // ---------- intro: cover first, then the platform (team feedback 2026-11-17: no achievement slams, Hotcoin first) ----------
 const EN = 'Hotcoin Ambassador (Brazil)', PT = 'Embaixador da Hotcoin (Brasil)';
-const COVER_END = fr(beatS(2));      // cover holds two beats (1.26 s) so it reads as the thumbnail
-const LOGO_AT = fr(beatS(2)), SYMBOL_AT = fr(beatS(4));
+const COVER_END = DROP;      // cover holds until he appears (1.26 s)
 
 // frame 0 = the cover: who (Hotcoin x Ronaldinho), what (ambassador, both lines), his real photo
 const Cover: React.FC<{f: number}> = ({f}) => {
@@ -126,29 +129,6 @@ const Cover: React.FC<{f: number}> = ({f}) => {
   );
 };
 
-// after the cover: Hotcoin logo slam, then the Hotcoin symbol charges into the drop
-const Intro: React.FC<{f: number}> = ({f}) => {
-  if (f < LOGO_AT || f >= DROP) return null;
-  const t = sinceBeat(f), k = beatIndex(f);
-  const sc = 1 + 0.16 * Math.exp(-t / 3.5);
-  const blur = Math.max(0, 5 - t * 2.5);
-  if (f < SYMBOL_AT) {
-    return (
-      <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-        <Img src={staticFile('brand/logo-official-white.png')} style={{width: TALL ? 860 : 1180, transform: `scale(${sc})`, filter: `blur(${blur}px) drop-shadow(0 0 40px rgba(184,242,106,.35))`}} />
-      </AbsoluteFill>
-    );
-  }
-  const charge = interpolate(f, [SYMBOL_AT, DROP], [0, 1], clamp);
-  const size = (TALL ? 520 : 560) * (1 + charge * 0.25);
-  return (
-    <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-      <Img src={staticFile('brand/symbol-official-white.png')} style={{width: size, transform: `scale(${k === beatIndex(SYMBOL_AT) ? sc : 1 + 0.08 * pulse(f, 4)})`,
-        filter: `blur(${blur}px) drop-shadow(0 0 ${30 + charge * 90}px rgba(184,242,106,${0.4 + charge * 0.5}))`}} />
-    </AbsoluteFill>
-  );
-};
-
 // ---------- him ----------
 const Person: React.FC<{f: number}> = ({f}) => {
   if (f < DROP) return null;
@@ -156,13 +136,13 @@ const Person: React.FC<{f: number}> = ({f}) => {
   const enter = interpolate(f, [DROP, DROP + 8], [0, 1], {...clamp, easing: ease});
   const exit = interpolate(f, [OUT1 - 2, OUT1 + 6], [0, 1], {...clamp, easing: ease});
   const p = pulse(f, 6), bp = barPulse(f);
-  const zoom = 1 + 0.035 * p + 0.03 * bp + (1 - enter) * 0.25;
-  const shake = bp * 6;
+  const zoom = 1 + (1 - enter) * 0.25;   // steady: no beat pulse (team feedback)
+  const shake = 0;
   const sx = Math.sin(f * 2.3) * shake, sy = Math.cos(f * 1.7) * shake;
-  const glow = 18 + 30 * p;
+  const glow = 26;
   const left = W / 2 - PW / 2, top = H - PH + (TALL ? 70 : 40);
   const style: React.CSSProperties = {width: PW, height: PH};
-  const grade = `grayscale(1) contrast(1.06) brightness(1.14) drop-shadow(0 0 ${glow}px rgba(184,242,106,${0.45 + 0.4 * p})) drop-shadow(0 0 4px rgba(184,242,106,.8))`;
+  const grade = `grayscale(1) contrast(1.06) brightness(1.14) drop-shadow(0 0 ${glow}px rgba(184,242,106,.55)) drop-shadow(0 0 4px rgba(184,242,106,.8))`;
   const clipFrame = Math.min(f, CLIP_END - 1);
   const media = (extra: React.CSSProperties) => (f < V
     ? <Img src={staticFile('ronaldinho/first.png')} style={{...style, ...extra}} />
@@ -173,7 +153,7 @@ const Person: React.FC<{f: number}> = ({f}) => {
     <div style={{position: 'absolute', left, top, width: PW, height: PH, opacity: enter * (1 - exit),
       transform: `translate(${sx}px, ${sy - exit * 60}px) scale(${zoom * (1 - exit * 0.1)})`, transformOrigin: '50% 35%'}}>
       {/* echo trail: a lime ghost that blooms out on each bar */}
-      {bp > 0.05 && f >= V && f < CLIP_END && (
+      {false && bp > 0.05 && f >= V && f < CLIP_END && (
         <div style={{position: 'absolute', inset: 0, transform: `scale(${1 + (1 - bp) * 0.12})`, opacity: bp * 0.45, filter: 'brightness(0) invert(1) sepia(1) saturate(6) hue-rotate(40deg) blur(2px)'}}>
           <Sequence from={V} durationInFrames={CLIP_END - V} layout="none">
             <OffthreadVideo src={staticFile('ronaldinho/key.webm')} transparent muted style={style} />
@@ -325,7 +305,7 @@ const Flash: React.FC<{f: number}> = ({f}) => {
 
 const Sound: React.FC = () => {
   const f = useCurrentFrame();
-  const vol = interpolate(f, [0, 4, DROP - 1, DROP, V - 4, V + 4, CLIP_END - 2, CLIP_END + 6, 392, 414],
+  const vol = interpolate(f, [0, 4, DROP - 1, DROP, V - 4, V + 4, CLIP_END - 2, CLIP_END + 6, 392 - SHIFT, 414 - SHIFT],
     [0.0, 0.55, 0.55, 0.65, 0.65, 0.14, 0.14, 0.6, 0.45, 0], clamp);
   return (
     <>
@@ -354,7 +334,6 @@ export const R10Aura: React.FC = () => {
       <Halftone f={f} o={half} />
       <Rings f={f} o={f < END ? 1 : 0.5} />
       <Cover f={f} />
-      <Intro f={f} />
       <Person f={f} />
       <Captions f={f} />
       <NameStrip f={f} />
