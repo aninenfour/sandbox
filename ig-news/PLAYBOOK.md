@@ -169,6 +169,8 @@ When a desk post shows as published in `list_publer_posts` (state published, Ins
 2. Google Docs `read_doc` on the doc id in `state/tracker.json` (the result is saved to a file).
 3. `python3 ig-news/tools/tracker.py rows <saved read_doc file> <SHA>` → JSON with `requests` + `writeControl` (drop the `added` key) → one `update_doc` call. It appends only rows whose link isn't in the table yet.
 4. Check with Drive `read_file_content` (includeComments true) that the new rows are there; set `rows_in_doc_through` in `state/tracker.json`.
+5. TikTok doc: same steps with `python3 ig-news/tools/tracker.py tiktok <saved read_doc of tiktok_doc_id> <SHA>` (rows for tiktok_log entries with `doc_row: false`, never drafts; newest first under the header; link once `tiktok_url` is set, else "Scheduled"). `thumbs` also makes missing `thumb_tiktok.jpg`. After checking, set `doc_row: true`.
+Scheduled posts get a row with "Scheduled" in the Link cell; once the log entry has `ig_url`, `rows` replaces "Scheduled" with the link (no second row).
 Never create a second doc. If Google Docs isn't available, the rows wait in log.json.
 
 ## Hard rules
