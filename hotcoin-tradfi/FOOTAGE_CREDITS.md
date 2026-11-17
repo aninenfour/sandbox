@@ -392,5 +392,5 @@ plain whooshes and were rejected.
 Same footage and voice. **Music:** "Thunder" (Mixkit music 318, Mixkit free licence), 95 BPM, section 78.6 to ~92 s;
 CLAP tags its closing section "aggressive dark phonk". The end card uses a 180 Hz high-passed copy so no 808 boom plays
 after he leaves. CC-licensed phonk on the Internet Archive was considered and rejected (NC licences or unverifiable uploads).
-**Facts on screen** (en.wikipedia.org/wiki/Ronaldinho, checked 2026-11-16): "O Bruxo" (The Wizard), 2002 World Cup winner,
+**Facts on screen:** removed in v3 (team feedback: platform first, no achievement slams). Earlier versions used
 2005 Ballon d'Or. **SFX:** Mixkit air woosh (1489) only.

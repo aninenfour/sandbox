@@ -2,9 +2,9 @@
 // Music: "Thunder" (Mixkit music 318, Mixkit free licence), 95.0 BPM, beat grid fitted by spectral flux:
 //   beat k at 60.298 + 0.6316 k s; downbeat at 82.404 s (hardest section, CLAP "aggressive dark phonk" 1.00).
 //   Track time = comp time + OFFSET, so the 82.404 s downbeat lands on DROP. The track fades out on its own at the end.
-// Facts (en.wikipedia.org/wiki/Ronaldinho, checked 2026-11-16): nickname "O Bruxo" (The Wizard); 2002 FIFA World Cup winner;
-//   2005 Ballon d'Or.
-// Rules: no name on screen before he appears; end card carries "Hotcoin Ambassador (Brazil)" + "Embaixador da Hotcoin (Brasil)";
+// Intro (team feedback 2026-11-17): frame 0 is a clear cover (Hotcoin x Ronaldinho + both ambassador lines + real photo),
+//   then the platform (Hotcoin logo, Hotcoin symbol) before he appears. The achievement slams were removed.
+// Rules: end card carries "Hotcoin Ambassador (Brazil)" + "Embaixador da Hotcoin (Brasil)";
 //   no text hidden behind him (words sit either side); no deep end boom.
 import React from 'react';
 import '@fontsource/inter-tight/800.css';
@@ -78,34 +78,73 @@ const Grain: React.FC<{f: number}> = ({f}) => (
   <AbsoluteFill style={{backgroundImage: `url(${staticFile('grain.png')})`, backgroundSize: '256px 256px', backgroundPosition: `${(f * 37) % 256}px ${(f * 91) % 256}px`, opacity: 0.09, mixBlendMode: 'screen'}} />
 );
 
-// ---------- intro slams (one per beat, no name) ----------
-type Slam = {big: string; small?: string; serif?: boolean; lime?: boolean};
-const SLAMS: Slam[] = [
-  {big: 'O Bruxo', small: 'THE WIZARD', serif: true},
-  {big: '2002', small: 'WORLD CHAMPION'},
-  {big: '2005', small: "BALLON D'OR"},
-  {big: '10', lime: true},
-  {big: '10', lime: true},
-  {big: '10', lime: true},
-];
+// ---------- intro: cover first, then the platform (team feedback 2026-11-17: no achievement slams, Hotcoin first) ----------
+const EN = 'Hotcoin Ambassador (Brazil)', PT = 'Embaixador da Hotcoin (Brasil)';
+const COVER_END = fr(beatS(2));      // cover holds two beats (1.26 s) so it reads as the thumbnail
+const LOGO_AT = fr(beatS(2)), SYMBOL_AT = fr(beatS(4));
+
+// frame 0 = the cover: who (Hotcoin x Ronaldinho), what (ambassador, both lines), his real photo
+const Cover: React.FC<{f: number}> = ({f}) => {
+  if (f >= COVER_END + 3) return null;
+  const out = interpolate(f, [COVER_END - 1, COVER_END + 3], [1, 0], clamp);
+  const push = 1 + 0.03 * (f / COVER_END);
+  const grade = 'grayscale(1) contrast(1.06) brightness(1.14) drop-shadow(0 0 26px rgba(184,242,106,.55)) drop-shadow(0 0 4px rgba(184,242,106,.8))';
+  const ph = TALL ? 1180 : 1010, pw = ph * (1670 / 1978);
+  const photo = <Img src={staticFile('ronaldinho/cover_2.56.png')} style={{position: 'absolute', height: ph, left: TALL ? W / 2 - pw / 2 : W - pw - 60, top: H - ph + 20, filter: grade, transform: `scale(${push})`, transformOrigin: '50% 100%'}} />;
+  const lock = (logoH: number, nameSize: number, align: 'flex-start' | 'center') => (
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: align, gap: logoH * 0.35}}>
+      <Img src={staticFile('brand/logo-official-white.png')} style={{height: logoH}} />
+      <div style={{display: 'flex', alignItems: 'baseline', gap: nameSize * 0.22}}>
+        <span style={{fontFamily: SANS, fontWeight: 800, fontSize: nameSize * 0.7, color: LIME, lineHeight: 1}}>×</span>
+        <span style={{fontFamily: SANS, fontWeight: 800, fontSize: nameSize, letterSpacing: -nameSize * 0.03, color: WHITE, lineHeight: 1}}>RONALDINHO</span>
+      </div>
+    </div>
+  );
+  const lines = (size: number, align: 'left' | 'center') => (
+    <div style={{textAlign: align, fontFamily: SANS, fontWeight: 800, fontSize: size, lineHeight: 1.18, letterSpacing: -size * 0.01}}>
+      <div style={{color: WHITE}}>{EN}</div>
+      <div style={{color: LIME}}>{PT}</div>
+    </div>
+  );
+  return (
+    <AbsoluteFill style={{opacity: out}}>
+      {photo}
+      {TALL ? (
+        <div style={{position: 'absolute', left: 60, right: 60, top: 150, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 46}}>
+          {lock(92, 132, 'center')}
+          <div style={{width: 120, height: 4, background: LIME}} />
+          {lines(52, 'center')}
+        </div>
+      ) : (
+        <div style={{position: 'absolute', left: 110, top: 0, bottom: 0, width: 980, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 50}}>
+          {lock(96, 150, 'flex-start')}
+          <div style={{width: 140, height: 5, background: LIME}} />
+          {lines(56, 'left')}
+        </div>
+      )}
+    </AbsoluteFill>
+  );
+};
+
+// after the cover: Hotcoin logo slam, then the Hotcoin symbol charges into the drop
 const Intro: React.FC<{f: number}> = ({f}) => {
-  if (f >= DROP) return null;
-  const k = beatIndex(f);
-  const s = SLAMS[Math.min(k, SLAMS.length - 1)];
-  const t = sinceBeat(f);
-  const sc = k === 0 ? 1 + 0.04 * (1 - Math.exp(-t / 8)) : 1 + 0.18 * Math.exp(-t / 3.5);  // slam (beat 0 is a slow push)
-  const blur = k === 0 ? 0 : Math.max(0, 6 - t * 2.5);   // frame 1 is crisp
-  const charge = k >= 3 ? interpolate(f, [fr(beatS(3)), DROP], [0, 1], clamp) : 0;   // the 10 charges up into the drop
-  const size = (s.big === '10' ? 620 + charge * 220 : s.serif ? 300 : 360) * (TALL ? 0.82 : 1);
+  if (f < LOGO_AT || f >= DROP) return null;
+  const t = sinceBeat(f), k = beatIndex(f);
+  const sc = 1 + 0.16 * Math.exp(-t / 3.5);
+  const blur = Math.max(0, 5 - t * 2.5);
+  if (f < SYMBOL_AT) {
+    return (
+      <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
+        <Img src={staticFile('brand/logo-official-white.png')} style={{width: TALL ? 860 : 1180, transform: `scale(${sc})`, filter: `blur(${blur}px) drop-shadow(0 0 40px rgba(184,242,106,.35))`}} />
+      </AbsoluteFill>
+    );
+  }
+  const charge = interpolate(f, [SYMBOL_AT, DROP], [0, 1], clamp);
+  const size = (TALL ? 520 : 560) * (1 + charge * 0.25);
   return (
     <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-      <div style={{transform: `scale(${sc})`, filter: `blur(${blur}px)`, textAlign: 'center'}}>
-        <div style={{fontFamily: s.serif ? SERIF : SANS, fontStyle: s.serif ? 'italic' : 'normal', fontWeight: s.serif ? 400 : 800, fontSize: size, lineHeight: 0.9,
-          letterSpacing: s.serif ? 0 : -size * 0.05, color: s.lime ? 'transparent' : WHITE,
-          WebkitTextStroke: s.lime ? `${4 + charge * 4}px ${LIME}` : undefined,
-          textShadow: s.lime ? `0 0 ${40 + charge * 80}px rgba(184,242,106,${0.35 + charge * 0.5})` : '0 0 60px rgba(184,242,106,.25)'}}>{s.big}</div>
-        {s.small && <div style={{fontFamily: MONO, fontWeight: 500, fontSize: 42, letterSpacing: 12, color: '#DDF7B8', marginTop: 30, textShadow: '0 0 24px rgba(184,242,106,.5)'}}>{s.small}</div>}
-      </div>
+      <Img src={staticFile('brand/symbol-official-white.png')} style={{width: size, transform: `scale(${k === beatIndex(SYMBOL_AT) ? sc : 1 + 0.08 * pulse(f, 4)})`,
+        filter: `blur(${blur}px) drop-shadow(0 0 ${30 + charge * 90}px rgba(184,242,106,${0.4 + charge * 0.5}))`}} />
     </AbsoluteFill>
   );
 };
@@ -314,6 +353,7 @@ export const R10Aura: React.FC = () => {
       <Rays f={f} o={rays} />
       <Halftone f={f} o={half} />
       <Rings f={f} o={f < END ? 1 : 0.5} />
+      <Cover f={f} />
       <Intro f={f} />
       <Person f={f} />
       <Captions f={f} />
