@@ -56,7 +56,8 @@
      "photo": "g0.jpg",
      "label": "March 2020",
      "value": "$5,392",
-     "sub": "Back above in 1 week"
+     "sub": "Back above in 1 week",
+     "place": "bottom"
     },
     {
      "photo": "g1.jpg",
@@ -64,7 +65,8 @@
      "value": "$20,553",
      "sub": "FTX low: $16,292",
      "neg": true,
-     "photo_pos": "50% 25%"
+     "photo_pos": "50% 0%",
+     "place": "top"
     },
     {
      "photo": "g2.jpg",
