@@ -21,8 +21,15 @@
 | 16/11 | 14:37 | Meme carousel (real template) | Não vou comprar esse mico: BTC, NVDA, ETH, cartas (4 imagens) | published https://x.com/1895401255163576320/status/2122383639811969224 |
 | 16/11 | 17:44 | Raio-X TradFi | Nvidia: Huang deixa CEO, resultado 17/11 18:20 | scheduled |
 | 16/11 | 19:31 | Poll | Nvidia depois do resultado | scheduled |
+| 17/11 | 08:59 | GM | Pelourinho, Salvador: linha cruza o calçamento e sobe a torre da igreja | scheduled |
+| 17/11 | 10:23 | Event LAUNCH | Desafio Spot #24: 300.000 USDT, 1º 8.888 USDT, até 30/11 12:59 (link in reply) | scheduled |
+| 17/11 | 16:44 | Event LAUNCH | P2P Trading Sprint: indicação (cupom taxa spot) + volume (Futures Trial Funds), até 28/11 07:00 (link in reply) | scheduled |
+| 17/11 | 19:03 | Text | Nvidia 18:20, grupo da família vira analista de chip | scheduled |
 
 ## Queued ideas (not scheduled yet)
+- Wed 18/11 morning: Nvidia Q3 result post (Raio-X TradFi follow-up) with numbers from investor.nvidia.com, verified.
+- Spot #24 midterm ~24/11, P2P Sprint midterm ~22/11; last calls 27/11 evening (P2P) and 29-30/11 (Spot).
+- Wall Street Earnings last day Thu 19/11 (ends 12:59): short morning reminder.
 - Wed 18/11: Anúncio oficial SNDKB 8:1 (suspensão 19/11 05:00, retorno previsto 20/11 07:00), re-check first.
 - Tue 17/11 evening: Nvidia result post (numbers from Nvidia IR after 18:20).
 - Thu/Fri: Futures loss protection last call (ends 20/11 07:00) on Thu evening.
@@ -38,3 +45,4 @@
   Review (Publer, 7 days, ~200 followers so tiny numbers): best = GM Pão de Açúcar (4) and Raio-X Solana (4); event promos with links = 0. Changes: event/notice links go in the first reply (follow_up_comments), not the main post; keep GM + data posts daily; team also posts videos directly on this account (NFP, whitepaper, PoR), avoid overlapping topics.
 - 16/11 12:11 check 2: no new announcements. Placar RAIN verified (CoinGecko rain, price matches). NOTE: other posts now go to this account too (team/other workflow): 'O que assistir hoje no Hotcoin' (PT translation of main What to Watch, 05:55), SpaceX/$SPCX news (05:07), WatcherGuru quote (06:57). Flagged to owner to avoid overlap and overposting.
 - 16/11 16:14 check 3: no new announcements (events newest 09/11, notices newest ANTHROPICUSDT 16/11). Placar RAIN 12:39 and meme carousel 14:37 published. Evening: Nvidia review 17:44 + poll 19:31 already queued; no extra evening post (team posts already make today 9+). Nothing closes before 08:00 Tue (ANTUSDT relist est. 17/11 09:00; Wall Street Earnings ends 19/11 12:59; futures protection 20/11 07:00). Tue: Nvidia result post after 18:20.
+- 17/11 07:44 check 1: NEW events: Spot All-Round #24 (17/11 01:00 to 30/11 12:59 Brasília) and P2P Trading Sprint (17/11 07:00 to 28/11 07:00) added to events.json; launch key visuals from official banners (kv_1117.mjs). Notices: nothing new. Today: GM Salvador 08:59, Spot #24 10:23, P2P Sprint 16:44, Nvidia text 19:03; Placar at check 2. No meme today (skip day).
