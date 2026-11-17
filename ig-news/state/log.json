@@ -1822,6 +1822,6 @@
    "Cointelegraph: BTC loses 200-week trend line as 2022 repeats",
    "Hotcoin X Nov 17: 200-week average ~$68K"
   ],
-  "note": "Variant A after B (Nov 17). Not Nvidia (Wed 10:00 news will likely cover results). 4 slides, no CTA, no render warnings. Slide 2 bars went to 4 items (adds the Jun 2022 break, -8.2%) so the layout-A photo fits."
+  "note": "Variant A after B (Nov 17). Not Nvidia (Wed 10:00 news will likely cover results). 4 slides, no CTA, no render warnings. Slide 2 bars went to 4 items (adds the Jun 2022 break, -8.2%) so the layout-A photo fits. Nov 17 fix (daily review Nov 18): slide 3 ngrid '$20,553' covered SBF's eyes. Set place top + photo_pos 50% 0% on the June 2022 cell and place bottom on the March 2020 cell (masked face), re-rendered (no warnings; only 03.jpg + tt/03.jpg changed, media commit 9b2f07f). Old 5 Publer posts moved to draft and re-scheduled with the new SHA-pinned media (IG 19:00, FB 19:00, TikTok 19:02, IG Story 19:05, X Research 20:30), same captions. X refused a duplicate tweet text, so the old X draft caption was marked [OLD MEDIA...]. IG/FB first comment re-entered from post.json sources/credits."
  }
 ]
