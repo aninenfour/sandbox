@@ -1690,7 +1690,7 @@
   "variant": "b",
   "slot": "2026-11-17T19:00:00+08:00",
   "title": "Stocks 101: Nvidia expects $108B this quarter. Is that enough? (how to read earnings)",
-  "status": "scheduled",
+  "status": "published",
   "layouts": [
    "nhero",
    "ngrid",
@@ -1709,7 +1709,8 @@
    "Nvidia IR: Q3 revenue $18.12B (FY24), $35.08B (FY25), $57.0B (FY26, +62% y/y; Neowin, Outlook Business); Q3 FY27 outlook $108.0B +/-2%; results ~1:20pm PT Nov 17",
    "Aug 27 2025: Q3 FY26 outlook $54.0B vs LSEG $53.14B, shares -2.5% after hours, some analysts >$60B (TheFly/TipRanks, BNN Bloomberg, Advisor Perspectives)"
   ],
-  "note": "Photos Unsplash: Abhishek Kumar, Christian Wiediger, Bermix Studio, Taylor Vick, Anne Nygard, Adam Smigielski."
+  "note": "Photos Unsplash: Abhishek Kumar, Christian Wiediger, Bermix Studio, Taylor Vick, Anne Nygard, Adam Smigielski.",
+  "ig_url": "https://www.instagram.com/p/Df1xoioioHU/"
  },
  {
   "id": "2026-11-17-memereact-btc-half",
@@ -1779,7 +1780,7 @@
   "title": "AirPods ($159, Dec 13 2016) vs $159 in Bitcoin: $13,211 (83x)",
   "look": "photo",
   "music": "Baileys (Diego Nava, Mixkit) #476",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "fb_reel",
@@ -1793,7 +1794,8 @@
    "Yahoo Finance BTC-USD close $780.56 Dec 13 2016; CoinMarketCap snapshot $780.56",
    "Yahoo Finance BTC-USD close $64,855.84 Nov 16 2026; CoinGecko $65,305 at Nov 16 00:00 UTC (= Yahoo Nov 15 close $65,305.06)"
   ],
-  "note": "Calendar topic (BTC vs Nvidia vs gold) replaced: no Nvidia/GPU after yesterday's GTX 1080. First buy photo (dark AirPods in hand) failed the thumbnail check (near-blank 1.4-3.7 s), swapped to a bright AirPods-case photo: frame 0 fill 52%, no warning. Publer thumbnails checked (IG/FB/TikTok = cover, X = 4:5 cover)."
+  "note": "Calendar topic (BTC vs Nvidia vs gold) replaced: no Nvidia/GPU after yesterday's GTX 1080. First buy photo (dark AirPods in hand) failed the thumbnail check (near-blank 1.4-3.7 s), swapped to a bright AirPods-case photo: frame 0 fill 52%, no warning. Publer thumbnails checked (IG/FB/TikTok = cover, X = 4:5 cover).",
+  "ig_url": "https://www.instagram.com/reel/Df2CzK6gmmZ/"
  },
  {
   "id": "2026-11-18-academy-btc-200wma",
@@ -1823,5 +1825,50 @@
    "Hotcoin X Nov 17: 200-week average ~$68K"
   ],
   "note": "Variant A after B (Nov 17). Not Nvidia (Wed 10:00 news will likely cover results). 4 slides, no CTA, no render warnings. Slide 2 bars went to 4 items (adds the Jun 2022 break, -8.2%) so the layout-A photo fits. Nov 17 fix (daily review Nov 18): slide 3 ngrid '$20,553' covered SBF's eyes. Set place top + photo_pos 50% 0% on the June 2022 cell and place bottom on the March 2020 cell (masked face), re-rendered (no warnings; only 03.jpg + tt/03.jpg changed, media commit 9b2f07f). Old 5 Publer posts moved to draft and re-scheduled with the new SHA-pinned media (IG 19:00, FB 19:00, TikTok 19:02, IG Story 19:05, X Research 20:30), same captions. X refused a duplicate tweet text, so the old X draft caption was marked [OLD MEDIA...]. IG/FB first comment re-entered from post.json sources/credits."
+ },
+ {
+  "id": "2026-11-18-nvidia-q3-beat",
+  "type": "news",
+  "slot": "2026-11-18T10:00:00+08:00",
+  "title": "Nvidia beat its own $108B forecast: $115.8B in 3 months (Q3 FY27), Q4 guide $130B, stock still -35% from Oct 6 record",
+  "score": 12,
+  "layouts": [
+   "ngrid",
+   "nrows",
+   "nbig"
+  ],
+  "ngrid_used": true,
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story(10:05)",
+   "tiktok_photo(10:02, tt/01-04)",
+   "x_research(11:00, slides 01-04)"
+  ],
+  "sources": [
+   "Nvidia Q3 FY2027 release Nov 17 2026 (primary): revenue $115.8B +103% y/y +20% q/q, data center $107.6B +110%, GAAP net income $65.3B, Q4 outlook $130.0B +/-3% excl. China DC compute, quote from Colette Kress as interim CEO and CFO",
+   "CBS News Nov 17: ~$109B expected, profit $65.3B vs $31.9B, shares ~+4% to $161.57 after hours, Kress first call as interim CEO",
+   "Decrypt/Yahoo Finance: first report since Huang's exit, ~35% below October peak",
+   "Investing.com after-hours movers: $162.56 vs $155.46 close",
+   "Yahoo Finance NVDA daily closes: record $239.24 Oct 6, $155.46 Nov 17 (-35.0%)"
+  ],
+  "note": "Score 12/12. Pays off the Nov 17 Academy preview ($108B guide). CEO change stated only as 'first report without Jensen Huang' + Kress interim CEO (company release + CBS + Decrypt); reason for exit left out. Analyst estimates differ ($109B CBS vs $109.3B Yahoo) so slides use Nvidia's own $108B guide. After-hours move ranged +2.4% to +4.6% by source/time; slides say ~4%. Publer bulk upload timed out; posts scheduled via media_urls (no stray post). Photos: Kress SiliconANGLE theCUBE/Commons CC BY 4.0; Unsplash Thomas Foster (GPU), Matthieu Beaumont (servers)."
+ },
+ {
+  "id": "2026-11-18-memereact-nvda",
+  "type": "reel-memereact",
+  "slot": "2026-11-18T12:30:00+08:00",
+  "title": "MEME REACT #2: Nvidia sales +103% (record $115.8B), stock -35% from top, confused Nick Young + Mixkit Comical",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "tiktok"
+  ],
+  "sources": [
+   "Nvidia Q3 FY2027 release: $115.8B, +103% y/y",
+   "Yahoo Finance closes $239.24 (Oct 6) -> $155.46 (Nov 17); Decrypt ~35% below October peak"
+  ],
+  "note": "Joke: record quarter but holders still down 35%. Meme: greenscreenmemes.com Confused Nick Young (3.5-5.5 s, face to camera, 7 loops = 14 s). Music Mixkit 466 Comical. No Hotcoin name on top, faint bg logo. Cover/safezones/contact checked; Publer images confirmed = frame 0."
  }
 ]

@@ -106,9 +106,10 @@
   "slot": "2026-11-17T19:02:00+08:00",
   "format": "photo",
   "topic": "Academy carousel (photo mode): Nvidia expects $108B, how to read earnings",
-  "status": "scheduled",
+  "status": "published",
   "doc_row": true,
-  "hook": "Nvidia expects $108B this quarter. Is that enough?"
+  "hook": "Nvidia expects $108B this quarter. Is that enough?",
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7709094426353650965"
  },
  {
   "id": "2026-11-17-memereact-btc-half",
@@ -144,8 +145,9 @@
   "format": "video",
   "topic": "WHAT IF: AirPods ($159, 2016) vs $159 in Bitcoin = $13,211",
   "hook": "AirPods were $159 in 2016. The same $159 in Bitcoin is $13,211 today",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7709132069237951750"
  },
  {
   "id": "2026-11-18-academy-btc-200wma",
@@ -298,5 +300,23 @@
   "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7708048776598015252",
   "doc_row": true,
   "note": "added to log Nov 17 from Publer (tracker backfill)"
+ },
+ {
+  "id": "2026-11-18-nvidia-q3-beat",
+  "slot": "2026-11-18T10:02:00+08:00",
+  "format": "photo",
+  "topic": "News: Nvidia Q3 beat ($115.8B vs $108B guide)",
+  "hook": "Nvidia guessed $108B. It made $115.8B",
+  "status": "scheduled",
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-18-memereact-nvda",
+  "slot": "2026-11-18T12:30:00+08:00",
+  "format": "video",
+  "topic": "MEME REACT: Nvidia sales +103%, stock -35%",
+  "hook": "Nvidia made a record $115.8B in 3 months. Stock still -35%",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]
