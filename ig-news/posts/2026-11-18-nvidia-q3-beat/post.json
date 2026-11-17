@@ -1,0 +1,28 @@
+{"type": "news", "style": "v2", "date": "NOV 18", "slides": [
+ {"kind": "nhero", "photo": "kress1.jpg", "photo_pos": "50% 20%", "tag": "EARNINGS",
+  "badge": {"src": "../../assets/logos/NVDA.png", "pos": "tr", "fit": "70%", "size": 300, "bg": "#fff"},
+  "headline": "Nvidia beat its own forecast: [$115.8B] in 3 months"},
+ {"kind": "ngrid", "title": "Forecast vs what it made", "pill": "+$7.8B",
+  "text": "Sales [doubled] from $57.0B a year ago.",
+  "cells": [
+   {"photo": "gpu.jpg", "photo_pos": "50% 50%", "label": "Nvidia's own forecast", "value": "$108B", "sub": "Aug-Oct quarter"},
+   {"photo": "servers.jpg", "photo_pos": "50% 50%", "label": "What it made", "value": "$115.8B", "sub": "+103% in a year"}],
+  "source": "Nvidia Q3 FY27 release (Nov 17); CBS News"},
+ {"kind": "nrows", "tag": "BY THE NUMBERS", "title": "The quarter in 4 lines",
+  "rows": [
+   {"emoji": "🖥️", "l": "Data center sales", "sub": "AI chips, +110% in a year", "v": "$107.6B", "pos": true},
+   {"emoji": "💵", "l": "Profit", "sub": "up from $31.9B a year ago", "v": "$65.3B", "pos": true},
+   {"emoji": "🔮", "l": "Next quarter forecast", "sub": "assumes zero China data center", "v": "$130B", "pos": true},
+   {"emoji": "🧑‍💼", "l": "On the call", "sub": "first report without Jensen Huang", "v": "Colette Kress"}],
+  "text": ["Kress is [interim CEO] and CFO."],
+  "source": "Nvidia Q3 FY27 release; CBS News; Decrypt"},
+ {"kind": "nbig", "tag": "THE CATCH", "title": "The stock is still down",
+  "kicker": "SINCE ITS OCT 6 RECORD CLOSE", "big": "-35%", "neg": true,
+  "label": "$239.24 to $155.46 at Tuesday's close",
+  "spark": [228.87, 225.51, 224.58, 225.07, 228.86, 227.21, 228.38, 230.86, 233.95, 238.9, 239.24, 237.47, 230.48, 229.28, 226.32, 228.52, 221.3, 217.23, 214.13, 217.09, 216.47, 221.97, 212.21, 210.96, 216.0, 217.94, 215.38, 213.66, 204.64, 202.06, 206.69, 200.13, 181.6, 186.64, 178.67, 168.89, 173.73, 166.19, 162.85, 156.14, 155.46],
+  "text": ["[Up ~4%] after hours. The beat {has not undone} the slide yet."],
+  "source": "Yahoo Finance daily closes; CBS News, Investing.com after-hours"},
+ {"kind": "end"}
+],
+ "sources": ["Nvidia press release Q3 FY2027 (Nov 17, 2026): revenue $115.8B (+20% q/q, +103% y/y), data center $107.6B (+110%), GAAP net income $65.3B, Q4 outlook $130.0B +/-3% with no China data center compute; quote from Colette Kress, interim CEO and CFO", "CBS News: $115.8B vs ~$109B expected, profit $65.3B vs $31.9B, shares ~+4% to $161.57 after hours, first call as interim CEO", "Decrypt / Yahoo Finance: first report since Huang's exit, shares rise after hours, ~35% below October peak", "Investing.com after-hours movers: NVDA $162.56 vs $155.46 close", "Q3 FY27 outlook $108.0B from Nvidia Q2 FY27 release (our Nov 17 Academy)", "Yahoo Finance NVDA daily closes: record close $239.24 Oct 6, $155.46 Nov 17"],
+ "photo_credits": ["Colette Kress: SiliconANGLE theCUBE / Wikimedia Commons, CC BY 4.0", "Graphics card: Thomas Foster / Unsplash", "Servers: Matthieu Beaumont / Unsplash"]}
