@@ -1,0 +1,59 @@
+{
+ "window": "24H to Nov 17 22:04 (UTC+8)",
+ "date": "NOV 17",
+ "day": "2026-11-17",
+ "template": "orbit",
+ "gainers": [
+  {
+   "sym": "BREV",
+   "name": "Brevis",
+   "ch": 67.13,
+   "vol": 599686.11,
+   "handle": "@brevis_zk",
+   "logo": "brev",
+   "bg": "#f45f00",
+   "glow": "#f45f00"
+  },
+  {
+   "sym": "DPS",
+   "name": "",
+   "ch": 21.3,
+   "vol": 199605.67,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "LIT",
+   "name": "Lighter",
+   "ch": 20.33,
+   "vol": 359716.42,
+   "handle": "@Lighter_xyz",
+   "logo": "lit",
+   "bg": "#080808",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "HUMA",
+   "name": "Huma Finance",
+   "ch": 17.99,
+   "vol": 259777.02,
+   "handle": "",
+   "logo": "huma",
+   "bg": "#000000",
+   "glow": "#c750e0"
+  },
+  {
+   "sym": "CROSS",
+   "name": "",
+   "ch": 15.27,
+   "vol": 217625.06,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  }
+ ],
+ "link": "📊 $BREV live price and chart: https://www.hotcoin.com/en_US/price/brevis-brev/"
+}
