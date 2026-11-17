@@ -4,6 +4,7 @@ Writes public/ronaldinho/key.webm: VP9 with alpha, subject crop only, 50 fps, or
 (audio goes separately to public/ronaldinho/voice.wav). Usage:
   python3 scripts/make-r10-key.py            # full clip
   python3 scripts/make-r10-key.py --still 2  # one test frame at t=2s -> out/r10key/test.png (+ checker preview)
+  python3 scripts/make-r10-key.py --cutout 0.02 2.56 5.62   # full-res RGBA stills for posters
 
 Steps per frame (float32, 16-bit input):
   1. colour-difference matte: d = G - max(R, B). Backdrop measures 0.18..0.24, subject <= 0.02.
@@ -115,8 +116,16 @@ def shrink(rgba):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--still', type=float)
+    ap.add_argument('--cutout', type=float, nargs='+', help='full-res RGBA stills at these times -> public/ronaldinho/stills/cut_<t>.png')
     args = ap.parse_args()
-    if args.still is not None:
+    if args.cutout:
+        os.makedirs('public/ronaldinho/stills', exist_ok=True)
+        for t in args.cutout:
+            k = key(next(frames(t)))  # full 2000x2160 crop, no downscale
+            out = (np.clip(k, 0, 1) * 65535).astype(np.uint16)
+            cv2.imwrite(f'public/ronaldinho/stills/cut_{t:.2f}.png', cv2.cvtColor(out, cv2.COLOR_RGBA2BGRA))
+            print('cutout', t)
+    elif args.still is not None:
         os.makedirs('out/r10key', exist_ok=True)
         img = next(frames(args.still))
         k = shrink(key(img))
