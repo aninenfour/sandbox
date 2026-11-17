@@ -4,9 +4,9 @@
 Every daily post carries exactly one link to a Hotcoin page, always on www.hotcoin.com, English (en_US):
   1. Price page of the post's lead coin:  https://www.hotcoin.com/en_US/price/<slug>/
      top5: the #1 gainer (falls back to #2, #3, ...); watch: the first pick (then the next ones).
-  2. If none of the post's coins has a price page: the BTC/USD Converter page
-     https://www.hotcoin.com/en_US/converter/btc/usd/
-Academy articles (/learn/) are planned by Hank and are added by hand, not by these scripts.
+  2. If none of the post's coins has a price page: the BTC Price page
+     https://www.hotcoin.com/en_US/price/bitcoin-btc/
+Price pages only (owner, Nov 17): no Converter or Academy (/learn/) links in the daily posts.
 
 Slugs come from Hotcoin's own sitemap (price-en_US-sitemap.xml). A page is only used if it loads (HTTP 200) and its
 <title> names the right ticker, e.g. "Rain (RAIN) Price Today | Hotcoin", so a same-name page never gets linked.
@@ -18,7 +18,7 @@ import re, sys, urllib.request
 SITE = 'https://www.hotcoin.com'
 LANG = 'en_US'
 SITEMAP = f'{SITE}/price-{LANG}-sitemap.xml'
-CONVERTER = f'{SITE}/{LANG}/converter/btc/usd/'
+BTC_PRICE = f'{SITE}/{LANG}/price/bitcoin-btc/'
 _slugs = None
 
 
@@ -67,12 +67,12 @@ def price_url(sym):
 
 
 def link_line(syms):
-    """One caption line with one Hotcoin link: the first symbol with a Price page, else the BTC Converter."""
+    """One caption line with one Hotcoin Price page link: the first symbol that has one, else BTC's."""
     for s in syms:
         url = price_url(s)
         if url:
             return f'📊 ${s.upper()} live price and chart: {url}'
-    return f'🧮 Convert BTC to USD at today\'s rate: {CONVERTER}'
+    return f'📊 $BTC live price and chart: {price_url("BTC") or BTC_PRICE}'
 
 
 if __name__ == '__main__':

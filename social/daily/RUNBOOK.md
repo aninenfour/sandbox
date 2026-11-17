@@ -9,10 +9,10 @@ Two posts a day, fully automatic (the owner approved the format on Nov 3, 2026):
 
 Both go to **X (with @handles), Facebook (no @handles) and LinkedIn (no @handles)** through `publish.py`.
 
-**Every post carries exactly one Hotcoin page link** (social linkage plan, owner Nov 17). `links.py` adds it to every caption automatically:
-the **Price page** of the post's lead coin (top5: the #1 gainer; watch: the first pick, falling back down the list), else the **BTC/USD Converter**.
+**Every post carries exactly one Hotcoin Price page link** (social linkage plan, owner Nov 17). `links.py` adds it to every caption automatically:
+the **Price page** of the post's lead coin (top5: the #1 gainer; watch: the first pick, falling back down the list), else BTC's Price page. **Price pages only** (owner, Nov 17): no Converter or Academy links.
 English posts use `https://www.hotcoin.com/en_US/...`. Slugs come from Hotcoin's `price-en_US-sitemap.xml`, and a page is used only if its title names the right ticker.
-Check the link line in the caption before publishing (open it once). Academy (`/learn/`) articles are Hank's call and are added by hand only when he asks.
+Check the link line in the caption before publishing (open it once).
 
 ## 0. Setup (fresh session)
 ```bash

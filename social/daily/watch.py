@@ -18,7 +18,7 @@ Checks every symbol against Hotcoin's live ticker (exits non-zero if one is miss
 import datetime as dt, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import links  # noqa: E402  (one Hotcoin Price/Converter page link per post)
+import links  # noqa: E402  (one Hotcoin Price page link per post)
 import live  # noqa: E402  (reuses ticker, CoinGecko resolve, logo + colour helpers)
 
 # X handles for the companies / issuers behind Hotcoin's tokenized stocks and gold tokens.
