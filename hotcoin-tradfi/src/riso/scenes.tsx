@@ -2,7 +2,8 @@ import React from 'react';
 import {staticFile} from 'remotion';
 import {Corner, Dots, INK, Label, Person, Pt, Shadow, Sheet, VB, clamp, ease, reg, toPerson, twos} from './kit';
 
-type S = {f: number; p: string; sq?: boolean};
+export type S = {f: number; p: string; sq?: boolean};
+export const GROUND_Y = 1640;
 const GROUND = 1640;
 // Square cut: the part of each 9:16 print that the 1:1 version shows.
 const SQ: Record<string, VB> = {saving: [100, 640, 1100, 1100], trip: [-80, 400, 1320, 1320], cake: [-290, 110, 1600, 1600], run: [-200, 260, 1460, 1460]};
@@ -14,7 +15,7 @@ const waveHand = (x: number, y: number, s: number, t: number): Pt => {
 
 // 0 · Title print: the title opens alone in the middle of the page, then settles into its corner
 // while the subtitle, the halftone sun and the waving person print in under it.
-export const Intro: React.FC<S> = ({f, p, sq}) => {
+export const Intro: React.FC<S & {title?: string[]; sub?: string}> = ({f, p, sq, title = ['WHY WE', 'TRADE'], sub = 'a few small reasons'}) => {
   const t = twos(f);
   const L = sq
     ? {title: [72, 200, 120], c: [349, 216], start: [540, 540], sub: [76, 400, 34], sun: [300, 690, 175], x: 840, feet: 1005, s: 0.45}
@@ -28,10 +29,10 @@ export const Intro: React.FC<S> = ({f, p, sq}) => {
   return (
     <Sheet p={p} f={f} vb={sq ? [0, 0, 1080, 1080] : undefined}>
       <g transform={`translate(${cx} ${cy}) scale(${k}) translate(${-L.c[0]} ${-L.c[1]})`}>
-        <Label lines={['WHY WE', 'TRADE']} x={L.title[0]} y={L.title[1]} size={L.title[2]} />
+        <Label lines={title} x={L.title[0]} y={L.title[1]} size={L.title[2]} />
       </g>
       <g opacity={rest}>
-        <text x={L.sub[0]} y={L.sub[1]} fontFamily='"Archivo Black", sans-serif' fontSize={L.sub[2]} fill={INK.pine} transform={reg('pine')}>a few small reasons</text>
+        <text x={L.sub[0]} y={L.sub[1]} fontFamily='"Archivo Black", sans-serif' fontSize={L.sub[2]} fill={INK.pine} transform={reg('pine')}>{sub}</text>
         <Dots box={[sx - 1.13 * r, sy - 1.13 * r, 2.26 * r, 2.26 * r]} ink="green" cell={16} dens={(px, py) => 0.85 * clamp(1.15 - Math.hypot(px - sx, py - sy) / r)} />
         <Shadow cx={x + 10} cy={L.feet + 15} rx={275 * s} ry={42 * s} />
       </g>
@@ -234,7 +235,7 @@ export const LongRun: React.FC<S & {len?: number}> = ({f, p, sq, len = 120}) => 
 };
 
 // 5 · Close: the line, the question, and the logo on a tiny black label.
-export const Outro: React.FC<S> = ({f, p, sq}) => {
+export const Outro: React.FC<S & {lines?: string[]; q?: string[]}> = ({f, p, sq, lines = ['EVERYONE', 'TRADES FOR', 'SOMETHING.'], q = ["what's your reason", 'to trade?']}) => {
   const t = twos(f);
   const a = ease((t - 24) / 16);
   const L = sq
@@ -243,11 +244,10 @@ export const Outro: React.FC<S> = ({f, p, sq}) => {
   const {x, s} = L, y = L.feet - 330 * s;
   return (
     <Sheet p={p} f={f} vb={sq ? [0, 0, 1080, 1080] : undefined}>
-      <Label lines={['EVERYONE', 'TRADES FOR', 'SOMETHING.']} x={L.label[0]} y={L.label[1]} size={L.label[2]} />
+      <Label lines={lines} x={L.label[0]} y={L.label[1]} size={L.label[2]} />
       <g opacity={a}>
         <text x={L.q[0]} y={L.q[1]} fontFamily='"Archivo Black", sans-serif' fontSize={L.q[2]} fill={INK.pine} transform={reg('pine')}>
-          <tspan x={L.q[0]}>what&apos;s your reason</tspan>
-          <tspan x={L.q[0]} dy={L.q[3]}>to trade?</tspan>
+          {q.map((line, i) => <tspan key={i} x={L.q[0]} dy={i === 0 ? 0 : L.q[3]}>{line}</tspan>)}
         </text>
       </g>
       <Shadow cx={x + 10} cy={L.feet + 15} rx={275 * s} ry={42 * s} />

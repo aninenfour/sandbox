@@ -9,6 +9,7 @@ import {Horizon, HORIZON_DURATION} from './alt/Horizon';
 import {Platform, PLATFORM_DURATION} from './platform/Platform';
 import {Launch, LAUNCH_DURATION} from './v2/Launch';
 import {WhyWeTrade, WWT_DURATION} from './riso/WhyWeTrade';
+import {WhyWeInvest, WWI_DURATION} from './riso/WhyWeInvest';
 
 export const Root: React.FC = () => (
   <>
@@ -24,5 +25,7 @@ export const Root: React.FC = () => (
     <Composition id="Launch-4x5" component={Launch} durationInFrames={LAUNCH_DURATION} fps={60} width={1080} height={1350} />
     <Composition id="WhyWeTrade-9x16" component={WhyWeTrade} durationInFrames={WWT_DURATION} fps={30} width={1080} height={1920} defaultProps={{music: 'music/walking-in-the-park.mp3', musicFrom: 0, square: false}} />
     <Composition id="WhyWeTrade-1x1" component={WhyWeTrade} durationInFrames={WWT_DURATION} fps={30} width={1080} height={1080} defaultProps={{music: 'music/walking-in-the-park.mp3', musicFrom: 0, square: true}} />
+    <Composition id="WhyWeInvest-9x16" component={WhyWeInvest} durationInFrames={WWI_DURATION} fps={30} width={1080} height={1920} defaultProps={{music: 'music/walking-in-the-park.mp3', musicFrom: 0, square: false}} />
+    <Composition id="WhyWeInvest-1x1" component={WhyWeInvest} durationInFrames={WWI_DURATION} fps={30} width={1080} height={1080} defaultProps={{music: 'music/walking-in-the-park.mp3', musicFrom: 0, square: true}} />
   </>
 );
