@@ -40,7 +40,7 @@ h1 span{color:${LIME}}
 <img class="bg" src="file://${DIR}bg2.png">
 <div class="shade"></div>
 <div class="top"><img src="${LOGO}" style="height:38px"><i></i><img src="${CG}" style="height:38px"></div>
-<div class="kick">COINGLASS · 12/11/2026</div>
+<div class="kick">XẾP HẠNG · COINGLASS</div>
 <h1>Hotcoin đã có mặt<br>trên <span>CoinGlass</span></h1>
 <div class="rank"><div class="n">13</div></div>
 <div class="cap"><b>Xếp hạng thứ 13</b> trong Bảng xếp hạng các sàn giao dịch phái sinh tiền mã hóa</div>
