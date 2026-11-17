@@ -86,6 +86,7 @@ Examples (before → better):
   Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
 
 ## Changelog
+- 2026-11-18 (daily review): ngrid cells get `"place": "top"|"bottom"` so the label + number clear a face (the centered block covered SBF's eyes on the Nov 18 Academy grid). PLAYBOOK §4 ngrid. Before/after: research/2026-W47/ngrid_place_before_after.jpg.
 - 2026-11-16 (owner: "the new visual for WHAT IF" + "TikTok has no thumbnail"): WHAT IF Reels go photo-first (`"look": "photo"`, default for new ones): 2-photo split cover with big label pills and the number, dimmed photo backdrops on every scene, photo end card with the result pill. Dark photo frames also fix the blank TikTok thumbnails (the light Reels were almost all white). PLAYBOOK §7b/§7c.
 - 2026-11-16 (weekly learning W46): `ngrid` visual-first photo grid slide added (news + Academy); WHAT IF slot = single purchases only (DCA retired); then-vs-now and "Ranking X" hook rules.
 - 2026-10-31 (daily review): "on this exact day" anniversary hooks win. The team's 1929 Black Tuesday Reel (posted on Oct 29) reached 162 IG / 263 FB, the best of the week. When a story, launch or crash has an anniversary in the next 7 days, post it ON that day and open with "On this exact day in YEAR..." (e.g. Xbox 360 launch Nov 22, PS5 Nov 12, ChatGPT Nov 30, Bitcoin whitepaper Oct 31).

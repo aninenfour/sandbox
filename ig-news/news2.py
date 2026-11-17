@@ -13,6 +13,8 @@ Slide kinds (pick a different graphic for slides 2 and 3, and don't repeat yeste
   ngrid   VISUAL-FIRST photo grid (owner, Nov 14: "visual first, text numbers later"): 2-4 full-bleed photo cells
           (2 = then/now rows, 3 = big top + 2, 4 = 2x2), each with a green label block + one big number, an optional
           multiple/result pill where the cells meet, an optional short headline and one bottom line. News AND Academy.
+          A cell with a face: set "place": "top" or "bottom" so the label + number sit above/below the face, never on it
+          (default = centered, fine for objects/coins/screens).
 """
 import base64, html as H, pathlib, re
 
@@ -113,6 +115,10 @@ CSS = """
 .v2 .n2-gc.bot{padding-bottom:150px}
 .v2 .n2-gc.txt.bot{padding-bottom:230px}
 .v2 .n2-gc>*{position:relative;z-index:2}
+.v2 .n2-gc.pt{justify-content:flex-start}
+.v2 .n2-gc.pb{justify-content:flex-end}
+.v2 .n2-gc.pt:before{background:linear-gradient(180deg,rgba(5,8,10,.72),rgba(5,8,10,.30) 55%%,rgba(5,8,10,.15))}
+.v2 .n2-gc.pb:before{background:linear-gradient(0deg,rgba(5,8,10,.80),rgba(5,8,10,.30) 55%%,rgba(5,8,10,.15))}
 .v2 .n2-glg{width:96px;height:96px;border-radius:50%%;border:5px solid #fff;background:#fff center/66%% no-repeat;box-shadow:0 10px 30px rgba(0,0,0,.4);margin-bottom:18px;flex:none}
 .v2 .n2-gl{font-family:'Archivo';font-weight:900;font-stretch:108%%;font-size:46px;letter-spacing:-.02em;line-height:1.05;background:%(green)s;color:#0B0E11;padding:4px 16px;border-radius:8px;text-align:center;max-width:100%%}
 .v2 .n2-gl.neg{background:#FF5A52;color:#fff}
@@ -252,6 +258,7 @@ def kinds(G):
         out = ''
         for i, c in enumerate(cells):
             cls = 'n2-gc' + (' bot' if i in bottom else '') + (' hd' if i in top and s.get('title') else '') + (' txt' if has_t else '')
+            cls += {'top': ' pt', 'bottom': ' pb'}.get(c.get('place'), '')  # daily review Nov 18: keep label+number off a face
             lg = (f'<div class="n2-glg" style="background-image:url({uri(c["logo"], base)});background-color:{c.get("logo_bg", "#fff")}"></div>'
                   if c.get('logo') else '')
             neg = ' neg' if c.get('neg') else ''

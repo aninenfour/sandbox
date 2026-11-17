@@ -48,6 +48,11 @@ Every number, date, name and quote must match **two independent sources** (or on
   the other content slides stay on the light layouts (nbars / nbig / nrows / nphoto for news, tslide A/B for Academy), so at
   least 2 carousel layouts are always in rotation. Log it in `layouts` like the others. No ngrid when there is no real photo for
   every cell; never two ngrid slides in a row on the same post.
+  **Faces in ngrid (daily review Nov 18):** the label + number block sits in the middle of the cell by default and covers a
+  face (Nov 18 200-week Academy: "$20,553" ran across SBF's eyes). For any cell with a face set `"place": "top"` (block at the
+  top over hair/sky, frame the face low with `photo_pos` like `"50% 0%"`) or `"place": "bottom"` (2-cell / top cells only;
+  bottom cells with a `text` line have no room under a face). Pick a loose head-and-shoulders shot, not a tight close-up.
+  Check the render: eyes and mouth must stay visible. Objects, coins and screens keep the default centered block.
 - **No source line on the slides (owner, Oct 29).** Keep `source` in post.json for the log, and put sources in the first comment / caption.
 - **Collision check (owner, Oct 29):** render.py prints `WARNING slide N collision: ...` for overlapping boxes, cut-off text and anything off the slide edge. A post with any warning is not finished: shorten the text or change the layout, re-render, and only schedule when render.py prints no WARNING lines. Still look at the contact sheet yourself.
 Voice: confident, plain English, slightly provocative hook, no hype words ("moon", "huge"), no price predictions, no trading advice.
