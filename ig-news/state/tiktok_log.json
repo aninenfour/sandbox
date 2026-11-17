@@ -126,5 +126,23 @@
   "hook": "Zelle moved $1.2 trillion in 2025. Now it picked Solana for its own dollar stablecoin",
   "status": "scheduled",
   "doc_row": false
+ },
+ {
+  "id": "2026-11-17-whatif-airpods-btc",
+  "slot": "2026-11-17T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: AirPods ($159, 2016) vs $159 in Bitcoin = $13,211",
+  "hook": "AirPods were $159 in 2016. The same $159 in Bitcoin is $13,211 today",
+  "status": "scheduled",
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-18-academy-btc-200wma",
+  "slot": "2026-11-18T19:02:00+08:00",
+  "format": "photo",
+  "topic": "Academy (photo mode): Bitcoin below its 200-week average, what happened last time",
+  "hook": "Bitcoin fell below its 200-week average (~$68K)",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]

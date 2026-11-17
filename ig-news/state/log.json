@@ -1726,5 +1726,57 @@
    "DefiLlama stablecoinchains Nov 17: Ethereum $130.7B, Tron $93.2B, Solana $13.9B"
   ],
   "note": "Score 11/12 (hook 3, relevance 3, fresh 3, visual 2: no real photo of the Zelle execs, so cover = Unsplash phone-payment photo + SOL badge). Ethereum stablecoin total: Token Terminal (via Cointelegraph) $150.5B vs DefiLlama $130.7B, used DefiLlama. BofA as EWS member only in one source, left out. Runner-up: Tom Lee/Bitmine 4.97% of ETH supply (Block+Decrypt), skipped as too close to yesterday's crash story. Jensen Huang CEO story not used (Nvidia already at 19:00 Academy). Photos Unsplash: David Dvoracek (phones), Daniel Early (NYC taxi), Om Kamath (Mumbai). ngrid 2-cell US $1.2T vs India End 2026."
+ },
+ {
+  "id": "2026-11-17-whatif-airpods-btc",
+  "type": "reel-whatif-v2",
+  "slot": "2026-11-17T21:30:00+08:00",
+  "title": "AirPods ($159, Dec 13 2016) vs $159 in Bitcoin: $13,211 (83x)",
+  "look": "photo",
+  "music": "Baileys (Diego Nava, Mixkit) #476",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "ig_story(21:35, media_url)",
+   "tiktok(21:30)",
+   "x_main(21:30, story_x45.mp4)"
+  ],
+  "sources": [
+   "Apple Newsroom Dec 13 2016: AirPods available online, $159 (US)",
+   "Fortune/Reuters Dec 13 2016",
+   "Yahoo Finance BTC-USD close $780.56 Dec 13 2016; CoinMarketCap snapshot $780.56",
+   "Yahoo Finance BTC-USD close $64,855.84 Nov 16 2026; CoinGecko $65,305 at Nov 16 00:00 UTC (= Yahoo Nov 15 close $65,305.06)"
+  ],
+  "note": "Calendar topic (BTC vs Nvidia vs gold) replaced: no Nvidia/GPU after yesterday's GTX 1080. First buy photo (dark AirPods in hand) failed the thumbnail check (near-blank 1.4-3.7 s), swapped to a bright AirPods-case photo: frame 0 fill 52%, no warning. Publer thumbnails checked (IG/FB/TikTok = cover, X = 4:5 cover)."
+ },
+ {
+  "id": "2026-11-18-academy-btc-200wma",
+  "type": "academy",
+  "slot": "2026-11-18T19:00:00+08:00",
+  "title": "Crypto 101: Bitcoin fell below its 200-week average (~$68.2K). What happened last time? (2020: 1 week, 2022: 36 weeks)",
+  "variant": "a",
+  "layouts": [
+   "nhero",
+   "tslide-bars",
+   "ngrid",
+   "tslide-table"
+  ],
+  "ngrid_used": true,
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(19:02, tt/01-04)",
+   "ig_story(19:05)",
+   "x_research(20:30, slides 01-04)"
+  ],
+  "sources": [
+   "Yahoo Finance BTC-USD weekly closes Sep 2014 to Nov 17 2026, 200-week SMA computed ($68,184 week of Nov 16 2026)",
+   "CoinDesk via AlphaMaven Nov 13 2026: BTC below $68K and the 200-week average",
+   "Cointelegraph: BTC loses 200-week trend line as 2022 repeats",
+   "Hotcoin X Nov 17: 200-week average ~$68K"
+  ],
+  "note": "Variant A after B (Nov 17). Not Nvidia (Wed 10:00 news will likely cover results). 4 slides, no CTA, no render warnings. Slide 2 bars went to 4 items (adds the Jun 2022 break, -8.2%) so the layout-A photo fits."
  }
 ]
