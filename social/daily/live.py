@@ -15,7 +15,7 @@ import argparse, colorsys, datetime as dt, glob, io, json, os, random, subproces
 from PIL import Image
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import links  # noqa: E402  (one Hotcoin Price page link per post)
+import links  # noqa: E402  (one Hotcoin Converter link per post)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 LOGOS = os.path.join(HERE, 'logos')
