@@ -21,7 +21,7 @@ import numpy as np, cv2
 SRC = 'public/ronaldinho/main.mp4'
 W, H = 3840, 2160
 X0, X1 = 1040, 3040            # subject crop (he moves within ~1230..2850)
-SCALE = 0.75                   # 2000x2160 -> 1500x1620
+SCALE = 1.0                    # full res 2000x2160 (was 0.75; raised for 4K masters)
 OW, OH = int((X1 - X0) * SCALE), int(H * SCALE)
 LO, HI = 0.035, 0.150          # d below LO = solid, above HI = backdrop
 
@@ -143,7 +143,7 @@ if __name__ == '__main__':
         print('wrote out/r10key/test*.png', OW, OH)
     else:
         enc = subprocess.Popen(['/usr/bin/ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', f'{OW}x{OH}',
-                                '-r', '50', '-i', '-', '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuva420p', '-b:v', '0', '-crf', '14',
+                                '-r', '50', '-i', '-', '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuva420p', '-b:v', '0', '-crf', '8',
                                 '-row-mt', '1', '-deadline', 'good', '-cpu-used', '2', '-auto-alt-ref', '0',
                                 'public/ronaldinho/key.webm'], stdin=subprocess.PIPE)
         for i, img in enumerate(frames()):
