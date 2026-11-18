@@ -47,7 +47,9 @@ if (key === 'mood') {
     const c = j.bitcoin.usd_24h_change; mood = c; key = c > 2 ? 'green' : c < -2 ? 'red' : 'flat';
   } catch { key = 'flat'; }
 }
-const photo = ['jpg', 'jpeg', 'png'].map(e => `${DIR}/inbox/${date}.${e}`).find(f => fs.existsSync(f));
+// <date>.branded.jpg = logo already built into the scene (AI with official mark as reference): no corner tile.
+const photo = ['branded.jpg', 'jpg', 'jpeg', 'png'].map(e => `${DIR}/inbox/${date}.${e}`).find(f => fs.existsSync(f));
+const branded = !!photo && photo.includes('.branded.');
 const caption = pick(BANK[key]);
 const out = `${DIR}/out/${date}`; fs.mkdirSync(out, {recursive: true});
 let image = null;
@@ -59,7 +61,7 @@ if (day.photo && photo) {
   // Real photo, 4:5 crop, one small brand tile bottom-right (same spot every day = the series signature). No text on the photo.
   const html = `<!doctype html><html><body style="margin:0;width:1080px;height:1350px;overflow:hidden;position:relative">
   <img src="${b64(photo)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-  <div style="position:absolute;right:48px;bottom:48px;width:104px;height:104px;border-radius:26px;background:#7EC25A;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,.25)">
+  <div style="display:${branded ? 'none' : 'flex'};position:absolute;right:48px;bottom:48px;width:104px;height:104px;border-radius:26px;background:#7EC25A;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,.25)">
   <img src="${sym}" style="width:62px"></div></body></html>`;
   const br = await chromium.launch(); const p = await br.newPage({viewport: {width: 1080, height: 1350}, deviceScaleFactor: 2});
   await p.setContent(html, {waitUntil: 'load'}); image = `${out}/gm-${date}.png`; await p.screenshot({path: image}); await br.close();

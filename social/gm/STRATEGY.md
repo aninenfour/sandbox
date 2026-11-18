@@ -24,7 +24,9 @@ Plus: market self-awareness wins the biggest posts; one ownable, real-photo look
    Source (approved Nov 18): AI generated with fal **Seedream v4** (~$0.03/image, about $0.12/week for 4 photo days) from `prompts.json`.
    The model never draws logos or text; `gm.mjs` adds the official symbol. Team phone photos can replace any day.
    Logo on objects (test Nov 18): text-only prompts invent wrong marks and fake "Hotcoin" wordmarks (Seedream and FLUX schnell), so never use them.
-   Seedream v4 **edit** with the official tile as a reference image got the logo right on cups and tumblers (3 of 4); fabric patches still distort.
+   **Current method:** Seedream v4 edit with the bare official mark (`brand/logo-white-on-dark.png`) as reference, logo printed or embroidered
+   into the object (cup print, cap embroidery, hoodie back print, mug glaze). Save as `inbox/<date>.branded.jpg` (no corner tile). 6 of 8 usable;
+   rejects: a model-added Nike swoosh on a hoodie and a distorted tumbler print, so always check before posting.
    Model test: Nano Banana Pro ($0.15) looked best but added a fake phone status bar; FLUX schnell (<$0.01) garbled signs and objects.
 2. **Copy:** lowercase, under about 40 characters, one idea. Two or three times a week end with a 1-second prompt (ticker, emoji, 1 to 10, gm back).
 3. **No promos in GM.** Campaigns, prize pools and links go in a separate post or the first reply.

@@ -1,7 +1,10 @@
 {
-  "_note": "AI photo prompts for GM photo days. Default model fal-ai/bytedance/seedream/v4/text-to-image (~$0.03/image, image_size 1728x2160). Tested Nov 18, 2026 vs nano-banana-pro ($0.15, adds fake phone UI) and flux/schnell (cheap but garbled text and fused objects). gm.mjs adds the official Hotcoin tile; the model must never draw logos or text.",
-  "model": "fal-ai/bytedance/seedream/v4/text-to-image",
-  "image_size": {"width": 1728, "height": 2160},
+  "_note": "Photo days: fal-ai/bytedance/seedream/v4/edit (~$0.03/image, 1728x2160) with the official mark as image 1 (brand/logo-white-on-dark.png for white prints and embroidery, brand/logo-color-on-white.png for white ceramics). Save the result as inbox/<date>.branded.jpg so gm.mjs skips the corner tile. Text-only logo prompts draw wrong marks: never use them. Check every image for added third-party logos (the model once added a Nike swoosh) and distorted marks.",
+  "model": "fal-ai/bytedance/seedream/v4/edit",
+  "image_size": {
+    "width": 1728,
+    "height": 2160
+  },
   "suffix": " Real iPhone photo look, natural light, slight grain. No text, no logos, no brand marks, no faces, no phone UI or status bar, no watermark.",
   "days": {
     "Tue_greenThing": [
@@ -22,5 +25,12 @@
       "First-person POV looking down at bare feet and a plain bright lime-green coffee tumbler on fresh grass in a park, early sun, dew, phone on the grass screen-off.",
       "A plain lime-green picnic blanket on grass with a coffee and a closed book, soft Sunday morning light."
     ]
+  },
+  "logo_clause": " Use ONLY the white mark from image 1 (curved swoosh joined to a diagonal stroke, plus a round dot) with its exact shape and proportions. Do not copy the background: no square, no badge, no sticker, no patch, no other text or logos.",
+  "branded_examples": {
+    "matcha": "Candid first-person iPhone photo: a hand holding an iced matcha latte in a clear plastic cafe cup, early morning sun, blurred city street. The white mark from image 1 is screen-printed directly on the plastic in white ink, following the cup's curve, condensation over the print.",
+    "cap": "Candid iPhone photo of a green cotton baseball cap on a cafe table next to an espresso, morning sun. The white mark from image 1 is embroidered directly into the front panel with white thread: raised satin stitching, thread texture, following the cap's curve.",
+    "hoodie_back": "iPhone photo from behind of a person in a black hoodie walking in a park at sunrise, face not visible. The white mark from image 1 is screen-printed large on the back, fabric texture showing through, following the folds.",
+    "mug": "iPhone photo of a trader's desk at sunrise with a white ceramic mug in the foreground. The mark from image 1 (charcoal stroke, green dot) is a glazed ceramic print wrapping with the mug's curve."
   }
 }
