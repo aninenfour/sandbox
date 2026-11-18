@@ -283,8 +283,8 @@ const Captions: React.FC<{f: number}> = ({f}) => {
   };
   return (
     <AbsoluteFill style={{opacity: out}}>
-      <div style={{position: 'absolute', left: 90, top: 330, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>{render(p.L, 0, 'left')}{enLine(p.enL, 0, 'left', false)}</div>
-      <div style={{position: 'absolute', right: 90, top: 330, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>{render(p.R, p.L.length, 'right')}{enLine(p.enR, p.L.length, 'right', true)}</div>
+      <div style={{position: 'absolute', left: 90, top: 230, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>{render(p.L, 0, 'left')}{enLine(p.enL, 0, 'left', false)}</div>
+      <div style={{position: 'absolute', right: 90, top: 230, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>{render(p.R, p.L.length, 'right')}{enLine(p.enR, p.L.length, 'right', true)}</div>
     </AbsoluteFill>
   );
 };
@@ -426,22 +426,39 @@ const Window: React.FC<{children: React.ReactNode; w: number}> = ({children, w})
   </div>
 );
 
-// B: two angled browser windows either side (16:9: lower corners under the captions; 9:16: two behind him, left and right)
-const UISide: React.FC<{f: number}> = ({f}) => {
+// B (chosen 2026-11-18): two angled browser windows with a PT + EN label under each.
+// 16:9: lower corners behind his shoulders, under the side captions. 9:16: in front of his lower torso (never his face),
+// because behind him his jacket hides them.
+const SIDE_LABELS = {chart: ['Negociação de futuros', 'Futures trading'], predict: ['Mercado de previsões', 'Prediction market']} as const;
+const UISide: React.FC<{f: number; front: boolean}> = ({f, front}) => {
   if (f < DROP || f >= OUT1) return null;
-  const k = interpolate(f, [DROP + 4, DROP + 22], [0, 1], {...clamp, easing: ease});
+  if (front !== TALL) return null;            // 16:9 draws behind him, 9:16 in front
   const o = interpolate(f, [OUT1 - 8, OUT1], [1, 0], clamp);
-  const ww = TALL ? 560 : 580;
-  const pos = TALL ? [{x: -60, y: 900, r: 24, seg: 'chart' as const}, {x: W - ww + 60, y: 980, r: -24, seg: 'predict' as const}]
-                   : [{x: 60, y: 700, r: 22, seg: 'chart' as const}, {x: W - ww - 60, y: 700, r: -22, seg: 'predict' as const}];
+  const ww = TALL ? 440 : 500, wh = 30 + ww * 9 / 16;
+  const pos = TALL ? [{x: 36, y: 1230, r: 18, seg: 'chart' as const}, {x: W - ww - 36, y: 1230, r: -18, seg: 'predict' as const}]
+                   : [{x: 70, y: 640, r: 20, seg: 'chart' as const}, {x: W - ww - 70, y: 640, r: -20, seg: 'predict' as const}];
   return (
-    <AbsoluteFill style={{perspective: 1600, opacity: o}}>
-      {pos.map((p, i) => (
-        <div key={i} style={{position: 'absolute', left: p.x, top: p.y + (1 - k) * 80, opacity: k,
-          transform: `rotateY(${p.r}deg) translateY(${Math.sin(f / 22 + i) * 6}px)`, transformOrigin: i ? '100% 50%' : '0% 50%'}}>
-          <Window w={ww}><UIClip seg={p.seg} at={DROP} len={OUT1 - DROP} /></Window>
-        </div>
-      ))}
+    <AbsoluteFill style={{opacity: o}}>
+      {pos.map((p, i) => {
+        const at = DROP + 6 + i * 6;
+        const k = interpolate(f, [at, at + 16], [0, 1], {...clamp, easing: ease});
+        const lk = interpolate(f, [at + 10, at + 22], [0, 1], {...clamp, easing: ease});
+        const bob = Math.sin(f / 24 + i * 1.7) * 5;
+        const [pt, en] = SIDE_LABELS[p.seg];
+        return (
+          <div key={i} style={{position: 'absolute', left: p.x, top: p.y + (1 - k) * 60 + bob, width: ww, opacity: k}}>
+            <div style={{perspective: 1400}}>
+              <div style={{transform: `rotateY(${p.r}deg)`, transformOrigin: i ? '100% 50%' : '0% 50%'}}>
+                <Window w={ww}><UIClip seg={p.seg} at={DROP} len={OUT1 - DROP} /></Window>
+              </div>
+            </div>
+            <div style={{marginTop: 16, textAlign: i ? 'right' : 'left', opacity: lk, transform: `translateY(${(1 - lk) * 8}px)`}}>
+              <div style={{fontFamily: SANS, fontWeight: 700, fontSize: TALL ? 30 : 28, color: WHITE, lineHeight: 1.15, textShadow: '0 2px 12px rgba(0,0,0,.8)'}}>{pt}</div>
+              <div style={{fontFamily: SANS, fontWeight: 500, fontSize: TALL ? 22 : 20, letterSpacing: '0.06em', color: 'rgba(184,242,106,.85)', marginTop: 4, textTransform: 'uppercase', textShadow: '0 2px 12px rgba(0,0,0,.8)'}}>{en}</div>
+            </div>
+          </div>
+        );
+      })}
     </AbsoluteFill>
   );
 };
@@ -504,8 +521,9 @@ export const R10Aura: React.FC<{ui?: UIStyle}> = ({ui = 'none'}) => {
       <Facts f={f} />
       {ui === 'bg' && <UIBackground f={f} />}
       {ui === 'cards' && <UICards f={f} />}
-      {ui === 'side' && <UISide f={f} />}
+      {ui === 'side' && <UISide f={f} front={false} />}
       <Person f={f} />
+      {ui === 'side' && <UISide f={f} front />}
       <Captions f={f} />
       <CornerLogo f={f} />
       <Outro f={f} />

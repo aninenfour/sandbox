@@ -113,8 +113,8 @@ export const Root: React.FC = () => (
     <Composition id="R10Luxe" component={R10Luxe} durationInFrames={R10L_DURATION} fps={R10L_FPS} width={1920} height={1080} />
     <Composition id="R10Campaign" component={R10Styled} defaultProps={{style: 'campaign' as const}} durationInFrames={R10S_DURATION} fps={R10S_FPS} width={1920} height={1080} />
     <Composition id="R10Editorial" component={R10Styled} defaultProps={{style: 'editorial' as const}} durationInFrames={R10S_DURATION} fps={R10S_FPS} width={1920} height={1080} />
-    <Composition id="R10Aura" component={R10Aura} durationInFrames={R10AURA_DURATION} fps={R10AURA_FPS} width={1920} height={1080} />
-    <Composition id="R10AuraTall" component={R10Aura} durationInFrames={R10AURA_DURATION} fps={R10AURA_FPS} width={1080} height={1920} />
+    <Composition id="R10Aura" component={R10Aura} defaultProps={{ui: 'side' as const}} durationInFrames={R10AURA_DURATION} fps={R10AURA_FPS} width={1920} height={1080} />
+    <Composition id="R10AuraTall" component={R10Aura} defaultProps={{ui: 'side' as const}} durationInFrames={R10AURA_DURATION} fps={R10AURA_FPS} width={1080} height={1920} />
     <Composition id="R10Tall" component={R10Ambassador} defaultProps={{tall: true}} durationInFrames={R10A_DURATION} fps={R10A_FPS} width={1080} height={1920} />
     <Composition id="PolicyMoney" component={PolicyMoney} durationInFrames={1} fps={30} width={1080} height={1350} />
     <Composition id="PolicyMoves" component={PolicyMoves} durationInFrames={1} fps={30} width={1080} height={1350} />
