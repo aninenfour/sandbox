@@ -497,27 +497,46 @@ const UICards: React.FC<{f: number}> = ({f}) => {
   );
 };
 
-// Hotcoin symbol orbiting him (16:9 only, team 2026-11-18). Tilted ellipse around his upper body: the far half is drawn
-// behind him (smaller, dimmer, soft), the near half in front at chest height (below his face). One orbit per two bars.
-const ORBIT = {cx: 960, cy: 545, rx: 400, ry: 62, tilt: -6};
-const orbitAngle = (f: number) => ((f - DROP) / (BEAT * R10AURA_FPS * 8)) * Math.PI * 2 - Math.PI / 2;
-const OrbitLogo: React.FC<{f: number; front: boolean}> = ({f, front}) => {
-  if (TALL || f < DROP || f >= OUT1) return null;
-  const k = interpolate(f, [DROP + 6, DROP + 22, OUT1 - 10, OUT1], [0, 1, 1, 0], clamp);
-  const th = orbitAngle(f);
-  const z = Math.sin(th);                         // > 0 = near side (in front of him)
+// Hotcoin symbol orbiting him (16:9 only, team 2026-11-18): a steep tilted orbit around his head and shoulders
+// (1.5 turns, eased), then it glides onto his heart (his left chest, on the dark jacket) and pops in like a pin,
+// where it stays with a soft glow until he finishes. Far half of the orbit is drawn behind him, near half in front.
+const ORBIT = {cx: 960, cy: 490, rx: 300, ry: 140, tilt: 18};   // high side on the left, clear of both caption columns
+const HEART = {x: 1095, y: 715};
+const ORB_START = DROP + 10, ORB_END = ORB_START + 105, LAND = ORB_END + 12;
+const orbitPoint = (th: number) => {
   const {cx, cy, rx, ry, tilt} = ORBIT;
   const t = (tilt * Math.PI) / 180;
-  const ex = Math.cos(th) * rx, ey = z * ry;
-  const x = cx + ex * Math.cos(t) - ey * Math.sin(t), y = cy + ex * Math.sin(t) + ey * Math.cos(t);
+  const ex = Math.cos(th) * rx, ey = Math.sin(th) * ry;
+  return {x: cx + ex * Math.cos(t) - ey * Math.sin(t), y: cy + ex * Math.sin(t) + ey * Math.cos(t), z: Math.sin(th)};
+};
+const OrbitLogo: React.FC<{f: number; front: boolean}> = ({f, front}) => {
+  if (TALL || f < ORB_START || f >= OUT1) return null;
+  const out = interpolate(f, [OUT1 - 10, OUT1], [1, 0], clamp);
+  const appear = interpolate(f, [ORB_START, ORB_START + 12], [0, 1], clamp);
+  const prog = interpolate(f, [ORB_START, ORB_END], [0, 1], {...clamp, easing: Easing.bezier(0.45, 0, 0.35, 1)});
+  const th = -Math.PI / 2 + prog * Math.PI * 3;              // starts behind his head, ends at the front of the orbit
+  const o = orbitPoint(th);
+  const land = interpolate(f, [ORB_END, LAND], [0, 1], {...clamp, easing: ease});
+  const x = o.x + (HEART.x - o.x) * land, y = o.y + (HEART.y - o.y) * land;
+  const z = land > 0 ? 1 : o.z;
   const isFront = z >= 0;
-  const size = 78 * (1 + 0.32 * z);
-  // orbit line: the matching half of the ellipse in each layer
-  const arc = (
-    <svg width={W} height={H} style={{position: 'absolute', inset: 0, opacity: k}}>
-      <defs><clipPath id={front ? 'orbFront' : 'orbBack'}><rect x={0} y={front ? cy : 0} width={W} height={front ? H - cy : cy} /></clipPath></defs>
-      <g clipPath={`url(#${front ? 'orbFront' : 'orbBack'})`} transform={`rotate(${tilt} ${cx} ${cy})`}>
-        <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="none" stroke={LIME} strokeWidth={front ? 2.5 : 1.5} strokeOpacity={front ? 0.55 : 0.25} />
+  // pop on landing, then a slow breath
+  const pop = f < LAND ? 1 : 1 + 0.35 * Math.exp(-(f - LAND) / 3) * Math.cos((f - LAND) / 2.2);
+  const breath = f < LAND + 10 ? 0 : 0.04 * Math.sin((f - LAND) / 12);
+  const base = land > 0 ? 100 + (68 - 100) * land : 76 * (1 + 0.3 * z);
+  const size = base * pop * (1 + breath);
+  const ringO = appear * out * (1 - land);
+  const {cx, cy, rx, ry, tilt} = ORBIT;
+  const arc = ringO > 0 && (
+    <svg width={W} height={H} style={{position: 'absolute', inset: 0, opacity: ringO}}>
+      <defs>
+        <mask id={front ? 'orbF' : 'orbB'}>
+          {/* near half = below the ellipse's major axis */}
+          <g transform={`rotate(${tilt} ${cx} ${cy})`}><rect x={0} y={front ? cy : -H} width={W} height={H * 2} fill="#fff" transform={front ? '' : `translate(0 0)`} />{front ? null : <rect x={0} y={cy} width={W} height={H * 2} fill="#000" />}</g>
+        </mask>
+      </defs>
+      <g mask={`url(#${front ? 'orbF' : 'orbB'})`}>
+        <ellipse cx={cx} cy={cy} rx={rx} ry={ry} transform={`rotate(${tilt} ${cx} ${cy})`} fill="none" stroke={LIME} strokeWidth={front ? 2.5 : 1.5} strokeOpacity={front ? 0.5 : 0.22} />
       </g>
     </svg>
   );
@@ -526,8 +545,8 @@ const OrbitLogo: React.FC<{f: number; front: boolean}> = ({f, front}) => {
       {arc}
       {isFront === front && (
         <Img src={staticFile('brand/symbol-official-white.png')} style={{position: 'absolute', left: x - size / 2, top: y - size / 2, width: size, height: size,
-          opacity: k * (front ? 1 : 0.55 + 0.45 * (1 + z)), transform: `rotate(${Math.cos(th) * 8}deg)`,
-          filter: `drop-shadow(0 0 ${front ? 22 : 10}px rgba(184,242,106,${front ? 0.75 : 0.4})) ${front ? '' : 'blur(1px)'}`}} />
+          opacity: appear * out * (isFront ? 1 : 0.5 + 0.5 * (1 + z)),
+          filter: `drop-shadow(0 0 ${isFront ? 20 + 14 * land : 10}px rgba(184,242,106,${isFront ? 0.75 : 0.4}))${isFront ? '' : ' blur(1px)'}`}} />
       )}
     </AbsoluteFill>
   );
