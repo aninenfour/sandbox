@@ -23,13 +23,13 @@
 | 16/11 | 19:31 | Poll | Nvidia depois do resultado | published https://x.com/1895401255163576320/status/2122457654597447776 |
 | 17/11 | 08:59 | GM | Pelourinho, Salvador: linha cruza o calçamento e sobe a torre da igreja | published https://x.com/1895401255163576320/status/2122660998884511828 |
 | 17/11 | 10:23 | Event LAUNCH | Desafio Spot #24: 300.000 USDT, 1º 8.888 USDT, até 30/11 12:59 (link in reply) | published https://x.com/1895401255163576320/status/2122682137493098545 |
-| 17/11 | 13:38 | Placar do dia | $BREV +112,5% x $BTC −0,1% (24h até 12:10) | scheduled |
+| 17/11 | 13:38 | Placar do dia | $BREV +112,5% x $BTC −0,1% (24h até 12:10) | published https://x.com/1895401255163576320/status/2122731209964814512 |
 | 17/11 | 16:44 | Event LAUNCH | P2P Trading Sprint: indicação (cupom taxa spot) + volume (Futures Trial Funds), até 28/11 07:00 (link in reply) | scheduled |
-| 17/11 | 19:03 | Text | Nvidia 18:20, grupo da família vira analista de chip | scheduled |
+| 17/11 | 19:03 | Text | Nvidia 18:20, grupo da família vira analista de chip | published https://x.com/1895401255163576320/status/2122813023375003803 |
 
 | 18/11 | 08:51 | GM | Jardim Botânico, Curitiba: linha sobe o caminho até a estufa | scheduled |
-| 18/11 | 10:32 | Event LAUNCH | Ronaldinho x Hotcoin: estreia em futuros até 200 USDT, Patek Philippe no ranking, até 29/11 04:00 (link in reply) | scheduled |
-| 18/11 | 12:07 | Text (data) | Nvidia 3º tri FY27: US$ 115,8 bi +103%, DC US$ 107,6 bi, guia US$ 130 bi (nvidianews) | scheduled |
+| 18/11 | 10:32 | Event LAUNCH | Ronaldinho x Hotcoin: estreia em futuros até 200 USDT, Patek Philippe no ranking, até 29/11 04:00 (link in reply) | published https://x.com/1895401255163576320/status/2123046716995666068 |
+| 18/11 | 12:07 | Text (data) | Nvidia 3º tri FY27: US$ 115,8 bi +103%, DC US$ 107,6 bi, guia US$ 130 bi (nvidianews) | published https://x.com/1895401255163576320/status/2123070615334637974 |
 | 18/11 | 14:49 | Learn do dia | Desdobramento de ações (stock-split), pt_PT link in reply. EN copy: Research X 15:04, FB 15:13 | scheduled |
 | 18/11 | 17:39 | Anúncio oficial | SNDKB 8:1 (suspensão 19/11 05:00, retorno 20/11 07:00) (link in reply) | scheduled |
 
@@ -55,3 +55,4 @@
 - 17/11 12:10 check 2: no new announcements beyond Spot #24 + P2P Sprint (launched this morning). Placar BREV verified (CoinGecko brevis 0.1232, +114.8%), scheduled 13:38. Team posted a US retail sales post (05:03) and a GM (deleted) on this account. Learn do dia set up (tracker/learn.json), first post Wed 18/11 (stock split).
 - 17/11 16:14 check 3: no new announcements. P2P Sprint 16:44 and Nvidia text 19:03 queued; Placar BREV 13:38 left the queue (published). Nothing closes before 08:00 Wed. Wed plan: Learn do dia (stock split, PT + FB + Research), Anúncio SNDKB 8:1 (suspension Thu 19/11 05:00), Nvidia result post with verified IR numbers; Wall Street Earnings last-day reminder Thu morning.
 - 18/11 07:44 check 1: NEW events Ronaldinho x Hotcoin (18/11 04:00 to 29/11 04:00 Brasília; official banner labels him 'Embaixador da Hotcoin (Brasil)', banner cutout used) and Fixed-Term Earn Exclusive (17/11 23:30 to 28/11 08:00) added. SNDKB notice unchanged (re-read). Nvidia Q3 numbers verified on nvidianews.nvidia.com. Learn do dia #1 stock split on PT + Research + FB. No placar today (varied), no meme.
+- 18/11 12:09 check 2: no new announcements. No Placar today (planned variation). NOTE: team posted Nvidia results on this account at 05:41 (status 2122897972388143265), so our 12:07 Nvidia text is a duplicate topic; flagged to owner. Team also posted the official Ronaldinho partnership video (06:04) and new TradFi perps listing (05:29). Ronaldinho is confirmed official ambassador.
