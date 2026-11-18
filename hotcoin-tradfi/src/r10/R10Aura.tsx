@@ -106,25 +106,26 @@ const Cover: React.FC<{f: number}> = ({f}) => {
   const size = TALL ? 56 : 60;
   return (
     <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', opacity: 1 - out, transform: `translateY(${-out * 60}px)`}}>
-      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: TALL ? 56 : 48, textAlign: 'center'}}>
-        <Lockup logoH={TALL ? 96 : 104} nameSize={TALL ? 132 : 170} align="center" />
-        <div style={{width: 140, height: 5, background: LIME}} />
-        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: size, lineHeight: 1.2}}>
-          <div style={{color: WHITE}}>{EN}</div>
-          <div style={{color: LIME}}>{PT}</div>
+      {/* Hotcoin is the hero (team 2026-11-18): big logo, his name smaller; ambassador lines live on the end card */}
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: TALL ? 44 : 40, textAlign: 'center'}}>
+        <Img src={staticFile('brand/logo-official-white.png')} style={{height: TALL ? 132 : 170}} />
+        <div style={{width: 140, height: 4, background: LIME}} />
+        <div style={{display: 'flex', alignItems: 'baseline', gap: 22}}>
+          <span style={{fontFamily: SANS, fontWeight: 800, fontSize: size * 1.1, color: LIME, lineHeight: 1}}>×</span>
+          <span style={{fontFamily: SANS, fontWeight: 800, fontSize: size * 1.45, letterSpacing: 4, color: WHITE, lineHeight: 1}}>RONALDINHO</span>
         </div>
       </div>
     </AbsoluteFill>
   );
 };
 
-// Hotcoin stats panel, built one per beat, then held. Source: hotcoin.com/en_US/about, checked 2026-11-17
-// ("2017 Year Founded · 8.1M+ Registered Users · 120+ Countries and Regions Served · 300+ spot pairs and 500+ futures pairs").
+// Facts: hotcoin.com/en_US/about (checked 2026-11-17): founded 2017, 8.1M+ registered users, 120+ countries and regions,
+// 300+ spot + 500+ futures pairs = 800+ trading pairs (team asked for 800, 2026-11-18). Labels in Portuguese (team: visuals in PT).
 const FACTS: {to: number; dec: number; pre: string; suf: string; label: string}[] = [
-  {to: 2017, dec: 0, pre: '', suf: '', label: 'Founded'},
-  {to: 8.1, dec: 1, pre: '', suf: 'M+', label: 'Registered users'},
-  {to: 120, dec: 0, pre: '', suf: '+', label: 'Countries and regions'},
-  {to: 500, dec: 0, pre: '', suf: '+', label: 'Futures pairs, plus 300+ spot'},
+  {to: 2017, dec: 0, pre: '', suf: '', label: 'Ano de fundação'},
+  {to: 8.1, dec: 1, pre: '', suf: 'M+', label: 'Usuários registrados'},
+  {to: 120, dec: 0, pre: '', suf: '+', label: 'Países e regiões'},
+  {to: 800, dec: 0, pre: '', suf: '+', label: 'Pares de negociação'},
 ];
 const FACT_AT = (i: number) => fr(beatS(1 + i));
 const Facts: React.FC<{f: number}> = ({f}) => {
@@ -198,11 +199,12 @@ const Person: React.FC<{f: number}> = ({f}) => {
 };
 
 // ---------- kinetic captions: line A on the left, line B on the right, word by word ----------
+// his own words in Portuguese (Whisper word starts, clip seconds); English is the small subtitle (EN_SUB)
 const PH_ = [
-  {a: 0.0, b: 1.5, L: ['THIS', 'IS'], R: ['RONALDINHO.'], t: [0.0, 0.66, 0.74], hi: 2},
-  {a: 1.55, b: 2.62, L: ['PLAY'], R: ['YOUR', 'WAY.'], t: [1.62, 1.84, 1.96], hi: 2},
-  {a: 2.64, b: 4.15, L: ['MAKE', 'THE'], R: ['MAGIC', 'HAPPEN.'], t: [2.68, 2.92, 2.98, 3.26], hi: 2},
-  {a: 4.25, b: 5.75, L: ['SEE YOU', 'AT'], R: ['HOTCOIN.'], t: [4.34, 4.84, 5.16], hi: 2},
+  {a: 0.0, b: 1.5, L: ['AQUI É O'], R: ['RONALDINHO.'], t: [0.0, 0.74], hi: 1, en: 'This is Ronaldinho.'},
+  {a: 1.55, b: 2.62, L: ['JOGUE'], R: ['DO SEU', 'JEITO.'], t: [1.62, 1.84, 2.14], hi: 2, en: 'Play your way.'},
+  {a: 2.64, b: 4.15, L: ['FAÇA', 'A'], R: ['MAGIA', 'ACONTECER.'], t: [2.68, 2.92, 2.98, 3.26], hi: 2, en: 'Make the magic happen.'},
+  {a: 4.25, b: 5.75, L: ['A GENTE', 'SE VÊ NA'], R: ['HOTCOIN.'], t: [4.34, 4.62, 5.16], hi: 2, en: 'See you at Hotcoin.'},
 ];
 const SIDE_W = 560;
 const fit = (word: string, max: number) => Math.min(max, SIDE_W / (word.length * 0.6));
@@ -252,8 +254,14 @@ const Captions: React.FC<{f: number}> = ({f}) => {
       </AbsoluteFill>
     );
   }
+  const enSub = (
+    <div style={{position: 'absolute', left: 0, right: 0, bottom: TALL ? 300 : 52, textAlign: 'center'}}>
+      <span style={{fontFamily: SANS, fontWeight: 600, fontSize: TALL ? 40 : 38, color: WHITE, background: 'rgba(5,6,7,.7)', padding: '8px 22px', borderRadius: 6}}>{p.en}</span>
+    </div>
+  );
   return (
     <AbsoluteFill style={{opacity: out}}>
+      {enSub}
       <div style={{position: 'absolute', left: 90, top: 330, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>{render(p.L, 0, 'left')}</div>
       <div style={{position: 'absolute', right: 90, top: 330, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>{render(p.R, p.L.length, 'right')}</div>
     </AbsoluteFill>
@@ -280,12 +288,13 @@ const NameStrip: React.FC<{f: number}> = ({f}) => {
 const Outro: React.FC<{f: number}> = ({f}) => {
   if (f < OUT1 || f >= END) return null;
   const out = interpolate(f, [END - 6, END], [0, 1], clamp);
-  const size = TALL ? 104 : 140;
+  const size = TALL ? 78 : 112;
   return (
     <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', opacity: 1 - out}}>
       <div style={{fontFamily: SANS, fontWeight: 800, fontSize: size, lineHeight: 1.04, letterSpacing: -size * 0.03, color: WHITE, textAlign: 'center'}}>
-        <Reveal f={f} at={OUT1} dur={10}>Hotcoin welcomes</Reveal>
-        <Reveal f={f} at={OUT1 + 6} dur={10}>our <span style={{color: LIME}}>ambassador.</span></Reveal>
+        <Reveal f={f} at={OUT1} dur={10}>A Hotcoin dá as boas-vindas</Reveal>
+        <Reveal f={f} at={OUT1 + 6} dur={10}>ao nosso <span style={{color: LIME}}>embaixador.</span></Reveal>
+        <div style={{fontWeight: 600, fontSize: TALL ? 40 : 38, letterSpacing: 0, color: 'rgba(243,245,241,.75)', marginTop: 30, opacity: interpolate(f, [OUT1 + 14, OUT1 + 24], [0, 1], clamp)}}>Hotcoin welcomes our ambassador.</div>
       </div>
     </AbsoluteFill>
   );

@@ -22,18 +22,20 @@ const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const ease = Easing.bezier(0.16, 1, 0.3, 1);
 
 type Style = 'campaign' | 'editorial';
+// Facts: hotcoin.com/en_US/about (checked 2026-11-17): founded 2017, 8.1M+ registered users, 120+ countries and regions,
+// 300+ spot + 500+ futures pairs = 800+ trading pairs (team asked for 800, 2026-11-18). Labels in Portuguese (team: visuals in PT).
 const FACTS = [
-  {to: 2017, dec: 0, suf: '', label: 'Founded'},
-  {to: 8.1, dec: 1, suf: 'M+', label: 'Registered users'},
-  {to: 120, dec: 0, suf: '+', label: 'Countries and regions'},
-  {to: 500, dec: 0, suf: '+', label: 'Futures pairs, plus 300+ spot'},
+  {to: 2017, dec: 0, suf: '', label: 'Ano de fundação'},
+  {to: 8.1, dec: 1, suf: 'M+', label: 'Usuários registrados'},
+  {to: 120, dec: 0, suf: '+', label: 'Países e regiões'},
+  {to: 800, dec: 0, suf: '+', label: 'Pares de negociação'},
 ];
-// English captions; t = word start in clip seconds (Whisper), key = highlighted word index
+// captions: his Portuguese words (Whisper word starts, clip seconds) + English subtitle line; key = highlighted word
 const PHRASES = [
-  {a: 0.0, b: 1.5, w: ['This', 'is', 'Ronaldinho.'], t: [0.0, 0.66, 0.74], key: 2},
-  {a: 1.55, b: 2.62, w: ['Play', 'your', 'way.'], t: [1.62, 1.84, 1.96], key: 2},
-  {a: 2.64, b: 4.15, w: ['Make', 'the', 'magic', 'happen.'], t: [2.68, 2.92, 2.98, 3.26], key: 2},
-  {a: 4.25, b: 5.75, w: ['See', 'you', 'at', 'Hotcoin.'], t: [4.34, 4.42, 4.84, 5.16], key: 3},
+  {a: 0.0, b: 1.5, w: ['Aqui', 'é', 'o', 'Ronaldinho.'], t: [0.0, 0.66, 0.72, 0.74], key: 3, en: 'This is Ronaldinho.'},
+  {a: 1.55, b: 2.62, w: ['Jogue', 'do', 'seu', 'jeito.'], t: [1.62, 1.84, 1.96, 2.14], key: 3, en: 'Play your way.'},
+  {a: 2.64, b: 4.15, w: ['Faça', 'a', 'magia', 'acontecer.'], t: [2.68, 2.92, 2.98, 3.26], key: 2, en: 'Make the magic happen.'},
+  {a: 4.25, b: 5.75, w: ['A', 'gente', 'se', 'vê', 'na', 'Hotcoin.'], t: [4.34, 4.42, 4.62, 4.84, 5.0, 5.16], key: 5, en: 'See you at Hotcoin.'},
 ];
 
 const Reveal: React.FC<{f: number; at: number; dur?: number; children: React.ReactNode; style?: React.CSSProperties; inline?: boolean}> = ({f, at, dur = 10, children, style, inline}) => {
@@ -88,13 +90,11 @@ const CampaignText: React.FC<{f: number}> = ({f}) => {
   const L = 110;
   // cover
   const cover = f < COVER_END && (
-    <div style={{position: 'absolute', left: L, top: 300, opacity: fadeOut(f, COVER_END, 8)}}>
-      <Reveal f={f} at={-10} dur={1}><div style={{fontFamily: MONO, fontSize: 22, letterSpacing: 5, color: 'rgba(243,245,241,.8)'}}>OFFICIAL AMBASSADOR · BRASIL</div></Reveal>
-      <div style={{width: 64, height: 2, background: LIME, margin: '24px 0 22px'}} />
-      <div style={{fontFamily: SERIF, fontSize: 168, lineHeight: 0.92, color: WHITE}}>Hotcoin<br /><span style={{fontStyle: 'italic', color: LIME}}>×</span> Ronaldinho</div>
-      <div style={{fontFamily: SANS, fontWeight: 700, fontSize: 46, lineHeight: 1.2, marginTop: 52}}>
-        <div style={{color: WHITE}}>{EN}</div><div style={{color: LIME}}>{PT}</div>
-      </div>
+    <div style={{position: 'absolute', left: L, top: 330, opacity: fadeOut(f, COVER_END, 8)}}>
+      <Img src={staticFile('brand/logo-official-white.png')} style={{height: 150}} />
+      <div style={{width: 64, height: 2, background: LIME, margin: '44px 0 30px'}} />
+      <div style={{fontFamily: MONO, fontSize: 26, letterSpacing: 6, color: 'rgba(243,245,241,.85)'}}>EMBAIXADOR OFICIAL · BRASIL</div>
+      <div style={{fontFamily: SERIF, fontSize: 112, lineHeight: 1, color: WHITE, marginTop: 18}}><span style={{color: LIME}}>×</span> Ronaldinho</div>
     </div>
   );
   // facts: serif numbers, stacked list
@@ -161,9 +161,9 @@ const Captions: React.FC<{f: number; s: Style}> = ({f, s}) => {
   const p = PHRASES[i];
   const out = interpolate(t, [p.b - 0.12, p.b], [1, 0], clamp);
   const camp = s === 'campaign';
-  const size = camp ? 128 : 170;
+  const size = camp ? 116 : 150;
   return (
-    <div style={{position: 'absolute', left: camp ? 110 : 76, top: camp ? 620 : 300, width: camp ? 900 : 1000, opacity: out,
+    <div style={{position: 'absolute', left: camp ? 110 : 76, top: camp ? 560 : 300, width: camp ? 920 : 1000, opacity: out,
       fontFamily: SERIF, fontSize: size, lineHeight: 0.98, color: camp ? WHITE : INK, letterSpacing: camp ? 0 : -2}}>
       {p.w.map((w, k) => {
         const at = V + fr(p.t[k]);
@@ -172,12 +172,14 @@ const Captions: React.FC<{f: number; s: Style}> = ({f, s}) => {
           <React.Fragment key={k}>
             <Reveal f={f} at={at} dur={8} inline>
               {camp
-                ? <span style={{fontStyle: key ? 'italic' : 'normal', color: key ? LIME : WHITE}}>{w}</span>
-                : <Mark f={f} at={at + 4} on={key}><span style={{fontStyle: key ? 'italic' : 'normal'}}>{w}</span></Mark>}
+                ? <span style={{color: key ? LIME : WHITE}}>{w}</span>
+                : <Mark f={f} at={at + 4} on={key}><span>{w}</span></Mark>}
             </Reveal>{' '}
           </React.Fragment>
         );
       })}
+      <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 40, letterSpacing: 0, lineHeight: 1.2, marginTop: 22, color: camp ? 'rgba(243,245,241,.8)' : INK,
+        opacity: interpolate(f, [V + fr(p.a) + 4, V + fr(p.a) + 12], [0, 1], clamp)}}>{p.en}</div>
     </div>
   );
 };
@@ -188,9 +190,10 @@ const Welcome: React.FC<{f: number; s: Style}> = ({f, s}) => {
   const camp = s === 'campaign';
   const o = fadeOut(f, END + 8, 10);
   return camp ? (
-    <div style={{position: 'absolute', left: 110, top: 380, opacity: o, fontFamily: SERIF, fontSize: 150, lineHeight: 0.95, color: WHITE}}>
-      <Reveal f={f} at={WELCOME}>Hotcoin welcomes</Reveal>
-      <Reveal f={f} at={WELCOME + 6}>our <span style={{fontStyle: 'italic', color: LIME}}>ambassador.</span></Reveal>
+    <div style={{position: 'absolute', left: 110, top: 330, opacity: o, fontFamily: SERIF, fontSize: 126, lineHeight: 0.98, color: WHITE}}>
+      <Reveal f={f} at={WELCOME}>A Hotcoin dá as boas-vindas</Reveal>
+      <Reveal f={f} at={WELCOME + 6}>ao nosso <span style={{color: LIME}}>embaixador.</span></Reveal>
+      <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 40, lineHeight: 1.2, marginTop: 30, color: 'rgba(243,245,241,.8)', opacity: interpolate(f, [WELCOME + 14, WELCOME + 24], [0, 1], clamp)}}>Hotcoin welcomes our ambassador.</div>
     </div>
   ) : (
     <div style={{position: 'absolute', left: 72, top: 250, opacity: o, fontFamily: SERIF, fontSize: 210, lineHeight: 0.92, color: INK, letterSpacing: -3}}>
@@ -211,7 +214,7 @@ const EndCard: React.FC<{f: number; s: Style}> = ({f, s}) => {
         <div style={{fontFamily: SERIF, fontSize: 116, lineHeight: 1, color: c}}>{EN}</div>
       </Reveal>
       <Reveal f={f} at={END + 9}>
-        <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 116, lineHeight: 1.05, color: camp ? LIME : c}}>{camp ? PT : <Mark f={f} at={END + 16} on>{PT}</Mark>}</div>
+        <div style={{fontFamily: SERIF, fontSize: 116, lineHeight: 1.05, color: camp ? LIME : c}}>{camp ? PT : <Mark f={f} at={END + 16} on>{PT}</Mark>}</div>
       </Reveal>
       <Reveal f={f} at={END + 16} style={{marginTop: 60}}>
         <div style={{display: 'inline-block', background: camp ? LIME : INK, color: camp ? INK : PAPER, borderRadius: 999, padding: '18px 44px', fontFamily: SANS, fontWeight: 800, fontSize: 40}}>hotcoin.com</div>
