@@ -129,7 +129,7 @@ const FACTS: {to: number; dec: number; pre: string; suf: string; label: string; 
 ];
 const FACT_AT = (i: number) => fr(beatS(1 + i));
 const Facts: React.FC<{f: number}> = ({f}) => {
-  if (f < COVER_END || f >= DROP) return null;
+  if (f < (TALL ? 0 : COVER_END) || f >= DROP) return null;   // 9:16 has no poster/cover: Hotcoin panel from frame 0
   const out = interpolate(f, [DROP - 6, DROP], [0, 1], clamp);
   const num = TALL ? 150 : 176, lab = TALL ? 46 : 50;
   const cell = (x: typeof FACTS[0], i: number) => {
@@ -148,7 +148,7 @@ const Facts: React.FC<{f: number}> = ({f}) => {
   return (
     <AbsoluteFill style={{opacity: 1 - out}}>
       <div style={{position: 'absolute', left: TALL ? 90 : 150, right: TALL ? 90 : 150, top: TALL ? 360 : 200}}>
-        <Reveal f={f} at={COVER_END}><Img src={staticFile('brand/logo-official-white.png')} style={{height: TALL ? 64 : 58}} /></Reveal>
+        <Reveal f={f} at={TALL ? -12 : COVER_END}><Img src={staticFile('brand/logo-official-white.png')} style={{height: TALL ? 64 : 58}} /></Reveal>
         <div style={{display: 'grid', gridTemplateColumns: TALL ? '1fr' : '1fr 1fr', columnGap: 120, rowGap: TALL ? 54 : 50, marginTop: TALL ? 70 : 56}}>
           {FACTS.map(cell)}
         </div>
@@ -250,9 +250,23 @@ const Captions: React.FC<{f: number}> = ({f}) => {
         </div>
       );
     };
+    // English under each Portuguese row, same treatment as 16:9 (smaller, lighter, thin lime rule)
+    const enRow = (txt: string, firstIdx: number, lime: boolean) => {
+      if (!txt) return null;
+      const lt = (t - p.t[Math.min(firstIdx, p.t.length - 1)]) * R10AURA_FPS - 4;
+      const q = interpolate(lt, [0, 8], [0, 1], {...clamp, easing: ease});
+      return (
+        <div style={{display: 'flex', justifyContent: 'center', margin: '4px 0 18px', opacity: q, transform: `translateY(${(1 - q) * 10}px)`}}>
+          <div style={{paddingTop: 10, borderTop: `2px solid rgba(184,242,106,${0.5 * q})`, fontFamily: SANS, fontWeight: 500, fontSize: 42, letterSpacing: '0.08em',
+            color: lime ? 'rgba(184,242,106,.85)' : 'rgba(243,245,241,.72)', whiteSpace: 'nowrap'}}>{txt}</div>
+        </div>
+      );
+    };
     return (
       <AbsoluteFill style={{opacity: out}}>
-        <div style={{position: 'absolute', left: 50, right: 50, top: 190, display: 'flex', flexDirection: 'column', gap: 6}}>{row(p.L, 0)}{row(p.R, p.L.length)}</div>
+        <div style={{position: 'absolute', left: 50, right: 50, top: 150, display: 'flex', flexDirection: 'column', gap: 4}}>
+          {row(p.L, 0)}{enRow(p.enL, 0, false)}{row(p.R, p.L.length)}{enRow(p.enR, p.L.length, true)}
+        </div>
       </AbsoluteFill>
     );
   }
@@ -321,7 +335,7 @@ const EndCard: React.FC<{f: number}> = ({f}) => {
           <div style={{fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 46 : 54, letterSpacing: 3, color: WHITE, lineHeight: 1}}>RONALDINHO</div>
         </div>
         {/* team 2026-11-18: Portuguese identity line only */}
-        <div style={{...row(3), fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 76 : 100, lineHeight: 1.12, letterSpacing: -2, color: WHITE}}>{PT}</div>
+        <div style={{...row(3), fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 62 : 100, lineHeight: 1.12, letterSpacing: -2, color: WHITE}}>{PT}</div>
         <div style={{...row(7), marginTop: TALL ? 80 : 50, background: LIME, color: INK, borderRadius: 999, padding: TALL ? '22px 48px' : '18px 42px', fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 46 : 40}}>hotcoin.com</div>
       </div>
     </AbsoluteFill>
