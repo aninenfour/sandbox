@@ -1,0 +1,71 @@
+{
+ "date": "NOV 18",
+ "window": "Prices at Nov 18 11:58 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Spot ETFs: first inflow in 8 sessions, $7.9M on Nov 16",
+   "last": 64499.96,
+   "ch": -0.8,
+   "vol": 1125822160.91,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "BREV",
+   "name": "Brevis",
+   "kind": "crypto",
+   "handle": "@brevis_zk",
+   "why": "Top 24h mover on Hotcoin, nearly doubled",
+   "last": 0.1105,
+   "ch": 92.5,
+   "vol": 574507.04,
+   "logo": "brev",
+   "bg": "#f45f00",
+   "glow": "#f45f00"
+  },
+  {
+   "sym": "ZRO",
+   "name": "LayerZero",
+   "kind": "crypto",
+   "handle": "@LayerZero_Core",
+   "why": "25.7M ZRO unlock on Fri Nov 20, 11:00 UTC+8",
+   "last": 1.375,
+   "ch": -9.71,
+   "vol": 670705.79,
+   "logo": "zro",
+   "bg": "#000000",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA",
+   "kind": "tradfi",
+   "handle": "@nvidia",
+   "why": "Q3 revenue $115.8B, up 103%; guides $130B next",
+   "last": 157.2,
+   "ch": -0.43,
+   "vol": 593428.62,
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "QQQB",
+   "name": "Nasdaq 100 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Fed minutes (Oct meeting) Thu 03:00 UTC+8",
+   "last": 660.44,
+   "ch": -0.7,
+   "vol": 586277.71,
+   "logo": "qqqb",
+   "bg": "#000ad2",
+   "glow": "#000ad2"
+  }
+ ]
+}

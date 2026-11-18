@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Spot ETFs: first inflow in 8 sessions, $7.9M on Nov 16"},
+ {"sym": "BREV", "kind": "crypto", "why": "Top 24h mover on Hotcoin, nearly doubled"},
+ {"sym": "ZRO", "kind": "crypto", "why": "25.7M ZRO unlock on Fri Nov 20, 11:00 UTC+8"},
+ {"sym": "NVDAB", "kind": "tradfi", "why": "Q3 revenue $115.8B, up 103%; guides $130B next"},
+ {"sym": "QQQB", "kind": "tradfi", "why": "Fed minutes (Oct meeting) Thu 03:00 UTC+8"}
+]}
