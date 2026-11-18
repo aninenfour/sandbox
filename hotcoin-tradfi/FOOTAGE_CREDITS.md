@@ -375,3 +375,4 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - GM 15/11 (Pão de Açúcar from Botafogo/Urca beach): Jonathan Borba, https://unsplash.com/photos/j_ibL7ytVBY
 - GM 16/11 (São Paulo avenue from above): André Ravazzi, https://unsplash.com/photos/5qTZBQFYXew
 - PT GM 17/11 (Pelourinho, Salvador): Celso Hashimoto, Unsplash ITt1J1byT6Y, Unsplash License. Mono + grain, lime line added.
+- PT GM 18/11 (Jardim Botânico, Curitiba): Marcelo Harassen do Ó, Unsplash wXu8B2Q6hoo, Unsplash License. Mono + grain, lime line added.
