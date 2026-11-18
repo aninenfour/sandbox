@@ -86,6 +86,7 @@ Examples (before → better):
   Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
 
 ## Changelog
+- 2026-11-19 (daily review): MEME REACT stat row: equal columns with a 64 px gap (`"row_gap"`), and memereact.py shrinks the big values to fit their column, all at one size, so two numbers never read as one ("$115.8B -35%" on the Nvidia cover, "-49% +63%" on rice). Before/after: research/2026-W47/memereact_numbers_before_after.jpg.
 - 2026-11-18 (daily review): ngrid cells get `"place": "top"|"bottom"` so the label + number clear a face (the centered block covered SBF's eyes on the Nov 18 Academy grid). PLAYBOOK §4 ngrid. Before/after: research/2026-W47/ngrid_place_before_after.jpg.
 - 2026-11-16 (owner: "the new visual for WHAT IF" + "TikTok has no thumbnail"): WHAT IF Reels go photo-first (`"look": "photo"`, default for new ones): 2-photo split cover with big label pills and the number, dimmed photo backdrops on every scene, photo end card with the result pill. Dark photo frames also fix the blank TikTok thumbnails (the light Reels were almost all white). PLAYBOOK §7b/§7c.
 - 2026-11-16 (weekly learning W46): `ngrid` visual-first photo grid slide added (news + Academy); WHAT IF slot = single purchases only (DCA retired); then-vs-now and "Ranking X" hook rules.

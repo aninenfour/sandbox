@@ -328,5 +328,23 @@
     "skipped": false,
     "looked_at": "Publer IG/FB/TikTok insights Nov 11-18; contact sheets of Zelle/Solana news (5 slides + Story + TT thumb), BTC 200-week Academy (4 slides + Story), AirPods WHAT IF video contact sheet, rice MEME REACT contact sheet",
     "owner_decision": "MEME REACT cadence: if rice keeps its share rate after 72 h, consider 3/week (now max ~2); Academy-as-Reels; earshot install; tier lists light theme; $5 voucher pitch"
+  },
+  {
+    "date": "2026-11-19",
+    "metrics_summary": "MEME REACT vs WHAT IF (Publer, Nov 19 06:50 UTC+8). Rice MEME REACT (~42 h): IG 143 reach, 6 shares, 2 saves; TikTok 784 reach, 12 shares, 26 likes. Nvidia MEME REACT (~18 h): IG 132 reach, 0 likes/shares/saves; TikTok insights not in yet. WHAT IF: GTX 1080 (~57 h) IG 319 / TT 857 / 1 IG share, 0 TT; AirPods (~33 h) IG 53 / TT 564 / FB 90, 0 shares; Kindle (~9 h) no insights yet. Carousels: Nvidia Q3 news 24 IG / 6 FB / 222 TT; Nvidia earnings Academy 18 IG / 348 TT; Zelle 18 IG / 233 TT. Team's IronKey Reel 137 IG / 348 TT.",
+    "findings": [
+      "MEME REACT vs WHAT IF on reach: comparable on IG (132-143 vs 53-319); WHAT IF still leads TikTok reach (564-857 vs 784 rice). On shares MEME REACT wins only through rice: 6 IG + 12 TT shares vs 0-1 for every WHAT IF, but Nvidia MEME REACT has 0 shares and 0 likes on 132 IG reach. Two data points, opposite results on shares: the relatable everyday twist (grandma, rice) got shared, the 'confused holder' stock joke did not. Not enough to change cadence.",
+      "Both MEME REACT covers: the two big stat values sit ~30 px apart, so '$115.8B -35%' and '-49% +63%' read as one string; $115.8B nearly touches the left edge. Recurring template issue -> fixed in memereact.py.",
+      "Nvidia MEME REACT: the sales icon (servers.jpg) is a near-black circle, unreadable at thumb size; next time use a recognisable object (chip, logo, product). Spec-level, not changed.",
+      "Nvidia Q3 news (5 slides + Story), Kindle WHAT IF (contact sheet: photo look, all frames dark, end lines word by word, CTA/end card current) and stock-splits Academy (variant B after A, ngrid + table + bars + Story) render clean: no clipping, numbers match post.json sources. Stock splits ngrid Tesla/Apple cells are very dark photos; readable, but less recognisable than the Amazon/Google cells.",
+      "Hooks: Nvidia news ('Nvidia forecast $108B. It made $115.8B'), Kindle ('A Kindle cost $399 in 2007...') and stock splits ('Amazon turned 1 share into 20. Who got richer?') pass the stranger test. Nvidia MEME REACT caption is a statement + Yes/No; a more personal, shareable line could be 'Nvidia had its best quarter ever. My portfolio didn't.'",
+      "TikTok doc chore: 4 rows swapped from Scheduled to live links (Nvidia news, Nvidia MEME REACT, 200-week Academy, Kindle WHAT IF); stock splits stays Scheduled (19:02 today). tiktok_log gained the missing 200-week Academy entry; log.json got ig_url for Kindle + 200-week. Publer also lists a second TikTok entry for the Nvidia MEME REACT at 12:30 with no video link (possible duplicate attempt); not touched."
+    ],
+    "changes": [
+      "memereact.py: stat row columns are equal width (flex 1 1 0) with a 64 px gap (spec \"row_gap\"), values nowrap, and render_png shrinks all values together until each fits its column (warns below 64 px). Tested by re-rendering the Nvidia and rice MEME REACT graphics to scratch: $115.8B and -35% now clearly separate, rice row unchanged in size, punch bubble and safe zones clear. Before/after: research/2026-W47/memereact_numbers_before_after.jpg."
+    ],
+    "skipped": false,
+    "looked_at": "Publer IG/FB/TikTok insights Nov 12-19 and published lists Nov 18-19; contact sheets of Nvidia Q3 news (5 slides + Story), stock-splits Academy (4 slides + Story), Kindle WHAT IF video contact sheet, Nvidia MEME REACT contact + cover vs rice cover",
+    "owner_decision": "MEME REACT: keep ~2/week; rice-style everyday twists got shares, Nvidia stock joke got none, so pick relatable non-finance objects for the punchline before raising cadence. Check the possible duplicate Nvidia MEME REACT TikTok entry in Publer. Still open: Academy-as-Reels, earshot install, tier lists light theme, $5 voucher pitch."
   }
 ]

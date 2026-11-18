@@ -1810,7 +1810,7 @@
    "tslide-table"
   ],
   "ngrid_used": true,
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1824,7 +1824,8 @@
    "Cointelegraph: BTC loses 200-week trend line as 2022 repeats",
    "Hotcoin X Nov 17: 200-week average ~$68K"
   ],
-  "note": "Variant A after B (Nov 17). Not Nvidia (Wed 10:00 news will likely cover results). 4 slides, no CTA, no render warnings. Slide 2 bars went to 4 items (adds the Jun 2022 break, -8.2%) so the layout-A photo fits. Nov 17 fix (daily review Nov 18): slide 3 ngrid '$20,553' covered SBF's eyes. Set place top + photo_pos 50% 0% on the June 2022 cell and place bottom on the March 2020 cell (masked face), re-rendered (no warnings; only 03.jpg + tt/03.jpg changed, media commit 9b2f07f). Old 5 Publer posts moved to draft and re-scheduled with the new SHA-pinned media (IG 19:00, FB 19:00, TikTok 19:02, IG Story 19:05, X Research 20:30), same captions. X refused a duplicate tweet text, so the old X draft caption was marked [OLD MEDIA...]. IG/FB first comment re-entered from post.json sources/credits."
+  "note": "Variant A after B (Nov 17). Not Nvidia (Wed 10:00 news will likely cover results). 4 slides, no CTA, no render warnings. Slide 2 bars went to 4 items (adds the Jun 2022 break, -8.2%) so the layout-A photo fits. Nov 17 fix (daily review Nov 18): slide 3 ngrid '$20,553' covered SBF's eyes. Set place top + photo_pos 50% 0% on the June 2022 cell and place bottom on the March 2020 cell (masked face), re-rendered (no warnings; only 03.jpg + tt/03.jpg changed, media commit 9b2f07f). Old 5 Publer posts moved to draft and re-scheduled with the new SHA-pinned media (IG 19:00, FB 19:00, TikTok 19:02, IG Story 19:05, X Research 20:30), same captions. X refused a duplicate tweet text, so the old X draft caption was marked [OLD MEDIA...]. IG/FB first comment re-entered from post.json sources/credits.",
+  "ig_url": "https://www.instagram.com/p/Df4WZ5dilXV/"
  },
  {
   "id": "2026-11-18-nvidia-q3-beat",
@@ -1878,7 +1879,7 @@
   "type": "reel-whatif-v2",
   "slot": "2026-11-18T21:30:00+08:00",
   "title": "Kindle ($399, Nov 19 2007) vs $399 in Amazon: $25,991 (65x)",
-  "status": "scheduled",
+  "status": "published",
   "music": "Try Me (Arulo, Mixkit) #235",
   "platforms": [
    "ig_reel",
@@ -1892,7 +1893,8 @@
    "Yahoo Finance AMZN split-adjusted close $3.959 Nov 19 2007; StatMuse $3.96",
    "Nasdaq + Yahoo: AMZN close $257.89 Nov 17 2026"
   ],
-  "note": "Calendar had GTA (Take-Two) for today; swapped to Kindle vs Amazon (no GTA/Nvidia/Apple). Photo look, lump. 66.8 s. Thumbnail check fill 54%. Commons rate-limited (429), photos from Unsplash (modern Kindle in hand, Amazon box). Media commit 6598b7e. Publer cover images confirmed = frame 0 (IG, TikTok, X)."
+  "note": "Calendar had GTA (Take-Two) for today; swapped to Kindle vs Amazon (no GTA/Nvidia/Apple). Photo look, lump. 66.8 s. Thumbnail check fill 54%. Commons rate-limited (429), photos from Unsplash (modern Kindle in hand, Amazon box). Media commit 6598b7e. Publer cover images confirmed = frame 0 (IG, TikTok, X).",
+  "ig_url": "https://www.instagram.com/reel/Df4npJAEez1/"
  },
  {
   "id": "2026-11-19-academy-stock-splits",

@@ -84,12 +84,12 @@ body{{background:radial-gradient(ellipse 85% 60% at 50% 42%,#FFFFFF 0%,#EDEEF0 5
 .title{{position:absolute;top:{spec.get('title_top', 250)}px;left:50px;right:{spec.get('title_right', 50)}px;text-align:center;font-family:'Archivo';font-weight:900;font-stretch:80%;font-size:{spec.get('title_px', 96)}px;line-height:1.02;letter-spacing:-1px;text-transform:uppercase}}
 .hlr{{color:#fff;background:{RED};padding:0 14px;border-radius:12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}}
 .hlg{{color:#fff;background:{GREEN};padding:0 14px;border-radius:12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}}
-.row{{position:absolute;top:{spec.get("row_top", 470 if len(spec.get("title", "")) < 34 else 540)}px;left:40px;right:160px;display:flex;justify-content:center;align-items:flex-end;gap:26px}}
-.stat{{display:flex;flex-direction:column;align-items:center;min-width:260px}}
+.row{{position:absolute;top:{spec.get("row_top", 470 if len(spec.get("title", "")) < 34 else 540)}px;left:40px;right:160px;display:flex;justify-content:center;align-items:flex-end;gap:{spec.get("row_gap", 64)}px}}
+.stat{{display:flex;flex-direction:column;align-items:center;flex:1 1 0;min-width:0}}
 .slabel{{font:800 40px 'Manrope';letter-spacing:2px;color:#3A4047}}
 .ssub{{font:600 34px 'Manrope';color:#6A7078;margin-top:6px}}
 .sicon{{width:{spec.get('icon_px', 150)}px;height:{spec.get('icon_px', 150)}px;border-radius:50%;background-size:cover;background-position:center;margin-top:18px;box-shadow:0 8px 24px rgba(0,0,0,.18)}}
-.sval{{font-family:'Archivo';font-weight:900;font-stretch:88%;font-size:{val_px}px;line-height:1;margin-top:18px;letter-spacing:-2px}}
+.sval{{font-family:'Archivo';font-weight:900;font-stretch:88%;font-size:{val_px}px;line-height:1;margin-top:18px;letter-spacing:-2px;white-space:nowrap}}
 .arrow{{font:800 90px 'Manrope';color:#9AA0A6;padding-bottom:22px}}
 .side{{position:absolute;top:{spec.get("side_top", 720)}px;left:{spec.get("side_left", 600)}px;width:{spec.get("side_width", 360)}px;display:flex;flex-direction:column;align-items:center}}
 .sicon2{{width:{spec.get("side_photo", 260)}px;height:{spec.get("side_photo", 260)}px;margin-top:16px;background:center/contain no-repeat;filter:drop-shadow(0 10px 22px rgba(0,0,0,.18))}}
@@ -117,6 +117,15 @@ def render_png(html, out_png):
         b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
         pg = b.new_page(viewport={'width': W, 'height': HGT})
         pg.set_content(html); pg.wait_for_load_state('networkidle'); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(400)
+        # review Nov 19: big stat values must fit their own column (equal columns, real gap), all at one size,
+        # so "$115.8B" and "-35%" never read as one number
+        fit = pg.evaluate("""() => { const v = [...document.querySelectorAll('.row .sval')]; if (!v.length) return null;
+            let px = parseFloat(getComputedStyle(v[0]).fontSize);
+            const over = () => v.some(e => e.scrollWidth > e.parentElement.clientWidth);
+            while (over() && px > 64) { px -= 2; v.forEach(e => e.style.fontSize = px + 'px'); }
+            return px; }""")
+        if fit is not None and fit <= 64:
+            print('WARNING stat values still wider than their column at 64 px: shorten them')
         pg.screenshot(path=str(out_png), type='png')
         b.close()
 

@@ -317,8 +317,20 @@
   "format": "video",
   "topic": "MEME REACT: Nvidia sales +103%, stock -35%",
   "hook": "Nvidia made a record $115.8B in 3 months. Stock still -35%",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7709364327693683969"
+ },
+ {
+  "id": "2026-11-18-academy-btc-200wma",
+  "slot": "2026-11-18T19:02:00+08:00",
+  "format": "photo",
+  "topic": "Academy (photo mode): Bitcoin below its 200-week average",
+  "hook": "Bitcoin fell below its 200-week average (~$68K)",
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7709465320506854677",
+  "note": "added Nov 19 daily review from Publer (doc row existed, log entry was missing)"
  },
  {
   "id": "2026-11-18-whatif-kindle-amzn",
@@ -326,8 +338,9 @@
   "format": "video",
   "topic": "WHAT IF: Kindle vs Amazon stock",
   "hook": "A $399 Kindle in 2007, or $399 in Amazon? $25,991 today",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7709503509414104341"
  },
  {
   "id": "2026-11-19-academy-stock-splits",
