@@ -320,10 +320,8 @@ const EndCard: React.FC<{f: number}> = ({f}) => {
           <div style={{width: 2, height: TALL ? 50 : 56, background: 'rgba(243,245,241,.45)'}} />
           <div style={{fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 46 : 54, letterSpacing: 3, color: WHITE, lineHeight: 1}}>RONALDINHO</div>
         </div>
-        <div style={{...row(3), fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 76 : 96, lineHeight: 1.12, letterSpacing: -2, color: WHITE}}>
-          <div>{EN}</div>
-          <div style={{color: LIME}}>{PT}</div>
-        </div>
+        {/* team 2026-11-18: Portuguese identity line only */}
+        <div style={{...row(3), fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 76 : 100, lineHeight: 1.12, letterSpacing: -2, color: WHITE}}>{PT}</div>
         <div style={{...row(7), marginTop: TALL ? 80 : 50, background: LIME, color: INK, borderRadius: 999, padding: TALL ? '22px 48px' : '18px 42px', fontFamily: SANS, fontWeight: 800, fontSize: TALL ? 46 : 40}}>hotcoin.com</div>
       </div>
     </AbsoluteFill>
@@ -370,7 +368,7 @@ export const R10Aura: React.FC = () => {
       <Rays f={f} o={rays} />
       <Halftone f={f} o={half} />
       <Rings f={f} o={f < END ? 1 : 0.5} />
-      <Cover f={f} />
+      {/* the text cover is replaced by the baked-in poster (scripts/bake-r10-poster.sh) */}
       <Facts f={f} />
       <Person f={f} />
       <Captions f={f} />

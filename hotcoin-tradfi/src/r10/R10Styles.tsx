@@ -12,7 +12,8 @@ import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, staticF
 
 export const R10S_FPS = 30;
 const fr = (s: number) => Math.round(s * R10S_FPS);
-const COVER_END = 45, FACT0 = 50, DROP = 140, V = DROP + 8, CLIP_END = V + 170, WELCOME = CLIP_END + 6, END = WELCOME + 66;
+// the baked-in poster now covers the opening, so the text cover is only a few frames (team: opening too long)
+const COVER_END = 16, FACT0 = 20, DROP = 110, V = DROP + 8, CLIP_END = V + 170, WELCOME = CLIP_END + 6, END = WELCOME + 66;
 export const R10S_DURATION = END + 96;   // ~16.1 s
 const W = 1920, H = 1080;
 const EN = 'Hotcoin Ambassador (Brazil)', PT = 'Embaixador da Hotcoin (Brasil)';
@@ -89,7 +90,7 @@ const CampaignBg: React.FC = () => (
 const CampaignText: React.FC<{f: number}> = ({f}) => {
   const L = 110;
   // cover
-  const cover = f < COVER_END && (
+  const cover = false && (   // replaced by the baked-in poster
     <div style={{position: 'absolute', left: L, top: 330, opacity: fadeOut(f, COVER_END, 8)}}>
       <Img src={staticFile('brand/logo-official-white.png')} style={{height: 150}} />
       <div style={{width: 64, height: 2, background: LIME, margin: '44px 0 30px'}} />
@@ -210,10 +211,7 @@ const EndCard: React.FC<{f: number; s: Style}> = ({f, s}) => {
   return (
     <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', textAlign: 'center'}}>
       <Reveal f={f} at={END}><Img src={staticFile(camp ? 'brand/logo-official-white.png' : 'brand/logo-official-black.png')} style={{height: 64}} /></Reveal>
-      <Reveal f={f} at={END + 5} style={{marginTop: 54}}>
-        <div style={{fontFamily: SERIF, fontSize: 116, lineHeight: 1, color: c}}>{EN}</div>
-      </Reveal>
-      <Reveal f={f} at={END + 9}>
+      <Reveal f={f} at={END + 6} style={{marginTop: 54}}>
         <div style={{fontFamily: SERIF, fontSize: 116, lineHeight: 1.05, color: camp ? LIME : c}}>{camp ? PT : <Mark f={f} at={END + 16} on>{PT}</Mark>}</div>
       </Reveal>
       <Reveal f={f} at={END + 16} style={{marginTop: 60}}>
