@@ -255,3 +255,26 @@ export const R10Styled: React.FC<{style: Style}> = ({style: s}) => {
     </AbsoluteFill>
   );
 };
+
+// ---------- poster (baked into the first 0.5 s of the export; team 2026-11-18) ----------
+export const R10CampaignPoster: React.FC = () => {
+  const ph = 1720, pw = ph * (1637 / 1964);
+  return (
+    <AbsoluteFill style={{overflow: 'hidden'}}>
+      <CampaignBg />
+      <Img src={staticFile('ronaldinho/cover_5.62.png')} style={{position: 'absolute', height: ph, left: W - pw + 200, top: -150, filter: 'saturate(.88) contrast(1.04)'}} />
+      <AbsoluteFill style={{background: 'linear-gradient(90deg, rgba(8,23,16,.97) 0%, rgba(8,23,16,.78) 34%, rgba(8,23,16,0) 52%)'}} />
+      <Img src={staticFile('brand/logo-official-white.png')} style={{position: 'absolute', left: 110, top: 100, height: 64}} />
+      <div style={{position: 'absolute', left: 110, top: 560}}>
+        <div style={{fontFamily: MONO, fontSize: 30, letterSpacing: 8, color: LIME}}>EMBAIXADOR OFICIAL</div>
+        <div style={{width: 64, height: 2, background: LIME, margin: '24px 0 18px'}} />
+        <div style={{fontFamily: SERIF, fontSize: 150, lineHeight: 1, color: WHITE}}>Ronaldinho</div>
+        <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 44, lineHeight: 1.25, marginTop: 30}}>
+          <div style={{color: WHITE}}>{EN}</div>
+          <div style={{color: LIME}}>{PT}</div>
+        </div>
+      </div>
+      <AbsoluteFill style={{backgroundImage: `url(${staticFile('grain.png')})`, backgroundSize: '256px 256px', opacity: 0.07, mixBlendMode: 'screen'}} />
+    </AbsoluteFill>
+  );
+};

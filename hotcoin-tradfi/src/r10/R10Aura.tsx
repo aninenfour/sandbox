@@ -376,3 +376,30 @@ export const R10Aura: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+// ---------- poster (baked into the first 0.5 s of the export so every preview shows it; team 2026-11-18) ----------
+export const R10AuraPoster: React.FC = () => {
+  W = 1920; H = 1080; TALL = false;
+  const ph = 1060, pw = ph * (1670 / 1978);
+  return (
+    <AbsoluteFill style={{background: `radial-gradient(70% 80% at 62% 44%, #0E2A17 0%, #07130B 45%, ${INK} 80%)`, overflow: 'hidden'}}>
+      <Rays f={0} o={0.8} />
+      <Halftone f={0} o={0.45} />
+      <Rings f={30} o={0.8} cy={H * 0.44} />
+      <Img src={staticFile('ronaldinho/cover_2.56.png')} style={{position: 'absolute', height: ph, left: W - pw - 70, top: H - ph + 30,
+        filter: 'grayscale(1) contrast(1.06) brightness(1.14) drop-shadow(0 0 26px rgba(184,242,106,.55)) drop-shadow(0 0 4px rgba(184,242,106,.8))'}} />
+      <div style={{position: 'absolute', left: 110, top: 0, bottom: 0, width: 1000, display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <Img src={staticFile('brand/logo-official-white.png')} style={{height: 84, alignSelf: 'flex-start'}} />
+        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 40, letterSpacing: 10, color: LIME, marginTop: 64}}>EMBAIXADOR OFICIAL</div>
+        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 150, letterSpacing: -4, color: WHITE, lineHeight: 1, marginTop: 14}}>RONALDINHO</div>
+        <div style={{width: 140, height: 5, background: LIME, margin: '44px 0 34px'}} />
+        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 50, lineHeight: 1.2}}>
+          <div style={{color: WHITE}}>Hotcoin Ambassador (Brazil)</div>
+          <div style={{color: LIME}}>Embaixador da Hotcoin (Brasil)</div>
+        </div>
+      </div>
+      <AbsoluteFill style={{background: 'radial-gradient(120% 100% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.7) 100%)'}} />
+      <Grain f={0} />
+    </AbsoluteFill>
+  );
+};
