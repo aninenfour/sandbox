@@ -24,7 +24,7 @@
 | 17/11 | 08:59 | GM | Pelourinho, Salvador: linha cruza o calçamento e sobe a torre da igreja | published https://x.com/1895401255163576320/status/2122660998884511828 |
 | 17/11 | 10:23 | Event LAUNCH | Desafio Spot #24: 300.000 USDT, 1º 8.888 USDT, até 30/11 12:59 (link in reply) | published https://x.com/1895401255163576320/status/2122682137493098545 |
 | 17/11 | 13:38 | Placar do dia | $BREV +112,5% x $BTC −0,1% (24h até 12:10) | published https://x.com/1895401255163576320/status/2122731209964814512 |
-| 17/11 | 16:44 | Event LAUNCH | P2P Trading Sprint: indicação (cupom taxa spot) + volume (Futures Trial Funds), até 28/11 07:00 (link in reply) | scheduled |
+| 17/11 | 16:44 | Event LAUNCH | P2P Trading Sprint: indicação (cupom taxa spot) + volume (Futures Trial Funds), até 28/11 07:00 (link in reply) | published https://x.com/1895401255163576320/status/2122778020402368905 |
 | 17/11 | 19:03 | Text | Nvidia 18:20, grupo da família vira analista de chip | published https://x.com/1895401255163576320/status/2122813023375003803 |
 
 | 18/11 | 08:51 | GM | Jardim Botânico, Curitiba: linha sobe o caminho até a estufa | scheduled |
