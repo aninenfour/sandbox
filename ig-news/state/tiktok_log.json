@@ -307,8 +307,9 @@
   "format": "photo",
   "topic": "News: Nvidia Q3 beat ($115.8B vs $108B guide)",
   "hook": "Nvidia guessed $108B. It made $115.8B",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7709326041617075477"
  },
  {
   "id": "2026-11-18-memereact-nvda",
@@ -318,5 +319,23 @@
   "hook": "Nvidia made a record $115.8B in 3 months. Stock still -35%",
   "status": "scheduled",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-18-whatif-kindle-amzn",
+  "slot": "2026-11-18T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Kindle vs Amazon stock",
+  "hook": "A $399 Kindle in 2007, or $399 in Amazon? $25,991 today",
+  "status": "scheduled",
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-19-academy-stock-splits",
+  "slot": "2026-11-19T19:02:00+08:00",
+  "format": "photo",
+  "topic": "Stocks 101: stock splits",
+  "hook": "Amazon turned 1 share into 20. Who got richer?",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]

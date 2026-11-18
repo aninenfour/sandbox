@@ -1838,7 +1838,7 @@
    "nbig"
   ],
   "ngrid_used": true,
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1853,14 +1853,15 @@
    "Investing.com after-hours movers: $162.56 vs $155.46 close",
    "Yahoo Finance NVDA daily closes: record $239.24 Oct 6, $155.46 Nov 17 (-35.0%)"
   ],
-  "note": "Score 12/12. Pays off the Nov 17 Academy preview ($108B guide). CEO change stated only as 'first report without Jensen Huang' + Kress interim CEO (company release + CBS + Decrypt); reason for exit left out. Analyst estimates differ ($109B CBS vs $109.3B Yahoo) so slides use Nvidia's own $108B guide. After-hours move ranged +2.4% to +4.6% by source/time; slides say ~4%. Publer bulk upload timed out; posts scheduled via media_urls (no stray post). Photos: Kress SiliconANGLE theCUBE/Commons CC BY 4.0; Unsplash Thomas Foster (GPU), Matthieu Beaumont (servers)."
+  "note": "Score 12/12. Pays off the Nov 17 Academy preview ($108B guide). CEO change stated only as 'first report without Jensen Huang' + Kress interim CEO (company release + CBS + Decrypt); reason for exit left out. Analyst estimates differ ($109B CBS vs $109.3B Yahoo) so slides use Nvidia's own $108B guide. After-hours move ranged +2.4% to +4.6% by source/time; slides say ~4%. Publer bulk upload timed out; posts scheduled via media_urls (no stray post). Photos: Kress SiliconANGLE theCUBE/Commons CC BY 4.0; Unsplash Thomas Foster (GPU), Matthieu Beaumont (servers).",
+  "ig_url": "https://www.instagram.com/p/Df3Ymy1iouU/"
  },
  {
   "id": "2026-11-18-memereact-nvda",
   "type": "reel-memereact",
   "slot": "2026-11-18T12:30:00+08:00",
   "title": "MEME REACT #2: Nvidia sales +103% (record $115.8B), stock -35% from top, confused Nick Young + Mixkit Comical",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "tiktok"
@@ -1869,6 +1870,55 @@
    "Nvidia Q3 FY2027 release: $115.8B, +103% y/y",
    "Yahoo Finance closes $239.24 (Oct 6) -> $155.46 (Nov 17); Decrypt ~35% below October peak"
   ],
-  "note": "Joke: record quarter but holders still down 35%. Meme: greenscreenmemes.com Confused Nick Young (3.5-5.5 s, face to camera, 7 loops = 14 s). Music Mixkit 466 Comical. No Hotcoin name on top, faint bg logo. Cover/safezones/contact checked; Publer images confirmed = frame 0."
+  "note": "Joke: record quarter but holders still down 35%. Meme: greenscreenmemes.com Confused Nick Young (3.5-5.5 s, face to camera, 7 loops = 14 s). Music Mixkit 466 Comical. No Hotcoin name on top, faint bg logo. Cover/safezones/contact checked; Publer images confirmed = frame 0.",
+  "ig_url": "https://www.instagram.com/reel/Df3pwHHFH5g/"
+ },
+ {
+  "id": "2026-11-18-whatif-kindle-amzn",
+  "type": "reel-whatif-v2",
+  "slot": "2026-11-18T21:30:00+08:00",
+  "title": "Kindle ($399, Nov 19 2007) vs $399 in Amazon: $25,991 (65x)",
+  "status": "scheduled",
+  "music": "Try Me (Arulo, Mixkit) #235",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "ig_story(21:35)",
+   "tiktok",
+   "x_main(story_x45.mp4)"
+  ],
+  "sources": [
+   "Amazon (Kindle at 10) + CNN Money: Kindle launched Nov 19 2007 at $399, sold out in 5.5 h",
+   "Yahoo Finance AMZN split-adjusted close $3.959 Nov 19 2007; StatMuse $3.96",
+   "Nasdaq + Yahoo: AMZN close $257.89 Nov 17 2026"
+  ],
+  "note": "Calendar had GTA (Take-Two) for today; swapped to Kindle vs Amazon (no GTA/Nvidia/Apple). Photo look, lump. 66.8 s. Thumbnail check fill 54%. Commons rate-limited (429), photos from Unsplash (modern Kindle in hand, Amazon box). Media commit 6598b7e. Publer cover images confirmed = frame 0 (IG, TikTok, X)."
+ },
+ {
+  "id": "2026-11-19-academy-stock-splits",
+  "type": "academy",
+  "slot": "2026-11-19T19:00:00+08:00",
+  "title": "Stocks 101: Amazon turned 1 share into 20. Who got richer? (stock splits, 1-year change after)",
+  "variant": "b",
+  "layouts": [
+   "nhero",
+   "ngrid",
+   "tslide-table",
+   "tslide-bars"
+  ],
+  "ngrid_used": true,
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(19:02, tt/01-04)",
+   "ig_story(19:05)",
+   "x_research(20:30, slides 01-04)"
+  ],
+  "sources": [
+   "Yahoo Finance daily closes + split events (AMZN 20:1 Jun 6 2022, GOOGL 20:1 Jul 18 2022, TSLA 3:1 Aug 25 2022, AAPL 4:1 Aug 31 2020, WMT 3:1 Feb 26 2024)",
+   "Nasdaq, 247wallst split table, Motley Fool split calendar"
+  ],
+  "note": "Variant B after A. Not Nvidia, not 200-week. 4 slides, no CTA, no render warnings. No faces (Commons 429, product/store photos; ngrid cells have no faces so default place). Media commit e9ddf07."
  }
 ]
