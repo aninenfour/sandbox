@@ -1,60 +1,59 @@
-# Hotcoin daily GM strategy (draft for approval)
+# Hotcoin daily GM strategy (v2, Nov 18, 2026)
 
-Research date: 2026-11-18. Internal doc. Public copy never names other exchanges.
+Internal doc. Built on the peer benchmark "Crypto_Exchange_GM_Posts_Research.docx" (411 GM posts from 14 exchange accounts on X,
+Aug 20 to Nov 18, 2026, pulled from the X API). Public copy never names other exchanges.
 
-## What the reference posts show (your 5 screenshots)
-| Pattern | What they do | Why it likely works |
+## Where we stand (from the report)
+- 77 GM posts in 90 days, avg 1.8K views, 10 likes, about 7 replies, 0.56% likes/views. Median views fell from about 2.1K (Aug to Sep) to 933 (Nov).
+- Reach per follower is normal for our tier. **The gap is conversation**: peers get 0.93% to 2.29% likes/views.
+- Our GM slot drifts 11:00 to 14:00 JST, visuals change every day (CGI, memes, app recordings, car photos), and many GMs carry campaign CTAs.
+
+## What the data says works (views / replies vs each account's own median)
+| Feature | Views | Replies |
 |---|---|---|
-| One branded object in a real scene | Product-like prop (hat, cube) placed in a photo | Brand mark appears without a logo slap; instantly recognisable in a feed |
-| Anonymous human | Back view or face covered | Human warmth, no endorsement issue (matches our rule) |
-| 4:5 portrait, one hero | Nothing else in frame | Fills the feed, stops the scroll |
-| 3 to 8 word caption, no CTA, no link | "brb, touching sand", "looking powerful" | Reads as a person, not an ad; replies and quotes come from curiosity |
-| Same slot, same format family | Posts on consecutive days (Oct 17, 18, 19) | Ritual: audience expects it. Reach in screenshots is roughly 176K to 226K views per post, 650 to 1.1K likes |
-| Art-history twist | Painting style version of the brand cap | Shareable "what is this" moment |
+| Text-only | 1.22x | 1.10x |
+| Explicit reply prompt ("say it back", "rate this") | 0.77x | 1.19x |
+| Contains a question | 1.01x | 1.09x |
+| Promo, CTA or reward link in the GM | 0.86x | **0.49x** |
 
-Takeaway: the win is a recognisable character/prop plus a daily ritual, not a clever caption. We take the structure, not the look (no yellow, no hats copied).
+Plus: market self-awareness wins the biggest posts; one ownable, real-photo look held reach while everyone else fell 36% to 62%.
 
-## What we could and could not verify
-- Web research found only generic crypto X guidance: daily GM is a low-effort habit; replies in the first hour and consistency matter more than volume. Sources are marketing blogs, weak evidence.
-- One source says plain "GM" farming posts may be down-ranked after X's anti-spam changes (Dec 2025). Treat as unverified, but it supports making each GM carry a visual or a question.
-- I cannot open X from here, so I could not audit competitor feeds directly. Publer has no competitors tracked yet. **Action:** add 8 to 10 exchange accounts to Publer competitor tracking, then run `get_post_insights competitors:true sort_by:likes` after 2 weeks to see which GM formats win.
-- Your own last 90 days on the main X account: top posts are giveaways (reach 6K to 7K, 200 to 300 likes, 200+ replies). Zero GM posts in the top 10, so there is no baseline yet. The GM series will be measured against that.
+## The rules
+1. **One series, real photos:** "green thing of the day" 🟩. Team phone photo of something green, hand-held POV, nothing written on it,
+   one small green Hotcoin tile bottom-right (same spot every time). No CGI, no AI images.
+2. **Copy:** lowercase, under about 40 characters, one idea. Two or three times a week end with a 1-second prompt (ticker, emoji, 1 to 10, gm back).
+3. **No promos in GM.** Campaigns, prize pools and links go in a separate post or the first reply.
+4. **Market-mood humour:** react to the day like a trader. No prices in GM copy (keeps it out of "price post" territory).
+5. **Fixed slot:** 11:00 JST (10:00 UTC+8) for 4 weeks. Test a second GM at 20:30 JST on Tue and Thu for the EU/US morning.
+6. **First 30 to 60 minutes:** reply to gm-ers by name, quote the funniest reply, shout out regulars.
+7. **Measure weekly:** replies per 1K views and likes/views per format. Kill a format under 0.5% likes/views for 3 weeks.
 
-## The system: 4 formats, rotated so no layout repeats two days running
-| Day | Format | Template (built) | Notes |
-|---|---|---|---|
-| Mon | Market GM (white data post, our best performer style) | `data` | Live BTC/ETH/SOL from CoinGecko, dated on card, risk line in caption |
-| Tue | Serif "gm" on ink | `serif` | Pure brand ritual |
-| Wed | Dots GM (dots morph style) | `dots` | Reuses approved dots look |
-| Thu | Streak counter | `streak` | "Day N. GM." The streak itself becomes the hook |
-| Fri | Market GM | `data` | Weekend lead in |
-| Sat | Follow board (floating card) | `follow` | The "hit follow" post you described, once a week only |
-| Sun | Reset / plan the week | `lime` | Soft, human tone |
+## Weekly calendar (automated by `gm.mjs`)
+| Day | Format | Needs |
+|---|---|---|
+| Mon | text-only market mood (BTC 24h picks the green / red / flat line) | nothing |
+| Tue | green thing of the day | photo in `inbox/` |
+| Wed | reply prompt, text-only | nothing |
+| Thu | desk / setup photo, "rate this setup 1 to 10" | photo |
+| Fri | kaomoji gm, text-only | nothing |
+| Sat | merch or team-pet photo | photo |
+| Sun | touch-grass outdoor photo | photo |
 
-Photo/object variant (the reference style, needs your decision): a green Hotcoin cap or symbol object in a real scene (beach, mountain, desk), anonymous back view. Two ways:
-1. **AI generated** with fal or Canva AI. This is paid, so I will not run it without your yes each time.
-2. **Real photo + our symbol**: Unsplash photos (free licence) with the official symbol composited on a cap or object. Logged in `hotcoin-tradfi/FOOTAGE_CREDITS.md`. Slower, zero cost.
-Suggested cadence: 2 photo days per week (Wed, Sun), replacing `dots` and `lime`.
+Missing photo means the script falls back to a text-only line, so a GM never gets skipped.
 
-## Caption rules
-- 3 to 12 words, GM first, one question max, rotating (bank in `render.mjs`, 7 questions).
-- No link on the Mon to Fri posts (links lower reach); put hotcoin.com only on Mon data and Sat follow.
-- Data days: "Not financial advice." Rewards are never mentioned in GM posts.
-- Chinese: `--lang=zh`, hotcoinv5.com. Run for the Chinese account on the same day.
-
-## Posting and engagement
-- Time: pick one slot and keep it (Asia morning 08:00 UTC+8 fits your audience; confirm with Publer `get_best_times_to_post` for the X account).
-- First hour: reply to every comment, quote 3 to 5 community accounts' GM. Replies, not the post, drive reach.
-- Weekly: 1 giveaway-style GM (your proven reply driver): "Reply GM + your coin for a 5 USDT futures trial fund draw" with the exact reward type and tier rules.
-- KPIs after 30 days: replies per GM, reach vs the 90-day giveaway baseline, follower growth on Saturdays.
-
-## Automation (what exists and what is next)
-Built now: `social/gm/render.mjs`. One command renders the card at 1080x1350 @2x and writes the caption `.txt`.
+## How to run
 ```bash
-PW_PATH=$(npm root -g)/playwright node social/gm/render.mjs            # today, auto theme by weekday
-PW_PATH=$(npm root -g)/playwright node social/gm/render.mjs 2026-11-22 --lang=zh
+PW_PATH=$(npm root -g)/playwright node social/gm/gm.mjs 2026-11-24
 ```
-Next (needs your OK, nothing is scheduled yet):
-1. A scheduled job each evening renders tomorrow's card and saves it to Publer as a **draft** for the Hotcoin X account (human taps approve), then optionally publishes on a recurring slot.
-2. Optional: fal image generation for the photo variant, with a fixed prompt template and per-day approval.
-3. Weekly report from Publer insights ranking formats by replies.
+Writes `social/gm/out/<date>/plan.json`, `caption.txt` and, on photo days, `gm-<date>.png` (1080x1350 @2x).
+Photo inbox: `social/gm/inbox/<date>.jpg`. Team photos only for live posts; stock is for testing (log any stock in `hotcoin-tradfi/FOOTAGE_CREDITS.md`).
+No third-party brands or faces in the photo.
+
+## The v1 rendered cards (`render.mjs`)
+The report shows rendered/CGI GMs underperform real photos, so these are **not** the daily format any more. Keep them for one-off moments
+(GM streak milestones like day 100, Chinese account, event mornings).
+
+## Next steps (need approval)
+1. Nightly job: run `gm.mjs` for tomorrow and save a Publer **draft** on the Hotcoin X account at 10:00 UTC+8. A human approves.
+2. Team photo routine: one person drops 3 or 4 green photos a week into the inbox (or a shared Drive folder the job reads).
+3. Add the 13 peer accounts to Publer competitor tracking so the weekly numbers refresh without a new report.

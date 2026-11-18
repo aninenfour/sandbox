@@ -1,4 +1,5 @@
 // Daily GM generator. One command renders the GM card + caption for a date.
+// v1 rendered cards. Since the Nov 18 GM benchmark, daily GMs use gm.mjs (real photos / text); keep these for milestones and events.
 // Usage: PW_PATH=$(npm root -g)/playwright node social/gm/render.mjs [YYYY-MM-DD] [--theme=data|serif|dots|streak|follow|lime] [--lang=en|zh]
 // Data theme: live prices from CoinGecko (api.coingecko.com/api/v3/simple/price), date-stamped on the card. Logos: brand files only.
 // Falls back to a non-data theme if CoinGecko is unreachable. 1080x1350 @2x. No em dashes, no competitor names.

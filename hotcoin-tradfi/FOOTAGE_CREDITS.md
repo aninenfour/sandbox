@@ -369,3 +369,8 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
   currency printing, hands with banknotes, $1 bill used as the paper plane texture.
 - Sound effects (paper flips, book placements, cloth swishes, coins, soft impacts, wood taps): Kenney "RPG Audio" and
   "Impact Sounds" by Kenney Vleugels (kenney.nl), CC0 1.0. Music in the video is original (score.py).
+
+## Daily GM test photo (`social/gm/inbox/2026-11-24.jpg`, test only)
+| Photo | Source | Licence |
+|---|---|---|
+| Monstera leaf in a studio setting, by feey | Unsplash (unsplash.com/photos/cvF37ZIrIzE) | Unsplash licence, free for commercial use |
