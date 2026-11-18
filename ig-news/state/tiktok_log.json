@@ -358,6 +358,6 @@
   "topic": "News: Fed minutes, December hike odds",
   "hook": "95% chance the Fed raises rates again in December",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
