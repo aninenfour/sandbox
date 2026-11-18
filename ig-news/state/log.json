@@ -1922,5 +1922,35 @@
    "Nasdaq, 247wallst split table, Motley Fool split calendar"
   ],
   "note": "Variant B after A. Not Nvidia, not 200-week. 4 slides, no CTA, no render warnings. No faces (Commons 429, product/store photos; ngrid cells have no faces so default place). Media commit e9ddf07."
+ },
+ {
+  "id": "2026-11-19-fed-hike-odds",
+  "type": "news",
+  "slot": "2026-11-19T10:00:00+08:00",
+  "title": "95% chance the Fed raises rates again in December (Oct FOMC minutes: almost all see more hikes; Waller floats 0.5; BTC $62.9K)",
+  "score": 10,
+  "layouts": [
+   "ngrid",
+   "nbars",
+   "nphoto"
+  ],
+  "ngrid_used": true,
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "ig_story(10:05)",
+   "tiktok_photo(10:02, tt/01-04)",
+   "x_research(11:00, slides 01-04)"
+  ],
+  "sources": [
+   "Federal Reserve, minutes of the FOMC meeting Oct 27-28, 2026 (released Nov 18): rate held at 3.75-4% by 10-2 vote (Cook, Hammack wanted +0.25); almost all participants judged further rate increases likely appropriate; a couple said more than 25 bp could warrant consideration next meeting; staff: PCE inflation 3.6%, core 3.1% in September; Kevin Warsh chairman",
+   "Decrypt (Nov 18): Waller on CNBC, 'You might need to, like, shock people', 'go 50 in December'; Dec 8-9 meeting; futures ~95% for 25 bp, ~5% for 50 bp",
+   "Cointelegraph (Nov 18): Waller 'shock' 50-point hike; FedWatch odds of 25 bp hike above 95%; BTC below $63,000, down ~3%",
+   "CoinGecko: BTC $62,922, -3.2% 24h (Nov 19 07:50 UTC+8)",
+   "alternative.me Fear & Greed Index: 11 (Extreme Fear), Nov 19",
+   "Federal Reserve FOMC calendar: Dec 8-9, 2026"
+  ],
+  "note": "Score 10/12 (hook 3, relevance 3, fresh 3, visual 1-2: Fed faces). Beat Binance $6.5B freezing order, Ledger Berlin tampering, ZRO unlock (Fri, weaker). Minutes read from federalreserve.gov (primary); Waller quotes + ~95% odds in Decrypt AND Cointelegraph. Chair = Kevin Warsh (minutes attendance). ngrid: face cells use place bottom with no title (place top covered both faces). Swapped a trading-screen photo showing a competitor exchange UI for a hands-over-face photo. No logo badge (no drawn logos). Commit 6dd5726."
  }
 ]

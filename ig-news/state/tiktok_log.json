@@ -350,5 +350,14 @@
   "hook": "Amazon turned 1 share into 20. Who got richer?",
   "status": "scheduled",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-19-fed-hike-odds",
+  "slot": "2026-11-19T10:02:00+08:00",
+  "format": "photo",
+  "topic": "News: Fed minutes, December hike odds",
+  "hook": "95% chance the Fed raises rates again in December",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]
