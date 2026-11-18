@@ -6,3 +6,4 @@ bundle
 *.log
 public/vo/sample-*
 bundle-thumbs
+public/research/*.wav

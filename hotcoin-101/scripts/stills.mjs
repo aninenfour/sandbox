@@ -20,7 +20,7 @@ const findShell = () => {
 };
 const browserExecutable = process.env.REMOTION_CHROME || findShell();
 fs.mkdirSync(outDir, {recursive: true});
-const puppeteerInstance = await openBrowser('chrome', {browserExecutable});
+const puppeteerInstance = await openBrowser('chrome', {browserExecutable, chromiumOptions: process.env.GL ? {gl: process.env.GL} : undefined}); // GL=swangle for three.js scenes
 const composition = await selectComposition({serveUrl, id, puppeteerInstance});
 for (const frame of frames) {
   const output = path.join(outDir, `${id}-${String(frame).padStart(5, '0')}.png`);

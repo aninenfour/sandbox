@@ -40,6 +40,7 @@ import { Thumb17A, Thumb17AV, Thumb17B, Thumb17BV } from './thumbs/Thumbs17';
 import { Thumb18A, Thumb18AV, Thumb18B, Thumb18BV } from './thumbs/Thumbs18';
 import { Thumb19A, Thumb19AV, Thumb19B, Thumb19BV } from './thumbs/Thumbs19';
 import { Thumb20A, Thumb20AV, Thumb20B, Thumb20BV } from './thumbs/Thumbs20';
+import { ResearchTrailer, ResearchShort, TRAILER_TOTAL, SHORT_TOTAL } from './research/Research';
 import { HwSlide1, HwSlide2, HwSlide3, HwSlide4, HW_W, HW_H } from './halloween/Slides';
 
 // Two thumbnails per release (A/B), each in 16:9 (1920x1080, exported to
@@ -243,5 +244,7 @@ export const RemotionRoot: React.FC = () => (
         />
       ))
     )}
+    <Composition id="research-trailer-horizontal" component={ResearchTrailer} durationInFrames={TRAILER_TOTAL} fps={30} width={1920} height={1080} defaultProps={{ subs: true, music: true }} />
+    <Composition id="research-mtgox-vertical" component={ResearchShort} durationInFrames={SHORT_TOTAL} fps={30} width={1080} height={1920} defaultProps={{ subs: true, music: true }} />
   </>
 );
