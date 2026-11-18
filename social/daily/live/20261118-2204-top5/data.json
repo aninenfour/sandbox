@@ -1,0 +1,59 @@
+{
+ "window": "24H to Nov 18 22:04 (UTC+8)",
+ "date": "NOV 18",
+ "day": "2026-11-18",
+ "template": "podium",
+ "gainers": [
+  {
+   "sym": "PIEVERSE",
+   "name": "Pieverse",
+   "ch": 58.11,
+   "vol": 743279.05,
+   "handle": "@pieverse_io",
+   "logo": "pieverse",
+   "bg": "#ffffff",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "MYC",
+   "name": "",
+   "ch": 23.07,
+   "vol": 402671.08,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "UP",
+   "name": "Unitas",
+   "ch": 16.25,
+   "vol": 450926.71,
+   "handle": "@UnitasLabs",
+   "logo": "up",
+   "bg": "#000809",
+   "glow": "#494e4f"
+  },
+  {
+   "sym": "NEFE",
+   "name": "NEFE COIN",
+   "ch": 11.31,
+   "vol": 247885.79,
+   "handle": "@NEFECoin",
+   "logo": "nefe",
+   "bg": "#653a92",
+   "glow": "#653a92"
+  },
+  {
+   "sym": "SOON",
+   "name": "SOON",
+   "ch": 11.13,
+   "vol": 231874.3,
+   "handle": "@soon_svm",
+   "logo": "soon",
+   "bg": "#ffffff",
+   "glow": "#c40d3b"
+  }
+ ],
+ "link": "📊 $PIEVERSE live price and chart: https://www.hotcoin.com/en_US/price/pieverse/"
+}

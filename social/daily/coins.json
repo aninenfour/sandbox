@@ -521,5 +521,12 @@
   "twitter": "brevis_zk",
   "image": "https://coin-images.coingecko.com/coins/images/71219/large/brevis-circle_200x200.png?1774374634",
   "logo": "brev"
+ },
+ "SOON": {
+  "id": "soon-2",
+  "name": "SOON",
+  "twitter": "soon_svm",
+  "image": "https://coin-images.coingecko.com/coins/images/55124/large/red_2.PNG?1743843131",
+  "logo": "soon"
  }
 }
