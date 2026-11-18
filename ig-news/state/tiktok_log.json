@@ -327,7 +327,7 @@
   "topic": "WHAT IF: Kindle vs Amazon stock",
   "hook": "A $399 Kindle in 2007, or $399 in Amazon? $25,991 today",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-19-academy-stock-splits",
@@ -336,6 +336,6 @@
   "topic": "Stocks 101: stock splits",
   "hook": "Amazon turned 1 share into 20. Who got richer?",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
