@@ -57,5 +57,81 @@
     "x": "🛡️ Futures Loss Compensation: 100% of net losses back as Futures Trial Funds. Ends {endShort}",
     "headline": "100% loss cover",
     "headSub": "paid as Futures Trial Funds, 200,000 USDT pool"
+  },
+  "HotcoinP2PTradingSprint": {
+    "short": "P2P Trading Sprint",
+    "kicker": "P2P",
+    "headline": "Up to 50 USDT",
+    "headSub": "in Futures Trial Funds, plus referral vouchers",
+    "rows": [
+      [
+        "P2P volume challenge",
+        "up to 50 USDT",
+        "Futures Trial Funds, highest tier only"
+      ],
+      [
+        "Invite friends",
+        "up to 50 USDT",
+        "Spot Fee Deduction Vouchers"
+      ],
+      [
+        "Your friend gets",
+        "5 USDT",
+        "voucher after a 200+ USDT P2P trade"
+      ]
+    ],
+    "foot": "Tap Join Now first. Both events combine.",
+    "x": "🤝 P2P Trading Sprint: up to 50 USDT in Futures Trial Funds plus referral vouchers. Ends {endShort}"
+  },
+  "HotcoinFixed-TermEarnExclusive": {
+    "short": "Fixed-Term Earn Exclusive",
+    "kicker": "EARN",
+    "headline": "Up to 6.00% APR",
+    "headSub": "boosted USDT and USDC fixed-term",
+    "rows": [
+      [
+        "Boosted APR",
+        "4.00% to 6.00%",
+        "USDT/USDC, 7 to 180 days"
+      ],
+      [
+        "Subscription milestones",
+        "up to 2,000 USDT",
+        "Futures Trial Funds, from 5,000 USDT"
+      ],
+      [
+        "Invite friends",
+        "up to 50 USDT",
+        "Spot Fee Deduction Vouchers"
+      ]
+    ],
+    "foot": "No early redemption. Quotas first come, first served.",
+    "x": "💰 Fixed-Term Earn Exclusive: up to 6.00% APR plus up to 2,000 USDT in Futures Trial Funds. Ends {endShort}"
+  },
+  "spot-all-round-challenge-24": {
+    "short": "Spot All-Round Challenge #24",
+    "kicker": "SPOT",
+    "headline": "Up to 8,888 USDT",
+    "headSub": "for leaderboard 1st, 300,000 USDT prize pool",
+    "rows": [
+      [
+        "First spot trade",
+        "up to 10 USDT",
+        "first 2,000 users, 100+ USDT volume"
+      ],
+      [
+        "Volume milestones",
+        "up to 50 USDT",
+        "highest tier only"
+      ],
+      [
+        "Leaderboard top 300",
+        "up to 8,888 USDT",
+        "by spot volume"
+      ]
+    ],
+    "foot": "Tap Join Now first. All three events combine.",
+    "rewardTypeUnclear": true,
+    "x": "🏆 Spot All-Round Challenge #24: 300,000 USDT prize pool, up to 8,888 USDT for 1st. Ends {endShort}"
   }
 }

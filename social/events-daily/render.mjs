@@ -64,22 +64,25 @@ function slide(e, idx, total) {
   const artFile = [`${DIR}/art/hero-${e.slug}.png`, `${DIR}/art/crop-${e.slug}.png`].find(f => fs.existsSync(f)) || '';
   const art = fs.existsSync(artFile) ? b64(artFile) : null;
   const hot = daysLeft(e) <= 1, BG = '#262626';
+  const doy = Math.floor((u8(now) - Date.UTC(u8(now).getUTCFullYear(), 0, 0)) / 864e5);
+  const layout = opt('layout') || (doy % 2 ? 'flip' : 'stack'); // alternate look day to day
   return `<!doctype html><html><head><meta charset="utf-8"><style>
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Instrument+Serif:ital@1&display=block');
 *{margin:0;padding:0;box-sizing:border-box}body{width:1080px;height:1350px;background:${BG};color:#fff;font-family:'Inter Tight',sans-serif;overflow:hidden;position:relative}
 .m{font-family:'JetBrains Mono',monospace}.s{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
 </style></head><body>
-${art ? `<img src="${art}" style="position:absolute;left:50%;top:96px;transform:translateX(-50%);height:560px;max-width:960px;object-fit:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(transparent,#000 8%,#000 92%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect">` : ''}
-<div style="position:absolute;left:0;right:0;top:540px;height:150px;background:linear-gradient(rgba(38,38,38,0),${BG})"></div>
+${art && layout === 'stack' ? `<img src="${art}" style="position:absolute;left:50%;top:96px;transform:translateX(-50%);height:560px;max-width:960px;object-fit:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(transparent,#000 8%,#000 92%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect">` : ''}
+${layout === 'stack' ? `<div style="position:absolute;left:0;right:0;top:540px;height:150px;background:linear-gradient(rgba(38,38,38,0),${BG})"></div>` : ''}
 <img src="${WM}" style="position:absolute;left:72px;top:64px;height:36px">
 <div class="m" style="position:absolute;right:72px;top:70px;font-size:22px;letter-spacing:3px;color:rgba(255,255,255,.8)">${idx} / ${total}</div>
-<div style="position:absolute;left:72px;right:72px;top:680px;display:flex;flex-direction:column;gap:14px">
+<div style="position:absolute;left:72px;right:72px;top:${layout === 'flip' ? 168 : 680}px;display:flex;flex-direction:column;gap:14px">
   <div class="m" style="display:flex;gap:12px">
     <span style="font-size:21px;letter-spacing:3px;padding:7px 12px 6px;border:1.5px solid rgba(255,255,255,.5);color:#fff">${c.kicker}</span>
     <span style="font-size:21px;letter-spacing:3px;padding:7px 12px 6px;background:${hot ? '#F6465D' : LIME};color:${hot ? '#fff' : INK};font-weight:700">${status(e)}</span></div>
-  <div style="font-weight:700;font-size:56px;letter-spacing:-1.5px;line-height:1.05;margin-top:6px">${c.short}</div>
+  <div style="font-weight:700;font-size:${layout === 'flip' ? 64 : 56}px;letter-spacing:-1.5px;line-height:1.05;margin-top:6px;">${c.short}</div>
   <div style="font-weight:800;font-size:72px;letter-spacing:-2.5px;line-height:1;color:${LIME}">${c.headline}</div>
   <div class="s" style="font-size:38px;line-height:1.1;color:rgba(255,255,255,.92);margin-top:-2px">${c.headSub}</div>
+  ${layout === 'flip' && art ? `<img src="${art}" style="height:440px;max-width:900px;object-fit:contain;align-self:center;margin:4px 0 -6px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(transparent,#000 8%,#000 92%,transparent);-webkit-mask-composite:source-in">` : ''}
   <div style="margin-top:12px">
   ${c.rows.map(r => `<div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 14px;border-top:1px solid rgba(255,255,255,.14)">
     <div><span style="font-weight:600;font-size:28px">${r[0]}</span><span style="font-size:22px;color:rgba(255,255,255,.7);margin-left:14px">${r[2]}</span></div>
@@ -103,7 +106,7 @@ for (const [i, e] of chosen.entries()) {
 await br.close();
 
 const xLine = e => (DATA[e.slug]?.x || `${e.title.split('|')[0].trim()}. Ends {end}`).replace('{end}', fmtEnd(e.end)).replace('{endShort}', fmtEnd(e.end).replace(' (UTC+8)', ''));
-const anyFutures = chosen.some(e => /futures/i.test(JSON.stringify(DATA[e.slug] || e.title)));
+const anyFutures = chosen.some(e => (DATA[e.slug]?.kicker || '') === 'FUTURES' || /futures/i.test(e.slug));
 const risk = anyFutures ? 'Futures trading is high risk. Not financial advice.' : 'Not financial advice.';
 const x = `Ending soon on Hotcoin ⏳\n\n${chosen.map(xLine).join('\n\n')}\n\nUTC+8. ${anyFutures ? 'Futures trading is high risk.' : 'Not financial advice.'} Links 👇`;
 const xReply = chosen.map(e => `${DATA[e.slug]?.short || e.title.split('|')[0].trim()}: ${e.url}`).join('\n');
