@@ -1,0 +1,113 @@
+{
+ "type": "news",
+ "style": "v2",
+ "date": "NOV 19",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "waller.jpg",
+   "photo_pos": "50% 18%",
+   "tag": "BREAKING",
+   "headline": "[95%] chance the Fed {raises rates} again in December"
+  },
+  {
+   "kind": "ngrid",
+   "text": "Fed notes out Nov 18: [almost all] officials see more hikes ahead.",
+   "cells": [
+    {
+     "photo": "warsh.jpg",
+     "photo_pos": "50% 15%",
+     "place": "bottom",
+     "label": "Rate, held Oct 28",
+     "value": "3.75-4%"
+    },
+    {
+     "photo": "waller.jpg",
+     "photo_pos": "50% 12%",
+     "place": "bottom",
+     "label": "Waller wants",
+     "value": "+0.5%",
+     "sub": "\"shock people\""
+    },
+    {
+     "photo": "btc.jpg",
+     "photo_pos": "50% 45%",
+     "label": "Bitcoin, Nov 19",
+     "value": "$62.9K",
+     "sub": "-3% in a day",
+     "neg": true
+    },
+    {
+     "photo": "fear.jpg",
+     "photo_pos": "50% 85%",
+     "label": "Crypto mood",
+     "value": "11/100",
+     "sub": "extreme fear",
+     "neg": true
+    }
+   ],
+   "source": "Fed minutes Oct 27-28 (Nov 18); Decrypt; Cointelegraph; CoinGecko; alternative.me"
+  },
+  {
+   "kind": "nbars",
+   "tag": "WHY IT MATTERS",
+   "title": "Prices still rise too fast",
+   "bars": [
+    {
+     "l": "Fed's goal",
+     "v": 2.0,
+     "txt": "2%",
+     "pos": true
+    },
+    {
+     "l": "Core prices",
+     "v": 3.1,
+     "txt": "3.1%",
+     "neg": true
+    },
+    {
+     "l": "All prices",
+     "v": 3.6,
+     "txt": "3.6%",
+     "neg": true
+    }
+   ],
+   "text": [
+    "Price rises over 12 months to September (PCE).",
+    "Higher rates are the Fed's tool to [slow them down]."
+   ],
+   "source": "Fed minutes Oct 27-28, staff estimates for September"
+  },
+  {
+   "kind": "nphoto",
+   "tag": "WHAT'S NEXT",
+   "title": "Decision day: Dec 9",
+   "photo": "fed.jpg",
+   "photo_pos": "50% 50%",
+   "overlay": "Traders: ~95% odds of a hike",
+   "text": [
+    "Most bet on 0.25 point. Waller wants 0.5.",
+    "Higher rates make cash pay more and {pull money from risky bets} like crypto."
+   ],
+   "source": "CME FedWatch via Decrypt, Cointelegraph; Fed calendar"
+  },
+  {
+   "kind": "end"
+  }
+ ],
+ "sources": [
+  "Federal Reserve, minutes of the FOMC meeting Oct 27-28, 2026 (released Nov 18): rate held at 3.75-4% by 10-2 vote (Cook, Hammack wanted +0.25); almost all participants judged further rate increases likely appropriate; a couple said more than 25 bp could warrant consideration next meeting; staff: PCE inflation 3.6%, core 3.1% in September; Kevin Warsh chairman",
+  "Decrypt (Nov 18): Waller on CNBC, 'You might need to, like, shock people', 'go 50 in December'; Dec 8-9 meeting; futures ~95% for 25 bp, ~5% for 50 bp",
+  "Cointelegraph (Nov 18): Waller 'shock' 50-point hike; FedWatch odds of 25 bp hike above 95%; BTC below $63,000, down ~3%",
+  "CoinGecko: BTC $62,922, -3.2% 24h (Nov 19 07:50 UTC+8)",
+  "alternative.me Fear & Greed Index: 11 (Extreme Fear), Nov 19",
+  "Federal Reserve FOMC calendar: Dec 8-9, 2026"
+ ],
+ "photo_credits": [
+  "Christopher Waller: Federal Reserve / Wikimedia Commons (public domain)",
+  "Kevin Warsh: The White House / Wikimedia Commons (public domain)",
+  "Eccles Building: Wikimedia Commons",
+  "Bitcoin: Traxer / Unsplash",
+  "Hands over face: Edemekong Andem / Unsplash"
+ ]
+}
