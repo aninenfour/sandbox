@@ -432,29 +432,31 @@ const Window: React.FC<{children: React.ReactNode; w: number}> = ({children, w})
 const SIDE_LABELS = {chart: ['Negociação de futuros', 'Futures trading'], predict: ['Mercado de previsões', 'Prediction market']} as const;
 const UISide: React.FC<{f: number; front: boolean}> = ({f, front}) => {
   if (f < DROP || f >= OUT1) return null;
-  if (front !== TALL) return null;            // 16:9 draws behind him, 9:16 in front
   const o = interpolate(f, [OUT1 - 8, OUT1], [1, 0], clamp);
-  const ww = TALL ? 440 : 500, wh = 30 + ww * 9 / 16;
-  const pos = TALL ? [{x: 36, y: 1230, r: 18, seg: 'chart' as const}, {x: W - ww - 36, y: 1230, r: -18, seg: 'predict' as const}]
-                   : [{x: 70, y: 640, r: 20, seg: 'chart' as const}, {x: W - ww - 70, y: 640, r: -20, seg: 'predict' as const}];
+  const ww = TALL ? 250 : 500, wh = 30 + ww * 9 / 16;
+  // 9:16 (measured head range x 79-807): prediction market upper right beside his head (behind him),
+  // chart lower left in front of his shoulder; heart (x 724) and face stay clear. 16:9: both behind him.
+  const pos = (TALL ? [{x: 30, y: 1250, r: 14, seg: 'chart' as const, w: 330, fr: true}, {x: W - 250 - 16, y: 700, r: -14, seg: 'predict' as const, w: 250, fr: false}]
+                    : [{x: 70, y: 640, r: 20, seg: 'chart' as const, w: ww, fr: false}, {x: W - ww - 70, y: 640, r: -20, seg: 'predict' as const, w: ww, fr: false}]).filter((q) => q.fr === front);
   return (
     <AbsoluteFill style={{opacity: o}}>
       {pos.map((p, i) => {
-        const at = DROP + 6 + i * 6;
+        const right = p.seg === 'predict';
+        const at = DROP + 6 + (right ? 6 : 0);
         const k = interpolate(f, [at, at + 16], [0, 1], {...clamp, easing: ease});
         const lk = interpolate(f, [at + 10, at + 22], [0, 1], {...clamp, easing: ease});
         const bob = Math.sin(f / 24 + i * 1.7) * 5;
         const [pt, en] = SIDE_LABELS[p.seg];
         return (
-          <div key={i} style={{position: 'absolute', left: p.x, top: p.y + (1 - k) * 60 + bob, width: ww, opacity: k}}>
+          <div key={i} style={{position: 'absolute', left: p.x, top: p.y + (1 - k) * 60 + bob, width: p.w, opacity: k}}>
             <div style={{perspective: 1400}}>
-              <div style={{transform: `rotateY(${p.r}deg)`, transformOrigin: i ? '100% 50%' : '0% 50%'}}>
-                <Window w={ww}><UIClip seg={p.seg} at={DROP} len={OUT1 - DROP} /></Window>
+              <div style={{transform: `rotateY(${p.r}deg)`, transformOrigin: right ? '100% 50%' : '0% 50%'}}>
+                <Window w={p.w}><UIClip seg={p.seg} at={DROP} len={OUT1 - DROP} /></Window>
               </div>
             </div>
-            <div style={{marginTop: 16, textAlign: i ? 'right' : 'left', opacity: lk, transform: `translateY(${(1 - lk) * 8}px)`}}>
-              <div style={{fontFamily: SANS, fontWeight: 700, fontSize: TALL ? 30 : 28, color: WHITE, lineHeight: 1.15, textShadow: '0 2px 12px rgba(0,0,0,.8)'}}>{pt}</div>
-              <div style={{fontFamily: SANS, fontWeight: 500, fontSize: TALL ? 22 : 20, letterSpacing: '0.06em', color: 'rgba(184,242,106,.85)', marginTop: 4, textTransform: 'uppercase', textShadow: '0 2px 12px rgba(0,0,0,.8)'}}>{en}</div>
+            <div style={{marginTop: 16, textAlign: right ? 'right' : 'left', opacity: lk, transform: `translateY(${(1 - lk) * 8}px)`}}>
+              <div style={{fontFamily: SANS, fontWeight: 700, fontSize: TALL ? 23 : 28, color: WHITE, lineHeight: 1.15, textShadow: '0 2px 12px rgba(0,0,0,.8)'}}>{pt}</div>
+              <div style={{fontFamily: SANS, fontWeight: 500, fontSize: TALL ? 16 : 20, letterSpacing: '0.06em', color: 'rgba(184,242,106,.85)', marginTop: 4, textTransform: 'uppercase', textShadow: '0 2px 12px rgba(0,0,0,.8)'}}>{en}</div>
             </div>
           </div>
         );
@@ -500,8 +502,13 @@ const UICards: React.FC<{f: number}> = ({f}) => {
 // Hotcoin symbol orbiting him (16:9 only, team 2026-11-18): a steep tilted orbit around his head and shoulders
 // (1.5 turns, eased), then it glides onto his heart (his left chest, on the dark jacket) and pops in like a pin,
 // where it stays with a soft glow until he finishes. Far half of the orbit is drawn behind him, near half in front.
-const ORBIT = {cx: 960, cy: 490, rx: 300, ry: 140, tilt: 18};   // high side on the left, clear of both caption columns
-const HEART = {x: 1095, y: 715};
+const ORBIT_W = {cx: 960, cy: 490, rx: 300, ry: 140, tilt: 18};   // 16:9: high side on the left, clear of both caption columns
+const HEART_W = {x: 1095, y: 715};
+// 9:16: same points on his body, mapped through the 9:16 person box (scale 0.95, left -172, top 451)
+const ORBIT_T = {cx: 540, cy: 1135, rx: 400, ry: 190, tilt: 18};
+const HEART_T = {x: 724, y: 1440};
+let ORBIT = ORBIT_W, HEART = HEART_W;
+const OK = () => (TALL ? 1.36 : 1);                // symbol/shockwave scale with his size
 const ORB_START = DROP + 2, ORB_END = ORB_START + 120, LAND = ORB_END + 14;   // 1.5 slow turns (4 s), then the hit
 const orbitPoint = (th: number, shrink = 1) => {
   const {cx, cy, rx, ry, tilt} = ORBIT;
@@ -519,7 +526,8 @@ const orbitState = (f: number) => {
 };
 const SYM = staticFile('brand/symbol-official-white.png');
 const OrbitLogo: React.FC<{f: number; front: boolean}> = ({f, front}) => {
-  if (TALL || f < ORB_START || f >= OUT1) return null;
+  if (f < ORB_START || f >= OUT1) return null;
+  ORBIT = TALL ? ORBIT_T : ORBIT_W; HEART = TALL ? HEART_T : HEART_W;
   const out = interpolate(f, [OUT1 - 10, OUT1], [1, 0], clamp);
   const appear = interpolate(f, [ORB_START, ORB_START + 14], [0, 1], clamp);
   const st = orbitState(f);
@@ -527,7 +535,7 @@ const OrbitLogo: React.FC<{f: number; front: boolean}> = ({f, front}) => {
   const hitT = f - LAND;
   const pop = hitT < 0 ? 1 : 1 + 0.45 * Math.exp(-hitT / 3) * Math.cos(hitT / 2);
   const breath = hitT < 12 ? 0 : 0.05 * Math.sin(hitT / 11);
-  const sizeAt = (z: number, land: number) => (land > 0 ? 52 + (40 - 52) * land : 52 * (1 + 0.3 * z));
+  const sizeAt = (z: number, land: number) => OK() * (land > 0 ? 52 + (40 - 52) * land : 52 * (1 + 0.3 * z));
   const size = sizeAt(st.z, st.land) * pop * (1 + breath);
   const ringO = appear * out * (1 - st.land);
   const {cx, cy, rx, ry, tilt} = ORBIT;
@@ -561,7 +569,7 @@ const OrbitLogo: React.FC<{f: number; front: boolean}> = ({f, front}) => {
       <div style={{position: 'absolute', left: HEART.x, top: HEART.y, width: 0, height: 0}}>
         {[0, 5].map((d) => {
           const q = interpolate(hitT - d, [0, 16], [0, 1], {...clamp, easing: ease});
-          const r = 20 + q * 110;
+          const r = OK() * (20 + q * 110);
           return <div key={d} style={{position: 'absolute', left: -r, top: -r, width: r * 2, height: r * 2, borderRadius: '50%', border: `${3 - q * 2}px solid rgba(184,242,106,${(1 - q) * 0.9})`,
             boxShadow: `0 0 ${24 * (1 - q)}px rgba(184,242,106,${0.6 * (1 - q)})`, opacity: hitT - d >= 0 ? 1 : 0}} />;
         })}
