@@ -57,7 +57,7 @@ import {Style2Logo, Style2TradFi, Style2Next90} from './style2/Style2';
 import {PolicyMoney, PolicyMoves, PolicyOdds, PolicyVote} from './policy26/PolicyPulse';
 import {R10Teaser, R10_DURATION, R10_FPS} from './r10/R10Teaser';
 import {R10Ambassador, R10A_DURATION, R10A_FPS} from './r10/R10Ambassador';
-import {R10Aura, R10AuraPoster, R10AURA_DURATION, R10AURA_FPS} from './r10/R10Aura';
+import {R10Aura, R10AuraPoster, R10AuraPosterTall, R10AURA_DURATION, R10AURA_FPS} from './r10/R10Aura';
 import {R10Styled, R10CampaignPoster, R10S_DURATION, R10S_FPS} from './r10/R10Styles';
 import {R10Luxe, R10L_DURATION, R10L_FPS} from './r10/R10Luxe';
 import {ChainBase, ChainDex, ChainStables, ChainPeak} from './chains26/ChainPulse';
@@ -108,6 +108,7 @@ export const Root: React.FC = () => (
     <Composition id="R10Teaser" component={R10Teaser} durationInFrames={R10_DURATION} fps={R10_FPS} width={1920} height={1080} />
     <Composition id="R10Wide" component={R10Ambassador} defaultProps={{tall: false}} durationInFrames={R10A_DURATION} fps={R10A_FPS} width={1920} height={1080} />
 <Composition id="R10AuraPoster" component={R10AuraPoster} durationInFrames={1} fps={30} width={1920} height={1080} />
+    <Composition id="R10AuraPosterTall" component={R10AuraPosterTall} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="R10CampaignPoster" component={R10CampaignPoster} durationInFrames={1} fps={30} width={1920} height={1080} />
     <Composition id="R10Luxe" component={R10Luxe} durationInFrames={R10L_DURATION} fps={R10L_FPS} width={1920} height={1080} />
     <Composition id="R10Campaign" component={R10Styled} defaultProps={{style: 'campaign' as const}} durationInFrames={R10S_DURATION} fps={R10S_FPS} width={1920} height={1080} />

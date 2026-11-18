@@ -421,3 +421,27 @@ export const R10AuraPoster: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+// ---------- 9:16 thumbnail (separate image, not baked into the video; team 2026-11-18) ----------
+export const R10AuraPosterTall: React.FC = () => {
+  W = 1080; H = 1920; TALL = true;
+  const ph = 1240, pw = ph * (1670 / 1978);
+  return (
+    <AbsoluteFill style={{background: `radial-gradient(80% 70% at 50% 62%, #0E2A17 0%, #07130B 45%, ${INK} 85%)`, overflow: 'hidden'}}>
+      <Rays f={0} o={0.8} />
+      <Halftone f={0} o={0.45} />
+      <Rings f={30} o={0.8} cy={1250} />
+      <Img src={staticFile('ronaldinho/cover_2.56.png')} style={{position: 'absolute', height: ph, left: W / 2 - pw / 2, top: H - ph + 40,
+        filter: 'grayscale(1) contrast(1.06) brightness(1.14) drop-shadow(0 0 26px rgba(184,242,106,.55)) drop-shadow(0 0 4px rgba(184,242,106,.8))'}} />
+      <div style={{position: 'absolute', left: 0, right: 0, top: 150, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>
+        <Img src={staticFile('brand/logo-official-white.png')} style={{height: 92}} />
+        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 40, letterSpacing: 10, marginRight: -10, color: LIME, marginTop: 58}}>EMBAIXADOR OFICIAL</div>
+        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 150, letterSpacing: -4, color: WHITE, lineHeight: 1, marginTop: 12}}>RONALDINHO</div>
+        <div style={{width: 140, height: 5, background: LIME, margin: '36px 0 28px'}} />
+        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 52, color: LIME}}>Embaixador da Hotcoin (Brasil)</div>
+      </div>
+      <AbsoluteFill style={{background: 'radial-gradient(120% 100% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.65) 100%)'}} />
+      <Grain f={0} />
+    </AbsoluteFill>
+  );
+};
