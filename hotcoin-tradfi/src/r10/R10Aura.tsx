@@ -8,7 +8,7 @@
 //   no text hidden behind him (words sit either side); no deep end boom.
 import React from 'react';
 import '@fontsource/inter-tight/800.css';
-import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig, Easing} from 'remotion';
+import {AbsoluteFill, Audio, Img, Loop, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig, Easing} from 'remotion';
 
 export const R10AURA_FPS = 30;
 const BEAT = 60 / 95;                       // 0.6316 s
@@ -369,7 +369,125 @@ const Sound: React.FC = () => {
   );
 };
 
-export const R10Aura: React.FC = () => {
+
+// ---------- Hotcoin UI footage (public/ronaldinho/ui.mp4, team screen recording) + corner logo; team 2026-11-18 ----------
+// Sections used (seconds in ui.mp4): trading chart 0-3.4, prediction market 5.1-6.9, homepage 7.0-9.8.
+// The 3.5-4.95 s anniversary banner is NOT used (team request).
+type UIStyle = 'none' | 'bg' | 'side' | 'cards';
+const UI_SEG = {chart: [0.2, 3.3], predict: [5.15, 6.85], home: [7.1, 9.7]} as const;
+// each section loops on its own, so playback never runs on into the next section (or the banner)
+const UIClip: React.FC<{seg: keyof typeof UI_SEG; at: number; len?: number; style?: React.CSSProperties}> = ({seg, at, len = 120, style}) => {
+  const [a, b] = UI_SEG[seg];
+  return (
+    <Sequence from={at} durationInFrames={len} layout="none">
+      <Loop durationInFrames={fr(b - a)} layout="none">
+        <OffthreadVideo src={staticFile('ronaldinho/ui.mp4')} muted startFrom={fr(a)} endAt={fr(b)} style={{width: '100%', height: '100%', objectFit: 'cover', ...style}} />
+      </Loop>
+    </Sequence>
+  );
+};
+// which section plays during which phrase of his line
+const segAt = (f: number): keyof typeof UI_SEG => {
+  const t = (f - V) / R10AURA_FPS;
+  return t < 1.55 ? 'chart' : t < 2.64 ? 'predict' : t < 4.25 ? 'home' : 'chart';
+};
+const segStart = (f: number) => {
+  const t = (f - V) / R10AURA_FPS;
+  const a = t < 1.55 ? 0 : t < 2.64 ? 1.55 : t < 4.25 ? 2.64 : 4.25;
+  return V + fr(a);
+};
+
+// A: one big tilted screen behind him, green-toned, dim: fills the empty background
+const UIBackground: React.FC<{f: number}> = ({f}) => {
+  if (f < DROP || f >= OUT1) return null;
+  const o = interpolate(f, [DROP, DROP + 12, OUT1 - 8, OUT1], [0, 1, 1, 0], clamp);
+  const w = TALL ? 2100 : 2300, h = w * 9 / 16;
+  return (
+    <AbsoluteFill style={{perspective: 1400, opacity: o * 0.32}}>
+      <div style={{position: 'absolute', left: W / 2 - w / 2, top: (TALL ? 760 : H * 0.46) - h / 2, width: w, height: h,
+        transform: `rotateY(${TALL ? -10 : -16}deg) rotateX(6deg) scale(${1 + (f - DROP) * 0.0006})`,
+        filter: 'grayscale(1) sepia(1) hue-rotate(50deg) saturate(2.2) brightness(.75) contrast(1.15) blur(1.4px)',
+        WebkitMaskImage: 'radial-gradient(60% 60% at 50% 50%, #000 40%, transparent 100%)', maskImage: 'radial-gradient(60% 60% at 50% 50%, #000 40%, transparent 100%)'}}>
+        <UIClip seg={segAt(f)} at={segStart(f)} />
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// browser-window frame
+const Window: React.FC<{children: React.ReactNode; w: number}> = ({children, w}) => (
+  <div style={{width: w, borderRadius: 16, overflow: 'hidden', background: '#0B0E11', border: '1.5px solid rgba(184,242,106,.55)',
+    boxShadow: '0 30px 80px rgba(0,0,0,.6), 0 0 40px rgba(184,242,106,.18)'}}>
+    <div style={{height: 30, display: 'flex', alignItems: 'center', gap: 8, padding: '0 14px', background: '#14181B'}}>
+      {['#F6465D', '#F5A524', '#2DBD85'].map((c) => <div key={c} style={{width: 10, height: 10, borderRadius: 5, background: c, opacity: 0.85}} />)}
+      <div style={{marginLeft: 12, fontFamily: MONO, fontSize: 13, color: 'rgba(243,245,241,.55)'}}>hotcoin.com</div>
+    </div>
+    <div style={{width: w, height: w * 9 / 16, position: 'relative'}}>{children}</div>
+  </div>
+);
+
+// B: two angled browser windows either side (16:9: lower corners under the captions; 9:16: two behind him, left and right)
+const UISide: React.FC<{f: number}> = ({f}) => {
+  if (f < DROP || f >= OUT1) return null;
+  const k = interpolate(f, [DROP + 4, DROP + 22], [0, 1], {...clamp, easing: ease});
+  const o = interpolate(f, [OUT1 - 8, OUT1], [1, 0], clamp);
+  const ww = TALL ? 560 : 580;
+  const pos = TALL ? [{x: -60, y: 900, r: 24, seg: 'chart' as const}, {x: W - ww + 60, y: 980, r: -24, seg: 'predict' as const}]
+                   : [{x: 60, y: 700, r: 22, seg: 'chart' as const}, {x: W - ww - 60, y: 700, r: -22, seg: 'predict' as const}];
+  return (
+    <AbsoluteFill style={{perspective: 1600, opacity: o}}>
+      {pos.map((p, i) => (
+        <div key={i} style={{position: 'absolute', left: p.x, top: p.y + (1 - k) * 80, opacity: k,
+          transform: `rotateY(${p.r}deg) translateY(${Math.sin(f / 22 + i) * 6}px)`, transformOrigin: i ? '100% 50%' : '0% 50%'}}>
+          <Window w={ww}><UIClip seg={p.seg} at={DROP} len={OUT1 - DROP} /></Window>
+        </div>
+      ))}
+    </AbsoluteFill>
+  );
+};
+
+// C: cropped UI cards that pop in around him on the beat, at different depths
+const UICards: React.FC<{f: number}> = ({f}) => {
+  if (f < DROP || f >= OUT1) return null;
+  const o = interpolate(f, [OUT1 - 8, OUT1], [1, 0], clamp);
+  // crop = which part of the 1920x1080 UI frame to show (x, y, w, h)
+  const cards = TALL
+    ? [{seg: 'chart' as const, crop: [40, 70, 1140, 640], x: 40, y: 640, w: 420, b: 0, d: 0.9},
+       {seg: 'predict' as const, crop: [430, 330, 1060, 600], x: 640, y: 560, w: 400, b: 2, d: 1.0},
+       {seg: 'home' as const, crop: [560, 300, 900, 560], x: 600, y: 1080, w: 420, b: 4, d: 0.85}]
+    : [{seg: 'chart' as const, crop: [40, 70, 1140, 640], x: 520, y: 120, w: 300, b: 0, d: 0.8},
+       {seg: 'predict' as const, crop: [430, 330, 1060, 600], x: 1150, y: 560, w: 340, b: 2, d: 1.0},
+       {seg: 'home' as const, crop: [560, 300, 900, 560], x: 470, y: 640, w: 320, b: 4, d: 0.9}];
+  return (
+    <AbsoluteFill style={{opacity: o}}>
+      {cards.map((c, i) => {
+        const at = fr(beatS(beatIndex(DROP) + 1 + c.b));
+        const p = interpolate(f, [at, at + 10], [0, 1], {...clamp, easing: ease});
+        const [cx, cy, cw, ch] = c.crop;
+        const sc = c.w / cw, hh = ch * sc;
+        const drift = Math.sin(f / 30 + i * 2) * 8 * c.d;
+        return (
+          <div key={i} style={{position: 'absolute', left: c.x, top: c.y + drift, width: c.w, height: hh, borderRadius: 14, overflow: 'hidden',
+            opacity: p, transform: `scale(${0.85 + 0.15 * p})`, border: '1.5px solid rgba(184,242,106,.6)',
+            boxShadow: '0 20px 60px rgba(0,0,0,.55), 0 0 30px rgba(184,242,106,.22)', filter: c.d < 0.9 ? 'blur(.6px) brightness(.9)' : undefined}}>
+            <div style={{position: 'absolute', left: -cx * sc, top: -cy * sc, width: 1920 * sc, height: 1080 * sc}}>
+              <UIClip seg={c.seg} at={DROP} len={OUT1 - DROP} />
+            </div>
+          </div>
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
+
+// small Hotcoin logo in the corner while no other logo is on screen (from his entrance to the end card)
+const CornerLogo: React.FC<{f: number}> = ({f}) => {
+  const o = interpolate(f, [DROP, DROP + 10, END - 6, END], [0, 1, 1, 0], clamp);
+  if (o <= 0) return null;
+  return <Img src={staticFile('brand/logo-official-white.png')} style={{position: 'absolute', left: TALL ? 56 : 64, top: TALL ? 64 : 52, height: TALL ? 44 : 40, opacity: o * 0.95}} />;
+};
+
+export const R10Aura: React.FC<{ui?: UIStyle}> = ({ui = 'none'}) => {
   const f = useCurrentFrame();
   const {width, height} = useVideoConfig();
   W = width; H = height; TALL = height > width;
@@ -384,8 +502,12 @@ export const R10Aura: React.FC = () => {
       <Rings f={f} o={f < END ? 1 : 0.5} />
       {/* the text cover is replaced by the baked-in poster (scripts/bake-r10-poster.sh) */}
       <Facts f={f} />
+      {ui === 'bg' && <UIBackground f={f} />}
+      {ui === 'cards' && <UICards f={f} />}
+      {ui === 'side' && <UISide f={f} />}
       <Person f={f} />
       <Captions f={f} />
+      <CornerLogo f={f} />
       <Outro f={f} />
       <EndCard f={f} />
       <Flash f={f} />
