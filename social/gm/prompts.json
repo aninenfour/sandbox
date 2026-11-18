@@ -1,0 +1,26 @@
+{
+  "_note": "AI photo prompts for GM photo days. Default model fal-ai/bytedance/seedream/v4/text-to-image (~$0.03/image, image_size 1728x2160). Tested Nov 18, 2026 vs nano-banana-pro ($0.15, adds fake phone UI) and flux/schnell (cheap but garbled text and fused objects). gm.mjs adds the official Hotcoin tile; the model must never draw logos or text.",
+  "model": "fal-ai/bytedance/seedream/v4/text-to-image",
+  "image_size": {"width": 1728, "height": 2160},
+  "suffix": " Real iPhone photo look, natural light, slight grain. No text, no logos, no brand marks, no faces, no phone UI or status bar, no watermark.",
+  "days": {
+    "Tue_greenThing": [
+      "Candid first-person POV: a hand holding an iced matcha latte in a clear cup, early morning sun, blurred city street behind.",
+      "A single bright lime-green apple on a white kitchen counter next to a laptop, morning light.",
+      "A lime-green bicycle leaning on a brick wall at sunrise, empty street.",
+      "Close-up of a hand holding a fresh green lime cut in half over a cutting board, morning kitchen."
+    ],
+    "Thu_setup": [
+      "A trader's desk at sunrise: ultrawide monitor with an abstract green rising candlestick chart (no readable numbers), mechanical keyboard with a few bright lime-green keycaps, small plant, coffee mug, shot from the chair.",
+      "Minimal desk by a window at dawn: laptop showing an abstract green chart, lime-green notebook, black coffee, headphones."
+    ],
+    "Sat_merch": [
+      "A plain bright neon lime-green hoodie (vivid chartreuse, hex B8F26A) folded on a sunny wooden windowsill next to a steaming black coffee mug and a phone face down. Hoodie completely plain.",
+      "A plain lime-green cap (no print) hanging on a chair by a sunny window, Saturday morning."
+    ],
+    "Sun_grass": [
+      "First-person POV looking down at bare feet and a plain bright lime-green coffee tumbler on fresh grass in a park, early sun, dew, phone on the grass screen-off.",
+      "A plain lime-green picnic blanket on grass with a coffee and a closed book, soft Sunday morning light."
+    ]
+  }
+}

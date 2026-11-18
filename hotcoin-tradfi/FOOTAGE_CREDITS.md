@@ -374,3 +374,7 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 | Photo | Source | Licence |
 |---|---|---|
 | Monstera leaf in a studio setting, by feey | Unsplash (unsplash.com/photos/cvF37ZIrIzE) | Unsplash licence, free for commercial use |
+
+## Daily GM photos (`social/gm/`)
+Photo days use AI-generated images (fal, ByteDance Seedream v4, prompts in `social/gm/prompts.json`), no real people's faces,
+no third-party brands. The Hotcoin symbol is composited from the official brand file, never generated. The Unsplash monstera above was a one-off test and is not used.
