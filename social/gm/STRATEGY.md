@@ -68,16 +68,17 @@ The report shows rendered/CGI GMs underperform real photos, so these are **not**
 2. Weekly batch: generate the 4 photo days on Sunday night with Seedream (one approval per batch), review the sheet, then queue drafts.
 3. Add the 13 peer accounts to Publer competitor tracking so the weekly numbers refresh without a new report.
 
-## Visual style v3: "viewfinder" (Nov 18, 2026)
-Added in code on top of every photo day, zero AI cost (`gm.mjs --style=mono|frame|clean`, default mono):
-- **Selective colour (mono):** photo turns contrasty black and white, only lime/green keeps colour. Our colour becomes the hero of every frame.
-- **Viewfinder:** lime camera-focus corners around the hero object plus a small crosshair; box set per day in `inbox/<date>.json` {"focus":[x,y,w,h]}.
-- **Series label:** `GM / 001` counter on a dark chip (builds the streak habit), wordmark top-left, `GM ● 10:00 UTC+8` top-right.
-- **Bottom ruler:** hairline with tick marks, date left, format name right (e.g. DESK CHECK, TEAM KIT). White mono 22px, never grey footer text.
-- Per-day override `{"style":"frame"}` when the hero is a muted green (matcha) that the mono filter would grey out.
+## Visual style v3: rotating looks (Nov 18, 2026)
+Added in code on top of every photo day, zero AI cost. No two photo days in a row look the same:
+- **Layouts** (rotate by photo day): `viewfinder` (lime focus corners + crosshair + GM chip), `ruler` (tick ruler, date, format name),
+  `side` (vertical lime-tick ruler with GM number), `chip` (one GM label + lime line), `clean` (photo only, about 1 in 4).
+- **Tones:** `mono` (B&W, only lime/green keeps colour) or `color`. Clean days are always colour.
+- **No wordmark or time on normal days.** Event days only: add `{"event":"ANNIV 9","time":"10:00 UTC+8"}` to `inbox/<date>.json`.
+- Override any day in `inbox/<date>.json`: `layout`, `tone`, `focus` [x,y,w,h], `label`. CLI: `--layout=side --tone=mono`.
+- Every label sits on a dark chip so it stays readable on bright photos; white/lime mono 22px, never grey footer text.
 
-### Style backlog (keep improving, one change per week, measure likes/view)
-1. Animated version: 3 s loop where corners snap in and the colour bleeds back into the hero (video GMs got 1.19x views in the benchmark).
-2. Market-mood tint: on red days the ruler ticks turn red (#E5484D), green days lime.
-3. Seasonal frames: Uptober / anniversary variants of the label chip.
-4. Test frame vs mono vs clean for 2 weeks each; keep the winner.
+### Style backlog (one change per week, measure likes/view)
+1. Animated version: 3 s loop where corners snap in and colour bleeds back into the hero (video GMs got 1.19x views in the benchmark).
+2. Market-mood tint: ruler ticks red (#E5484D) on red days, lime on green days.
+3. New layouts to add to the rotation: film-strip border, split frame (photo + solid lime panel with the caption line).
+4. Track likes/view per layout in Publer; drop the weakest after 4 weeks.
