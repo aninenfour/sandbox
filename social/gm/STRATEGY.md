@@ -27,6 +27,9 @@ Plus: market self-awareness wins the biggest posts; one ownable, real-photo look
    **Current method:** Seedream v4 edit with the bare official mark (`brand/logo-white-on-dark.png`) as reference, logo printed or embroidered
    into the object (cup print, cap embroidery, hoodie back print, mug glaze). Save as `inbox/<date>.branded.jpg` (no corner tile). 6 of 8 usable;
    rejects: a model-added Nike swoosh on a hoodie and a distorted tumbler print, so always check before posting.
+   Lessons (final test): pass our lime as a colour swatch (`brand/swatch-lime.png`) as image 2; never put size words like "small" in the
+   prompt (the model stitched the word SMALL); keep logos small on clothing (big back prints look off-brand); curved cups/caps can grow an
+   extra swoosh, so re-roll those. Wrong colour on an otherwise good image can be fixed locally with a hue shift (free).
    Model test: Nano Banana Pro ($0.15) looked best but added a fake phone status bar; FLUX schnell (<$0.01) garbled signs and objects.
 2. **Copy:** lowercase, under about 40 characters, one idea. Two or three times a week end with a 1-second prompt (ticker, emoji, 1 to 10, gm back).
 3. **No promos in GM.** Campaigns, prize pools and links go in a separate post or the first reply.
