@@ -23,6 +23,8 @@ Plus: market self-awareness wins the biggest posts; one ownable, real-photo look
    nothing written on it, one small green Hotcoin tile bottom-right (same spot every time). No CGI or 3D look.
    Source (approved Nov 18): AI generated with fal **Seedream v4** (~$0.03/image, about $0.12/week for 4 photo days) from `prompts.json`.
    The model never draws logos or text; `gm.mjs` adds the official symbol. Team phone photos can replace any day.
+   Logo on objects (test Nov 18): text-only prompts invent wrong marks and fake "Hotcoin" wordmarks (Seedream and FLUX schnell), so never use them.
+   Seedream v4 **edit** with the official tile as a reference image got the logo right on cups and tumblers (3 of 4); fabric patches still distort.
    Model test: Nano Banana Pro ($0.15) looked best but added a fake phone status bar; FLUX schnell (<$0.01) garbled signs and objects.
 2. **Copy:** lowercase, under about 40 characters, one idea. Two or three times a week end with a 1-second prompt (ticker, emoji, 1 to 10, gm back).
 3. **No promos in GM.** Campaigns, prize pools and links go in a separate post or the first reply.
