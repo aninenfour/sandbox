@@ -497,6 +497,42 @@ const UICards: React.FC<{f: number}> = ({f}) => {
   );
 };
 
+// Hotcoin symbol orbiting him (16:9 only, team 2026-11-18). Tilted ellipse around his upper body: the far half is drawn
+// behind him (smaller, dimmer, soft), the near half in front at chest height (below his face). One orbit per two bars.
+const ORBIT = {cx: 960, cy: 545, rx: 400, ry: 62, tilt: -6};
+const orbitAngle = (f: number) => ((f - DROP) / (BEAT * R10AURA_FPS * 8)) * Math.PI * 2 - Math.PI / 2;
+const OrbitLogo: React.FC<{f: number; front: boolean}> = ({f, front}) => {
+  if (TALL || f < DROP || f >= OUT1) return null;
+  const k = interpolate(f, [DROP + 6, DROP + 22, OUT1 - 10, OUT1], [0, 1, 1, 0], clamp);
+  const th = orbitAngle(f);
+  const z = Math.sin(th);                         // > 0 = near side (in front of him)
+  const {cx, cy, rx, ry, tilt} = ORBIT;
+  const t = (tilt * Math.PI) / 180;
+  const ex = Math.cos(th) * rx, ey = z * ry;
+  const x = cx + ex * Math.cos(t) - ey * Math.sin(t), y = cy + ex * Math.sin(t) + ey * Math.cos(t);
+  const isFront = z >= 0;
+  const size = 78 * (1 + 0.32 * z);
+  // orbit line: the matching half of the ellipse in each layer
+  const arc = (
+    <svg width={W} height={H} style={{position: 'absolute', inset: 0, opacity: k}}>
+      <defs><clipPath id={front ? 'orbFront' : 'orbBack'}><rect x={0} y={front ? cy : 0} width={W} height={front ? H - cy : cy} /></clipPath></defs>
+      <g clipPath={`url(#${front ? 'orbFront' : 'orbBack'})`} transform={`rotate(${tilt} ${cx} ${cy})`}>
+        <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="none" stroke={LIME} strokeWidth={front ? 2.5 : 1.5} strokeOpacity={front ? 0.55 : 0.25} />
+      </g>
+    </svg>
+  );
+  return (
+    <AbsoluteFill>
+      {arc}
+      {isFront === front && (
+        <Img src={staticFile('brand/symbol-official-white.png')} style={{position: 'absolute', left: x - size / 2, top: y - size / 2, width: size, height: size,
+          opacity: k * (front ? 1 : 0.55 + 0.45 * (1 + z)), transform: `rotate(${Math.cos(th) * 8}deg)`,
+          filter: `drop-shadow(0 0 ${front ? 22 : 10}px rgba(184,242,106,${front ? 0.75 : 0.4})) ${front ? '' : 'blur(1px)'}`}} />
+      )}
+    </AbsoluteFill>
+  );
+};
+
 // small Hotcoin logo in the corner while no other logo is on screen (from his entrance to the end card)
 const CornerLogo: React.FC<{f: number}> = ({f}) => {
   const o = interpolate(f, [DROP, DROP + 10, END - 6, END], [0, 1, 1, 0], clamp);
@@ -522,7 +558,9 @@ export const R10Aura: React.FC<{ui?: UIStyle}> = ({ui = 'none'}) => {
       {ui === 'bg' && <UIBackground f={f} />}
       {ui === 'cards' && <UICards f={f} />}
       {ui === 'side' && <UISide f={f} front={false} />}
+      <OrbitLogo f={f} front={false} />
       <Person f={f} />
+      <OrbitLogo f={f} front />
       {ui === 'side' && <UISide f={f} front />}
       <Captions f={f} />
       <CornerLogo f={f} />
