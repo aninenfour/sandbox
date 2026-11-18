@@ -27,11 +27,16 @@
 | 17/11 | 16:44 | Event LAUNCH | P2P Trading Sprint: indicação (cupom taxa spot) + volume (Futures Trial Funds), até 28/11 07:00 (link in reply) | scheduled |
 | 17/11 | 19:03 | Text | Nvidia 18:20, grupo da família vira analista de chip | scheduled |
 
+| 18/11 | 08:51 | GM | Jardim Botânico, Curitiba: linha sobe o caminho até a estufa | scheduled |
+| 18/11 | 10:32 | Event LAUNCH | Ronaldinho x Hotcoin: estreia em futuros até 200 USDT, Patek Philippe no ranking, até 29/11 04:00 (link in reply) | scheduled |
+| 18/11 | 12:07 | Text (data) | Nvidia 3º tri FY27: US$ 115,8 bi +103%, DC US$ 107,6 bi, guia US$ 130 bi (nvidianews) | scheduled |
+| 18/11 | 14:49 | Learn do dia | Desdobramento de ações (stock-split), pt_PT link in reply. EN copy: Research X 15:04, FB 15:13 | scheduled |
+| 18/11 | 17:39 | Anúncio oficial | SNDKB 8:1 (suspensão 19/11 05:00, retorno 20/11 07:00) (link in reply) | scheduled |
+
 ## Queued ideas (not scheduled yet)
-- Wed 18/11 morning: Nvidia Q3 result post (Raio-X TradFi follow-up) with numbers from investor.nvidia.com, verified.
+- Thu 19/11: Earn prazo fixo exclusivo launch (key visual from official banner, cut done), Wall Street Earnings last day (ends 12:59), Futures loss protection last call evening (ends 20/11 07:00).
 - Spot #24 midterm ~24/11, P2P Sprint midterm ~22/11; last calls 27/11 evening (P2P) and 29-30/11 (Spot).
 - Wall Street Earnings last day Thu 19/11 (ends 12:59): short morning reminder.
-- Wed 18/11: Anúncio oficial SNDKB 8:1 (suspensão 19/11 05:00, retorno previsto 20/11 07:00), re-check first.
 - Tue 17/11 evening: Nvidia result post (numbers from Nvidia IR after 18:20).
 - Thu/Fri: Futures loss protection last call (ends 20/11 07:00) on Thu evening.
 - Results posts: P2P Challenge (ended 15/11 07:00) results due ~24/11; Spot #23 results ~23/11.
@@ -49,3 +54,4 @@
 - 17/11 07:44 check 1: NEW events: Spot All-Round #24 (17/11 01:00 to 30/11 12:59 Brasília) and P2P Trading Sprint (17/11 07:00 to 28/11 07:00) added to events.json; launch key visuals from official banners (kv_1117.mjs). Notices: nothing new. Today: GM Salvador 08:59, Spot #24 10:23, P2P Sprint 16:44, Nvidia text 19:03; Placar at check 2. No meme today (skip day).
 - 17/11 12:10 check 2: no new announcements beyond Spot #24 + P2P Sprint (launched this morning). Placar BREV verified (CoinGecko brevis 0.1232, +114.8%), scheduled 13:38. Team posted a US retail sales post (05:03) and a GM (deleted) on this account. Learn do dia set up (tracker/learn.json), first post Wed 18/11 (stock split).
 - 17/11 16:14 check 3: no new announcements. P2P Sprint 16:44 and Nvidia text 19:03 queued; Placar BREV 13:38 left the queue (published). Nothing closes before 08:00 Wed. Wed plan: Learn do dia (stock split, PT + FB + Research), Anúncio SNDKB 8:1 (suspension Thu 19/11 05:00), Nvidia result post with verified IR numbers; Wall Street Earnings last-day reminder Thu morning.
+- 18/11 07:44 check 1: NEW events Ronaldinho x Hotcoin (18/11 04:00 to 29/11 04:00 Brasília; official banner labels him 'Embaixador da Hotcoin (Brasil)', banner cutout used) and Fixed-Term Earn Exclusive (17/11 23:30 to 28/11 08:00) added. SNDKB notice unchanged (re-read). Nvidia Q3 numbers verified on nvidianews.nvidia.com. Learn do dia #1 stock split on PT + Research + FB. No placar today (varied), no meme.
