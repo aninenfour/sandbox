@@ -67,3 +67,17 @@ The report shows rendered/CGI GMs underperform real photos, so these are **not**
 1. Nightly job: run `gm.mjs` for tomorrow and save a Publer **draft** on the Hotcoin X account at 10:00 UTC+8. A human approves.
 2. Weekly batch: generate the 4 photo days on Sunday night with Seedream (one approval per batch), review the sheet, then queue drafts.
 3. Add the 13 peer accounts to Publer competitor tracking so the weekly numbers refresh without a new report.
+
+## Visual style v3: "viewfinder" (Nov 18, 2026)
+Added in code on top of every photo day, zero AI cost (`gm.mjs --style=mono|frame|clean`, default mono):
+- **Selective colour (mono):** photo turns contrasty black and white, only lime/green keeps colour. Our colour becomes the hero of every frame.
+- **Viewfinder:** lime camera-focus corners around the hero object plus a small crosshair; box set per day in `inbox/<date>.json` {"focus":[x,y,w,h]}.
+- **Series label:** `GM / 001` counter on a dark chip (builds the streak habit), wordmark top-left, `GM ● 10:00 UTC+8` top-right.
+- **Bottom ruler:** hairline with tick marks, date left, format name right (e.g. DESK CHECK, TEAM KIT). White mono 22px, never grey footer text.
+- Per-day override `{"style":"frame"}` when the hero is a muted green (matcha) that the mono filter would grey out.
+
+### Style backlog (keep improving, one change per week, measure likes/view)
+1. Animated version: 3 s loop where corners snap in and the colour bleeds back into the hero (video GMs got 1.19x views in the benchmark).
+2. Market-mood tint: on red days the ruler ticks turn red (#E5484D), green days lime.
+3. Seasonal frames: Uptober / anniversary variants of the label chip.
+4. Test frame vs mono vs clean for 2 weeks each; keep the winner.

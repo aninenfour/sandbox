@@ -14,6 +14,7 @@ const require = createRequire(import.meta.url);
 const ROOT = '/home/user/sandbox', DIR = `${ROOT}/social/gm`;
 const args = process.argv.slice(2);
 const date = args.find(a => /^\d{4}-\d{2}-\d{2}$/.test(a)) || new Date(Date.now() + 864e5).toISOString().slice(0, 10); // default: tomorrow
+const opt = k => (args.find(a => a.startsWith(`--${k}=`)) || '').split('=')[1];
 const d = new Date(date + 'T00:00:00Z'), dow = d.getUTCDay(), n = Math.round(d / 864e5);
 const pick = (arr, salt = 0) => arr[(n + salt) % arr.length];
 
@@ -58,13 +59,64 @@ if (day.photo && photo) {
   const b64 = f => `data:image/${f.endsWith('png') ? 'png' : 'jpeg'};base64,` + fs.readFileSync(f).toString('base64');
   // Avatar-style mark: official symbol SVG with the dot in white too (matches the X profile tile).
   const sym = 'data:image/svg+xml;base64,' + Buffer.from(fs.readFileSync(`${ROOT}/hotcoin-tradfi/public/brand/symbol-lime-dot.svg`, 'utf8').replace(/#B8F26A/g, '#FFFFFF')).toString('base64');
-  // Real photo, 4:5 crop, one small brand tile bottom-right (same spot every day = the series signature). No text on the photo.
-  const html = `<!doctype html><html><body style="margin:0;width:1080px;height:1350px;overflow:hidden;position:relative">
-  <img src="${b64(photo)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-  <div style="display:${branded ? 'none' : 'flex'};position:absolute;right:48px;bottom:48px;width:104px;height:104px;border-radius:26px;background:#7EC25A;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,.25)">
-  <img src="${sym}" style="width:62px"></div></body></html>`;
+  // Styles (--style=): clean = photo only; frame = viewfinder overlay; mono = overlay + B&W photo where only lime/green keeps colour.
+  // Overlay elements: lime focus corners around the hero (inbox/<date>.json {"focus":[x,y,w,h]} in 1080x1350 px), series number,
+  // wordmark, slot time, a tick-marked hairline with date and format. Labels are white/lime mono at readable size (no grey footer text).
+  const meta = fs.existsSync(`${DIR}/inbox/${date}.json`) ? JSON.parse(fs.readFileSync(`${DIR}/inbox/${date}.json`, 'utf8')) : {};
+  const style = opt('style') || meta.style || 'mono'; // per-day override via inbox/<date>.json {"style":"frame"}
+  const [fx, fy, fw, fh] = meta.focus || [190, 300, 700, 760];
+  const seriesNo = String(Math.max(1, Math.round((d - new Date('2026-11-24T00:00:00Z')) / 864e5) + 1)).padStart(3, '0');
+  const wm = b64(`${ROOT}/hotcoin-tradfi/public/brand/logo-official-white.png`);
+  const MON = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'][d.getUTCMonth()];
+  const dayLabel = `${['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'][dow]} ${String(d.getUTCDate()).padStart(2, '0')} ${MON}`;
+  const fmtLabel = (meta.label || day.fmt.replace(/\s*\(.*\)/, '')).toUpperCase();
+  const L = '#B8F26A', C = 46, T = 4; // corner length, stroke
+  const corners = [[fx, fy, 'top', 'left'], [fx + fw, fy, 'top', 'right'], [fx, fy + fh, 'bottom', 'left'], [fx + fw, fy + fh, 'bottom', 'right']]
+    .map(([x, y, v, h]) => `<div style="position:absolute;${h}:${h === 'left' ? x : 1080 - x}px;${v}:${v === 'top' ? y : 1350 - y}px;width:${C}px;height:${C}px;border-${v}:${T}px solid ${L};border-${h}:${T}px solid ${L}"></div>`).join('');
+  const ticks = Array.from({length: 25}, (_, i) => `<div style="position:absolute;left:${64 + i * 39.67}px;top:${i % 6 === 0 ? -10 : -5}px;width:1.5px;height:${i % 6 === 0 ? 20 : 10}px;background:rgba(255,255,255,${i % 6 === 0 ? .9 : .55})"></div>`).join('');
+  const overlay = style === 'clean' ? '' : `
+  <div style="position:absolute;left:0;right:0;top:0;height:220px;background:linear-gradient(rgba(0,0,0,.45),transparent)"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:240px;background:linear-gradient(transparent,rgba(0,0,0,.5))"></div>
+  <img src="${wm}" style="position:absolute;left:64px;top:60px;height:34px">
+  <div class="m" style="position:absolute;right:64px;top:64px;color:#fff;font-size:22px;letter-spacing:3px">GM <span style="color:${L}">●</span> 10:00 UTC+8</div>
+  ${corners}
+  <div class="m" style="position:absolute;left:${fx}px;top:${fy - 46}px;color:${L};font-size:22px;letter-spacing:3px;background:rgba(11,14,17,.78);padding:5px 10px 4px">GM / ${seriesNo}</div>
+  <div style="position:absolute;left:${fx + fw / 2 - 9}px;top:${fy + fh / 2 - 1}px;width:18px;height:2px;background:rgba(255,255,255,.7)"></div>
+  <div style="position:absolute;left:${fx + fw / 2 - 1}px;top:${fy + fh / 2 - 9}px;width:2px;height:18px;background:rgba(255,255,255,.7)"></div>
+  <div style="position:absolute;left:0;right:0;top:1262px;height:1.5px;background:linear-gradient(90deg,transparent 64px,rgba(255,255,255,.6) 64px,rgba(255,255,255,.6) 1016px,transparent 1016px)">${ticks}</div>
+  <div class="m" style="position:absolute;left:64px;top:1284px;color:#fff;font-size:22px;letter-spacing:3px">${dayLabel}</div>
+  <div class="m" style="position:absolute;right:64px;top:1284px;color:#fff;font-size:22px;letter-spacing:3px">${fmtLabel}</div>`;
+  const html = `<!doctype html><html><head><style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=block');.m{font-family:'JetBrains Mono',monospace}</style></head>
+  <body style="margin:0;width:1080px;height:1350px;overflow:hidden;position:relative;background:#000">
+  <canvas id="c" width="2160" height="2700" style="position:absolute;inset:0;width:1080px;height:1350px"></canvas>
+  ${overlay}
+  <div style="display:${branded ? 'none' : 'flex'};position:absolute;right:48px;bottom:${style === 'clean' ? 48 : 130}px;width:104px;height:104px;border-radius:26px;background:#7EC25A;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,.25)">
+  <img src="${sym}" style="width:62px"></div>
+  <script>
+  const im = new Image(); im.onload = () => {
+    const c = document.getElementById('c'), x = c.getContext('2d');
+    const s = Math.max(2160 / im.width, 2700 / im.height), w = im.width * s, h = im.height * s;
+    x.drawImage(im, (2160 - w) / 2, (2700 - h) / 2, w, h);
+    if (${style === 'mono'}) {
+      const D = x.getImageData(0, 0, 2160, 2700), a = D.data;
+      for (let i = 0; i < a.length; i += 4) {
+        const r = a[i] / 255, g = a[i + 1] / 255, b = a[i + 2] / 255, mx = Math.max(r, g, b), mn = Math.min(r, g, b), dl = mx - mn;
+        let hue = 0; if (dl) hue = mx === r ? 60 * (((g - b) / dl) % 6) : mx === g ? 60 * ((b - r) / dl + 2) : 60 * ((r - g) / dl + 4); if (hue < 0) hue += 360;
+        const sat = mx ? dl / mx : 0;
+        // keep lime/green (hue 60 to 170, saturated); everything else goes to contrasty B&W
+        const k = Math.min(1, Math.max(0, (sat - .12) / .12)) * Math.min(1, Math.max(0, Math.min(hue - 52, 175 - hue) / 12));
+        let y = .3 * r + .59 * g + .11 * b; y = Math.min(1, Math.max(0, (y - .5) * 1.18 + .5));
+        a[i] = 255 * (y + (r - y) * k); a[i + 1] = 255 * (y + (g - y) * k); a[i + 2] = 255 * (y + (b - y) * k);
+      }
+      x.putImageData(D, 0, 0);
+    }
+    document.body.dataset.ready = 1;
+  }; im.src = '${b64(photo)}';
+  </script></body></html>`;
   const br = await chromium.launch(); const p = await br.newPage({viewport: {width: 1080, height: 1350}, deviceScaleFactor: 2});
-  await p.setContent(html, {waitUntil: 'load'}); image = `${out}/gm-${date}.png`; await p.screenshot({path: image}); await br.close();
+  await p.setContent(html, {waitUntil: 'networkidle'}); await p.waitForSelector('body[data-ready]'); await p.waitForTimeout(300);
+  image = `${out}/gm-${date}${style === 'mono' ? '' : '-' + style}.png`; await p.screenshot({path: image}); await br.close();
 }
 const fallback = day.photo && !photo;
 const finalCaption = fallback ? pick([...BANK.flat, ...BANK.prompt], 3) : caption;
