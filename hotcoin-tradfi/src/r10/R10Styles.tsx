@@ -25,10 +25,10 @@ type Style = 'campaign' | 'editorial';
 // Facts: hotcoin.com/en_US/about (checked 2026-11-17): founded 2017, 8.1M+ registered users, 120+ countries and regions,
 // 300+ spot + 500+ futures pairs = 800+ trading pairs (team asked for 800, 2026-11-18). Labels in Portuguese (team: visuals in PT).
 const FACTS = [
-  {to: 2017, dec: 0, suf: '', label: 'Ano de fundação'},
-  {to: 8.1, dec: 1, suf: 'M+', label: 'Usuários registrados'},
-  {to: 120, dec: 0, suf: '+', label: 'Países e regiões'},
-  {to: 800, dec: 0, suf: '+', label: 'Pares de negociação'},
+  {to: 2017, dec: 0, suf: '', label: 'Ano de fundação', en: 'Founded'},
+  {to: 8.1, dec: 1, suf: 'M+', label: 'Usuários registrados', en: 'Registered users'},
+  {to: 120, dec: 0, suf: '+', label: 'Países e regiões', en: 'Countries and regions'},
+  {to: 800, dec: 0, suf: '+', label: 'Pares de negociação', en: 'Trading pairs'},
 ];
 // captions: his Portuguese words (Whisper word starts, clip seconds) + English subtitle line; key = highlighted word
 const PHRASES = [
@@ -106,7 +106,7 @@ const CampaignText: React.FC<{f: number}> = ({f}) => {
         return (
           <div key={i} style={{display: 'flex', alignItems: 'center', gap: 36, borderTop: `1px solid rgba(184,242,106,${interpolate(f, [at - 2, at + 8], [0, 0.45], clamp)})`, padding: '14px 0 10px', width: 1100}}>
             <Reveal f={f} at={at} style={{width: 420}}><div style={{fontFamily: SERIF, fontSize: 132, lineHeight: 1, color: WHITE}}>{v}{x.suf}</div></Reveal>
-            <Reveal f={f} at={at + 3}><div style={{fontFamily: SANS, fontWeight: 600, fontSize: 46, color: LIME}}>{x.label}</div></Reveal>
+            <Reveal f={f} at={at + 3}><div style={{fontFamily: SANS, fontWeight: 600, fontSize: 44, color: LIME, lineHeight: 1.1}}>{x.label}<div style={{fontWeight: 500, fontSize: 32, color: 'rgba(243,245,241,.7)', marginTop: 4}}>{x.en}</div></div></Reveal>
           </div>
         );
       })}
@@ -270,7 +270,6 @@ export const R10CampaignPoster: React.FC = () => {
         <div style={{width: 64, height: 2, background: LIME, margin: '24px 0 18px'}} />
         <div style={{fontFamily: SERIF, fontSize: 150, lineHeight: 1, color: WHITE}}>Ronaldinho</div>
         <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 44, lineHeight: 1.25, marginTop: 30}}>
-          <div style={{color: WHITE}}>{EN}</div>
           <div style={{color: LIME}}>{PT}</div>
         </div>
       </div>

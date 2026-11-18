@@ -121,11 +121,11 @@ const Cover: React.FC<{f: number}> = ({f}) => {
 
 // Facts: hotcoin.com/en_US/about (checked 2026-11-17): founded 2017, 8.1M+ registered users, 120+ countries and regions,
 // 300+ spot + 500+ futures pairs = 800+ trading pairs (team asked for 800, 2026-11-18). Labels in Portuguese (team: visuals in PT).
-const FACTS: {to: number; dec: number; pre: string; suf: string; label: string}[] = [
-  {to: 2017, dec: 0, pre: '', suf: '', label: 'Ano de fundação'},
-  {to: 8.1, dec: 1, pre: '', suf: 'M+', label: 'Usuários registrados'},
-  {to: 120, dec: 0, pre: '', suf: '+', label: 'Países e regiões'},
-  {to: 800, dec: 0, pre: '', suf: '+', label: 'Pares de negociação'},
+const FACTS: {to: number; dec: number; pre: string; suf: string; label: string; en: string}[] = [
+  {to: 2017, dec: 0, pre: '', suf: '', label: 'Ano de fundação', en: 'Founded'},
+  {to: 8.1, dec: 1, pre: '', suf: 'M+', label: 'Usuários registrados', en: 'Registered users'},
+  {to: 120, dec: 0, pre: '', suf: '+', label: 'Países e regiões', en: 'Countries and regions'},
+  {to: 800, dec: 0, pre: '', suf: '+', label: 'Pares de negociação', en: 'Trading pairs'},
 ];
 const FACT_AT = (i: number) => fr(beatS(1 + i));
 const Facts: React.FC<{f: number}> = ({f}) => {
@@ -141,6 +141,7 @@ const Facts: React.FC<{f: number}> = ({f}) => {
         <div style={{position: 'absolute', left: 0, top: 0, height: 3, width: `${line * 100}%`, background: LIME}} />
         <Reveal f={f} at={at}><div style={{fontFamily: SANS, fontWeight: 800, fontSize: num, lineHeight: 1, letterSpacing: -num * 0.04, color: WHITE}}>{x.pre}{cnt.toFixed(x.dec)}{x.suf}</div></Reveal>
         <Reveal f={f} at={at + 3}><div style={{fontFamily: SANS, fontWeight: 600, fontSize: lab, lineHeight: 1.15, color: LIME, marginTop: 8}}>{x.label}</div></Reveal>
+        <Reveal f={f} at={at + 6}><div style={{fontFamily: SANS, fontWeight: 500, fontSize: lab * 0.72, lineHeight: 1.2, color: 'rgba(243,245,241,.7)', marginTop: 4}}>{x.en}</div></Reveal>
       </div>
     );
   };
@@ -199,12 +200,13 @@ const Person: React.FC<{f: number}> = ({f}) => {
 };
 
 // ---------- kinetic captions: line A on the left, line B on the right, word by word ----------
-// his own words in Portuguese (Whisper word starts, clip seconds); English is the small subtitle (EN_SUB)
+// his own words in Portuguese (Whisper word starts, clip seconds), with the English directly under each side
+// in the same type, smaller and lighter (team 2026-11-18: EN + PT together, harmonious). Names are not repeated in English.
 const PH_ = [
-  {a: 0.0, b: 1.5, L: ['AQUI É O'], R: ['RONALDINHO.'], t: [0.0, 0.74], hi: 1, en: 'This is Ronaldinho.'},
-  {a: 1.55, b: 2.62, L: ['JOGUE'], R: ['DO SEU', 'JEITO.'], t: [1.62, 1.84, 2.14], hi: 2, en: 'Play your way.'},
-  {a: 2.64, b: 4.15, L: ['FAÇA', 'A'], R: ['MAGIA', 'ACONTECER.'], t: [2.68, 2.92, 2.98, 3.26], hi: 2, en: 'Make the magic happen.'},
-  {a: 4.25, b: 5.75, L: ['A GENTE', 'SE VÊ NA'], R: ['HOTCOIN.'], t: [4.34, 4.62, 5.16], hi: 2, en: 'See you at Hotcoin.'},
+  {a: 0.0, b: 1.5, L: ['AQUI É O'], R: ['RONALDINHO.'], t: [0.0, 0.74], hi: 1, enL: 'THIS IS', enR: ''},
+  {a: 1.55, b: 2.62, L: ['JOGUE'], R: ['DO SEU', 'JEITO.'], t: [1.62, 1.84, 2.14], hi: 2, enL: 'PLAY', enR: 'YOUR WAY.'},
+  {a: 2.64, b: 4.15, L: ['FAÇA', 'A'], R: ['MAGIA', 'ACONTECER.'], t: [2.68, 2.92, 2.98, 3.26], hi: 2, enL: 'MAKE THE', enR: 'MAGIC HAPPEN.'},
+  {a: 4.25, b: 5.75, L: ['A GENTE', 'SE VÊ NA'], R: ['HOTCOIN.'], t: [4.34, 4.62, 5.16], hi: 2, enL: 'SEE YOU AT', enR: ''},
 ];
 const SIDE_W = 560;
 const fit = (word: string, max: number) => Math.min(max, SIDE_W / (word.length * 0.6));
@@ -254,16 +256,21 @@ const Captions: React.FC<{f: number}> = ({f}) => {
       </AbsoluteFill>
     );
   }
-  const enSub = (
-    <div style={{position: 'absolute', left: 0, right: 0, bottom: TALL ? 300 : 52, textAlign: 'center'}}>
-      <span style={{fontFamily: SANS, fontWeight: 600, fontSize: TALL ? 40 : 38, color: WHITE, background: 'rgba(5,6,7,.7)', padding: '8px 22px', borderRadius: 6}}>{p.en}</span>
-    </div>
-  );
+  // English line under a column: same family, uppercase, lighter weight, tracked; appears with that column's first word
+  const enLine = (txt: string, firstIdx: number, align: 'left' | 'right', lime: boolean) => {
+    if (!txt) return null;
+    const lt = (t - p.t[Math.min(firstIdx, p.t.length - 1)]) * R10AURA_FPS - 4;
+    const q = interpolate(lt, [0, 8], [0, 1], {...clamp, easing: ease});
+    return (
+      <div style={{marginTop: 18, paddingTop: 14, borderTop: `2px solid rgba(184,242,106,${0.5 * q})`, opacity: q, transform: `translateY(${(1 - q) * 12}px)`,
+        fontFamily: SANS, fontWeight: 500, fontSize: Math.max(40, phraseSize * 0.4), letterSpacing: '0.08em', lineHeight: 1.1, textAlign: align,
+        color: lime ? 'rgba(184,242,106,.85)' : 'rgba(243,245,241,.72)', whiteSpace: 'nowrap'}}>{txt}</div>
+    );
+  };
   return (
     <AbsoluteFill style={{opacity: out}}>
-      {enSub}
-      <div style={{position: 'absolute', left: 90, top: 330, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>{render(p.L, 0, 'left')}</div>
-      <div style={{position: 'absolute', right: 90, top: 330, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>{render(p.R, p.L.length, 'right')}</div>
+      <div style={{position: 'absolute', left: 90, top: 330, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>{render(p.L, 0, 'left')}{enLine(p.enL, 0, 'left', false)}</div>
+      <div style={{position: 'absolute', right: 90, top: 330, width: SIDE_W, display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>{render(p.R, p.L.length, 'right')}{enLine(p.enR, p.L.length, 'right', true)}</div>
     </AbsoluteFill>
   );
 };
@@ -394,7 +401,6 @@ export const R10AuraPoster: React.FC = () => {
         <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 150, letterSpacing: -4, color: WHITE, lineHeight: 1, marginTop: 14}}>RONALDINHO</div>
         <div style={{width: 140, height: 5, background: LIME, margin: '44px 0 34px'}} />
         <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 50, lineHeight: 1.2}}>
-          <div style={{color: WHITE}}>Hotcoin Ambassador (Brazil)</div>
           <div style={{color: LIME}}>Embaixador da Hotcoin (Brasil)</div>
         </div>
       </div>
