@@ -66,33 +66,53 @@ if (day.photo && photo) {
   const n = Math.max(0, Math.round((d - new Date('2026-11-24T00:00:00Z')) / 864e5));
   // rotate by photo-day index (Tue/Thu/Sat/Sun), so every 4-post week mixes looks and includes a clean photo
   let pi = 0; for (let t = new Date('2026-11-24T00:00:00Z'); t < d; t = new Date(+t + 864e5)) if (CAL[t.getUTCDay()].photo) pi++;
-  const LAYOUTS = ['viewfinder', 'ruler', 'clean', 'side', 'chip', 'viewfinder', 'clean', 'ruler', 'side', 'chip', 'clean', 'viewfinder'];
+  const LAYOUTS = ['viewfinder', 'dial', 'clean', 'annotate', 'film', 'grid', 'clean', 'scan', 'inset', 'ruler', 'clean', 'side', 'chip'];
   const layout = opt('layout') || meta.layout || LAYOUTS[pi % LAYOUTS.length];
   const tone = opt('tone') || meta.tone || (layout === 'clean' ? 'color' : pi % 2 ? 'mono' : 'color');
   const style = tone; // used by the pixel filter below
   const [fx, fy, fw, fh] = meta.focus || [190, 300, 700, 760];
-  const seriesNo = String(n + 1).padStart(3, '0');
   const wm = b64(`${ROOT}/hotcoin-tradfi/public/brand/logo-official-white.png`);
   const MON = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'][d.getUTCMonth()];
   const dayLabel = `${['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'][dow]} ${String(d.getUTCDate()).padStart(2, '0')} ${MON}`;
   const fmtLabel = (meta.label || day.fmt.replace(/\s*\(.*\)/, '')).toUpperCase();
   const L = '#B8F26A', C = 46, T = 4;
-  const M = (css, txt, col = '#fff') => `<div class="m" style="position:absolute;${css};color:${col};font-size:22px;letter-spacing:3px">${txt}</div>`;
-  const chip = (css) => `<div class="m" style="position:absolute;${css};color:${L};font-size:22px;letter-spacing:3px;background:rgba(11,14,17,.78);padding:5px 10px 4px">GM / ${seriesNo}</div>`;
+  const M = (css, txt, col = '#fff') => `<div class="m" style="position:absolute;${css};color:${col};font-size:22px;letter-spacing:3px;background:rgba(11,14,17,.72);padding:5px 10px 4px">${txt}</div>`;
   const grad = (top) => `<div style="position:absolute;left:0;right:0;${top ? 'top' : 'bottom'}:0;height:230px;background:linear-gradient(${top ? 'rgba(0,0,0,.45),transparent' : 'transparent,rgba(0,0,0,.5)'})"></div>`;
   const corners = [[fx, fy, 'top', 'left'], [fx + fw, fy, 'top', 'right'], [fx, fy + fh, 'bottom', 'left'], [fx + fw, fy + fh, 'bottom', 'right']]
     .map(([x, y, v, h]) => `<div style="position:absolute;${h}:${h === 'left' ? x : 1080 - x}px;${v}:${v === 'top' ? y : 1350 - y}px;width:${C}px;height:${C}px;border-${v}:${T}px solid ${L};border-${h}:${T}px solid ${L}"></div>`).join('');
   const cross = `<div style="position:absolute;left:${fx + fw / 2 - 9}px;top:${fy + fh / 2 - 1}px;width:18px;height:2px;background:rgba(255,255,255,.7)"></div><div style="position:absolute;left:${fx + fw / 2 - 1}px;top:${fy + fh / 2 - 9}px;width:2px;height:18px;background:rgba(255,255,255,.7)"></div>`;
   const hTicks = Array.from({length: 25}, (_, i) => `<div style="position:absolute;left:${64 + i * 39.67}px;top:${i % 6 === 0 ? -10 : -5}px;width:1.5px;height:${i % 6 === 0 ? 20 : 10}px;background:rgba(255,255,255,${i % 6 === 0 ? .9 : .55})"></div>`).join('');
   const vTicks = Array.from({length: 31}, (_, i) => `<div style="position:absolute;top:${i * 30}px;left:${i % 5 === 0 ? -12 : -6}px;height:2px;width:${i % 5 === 0 ? 24 : 12}px;background:${i % 5 === 0 ? L : 'rgba(255,255,255,.6)'}"></div>`).join('');
+  // mark = [cx, cy, r] of the logo on the object (inbox/<date>.json), used by dial / annotate / scan
+  const [mx, my, mr] = meta.mark || [fx + fw / 2, fy + fh / 2, 140];
+  const ann = (meta.note || fmtLabel);
+  const right = mx < 560; // put annotation label on the emptier side
+  const ringTicks = Array.from({length: 72}, (_, i) => { const a = i * 5, big = i % 18 === 0, len = big ? 26 : i % 6 === 0 ? 16 : 8;
+    return `<div style="position:absolute;left:${mx - 1}px;top:${my - mr * 1.62}px;width:2px;height:${len}px;background:${big ? L : 'rgba(255,255,255,.65)'};transform-origin:1px ${mr * 1.62}px;transform:rotate(${a}deg)"></div>`; }).join('');
+  const holes = (top) => Array.from({length: 18}, (_, i) => `<div style="position:absolute;left:${22 + i * 60}px;${top ? 'top' : 'bottom'}:22px;width:30px;height:22px;border-radius:5px;background:rgba(255,255,255,.88)"></div>`).join('');
   const LAY = {
     clean: '',
-    viewfinder: corners + cross + chip(`left:${fx}px;top:${fy - 46}px`),
+    viewfinder: corners + cross,
     ruler: grad(false) + `<div style="position:absolute;left:0;right:0;top:1262px;height:1.5px;background:linear-gradient(90deg,transparent 64px,rgba(255,255,255,.6) 64px,rgba(255,255,255,.6) 1016px,transparent 1016px)">${hTicks}</div>`
-      + M('left:64px;top:1284px', dayLabel) + M('right:64px;top:1284px', fmtLabel) + chip('left:64px;top:1196px'),
+      + M('left:64px;top:1284px', dayLabel) + M('right:64px;top:1284px', fmtLabel),
     side: `<div style="position:absolute;left:58px;top:220px;width:2px;height:900px;background:rgba(255,255,255,.55)">${vTicks}</div>`
-      + `<div class="m" style="position:absolute;left:96px;top:220px;writing-mode:vertical-rl;color:#fff;font-size:22px;letter-spacing:4px;background:rgba(11,14,17,.78);padding:12px 5px"><span style="color:${L}">GM / ${seriesNo}</span> &nbsp; ${dayLabel}</div>`,
-    chip: grad(false) + chip('left:64px;bottom:64px') + `<div style="position:absolute;left:64px;right:64px;bottom:52px;height:2px;background:${L};opacity:.9"></div>`,
+      + `<div class="m" style="position:absolute;left:96px;top:220px;writing-mode:vertical-rl;color:#fff;font-size:22px;letter-spacing:4px;background:rgba(11,14,17,.78);padding:12px 5px">${dayLabel}</div>`,
+    chip: grad(false) + `<div style="position:absolute;left:64px;right:64px;bottom:64px;height:2px;background:${L}"></div>` + M('left:64px;bottom:84px', dayLabel),
+    dial: `<div style="position:absolute;left:${mx - mr * 1.3}px;top:${my - mr * 1.3}px;width:${mr * 2.6}px;height:${mr * 2.6}px;border-radius:50%;border:2px solid ${L}"></div>` + ringTicks
+      + `<div style="position:absolute;left:${mx - mr * 1.62}px;top:${my - mr * 1.62}px;width:${mr * 3.24}px;height:${mr * 3.24}px;border-radius:50%;border:1px dashed rgba(255,255,255,.35)"></div>`,
+    annotate: `<div style="position:absolute;left:${mx - mr * 1.2}px;top:${my - mr * 1.2}px;width:${mr * 2.4}px;height:${mr * 2.4}px;border-radius:50%;border:2.5px solid ${L}"></div>`
+      + `<svg width="1080" height="1350" style="position:absolute;inset:0"><polyline points="${mx + (right ? 1 : -1) * mr * .85},${my - mr * .85} ${mx + (right ? 1 : -1) * mr * 1.9},${my - mr * 1.9} ${right ? 1016 : 64},${my - mr * 1.9}" fill="none" stroke="${L}" stroke-width="2.5"/><circle cx="${right ? 1016 : 64}" cy="${my - mr * 1.9}" r="6" fill="${L}"/></svg>`
+      + `<div class="m" style="position:absolute;${right ? 'right:64px' : 'left:64px'};top:${my - mr * 1.9 - 52}px;color:#fff;font-size:22px;letter-spacing:3px;background:rgba(11,14,17,.78);padding:6px 12px 5px">${ann}</div>`,
+    film: `<div style="position:absolute;left:0;right:0;top:0;height:66px;background:#0B0E11">${holes(true)}</div><div style="position:absolute;left:0;right:0;bottom:0;height:66px;background:#0B0E11">${holes(false)}</div>`
+      + M('left:64px;bottom:84px', dayLabel) + `<div style="position:absolute;right:64px;bottom:92px;width:14px;height:14px;border-radius:50%;background:${L}"></div>`,
+    grid: [360, 720].map(x => `<div style="position:absolute;left:${x}px;top:0;width:1px;height:1350px;background:rgba(255,255,255,.35)"></div>`).join('')
+      + [450, 900].map(y => `<div style="position:absolute;top:${y}px;left:0;height:1px;width:1080px;background:rgba(255,255,255,.35)"></div>`).join('')
+      + [[360, 450], [720, 450], [360, 900], [720, 900]].map(([x, y]) => `<div style="position:absolute;left:${x - 12}px;top:${y - 1}px;width:24px;height:3px;background:${L}"></div><div style="position:absolute;left:${x - 1}px;top:${y - 12}px;width:3px;height:24px;background:${L}"></div>`).join(''),
+    inset: `<div style="position:absolute;inset:36px;border:2px solid rgba(255,255,255,.85);border-radius:28px"></div>`
+      + `<div class="m" style="position:absolute;left:50%;bottom:22px;transform:translateX(-50%);background:${L};color:#0B0E11;font-size:22px;letter-spacing:3px;padding:6px 16px 5px;border-radius:999px">${dayLabel}</div>`,
+    scan: `<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.10) 0 2px,transparent 2px 5px)"></div>`
+      + `<div style="position:absolute;left:0;right:0;top:${my - 40}px;height:80px;background:linear-gradient(transparent,rgba(184,242,106,.22),transparent)"></div>`
+      + `<div style="position:absolute;left:0;right:0;top:${my - 1}px;height:2px;background:${L};box-shadow:0 0 18px ${L}"></div>` + M(`right:64px;top:${my + 14}px`, dayLabel, L),
   };
   // Event days only: wordmark + event/time bar on top.
   const eventBar = meta.event ? grad(true) + `<img src="${wm}" style="position:absolute;left:64px;top:60px;height:34px">` + M('right:64px;top:64px', `${meta.event} <span style="color:${L}">●</span> ${meta.time || ''}`) : '';

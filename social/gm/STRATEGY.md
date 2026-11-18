@@ -69,13 +69,15 @@ The report shows rendered/CGI GMs underperform real photos, so these are **not**
 3. Add the 13 peer accounts to Publer competitor tracking so the weekly numbers refresh without a new report.
 
 ## Visual style v3: rotating looks (Nov 18, 2026)
-Added in code on top of every photo day, zero AI cost. No two photo days in a row look the same:
-- **Layouts** (rotate by photo day): `viewfinder` (lime focus corners + crosshair + GM chip), `ruler` (tick ruler, date, format name),
-  `side` (vertical lime-tick ruler with GM number), `chip` (one GM label + lime line), `clean` (photo only, about 1 in 4).
-- **Tones:** `mono` (B&W, only lime/green keeps colour) or `color`. Clean days are always colour.
-- **No wordmark or time on normal days.** Event days only: add `{"event":"ANNIV 9","time":"10:00 UTC+8"}` to `inbox/<date>.json`.
-- Override any day in `inbox/<date>.json`: `layout`, `tone`, `focus` [x,y,w,h], `label`. CLI: `--layout=side --tone=mono`.
-- Every label sits on a dark chip so it stays readable on bright photos; white/lime mono 22px, never grey footer text.
+Added in code on top of every photo day, zero AI cost. No counter numbers. No two photo days in a row look the same.
+- **10 layouts**, rotated by photo day: `viewfinder` (focus corners), `dial` (lens ring with ticks around the logo), `annotate` (circle on
+  the logo + leader line to a label), `film` (sprocket strips), `grid` (rule of thirds, lime crosses), `scan` (glowing lime line + scanlines),
+  `inset` (white inner border + lime date pill), `ruler`, `side`, `chip`, plus `clean` (photo only, about 1 in 4).
+- **Tones:** `mono` (B&W, only lime keeps colour) or `color`. Clean days are always colour.
+- **Wordmark + time only on event days:** `{"event":"ANNIV 9","time":"10:00 UTC+8"}` in `inbox/<date>.json`.
+- Per-day settings in `inbox/<date>.json`: `focus` [x,y,w,h] (object box), `mark` [cx,cy,r] (logo position for dial/annotate/scan),
+  `note` (annotation text), `layout`, `tone`. Check the box and mark on a render: wrong coordinates put the frame off the object.
+- Every label sits on a dark chip so it stays readable on bright photos.
 
 ### Style backlog (one change per week, measure likes/view)
 1. Animated version: 3 s loop where corners snap in and colour bleeds back into the hero (video GMs got 1.19x views in the benchmark).
