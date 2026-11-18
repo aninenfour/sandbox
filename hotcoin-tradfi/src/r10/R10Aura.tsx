@@ -502,52 +502,84 @@ const UICards: React.FC<{f: number}> = ({f}) => {
 // where it stays with a soft glow until he finishes. Far half of the orbit is drawn behind him, near half in front.
 const ORBIT = {cx: 960, cy: 490, rx: 300, ry: 140, tilt: 18};   // high side on the left, clear of both caption columns
 const HEART = {x: 1095, y: 715};
-const ORB_START = DROP + 10, ORB_END = ORB_START + 105, LAND = ORB_END + 12;
-const orbitPoint = (th: number) => {
+const ORB_START = DROP + 2, ORB_END = ORB_START + 120, LAND = ORB_END + 14;   // 1.5 slow turns (4 s), then the hit
+const orbitPoint = (th: number, shrink = 1) => {
   const {cx, cy, rx, ry, tilt} = ORBIT;
   const t = (tilt * Math.PI) / 180;
-  const ex = Math.cos(th) * rx, ey = Math.sin(th) * ry;
+  const ex = Math.cos(th) * rx * shrink, ey = Math.sin(th) * ry * shrink;
   return {x: cx + ex * Math.cos(t) - ey * Math.sin(t), y: cy + ex * Math.sin(t) + ey * Math.cos(t), z: Math.sin(th)};
 };
+// symbol position/state at any frame (also used for the trail)
+const orbitState = (f: number) => {
+  const prog = interpolate(f, [ORB_START, ORB_END], [0, 1], {...clamp, easing: Easing.bezier(0.4, 0, 0.4, 1)});
+  const th = -Math.PI / 2 + prog * Math.PI * 3;
+  const o = orbitPoint(th, 1.12 - 0.22 * prog);                // spirals gently inward
+  const land = interpolate(f, [ORB_END, LAND], [0, 1], {...clamp, easing: Easing.bezier(0.5, 0, 0.9, 0.6)});   // accelerates into the heart
+  return {x: o.x + (HEART.x - o.x) * land, y: o.y + (HEART.y - o.y) * land, z: land > 0 ? 1 : o.z, land, th};
+};
+const SYM = staticFile('brand/symbol-official-white.png');
 const OrbitLogo: React.FC<{f: number; front: boolean}> = ({f, front}) => {
   if (TALL || f < ORB_START || f >= OUT1) return null;
   const out = interpolate(f, [OUT1 - 10, OUT1], [1, 0], clamp);
-  const appear = interpolate(f, [ORB_START, ORB_START + 12], [0, 1], clamp);
-  const prog = interpolate(f, [ORB_START, ORB_END], [0, 1], {...clamp, easing: Easing.bezier(0.45, 0, 0.35, 1)});
-  const th = -Math.PI / 2 + prog * Math.PI * 3;              // starts behind his head, ends at the front of the orbit
-  const o = orbitPoint(th);
-  const land = interpolate(f, [ORB_END, LAND], [0, 1], {...clamp, easing: ease});
-  const x = o.x + (HEART.x - o.x) * land, y = o.y + (HEART.y - o.y) * land;
-  const z = land > 0 ? 1 : o.z;
-  const isFront = z >= 0;
-  // pop on landing, then a slow breath
-  const pop = f < LAND ? 1 : 1 + 0.35 * Math.exp(-(f - LAND) / 3) * Math.cos((f - LAND) / 2.2);
-  const breath = f < LAND + 10 ? 0 : 0.04 * Math.sin((f - LAND) / 12);
-  const base = land > 0 ? 100 + (68 - 100) * land : 76 * (1 + 0.3 * z);
-  const size = base * pop * (1 + breath);
-  const ringO = appear * out * (1 - land);
+  const appear = interpolate(f, [ORB_START, ORB_START + 14], [0, 1], clamp);
+  const st = orbitState(f);
+  const isFront = st.z >= 0;
+  const hitT = f - LAND;
+  const pop = hitT < 0 ? 1 : 1 + 0.45 * Math.exp(-hitT / 3) * Math.cos(hitT / 2);
+  const breath = hitT < 12 ? 0 : 0.05 * Math.sin(hitT / 11);
+  const sizeAt = (z: number, land: number) => (land > 0 ? 52 + (40 - 52) * land : 52 * (1 + 0.3 * z));
+  const size = sizeAt(st.z, st.land) * pop * (1 + breath);
+  const ringO = appear * out * (1 - st.land);
   const {cx, cy, rx, ry, tilt} = ORBIT;
+  const sh = 1.12 - 0.22 * interpolate(f, [ORB_START, ORB_END], [0, 1], clamp);
   const arc = ringO > 0 && (
     <svg width={W} height={H} style={{position: 'absolute', inset: 0, opacity: ringO}}>
       <defs>
         <mask id={front ? 'orbF' : 'orbB'}>
-          {/* near half = below the ellipse's major axis */}
-          <g transform={`rotate(${tilt} ${cx} ${cy})`}><rect x={0} y={front ? cy : -H} width={W} height={H * 2} fill="#fff" transform={front ? '' : `translate(0 0)`} />{front ? null : <rect x={0} y={cy} width={W} height={H * 2} fill="#000" />}</g>
+          <g transform={`rotate(${tilt} ${cx} ${cy})`}><rect x={0} y={front ? cy : -H} width={W} height={front ? H * 2 : H + cy} fill="#fff" /></g>
         </mask>
       </defs>
       <g mask={`url(#${front ? 'orbF' : 'orbB'})`}>
-        <ellipse cx={cx} cy={cy} rx={rx} ry={ry} transform={`rotate(${tilt} ${cx} ${cy})`} fill="none" stroke={LIME} strokeWidth={front ? 2.5 : 1.5} strokeOpacity={front ? 0.5 : 0.22} />
+        <ellipse cx={cx} cy={cy} rx={rx * sh} ry={ry * sh} transform={`rotate(${tilt} ${cx} ${cy})`} fill="none" stroke={LIME} strokeWidth={front ? 2 : 1.2} strokeOpacity={front ? 0.45 : 0.2} />
       </g>
     </svg>
+  );
+  // comet trail: ghosts of the last few frames (only while orbiting, same depth layer)
+  // smooth comet tail: soft lime glow dots along the recent path (sub-frame steps), fading and shrinking
+  const trail = st.land < 1 && Array.from({length: 14}).map((_, i) => {
+    const d = (i + 1) * 0.7;
+    const g = orbitState(f - d);
+    if ((g.z >= 0) !== front || f - d < ORB_START) return null;
+    const q = 1 - i / 14;
+    const gs = sizeAt(g.z, g.land) * (0.55 * q + 0.1);
+    return <div key={i} style={{position: 'absolute', left: g.x - gs / 2, top: g.y - gs / 2, width: gs, height: gs, borderRadius: '50%',
+      background: 'radial-gradient(closest-side, rgba(225,255,200,.9), rgba(184,242,106,.35) 55%, rgba(0,0,0,0))', opacity: appear * out * q * 0.55, filter: 'blur(2px)'}} />;
+  });
+  // the hit: lime shockwave + flash at the heart
+  const hit = front && hitT >= 0 && hitT < 22 && (
+    <>
+      <div style={{position: 'absolute', left: HEART.x, top: HEART.y, width: 0, height: 0}}>
+        {[0, 5].map((d) => {
+          const q = interpolate(hitT - d, [0, 16], [0, 1], {...clamp, easing: ease});
+          const r = 20 + q * 110;
+          return <div key={d} style={{position: 'absolute', left: -r, top: -r, width: r * 2, height: r * 2, borderRadius: '50%', border: `${3 - q * 2}px solid rgba(184,242,106,${(1 - q) * 0.9})`,
+            boxShadow: `0 0 ${24 * (1 - q)}px rgba(184,242,106,${0.6 * (1 - q)})`, opacity: hitT - d >= 0 ? 1 : 0}} />;
+        })}
+      </div>
+      <div style={{position: 'absolute', left: HEART.x - 90, top: HEART.y - 90, width: 180, height: 180, borderRadius: '50%',
+        background: 'radial-gradient(closest-side, rgba(220,255,190,.8), rgba(184,242,106,.25) 50%, rgba(0,0,0,0))', opacity: interpolate(hitT, [0, 2, 12], [0, 1, 0], clamp), mixBlendMode: 'screen'}} />
+    </>
   );
   return (
     <AbsoluteFill>
       {arc}
+      {trail}
       {isFront === front && (
-        <Img src={staticFile('brand/symbol-official-white.png')} style={{position: 'absolute', left: x - size / 2, top: y - size / 2, width: size, height: size,
-          opacity: appear * out * (isFront ? 1 : 0.5 + 0.5 * (1 + z)),
-          filter: `drop-shadow(0 0 ${isFront ? 20 + 14 * land : 10}px rgba(184,242,106,${isFront ? 0.75 : 0.4}))${isFront ? '' : ' blur(1px)'}`}} />
+        <Img src={SYM} style={{position: 'absolute', left: st.x - size / 2, top: st.y - size / 2, width: size, height: size,
+          opacity: appear * out * (isFront ? 1 : 0.5 + 0.5 * (1 + st.z)), transform: `rotate(${st.land < 1 ? Math.cos(st.th) * 10 : 0}deg)`,
+          filter: `drop-shadow(0 0 ${isFront ? 14 + 10 * st.land : 8}px rgba(184,242,106,${isFront ? 0.75 : 0.4}))${isFront ? '' : ' blur(1px)'}`}} />
       )}
+      {hit}
     </AbsoluteFill>
   );
 };
