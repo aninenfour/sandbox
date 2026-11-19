@@ -368,7 +368,7 @@
   "topic": "WHAT IF: Costco hot dog vs Bitcoin",
   "hook": "Costco hot dog: still $1.50. Same $1.50 in Bitcoin (2015): $290",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-20-academy-fear-index",
@@ -377,6 +377,6 @@
   "topic": "Crypto 101: Fear & Greed Index at 10",
   "hook": "Crypto fear hit 10 out of 100. Time to buy?",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
