@@ -1,0 +1,71 @@
+{
+ "date": "NOV 19",
+ "window": "Prices at Nov 19 11:58 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Fed's Hammack, Goolsbee and Paulson speak Thu",
+   "last": 63219.73,
+   "ch": -1.97,
+   "vol": 787312839.46,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "PIEVERSE",
+   "name": "Pieverse",
+   "kind": "crypto",
+   "handle": "@pieverse_io",
+   "why": "Top 24h mover on Hotcoin, up about 40%",
+   "last": 3.032,
+   "ch": 39.82,
+   "vol": 732502.25,
+   "logo": "pieverse",
+   "bg": "#ffffff",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "GRAM",
+   "name": "Gram (prev. Toncoin)",
+   "kind": "crypto",
+   "handle": "@ton_blockchain",
+   "why": "36.6M GRAM unlock due Sun Nov 22",
+   "last": 1.029,
+   "ch": -5.16,
+   "vol": 855140.93,
+   "logo": "gram",
+   "bg": "#30a1f5",
+   "glow": "#30a1f5"
+  },
+  {
+   "sym": "BABAB",
+   "name": "Alibaba",
+   "kind": "tradfi",
+   "handle": "@AlibabaGroup",
+   "why": "Sept quarter results Thu, call 20:00 UTC+8",
+   "last": 82.16,
+   "ch": -5.3,
+   "vol": 700701.03,
+   "logo": "babab",
+   "bg": "#ff6600",
+   "glow": "#ff6600"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "US jobless claims Thu 21:30 UTC+8",
+   "last": 736.02,
+   "ch": 0.19,
+   "vol": 627325.29,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  }
+ ]
+}

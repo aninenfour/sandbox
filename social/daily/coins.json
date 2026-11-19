@@ -528,5 +528,19 @@
   "twitter": "soon_svm",
   "image": "https://coin-images.coingecko.com/coins/images/55124/large/red_2.PNG?1743843131",
   "logo": "soon"
+ },
+ "GRAM": {
+  "id": "the-open-network",
+  "name": "Gram (prev. Toncoin)",
+  "twitter": "ton_blockchain",
+  "image": "https://coin-images.coingecko.com/coins/images/17980/large/Gram_Circular_Badge.png?1781524778",
+  "logo": "gram"
+ },
+ "BABAB": {
+  "id": "alibaba-bstocks-tokenized-stock",
+  "name": "Alibaba (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174588/large/babab-bstocks.png?1784149906",
+  "logo": "babab"
  }
 }
