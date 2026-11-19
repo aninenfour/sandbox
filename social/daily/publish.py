@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Post one image to X, Facebook and LinkedIn through Publer, right now.
+"""Post one image to X and Facebook through Publer, right now. (LinkedIn paused by the owner, Nov 19 2026.)
 
   PUBLER_API_KEY=... python3 social/daily/publish.py <image.png> <caption.txt> [--draft] [--only x,facebook,linkedin]
 
@@ -105,8 +105,11 @@ ap = argparse.ArgumentParser()
 ap.add_argument('image')
 ap.add_argument('caption')
 ap.add_argument('--draft', action='store_true')
-ap.add_argument('--only', default='twitter,facebook,linkedin')
+ap.add_argument('--only', default='twitter,facebook')
 a = ap.parse_args()
+# LinkedIn is paused (owner, Nov 19 2026: no daily Top 5 / What to Watch updates there until a new LinkedIn strategy).
+if 'linkedin' in a.only.split(','):
+    sys.exit('LinkedIn is paused by the owner (Nov 19, 2026). Remove linkedin from --only.')
 
 d = os.path.dirname(os.path.abspath(a.caption))
 x_text = open(a.caption).read().strip()

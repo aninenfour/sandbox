@@ -1,4 +1,4 @@
-# Daily X / FB / LinkedIn posts: runbook
+# Daily X / FB posts: runbook
 
 Two posts a day, fully automatic (the owner approved the format on Nov 3, 2026):
 
@@ -7,7 +7,9 @@ Two posts a day, fully automatic (the owner approved the format on Nov 3, 2026):
 | 12:01 (Sat/Sun 13:00) | **What to Watch Today**: 5 assets, crypto + TradFi, all live on Hotcoin, one reason each | `watch.py` |
 | 22:05 | **Daily Top Gainers TOP 5** on Hotcoin, live 24h ranking | `live.py top5` |
 
-Both go to **X (with @handles), Facebook (no @handles) and LinkedIn (no @handles)** through `publish.py`.
+Both go to **X (with @handles) and Facebook (no @handles)** through `publish.py`.
+
+**LinkedIn is paused** (owner, Nov 19, 2026): no Top 5, What to Watch or similar updates on LinkedIn until the team decides a new LinkedIn strategy. `publish.py` refuses `linkedin`.
 
 **Every post carries exactly one Hotcoin page link** (social linkage plan, owner Nov 17). `links.py` adds it automatically:
 - **What to Watch**: the **Converter page (to USD)** of the first pick that has one (falling back down the picks), else BTC to USD.

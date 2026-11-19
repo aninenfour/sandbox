@@ -542,5 +542,19 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102174588/large/babab-bstocks.png?1784149906",
   "logo": "babab"
+ },
+ "KOR": {
+  "id": "kor-protocol",
+  "name": "Kor Protocol",
+  "twitter": "korprotocol",
+  "image": "https://coin-images.coingecko.com/coins/images/102179879/large/Frame_29.jpg?1793329019",
+  "logo": "kor"
+ },
+ "LUNC": {
+  "id": "terra-luna",
+  "name": "Terra Luna Classic",
+  "twitter": "terra_money",
+  "image": "https://coin-images.coingecko.com/coins/images/8284/large/01_LunaClassic_color.png?1696508486",
+  "logo": "lunc"
  }
 }

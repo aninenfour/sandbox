@@ -1,0 +1,59 @@
+{
+ "window": "24H to Nov 19 22:04 (UTC+8)",
+ "date": "NOV 19",
+ "day": "2026-11-19",
+ "template": "orbit",
+ "gainers": [
+  {
+   "sym": "HUMA",
+   "name": "Huma Finance",
+   "ch": 25.17,
+   "vol": 246462.0,
+   "handle": "",
+   "logo": "huma",
+   "bg": "#000000",
+   "glow": "#c750e0"
+  },
+  {
+   "sym": "PEARL",
+   "name": "Pearl",
+   "ch": 22.94,
+   "vol": 456886.02,
+   "handle": "@prlnet",
+   "logo": "pearl",
+   "bg": "#ffffff",
+   "glow": "#e4e3e3"
+  },
+  {
+   "sym": "KOR",
+   "name": "Kor Protocol",
+   "ch": 20.0,
+   "vol": 441504.38,
+   "handle": "@korprotocol",
+   "logo": "kor",
+   "bg": "#0629db",
+   "glow": "#0629db"
+  },
+  {
+   "sym": "LUNC",
+   "name": "Terra Luna Classic",
+   "ch": 18.56,
+   "vol": 336719.08,
+   "handle": "@terra_money",
+   "logo": "lunc",
+   "bg": "#f9d65d",
+   "glow": "#f9d65d"
+  },
+  {
+   "sym": "UP",
+   "name": "Unitas",
+   "ch": 18.21,
+   "vol": 461333.91,
+   "handle": "@UnitasLabs",
+   "logo": "up",
+   "bg": "#000809",
+   "glow": "#494e4f"
+  }
+ ],
+ "link": "📊 $HUMA live price and chart: https://www.hotcoin.com/en_US/price/huma-finance-huma/"
+}
