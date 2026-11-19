@@ -30,7 +30,7 @@ Read `LOG.md` (what ran, what is queued) before planning.
 - **Agenda da semana** (Sun or Mon): week calendar with Brasília times, market dates verified.
 - **Recibo** (Earn worked example, green cup, `talao`).
 - **Placar do dia** (top coin vs BTC, `news_br.mjs`), **Raio-X da rede** (one chain a week, DefiLlama), **Raio-X TradFi** (stock news; real person photo allowed ONLY here, licensed CC/press, credit in caption, facts only, no allegations).
-- **Meme of the day**, alternate two kinds (never the same kind two days running, skip some days):
+- **Meme of the day**, at least every other day (never more than 1 day without a meme; owner 19/11), alternate two kinds (never the same kind two days running):
   - *Real meme templates* (owner rule, 15 Nov 2026): use the actual well-known templates (imgflip / knowyourmeme classics, including the people and products in them) and re-caption them in pt-BR with crypto/market jokes. Example: `meme_regret.mjs` ("não vou comprar esse mico" carousel built on the "why didn't I buy / ain't buying that brick" template). Keep a library in `art/meme/` (`template-*.jpg`).
   - *Serious photo + unhinged caption*: mono photo, lowercase X-style caption, Brazilian life (churrasco, miojo, gerente do banco, 0800, Pix, fim do mês).
   - Hard lines that stay: no fake endorsement (never make a celebrity or brand look like they use, recommend or partner with Hotcoin), no fake Hotcoin logo use on other brands, no politics, no club bashing, no hate. Prices in memes are real and dated (script comments + caption).

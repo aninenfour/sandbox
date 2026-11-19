@@ -38,6 +38,7 @@
 | 19/11 | 12:14 | Event LAUNCH | Earn prazo fixo exclusivo: USDT 180d até 6,00% APR, até 2.000 USDT em Futures Trial Funds (link in reply) | scheduled |
 | 19/11 | 15:06 | Learn do dia | Phantom Wallet (pt_PT link in reply). EN: Research X 15:19, FB 15:28 | scheduled |
 | 19/11 | 17:51 | Event LAST CALL | Proteção de perdas em futuros, termina 20/11 07:00 (link in reply) | scheduled |
+| 19/11 | 19:47 | Meme (serious photo) | medo e ganância em 10, dinheiro do IPVA | scheduled |
 
 ## Queued ideas (not scheduled yet)
 - Thu 19/11: Earn prazo fixo exclusivo launch (key visual from official banner, cut done), Wall Street Earnings last day (ends 12:59), Futures loss protection last call evening (ends 20/11 07:00).
