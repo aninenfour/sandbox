@@ -36,6 +36,7 @@
 | 19/11 | 07:12 | GM | Belo Horizonte: linha segue a crista da Serra do Curral até o pico (owner wants our GM even when team posts one) | scheduled |
 | 19/11 | 08:24 | Event LAST DAY | Wall Street Earnings termina 12:59, até 1.060 USDT em Futures Trial Funds (link in reply) | scheduled |
 | 19/11 | 12:14 | Event LAUNCH | Earn prazo fixo exclusivo: USDT 180d até 6,00% APR, até 2.000 USDT em Futures Trial Funds (link in reply) | scheduled |
+| 19/11 | 13:41 | Placar do dia | $PEARL +23,6% x $BTC +0,2% (24h até 12:09) | scheduled |
 | 19/11 | 15:06 | Learn do dia | Phantom Wallet (pt_PT link in reply). EN: Research X 15:19, FB 15:28 | scheduled |
 | 19/11 | 17:51 | Event LAST CALL | Proteção de perdas em futuros, termina 20/11 07:00 (link in reply) | scheduled |
 | 19/11 | 20:06 | Meme (serious photo) | medo e ganância em 10, dinheiro do IPVA | scheduled |
@@ -66,3 +67,4 @@
 - 18/11 16:13 check 3: no new announcements. Learn #1 live on all 3 accounts. SNDKB notice queued 17:39. Nothing closes before 08:00 Thu except the SNDKB suspension (05:00, covered). Team has queued on PT for Thu: GM 09:30 and GTA VI/TTWO post 11:00, so Thu: NO GM from us, avoid gaming/TTWO. Thu plan: Fixed-Term Earn launch, Wall Street Earnings last day (ends 12:59), Learn #2 rainbow chart, futures protection last call evening. Runbook: check team posts before scheduling.
 - 19/11 04:50 (early, owner asked for today's schedule doc): team queued GM 09:30 + GTA VI 11:00 on PT, so no GM from us. Built WSE last day, Earn exclusive launch, futures last call KVs (kv_1119.mjs). Learn: rainbow chart on hold (stale BTC figure), Phantom posted instead. Placar to add at check 2 (~13:40). Schedule doc: https://claude.ai/artifact/YZwn3dSpCn168gMoMkXEsg
 - 19/11 07:43 check 1: day already built at 04:50 (see above). Lists unchanged (no new events or notices), Learn section unchanged (same articles). GM 07:12 due to be live. Nothing else to add.
+- 19/11 12:09 check 2: no new announcements. Placar PEARL verified (CoinGecko pearl-2 2.32, +23.2%), scheduled 13:41. Wall Street Earnings ends 12:59 today.
