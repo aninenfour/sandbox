@@ -1,4 +1,5 @@
 // Hotcoin Português (Brazil): news formats. pt-BR, Brasília time.
+// Top coin 19/11: PEARL/USDT +23.62% (last 2.3394), BTC/USDT +0.15% (63,686.01), Hotcoin ticker 2026-11-19 12:09 Brasília. PEARL = Pearl (CoinGecko pearl-2, rank 72, 2.32, +23.2%), Proof-of-Useful-Work L1 (mining from AI compute).
 // Top coin 17/11: BREV/USDT +112.54% (last 0.122), BTC/USDT -0.07% (64,576.15), Hotcoin ticker 2026-11-17 12:10 Brasília. BREV = Brevis (CoinGecko brevis, 0.1232, +114.8%), ZK coprocessor.
 // Top coin 16/11: RAIN/USDT +113.52% (last 0.007909), BTC/USDT -0.33% (64,543.51), Hotcoin ticker 2026-11-16 12:11 Brasília. RAIN = Rain (CoinGecko rain, rank 19, 0.0078, +110.6%).
 // Top coin 15/11: JCT/USDT +12.15% (last 0.002113), BTC/USDT -2.00% (64,573.34), Hotcoin ticker 2026-11-15 12:08 Brasília. GNR (+39.5%) and UNC (+14.4%) skipped: no verified CoinGecko match. JCT = Janction (CoinGecko janction, price 0.00211 matches).
@@ -36,23 +37,23 @@ const placar = `<!doctype html><html><head>${head}</head><body>
 <img src="${L('logo-official-white.png')}" style="position:absolute;left:72px;top:64px;height:38px">
 <div class="b" style="position:absolute;left:72px;right:72px;top:150px;font-size:88px;font-weight:800;letter-spacing:-2px;line-height:.95;font-variation-settings:'opsz' 96,'wdth' 85">Placar do dia.</div>
 <div style="position:absolute;left:60px;right:60px;top:330px;background:#050607;border:6px solid #1C2227;border-radius:22px;padding:36px 40px 40px;box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 40px rgba(0,0,0,.8)">
-  <div class="mm" style="display:flex;justify-content:space-between;font-size:18px;letter-spacing:3px;color:#7D868E"><span>HOTCOIN · 24H</span><span>17/11 · 12:10 BRASÍLIA</span></div>
+  <div class="mm" style="display:flex;justify-content:space-between;font-size:18px;letter-spacing:3px;color:#7D868E"><span>HOTCOIN · 24H</span><span>19/11 · 12:09 BRASÍLIA</span></div>
   <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-top:30px;gap:10px">
-    <div style="text-align:center"><img src="${N('brev.png')}" style="width:120px;height:120px;border-radius:50%;background:#fff"><div class="d" style="font-size:54px;margin-top:14px">BREV</div></div>
+    <div style="text-align:center"><img src="${N('pearl.png')}" style="width:120px;height:120px;border-radius:50%;background:#fff"><div class="d" style="font-size:54px;margin-top:14px">PEARL</div></div>
     <div class="d" style="font-size:44px;color:#5B636B">×</div>
     <div style="text-align:center"><div style="width:120px;height:120px;border-radius:50%;margin:0 auto;border:4px solid #2A3137;display:grid;place-items:center" class="d"><span style="font-size:44px;color:#9AA2A9">₿</span></div><div class="d" style="font-size:54px;margin-top:14px;color:#9AA2A9">BTC</div></div>
   </div>
   <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-top:24px">
-    <div class="d" style="text-align:center;font-size:100px;color:${LIME};text-shadow:0 0 30px rgba(184,242,106,.45)">+112,5</div>
+    <div class="d" style="text-align:center;font-size:100px;color:${LIME};text-shadow:0 0 30px rgba(184,242,106,.45)">+23,6</div>
     <div class="d" style="font-size:60px;color:#5B636B">:</div>
-    <div class="d" style="text-align:center;font-size:100px;color:#F6465D;text-shadow:0 0 30px rgba(246,70,93,.35)">-0,1</div>
+    <div class="d" style="text-align:center;font-size:100px;color:#2DBD85;text-shadow:0 0 30px rgba(45,189,133,.35)">+0,2</div>
   </div>
   <div class="mm" style="text-align:center;font-size:18px;letter-spacing:3px;color:#7D868E;margin-top:8px">VARIAÇÃO EM %</div>
 </div>
 <div style="position:absolute;left:0;right:0;bottom:0;height:330px;background:linear-gradient(180deg,rgba(7,9,10,.2),rgba(7,9,10,.88) 55%)"></div>
 <div style="position:absolute;left:72px;right:72px;bottom:96px">
-  <div class="b" style="font-size:44px;font-weight:700;letter-spacing:-.5px">Brevis ($BREV) goleou o mercado.</div>
-  <div class="i" style="font-size:27px;color:rgba(255,255,255,.75);margin-top:8px">Coprocessador ZK: provas de conhecimento zero para blockchains. Maior alta em 24h entre os pares USDT da Hotcoin.</div>
+  <div class="b" style="font-size:44px;font-weight:700;letter-spacing:-.5px">Pearl ($PEARL) goleou o mercado.</div>
+  <div class="i" style="font-size:27px;color:rgba(255,255,255,.75);margin-top:8px">Layer 1 em que a mineração vem de computação de IA. Maior alta em 24h entre os pares USDT da Hotcoin.</div>
 </div>
 </body></html>`;
 
