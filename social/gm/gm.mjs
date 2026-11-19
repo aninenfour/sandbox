@@ -25,7 +25,7 @@ const BANK = {
   flat: ['gm. new week, same chart addiction', 'gm. the chart is up before you, again', 'gm. sideways is a lifestyle', 'gm. boring market, great coffee', 'gm. if you\'re reading this before checking your pnl, you\'re stronger than most'],
   prompt: ['gm, what\'s the ticker?', 'gm. reply with the first ticker you checked today. no lying', 'gm. rate your sleep vs your portfolio, 1 to 10 👇', 'gm. one emoji for your week so far 👇', 'if i say gm, you say gm back'],
   greenThing: ['gm. found today\'s green 🟩', 'gm. today\'s green 🟩', 'gm. green thing of the day 🟩', 'gm. spotted some green 🟩'],
-  setup: ['gm. rate this setup 1 to 10 👇', 'gm. show us yours 👇', 'gm from the desk. rate it 👇'],
+  setup: ['gm. rate this setup 1 to 10 👇', 'gm. show us your morning cup 👇', 'gm from the desk. rate it 👇'],
   kaomoji: ['(｡•̀ᴗ-)✧ gm', 'ʕ•ᴥ•ʔ gm', '( ˘▽˘)っ☕ gm', '(•̀ᴗ•́)و gm', '(￣ω￣) gm'],
   merch: ['gm from the hotcoin office', 'gm from team hotcoin 🟩', 'gm. office morning, green as usual'],
   grass: ['gm. charts can wait 10 min', 'gm. touch grass first 🌱', 'gm. sunday reset'],
