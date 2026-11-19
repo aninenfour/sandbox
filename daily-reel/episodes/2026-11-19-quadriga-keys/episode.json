@@ -1,0 +1,215 @@
+{
+  "slug": "quadriga-keys",
+  "thumb": {
+    "text": "He died holding everyone's keys",
+    "hi": [
+      "died",
+      "keys"
+    ],
+    "kicker": "True story",
+    "img": "s01",
+    "zoom": 1.5,
+    "fx": 50,
+    "fy": 30
+  },
+  "highlight": [
+    "hundred",
+    "fifteen",
+    "thousand",
+    "passwords",
+    "ninety",
+    "million",
+    "empty",
+    "fraud",
+    "lavish",
+    "dead",
+    "keys",
+    "safe"
+  ],
+  "scenes": [
+    {
+      "at": "When this",
+      "img": "s01",
+      "mode": "close",
+      "fx": 50,
+      "fy": 32
+    },
+    {
+      "at": "a hundred and",
+      "img": "s02",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "customers lost",
+      "img": "s02",
+      "mode": "close",
+      "fx": 50,
+      "fy": 62
+    },
+    {
+      "at": "Gerald Cotten",
+      "img": "s01",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "QuadrigaCX",
+      "img": "s03",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Canada's biggest",
+      "img": "s03",
+      "mode": "close",
+      "fx": 50,
+      "fy": 40
+    },
+    {
+      "at": "And he's the",
+      "img": "s04",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "passwords",
+      "img": "s01",
+      "mode": "close",
+      "fx": 45,
+      "fy": 60
+    },
+    {
+      "at": "So how do",
+      "img": "s05",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "vanish with",
+      "img": "s05",
+      "mode": "close",
+      "fx": 40,
+      "fy": 75
+    },
+    {
+      "at": "Four steps",
+      "img": "s04",
+      "mode": "close",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Step one",
+      "step": 1
+    },
+    {
+      "at": "In",
+      "img": "s07",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "on a trip",
+      "img": "s06",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Step two",
+      "step": 2
+    },
+    {
+      "at": "Five weeks later",
+      "img": "s08",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "admits nobody",
+      "img": "s01",
+      "mode": "close",
+      "fx": 45,
+      "fy": 55
+    },
+    {
+      "at": "Step three",
+      "step": 3
+    },
+    {
+      "at": "Investigators finally",
+      "img": "s10",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "they've been empty",
+      "img": "s10",
+      "mode": "close",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Step four",
+      "step": 4
+    },
+    {
+      "at": "regulators call",
+      "img": "s13",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "fake accounts",
+      "img": "s14",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "risky trading",
+      "img": "s15",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "lavish life",
+      "img": "s16",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Some users",
+      "img": "s17",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "to prove",
+      "img": "s17",
+      "mode": "close",
+      "fx": 50,
+      "fy": 45
+    },
+    {
+      "at": "If only one",
+      "img": "s18",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    }
+  ]
+}
