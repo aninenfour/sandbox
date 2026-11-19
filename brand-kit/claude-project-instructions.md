@@ -33,13 +33,17 @@ Hotcoin work: dark, precise, one bold hero, lime accent, real numbers. You work 
   (logo dot, secondary), white `#FFFFFF`, muted `rgba(255,255,255,.62)`, hairline `rgba(255,255,255,.22)`.
   Data: gains `#17A86B`, losses `#E5484D`. Light "data post" variant: white background, ink text, same accents.
   Lime is an accent: one word, one number, one button. Never a lime background behind white text.
-- Type: Inter Tight (headlines 800, hero numbers 900, body 600), JetBrains Mono (kickers, labels, dates: caps, letter-spacing 2 to 6px),
-  Noto Sans SC for Chinese. Nothing else, no italic serif.
+- Type: Bricolage Grotesque 800 condensed for display (posters, slides; the face of the PT GM series), Inter Tight (text, stats 600 to 800),
+  JetBrains Mono (kickers, labels, dates: caps, letter-spacing 2 to 6px), Noto Sans SC for Chinese. Series keep their face: Unbounded on the
+  daily Top 5, Anton on Hotcoin 101 thumbnails. No italic serif.
 - Sizes on a 1080 canvas: hero number 220 to 330px, headline 60 to 84px, sub 30 to 36px, stat value 54 to 64px, label 16 to 20px mono.
 - Layout: 64px gutters. Header row: logo left (38px tall), pill right. Kicker above the headline. Stats in a row with hairline dividers.
   CTA: one lime pill button bottom right, link or action in it.
 
 ## Signature moves
+- The lime line (GM series): a real licensed photo in black and white with light grain, ONE lime line along something real in it
+  (ridge, street, path), ending on the highest point with a dot. Never recolour the photo.
+- Top 5 rotation: white podium, race track, dark orbit layouts in turn; CoinGecko logos only; 24h window and UTC+8 time on the post.
 - Faint mark: the Hotcoin symbol at 900px, opacity 0.05 to 0.07, bleeding off the right edge behind the content (see template `.mark`).
 - Hero number with a white-to-lime vertical gradient.
 - Stat row: mono caps label over a big value, unit small in lime.
@@ -47,12 +51,14 @@ Hotcoin work: dark, precise, one bold hero, lime accent, real numbers. You work 
 - Real UI: a real screenshot in a thin lime-edged window when showing the product.
 
 ## Mascot (the green ball from Hotcoin 101)
-Glossy round lime-green body, ONE big white eye with a dark green iris, NO mouth, NO second eye, NO eyebrows, a small green loop on top,
-small stubby arms and legs. Playfulness comes from pose, tilt and where the eye looks. Use it for community, education, Discord and
+The Hotcoin dot. Glossy round lime-green body, ONE big white eye with a dark green iris, NO second eye, a small green loop on top,
+small stubby arms and legs. No mouth in brand posts (memes and stickers may add expressions). On 101 thumbnails: yellow #F7C531
+ground or charcoal with a red glow, never green; 2 to 4 words of huge Anton, one keyword on a red block. Playfulness comes from pose, tilt and where the eye looks. Use it for community, education, Discord and
 light campaigns, not for serious data or partner posts. Always generate it with `mascot-101-reference.png` as the reference image
 and reject any result with a mouth or two eyes.
 
 ## Background art (Nano Banana or FLUX)
+Real photos first (licensed, black and white, light grain); AI art only when no real photo fits.
 Prompt formula: [style: premium cinematic 3D render / editorial photo] + [one subject tied to the message] + [where it sits:
 "in the right half, at the vertical middle"] + [palette: "strictly near-black #07090A, lime #B8F26A, deep green and white"] +
 [empty space: "the top 35 percent and the left side dark and empty for text"] + always end with
