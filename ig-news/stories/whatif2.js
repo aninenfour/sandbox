@@ -13,7 +13,7 @@
 const S = window.SPEC, PTS = S.series, N = PTS.length;
 Object.assign(P, {bg1: '#FFFFFF', bg2: '#EEF3EA', white: '#0E1A12', dim: '#6B756E', green: '#3E9B27', ink: '#FFFFFF'});
 if (window.HOTCOIN_LOGO_DARK) LOGO.src = window.HOTCOIN_LOGO_DARK;
-const money = v => '$' + Math.round(v).toLocaleString('en-US');
+const money = v => '$' + (Math.abs(v) < 10 && Math.abs(v - Math.round(v)) > .004 ? v.toFixed(2) : Math.round(v).toLocaleString('en-US'));  // cents under $10 (Nov 19: $1.50 hot dog)
 const COIN = S.invest.color || '#3E9B27';
 let INKC = '14,26,18';                         // chart grid/tick ink (photo look: white)
 
