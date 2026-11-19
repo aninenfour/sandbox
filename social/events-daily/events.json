@@ -1,5 +1,5 @@
 {
-  "_note": "Curated slide copy per campaign slug (from the official announcement page). Rewards must name the reward type. If a running campaign has no entry here, render.mjs builds a basic slide from the page and flags it NEEDS REVIEW.",
+  "_note": "Curated slide copy per campaign slug (from the official announcement page). Rewards must name the reward type. If a running campaign has no entry here, render.mjs builds a basic slide from the page and flags it NEEDS REVIEW. If a page does not state the reward type, call it USDT (team decision, Nov 19).",
   "wall-street-earnings-season": {
     "short": "Wall Street Earnings Season",
     "kicker": "TRADFI",
@@ -131,7 +131,6 @@
       ]
     ],
     "foot": "Tap Join Now first. All three events combine.",
-    "rewardTypeUnclear": true,
     "x": "🏆 Spot All-Round Challenge #24: 300,000 USDT prize pool, up to 8,888 USDT for 1st. Ends {endShort}"
   }
 }
