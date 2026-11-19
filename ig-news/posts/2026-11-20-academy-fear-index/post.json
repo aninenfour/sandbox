@@ -1,0 +1,231 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "variant": "a",
+ "date": "NOV 20",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "cover.jpg",
+   "photo_pos": "50% 20%",
+   "tag": "CRYPTO 101",
+   "headline": "Crypto fear hit [10 out of 100]. Time to buy?"
+  },
+  {
+   "kind": "tslide",
+   "photo": "p1.jpg",
+   "photo_pos": "50% 47%",
+   "title": "So, what is the <span class='g'>fear index</span>?",
+   "paras": [
+    "A 0-100 crypto mood score. Under 25 = extreme fear."
+   ],
+   "visual": {
+    "type": "line",
+    "title": "Crypto Fear & Greed Index, last 12 months",
+    "series": [
+     15,
+     11,
+     20,
+     25,
+     24,
+     26,
+     20,
+     26,
+     23,
+     11,
+     16,
+     25,
+     23,
+     24,
+     21,
+     29,
+     44,
+     27,
+     27,
+     61,
+     49,
+     24,
+     25,
+     29,
+     16,
+     14,
+     12,
+     7,
+     11,
+     9,
+     10,
+     7,
+     5,
+     11,
+     14,
+     10,
+     12,
+     13,
+     15,
+     23,
+     23,
+     10,
+     14,
+     12,
+     11,
+     9,
+     13,
+     14,
+     16,
+     23,
+     26,
+     33,
+     39,
+     47,
+     29,
+     47,
+     46,
+     38,
+     49,
+     43,
+     28,
+     29,
+     25,
+     25,
+     23,
+     23,
+     12,
+     8,
+     12,
+     18,
+     22,
+     23,
+     23,
+     13,
+     12,
+     19,
+     23,
+     20,
+     26,
+     22,
+     27,
+     29,
+     31,
+     26,
+     29,
+     27,
+     25,
+     29,
+     30,
+     29,
+     34,
+     46,
+     71,
+     74,
+     73,
+     62,
+     65,
+     73,
+     66,
+     63,
+     69,
+     56,
+     70,
+     71,
+     70,
+     71,
+     67,
+     73,
+     59,
+     69,
+     53,
+     53,
+     63,
+     51,
+     48,
+     30,
+     37,
+     50,
+     28,
+     29,
+     13,
+     12,
+     10
+    ],
+    "labels": [
+     "Nov 2025",
+     "Nov 2026"
+    ],
+    "marks": [],
+    "fmt": "{:.0f}"
+   },
+   "source": "alternative.me Crypto Fear & Greed Index"
+  },
+  {
+   "kind": "ngrid",
+   "title": "Bitcoin 1 year after fear hit 10",
+   "text": "Higher a year later only [3 of 9] times.",
+   "cells": [
+    {
+     "photo": "g0.jpg",
+     "label": "March 2020",
+     "value": "+1,001%",
+     "sub": "$5,564 to $61,243",
+     "place": "bottom",
+     "photo_pos": "50% 30%"
+    },
+    {
+     "photo": "g1.jpg",
+     "label": "May 2022",
+     "value": "-11%",
+     "sub": "$31,023 to $27,622",
+     "neg": true
+    },
+    {
+     "photo": "g2.jpg",
+     "label": "Nov 2025",
+     "value": "-32%",
+     "sub": "$95,549 to $65,305",
+     "neg": true
+    }
+   ]
+  },
+  {
+   "kind": "tslide",
+   "photo": "p2.jpg",
+   "photo_pos": "50% 30%",
+   "title": "So, <span class='g'>buy the fear</span>?",
+   "paras": [
+    "A month later Bitcoin was usually lower. Fear is not a timer. Past data, not a forecast."
+   ],
+   "visual": {
+    "type": "stats",
+    "title": "How often Bitcoin was higher after fear hit 10",
+    "items": [
+     {
+      "v": "3 of 11",
+      "l": "1 month later"
+     },
+     {
+      "v": "8 of 11",
+      "l": "3 months later",
+      "color": "#3E9B27"
+     },
+     {
+      "v": "3 of 9",
+      "l": "1 year later"
+     }
+    ]
+   },
+   "source": "alternative.me + Yahoo Finance BTC-USD daily closes"
+  }
+ ],
+ "sources": [
+  "alternative.me Fear & Greed Index API, daily values Feb 2018 to Nov 19 2026: 10 on Nov 19 2026 (11 on Nov 18); 12-month low 5 (Feb 2026). Episodes = runs of days at 10 or below, new episode after a 60+ day gap: 12 since 2018 (11 with 1-month and 3-month data, 9 with 1-year data)",
+  "Yahoo Finance BTC-USD daily closes from each episode's first day: Mar 13 2020 $5,564 -> Mar 13 2021 $61,243; May 10 2022 $31,023 -> May 10 2023 $27,622; Nov 15 2025 $95,549 -> Nov 15 2026 $65,305",
+  "Cross-check: Bitstamp BTC/USD daily closes; CoinDesk / Hotcoin daily recap Nov 19 2026: Fear & Greed 10 (extreme fear)"
+ ],
+ "photo_credits": [
+  "Man with phone (cover): Amirali Parsa / Unsplash (664eGz6v0sg)",
+  "Man with phone, hand on head: Ansspvt Titan / Unsplash (9yugTg74iAE)",
+  "Woman at laptop: Murat / Unsplash (FbWTaH5quRY)",
+  "Masked man, 2020: HamZa NOUASRIA / Unsplash (Zl9d_rjDY7Y)",
+  "Phone with chart: Adam Smigielski / Unsplash (K5mPtONmpHM)",
+  "Phone with chart: Viktor Forgacs / Unsplash (3PyBkxgTiL0)"
+ ]
+}
