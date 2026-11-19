@@ -1935,7 +1935,7 @@
    "nphoto"
   ],
   "ngrid_used": true,
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -1951,6 +1951,55 @@
    "alternative.me Fear & Greed Index: 11 (Extreme Fear), Nov 19",
    "Federal Reserve FOMC calendar: Dec 8-9, 2026"
   ],
-  "note": "Score 10/12 (hook 3, relevance 3, fresh 3, visual 1-2: Fed faces). Beat Binance $6.5B freezing order, Ledger Berlin tampering, ZRO unlock (Fri, weaker). Minutes read from federalreserve.gov (primary); Waller quotes + ~95% odds in Decrypt AND Cointelegraph. Chair = Kevin Warsh (minutes attendance). ngrid: face cells use place bottom with no title (place top covered both faces). Swapped a trading-screen photo showing a competitor exchange UI for a hands-over-face photo. No logo badge (no drawn logos). Commit 6dd5726."
+  "note": "Score 10/12 (hook 3, relevance 3, fresh 3, visual 1-2: Fed faces). Beat Binance $6.5B freezing order, Ledger Berlin tampering, ZRO unlock (Fri, weaker). Minutes read from federalreserve.gov (primary); Waller quotes + ~95% odds in Decrypt AND Cointelegraph. Chair = Kevin Warsh (minutes attendance). ngrid: face cells use place bottom with no title (place top covered both faces). Swapped a trading-screen photo showing a competitor exchange UI for a hands-over-face photo. No logo badge (no drawn logos). Commit 6dd5726.",
+  "ig_url": "https://www.instagram.com/p/Df59V7RCtk_/"
+ },
+ {
+  "id": "2026-11-19-whatif-costco-hotdog-btc",
+  "type": "reel-whatif-v2",
+  "slot": "2026-11-19T21:30:00+08:00",
+  "title": "Costco hot dog ($1.50 since 1985) vs $1.50 in Bitcoin on Nov 19 2015: $290 (193x)",
+  "status": "scheduled",
+  "music": "21 (Arulo, Mixkit) #445",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "ig_story(21:35)",
+   "tiktok",
+   "x_main(story_x45.mp4)"
+  ],
+  "sources": [
+   "Fortune (Mar 21 2026) + Newsweek / Spokesman-Review (Mar 2026): Costco $1.50 hot dog + soda combo unchanged since 1985, CEO Ron Vachris confirms",
+   "Yahoo Finance BTC-USD close $326.15 Nov 19 2015 (Bitstamp $326.02)",
+   "Yahoo Finance BTC-USD close $62,987 Nov 18 2026 (Bitstamp $62,976)"
+  ],
+  "note": "Everyday-object joke for shares (rice-style): 'THE HOT DOG: STILL $1.50.' Exactly 11 years since the buy date. Photo look, lump, 48.9 s, thumbnail check fill 38%. whatif2.js money() now shows cents under $10. Buy photo = real Costco food court menu ($1.50 hot dog panel, Unsplash). Media commit 5ff35f1. Publer covers confirmed = frame 0 (IG, TikTok, X 4:5). X main also has a non-desk GTA VI post at 21:30."
+ },
+ {
+  "id": "2026-11-20-academy-fear-index",
+  "type": "academy",
+  "slot": "2026-11-20T19:00:00+08:00",
+  "title": "Crypto 101: Crypto fear hit 10 out of 100. Time to buy? (BTC higher 1y later only 3 of 9 times; 3 months later 8 of 11)",
+  "status": "scheduled",
+  "variant": "a",
+  "layouts": [
+   "nhero",
+   "tslide-line",
+   "ngrid",
+   "tslide-stats"
+  ],
+  "ngrid_used": true,
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(19:02, tt/01-04)",
+   "ig_story(19:05)",
+   "x_research(20:30, 01-04)"
+  ],
+  "sources": [
+   "alternative.me Fear & Greed Index daily Feb 2018 to Nov 19 2026 (10 on Nov 19); episodes = runs at <=10, 60+ day gap",
+   "Yahoo Finance BTC-USD daily closes, cross-checked with Bitstamp"
+  ],
+  "note": "4 slides, no CTA, variant A (Nov 19 was B). Photos all new (Unsplash). ngrid March 2020 face cell place bottom. Media commit 7ad1b12."
  }
 ]

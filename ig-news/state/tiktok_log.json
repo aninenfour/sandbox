@@ -357,7 +357,26 @@
   "format": "photo",
   "topic": "News: Fed minutes, December hike odds",
   "hook": "95% chance the Fed raises rates again in December",
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7709697099796942100"
+ },
+ {
+  "id": "2026-11-19-whatif-costco-hotdog-btc",
+  "slot": "2026-11-19T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Costco hot dog vs Bitcoin",
+  "hook": "Costco hot dog: still $1.50. Same $1.50 in Bitcoin (2015): $290",
   "status": "scheduled",
-  "doc_row": true
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-20-academy-fear-index",
+  "slot": "2026-11-20T19:02:00+08:00",
+  "format": "photo",
+  "topic": "Crypto 101: Fear & Greed Index at 10",
+  "hook": "Crypto fear hit 10 out of 100. Time to buy?",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]
