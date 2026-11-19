@@ -33,6 +33,7 @@
 | 18/11 | 14:49 | Learn do dia | Desdobramento de ações (stock-split), pt_PT link in reply. EN copy: Research X 15:04, FB 15:13 | published https://x.com/1895401255163576320/status/2123111388897738978 (Research https://x.com/1505774883288068098/status/2123115188102561955, FB https://www.facebook.com/107965200554050_1670726584846109) |
 | 18/11 | 17:39 | Anúncio oficial | SNDKB 8:1 (suspensão 19/11 05:00, retorno 20/11 07:00) (link in reply) | scheduled |
 
+| 19/11 | 07:12 | GM | Belo Horizonte: linha segue a crista da Serra do Curral até o pico (owner wants our GM even when team posts one) | scheduled |
 | 19/11 | 08:24 | Event LAST DAY | Wall Street Earnings termina 12:59, até 1.060 USDT em Futures Trial Funds (link in reply) | scheduled |
 | 19/11 | 12:14 | Event LAUNCH | Earn prazo fixo exclusivo: USDT 180d até 6,00% APR, até 2.000 USDT em Futures Trial Funds (link in reply) | scheduled |
 | 19/11 | 15:06 | Learn do dia | Phantom Wallet (pt_PT link in reply). EN: Research X 15:19, FB 15:28 | scheduled |

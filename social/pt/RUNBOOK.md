@@ -12,7 +12,7 @@ pip install -q --break-system-packages rembg onnxruntime qrcode 2>/dev/null || p
 node social/pt/tracker/plan.mjs          # event status now, Brasília time
 node social/pt/tracker/schedule.mjs $(TZ=America/Sao_Paulo date +%F) 1   # today's humanised slot times
 ```
-Then check what is already queued AND published today: Publer `list_publer_posts` (states published + scheduled, days 2), filtered to Hotcoin Português. The team also posts here (GM, Nvidia/TradFi news, What to Watch PT, listings): never double-post a topic, and if the team has a GM queued, skip ours that day. Lesson 18/11: our Nvidia results text duplicated a team post from 05:41.
+Then check what is already queued AND published today: Publer `list_publer_posts` (states published + scheduled, days 2), filtered to Hotcoin Português. The team also posts here (GM, Nvidia/TradFi news, What to Watch PT, listings): never double-post a topic, and keep our own GM even when the team posts one (owner, 19/11). Lesson 18/11: our Nvidia results text duplicated a team post from 05:41.
 Read `LOG.md` (what ran, what is queued) before planning.
 
 ## 1. The three daily checks (scheduled tasks fire these)
