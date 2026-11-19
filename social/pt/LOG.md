@@ -33,6 +33,11 @@
 | 18/11 | 14:49 | Learn do dia | Desdobramento de ações (stock-split), pt_PT link in reply. EN copy: Research X 15:04, FB 15:13 | published https://x.com/1895401255163576320/status/2123111388897738978 (Research https://x.com/1505774883288068098/status/2123115188102561955, FB https://www.facebook.com/107965200554050_1670726584846109) |
 | 18/11 | 17:39 | Anúncio oficial | SNDKB 8:1 (suspensão 19/11 05:00, retorno 20/11 07:00) (link in reply) | scheduled |
 
+| 19/11 | 08:24 | Event LAST DAY | Wall Street Earnings termina 12:59, até 1.060 USDT em Futures Trial Funds (link in reply) | scheduled |
+| 19/11 | 12:14 | Event LAUNCH | Earn prazo fixo exclusivo: USDT 180d até 6,00% APR, até 2.000 USDT em Futures Trial Funds (link in reply) | scheduled |
+| 19/11 | 15:06 | Learn do dia | Phantom Wallet (pt_PT link in reply). EN: Research X 15:19, FB 15:28 | scheduled |
+| 19/11 | 17:51 | Event LAST CALL | Proteção de perdas em futuros, termina 20/11 07:00 (link in reply) | scheduled |
+
 ## Queued ideas (not scheduled yet)
 - Thu 19/11: Earn prazo fixo exclusivo launch (key visual from official banner, cut done), Wall Street Earnings last day (ends 12:59), Futures loss protection last call evening (ends 20/11 07:00).
 - Spot #24 midterm ~24/11, P2P Sprint midterm ~22/11; last calls 27/11 evening (P2P) and 29-30/11 (Spot).
@@ -57,3 +62,4 @@
 - 18/11 07:44 check 1: NEW events Ronaldinho x Hotcoin (18/11 04:00 to 29/11 04:00 Brasília; official banner labels him 'Embaixador da Hotcoin (Brasil)', banner cutout used) and Fixed-Term Earn Exclusive (17/11 23:30 to 28/11 08:00) added. SNDKB notice unchanged (re-read). Nvidia Q3 numbers verified on nvidianews.nvidia.com. Learn do dia #1 stock split on PT + Research + FB. No placar today (varied), no meme.
 - 18/11 12:09 check 2: no new announcements. No Placar today (planned variation). NOTE: team posted Nvidia results on this account at 05:41 (status 2122897972388143265), so our 12:07 Nvidia text is a duplicate topic; flagged to owner. Team also posted the official Ronaldinho partnership video (06:04) and new TradFi perps listing (05:29). Ronaldinho is confirmed official ambassador.
 - 18/11 16:13 check 3: no new announcements. Learn #1 live on all 3 accounts. SNDKB notice queued 17:39. Nothing closes before 08:00 Thu except the SNDKB suspension (05:00, covered). Team has queued on PT for Thu: GM 09:30 and GTA VI/TTWO post 11:00, so Thu: NO GM from us, avoid gaming/TTWO. Thu plan: Fixed-Term Earn launch, Wall Street Earnings last day (ends 12:59), Learn #2 rainbow chart, futures protection last call evening. Runbook: check team posts before scheduling.
+- 19/11 04:50 (early, owner asked for today's schedule doc): team queued GM 09:30 + GTA VI 11:00 on PT, so no GM from us. Built WSE last day, Earn exclusive launch, futures last call KVs (kv_1119.mjs). Learn: rainbow chart on hold (stale BTC figure), Phantom posted instead. Placar to add at check 2 (~13:40). Schedule doc: https://claude.ai/artifact/YZwn3dSpCn168gMoMkXEsg
