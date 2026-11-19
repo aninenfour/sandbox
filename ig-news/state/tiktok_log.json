@@ -380,5 +380,14 @@
   "hook": "Crypto fear hit 10 out of 100. Time to buy?",
   "status": "scheduled",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-20-trump-media-btc-debt",
+  "slot": "2026-11-20T10:02:00+08:00",
+  "format": "photo",
+  "topic": "News: Trump Media $884M debt vs its Bitcoin",
+  "hook": "Trump Media may owe $884M in cash by Nov 30",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]

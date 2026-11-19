@@ -2003,5 +2003,35 @@
    "Yahoo Finance BTC-USD daily closes, cross-checked with Bitstamp"
   ],
   "note": "4 slides, no CTA, variant A (Nov 19 was B). Photos all new (Unsplash). ngrid March 2020 face cell place bottom. Media commit 7ad1b12."
+ },
+ {
+  "id": "2026-11-20-trump-media-btc-debt",
+  "type": "news",
+  "slot": "2026-11-20T10:00:00+08:00",
+  "title": "Trump Media may owe $884M in cash by Nov 30 (note put); its 15,649 BTC now ~$967M (was $1.31B Sep 30); DJT $4.09 vs $34.72 conversion",
+  "score": 11,
+  "layouts": [
+   "nhero",
+   "ngrid",
+   "nbig",
+   "nrows"
+  ],
+  "ngrid_used": true,
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(10:02, tt/01-04)",
+   "ig_story(10:05)",
+   "x_research(11:00, slides 01-04)"
+  ],
+  "sources": [
+   "Trump Media 8-K / press release Nov 17 2026 (primary): repurchased $100M of 0.00% convertible senior secured notes due May 2028 below par with cash on hand; ~$883.5M outstanding; holders may require repurchase for cash on Nov 30 2026; interim CEO Kevin McGurn: use available cash and credit 'without issuing any additional equity'",
+   "CoinDesk (Nov 19, Shaurya Malwa): up to $883.5M could be demanded Nov 30; ~15,649 BTC at Sep 30 worth ~$1.31B then, ~$998M at $63,750; cash and short-term investments ~$393M at Sep 30; conversion price ~$34.72; filing warns it may need to sell bitcoin; 4,259 BTC moved Nov 5 (not a confirmed sale)",
+   "IBTimes / Benzinga (Nov 15): $1B convertible debt, Nov 30 deadline, conversion $34.72, 15,649 BTC",
+   "SCMP / Reuters: notes issued May 2025, holders can demand cash Nov 30; shares near record low $3.80",
+   "Yahoo Finance: DJT close $4.09 Nov 19 2026; BTC $61,835 (CoinGecko $61,733) Nov 20 07:45 UTC+8 -> 15,649 x ~$61.8K = ~$967M"
+  ],
+  "note": "Score 11/12 (hook 3, relevance 3, fresh 2, visual 3). Anthropic IPO skipped: Hotcoin X main + PT already posted 'Anthropic heads to Nasdaq' Nov 19 (48 h rule). ZRO unlock = single-token, weaker. ngrid has no faces (Nasdaq street, BTC coin, cash). Collision warning on nbig kicker fixed (shorter kicker/delta). Render clean."
  }
 ]
