@@ -388,6 +388,6 @@
   "topic": "News: Trump Media $884M debt vs its Bitcoin",
   "hook": "Trump Media may owe $884M in cash by Nov 30",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
