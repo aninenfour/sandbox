@@ -1,0 +1,11 @@
+One man has ten guesses to unlock a bitcoin fortune, and he's already used eight.
+Stefan Thomas, a German-born programmer in San Francisco.
+In 2011, he's paid seven thousand and two bitcoin for making a video about bitcoin.
+Back then, that's about two thousand dollars.
+So how do you get locked out of your own money? Four steps.
+Step one. He keeps the keys on an IronKey, a tiny encrypted USB drive.
+Step two. He writes the password on paper, and the paper goes missing.
+Step three. The drive wipes itself after ten wrong guesses, and he burns through eight.
+Step four. In 2023, a security firm says it can crack it, but as far as anyone knows, it's still locked.
+Today those coins are worth about four hundred fifty million dollars.
+Owning your keys means owning your mistakes too.
