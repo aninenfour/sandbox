@@ -15,6 +15,7 @@ Object.assign(P, {bg1: '#FFFFFF', bg2: '#EEF3EA', white: '#0E1A12', dim: '#6B756
 if (window.HOTCOIN_LOGO_DARK) LOGO.src = window.HOTCOIN_LOGO_DARK;
 const money = v => '$' + (Math.abs(v) < 10 && Math.abs(v - Math.round(v)) > .004 ? v.toFixed(2) : Math.round(v).toLocaleString('en-US'));  // cents under $10 (Nov 19: $1.50 hot dog)
 const COIN = S.invest.color || '#3E9B27';
+const RES = () => (S.reveal && S.reveal.neg) ? P.red : P.green;   // Nov 20: reveal.neg = the stock lost (Jordans vs Nike), result in red
 let INKC = '14,26,18';                         // chart grid/tick ink (photo look: white)
 
 // ---- timeline (seconds)
@@ -290,10 +291,10 @@ function draw(t) {
       txt(money(PTS[N - 1][2] * k1), 610, 660, 120, P.white, 900, 'center', a * k1);
       rrect(110, 820, 860, 340, 44, '#EEF8E8', 'rgba(62,155,39,.35)', 'rgba(20,60,10,.14)');
       coin(230, 990, 74); txt(S.reveal.worth_label.toUpperCase(), 610, 900, 36, P.dim, 800, 'center', a * k2);
-      txt(money(PTS[N - 1][1] * k2), 610, 1010, 150, P.green, 900, 'center', a * k2);
+      txt(money(PTS[N - 1][1] * k2), 610, 1010, 150, RES(), 900, 'center', a * k2);
       if (t > T.rev + 2.0) { const s = lerp(1.8, 1, easeOut(prog(t, T.rev + 2.0, T.rev + 2.2)));
         ctx.save(); ctx.translate(W / 2, 1290); ctx.rotate(-.05); ctx.scale(s, s); ctx.globalAlpha = a;
-        ctx.fillStyle = P.green; ctx.beginPath(); ctx.roundRect(-230, -60, 460, 120, 60); ctx.fill(); txt(S.reveal.mult, 0, 4, 64, '#FFFFFF', 900, 'center', a); ctx.restore(); }
+        ctx.fillStyle = RES(); ctx.beginPath(); ctx.roundRect(-230, -60, 460, 120, 60); ctx.fill(); txt(S.reveal.mult, 0, 4, 64, '#FFFFFF', 900, 'center', a); ctx.restore(); }
       txt(S.reveal.note, W / 2, 1420, 32, P.dim, 600, 'center', a * prog(t, T.rev + 2.6, T.rev + 3.0)); } }
   // 5. lesson + end card
   if (t >= L0 - .4) lesson2(t);
@@ -371,9 +372,9 @@ if (S.look === 'photo') {
     txt(S.buy.counter.toUpperCase(), W / 2, 560, 48, '#FFFFFF', 800, 'center', k);
     txt(money(PTS[N - 1][2]), W / 2, 690, 150, '#FFFFFF', 900, 'center', k);
     txt(S.invest.counter.toUpperCase(), W / 2, 1110, 48, '#FFFFFF', 800, 'center', k);
-    txt(money(PTS[N - 1][1]), W / 2, 1240, 150, P.green, 900, 'center', k);
+    txt(money(PTS[N - 1][1]), W / 2, 1240, 150, RES(), 900, 'center', k);
     const s = lerp(1.6, 1, easeOut(prog(t, ENDT + .5, ENDT + .8)));
-    if (t > ENDT + .5) { ctx.save(); ctx.translate(W / 2, H / 2); ctx.scale(s, s); bigPill(S.reveal.mult, 0, 0, 70, P.green, '#0A0A0A', -.04, k); ctx.restore(); }
+    if (t > ENDT + .5) { ctx.save(); ctx.translate(W / 2, H / 2); ctx.scale(s, s); bigPill(S.reveal.mult, 0, 0, 70, RES(), '#0A0A0A', -.04, k); ctx.restore(); }
     ctx.restore(); endcard(t, ENDT + .9);
   };
   draw = t => { NOW = t; draw0(t); if (t >= T.cover + .35) endSplit(t); };
