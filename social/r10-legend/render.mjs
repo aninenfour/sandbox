@@ -73,7 +73,7 @@ const card = (c, i, lang) => {
   const z = c.bgz ?? 1;
   const bg = last
     ? `<img class="abs" src="${A('gen/bg09.jpg')}" style="left:0;top:0;width:${W}px;height:${H}px;object-fit:cover;object-position:center top;filter:contrast(1.06)">
-       <div class="abs" style="left:70px;top:160px;width:236px;height:510px;border-radius:34px;background:#0B0E11;border:3px solid #2A3A30;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 40px rgba(184,242,106,.25);transform:rotate(-7deg);overflow:hidden">
+       <div class="abs" style="left:64px;top:188px;width:290px;height:628px;border-radius:40px;background:#0B0E11;border:3px solid #2A3A30;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 40px rgba(184,242,106,.25);transform:rotate(-7deg);overflow:hidden">
          <img src="${A('app_chart.png')}" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>`
     : `<img class="abs" src="${A(c.img)}" style="left:${-(W * (z - 1)) / 2}px;top:${-(H * (z - 1)) / 2}px;width:${W * z}px;height:${H * z}px;object-fit:cover;object-position:center top;filter:contrast(1.06)">`;
   const hero = `${bg}
