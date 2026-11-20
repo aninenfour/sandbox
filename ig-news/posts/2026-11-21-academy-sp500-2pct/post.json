@@ -1,0 +1,156 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "variant": "b",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "cover.jpg",
+   "photo_pos": "50% 18%",
+   "tag": "STOCKS 101",
+   "headline": "The S&P 500 fell 2% in a day [446 times] since 1950"
+  },
+  {
+   "kind": "tslide",
+   "photo": "p1.jpg",
+   "photo_pos": "50% 40%",
+   "title": "So, how often is <span class='g'>normal</span>?",
+   "paras": [
+    "Calm years have almost none (2017: <g>zero</g>). Rough years have 20+. 2026 so far: 4."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Days the S&P 500 fell 2% or more",
+    "items": [
+     {
+      "l": "2017",
+      "v": 0,
+      "txt": "0"
+     },
+     {
+      "l": "2018",
+      "v": 15,
+      "txt": "15"
+     },
+     {
+      "l": "2019",
+      "v": 5,
+      "txt": "5"
+     },
+     {
+      "l": "2020",
+      "v": 25,
+      "txt": "25"
+     },
+     {
+      "l": "2021",
+      "v": 5,
+      "txt": "5"
+     },
+     {
+      "l": "2022",
+      "v": 23,
+      "txt": "23"
+     },
+     {
+      "l": "2023",
+      "v": 1,
+      "txt": "1"
+     },
+     {
+      "l": "2024",
+      "v": 4,
+      "txt": "4"
+     },
+     {
+      "l": "2025",
+      "v": 7,
+      "txt": "7"
+     },
+     {
+      "l": "2026",
+      "v": 4,
+      "txt": "4"
+     }
+    ]
+   },
+   "source": "Yahoo Finance S&P 500 daily closes, to Nov 19 2026"
+  },
+  {
+   "kind": "ngrid",
+   "title": "The 4 worst days",
+   "text": "Each one [felt like the end] at the time.",
+   "cells": [
+    {
+     "photo": "g0.jpg",
+     "label": "Oct 19, 1987",
+     "value": "-20.5%",
+     "neg": true,
+     "photo_pos": "50% 30%"
+    },
+    {
+     "photo": "g1.jpg",
+     "label": "Oct 28, 1929",
+     "value": "-12.9%",
+     "neg": true
+    },
+    {
+     "photo": "g3.jpg",
+     "label": "Mar 16, 2020",
+     "value": "-12.0%",
+     "neg": true
+    },
+    {
+     "photo": "g2.jpg",
+     "label": "Oct 15, 2008",
+     "value": "-9.0%",
+     "neg": true,
+     "photo_pos": "50% 60%"
+    }
+   ]
+  },
+  {
+   "kind": "tslide",
+   "photo": "p2.jpg",
+   "photo_pos": "50% 50%",
+   "title": "And <span class='g'>a year later</span>?",
+   "paras": [
+    "After most 2% drops, the S&P 500 was higher a year later. Past data, not a promise. Not financial advice."
+   ],
+   "visual": {
+    "type": "stats",
+    "title": "S&P 500 after a 2% drop day (since 1950)",
+    "items": [
+     {
+      "v": "65%",
+      "l": "higher 1 month later"
+     },
+     {
+      "v": "75%",
+      "l": "higher 1 year later",
+      "color": "#3E9B27"
+     },
+     {
+      "v": "+17%",
+      "l": "typical 1-year move"
+     }
+    ]
+   },
+   "source": "Yahoo Finance S&P 500 daily closes, 1950 to Nov 2026"
+  }
+ ],
+ "sources": [
+  "Yahoo Finance ^GSPC daily closes 1950 to Nov 19 2026: 446 days with a close-to-close drop of 2% or more (2.3% of trading days); 1 month (21 trading days) later higher 65% (290/444), 1 year (252 trading days) later higher 75% (333/442), median 1-year change +17.2%; yearly counts 2017-2026: 0,15,5,25,5,23,1,4,7,4",
+  "Worst days cross-checked with Wikipedia 'List of largest daily changes in the S&P 500' and the Yahoo series: Oct 19 1987 -20.47%, Oct 28 1929 -12.94%, Mar 16 2020 -11.98%, Oct 15 2008 -9.03%",
+  "S&P 500 closes Nov 18 2026 7,323.63 (AP/La Nacion 'How major US stock indexes fared' + Yahoo); Nov 19 2026 7,175.83 (Yahoo, -2.0%)"
+ ],
+ "photo_credits": [
+  "Peter Tuchman at the NYSE, 2021: Wikimedia Commons",
+  "Wall St sign: Martijn Oudkerk / Unsplash",
+  "Crowd outside the NYSE, Oct 1929: US government, public domain (Wikimedia Commons)",
+  "Lehman Brothers, Times Square: David Shankbone / Wikimedia Commons",
+  "Financial District, 2020: 'Subdued FiDi' / Wikimedia Commons (Flickr)",
+  "NYSE trading floor, 1963: Library of Congress, public domain",
+  "Stock chart: Arturo A\u00f1ez / Unsplash"
+ ]
+}
