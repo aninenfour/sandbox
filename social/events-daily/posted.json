@@ -24,5 +24,18 @@
       "X main",
       "Facebook"
     ]
+  },
+  {
+    "date": "2026-11-20",
+    "time": "13:53 UTC+8 (scheduled)",
+    "slugs": [
+      "futures-loss-protection",
+      "HotcoinP2PTradingSprint"
+    ],
+    "layout": "stack",
+    "channels": [
+      "X main",
+      "Facebook"
+    ]
   }
 ]
