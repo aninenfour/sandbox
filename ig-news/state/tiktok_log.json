@@ -389,5 +389,23 @@
   "hook": "Trump Media may owe $884M in cash by Nov 30",
   "status": "scheduled",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-20-whatif-jordan11-nke",
+  "slot": "2026-11-20T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Air Jordan 11s vs Nike stock",
+  "hook": "Air Jordans: $220. Same $220 in Nike? Now $146",
+  "status": "scheduled",
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-21-academy-sp500-2pct",
+  "slot": "2026-11-21T19:02:00+08:00",
+  "format": "photo",
+  "topic": "Stocks 101: S&P 500 2% drop days",
+  "hook": "The S&P 500 fell 2% in a day 446 times since 1950",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]
