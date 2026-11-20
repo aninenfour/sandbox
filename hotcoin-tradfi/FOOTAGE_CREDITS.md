@@ -378,3 +378,4 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - PT GM 18/11 (Jardim Botânico, Curitiba): Marcelo Harassen do Ó, Unsplash wXu8B2Q6hoo, Unsplash License. Mono + grain, lime line added.
 - PT GM 19/11 (Belo Horizonte, Serra do Curral): Alvaro Guerrero, Unsplash mGUHn-CBB6c, Unsplash License. Mono + grain, lime line traces the ridge.
 - PT meme 19/11 (IPVA): Stefan Szankowski, Unsplash XCUEhjswddI, Unsplash License, anonymous back view, mono.
+- PT GM 20/11 (Ponte Hercílio Luz, Florianópolis): Jucélio Silva, Unsplash ozqrMP0y-zE, Unsplash License. Mono + grain, lime line along the suspension chain.

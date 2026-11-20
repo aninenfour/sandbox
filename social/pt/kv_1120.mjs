@@ -1,0 +1,63 @@
+// PT key visual 20/11/2026: TradFi 0 Fee Carnival. Period 21/11 00:00 to 04/12 23:59 UTC+8 = 20/11 13:00 to 04/12 12:59 Brasília.
+// Event 1: 100% of eligible TradFi fees rebated as Futures Trial Funds, up to 300 USDT per user (pool 100,000 USDT). Event 2: cumulative TradFi spot+futures volume
+// 1k/5k/20k/50k/100k USDT -> 5/10/20/50/100 USDT Futures Trial Funds, highest tier only, pool 500,000 USDT, must click Join Now.
+// Source: hotcoin.com/en_US/announcement/tradfi-0-fee-carnival/ (read 20/11 07:50 Brasília). Hero cut from the official banner (img.hotbtech.cn 2026-11-20).
+import {createRequire} from 'module';
+import fs from 'fs';
+const require = createRequire(import.meta.url);
+const {chromium} = require(process.env.PW_PATH);
+const DIR = '/home/user/sandbox/social/pt';
+const OUT = `${DIR}/day-2026-11-20-br`; fs.mkdirSync(OUT, {recursive: true});
+const L = (f) => 'data:image/png;base64,' + fs.readFileSync('/home/user/sandbox/hotcoin-tradfi/public/brand/' + f).toString('base64');
+const P = (f) => 'data:image/jpeg;base64,' + fs.readFileSync(`${DIR}/art/${f}`).toString('base64');
+const O = (f) => 'data:image/png;base64,' + fs.readFileSync(`${DIR}/art/official/${f}`).toString('base64');
+const INK = '#0B0E11', LIME = '#B8F26A', GREEN = '#7EC25A', UP = '#17A86B';
+const head = `<meta charset="utf-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Inter+Tight:wght@400;500;600&family=Martian+Mono:wdth,wght@75..112.5,300..700&family=Doto:wght@500..900&display=block');
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1350px;overflow:hidden;position:relative;background:${INK};color:#fff}
+.b{font-family:'Bricolage Grotesque';font-variation-settings:'opsz' 96}.mm{font-family:'Martian Mono'}.d{font-family:'Doto';font-weight:800}.i{font-family:'Inter Tight'}
+.bg{position:absolute;inset:0;background-size:1080px auto;background-repeat:no-repeat}
+</style>`;
+let seed = 3; const R = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const chart = (a, b, n, amp) => { const p = []; for (let i = 0; i <= n; i++) { const f = i / n, k = i && i < n ? 1 : 0;
+  p.push([a[0] + (b[0] - a[0]) * f + k * (R() - .5) * 2 * amp * (1 - f) * .6, a[1] + (b[1] - a[1]) * f + k * (R() - .3) * amp * .5 * (1 - f)]); } return p; };
+const line = (pts) => { const d = 'M' + pts.map((p) => p.map((v) => v.toFixed(1)).join(',')).join(' L'), e = pts[pts.length - 1];
+  return `<svg style="position:absolute;inset:0" width="1080" height="1350"><defs><filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter></defs>
+  <path d="${d}" fill="none" stroke="${LIME}" stroke-width="13" opacity=".5" filter="url(#gl)"/><path d="${d}" fill="none" stroke="${LIME}" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="${e[0]}" cy="${e[1]}" r="12" fill="${LIME}"/><circle cx="${e[0]}" cy="${e[1]}" r="28" fill="none" stroke="${LIME}" stroke-width="3" opacity=".6"/></svg>`; };
+
+// --- Event key visual (official hero object + clear details) ---
+function keyVisual({hero, heroW, heroTop, chipTxt, h1, label, big, unit, facts, deadline, qr}) {
+  return `<!doctype html><html><head>${head}</head><body>
+<div style="position:absolute;inset:0;background:radial-gradient(620px 420px at 50% 34%,rgba(184,242,106,.22),transparent 70%),radial-gradient(900px 600px at 50% 120%,rgba(126,194,90,.10),transparent 70%)"></div>
+<div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1.4px,transparent 1.5px);background-size:24px 24px;mask-image:linear-gradient(180deg,#000 0%,#000 45%,transparent 70%)"></div>
+<svg style="position:absolute;left:0;top:0" width="1080" height="1350">
+  <polygon points="190,120 450,90 450,560 190,590" fill="rgba(255,255,255,.035)" stroke="rgba(184,242,106,.35)" stroke-width="1.5"/>
+  <polygon points="630,90 890,120 890,590 630,560" fill="rgba(255,255,255,.035)" stroke="rgba(184,242,106,.35)" stroke-width="1.5"/>
+  <ellipse cx="540" cy="585" rx="300" ry="34" fill="rgba(184,242,106,.18)"/>
+</svg>
+<img src="${O(hero)}" style="position:absolute;left:${540 - heroW / 2}px;top:${heroTop ?? 590 - heroW * .62}px;width:${heroW}px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))">
+<div style="position:absolute;left:72px;right:72px;top:64px;display:flex;justify-content:space-between;align-items:center">
+  <img src="${L('logo-official-white.png')}" style="height:40px">
+  <div class="i" style="font-size:22px;font-weight:600;color:${LIME};background:rgba(184,242,106,.12);border:1px solid rgba(184,242,106,.35);padding:10px 18px;border-radius:12px">${chipTxt}</div>
+</div>
+<div style="position:absolute;left:72px;right:72px;top:660px">
+  <div class="b" style="font-size:64px;font-weight:800;letter-spacing:-1.5px;line-height:1.02">${h1}</div>
+  <div class="i" style="font-size:28px;color:rgba(255,255,255,.55);margin-top:26px">${label}</div>
+  <div style="display:flex;align-items:baseline;gap:18px;margin-top:2px"><span class="b" style="font-size:150px;font-weight:800;letter-spacing:-5px;line-height:1;color:${LIME}">${big}</span><span class="b" style="font-size:60px;font-weight:800">${unit}</span></div>
+</div>
+<div style="position:absolute;left:72px;right:72px;bottom:64px;display:flex;align-items:flex-end;gap:32px">
+  <div style="flex:1;display:grid;gap:10px">${facts.map((f) => `<div class="i" style="font-size:25px;line-height:1.3;color:rgba(255,255,255,.88)"><span style="color:${LIME}">→</span> ${f}</div>`).join('')}
+    <div class="i" style="font-size:25px;font-weight:600;margin-top:8px">${deadline}</div></div>
+  <div style="background:#fff;border-radius:16px;padding:12px"><img src="${O(qr)}" style="width:150px;display:block"></div>
+</div>
+</body></html>`;
+}
+
+const kvC = keyVisual({hero: 'tradfi-0-fee-carnival-hero.png', heroW: 520, heroTop: 185, chipTxt: 'Hotcoin TradFi',
+  h1: 'Ações e ETFs com taxa zero na Hotcoin.', label: 'Prêmios por volume', big: '500.000', unit: 'USDT',
+  facts: ['Taxas TradFi devolvidas em Futures Trial Funds, até 300 USDT', 'Volume de 1.000 USDT+: de 5 a 100 USDT (vale a maior faixa)', 'Clique em "Join Now" para o volume contar'], deadline: 'De hoje, 13:00, até 04/12, 12:59 (Brasília)', qr: 'qr-carnival.png'});
+const br = await chromium.launch(); const pg = await br.newPage({viewport: {width: 1080, height: 1350}, deviceScaleFactor: 2});
+await pg.setContent(kvC, {waitUntil: 'networkidle'}); await pg.evaluate(() => document.fonts.ready); await pg.waitForTimeout(400);
+await pg.screenshot({path: `${OUT}/kv-carnival.png`}); await br.close(); console.log('ok');
