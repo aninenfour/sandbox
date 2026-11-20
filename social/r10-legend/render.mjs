@@ -5,8 +5,10 @@
 //   Copa Libertadores 2013 with Atlético Mineiro; "the only player in history to have won a FIFA World Cup, a Copa América,
 //   a FIFA Confederations Cup, a UEFA Champions League, a Copa Libertadores and a Ballon d'Or".
 // Photos: Unsplash (places and objects only, no club branding), graded by grade.py; credits in hotcoin-tradfi/FOOTAGE_CREDITS.md.
+// Trophies (03, 05, 06, 07, 08): real museum photos from Wikimedia Commons, cut out by trophies.py; licences and authors in
+//   FOOTAGE_CREDITS.md (CC BY / CC BY-SA: credit in the post caption).
 // Card 09 uses the real portrait from the official Hotcoin shoot. No club crests or third-party logos (house rule).
-// Run: python3 social/r10-legend/grade.py && PW_PATH=$(npm root -g)/playwright node social/r10-legend/render.mjs
+// Run: python3 social/r10-legend/grade.py && python3 social/r10-legend/trophies.py && PW_PATH=$(npm root -g)/playwright node social/r10-legend/render.mjs
 import {createRequire} from 'module';
 import fs from 'fs';
 const require = createRequire(import.meta.url);
@@ -24,25 +26,25 @@ const CARDS = [
    bodyZH: '1998年，罗纳尔迪尼奥在巴西阿雷格里港的格雷米奥开启职业生涯，正式踏上世界足坛的传奇之路。', img: 'p01_g.jpg'},
   {year: '2001', kicker: 'TO EUROPE · PARIS SAINT-GERMAIN', en: 'Hello, Europe', zh: '登陆欧洲',
    bodyEN: 'In 2001 he joined Paris Saint-Germain and began his European career, introducing the world to a football genius from Brazil.',
-   bodyZH: '2001年加盟巴黎圣日耳曼，开启欧洲征程，让世界认识了这位来自巴西的足球天才。', img: 'p02_g.jpg'},
+   bodyZH: '2001年加盟巴黎圣日耳曼，开启欧洲征程，让世界认识了这位来自巴西的足球天才。', img: 'p02_g.jpg', shift: -260},
   {year: '2002', kicker: 'FIFA WORLD CUP CHAMPION', en: 'World Champion', zh: '世界冠军',
    bodyEN: "He won the 2002 FIFA World Cup in Korea and Japan with Brazil, the country's fifth world title.",
-   bodyZH: '随巴西队夺得2002年韩日世界杯冠军，助巴西第五次捧起世界杯。', img: 'p03_g.jpg'},
+   bodyZH: '随巴西队夺得2002年韩日世界杯冠军，助巴西第五次捧起世界杯。', img: 'p03_g.jpg', trophy: 'trophy_wc.png', th: 600, tx: 60, ty: 150},
   {year: '2003', kicker: 'JOINS BARCELONA', en: 'A Barcelona Icon', zh: '巴萨传奇',
    bodyEN: "He joined Barcelona in 2003 and became one of the world's most iconic players with his dribbling, passing and creativity.",
-   bodyZH: '2003年加盟巴塞罗那，凭借出色的盘带、传球与创造力，成为全球最具代表性的球星之一。', img: 'p04_g.jpg'},
+   bodyZH: '2003年加盟巴塞罗那，凭借出色的盘带、传球与创造力，成为全球最具代表性的球星之一。', img: 'p04_g.jpg', shift: -300},
   {year: '2004 · 2005', kicker: 'FIFA WORLD PLAYER OF THE YEAR', en: "The World's Best", zh: '世界最佳',
    bodyEN: "Named FIFA World Player of the Year two years in a row, one of football's highest individual honours.",
-   bodyZH: '连续两年当选国际足联世界足球先生，跻身世界足坛巅峰。', img: 'p05_g.jpg'},
+   bodyZH: '连续两年当选国际足联世界足球先生，跻身世界足坛巅峰。', img: 'p05_g.jpg', trophy: 'trophy_wp.png', th: 580, tx: 40, ty: 160},
   {year: '2005', kicker: "BALLON D'OR", en: 'Golden Glory', zh: '金球荣耀',
    bodyEN: "In 2005 he won the Ballon d'Or, the peak of his individual career and a place among football's superstars.",
-   bodyZH: '2005年荣获金球奖，迎来个人职业生涯的巅峰时刻，跻身世界超级巨星之列。', img: 'p06_g.jpg'},
+   bodyZH: '2005年荣获金球奖，迎来个人职业生涯的巅峰时刻，跻身世界超级巨星之列。', img: 'p06_g.jpg', trophy: 'trophy_bdo.png', th: 360, tx: 30, ty: 250, round: true, lift: 1.35},
   {year: '2006', kicker: 'UEFA CHAMPIONS LEAGUE CHAMPION', en: 'Top of Europe', zh: '欧洲之巅',
    bodyEN: "He helped Barcelona win the 2005/06 UEFA Champions League, the highest podium in European club football.",
-   bodyZH: '助巴塞罗那夺得2005/06赛季欧冠冠军，登上欧洲俱乐部足球的最高领奖台。', img: 'p07_g.jpg'},
+   bodyZH: '助巴塞罗那夺得2005/06赛季欧冠冠军，登上欧洲俱乐部足球的最高领奖台。', img: 'p07_g.jpg', trophy: 'trophy_ucl.png', th: 600, tx: 50, ty: 140, px: 812},
   {year: '2013', kicker: 'COPA LIBERTADORES CHAMPION', en: 'Glory on Two Continents', zh: '双洲荣耀',
    bodyEN: "In 2013 he won the Copa Libertadores with Atlético Mineiro, becoming the only player to win the World Cup, Copa América, Confederations Cup, Champions League, Libertadores and Ballon d'Or.",
-   bodyZH: '2013年随米内罗竞技夺得南美解放者杯冠军，成为史上唯一集世界杯、美洲杯、联合会杯、欧冠、解放者杯与金球奖于一身的球员。', img: 'p08_g.jpg'},
+   bodyZH: '2013年随米内罗竞技夺得南美解放者杯冠军，成为史上唯一集世界杯、美洲杯、联合会杯、欧冠、解放者杯与金球奖于一身的球员。', img: 'p08_g.jpg', trophy: 'trophy_lib.png', th: 540, tx: 90, ty: 120},
   {year: '2026', kicker: 'EMBAIXADOR DA HOTCOIN (BRASIL)', en: 'Hotcoin × Ronaldinho', zh: '传奇新篇章',
    bodyEN: 'Football legend Ronaldinho is now the official Hotcoin Ambassador in Brazil. From world champion to global icon, the legend continues.',
    bodyZH: '世界足坛传奇罗纳尔迪尼奥正式成为 Hotcoin 巴西品牌大使。从世界冠军到全球足球偶像，传奇仍在续写。', img: null},
@@ -72,10 +74,17 @@ const card = (c, i, lang) => {
     ? `<div class="abs" style="inset:0;background:radial-gradient(70% 55% at 62% 32%, #1E5A36 0%, #0B2716 50%, ${INK} 85%)"></div>
        <div class="abs" style="left:70px;top:160px;width:236px;height:510px;border-radius:34px;background:#0B0E11;border:3px solid #2A3A30;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 40px rgba(184,242,106,.25);transform:rotate(-7deg);overflow:hidden">
          <img src="${A('app_chart.png')}" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>`
-    : `<img class="abs" src="${A(c.img)}" style="inset:-20px;width:${W + 40}px;height:${H + 40}px;object-fit:cover;filter:brightness(.5) blur(3px)">`;
-  const hero = `${bg}
-    <div class="abs" style="left:${last ? 250 : 170}px;top:40px;width:900px;height:900px;border-radius:50%;background:radial-gradient(closest-side, rgba(184,242,106,.28), rgba(184,242,106,0))"></div>
-    <img class="abs" src="${cut}" style="left:${last ? 700 : 620}px;transform:translateX(-50%);top:120px;height:${i === 5 ? 940 : 880}px;max-width:${W - 60}px;object-fit:contain;object-position:center top;
+    : c.shift
+      // landmark cards: the landmark sits in the open left side, bright enough to read
+      ? `<img class="abs" src="${A(c.img)}" style="left:${c.shift}px;top:0;height:${H}px;width:auto;filter:brightness(.85) saturate(1.1);-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent 100%)">`
+      : `<img class="abs" src="${A(c.img)}" style="inset:-20px;width:${W + 40}px;height:${H + 40}px;object-fit:cover;filter:brightness(${c.trophy ? .5 : .7}) saturate(1.15) blur(${c.trophy ? 2 : 1}px)">`;
+  // real trophy (Wikimedia Commons, CC BY-SA; credit in the post caption) on the open left side, under a spotlight
+  const trophy = c.trophy ? `
+    <div class="abs" style="left:-60px;top:60px;width:560px;height:820px;background:radial-gradient(50% 50% at 50% 45%, rgba(255,246,214,.30), rgba(184,242,106,.10) 55%, rgba(0,0,0,0) 75%)"></div>
+    <img class="abs" src="${A(c.trophy)}" style="left:${c.tx ?? 40}px;top:${c.ty ?? 180}px;height:${c.th ?? 540}px;filter:brightness(${c.lift ?? 1}) saturate(1.15) contrast(1.06)${c.round ? '' : ';-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%)'}">` : '';
+  const hero = `${bg}${trophy}
+    <div class="abs" style="left:${last ? 250 : c.trophy ? 250 : 170}px;top:40px;width:900px;height:900px;border-radius:50%;background:radial-gradient(closest-side, rgba(184,242,106,.28), rgba(184,242,106,0))"></div>
+    <img class="abs" src="${cut}" style="left:${last ? 700 : c.px ?? (c.trophy ? 700 : 620)}px;transform:translateX(-50%);top:120px;height:${i === 5 ? 940 : 880}px;max-width:${W - 60}px;object-fit:contain;object-position:center top;
       filter:drop-shadow(-6px 0 0 rgba(184,242,106,.35)) drop-shadow(0 0 40px rgba(184,242,106,.30));-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 94%)">`;
   return `<!doctype html><html><head><meta charset="utf-8"><style>
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=block');
