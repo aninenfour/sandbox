@@ -403,15 +403,7 @@ film. Facts: hotcoin.com/en_US/about, checked 2026-11-17. Everything else (glass
 ## Ronaldinho Legend Series posters (`social/r10-legend/`)
 **Portraits:** official Hotcoin studio shoot (9th-anniversary jersey), supplied by the team; cut out with rembg (isnet-general-use),
 cropped at the jersey hem (no socks, shoes or third-party logos). Card 09 phone screen: Hotcoin app screenshots supplied by the team.
-**Background photos (Unsplash licence, dimmed as atmosphere):** Porto Alegre by will dornelles (nLuken1lHRE); Eiffel Tower by
-Anna Hunko (CzcRCklTbkE); Yokohama skyline by Sebastian Schuster (DBr7MB-nVnA); Sagrada Família by Pourya Gohari (uoBCga1fNwU);
-night pitch goal by Ambitious Studio / Rick Barrett (6l0RUEu1dhw); golden ball render by Marco Castro (p4grbcjPNTI); stadium light
-by Graham Powell-Wood (DIow9zj14iI); Belo Horizonte by Gustavo Hvenegaard (Gvvf0LqeT4A).
+**Backgrounds (cards 01 to 08):** AI-generated with fal.ai (google/nano-banana-2.1), 2026-11-20, at the user's request:
+dirt pitch, Eiffel Tower, Sagrada Família, and original-design trophies / golden ball / golden globe (no real trophy replicas,
+no text or marks). Earlier Unsplash and Wikimedia trophy versions were dropped. Saved in social/r10-legend/assets/gen/ (gitignored).
 **Facts:** en.wikipedia.org/wiki/Ronaldinho, checked 2026-11-20.
-**Trophy photos (Wikimedia Commons, real museum photos, cut out with rembg by `trophies.py`, colour-lifted; modified from the
-originals). CC BY / CC BY-SA need a credit line in the post caption:**
-- 03 World Cup: "FIFA World Cup Trophy (Ank Kumar, Infosys Limited) 02.jpg", Ank Kumar, CC BY-SA 4.0.
-- 05 FIFA World Player: "FIFA World Player Trophy 2008 CR7 Museum.jpg", Tkotw12, CC BY-SA 4.0.
-- 06 Ballon d'Or: "Col·leccions del Museu del FC Barcelona 22.jpg", Nicholas Gemini, CC BY-SA 4.0 (ball only; jersey and labels cropped out).
-- 07 Champions League: "Champions League Trophy (52736201132).jpg", dom fellowes, CC BY 2.0 (cup only, plinth cropped out).
-- 08 Copa Libertadores: "Troféu da Copa Libertadores da América de 2023.jpg", Alexandre M. B. Berwanger, CC0.
