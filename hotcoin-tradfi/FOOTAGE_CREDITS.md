@@ -399,3 +399,12 @@ after he leaves. CC-licensed phonk on the Internet Archive was considered and re
 Same footage and voice. **Music:** "I Can Hear Your Heartbeat" (Mixkit music 1000, Mixkit free licence), CLAP "elegant luxury
 fashion commercial" 1.00; 124.98 BPM, scene changes on bar lines. Mood reference only (not copied): a luxury-house ambassador
 film. Facts: hotcoin.com/en_US/about, checked 2026-11-17. Everything else (glass wall, light, dust, type) is drawn in code.
+
+## Ronaldinho Legend Series posters (`social/r10-legend/`)
+**Portraits:** official Hotcoin studio shoot (9th-anniversary jersey), supplied by the team; cut out with rembg (isnet-general-use),
+cropped at the jersey hem (no socks, shoes or third-party logos). Card 09 phone screen: Hotcoin app screenshots supplied by the team.
+**Background photos (Unsplash licence, dimmed as atmosphere):** Porto Alegre by will dornelles (nLuken1lHRE); Eiffel Tower by
+Anna Hunko (CzcRCklTbkE); Yokohama skyline by Sebastian Schuster (DBr7MB-nVnA); Sagrada Família by Pourya Gohari (uoBCga1fNwU);
+night pitch goal by Ambitious Studio / Rick Barrett (6l0RUEu1dhw); golden ball render by Marco Castro (p4grbcjPNTI); stadium light
+by Graham Powell-Wood (DIow9zj14iI); Belo Horizonte by Gustavo Hvenegaard (Gvvf0LqeT4A).
+**Facts:** en.wikipedia.org/wiki/Ronaldinho, checked 2026-11-20.
