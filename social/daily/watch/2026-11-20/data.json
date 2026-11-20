@@ -1,0 +1,71 @@
+{
+ "date": "NOV 20",
+ "window": "Prices at Nov 20 11:43 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Risk check after the S&P 500 fell about 2% Thu",
+   "last": 62067.6,
+   "ch": -1.44,
+   "vol": 831039514.86,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "BARD",
+   "name": "Lombard",
+   "kind": "crypto",
+   "handle": "@lombard_finance",
+   "why": "Top 24h gainer on Hotcoin, up about 18%",
+   "last": 0.1052,
+   "ch": 18.33,
+   "vol": 341193.01,
+   "logo": "bard",
+   "bg": "#00e676",
+   "glow": "#00e676"
+  },
+  {
+   "sym": "XAUT",
+   "name": "Tether Gold",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Gold down about 4% from Thursday's settle",
+   "last": 3544.94,
+   "ch": -4.33,
+   "vol": 7790248.83,
+   "logo": "xaut",
+   "bg": "#ffffff",
+   "glow": "#d3b25b"
+  },
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA",
+   "kind": "tradfi",
+   "handle": "@nvidia",
+   "why": "Down about 6% in 2 sessions since Tue earnings",
+   "last": 144.61,
+   "ch": -4.74,
+   "vol": 597753.25,
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "US monthly options expire today, 3rd Friday",
+   "last": 715.25,
+   "ch": -2.6,
+   "vol": 630376.07,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  }
+ ]
+}

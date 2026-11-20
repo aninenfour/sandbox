@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Risk check after the S&P 500 fell about 2% Thu"},
+ {"sym": "BARD", "kind": "crypto", "why": "Top 24h gainer on Hotcoin, up about 18%"},
+ {"sym": "XAUT", "kind": "tradfi", "why": "Gold down about 4% from Thursday's settle"},
+ {"sym": "NVDAB", "kind": "tradfi", "why": "Down about 6% in 2 sessions since Tue earnings"},
+ {"sym": "SPYB", "kind": "tradfi", "why": "US monthly options expire today, 3rd Friday"}
+]}

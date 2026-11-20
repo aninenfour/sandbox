@@ -556,5 +556,12 @@
   "twitter": "terra_money",
   "image": "https://coin-images.coingecko.com/coins/images/8284/large/01_LunaClassic_color.png?1696508486",
   "logo": "lunc"
+ },
+ "BARD": {
+  "id": "lombard-protocol",
+  "name": "Lombard",
+  "twitter": "lombard_finance",
+  "image": "https://coin-images.coingecko.com/coins/images/68404/large/bard.png?1755657543",
+  "logo": "bard"
  }
 }
