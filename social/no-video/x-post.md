@@ -16,7 +16,7 @@ Futures trading is high risk.
 ## Option B
 Respectfully, no.
 
-Crypto. U.S. stocks. And more. One account, 9 years in.
+Crypto. U.S. stocks. Metals. One account, 9 years in.
 We do one thing, and we do it properly.
 
 hotcoin.com
