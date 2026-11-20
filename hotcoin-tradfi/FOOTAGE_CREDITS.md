@@ -369,3 +369,4 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
   currency printing, hands with banknotes, $1 bill used as the paper plane texture.
 - Sound effects (paper flips, book placements, cloth swishes, coins, soft impacts, wood taps): Kenney "RPG Audio" and
   "Impact Sounds" by Kenney Vleugels (kenney.nl), CC0 1.0. Music in the video is original (score.py).
+- "No." quote-post video, end card (Belo Horizonte, Serra do Curral): Alvaro Guerrero, Unsplash mGUHn-CBB6c, Unsplash License. Mono, lime line traces the ridge. App screens are Hotcoin's own. Music original (social/no-video/make-no-beat.py).
