@@ -2017,7 +2017,7 @@
    "nrows"
   ],
   "ngrid_used": true,
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -2032,7 +2032,8 @@
    "SCMP / Reuters: notes issued May 2025, holders can demand cash Nov 30; shares near record low $3.80",
    "Yahoo Finance: DJT close $4.09 Nov 19 2026; BTC $61,835 (CoinGecko $61,733) Nov 20 07:45 UTC+8 -> 15,649 x ~$61.8K = ~$967M"
   ],
-  "note": "Score 11/12 (hook 3, relevance 3, fresh 2, visual 3). Anthropic IPO skipped: Hotcoin X main + PT already posted 'Anthropic heads to Nasdaq' Nov 19 (48 h rule). ZRO unlock = single-token, weaker. ngrid has no faces (Nasdaq street, BTC coin, cash). Collision warning on nbig kicker fixed (shorter kicker/delta). Render clean."
+  "note": "Score 11/12 (hook 3, relevance 3, fresh 2, visual 3). Anthropic IPO skipped: Hotcoin X main + PT already posted 'Anthropic heads to Nasdaq' Nov 19 (48 h rule). ZRO unlock = single-token, weaker. ngrid has no faces (Nasdaq street, BTC coin, cash). Collision warning on nbig kicker fixed (shorter kicker/delta). Render clean.",
+  "ig_url": "https://www.instagram.com/p/Df8iJ5spfrE/"
  },
  {
   "id": "2026-11-20-whatif-jordan11-nke",
@@ -2053,7 +2054,8 @@
    "Yahoo Finance NKE close $51.72 Dec 9 2016 (Fortune/24/7 Wall St: $50.46 Dec 2, ~$52.15 Dec 7)",
    "Nasdaq.com + Yahoo NKE close $34.33 Nov 19 2026"
   ],
-  "note": "Everyday-object joke: the stock LOST to the shoes ('AT LEAST YOU GOT SHOES.'). New whatif2.js option reveal.neg: result number + pill in red. Photo look, lump, 46.9 s, close-up of AJ11s in hand (72-10 pair, labelled generically 'Air Jordan 11s'), Nike Kyoto store at night (brightened) for the asset. Thumbnail check fill 25%. Media commit 6102113. Publer covers confirmed = frame 0 (IG, TikTok, X 4:5)."
+  "note": "Everyday-object joke: the stock LOST to the shoes ('AT LEAST YOU GOT SHOES.'). New whatif2.js option reveal.neg: result number + pill in red. Photo look, lump, 46.9 s, close-up of AJ11s in hand (72-10 pair, labelled generically 'Air Jordan 11s'), Nike Kyoto store at night (brightened) for the asset. Thumbnail check fill 25%. Media commit 6102113. Publer covers confirmed = frame 0 (IG, TikTok, X 4:5).",
+  "doc_row": true
  },
  {
   "id": "2026-11-21-academy-sp500-2pct",
@@ -2081,6 +2083,7 @@
    "Worst days cross-checked with Wikipedia 'List of largest daily changes in the S&P 500' and the Yahoo series: Oct 19 1987 -20.47%, Oct 28 1929 -12.94%, Mar 16 2020 -11.98%, Oct 15 2008 -9.03%",
    "S&P 500 closes Nov 18 2026 7,323.63 (AP/La Nacion 'How major US stock indexes fared' + Yahoo); Nov 19 2026 7,175.83 (Yahoo, -2.0%)"
   ],
-  "note": "Built by the Nov 20 15:40 run. Cover face: Peter Tuchman (NYSE). Hook = number statement. Exactly 4 slides, no CTA. Media commit 0049a13. Tied to Thu Nov 19 S&P -2.0% (Yahoo; second source for the Nov 19 close not found, so the slides only say '2026 so far: 4')."
+  "note": "Built by the Nov 20 15:40 run. Cover face: Peter Tuchman (NYSE). Hook = number statement. Exactly 4 slides, no CTA. Media commit 0049a13. Tied to Thu Nov 19 S&P -2.0% (Yahoo; second source for the Nov 19 close not found, so the slides only say '2026 so far: 4').",
+  "doc_row": true
  }
 ]

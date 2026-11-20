@@ -387,8 +387,9 @@
   "format": "photo",
   "topic": "News: Trump Media $884M debt vs its Bitcoin",
   "hook": "Trump Media may owe $884M in cash by Nov 30",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7710068287241014549"
  },
  {
   "id": "2026-11-20-whatif-jordan11-nke",
@@ -397,7 +398,7 @@
   "topic": "WHAT IF: Air Jordan 11s vs Nike stock",
   "hook": "Air Jordans: $220. Same $220 in Nike? Now $146",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-21-academy-sp500-2pct",
@@ -406,6 +407,6 @@
   "topic": "Stocks 101: S&P 500 2% drop days",
   "hook": "The S&P 500 fell 2% in a day 446 times since 1950",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
