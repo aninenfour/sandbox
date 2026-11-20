@@ -28,21 +28,21 @@
    "date": "2026-11-12",
    "title": "What Is PancakeSwap? The Complete Guide for 2026",
    "pt_hook": "PancakeSwap: guia completo 2026",
-   "status": "next"
+   "status": "skip: BNB Chain DEX, competitor-linked ecosystem (runbook: no competitor-exchange chains)"
   },
   {
    "slug": "HotcoinTradFi",
    "date": "2026-09-10",
    "title": "Discover Hotcoin TradFi: Explore More Market-Linked Products in One Place",
    "pt_hook": "Hotcoin TradFi: ações, ETFs e mais, tudo em USDT",
-   "status": "queued"
+   "status": "posted 20/11 15:52 (PT only), paired with TradFi 0 Fee Carnival"
   },
   {
    "slug": "Advanced-Futures-Orders-Master-Risk-Based-PositionSizing-in-1-Minute",
    "date": "2026-08-08",
    "title": "Advanced Futures Orders: Master Risk-Based Position Sizing in 1 Minute",
    "pt_hook": "Futuros: tamanho de posição pelo risco, em 1 minuto",
-   "status": "queued"
+   "status": "next"
   },
   {
    "slug": "a-complete-beginner-s-guide-to-hotcoin",

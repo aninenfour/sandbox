@@ -41,6 +41,12 @@
 | 19/11 | 17:51 | Event LAST CALL | Proteção de perdas em futuros, termina 20/11 07:00 (link in reply) | scheduled |
 | 19/11 | 20:06 | Meme (serious photo) | medo e ganância em 10, dinheiro do IPVA | scheduled |
 
+| 20/11 | 08:29 | GM | Ponte Hercílio Luz, Floripa: linha sobe a corrente até o topo da torre | scheduled |
+| 20/11 | 09:49 | Anúncio (text) | SNDKB retorno adiado para 20/11 12:30 (link in reply) | scheduled |
+| 20/11 | 13:14 | Event LAUNCH | TradFi taxa zero: taxas devolvidas até 300 USDT, volume até 100 USDT, 500.000 USDT (link in reply) | scheduled |
+| 20/11 | 15:52 | Learn do dia | Hotcoin TradFi (pt_PT link in reply), PT only | scheduled |
+| 20/11 | 20:08 | Poll | Sextou: plano do fim de semana | scheduled |
+
 ## Queued ideas (not scheduled yet)
 - Thu 19/11: Earn prazo fixo exclusivo launch (key visual from official banner, cut done), Wall Street Earnings last day (ends 12:59), Futures loss protection last call evening (ends 20/11 07:00).
 - Spot #24 midterm ~24/11, P2P Sprint midterm ~22/11; last calls 27/11 evening (P2P) and 29-30/11 (Spot).
@@ -69,3 +75,4 @@
 - 19/11 07:43 check 1: day already built at 04:50 (see above). Lists unchanged (no new events or notices), Learn section unchanged (same articles). GM 07:12 due to be live. Nothing else to add.
 - 19/11 12:09 check 2: no new announcements. Placar PEARL verified (CoinGecko pearl-2 2.32, +23.2%), scheduled 13:41. Wall Street Earnings ends 12:59 today.
 - 19/11 16:14 check 3: no new announcements. Futures protection page unchanged (ends 20/11 07:00 Brasília, no sold-out notice): last call 17:51 stays. Meme 20:06 queued. Wall Street Earnings ended 12:59 (results ~7 business days). Fri check 1: confirm SNDKB relist (est. 20/11 07:00) and post a short 'voltou' note only if Hotcoin confirms; futures protection ENDED.
+- 20/11 07:50 check 1: NEW: TradFi 0 Fee Carnival (21/11 00:00 to 04/12 23:59 UTC+8 = 20/11 13:00 to 04/12 12:59 Brasília), SNDKB resumption delayed to 20/11 23:30 UTC+8 = 12:30 Brasília, ANTUSDT converted to standard TradFi perps at 10:00 UTC+8 (19/11 23:00 Brasília; skipped, minor). Futures loss protection ENDED 07:00. Learn: PancakeSwap skipped (BNB Chain), TradFi intro posted (PT only, owner 19/11). No placar today (volume), no meme (yesterday had one; tomorrow a real template).
