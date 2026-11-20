@@ -15,9 +15,9 @@
 // - Tulip "one bulb for a house" is told as legend ("传说"), Satoshi line is general.
 // Timings are estimates until the voice takes are generated; swap `at/end` then.
 import React from 'react';
-import {AbsoluteFill, Audio, Img, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, Img, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {ThreeCanvas} from '@remotion/three';
-import {Bars, C, clamp01, ease, easeOut, Fade, FontGate, Grain, Kicker, lerp, MONO, range, sec, Subtitle, ZH} from './kit';
+import {Bars, C, clamp01, ease, easeOut, Fade, FontGate, Grain, lerp, MONO, range, sec, Subtitle, ZH} from './kit';
 import {BoardScene, LetterScene, ScaleScene, TrainExterior, TrainInterior, VaultSet} from './sets';
 
 type Line = {text: string; at: number; end: number};
@@ -168,16 +168,39 @@ const EndCard: React.FC<{at: number; W: number; H: number; vertical?: boolean; t
 
 const GLYPHS_EXTRA = '档案郁金香狂热门头沟中本聪泡沫用户交易所整整十年失踪钱的故事每周一份';
 
+// Voice: one take per line, placed at the line's start. Music ducks under the voice.
+const Voice: React.FC<{lines: Line[]; prefix: string}> = ({lines, prefix}) => (
+  <>
+    {lines.map((l, i) => (
+      <Sequence key={i} from={l.at} durationInFrames={l.end - l.at + 6}>
+        <Audio src={staticFile(`research/vo/${prefix}${i}.mp3`)} volume={1} />
+      </Sequence>
+    ))}
+  </>
+);
+const duck = (f: number, lines: Line[], endAt: number) => {
+  const UNDER = 0.16;
+  const OPEN = 0.34;
+  const END = 0.5;
+  let near = 99;
+  for (const l of lines) {
+    if (f >= l.at - 8 && f <= l.end + 8) near = 0;
+    else near = Math.min(near, f < l.at ? l.at - 8 - f : f - l.end - 8);
+  }
+  const v = lerp(UNDER, OPEN, clamp01(near / 12));
+  return f >= endAt ? lerp(v, END, clamp01((f - endAt) / 15)) : v;
+};
+
 // =================== TRAILER 16:9 ===================
 const TR_LINES: Line[] = [
-  L('每一个暴富的传说背后，都藏着一份[没有结案的档案]。', 0.6, 6.3),
-  L('传说，[一朵郁金香]，能换[一栋房子]。', 8.4, 11.9),
-  L('[85万枚比特币]，怎么会凭空消失？', 13.0, 16.7),
-  L('一封邮件，一个名字，然后，这个人[再也没有出现]。', 17.9, 22.8),
-  L('我们是 [Hotcoin Research]。', 23.7, 25.7),
-  L('每一集，打开一份档案，把[钱背后的故事]讲清楚。', 26.0, 29.9),
+  L('每一个暴富的传说背后，都藏着一份[没有结案的档案]。', 0.8, 0.8 + 5.64),
+  L('传说，[一朵郁金香]，能换[一栋房子]。', 8.6, 8.6 + 5.14),
+  L('[85万枚比特币]，怎么会凭空消失？', 14.6, 14.6 + 4.27),
+  L('一封邮件，一个名字，然后，这个人[再也没有出现]。', 19.6, 19.6 + 6.91),
+  L('我们是 [Hotcoin Research]。', 27.2, 27.2 + 2.21),
+  L('每一集，打开一份档案，把[钱背后的故事]讲清楚。', 29.8, 29.8 + 6.89),
 ];
-export const TRAILER_TOTAL = sec(35.5);
+export const TRAILER_TOTAL = sec(42.6);
 
 export const ResearchTrailer: React.FC<{subs?: boolean; music?: boolean}> = ({subs = true, music = true}) => {
   const W = 1920;
@@ -190,12 +213,12 @@ export const ResearchTrailer: React.FC<{subs?: boolean; music?: boolean}> = ({su
           {(f, d) => <TrainExterior f={f} dur={d} />}
         </Stage>
         <Stage from={s(4.3)} to={s(8.3)} W={W} H={H}>
-          {(f, d) => <TrainInterior f={f} dur={d} folder={{no: '001', title: '泡沫档案'}} />}
+          {(f, d) => <TrainInterior f={f} dur={d} folder={{title: '泡沫档案'}} />}
         </Stage>
-        <Stage from={s(8.0)} to={s(12.8)} W={W} H={H}>
+        <Stage from={s(8.0)} to={s(14.3)} W={W} H={H}>
           {(f, d) => <ScaleScene f={f} dur={d} />}
         </Stage>
-        <Stage from={s(12.5)} to={s(17.6)} W={W} H={H}>
+        <Stage from={s(14.0)} to={s(19.4)} W={W} H={H}>
           {(f, d) => (
             <VaultSet
               f={f}
@@ -207,15 +230,15 @@ export const ResearchTrailer: React.FC<{subs?: boolean; music?: boolean}> = ({su
             />
           )}
         </Stage>
-        <Stage from={s(17.3)} to={s(23.4)} W={W} H={H}>
+        <Stage from={s(19.1)} to={s(27.0)} W={W} H={H}>
           {(f, d) => <LetterScene f={f} dur={d} />}
         </Stage>
-        <Stage from={s(23.1)} to={s(30.6)} W={W} H={H} fout={8}>
+        <Stage from={s(26.7)} to={s(37.6)} W={W} H={H} fout={8}>
           {(f, d) => (
             <TrainInterior
               f={f}
               dur={d}
-              folder={{no: '001', title: '泡沫档案'}}
+              folder={{title: '泡沫档案'}}
               camFrom={[0.35, 1.5, 1.7]}
               camTo={[0.5, 1.38, 1.05]}
               lookAt={[0.62, 1.12, -1.42]}
@@ -223,21 +246,13 @@ export const ResearchTrailer: React.FC<{subs?: boolean; music?: boolean}> = ({su
             />
           )}
         </Stage>
-        <Fade from={s(8.3)} to={s(12.6)} fin={0}>
-          <Kicker no="001" title="郁金香狂热" year="1637" at={s(8.3)} />
-        </Fade>
-        <Fade from={s(12.8)} to={s(17.4)} fin={0}>
-          <Kicker no="002" title="门头沟" year="2014" at={s(12.8)} />
-          <BigNumber at={s(13.3)} to={s(17.0)} value={850000} suffix="BTC" label="失踪" y={150} size={120} />
-        </Fade>
-        <Fade from={s(17.6)} to={s(23.2)} fin={0}>
-          <Kicker no="003" title="中本聪" year="2008" at={s(17.6)} />
-        </Fade>
-        <EndCard at={s(30.4)} W={W} H={H} tagline="金融档案 · 每周一集" />
+        <BigNumber at={s(15.0)} to={s(19.0)} value={850000} suffix="BTC" label="失踪" y={150} size={120} />
+        <EndCard at={s(37.4)} W={W} H={H} tagline="金融档案 · 每周一集" />
         <Grain />
         <Bars h={64} />
         {subs && TR_LINES.map((l, i) => <Subtitle key={i} text={l.text} from={l.at} to={l.end} />)}
-        {music && <Audio src={staticFile('research/noir-trailer.mp3')} volume={0.9} />}
+        <Voice lines={TR_LINES} prefix="tr" />
+        {music && <Audio src={staticFile('research/music-tapis.mp3')} volume={(f) => duck(f, TR_LINES, s(37.4))} />}
       </AbsoluteFill>
     </FontGate>
   );
@@ -245,17 +260,17 @@ export const ResearchTrailer: React.FC<{subs?: boolean; music?: boolean}> = ({su
 
 // =================== SHORT 9:16 (Mt. Gox) ===================
 const SH_LINES: Line[] = [
-  L('2014年2月，曾经[全世界最大]的比特币交易所，突然[停止了提币]。', 0.5, 6.8),
-  L('它叫 Mt. Gox，中文圈都叫它，[门头沟]。', 7.1, 10.8),
-  L('几周后，它申请破产，说出了一个数字：[85万枚比特币]，不见了。', 11.1, 17.0),
-  L('其中[75万枚]，是用户的。', 17.3, 20.0),
-  L('没过多久，他们在一个[旧钱包]里，又翻出了[20万枚]。', 20.4, 25.2),
-  L('可剩下的大约[65万枚]，去哪儿了？', 25.5, 28.9),
-  L('交易所说是[黑客]，也有人怀疑是[内鬼]，到今天，也没有一个完整的答案。', 29.2, 35.4),
-  L('用户们等了[整整十年]，直到2024年，才开始拿回赔付。', 35.8, 41.0),
-  L('所以说，[币放在哪儿]，跟买什么币，一样重要。', 41.4, 45.4),
+  L('2014年2月，曾经[全世界最大]的比特币交易所，突然[停止了提币]。', 0.5, 0.5 + 5.76),
+  L('它叫 Mt. Gox，中文圈都叫它，[门头沟]。', 6.7, 6.7 + 3.62),
+  L('几周后，它申请破产，说出了一个数字：[85万枚比特币]，不见了。', 10.75, 10.75 + 5.98),
+  L('其中[75万枚]，是用户的。', 17.1, 17.1 + 2.52),
+  L('没过多久，他们在一个[旧钱包]里，又翻出了[20万枚]。', 20.0, 20.0 + 4.58),
+  L('可剩下的大约[65万枚]，去哪儿了？', 25.0, 25.0 + 3.43),
+  L('交易所说是[黑客]，也有人怀疑是[内鬼]，到今天，也没有一个完整的答案。', 28.85, 28.85 + 5.98),
+  L('用户们等了[整整十年]，直到2024年，才开始拿回赔付。', 35.3, 35.3 + 5.54),
+  L('所以说，[币放在哪儿]，跟买什么币，一样重要。', 41.3, 41.3 + 4.8),
 ];
-export const SHORT_TOTAL = sec(51.4);
+export const SHORT_TOTAL = sec(54.0);
 
 export const ResearchShort: React.FC<{subs?: boolean; music?: boolean}> = ({subs = true, music = true}) => {
   const W = 1080;
@@ -332,24 +347,22 @@ export const ResearchShort: React.FC<{subs?: boolean; music?: boolean}> = ({subs
           )}
         </Stage>
         {/* 5. back at the desk: the lesson */}
-        <Stage from={s(41.1)} to={s(48.6)} W={W} H={H} fout={8}>
-          {(f, d) => <TrainInterior f={f} dur={d} vertical folder={{no: '002', title: '门头沟'}} dot={{mood: 'focused', mood2: 'happy', mix: range(f, s(3.5), s(4.5)), look: [-0.5, -0.4]}} />}
+        <Stage from={s(41.1)} to={s(49.1)} W={W} H={H} fout={8}>
+          {(f, d) => <TrainInterior f={f} dur={d} vertical folder={{title: '门头沟'}} dot={{mood: 'focused', mood2: 'happy', mix: range(f, s(3.5), s(4.5)), look: [-0.5, -0.4]}} />}
         </Stage>
 
-        <Fade from={s(0.3)} to={s(10.9)} fin={0}>
-          <Kicker no="002" title="门头沟" year="2014" at={s(0.3)} vertical />
-        </Fade>
-        <BigNumber at={s(1.0)} to={s(6.8)} value={2014} label="二月" y={380} size={180} count={1} color={C.paper} plain />
-        <NameSwap at={s(7.1)} to={s(10.8)} y={420} />
+        <BigNumber at={s(1.0)} to={s(6.4)} value={2014} label="二月" y={380} size={180} count={1} color={C.paper} plain />
+        <NameSwap at={s(6.7)} to={s(10.6)} y={420} />
         <BigNumber at={s(13.4)} to={s(17.1)} value={850000} suffix="BTC" label="失踪" y={420} size={150} />
         <SplitBar at={s(17.3)} to={s(20.2)} y={480} W={W} />
         <BigNumber at={s(22.0)} to={s(25.3)} value={200000} prefix="+" suffix="BTC" label="旧钱包里找回" y={420} size={150} />
         <YearCount at={s(35.9)} to={s(41.2)} y={330} size={220} />
-        <Lesson at={s(45.8)} to={s(48.4)} vertical lines={['币放在哪儿', '和买什么币', '一样重要']} />
-        <EndCard at={s(48.4)} W={W} H={H} vertical tagline="金融档案 · 每周一集" />
+        <Lesson at={s(46.4)} to={s(48.9)} vertical lines={['币放在哪儿', '和买什么币', '一样重要']} />
+        <EndCard at={s(48.9)} W={W} H={H} vertical tagline="金融档案 · 每周一集" />
         <Grain />
         {subs && SH_LINES.map((l, i) => <Subtitle key={i} text={l.text} from={l.at} to={l.end} vertical />)}
-        {music && <Audio src={staticFile('research/noir-short.mp3')} volume={0.9} />}
+        <Voice lines={SH_LINES} prefix="sh" />
+        {music && <Audio src={staticFile('research/music-vertigo.mp3')} volume={(f) => duck(f, SH_LINES, s(48.9))} />}
       </AbsoluteFill>
     </FontGate>
   );

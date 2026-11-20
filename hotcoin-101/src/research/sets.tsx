@@ -215,11 +215,11 @@ export const TrainExterior: React.FC<{f: number; dur: number; vertical?: boolean
 };
 
 // ============ NIGHT TRAIN, INSIDE (the case desk) ============
-export const TrainInterior: React.FC<{f: number; dur: number; vertical?: boolean; folder?: {no: string; title: string}; dot?: Partial<DotProps>; camFrom?: V3; camTo?: V3; lookAt?: V3}> = ({
+export const TrainInterior: React.FC<{f: number; dur: number; vertical?: boolean; folder?: {title: string}; dot?: Partial<DotProps>; camFrom?: V3; camTo?: V3; lookAt?: V3}> = ({
   f,
   dur,
   vertical,
-  folder = {no: '001', title: '泡沫档案'},
+  folder = {title: '泡沫档案'},
   dot,
   camFrom,
   camTo,
@@ -233,7 +233,7 @@ export const TrainInterior: React.FC<{f: number; dur: number; vertical?: boolean
         620,
         '#C9C1A8',
         [
-          {text: `档案 No.${folder.no}`, font: `700 54px ${MONO}`, color: '#1A1A16', x: 70, y: 150},
+          {text: '档案', font: `700 54px ${ZH}`, color: '#1A1A16', x: 70, y: 150},
           {text: folder.title, font: `900 120px ${ZH}`, color: '#121210', x: 70, y: 330},
           {text: 'HOTCOIN RESEARCH', font: `500 34px ${MONO}`, color: '#3B3A33', x: 70, y: 540},
         ],
@@ -245,7 +245,7 @@ export const TrainInterior: React.FC<{f: number; dur: number; vertical?: boolean
           for (let i = 0; i < 400; i++) g.fillRect(Math.random() * 900, Math.random() * 620, 2, 2);
         }
       ),
-    [folder.no, folder.title]
+    [folder.title]
   );
   // passing lights outside
   const lights = useMemo(() => Array.from({length: 14}).map((_, i) => ({y: 0.6 + random(`ly${i}`) * 2.6, ph: random(`lp${i}`), z: -6 - random(`lz${i}`) * 10})), []);

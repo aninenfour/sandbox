@@ -13,19 +13,18 @@ Compositions: `research-trailer-horizontal` (1920x1080, 30 fps), `research-mtgox
   which glows lime (`#B8F26A`) and lights what it looks at. Blinds stripes for the noir feel.
 - **The Green Dot:** the Hotcoin 101 narrator, rebuilt in 3D: one eye, lids, brow, no mouth, no limbs.
   Uses the same 10 moods as 101 (`src/companion/moods.ts`), seeded blinks, breathing.
-- **Type:** Noto Sans SC Black for Chinese, JetBrains Mono for numbers and case labels.
-  Numbers count up in lime. Case label top left: `档案 002 · 门头沟 · 2014`.
+- **Type:** Noto Sans SC Black for Chinese, JetBrains Mono for numbers.
+  Numbers count up in lime.
 - **Texture:** film grain + vignette on every frame; thin letterbox bars on 16:9.
 - **End card:** the Hotcoin lockup assembles, the dot lands on the logo's dot, `RESEARCH` in mono.
-- **Sound:** original noir bed (`audio/make_noir.py`): plucked walking bass, brushes, train wheels,
-  bell accents on cuts. No samples.
+- **Sound:** Mandarin voice (Gemini TTS "Charon", one take per line) over a film-score bed from
+  Mixkit (free licence), ducked under the voice. Credits in `public/research/CREDITS.md`.
+- **No case-number labels** on screen (removed after review: noise).
 
 ## Render
 
 ```bash
 export REMOTION_CHROME=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
-python3 audio/make_noir.py /tmp/tr.wav 35.5 --hits 4.3,8.0,12.5,17.3,23.1 --boom 30.4 --train 0-8.2,23.1-30.4 --stop 30.4
-ffmpeg -i /tmp/tr.wav -af loudnorm=I=-20:TP=-2 public/research/noir-trailer.wav
 npx remotion bundle src/index.ts --out-dir=bundle
 npx remotion render bundle research-trailer-horizontal out/research-trailer-16x9.mp4 --gl=swangle --concurrency=3
 GL=swangle node scripts/stills.mjs research-mtgox-vertical out/check 100,500,900
@@ -33,5 +32,5 @@ GL=swangle node scripts/stills.mjs research-mtgox-vertical out/check 100,500,900
 
 ## Status
 
-Visual test only. Timings are estimated from the script length; once the voice takes exist,
-replace `at/end` in `TR_LINES` and `SH_LINES` with the real cue times.
+Visual approved. Line timings in `TR_LINES` / `SH_LINES` come from the real voice takes
+(start + clip length); a new take means updating those numbers.
