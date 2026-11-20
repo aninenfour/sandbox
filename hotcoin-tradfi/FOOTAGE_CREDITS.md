@@ -403,7 +403,7 @@ film. Facts: hotcoin.com/en_US/about, checked 2026-11-17. Everything else (glass
 ## Ronaldinho Legend Series posters (`social/r10-legend/`)
 **Portraits:** official Hotcoin studio shoot (9th-anniversary jersey), supplied by the team; cut out with rembg (isnet-general-use),
 cropped at the jersey hem (no socks, shoes or third-party logos). Card 09 phone screen: Hotcoin app screenshots supplied by the team.
-**Backgrounds (cards 01 to 08):** AI-generated with fal.ai (google/nano-banana-2.1), 2026-11-20, at the user's request:
-dirt pitch, Eiffel Tower, Sagrada Família, and original-design trophies / golden ball / golden globe (no real trophy replicas,
+**Backgrounds (cards 01 to 09):** AI-generated with fal.ai (google/nano-banana-2.1), 2026-11-20, at the user's request:
+dirt pitch, Eiffel Tower, Sagrada Família, São Paulo skyline (09), and original-design trophies / golden ball / golden globe (no real trophy replicas,
 no text or marks). Earlier Unsplash and Wikimedia trophy versions were dropped. Saved in social/r10-legend/assets/gen/ (gitignored).
 **Facts:** en.wikipedia.org/wiki/Ronaldinho, checked 2026-11-20.

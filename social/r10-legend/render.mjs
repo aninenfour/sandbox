@@ -4,7 +4,7 @@
 //   fifth title); Barcelona 2003; FIFA World Player of the Year 2004 and 2005; Ballon d'Or 2005; 2005/06 Champions League;
 //   Copa Libertadores 2013 with Atlético Mineiro; "the only player in history to have won a FIFA World Cup, a Copa América,
 //   a FIFA Confederations Cup, a UEFA Champions League, a Copa Libertadores and a Ballon d'Or".
-// Backgrounds 01-08: AI-generated (fal.ai, google/nano-banana-2.1), B&W with a lime accent, object/place on the left;
+// Backgrounds 01-09: AI-generated (fal.ai, google/nano-banana-2.1), B&W with a lime accent, object/place on the left;
 //   files in assets/gen/bg0N.jpg. Style: pixel-dissolve squares + grain (own motif, competitor style only as loose inspiration).
 // Card 09 uses the real portrait from the official Hotcoin shoot. No club crests or third-party logos (house rule).
 // Run: PW_PATH=$(npm root -g)/playwright node social/r10-legend/render.mjs
@@ -44,7 +44,7 @@ const CARDS = [
   {year: '2013', kicker: 'COPA LIBERTADORES CHAMPION', en: 'Glory on Two Continents', zh: '双洲荣耀',
    bodyEN: "In 2013 he won the Copa Libertadores with Atlético Mineiro, becoming the only player to win the World Cup, Copa América, Confederations Cup, Champions League, Libertadores and Ballon d'Or.",
    bodyZH: '2013年随米内罗竞技夺得南美解放者杯冠军，成为史上唯一集世界杯、美洲杯、联合会杯、欧冠、解放者杯与金球奖于一身的球员。', img: 'gen/bg08.jpg'},
-  {year: '2026', kicker: 'EMBAIXADOR DA HOTCOIN (BRASIL)', en: 'Hotcoin × Ronaldinho', zh: '传奇新篇章',
+  {year: '2026', kicker: 'THE LEGEND CONTINUES', en: 'Hotcoin × Ronaldinho', zh: '传奇新篇章',
    bodyEN: 'Football legend Ronaldinho is now the official Hotcoin Ambassador in Brazil. From world champion to global icon, the legend continues.',
    bodyZH: '世界足坛传奇罗纳尔迪尼奥正式成为 Hotcoin 巴西品牌大使。从世界冠军到全球足球偶像，传奇仍在续写。', img: null},
 ];
@@ -72,7 +72,7 @@ const card = (c, i, lang) => {
   const cut = A(`cut_${String(i + 1).padStart(2, '0')}.png`);
   const z = c.bgz ?? 1;
   const bg = last
-    ? `<div class="abs" style="inset:0;background:radial-gradient(70% 55% at 62% 32%, #1E5A36 0%, #0B2716 50%, ${INK} 85%)"></div>
+    ? `<img class="abs" src="${A('gen/bg09.jpg')}" style="left:0;top:0;width:${W}px;height:${H}px;object-fit:cover;object-position:center top;filter:contrast(1.06)">
        <div class="abs" style="left:70px;top:160px;width:236px;height:510px;border-radius:34px;background:#0B0E11;border:3px solid #2A3A30;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 40px rgba(184,242,106,.25);transform:rotate(-7deg);overflow:hidden">
          <img src="${A('app_chart.png')}" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>`
     : `<img class="abs" src="${A(c.img)}" style="left:${-(W * (z - 1)) / 2}px;top:${-(H * (z - 1)) / 2}px;width:${W * z}px;height:${H * z}px;object-fit:cover;object-position:center top;filter:contrast(1.06)">`;
@@ -102,11 +102,15 @@ const card = (c, i, lang) => {
 .abs{position:absolute}.sans{font-family:'Inter Tight','Noto Sans SC',sans-serif}.mono{font-family:'JetBrains Mono',monospace}.sc{font-family:'Noto Sans SC',sans-serif}
 </style></head><body><div class="abs" style="inset:0;overflow:hidden">
   ${hero}
-  <div class="abs" style="inset:0;background:linear-gradient(180deg, rgba(5,8,6,.7) 0%, rgba(5,8,6,0) 15%, rgba(5,8,6,0) 52%, rgba(5,8,6,.45) 66%, rgba(5,8,6,.85) 74%)"></div>
+  <div class="abs" style="inset:0;background:linear-gradient(180deg, rgba(5,8,6,.88) 0%, rgba(5,8,6,.4) 9%, rgba(5,8,6,0) 17%, rgba(5,8,6,0) 52%, rgba(5,8,6,.45) 66%, rgba(5,8,6,.85) 74%)"></div>
   ${grid}${pixels}
   <div class="abs" style="inset:28px;border:1px solid rgba(184,242,106,.22)"></div>
   ${['left:20px;top:20px;border-width:2px 0 0 2px', 'right:20px;top:20px;border-width:2px 2px 0 0', 'left:20px;bottom:20px;border-width:0 0 2px 2px', 'right:20px;bottom:20px;border-width:0 2px 2px 0'].map((s) => `<div class="abs" style="${s};width:26px;height:26px;border-style:solid;border-color:${LIME}"></div>`).join('')}
   <img class="abs" src="${LOGO}" style="left:72px;top:70px;height:38px">
+  <div class="abs" style="left:60px;top:120px;display:flex;align-items:center;gap:12px;padding:9px 14px 9px 12px;background:rgba(5,8,6,.78);border:1px solid rgba(184,242,106,.28)">
+    <div style="width:12px;height:12px;background:${LIME}"></div>
+    <div class="mono" style="font-size:20px;font-weight:700;letter-spacing:2.5px;color:#F3F5F1;text-shadow:0 2px 12px rgba(0,0,0,.9)">EMBAIXADOR DA HOTCOIN (BRASIL)</div>
+  </div>
   <div class="abs mono" style="right:72px;top:76px;font-size:22px;font-weight:700;letter-spacing:3px;color:${LIME}">LEGEND SERIES · ${String(i + 1).padStart(2, '0')} / 09</div>
   <div class="abs" style="left:72px;right:72px;bottom:150px">
     <div class="sans" style="font-size:${yearSize}px;font-weight:900;line-height:.9;letter-spacing:-${yearSize * 0.04}px;
