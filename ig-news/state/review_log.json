@@ -363,5 +363,29 @@
   "skipped": true,
   "looked_at": "Publer IG/FB/TikTok insights Nov 12-20 and published list Nov 19-20; contact sheets of Fed hike news (5 slides + Story), Fear & Greed Academy (4 slides + Story, slides 2-3 full size), Costco WHAT IF video contact sheet",
   "owner_decision": "Wait one more day for Costco Reel share data before deciding whether 'relatable everyday object' becomes the default WHAT IF pick. Still open: MEME REACT cadence, Academy-as-Reels, earshot install, tier lists light theme, $5 voucher pitch; old Oct 28-31 TikTok doc rows still say Scheduled."
+ },
+ {
+  "date": "2026-11-22",
+  "metrics_summary": "Publer Nov 14-22 (06:51 UTC+8 Sun). WHAT IF everyday objects: Costco hot dog (~57 h) IG 127 reach / 0 shares, TT 129 / 0 shares, FB 75, X 998 / 5 shares; Air Jordans (~33 h) IG 124 / 0 shares, TT 27 / 0, FB 249 / 0, X 938 / 2 shares. Earlier WHAT IFs 0-1 shares (GTX 1080 IG 322 / 1). MEME REACT rice IG 147 / 6 shares / 2 saves, TT 12 shares (still the desk's only shared Reel). Team's GTA6+Anthropic IPO meme Reel IG 169 / 5 shares. WHAT IF TikTok reach falling: GTX 857, AirPods 668 -> Kindle 152, Costco 129, Jordans 27. Carousels IG: Trump Media 37, Fear & Greed 32 (1 save); TT Trump 227, Fear 115, Fed 241, stock splits 52. S&P 2% Academy (~12 h): too early.",
+  "findings": [
+   "Worker down ~24 h: this review on Nov 21 (06:50) and both Saturday desk runs (07:40 = Sat 10:00 news, 15:40 = Sat 21:30 tier-list Reel) did not run; slots not backfilled. Already-scheduled posts went out.",
+   "Published vs failed: 0 failed posts Nov 20-22. Fri 21:30 Air Jordans Reel live on IG Reel, FB Reel, IG Story, TikTok, X main. Sat 19:00 S&P 2% Academy live on IG, FB, IG Story, TikTok photo, X Research (20:30). Fear & Greed Academy and Trump Media news also live on all channels.",
+   "Hypothesis 'relatable everyday object WHAT IF gets shares like rice' failed: Costco and Jordans both 0 shares on IG and TikTok (shares only on X: 5 and 2). Shares came from joke/meme Reels (rice MEME REACT 6+12, team's GTA6 meme 5). The share driver is the meme format, not the object.",
+   "WHAT IF TikTok reach dropped ~5x in a week (857/668 -> 152/129/27) while IG stayed flat (~125); worth watching, not enough to act on alone.",
+   "Recurring visual bug, 2nd time: the WHAT IF reveal counts the unchanged purchase price up from zero (Costco $1.32 -> $1.50, Jordans $219 -> $220) and counts the stock up from $0 even when it lost (Jordans $89 -> $146 in red reads as a gain). Fixed in whatif2.js.",
+   "Renders Nov 20-21: Trump Media news (5 slides + Story), S&P 2% Academy (4 slides + Story, variant B after A), Jordans contact sheet: no clipping, faces clear of blocks, numbers match post.json. Hooks pass the stranger test ('Trump Media may owe $884M in cash by Nov 30', 'The S&P 500 fell 2% in a day 446 times since 1950'). Jordans first frame shows the shoes close up (W46 rule met).",
+   "Chore: tracker doc Scheduled -> IG link for fear-index, Jordans, S&P (Trump Media already linked); TikTok doc Scheduled -> TikTok link for the same 3 (Trump already linked). log.json ig_url/status and tiktok_log tiktok_url/status updated."
+  ],
+  "changes": [
+   "whatif2.js reveal (lump mode): price paid shown fixed, stock counts from the price paid to its current worth (down in red when it lost); DCA unchanged. Tested by rendering the Jordans and Costco reveal frames to scratch: $220 / $1.50 stay put, Nike counts $220 -> $203 -> $161 -> $146, Bitcoin $1.50 -> $290, pills and layout unchanged. Published videos not touched. After: research/2026-W47/whatif_reveal_count_after.jpg."
+  ],
+  "skipped": false,
+  "missed_runs": [
+   "2026-11-21 06:50 daily review",
+   "2026-11-21 07:40 run (Sat 10:00 news)",
+   "2026-11-21 15:40 run (Sat 21:30 tier-list Reel)"
+  ],
+  "looked_at": "Publer published/failed lists Nov 20-22 (all channels), IG + TikTok insights Nov 14-22, Costco and Jordans insights on every channel; contact sheets of Trump Media news, S&P 2% Academy, Jordans WHAT IF video",
+  "owner_decision": "WHAT IF gets reach but no shares even with everyday objects (0 on IG/TT for Costco and Jordans); meme Reels are the only shared format. Owner to decide whether to swap one weekly WHAT IF slot for a MEME REACT (pending cadence decision). Still open: Academy-as-Reels, earshot install, tier lists light theme, $5 voucher pitch."
  }
 ]

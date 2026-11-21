@@ -368,7 +368,7 @@
   "format": "video",
   "topic": "WHAT IF: Costco hot dog vs Bitcoin",
   "hook": "Costco hot dog: still $1.50. Same $1.50 in Bitcoin (2015): $290",
-  "status": "scheduled",
+  "status": "published",
   "doc_row": true,
   "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7709875686776900885"
  },
@@ -378,8 +378,9 @@
   "format": "photo",
   "topic": "Crypto 101: Fear & Greed Index at 10",
   "hook": "Crypto fear hit 10 out of 100. Time to buy?",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7710208015563050261"
  },
  {
   "id": "2026-11-20-trump-media-btc-debt",
@@ -397,8 +398,9 @@
   "format": "video",
   "topic": "WHAT IF: Air Jordan 11s vs Nike stock",
   "hook": "Air Jordans: $220. Same $220 in Nike? Now $146",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7710245761992199445"
  },
  {
   "id": "2026-11-21-academy-sp500-2pct",
@@ -406,7 +408,8 @@
   "format": "photo",
   "topic": "Stocks 101: S&P 500 2% drop days",
   "hook": "The S&P 500 fell 2% in a day 446 times since 1950",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7710578497298631957"
  }
 ]

@@ -1982,7 +1982,7 @@
   "type": "academy",
   "slot": "2026-11-20T19:00:00+08:00",
   "title": "Crypto 101: Crypto fear hit 10 out of 100. Time to buy? (BTC higher 1y later only 3 of 9 times; 3 months later 8 of 11)",
-  "status": "scheduled",
+  "status": "published",
   "variant": "a",
   "layouts": [
    "nhero",
@@ -2002,7 +2002,8 @@
    "alternative.me Fear & Greed Index daily Feb 2018 to Nov 19 2026 (10 on Nov 19); episodes = runs at <=10, 60+ day gap",
    "Yahoo Finance BTC-USD daily closes, cross-checked with Bitstamp"
   ],
-  "note": "4 slides, no CTA, variant A (Nov 19 was B). Photos all new (Unsplash). ngrid March 2020 face cell place bottom. Media commit 7ad1b12."
+  "note": "4 slides, no CTA, variant A (Nov 19 was B). Photos all new (Unsplash). ngrid March 2020 face cell place bottom. Media commit 7ad1b12.",
+  "ig_url": "https://www.instagram.com/p/Df9gAoWijG_/"
  },
  {
   "id": "2026-11-20-trump-media-btc-debt",
@@ -2040,7 +2041,7 @@
   "type": "reel-whatif-v2",
   "slot": "2026-11-20T21:30:00+08:00",
   "title": "Air Jordan 11s ($220, Dec 10 2016) vs $220 in Nike stock: $146 (-34%; peak $755 Nov 2021)",
-  "status": "scheduled",
+  "status": "published",
   "music": "Sparta (Arulo, Mixkit) #370",
   "platforms": [
    "ig_reel",
@@ -2055,14 +2056,15 @@
    "Nasdaq.com + Yahoo NKE close $34.33 Nov 19 2026"
   ],
   "note": "Everyday-object joke: the stock LOST to the shoes ('AT LEAST YOU GOT SHOES.'). New whatif2.js option reveal.neg: result number + pill in red. Photo look, lump, 46.9 s, close-up of AJ11s in hand (72-10 pair, labelled generically 'Air Jordan 11s'), Nike Kyoto store at night (brightened) for the asset. Thumbnail check fill 25%. Media commit 6102113. Publer covers confirmed = frame 0 (IG, TikTok, X 4:5).",
-  "doc_row": true
+  "doc_row": true,
+  "ig_url": "https://www.instagram.com/reel/Df9xQogjBTj/"
  },
  {
   "id": "2026-11-21-academy-sp500-2pct",
   "type": "academy",
   "slot": "2026-11-21T19:00:00+08:00",
   "title": "Stocks 101: The S&P 500 fell 2% in a day 446 times since 1950 (yearly counts, 4 worst days, 75% higher 1y later)",
-  "status": "scheduled",
+  "status": "published",
   "variant": "b",
   "layouts": [
    "nhero",
@@ -2084,6 +2086,7 @@
    "S&P 500 closes Nov 18 2026 7,323.63 (AP/La Nacion 'How major US stock indexes fared' + Yahoo); Nov 19 2026 7,175.83 (Yahoo, -2.0%)"
   ],
   "note": "Built by the Nov 20 15:40 run. Cover face: Peter Tuchman (NYSE). Hook = number statement. Exactly 4 slides, no CTA. Media commit 0049a13. Tied to Thu Nov 19 S&P -2.0% (Yahoo; second source for the Nov 19 close not found, so the slides only say '2026 so far: 4').",
-  "doc_row": true
+  "doc_row": true,
+  "ig_url": "https://www.instagram.com/p/DgAEw0sJWQ8/"
  }
 ]

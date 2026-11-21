@@ -288,10 +288,13 @@ function draw(t) {
       const k1 = easeOut(prog(t, T.rev + .3, T.rev + 1.3)), k2 = easeOut(prog(t, T.rev + .8, T.rev + 2.0));
       rrect(110, 470, 860, 300, 44, '#FFFFFF', 'rgba(14,26,18,.10)', 'rgba(20,40,10,.10)');
       obj(S.buy.icon, 230, 620, 70); txt(S.reveal.spent_label.toUpperCase(), 610, 560, 36, P.dim, 800, 'center', a * k1);
-      txt(money(PTS[N - 1][2] * k1), 610, 660, 120, P.white, 900, 'center', a * k1);
+      // Nov 22 review: in lump mode the price paid never changed (Costco $1.32 -> $1.50, Jordans $219 -> $220 looked like it
+      // moved), so it is shown as is; the stock counts from what you paid to what it is worth (down, in red, when it lost).
+      const LUMP = S.mode !== 'dca', SP = PTS[N - 1][2], WO = PTS[N - 1][1];
+      txt(money(LUMP ? SP : SP * k1), 610, 660, 120, P.white, 900, 'center', a * k1);
       rrect(110, 820, 860, 340, 44, '#EEF8E8', 'rgba(62,155,39,.35)', 'rgba(20,60,10,.14)');
       coin(230, 990, 74); txt(S.reveal.worth_label.toUpperCase(), 610, 900, 36, P.dim, 800, 'center', a * k2);
-      txt(money(PTS[N - 1][1] * k2), 610, 1010, 150, RES(), 900, 'center', a * k2);
+      txt(money(LUMP ? lerp(SP, WO, k2) : WO * k2), 610, 1010, 150, RES(), 900, 'center', a * k2);
       if (t > T.rev + 2.0) { const s = lerp(1.8, 1, easeOut(prog(t, T.rev + 2.0, T.rev + 2.2)));
         ctx.save(); ctx.translate(W / 2, 1290); ctx.rotate(-.05); ctx.scale(s, s); ctx.globalAlpha = a;
         ctx.fillStyle = RES(); ctx.beginPath(); ctx.roundRect(-230, -60, 460, 120, 60); ctx.fill(); txt(S.reveal.mult, 0, 4, 64, '#FFFFFF', 900, 'center', a); ctx.restore(); }
