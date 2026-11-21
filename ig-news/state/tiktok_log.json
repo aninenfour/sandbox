@@ -419,7 +419,7 @@
   "topic": "News: Kalshi vs New York",
   "hook": "New York wants $36B from Kalshi and a court hears it Monday",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-22-weekly-nov23",
@@ -428,6 +428,6 @@
   "topic": "What's on this week Nov 23-29",
   "hook": "5 days, 1 big number: US inflation (PCE) drops Wed 21:30 UTC+8",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
