@@ -1,0 +1,74 @@
+{
+ "type": "news",
+ "style": "v2",
+ "date": "NOV 22",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "james.jpg",
+   "photo_pos": "30% 20%",
+   "tag": "TRENDING",
+   "headline": "[Kalshi] says New York could shut it down {everywhere}"
+  },
+  {
+   "kind": "nphoto",
+   "tag": "WHAT HAPPENED",
+   "title": "Next stop: a New York court",
+   "photo": "court.jpg",
+   "overlay": "Hearing: Tue 00:30 (UTC+8)",
+   "text": [
+    "New York's top lawyer wants Kalshi barred from running bets [in or from New York].",
+    "On Friday a federal judge {refused} to stop her case."
+   ],
+   "source": "The Block Nov 21; Reuters Nov 20"
+  },
+  {
+   "kind": "ngrid",
+   "title": "Judges can't agree",
+   "text": "A split like this makes a Supreme Court case more likely.",
+   "cells": [
+    {
+     "photo": "gavel.jpg",
+     "photo_pos": "50% 50%",
+     "label": "Appeals courts: states can police it",
+     "value": "3",
+     "neg": true
+    },
+    {
+     "photo": "fans.jpg",
+     "photo_pos": "50% 40%",
+     "label": "Appeals courts: Kalshi wins",
+     "value": "1"
+    }
+   ],
+   "source": "Reuters Nov 20; The Block Nov 21 (4th, 6th, 9th Circuits vs 3rd)"
+  },
+  {
+   "kind": "nbig",
+   "tag": "WHAT'S AT STAKE",
+   "title": "New York's price tag",
+   "kicker": "DAMAGES SOUGHT, JULY 31",
+   "big": "$36B",
+   "neg": true,
+   "label": "New York says it does [not] want Kalshi shut for everyone",
+   "text": [
+    "Kalshi says the order would force {all open bets} to close."
+   ],
+   "source": "The Block Jul 31 + Nov 21; Wealth Professional Jul 31"
+  },
+  {
+   "kind": "end"
+  }
+ ],
+ "sources": [
+  "The Block, Nov 21 2026: NY AG Letitia James seeks a TRO in New York County Supreme Court (Justice Melissa Crane), hearing Monday 11:30 a.m. ET; order would bar Kalshi from operating an unlicensed gambling business 'within or from New York or to persons in New York', users under 21, college campus ads; Kalshi lawyer Sean Murphy (Milbank): would 'shut down a federally regulated exchange for every customer, everywhere', likely force liquidation of all open positions; James's office: does not seek to shut the exchange for all customers everywhere; Judge Lorna Schofield denied CFTC's second emergency request Nov 20; 4th, 6th, 9th Circuits sided with states, 3rd Circuit with Kalshi",
+  "Reuters via Investing.com, Nov 20 2026: Schofield rejected CFTC emergency bid, CFTC 'not established a likelihood of success on the merits'; three federal appeals courts say states can regulate Kalshi, a fourth said New Jersey could not, making Supreme Court review more likely; case returned to state court the day before; state judge to hear James's request Monday",
+  "The Block, Jul 31 2026 + Wealth Professional / Al Jazeera Jul 31: New York sued Kalshi, seeking $36 billion in damages; Kalshi called it 'political theater'"
+ ],
+ "photo_credits": [
+  "Letitia James: Wikimedia Commons (Council Member Letitia James.jpg)",
+  "New York State Supreme Courthouse, 60 Centre Street: Beyond My Ken / Wikimedia Commons, CC BY-SA 4.0",
+  "Gavel: Wesley Tingey / Unsplash",
+  "Fans with phones: Omar Ramadan / Unsplash"
+ ]
+}
