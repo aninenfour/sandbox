@@ -1,0 +1,25 @@
+{"type":"weekly","slides":[
+ {"kind":"wcover","photo":"cover.jpg","photo_pos":"50% 35%","title":["What's on","this week"],"range":"Nov 23 – 29 · US inflation + Thanksgiving"},
+ {"kind":"wday","day":["Monday","23 November"],"bg":"linear-gradient(160deg,#0f2a4a,#2f6db5 50%,#9cc3f0)","photo":"factory.jpg","photo_pos":"50% 40%",
+  "events":[{"t":"US factory activity (flash PMI) for November","time":"22:45 UTC+8","badges":[{"t":"MACRO"}]}]},
+ {"kind":"wday","day":["Tuesday","24 November"],"bg":"linear-gradient(160deg,#2b1b5a,#8e3fae 50%,#e05d8b)","photo":"crowd.jpg","photo_pos":"50% 50%",
+  "events":[{"t":"Kalshi vs New York: court hearing on a ban","time":"00:30 UTC+8","badges":[{"t":"REGULATION"}]},
+            {"t":"US consumer confidence for November","time":"23:00 UTC+8","badges":[{"t":"MACRO"}]}]},
+ {"kind":"wday","day":["Wednesday","25 November"],"bg":"linear-gradient(160deg,#5a0f1f,#c0392b 50%,#f2a65a)","photo":"fed.jpg","photo_pos":"50% 40%",
+  "events":[{"t":"US inflation the Fed watches most (PCE) + GDP","time":"21:30 UTC+8","badges":[{"t":"HIGH IMPACT","c":"hi"}]},
+            {"t":"US jobless claims, a day early","time":"21:30 UTC+8","badges":[{"t":"MACRO"}]}]},
+ {"kind":"wday","day":["Thursday","26 November"],"bg":"linear-gradient(160deg,#ff7a3d,#f2a65a 45%,#c9b8a8)","photo":"dinner.jpg","photo_pos":"50% 50%",
+  "events":[{"t":"Fed Beige Book (business mood report)","time":"03:00 UTC+8","badges":[{"t":"MACRO"}]},
+            {"t":"Thanksgiving: US stock markets closed","time":"all day","badges":[{"t":"HOLIDAY"}]}]},
+ {"kind":"wday","day":["Friday","27 November"],"bg":"linear-gradient(160deg,#0b3d2e,#1f8a5b 50%,#9be07a)","photo":"blackfriday.jpg","photo_pos":"50% 50%",
+  "events":[{"t":"Black Friday, the big US shopping day","time":"all day","badges":[{"t":"MACRO"}]},
+            {"t":"US stocks close early","time":"Sat 02:00 UTC+8","badges":[{"t":"HOLIDAY"}]}]},
+ {"kind":"end"}],
+ "sources":[
+  "Stocktitan earnings calendar week of Nov 23 2026: GDP 2nd est Q3, Oct personal income/PCE, durable goods, jobless claims (moved from Thursday) Wed Nov 25 8:30 ET; Beige Book Wed 2:00 pm ET; markets closed Thu Nov 26; early close 1:00 pm ET Fri Nov 27",
+  "FinancialJuice week ahead Nov 20 2026: S&P Global US Manufacturing PMI flash Mon 09:45 ET; Conference Board consumer confidence Tue 10:00 ET; PCE + GDP Wed 08:30 ET; US markets closed Thu",
+  "Newsquawk / Kiplinger weekly calendar (via search): GDP, PCE, claims Wed Nov 25; PMI Mon; consumer confidence Tue; Beige Book Wed 2 pm ET; early close Fri",
+  "Kalshi hearing: The Block Nov 21 (Mon 11:30 a.m. ET, Justice Melissa Crane) + Reuters Nov 20 (state judge hears request Monday)"
+ ],
+ "photo_credits":["krakenimages / Unsplash (cover)","Remy Gieling / Unsplash","Timon Studler / Unsplash","Yang-Chen Lin / Unsplash","Stefan Vladimirov / Unsplash","Tim Mossholder / Unsplash"]
+}
