@@ -2088,5 +2088,53 @@
   "note": "Built by the Nov 20 15:40 run. Cover face: Peter Tuchman (NYSE). Hook = number statement. Exactly 4 slides, no CTA. Media commit 0049a13. Tied to Thu Nov 19 S&P -2.0% (Yahoo; second source for the Nov 19 close not found, so the slides only say '2026 so far: 4').",
   "doc_row": true,
   "ig_url": "https://www.instagram.com/p/DgAEw0sJWQ8/"
+ },
+ {
+  "id": "2026-11-22-kalshi-new-york",
+  "type": "news",
+  "slot": "2026-11-22T10:00:00+08:00",
+  "title": "Kalshi says New York could shut it down everywhere (NY AG TRO hearing Mon Nov 23 11:30 ET; CFTC bid denied Nov 20; appeals courts 3-1 for states; $36B damages sought)",
+  "score": 11,
+  "status": "scheduled",
+  "layouts": [
+   "nhero",
+   "nphoto",
+   "ngrid",
+   "nbig"
+  ],
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok(10:02)",
+   "ig_story(10:05)",
+   "x_research(11:30, 01-04)"
+  ],
+  "sources": [
+   "The Block, Nov 21 2026: NY AG Letitia James seeks a TRO in New York County Supreme Court (Justice Melissa Crane), hearing Monday 11:30 a.m. ET; order would bar Kalshi from operating an unlicensed gambling business 'within or from New York or to persons in New York', users under 21, college campus ads; Kalshi lawyer Sean Murphy (Milbank): would 'shut down a federally regulated exchange for every customer, everywhere', likely force liquidation of all open positions; James's office: does not seek to shut the exchange for all customers everywhere; Judge Lorna Schofield denied CFTC's second emergency request Nov 20; 4th, 6th, 9th Circuits sided with states, 3rd Circuit with Kalshi",
+   "Reuters via Investing.com, Nov 20 2026: Schofield rejected CFTC emergency bid, CFTC 'not established a likelihood of success on the merits'; three federal appeals courts say states can regulate Kalshi, a fourth said New Jersey could not, making Supreme Court review more likely; case returned to state court the day before; state judge to hear James's request Monday",
+   "The Block, Jul 31 2026 + Wealth Professional / Al Jazeera Jul 31: New York sued Kalshi, seeking $36 billion in damages; Kalshi called it 'political theater'"
+  ],
+  "note": "Score 11/12 (hook 3, relevance 2, fresh 3, visual 3). Beat: BTC back above $60K after $1.8B liquidations (price recap, Hotcoin X already ran the BTC-cheap post), Chainflip $4.86M drain (small), Nvidia -48% (Nvidia covered Nov 18). Cover face Letitia James (no free Tarek Mansour photo); no Kalshi logo badge (no clean logo file). Render: no warnings."
+ },
+ {
+  "id": "2026-11-22-weekly-nov23",
+  "type": "weekly",
+  "slot": "2026-11-22T19:00:00+08:00",
+  "title": "What's on this week Nov 23-29: PCE + GDP Wed, Kalshi hearing, Thanksgiving, Black Friday",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok(19:02, 01-06)",
+   "ig_story(19:05)",
+   "x_research(20:30, 01,03,04,05)"
+  ],
+  "sources": [
+   "Stocktitan earnings calendar week of Nov 23 2026: GDP 2nd est Q3, Oct personal income/PCE, durable goods, jobless claims (moved from Thursday) Wed Nov 25 8:30 ET; Beige Book Wed 2:00 pm ET; markets closed Thu Nov 26; early close 1:00 pm ET Fri Nov 27",
+   "FinancialJuice week ahead Nov 20 2026: S&P Global US Manufacturing PMI flash Mon 09:45 ET; Conference Board consumer confidence Tue 10:00 ET; PCE + GDP Wed 08:30 ET; US markets closed Thu",
+   "Newsquawk / Kiplinger weekly calendar (via search): GDP, PCE, claims Wed Nov 25; PMI Mon; consumer confidence Tue; Beige Book Wed 2 pm ET; early close Fri",
+   "Kalshi hearing: The Block Nov 21 (Mon 11:30 a.m. ET, Justice Melissa Crane) + Reuters Nov 20 (state judge hears request Monday)"
+  ],
+  "note": "PLAYBOOK §7 format (wcover + 5 wday + end CTA on IG/FB; TikTok and X without the CTA). Earnings (Dell, Workday, Zoom, HP etc.) left out: only one source confirmed the dates. MON unlock Nov 24 unconfirmed, left out. No Hotcoin listings found for the week."
  }
 ]

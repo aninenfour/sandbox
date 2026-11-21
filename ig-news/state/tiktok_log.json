@@ -411,5 +411,23 @@
   "status": "published",
   "doc_row": true,
   "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7710578497298631957"
+ },
+ {
+  "id": "2026-11-22-kalshi-new-york",
+  "slot": "2026-11-22T10:02:00+08:00",
+  "format": "photo",
+  "topic": "News: Kalshi vs New York",
+  "hook": "New York wants $36B from Kalshi and a court hears it Monday",
+  "status": "scheduled",
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-22-weekly-nov23",
+  "slot": "2026-11-22T19:02:00+08:00",
+  "format": "photo",
+  "topic": "What's on this week Nov 23-29",
+  "hook": "5 days, 1 big number: US inflation (PCE) drops Wed 21:30 UTC+8",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]
