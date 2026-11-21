@@ -1,0 +1,200 @@
+{
+  "slug": "hetty-green",
+  "thumb": {
+    "text": "Wall Street called her a witch",
+    "hi": [
+      "witch"
+    ],
+    "kicker": "True story",
+    "img": "s01",
+    "zoom": 1.5,
+    "fx": 50,
+    "fy": 25
+  },
+  "highlight": [
+    "1907",
+    "million",
+    "witch",
+    "richest",
+    "trust",
+    "greenbacks",
+    "nobody",
+    "cash",
+    "lending",
+    "hundred",
+    "Patience",
+    "brave"
+  ],
+  "scenes": [
+    {
+      "at": "In1907",
+      "img": "s02",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "and a woman",
+      "img": "s01",
+      "mode": "close",
+      "fx": 50,
+      "fy": 28
+    },
+    {
+      "at": "lent",
+      "img": "s03",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "million dollars",
+      "img": "s03",
+      "mode": "close",
+      "fx": 50,
+      "fy": 42
+    },
+    {
+      "at": "Her name",
+      "img": "s01",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "born",
+      "img": "s05",
+      "mode": "close",
+      "fx": 45,
+      "fy": 45
+    },
+    {
+      "at": "WallStreet called",
+      "img": "s05",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "So how",
+      "img": "s06",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "woman in America",
+      "img": "s06",
+      "mode": "close",
+      "fx": 50,
+      "fy": 22
+    },
+    {
+      "at": "Four steps",
+      "img": "s01",
+      "mode": "close",
+      "fx": 50,
+      "fy": 32
+    },
+    {
+      "at": "Step one",
+      "step": 1
+    },
+    {
+      "at": "In1865",
+      "img": "s07",
+      "mode": "close",
+      "fx": 30,
+      "fy": 32
+    },
+    {
+      "at": "but most",
+      "img": "s08",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Step two",
+      "step": 2
+    },
+    {
+      "at": "She buys",
+      "img": "s09",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "then waits",
+      "img": "s10",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Step three",
+      "step": 3
+    },
+    {
+      "at": "Her rule",
+      "img": "s12",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "and nobody",
+      "img": "s12",
+      "mode": "close",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Step four",
+      "step": 4
+    },
+    {
+      "at": "She always",
+      "img": "s14",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "so when",
+      "img": "s02",
+      "mode": "close",
+      "fx": 50,
+      "fy": 58
+    },
+    {
+      "at": "she's the",
+      "img": "s16",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "She dies",
+      "img": "s18",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "worth over",
+      "img": "s14",
+      "mode": "close",
+      "fx": 60,
+      "fy": 82
+    },
+    {
+      "at": "Patience",
+      "img": "s20",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    }
+  ]
+}
