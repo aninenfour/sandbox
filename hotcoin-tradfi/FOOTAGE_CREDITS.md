@@ -370,4 +370,4 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Sound effects (paper flips, book placements, cloth swishes, coins, soft impacts, wood taps): Kenney "RPG Audio" and
   "Impact Sounds" by Kenney Vleugels (kenney.nl), CC0 1.0. Music in the video is original (score.py).
 - "No." quote-post video v2 (paper + footage style): Maxim Hopman, Unsplash fiXLQXAhCfk (candlestick screen, mirrored); Nicholas Cappello, Unsplash Wb63zqJ5gnE (stock monitor); Jingming Pan, Unsplash iYsrkq5qq0Q (gold bars). Unsplash License. Music original (social/no-video/make-no-beat.py).
-- GTA 6 "went on sale" carousel (variant C): Miami at night, Valeriia Neganova, Unsplash dEvKYQWc3Qw, Unsplash License. Mono, hotel sign blurred out. BTC logo: CoinGecko.
+- GTA VI "went on sale" carousel: backgrounds generated with FLUX schnell (fal), garbled signage blurred, mostly black and white. GTA VI logo: official file from rockstargames.com/VI (Rockstar/Take-Two trademark, names the event only). Coin logos: CoinGecko.
