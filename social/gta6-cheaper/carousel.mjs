@@ -19,14 +19,20 @@ const GTA = `<img class="gta" src="${A}gta6-logo.png" alt="GTA VI">`;
 
 const ITEMS = [
   {k: 'BTC', name: 'Bitcoin', logo: 'btc.png', bg: 'bg-4.jpg', b: '$63,068', l: '$55,130', when: 'Nov 21'},
-  {k: 'NVDA', name: 'Nvidia', bg: 'bg-6.jpg', b: '$150.96', l: '$124.50', when: 'Nov 20'},
+  {k: 'NVDA', name: 'Nvidia', pill: 'nvda.svg', ph: 58, bg: 'bg-6.jpg', b: '$150.96', l: '$124.50', when: 'Nov 20'},
   {k: 'ETH', name: 'Ether', logo: 'eth.png', bg: 'bg-3.jpg', b: '$1,777', l: '$1,538', when: 'Nov 21'},
   {k: 'DOGE', name: 'Dogecoin', logo: 'doge.png', bg: 'bg-5.jpg', b: '$0.0588', l: '$0.0508', when: 'Nov 21'},
   {k: 'SOL', name: 'Solana', logo: 'sol.png', bg: 'bg-1.jpg', b: '$73.63', l: '$64.87', when: 'Nov 21'},
-  {k: 'TSLA', name: 'Tesla', bg: 'bg-2.jpg', b: '$383.72', l: '$344.33', when: 'Nov 20'},
-  {k: 'GOLD', name: 'Gold futures', bg: 'bg-7.jpg', b: '$3,741.90', l: '$3,502.90', when: 'Nov 20'},
-  {k: 'TTWO', name: 'Take-Two', bg: 'bg-5.jpg', flip: true, b: '$216.61', l: '$200.01', when: 'Nov 20', head: 'Even the publisher of'},
+  {k: 'TSLA', name: 'Tesla', text: 'TSLA', bg: 'bg-2.jpg', b: '$383.72', l: '$344.33', when: 'Nov 20'},
+  {k: 'GOLD', name: 'Gold futures', gold: true, bg: 'bg-7.jpg', b: '$3,741.90', l: '$3,502.90', when: 'Nov 20'},
+  {k: 'TTWO', name: 'Take-Two', pill: 'ttwo.png', ph: 92, bg: 'bg-5.jpg', flip: true, b: '$216.61', l: '$200.01', when: 'Nov 20', head: 'Even the game’s publisher'},
 ];
+// Logos: coins from CoinGecko; NVDA from nvidia.com; TTWO from take2games.com. Tesla's site refuses automated downloads,
+// so TSLA gets a plain ticker badge (no unofficial logo). Gold is a commodity: a plain "Au" badge, no brand.
+const badge = (it) => it.logo ? `<div class="coin"><img src="${A}${it.logo}"></div>`
+  : it.pill ? `<div class="badge"><img src="${A}${it.pill}" style="height:${it.ph}px"></div>`
+  : it.gold ? `<div class="badge" style="background:linear-gradient(135deg,#f6d77a,#b8862b);padding:0"><span class="bri" style="font-size:64px;color:#3a2a08">Au</span></div>`
+  : `<div class="badge" style="background:#1d2226;border:2px solid rgba(255,255,255,.25)"><span class="bri" style="font-size:44px">${it.text}</span></div>`;
 const pct = (k) => (D[k].low / D[k].base - 1) * 100;
 const fmt = (p) => `<span style="margin-right:-.06em">${p < 0 ? '−' : '+'}</span>` + Math.abs(p).toFixed(1) + '%';
 
@@ -61,6 +67,10 @@ body{width:1080px;height:1350px;overflow:hidden;position:relative;background:#07
 .logo{position:absolute;left:64px;top:60px;height:40px}.pg{position:absolute;right:64px;top:68px;font-size:20px;color:rgba(255,255,255,.75)}
 .kick{position:absolute;left:64px;top:160px;display:flex;align-items:center;gap:16px;font-size:24px;font-weight:700}
 .kick img{width:44px;height:44px}
+.hd{position:absolute;left:64px;top:150px;display:flex;align-items:center;gap:30px}
+.badge{height:128px;min-width:128px;display:flex;align-items:center;justify-content:center;border-radius:28px;background:#fff;padding:0 30px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.coin{width:128px;height:128px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 40px rgba(0,0,0,.5)}.coin img{width:104px;height:104px}
+.hd .nm{font-size:24px;font-weight:700;color:${RED}}.hd .tt{font-size:calc(64px*var(--h));margin-top:10px;letter-spacing:calc(-1px*var(--ls))}
 .since{position:absolute;left:64px;top:218px;display:flex;align-items:center;gap:20px}
 .since .gta{height:110px}
 .big{position:absolute;left:52px;top:330px;line-height:.9}
@@ -104,8 +114,7 @@ slides.push(frame(1, `${bg('bg-0.jpg')}
 ITEMS.forEach((it, i) => {
   const p = pct(it.k);
   slides.push(frame(i + 2, `${bg(it.bg, it.flip)}
-   <div class="kick mono" style="color:${RED}">${it.logo ? `<img src="${A}${it.logo}">` : ''}${it.name} · ${it.k}</div>
-   <div class="since bri">${it.head || 'Lowest since'} ${GTA}</div>
+   <div class="hd">${badge(it)}<div><div class="nm mono">${it.name} · ${it.k}</div><div class="tt bri">${it.head || 'Lowest since launch'}</div></div></div>
    <div class="big bri" style="color:${RED}">${fmt(p)}</div>
    <div class="prices"><div><div class="lb mono">Before launch</div><div class="v">${it.b}</div></div><div><div class="lb mono">Lowest · ${it.when}</div><div class="v" style="color:${RED}">${it.l}</div></div></div>
    <div class="chart">${chart(it.k, 952, 300, RED)}</div>`));
