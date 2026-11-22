@@ -28,7 +28,7 @@ const ITEMS = [
   {k: 'TTWO', name: 'Take-Two', bg: 'bg-5.jpg', flip: true, b: '$216.61', l: '$200.01', when: 'Nov 20', head: 'Even the publisher of'},
 ];
 const pct = (k) => (D[k].low / D[k].base - 1) * 100;
-const fmt = (p) => `<span style="margin-right:.07em">${p < 0 ? '−' : '+'}</span>` + Math.abs(p).toFixed(1) + '%';
+const fmt = (p) => `<span style="margin-right:-.06em">${p < 0 ? '−' : '+'}</span>` + Math.abs(p).toFixed(1) + '%';
 
 function chart(k, w, h, color) {
   const {pts, base, low, launch} = D[k];
@@ -83,7 +83,7 @@ const FONT_OPTS = {
   goldman: {css: "font-family:'Goldman';font-weight:700", h: 0.64, ls: 0.15},
   oxanium: {css: "font-family:'Oxanium';font-weight:500", h: 0.8, ls: 0.3},
 };
-const FNAME = process.argv[2] || 'bricolage', PREVIEW = process.argv[3] === 'preview', F = FONT_OPTS[FNAME];
+const FNAME = process.argv[2] || 'russo', PREVIEW = process.argv[3] === 'preview', F = FONT_OPTS[FNAME];
 const FONTS = `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Inter+Tight:wght@200;300;500;600;700;800;900&family=Geist:wght@200;300&family=Manrope:wght@200;300&family=Anton&family=Russo+One&family=Goldman:wght@700&family=Oxanium:wght@500;700&family=Unbounded:wght@700;800&family=JetBrains+Mono:wght@500;700&display=block">`;
 const FCSS = `.bri{${F.css}}:root{--h:${F.h};--ls:${F.ls}}
 .since{font-size:calc(58px*var(--h));letter-spacing:calc(-1px*var(--ls))}
@@ -110,9 +110,10 @@ ITEMS.forEach((it, i) => {
    <div class="prices"><div><div class="lb mono">Before launch</div><div class="v">${it.b}</div></div><div><div class="lb mono">Lowest · ${it.when}</div><div class="v" style="color:${RED}">${it.l}</div></div></div>
    <div class="chart">${chart(it.k, 952, 300, RED)}</div>`));
 });
-// 10 CTA
+// 10 CTA, as a question (no claim that this is the bottom)
 slides.push(frame(10, `${bg('bg-4.jpg', true)}
- <div class="bri" style="position:absolute;left:64px;top:200px;width:960px;font-size:calc(176px*var(--h));line-height:.86;letter-spacing:calc(-6px*var(--ls))">Your entry point is <span style="color:#b8f26a">here.</span></div>
+ <div style="position:absolute;left:64px;top:190px;display:flex;align-items:center;gap:34px"><div class="bri" style="font-size:calc(190px*var(--h));line-height:1;letter-spacing:calc(-6px*var(--ls))">Did</div><img src="${A}gta6-logo.png" style="height:200px"></div>
+ <div class="bri" style="position:absolute;left:64px;top:420px;width:960px;font-size:calc(150px*var(--h));line-height:.95;letter-spacing:calc(-5px*var(--ls))">just point to the best <span style="color:#b8f26a">entry point?</span></div>
  <div style="position:absolute;left:64px;right:64px;bottom:72px;display:flex;align-items:center;justify-content:space-between">
   <div style="font-size:32px;font-weight:700;line-height:1.2">Crypto and U.S. stocks<br><span style="color:rgba(255,255,255,.7)">in one app.</span></div>
   <div style="background:#b8f26a;color:#0b0e11;font-weight:800;font-size:38px;padding:24px 46px;border-radius:99px">hotcoin.com</div></div>`));
