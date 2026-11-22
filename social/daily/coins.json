@@ -563,5 +563,19 @@
   "twitter": "lombard_finance",
   "image": "https://coin-images.coingecko.com/coins/images/68404/large/bard.png?1755657543",
   "logo": "bard"
+ },
+ "ZEC": {
+  "id": "zcash",
+  "name": "Zcash",
+  "twitter": "zcash",
+  "image": "https://coin-images.coingecko.com/coins/images/486/large/Brandmark-Yellow_%281%29.png?1785810558",
+  "logo": "zec"
+ },
+ "DELLB": {
+  "id": "dell-bstocks-tokenized-stock",
+  "name": "Dell (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102175190/large/DELLB.png?1785458092",
+  "logo": "dellb"
  }
 }

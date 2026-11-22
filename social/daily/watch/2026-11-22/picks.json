@@ -1,0 +1,30 @@
+{
+ "items": [
+  {
+   "sym": "BTC",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Bounced from $55.3K Sat, lowest since Sep 2024"
+  },
+  {
+   "sym": "ETH",
+   "kind": "crypto",
+   "why": "Rebounding with BTC after Saturday's liquidations"
+  },
+  {
+   "sym": "ZEC",
+   "kind": "crypto",
+   "why": "Up nearly 10% in 24h, outpacing BTC and ETH"
+  },
+  {
+   "sym": "DELLB",
+   "kind": "tradfi",
+   "why": "Week ahead: FQ3 results Tue after the US close"
+  },
+  {
+   "sym": "SPYB",
+   "kind": "tradfi",
+   "why": "Week ahead: US markets shut Thu for Thanksgiving"
+  }
+ ]
+}

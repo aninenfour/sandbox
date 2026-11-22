@@ -1,0 +1,71 @@
+{
+ "date": "NOV 22",
+ "window": "Prices at Nov 22 12:54 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Bounced from $55.3K Sat, lowest since Sep 2024",
+   "last": 59282.23,
+   "ch": 5.06,
+   "vol": 1292925495.93,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Rebounding with BTC after Saturday's liquidations",
+   "last": 1662.79,
+   "ch": 6.29,
+   "vol": 317660765.07,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "ZEC",
+   "name": "Zcash",
+   "kind": "crypto",
+   "handle": "@zcash",
+   "why": "Up nearly 10% in 24h, outpacing BTC and ETH",
+   "last": 769.64,
+   "ch": 9.64,
+   "vol": 1406100.5,
+   "logo": "zec",
+   "bg": "#f4b728",
+   "glow": "#f4b728"
+  },
+  {
+   "sym": "DELLB",
+   "name": "Dell",
+   "kind": "tradfi",
+   "handle": "@Dell",
+   "why": "Week ahead: FQ3 results Tue after the US close",
+   "last": 286.15,
+   "ch": 2.04,
+   "vol": 768528.97,
+   "logo": "dellb",
+   "bg": "#017fc2",
+   "glow": "#017fc2"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Week ahead: US markets shut Thu for Thanksgiving",
+   "last": 700.01,
+   "ch": 0.87,
+   "vol": 744523.24,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  }
+ ]
+}
