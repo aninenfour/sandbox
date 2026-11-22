@@ -9,11 +9,12 @@
 //   buy: {label, sub, icon, counter}     icon: popcorn | console | phone | cash
 //   invest: {label, sub, ticker, color, counter}
 //   series: [[date, worth, spent]]   spent = money paid so far (lump: constant)
+//   unit: "B" (Nov 22, Musk/Twitter $44B): series values are in billions, money shows "$44.0B"
 //   events: [{d, txt, c}], reveal: {spent, worth, mult, note}, lesson: [{t, c}]
 const S = window.SPEC, PTS = S.series, N = PTS.length;
 Object.assign(P, {bg1: '#FFFFFF', bg2: '#EEF3EA', white: '#0E1A12', dim: '#6B756E', green: '#3E9B27', ink: '#FFFFFF'});
 if (window.HOTCOIN_LOGO_DARK) LOGO.src = window.HOTCOIN_LOGO_DARK;
-const money = v => '$' + (Math.abs(v) < 10 && Math.abs(v - Math.round(v)) > .004 ? v.toFixed(2) : Math.round(v).toLocaleString('en-US'));  // cents under $10 (Nov 19: $1.50 hot dog)
+const money = v => S.unit === 'B' ? '$' + (Math.abs(v) < 100 && Math.abs(v - Math.round(v)) > .05 ? v.toFixed(1) : Math.round(v)) + 'B' : '$' + (Math.abs(v) < 10 && Math.abs(v - Math.round(v)) > .004 ? v.toFixed(2) : Math.round(v).toLocaleString('en-US'));  // cents under $10 (Nov 19: $1.50 hot dog)
 const COIN = S.invest.color || '#3E9B27';
 const RES = () => (S.reveal && S.reveal.neg) ? P.red : P.green;   // Nov 20: reveal.neg = the stock lost (Jordans vs Nike), result in red
 let INKC = '14,26,18';                         // chart grid/tick ink (photo look: white)
@@ -312,7 +313,7 @@ function draw(t) {
 // the number. Every later scene sits on a dimmed photo backdrop (never a blank frame: TikTok/Publer thumbnails), the
 // purchase rides the chart as a round photo inset, and the end card is the photo split again with the result pill.
 // Spec: "look": "photo", buy.photo / invest.photo = image files in the post folder (real photos: Unsplash, Commons, press;
-// no drawn logos), optional buy.photo_y / invest.photo_y = focal point 0..1 (default .5), optional "photo_title".
+// no drawn logos), optional "cover_face": true (face photo on top: cover text moves under the chin), optional buy.photo_y / invest.photo_y = focal point 0..1 (default .5), optional "photo_title".
 const IM = {}; for (const [k, src] of Object.entries(window.IMGS || {})) { IM[k] = new Image(); IM[k].src = src; }
 if (S.look === 'photo') {
   Object.assign(P, {bg1: 'rgba(8,11,9,.80)', bg2: '#0A0D0B', white: '#FFFFFF', dim: '#D3DAD5', green: '#7EC25A'});
@@ -359,11 +360,19 @@ if (S.look === 'photo') {
   cover = a => {                                                // frame 0: two real photos, label pills, then the number
     ctx.save(); ctx.globalAlpha = a; split(0); ctx.globalAlpha = a;
     shade(-80, 620, .85, 0); shade(560, H / 2, 0, .55); shade(H / 2, 1250, .45, .1); shade(1220, H + 80, 0, .9);
+    const p0 = money(PTS[0][2]);
+    if (S.cover_face) {   // Nov 22 (Musk): a face fills the top half, eyes ~y 350 so the 4:5 / 3:4 crops keep them; text sits under the chin
+      shade(500, H / 2, 0, .45);
+      bigPill('WHAT IF?', W / 2 - 250, 620, 36, P.green, '#0A0A0A', 0, a);
+      txt(S.photo_title || 'BACK IN ' + S.year, W / 2 + 95, 622, 64, '#FFFFFF', 900, 'center', a);
+      bigPill(S.buy.label.toUpperCase(), W / 2, 728, 54, '#FFFFFF', '#0A0A0A', -.02, a);
+      txt(p0, W / 2, 828, 112, '#FFFFFF', 900, 'center', a);
+    } else {
     bigPill('WHAT IF?', W / 2, 330, 44, P.green, '#0A0A0A', 0, a);
     txt(S.photo_title || 'BACK IN ' + S.year, W / 2, 445, 92, '#FFFFFF', 900, 'center', a);
-    const p0 = money(PTS[0][2]);
     bigPill(S.buy.label.toUpperCase(), W / 2, 690, 62, '#FFFFFF', '#0A0A0A', -.02, a);
     txt(p0, W / 2, 815, 150, '#FFFFFF', 900, 'center', a);
+    }
     bigPill(S.invest.label.toUpperCase(), W / 2, 1110, 62, P.green, '#0A0A0A', -.02, a);
     txt(money(PTS[0][1]) + ' → ?', W / 2, 1235, 150, P.green, 900, 'center', a);
     txt('WHICH ONE WINS?', W / 2, 1420, 68, '#FFFFFF', 900, 'center', a);

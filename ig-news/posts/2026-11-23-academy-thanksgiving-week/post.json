@@ -1,0 +1,139 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "variant": "a",
+ "date": "NOV 23",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "cover.jpg",
+   "photo_pos": "50% 25%",
+   "tag": "STOCKS 101",
+   "headline": "The S&P 500 rose in Thanksgiving week [53 of 76] years"
+  },
+  {
+   "kind": "tslide",
+   "photo": "p1.jpg",
+   "photo_pos": "50% 8%",
+   "title": "So, how did <span class='g'>the last 7</span> go?",
+   "paras": [
+    "6 of the last 7 were green. Only 2021 was red."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "S&P 500, Thanksgiving week (Fri to Fri)",
+    "items": [
+     {
+      "l": "2019",
+      "v": 0.99,
+      "txt": "+1.0%"
+     },
+     {
+      "l": "2020",
+      "v": 2.27,
+      "txt": "+2.3%"
+     },
+     {
+      "l": "2021",
+      "v": -2.2,
+      "txt": "-2.2%"
+     },
+     {
+      "l": "2022",
+      "v": 1.53,
+      "txt": "+1.5%"
+     },
+     {
+      "l": "2023",
+      "v": 1.0,
+      "txt": "+1.0%"
+     },
+     {
+      "l": "2024",
+      "v": 1.06,
+      "txt": "+1.1%"
+     },
+     {
+      "l": "2025",
+      "v": 3.73,
+      "txt": "+3.7%"
+     }
+    ]
+   },
+   "source": "Yahoo Finance + FRED S&P 500 daily closes"
+  },
+  {
+   "kind": "ngrid",
+   "title": "Same holiday, 4 different weeks",
+   "cells": [
+    {
+     "photo": "g0.jpg",
+     "label": "2025",
+     "value": "+3.7%"
+    },
+    {
+     "photo": "g1.jpg",
+     "label": "2024",
+     "value": "+1.1%"
+    },
+    {
+     "photo": "g2.jpg",
+     "label": "2021",
+     "value": "-2.2%",
+     "sub": "Omicron Friday: -2.3%",
+     "neg": true
+    },
+    {
+     "photo": "g3.jpg",
+     "label": "2018",
+     "value": "-3.8%",
+     "neg": true,
+     "place": "bottom",
+     "photo_pos": "38% 50%"
+    }
+   ]
+  },
+  {
+   "kind": "tslide",
+   "photo": "p2.jpg",
+   "photo_pos": "50% 20%",
+   "title": "And <span class='g'>this year</span>?",
+   "paras": [
+    "PCE inflation Wed, market shut Thu, half day Fri. Past data, not a forecast."
+   ],
+   "visual": {
+    "type": "stats",
+    "title": "S&P 500 around Thanksgiving, 1950-2025",
+    "items": [
+     {
+      "v": "53 of 76",
+      "l": "weeks up",
+      "color": "#3E9B27"
+     },
+     {
+      "v": "54 of 76",
+      "l": "Black Fridays up"
+     },
+     {
+      "v": "+0.7%",
+      "l": "average week"
+     }
+    ]
+   },
+   "source": "Yahoo Finance S&P 500 daily closes, 1950-2025"
+  }
+ ],
+ "sources": [
+  "Yahoo Finance ^GSPC daily closes 1950-2025: Thanksgiving week = last close before the Monday to the Black Friday close; up 53 of 76 years, average +0.71%; Black Friday up 54 of 76",
+  "FRED SP500 cross-check: 2018 2736.27 -> 2632.56 (-3.8%), 2021 4697.96 -> 4594.62 (-2.2%), 2024 5969.34 -> 6032.38 (+1.1%), 2025 6602.99 -> 6849.09 (+3.7%)",
+  "Black Friday Nov 26 2021 S&P -2.27% (Omicron variant news), Yahoo + FRED; NYSE 2026 holidays: closed Thu Nov 26, early close 1pm ET Fri Nov 27"
+ ],
+ "photo_credits": [
+  "Woman with shopping bags: freestocks / Unsplash (_3Q3tsJ01nc)",
+  "Family dinner: National Cancer Institute / Unsplash (cfGG0niafjc)",
+  "Trader at laptops: Adam Nowakowski / Unsplash (VkRq5w3asCA, D4LDw5eXhgg)",
+  "Thanksgiving table: Karolina Grabowska / Unsplash (HtTBzytfJ9I)",
+  "Shopping bags: Iuliia Pilipeichenko / Unsplash (mS_QzcElEAo)",
+  "Black Friday phone: CardMapr.nl / Unsplash (hTUZW7E7krg)"
+ ]
+}
