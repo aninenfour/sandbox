@@ -6,7 +6,7 @@ import fs from 'node:fs';
 
 const [id, outDir, list] = process.argv.slice(2);
 const frames = list.split(',').map(Number);
-const serveUrl = path.resolve('bundle');
+const serveUrl = path.resolve(process.env.BUNDLE || 'bundle');
 // the preinstalled headless shell moves between container images, so look for it
 const findShell = () => {
   const root = '/opt/pw-browsers';

@@ -61,15 +61,15 @@ export const geo = (W: number, H: number, v: boolean) => {
   const team = v ? {x: 1010} : {x: 1620};
 
   // squid: news card and the price chart
-  const card = v ? {x: cx, y: cy - 250, w: 760, h: 470} : {x: 480, y: cy + 50, w: 560, h: 560};
-  const chart = v ? {x: 130, y: cy + 660, w: 820, h: 480} : {x: 960, y: cy + 300, w: 800, h: 560};
+  const card = v ? {x: cx, y: cy - 100, w: 720, h: 420} : {x: 480, y: cy + 50, w: 560, h: 560};
+  const chart = v ? {x: 130, y: cy + 520, w: 820, h: 300} : {x: 960, y: cy + 300, w: 800, h: 560};
 
   // stat: two bars
   const bars = v ? {base: cy + 520, x0: cx - 260, x1: cx + 80, bw: 200, max: 760} : {base: cy + 330, x0: cx - 300, x1: cx + 40, bw: 220, max: 560};
 
   // libra: card and the valuation chart
-  const lcard = v ? {x: cx, y: cy - 250, w: 760, h: 470} : {x: 480, y: cy + 50, w: 560, h: 560};
-  const lchart = v ? {x: 130, y: cy + 660, w: 820, h: 460} : {x: 960, y: cy + 300, w: 800, h: 540};
+  const lcard = v ? {x: cx, y: cy - 100, w: 720, h: 420} : {x: 480, y: cy + 50, w: 560, h: 560};
+  const lchart = v ? {x: 130, y: cy + 520, w: 820, h: 300} : {x: 960, y: cy + 300, w: 800, h: 540};
 
   // degen: the slot machine
   const slot = v ? {x: cx - 40, base: cy + 420, w: 620, h: 620} : {x: cx + 140, base: cy + 330, w: 600, h: 600};
