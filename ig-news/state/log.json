@@ -2219,6 +2219,6 @@
    "CoinGecko official-trump, Nov 22 2026 23:41 UTC: $0.886, ATH $73.43 on Jan 19 2025, -98.8%"
   ],
   "note": "Score 11 (hook 3, relevance 2, fresh 3, visual 3). Skipped: Chainflip $12M hack (no face), Fusionist bridge exploit, BTC rebound (price recap), Ledger tampered devices (no new numbers), Kalshi NY (no ruling yet). Cover = Trump official portrait (same as Nov 20 Trump Media; Commons rate-limited 429 for a new one). Media commit 399d862.",
-  "doc_row": false
+  "doc_row": true
  }
 ]

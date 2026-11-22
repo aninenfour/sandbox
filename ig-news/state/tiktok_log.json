@@ -458,6 +458,6 @@
   "topic": "News: Trump coin dinner, $518 seat",
   "hook": "One guest got into Trump's coin dinner with $518. Last time it took $55,000",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
