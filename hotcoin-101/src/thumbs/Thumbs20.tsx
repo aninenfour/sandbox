@@ -68,7 +68,7 @@ export const Thumb20A: React.FC = () => {
 };
 
 /** dark backdrop with a faint block grid and a red gas-price spike climbing behind everything */
-const SpikeBackdrop: React.FC<{W: number; H: number; glowAt: string}> = ({W, H, glowAt}) => {
+export const SpikeBackdrop: React.FC<{W: number; H: number; glowAt: string}> = ({W, H, glowAt}) => {
   const cell = 64;
   const pts = Array.from({length: 26}).map((_, i) => {
     const x = (i / 25) * W;
@@ -92,7 +92,7 @@ const SpikeBackdrop: React.FC<{W: number; H: number; glowAt: string}> = ({W, H, 
   );
 };
 
-const Card: React.FC<{x: number; y: number; w: number; imgH: number; rot: number; date: string; title: string; src: string; pos?: string; titleSize?: number}> = ({x, y, w, imgH, rot, date, title, src, pos = '50% 50%', titleSize = 50}) => (
+export const Card: React.FC<{x: number; y: number; w: number; imgH: number; rot: number; date: string; title: string; src: string; pos?: string; titleSize?: number}> = ({x, y, w, imgH, rot, date, title, src, pos = '50% 50%', titleSize = 50}) => (
   <div
     style={{
       position: 'absolute',

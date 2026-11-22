@@ -12,19 +12,19 @@ const {w, ow, cw} = T;
 type SP = {g: Geo};
 
 /** fades its children out from `until` */
-const Out: React.FC<{until: number; children: React.ReactNode}> = ({until, children}) => {
+export const Out: React.FC<{until: number; children: React.ReactNode}> = ({until, children}) => {
   const f = useFrame();
   const o = 1 - win(f, until, 6);
   if (o <= 0) return null;
   return <AbsoluteFill style={{opacity: o}}>{children}</AbsoluteFill>;
 };
 
-const Head: React.FC<{g: Geo; at: number; text: string; color: string; size?: number}> = ({g, at, text, color, size}) => (
+export const Head: React.FC<{g: Geo; at: number; text: string; color: string; size?: number}> = ({g, at, text, color, size}) => (
   <Headline at={at} text={text} size={size ?? g.head.size} x={g.head.x} y={g.head.y} width={g.v ? g.head.w : undefined} align={g.v ? 'center' : 'left'} color={color} />
 );
 
 /** a real photo on a card with a caption and a source line. centred on x,y */
-const PhotoCard: React.FC<{x: number; y: number; w: number; h: number; rot: number; s: number; src: string; pos?: string; lines: string[]; credit: string}> = ({x, y, w: cw_, h, rot, s, src, pos = '50% 50%', lines, credit}) => {
+export const PhotoCard: React.FC<{x: number; y: number; w: number; h: number; rot: number; s: number; src: string; pos?: string; lines: string[]; credit: string}> = ({x, y, w: cw_, h, rot, s, src, pos = '50% 50%', lines, credit}) => {
   if (s <= 0) return null;
   return (
     <div
@@ -54,7 +54,7 @@ const PhotoCard: React.FC<{x: number; y: number; w: number; h: number; rot: numb
 };
 
 /** a newspaper-style card: dateline, headline, real image, source. centred on x,y */
-const NewsCard: React.FC<{x: number; y: number; w: number; h: number; rot: number; s: number; o?: number; date: string; title: string; src: string; pos?: string; credit: string; stamp?: {text: string; t: number}}> = ({
+export const NewsCard: React.FC<{x: number; y: number; w: number; h: number; rot: number; s: number; o?: number; date: string; title: string; src: string; pos?: string; credit: string; stamp?: {text: string; t: number}}> = ({
   x,
   y,
   w: cw_,

@@ -1,0 +1,196 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 10.08,
+ "words": [
+  {
+   "word": "When",
+   "start": 0,
+   "end": 0.16,
+   "at": 0,
+   "until": 4.8
+  },
+  {
+   "word": "a",
+   "start": 0.2,
+   "end": 0.24,
+   "at": 6,
+   "until": 7.2
+  },
+  {
+   "word": "community",
+   "start": 0.288,
+   "end": 0.72,
+   "at": 8.6,
+   "until": 21.6
+  },
+  {
+   "word": "jokes",
+   "start": 0.773,
+   "end": 1.04,
+   "at": 23.2,
+   "until": 31.2
+  },
+  {
+   "word": "about",
+   "start": 1.08,
+   "end": 1.28,
+   "at": 32.4,
+   "until": 38.4
+  },
+  {
+   "word": "a",
+   "start": 1.32,
+   "end": 1.36,
+   "at": 39.6,
+   "until": 40.8
+  },
+  {
+   "word": "risk",
+   "start": 1.424,
+   "end": 1.68,
+   "at": 42.7,
+   "until": 50.4
+  },
+  {
+   "word": "all",
+   "start": 1.7,
+   "end": 1.76,
+   "at": 51,
+   "until": 52.8
+  },
+  {
+   "word": "the",
+   "start": 1.78,
+   "end": 1.84,
+   "at": 53.4,
+   "until": 55.2
+  },
+  {
+   "word": "time,",
+   "start": 1.936,
+   "end": 2.88,
+   "at": 58.1,
+   "until": 86.4
+  },
+  {
+   "word": "the",
+   "start": 2.92,
+   "end": 3.04,
+   "at": 87.6,
+   "until": 91.2
+  },
+  {
+   "word": "risk",
+   "start": 3.104,
+   "end": 3.36,
+   "at": 93.1,
+   "until": 100.8
+  },
+  {
+   "word": "is",
+   "start": 3.413,
+   "end": 3.52,
+   "at": 102.4,
+   "until": 105.6
+  },
+  {
+   "word": "real.",
+   "start": 3.6,
+   "end": 4.24,
+   "at": 108,
+   "until": 127.2
+  },
+  {
+   "word": "So",
+   "start": 4.56,
+   "end": 5.2,
+   "at": 136.8,
+   "until": 156
+  },
+  {
+   "word": "before",
+   "start": 5.246,
+   "end": 5.52,
+   "at": 157.4,
+   "until": 165.6
+  },
+  {
+   "word": "you",
+   "start": 5.54,
+   "end": 5.6,
+   "at": 166.2,
+   "until": 168
+  },
+  {
+   "word": "ape",
+   "start": 5.68,
+   "end": 5.92,
+   "at": 170.4,
+   "until": 177.6
+  },
+  {
+   "word": "in,",
+   "start": 6,
+   "end": 6.56,
+   "at": 180,
+   "until": 196.8
+  },
+  {
+   "word": "ask",
+   "start": 6.62,
+   "end": 6.8,
+   "at": 198.6,
+   "until": 204
+  },
+  {
+   "word": "one",
+   "start": 6.86,
+   "end": 7.04,
+   "at": 205.8,
+   "until": 211.2
+  },
+  {
+   "word": "question.",
+   "start": 7.102,
+   "end": 7.92,
+   "at": 213.1,
+   "until": 237.6
+  },
+  {
+   "word": "Who",
+   "start": 8.14,
+   "end": 8.8,
+   "at": 244.2,
+   "until": 264
+  },
+  {
+   "word": "can",
+   "start": 8.86,
+   "end": 9.04,
+   "at": 265.8,
+   "until": 271.2
+  },
+  {
+   "word": "pull",
+   "start": 9.088,
+   "end": 9.28,
+   "at": 272.6,
+   "until": 278.4
+  },
+  {
+   "word": "the",
+   "start": 9.3,
+   "end": 9.36,
+   "at": 279,
+   "until": 280.8
+  },
+  {
+   "word": "rug?",
+   "start": 9.48,
+   "end": 10.08,
+   "at": 284.4,
+   "until": 302.4
+  }
+ ]
+}

@@ -1,0 +1,176 @@
+{
+ "voice": "bIHbv24MWmeRgasZH58o",
+ "model": "eleven_v3",
+ "duration": 10.56,
+ "words": [
+  {
+   "word": "Crypto",
+   "start": 0.0,
+   "end": 0.4,
+   "at": 0.0,
+   "until": 12.0
+  },
+  {
+   "word": "has",
+   "start": 0.44,
+   "end": 0.56,
+   "at": 13.2,
+   "until": 16.8
+  },
+  {
+   "word": "a",
+   "start": 0.64,
+   "end": 0.72,
+   "at": 19.2,
+   "until": 21.6
+  },
+  {
+   "word": "whole",
+   "start": 0.773,
+   "end": 1.04,
+   "at": 23.2,
+   "until": 31.2
+  },
+  {
+   "word": "dictionary",
+   "start": 1.098,
+   "end": 1.68,
+   "at": 32.9,
+   "until": 50.4
+  },
+  {
+   "word": "of",
+   "start": 1.707,
+   "end": 1.76,
+   "at": 51.2,
+   "until": 52.8
+  },
+  {
+   "word": "jokes.",
+   "start": 1.84,
+   "end": 2.56,
+   "at": 55.2,
+   "until": 76.8
+  },
+  {
+   "word": "Ape,",
+   "start": 2.76,
+   "end": 3.64,
+   "at": 82.8,
+   "until": 109.2
+  },
+  {
+   "word": "rug,",
+   "start": 3.75,
+   "end": 4.48,
+   "at": 112.5,
+   "until": 134.4
+  },
+  {
+   "word": "degen.",
+   "start": 4.613,
+   "end": 5.44,
+   "at": 138.4,
+   "until": 163.2
+  },
+  {
+   "word": "And",
+   "start": 5.64,
+   "end": 6.24,
+   "at": 169.2,
+   "until": 187.2
+  },
+  {
+   "word": "the",
+   "start": 6.26,
+   "end": 6.32,
+   "at": 187.8,
+   "until": 189.6
+  },
+  {
+   "word": "funny",
+   "start": 6.36,
+   "end": 6.56,
+   "at": 190.8,
+   "until": 196.8
+  },
+  {
+   "word": "thing",
+   "start": 6.6,
+   "end": 6.8,
+   "at": 198.0,
+   "until": 204.0
+  },
+  {
+   "word": "is,",
+   "start": 6.907,
+   "end": 7.68,
+   "at": 207.2,
+   "until": 230.4
+  },
+  {
+   "word": "well,",
+   "start": 7.728,
+   "end": 8.16,
+   "at": 231.8,
+   "until": 244.8
+  },
+  {
+   "word": "most",
+   "start": 8.224,
+   "end": 8.48,
+   "at": 246.7,
+   "until": 254.4
+  },
+  {
+   "word": "of",
+   "start": 8.507,
+   "end": 8.56,
+   "at": 255.2,
+   "until": 256.8
+  },
+  {
+   "word": "them",
+   "start": 8.592,
+   "end": 8.72,
+   "at": 257.8,
+   "until": 261.6
+  },
+  {
+   "word": "are",
+   "start": 8.76,
+   "end": 8.88,
+   "at": 262.8,
+   "until": 266.4
+  },
+  {
+   "word": "warnings",
+   "start": 8.933,
+   "end": 9.36,
+   "at": 268.0,
+   "until": 280.8
+  },
+  {
+   "word": "wearing",
+   "start": 9.39,
+   "end": 9.6,
+   "at": 281.7,
+   "until": 288.0
+  },
+  {
+   "word": "a",
+   "start": 9.78,
+   "end": 9.96,
+   "at": 293.4,
+   "until": 298.8
+  },
+  {
+   "word": "costume.",
+   "start": 10.005,
+   "end": 10.56,
+   "at": 300.2,
+   "until": 316.8
+  }
+ ],
+ "tempo": 1.0
+}
