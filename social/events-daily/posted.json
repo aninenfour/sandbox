@@ -37,5 +37,25 @@
       "X main",
       "Facebook"
     ]
+  },
+  {
+    "date": "2026-11-21",
+    "time": "missed (trigger delivered ~22h late)",
+    "slugs": [],
+    "layout": "",
+    "channels": []
+  },
+  {
+    "date": "2026-11-22",
+    "time": "13:50 UTC+8 (scheduled)",
+    "slugs": [
+      "tradfi-0-fee-carnival",
+      "HotcoinFixed-TermEarnExclusive"
+    ],
+    "layout": "stack",
+    "channels": [
+      "X main",
+      "Facebook"
+    ]
   }
 ]

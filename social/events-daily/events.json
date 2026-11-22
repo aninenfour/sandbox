@@ -132,5 +132,30 @@
     ],
     "foot": "Tap Join Now first. All three events combine.",
     "x": "🏆 Spot All-Round Challenge #24: 300,000 USDT prize pool, up to 8,888 USDT for 1st. Ends {endShort}"
+  },
+  "tradfi-0-fee-carnival": {
+    "short": "TradFi 0 Fee Carnival",
+    "kicker": "TRADFI",
+    "headline": "0 trading fees",
+    "headSub": "100% fee rebate as Futures Trial Funds, plus a 500,000 USDT pool",
+    "rows": [
+      [
+        "Fee rebate",
+        "100%",
+        "up to 300 USDT, as Futures Trial Funds"
+      ],
+      [
+        "Volume rewards",
+        "up to 100 USDT",
+        "Futures Trial Funds, highest tier only"
+      ],
+      [
+        "First tier",
+        "5 USDT",
+        "at 1,000+ USDT TradFi volume"
+      ]
+    ],
+    "foot": "Gold, forex, US stocks, indices. Spreads and overnight fees not rebated.",
+    "x": "📈 TradFi 0 Fee Carnival: TradFi fees back as Futures Trial Funds, plus up to 100 USDT. Ends {endShort}"
   }
 }
