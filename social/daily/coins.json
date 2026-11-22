@@ -577,5 +577,12 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102175190/large/DELLB.png?1785458092",
   "logo": "dellb"
+ },
+ "ZBCN": {
+  "id": "zebec-network",
+  "name": "Zebec Network",
+  "twitter": "Zebec_HQ",
+  "image": "https://coin-images.coingecko.com/coins/images/37052/large/zbcn.jpeg?1713168241",
+  "logo": "zbcn"
  }
 }

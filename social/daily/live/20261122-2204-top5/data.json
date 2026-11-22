@@ -1,0 +1,59 @@
+{
+ "window": "24H to Nov 22 22:04 (UTC+8)",
+ "date": "NOV 22",
+ "day": "2026-11-22",
+ "template": "orbit",
+ "gainers": [
+  {
+   "sym": "URNA",
+   "name": "",
+   "ch": 368.38,
+   "vol": 97705.28,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "MYC",
+   "name": "",
+   "ch": 22.73,
+   "vol": 520879.26,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "ZBCN",
+   "name": "Zebec Network",
+   "ch": 16.93,
+   "vol": 443154.63,
+   "handle": "@Zebec_HQ",
+   "logo": "zbcn",
+   "bg": "#2f285b",
+   "glow": "#2f285b"
+  },
+  {
+   "sym": "NIGHT",
+   "name": "Midnight",
+   "ch": 14.3,
+   "vol": 704482.62,
+   "handle": "@MidnightNtwrk",
+   "logo": "night",
+   "bg": "#0a0a0a",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "PEARL",
+   "name": "Pearl",
+   "ch": 10.82,
+   "vol": 465118.71,
+   "handle": "@prlnet",
+   "logo": "pearl",
+   "bg": "#ffffff",
+   "glow": "#e4e3e3"
+  }
+ ],
+ "link": "📊 $URNA live price and chart: https://www.hotcoin.com/en_US/price/urnaenergy-urna/"
+}
