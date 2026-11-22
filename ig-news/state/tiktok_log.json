@@ -438,7 +438,7 @@
   "topic": "WHAT IF: Musk's $44B Twitter vs Bitcoin",
   "hook": "Musk paid $44B for Twitter. Same $44B in Bitcoin is about $128B now",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-23-academy-thanksgiving-week",
@@ -447,6 +447,6 @@
   "topic": "Academy: S&P 500 in Thanksgiving week",
   "hook": "Stocks rose in Thanksgiving week 53 of the last 76 years",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]

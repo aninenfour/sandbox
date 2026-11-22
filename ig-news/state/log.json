@@ -2158,7 +2158,7 @@
    "BTC Nov 22 2026 ~15:45 UTC+8: Coinbase $58,905, Yahoo $58,911, CoinGecko $58,965 (used $58,900)"
   ],
   "note": "Fresh angle: famous person + argued-about moment (faces). New whatif2.js options: unit 'B' (money in billions) and cover_face (face fills the top half, eyes ~y 350 so 4:5/3:4 crops keep them; cover text under the chin). Photo look, lump, 38.4 s, thumbnail fill 60%. Musk photo Royal Society portrait (Duncan.Hull, CC BY-SA 4.0), BTC coin on gold (Kanchanara/Unsplash rhm7H8X5J98, not the coin used Nov 17/19). Media commit 37f7a41. Publer covers confirmed = frame 0 (IG, FB, TikTok, X 4:5).",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-23-academy-thanksgiving-week",
@@ -2186,6 +2186,6 @@
    "NYSE 2026 holiday calendar"
   ],
   "note": "Exactly 4 slides, no CTA. Variant a (Nov 21 was b). ngrid 2x2 (2025/2024/2021/2018), 2018 cell face with place bottom, no text line. Media commit 37f7a41.",
-  "doc_row": false
+  "doc_row": true
  }
 ]
