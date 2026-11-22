@@ -15,6 +15,9 @@ Slide kinds (pick a different graphic for slides 2 and 3, and don't repeat yeste
           multiple/result pill where the cells meet, an optional short headline and one bottom line. News AND Academy.
           A cell with a face: set "place": "top" or "bottom" so the label + number sit above/below the face, never on it
           (default = centered, fine for objects/coins/screens).
+  nquote  PEOPLE-FIRST quote slide (weekly style review W48): full-bleed photo of the person, their real words in a big
+          speech bubble pointing at them, a name pill, and a dark "what the data says" band with 1-2 numbers that check
+          the claim. Replaces the white rows card when the story is someone's claim, promise or denial.
 """
 import base64, html as H, pathlib, re
 
@@ -132,6 +135,27 @@ CSS = """
 .v2 .n2-gshade{position:absolute;left:0;right:0;bottom:0;height:300px;z-index:4;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.92) 45%%)}
 .v2 .n2-gt{position:absolute;left:64px;right:64px;bottom:100px;z-index:5;color:#fff;font-size:36px;font-weight:700;line-height:1.3;text-align:center}
 .v2 .n2-gt .n2-hl{color:#0B0E11}
+
+/* people-first quote slide (weekly style review W48): face + their words + the numbers that check them */
+.v2.n2-qs{background:#0B0E11}
+.v2.n2-qs:before{display:none}
+.v2 .n2-qph{position:absolute;inset:0;background-size:cover;background-position:center;z-index:1}
+.v2 .n2-qph:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,18,.30) 0%%,rgba(6,10,18,0) 16%%,rgba(6,10,18,0) 40%%,rgba(6,10,18,.55) 58%%,rgba(6,10,18,.94) 80%%,#060A12 100%%)}
+.v2 .n2-qb{position:absolute;left:48px;right:48px;z-index:4;background:#fff;border-radius:46px;padding:40px 50px 42px 50px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.v2 .n2-qb:before{content:'';position:absolute;top:-46px;left:var(--tx);border-left:34px solid transparent;border-right:34px solid transparent;border-bottom:50px solid #fff;transform:skewX(var(--sk))}
+.v2 .n2-qm{position:absolute;left:34px;top:-58px;width:104px;height:104px;border-radius:50%%;background:%(green)s;color:#0B0E11;font-family:'Archivo';font-weight:900;font-size:120px;line-height:150px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.v2 .n2-qt{font-family:'Archivo';font-weight:800;font-stretch:104%%;letter-spacing:-.025em;line-height:1.06;color:#0B0E11;text-wrap:balance}
+.v2 .n2-qt .n2-hl{padding:0 .1em}
+.v2 .n2-qn{position:absolute;left:48px;z-index:4;display:flex;align-items:center;gap:16px;font-family:'Archivo';font-weight:800;font-stretch:108%%;font-size:30px;color:#fff}
+.v2 .n2-qn .n2-qr{font-family:'Manrope';font-weight:700;font-size:26px;color:rgba(255,255,255,.72)}
+.v2 .n2-qn .n2-qd{width:14px;height:14px;border-radius:50%%;background:%(green)s;flex:none}
+.v2 .n2-qk{position:absolute;left:48px;right:48px;bottom:112px;z-index:4}
+.v2 .n2-qk .n2-qkt{font-family:'Archivo';font-weight:800;font-stretch:115%%;font-size:24px;letter-spacing:.12em;color:%(green)s;margin-bottom:16px}
+.v2 .n2-qk .n2-qkr{display:flex;gap:18px}
+.v2 .n2-qc{flex:1;min-width:0;background:rgba(255,255,255,.09);border:2px solid rgba(255,255,255,.16);border-radius:30px;padding:22px 28px 20px}
+.v2 .n2-qc .n2-qv{font-family:'Archivo';font-weight:900;font-stretch:112%%;font-size:76px;letter-spacing:-.035em;line-height:1;color:#fff;white-space:nowrap}
+.v2 .n2-qc .n2-qv.neg{color:#FF6A62}.v2 .n2-qc .n2-qv.pos{color:%(green)s}
+.v2 .n2-qc .n2-ql{font-size:25px;font-weight:700;line-height:1.22;color:rgba(255,255,255,.82);margin-top:10px}
 """
 
 
@@ -280,7 +304,28 @@ def kinds(G):
                 f'<div class="n2-hlogo" style="font-size:32px;top:34px;left:40px"><img src="{G["SYM"]}" style="width:44px;height:44px">Hotcoin</div>{head}{txt}'
                 f'<div class="n2-hft"><div>@hotcoinex</div>{sw}</div></div>')
 
-    return {'nhero': nhero, 'ncover': ncover, 'nbars': nbars, 'nbig': nbig, 'nrows': nrows, 'nphoto': nphoto, 'ngrid': ngrid}
+    def nquote(s, base):  # people-first quote slide (weekly style review W48)
+        # their real words (verified, quoted exactly) in a speech bubble pointing at the face; numbers that check the claim below
+        by = s.get('bubble_top', 640)
+        tx = s.get('tail_x', 430); sk = s.get('tail_skew', -14)
+        size = s.get('size', 78)
+        quote = (f'<div class="n2-qb" style="top:{by}px;--tx:{tx}px;--sk:{sk}deg"><div class="n2-qm">&ldquo;</div>'
+                 f'<div class="n2-qt fitq" data-max="{size}" style="font-size:{size}px">{mark(s["quote"])}</div></div>')
+        who = (f'<div class="n2-qn qname"><div class="n2-qd"></div>{H.escape(s.get("name", ""))}'
+               f'<span class="n2-qr">{H.escape(s.get("role", ""))}</span></div>') if s.get('name') else ''
+        chips = ''
+        for c in s.get('check', [])[:2]:
+            cl = ' neg' if c.get('neg') else (' pos' if c.get('pos') else '')
+            chips += f'<div class="n2-qc"><div class="n2-qv fitn{cl}">{H.escape(c["v"])}</div><div class="n2-ql">{mark(c["l"])}</div></div>'
+        band = (f'<div class="n2-qk"><div class="n2-qkt">{H.escape(s.get("check_title", "WHAT THE DATA SAYS"))}</div>'
+                f'<div class="n2-qkr">{chips}</div></div>') if chips else ''
+        last = s.get('_last')
+        sw = '' if last else '<div>Swipe<span class="n2-ar"></span></div>'
+        return (f'<div class="slide v2 n2-qs"><div class="n2-qph" style="background-image:url({uri(s["photo"], base)});background-position:{s.get("photo_pos", "50% 20%")}"></div>'
+                f'<div class="n2-hlogo" style="font-size:32px;top:34px;left:40px"><img src="{G["SYM"]}" style="width:44px;height:44px">Hotcoin</div>'
+                f'{quote}{who}{band}<div class="n2-hft"><div>@hotcoinex</div>{sw}</div></div>')
+
+    return {'nhero': nhero, 'ncover': ncover, 'nbars': nbars, 'nbig': nbig, 'nrows': nrows, 'nphoto': nphoto, 'ngrid': ngrid, 'nquote': nquote}
 
 
 # Academy / weekly slides keep their layouts but get the v2 fonts when post.json has "style": "v2".
@@ -336,7 +381,7 @@ ACADEMY_JS = """
 }
 """
 
-KINDS_V2 = {"nhero", "ncover", "nbars", "nbig", "nrows", "nphoto", "ngrid"}
+KINDS_V2 = {"nhero", "ncover", "nbars", "nbig", "nrows", "nphoto", "ngrid", "nquote"}
 
 FIT_JS = """
 () => {
@@ -347,6 +392,12 @@ FIT_JS = """
     while ((T.scrollHeight > box.clientHeight || T.scrollWidth > box.clientWidth) && fs > 40) { fs -= 2; T.style.fontSize = fs + 'px'; } }
   for (const n of document.querySelectorAll('.fitn')) { let fs = parseFloat(n.style.fontSize);
     while (n.scrollWidth > n.clientWidth && fs > 80) { fs -= 4; n.style.fontSize = fs + 'px'; } }
+  const q = document.querySelector('.fitq');
+  if (q) { const qb = q.parentElement, band = document.querySelector('.n2-qk'), nm = document.querySelector('.qname');
+    const lim = (band ? band.getBoundingClientRect().top : 1230) - (nm ? 70 : 24);
+    let fs = +q.dataset.max;
+    while (qb.getBoundingClientRect().bottom > lim && fs > 44) { fs -= 2; q.style.fontSize = fs + 'px'; }
+    if (nm) nm.style.top = (qb.getBoundingClientRect().bottom + 22) + 'px'; }
   const rc = document.querySelector('.rowsc'), ar = document.querySelector('.after-rows .n2-lines');
   if (rc && ar) ar.style.top = (rc.getBoundingClientRect().bottom + 44) + 'px';
   let over = false;
@@ -364,7 +415,7 @@ CHECK_JS = """
 () => {
   const sel = ['.n2-hlogo','.n2-badge','.n2-htag','.n2-hhl','.n2-hft','.n2-brand','.n2-chip','.n2-tagc','.n2-ttl','.n2-lines','.n2-sc','.n2-ins','.n2-k','.n2-dp','.n2-n','.n2-lb',
     '.n2-card','.n2-bigc','.n2-pf','.n2-ov','.n2-ft','.n2-bv','.n2-bl','.n2-rl','.n2-rv',
-    '.n2-gl','.n2-gv','.n2-gp','.n2-gh','.n2-gt','.n2-glg',
+    '.n2-gl','.n2-gv','.n2-gp','.n2-gh','.n2-gt','.n2-glg','.n2-qb','.n2-qn','.n2-qk',
     '.tch','.thl','.tsub','.thero','.tnum','.ttl','.tbody','.vis','.foot'].join(',');
   const ok = [['n2-sc','n2-cph'],['n2-ins','n2-cph'],['n2-sc','n2-ins']];  // meant to sit on top of each other
   const els = [...document.querySelectorAll(sel)].filter(e => { const r = e.getBoundingClientRect(), c = getComputedStyle(e);
@@ -379,7 +430,7 @@ CHECK_JS = """
     const w = Math.min(r.right, q.right) - Math.max(r.left, q.left), h = Math.min(r.bottom, q.bottom) - Math.max(r.top, q.top);
     if (w > 4 && h > 4) out.push(`${name(a)} overlaps ${name(b)} (${Math.round(w)}x${Math.round(h)}px)`);
   }
-  for (const e of document.querySelectorAll('.n2-gv,.n2-k,.n2-n,.n2-bv,.n2-rv,.n2-v,.n2-dp,.n2-chip,.n2-tagc'))
+  for (const e of document.querySelectorAll('.n2-qv,.n2-gv,.n2-k,.n2-n,.n2-bv,.n2-rv,.n2-v,.n2-dp,.n2-chip,.n2-tagc'))
     if (e.scrollWidth > e.clientWidth + 2) out.push(`${name(e)} text is cut off ("${e.textContent.trim().slice(0, 30)}")`);
   for (const e of els.filter(e => !['thero', 'n2-ins', 'n2-badge'].includes(name(e)))) {
     const r = e.getBoundingClientRect(); if (r.right > 1082 || r.left < -2) out.push(`${name(e)} runs off the slide edge`); }

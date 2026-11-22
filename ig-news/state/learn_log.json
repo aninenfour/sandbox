@@ -72,5 +72,20 @@
   ],
   "experiment": "one ngrid slide per news/Academy carousel (5/7 Academy, 4/7 news); judge IG reach+saves+shares vs W46 (news ~29, Academy ~21)",
   "last_experiment_result": "DROP story-first WHAT IF hooks: WHAT IF IG avg 76 vs ~110 baseline; object choice mattered, not hook wording"
+ },
+ {
+  "week": "2026-W48",
+  "patterns": [
+   "jokes get shared, data doesn't: rice MEME REACT 6 IG + 12 TikTok shares, Nvidia stat MEME REACT 0, every WHAT IF/carousel 0-1",
+   "WHAT IF fatigue on every channel: TikTok 858>671>153>130>38, IG 322>66-129; FB the exception (Jordans 269)",
+   "famous face lifts carousels on IG + TikTok: CZ 81/789, Nvidia 41/705, Trump Media 50/228 vs 21-27 IG for faceless news"
+  ],
+  "shipped": [
+   "nquote people-first quote slide (news2.py) + PLAYBOOK §4 rotation; before/after research/2026-W48/before_after.jpg",
+   "W48 hook rules: feeling then number (MEME REACT), person in the purchase (WHAT IF), how-to promise (Academy)",
+   "ngrid kept for news, optional for Academy; calendar: results, 6 MEME REACT slots, Dec 14-20"
+  ],
+  "experiment": "nquote on every news post where a person made a claim (target 4/7); judge Nov 30 on IG reach+saves and TikTok photo reach vs W47 news (IG 41, TT 384); keep at +25% reach or 2x saves",
+  "last_experiment_result": "ngrid: KEEP for news (IG avg 41 vs 29, +41%), OPTIONAL for Academy (25.4 vs 21, +21%, under 30% bar); 0 shares either way"
  }
 ]

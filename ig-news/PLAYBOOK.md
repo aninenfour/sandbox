@@ -43,8 +43,8 @@ Every number, date, name and quote must match **two independent sources** (or on
 - Example: `ig-news/posts/_test-robinhood-v2/post.json` (all five layouts).
 - **`ngrid` = visual-first photo grid (W46, owner Nov 14 "visual first, text numbers later").** Full-bleed 2-4 photo cells, each
   `{photo, label, value, sub?, logo?, neg?, photo_pos?}`, plus optional `pill` (+`pill_neg`), `title`, `text` (one line).
-  Example: `ig-news/posts/_test-ngrid/post.json`. **Rotation rule:** every news post and every Academy post uses `ngrid` for
-  exactly ONE content slide when the story has 2-4 comparable numbers (prices then/now, assets side by side, winners vs losers);
+  Example: `ig-news/posts/_test-ngrid/post.json`. **Rotation rule:** every news post (W48 verdict: KEEP, news IG reach +41% vs W46) and, when it fits,
+  an Academy post (W48: optional, Academy only +21%, under the 30% bar) uses `ngrid` for exactly ONE content slide when the story has 2-4 comparable numbers (prices then/now, assets side by side, winners vs losers);
   the other content slides stay on the light layouts (nbars / nbig / nrows / nphoto for news, tslide A/B for Academy), so at
   least 2 carousel layouts are always in rotation. Log it in `layouts` like the others. No ngrid when there is no real photo for
   every cell; never two ngrid slides in a row on the same post.
@@ -53,6 +53,16 @@ Every number, date, name and quote must match **two independent sources** (or on
   top over hair/sky, frame the face low with `photo_pos` like `"50% 0%"`) or `"place": "bottom"` (2-cell / top cells only;
   bottom cells with a `text` line have no room under a face). Pick a loose head-and-shoulders shot, not a tight close-up.
   Check the render: eyes and mouth must stay visible. Objects, coins and screens keep the default centered block.
+- **`nquote` = people-first quote slide (weekly style review W48).** Full-bleed photo of the person who said it, their exact
+  words (verified, quoted word for word, max ~10 words) in a big white speech bubble pointing at the mouth, a name pill
+  ("CZ · Binance founder, on X, Nov 16"), and a dark band "WHAT THE DATA SAYS" with 1-2 numbers that check the claim.
+  Spec: `{kind:"nquote", photo, photo_pos, quote, name, role, check_title?, check:[{v, l, neg?|pos?}], bubble_top? (640), tail_x? (430)}`.
+  Example + before/after: `posts/_test-nquote/post.json`, `research/2026-W48/before_after.jpg`.
+  **Rotation (W48):** when the story is someone's claim, promise, denial or forecast, the news post uses `nquote` instead of
+  `nrows` for the "what he said" slide, next to its `ngrid` slide and one light layout (nbars / nbig / nphoto), so 3 layouts stay
+  in rotation. Use a different photo of the person than the cover (or a looser crop). Face in the top ~45%: move the bubble with
+  `bubble_top` so it never covers the eyes or mouth; point the tail at the mouth with `tail_x`. Never invent or paraphrase a
+  quote inside the bubble: paraphrase goes in the check band, not in quote marks.
 - **No source line on the slides (owner, Oct 29).** Keep `source` in post.json for the log, and put sources in the first comment / caption.
 - **Collision check (owner, Oct 29):** render.py prints `WARNING slide N collision: ...` for overlapping boxes, cut-off text and anything off the slide edge. A post with any warning is not finished: shorten the text or change the layout, re-render, and only schedule when render.py prints no WARNING lines. Still look at the contact sheet yourself.
 Voice: confident, plain English, slightly provocative hook, no hype words ("moon", "huge"), no price predictions, no trading advice.

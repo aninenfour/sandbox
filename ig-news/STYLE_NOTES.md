@@ -50,6 +50,28 @@ Newest rules win over older ones and over PLAYBOOK.md wording where they conflic
 - Academy / news covers keep the face + one number + short question pattern ("Binance hacked for $6B?", "$800K bottom?"),
   answered with past data only.
 
+## WEEKLY LEARNING W48 (Nov 23): people first, the joke gets shared
+- **Our numbers, Nov 15-22.** Shares came only from jokes: rice vs Bitcoin MEME REACT 6 IG + 12 TikTok shares, the team's
+  "Anthropic IPO and GTA 6 on the same day" Reel 5. The Nvidia MEME REACT (a stat, no joke) got 0. WHAT IF Reels got 0-1 shares
+  and faded: TikTok 858 (GTX 1080) > 671 > 153 > 130 > 38; IG 322 > 66-129. Faces won the carousels: CZ news IG 81 / TikTok 789,
+  Trump Media IG 50, Nvidia IG 41 / TikTok 705 vs 21-27 for Zelle, Fed, Kalshi.
+- **New slide kind `nquote` (people-first quote slide).** When the news is what someone said, show the person and their words,
+  then the numbers that check them. Before: a white card with 4 emoji rows ("What CZ blames instead"). After: CZ full-bleed,
+  bubble "No, Binance did not sell crypto.", band "WHAT THE DATA SAYS: 7 days of ETF outflows / $62K Sunday low".
+  Before/after: research/2026-W48/before_after.jpg. PLAYBOOK §4 has the spec and rotation rule.
+- **Hooks for next week (W48 viral check: what the most viewed finance shorts opened with):**
+  1. **A feeling, then the number** (shock statement: "This is actually starting to scare me. $1.3 trillion erased from the
+     Chinese stock market", 636K views, 25 s; shock hooks had the best breakout rate in Virlo's money news sample, 37.5%).
+     MEME REACT title = the joke or feeling in 3-5 spoken words + the numbers.
+     Before: "NVIDIA SALES +103% / NVIDIA STOCK -35%". After: "MADE A RECORD. / STOCK STILL -35%." (bubble: "Why is my NVDA still red?")
+  2. **Put a person in the purchase** (famous face or "you"): "1990 vs 2026 McDonald's prices" (15M, he eats the meal with the
+     receipt), our Musk/Twitter cover. WHAT IF hook = who + what they paid, then the stock.
+     Before: "BACK IN 2016 / AIR JORDAN 11S $220". After: "YOU PAID $220 / FOR JORDANS IN 2016." / "SAME $220 IN NIKE?"
+  3. **"How to" promise in big text on frame 0, no face needed** ("HOW TO: SAVE FOR A $5,000 GOAL", 2.2M, 5 s; "Ranking the
+     best credit cards", 2.3M). Academy cover can promise the skill in plain words.
+     Before: "Crypto fear hit 10 out of 100. Time to buy?". After: "How to read the fear index in 3 numbers".
+  All three: spoken words, no slogans, no em dashes, numbers verified, answered with past data only.
+
 ## Hooks (cover headline + caption first line)
 - **CLEAR FIRST (owner, Oct 28).** A stranger must understand the cover with no other slide: name the thing + the result/number in plain words. Riddles and teasers that hide the answer are banned.
   - Bad: "$1,000 since 2020. Who won?" · "Is this the end?" · "Robinhood just did something wild"
@@ -86,6 +108,7 @@ Examples (before → better):
   Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
 
 ## Changelog
+- 2026-11-23 (weekly learning W48): `nquote` people-first quote slide (news2.py) replaces the white rows card for "what X said" slides; W48 hook rules (feeling then number, a person in the purchase, how-to promise). Before/after: research/2026-W48/before_after.jpg.
 - 2026-11-22 (daily review): WHAT IF reveal (lump mode): the price paid is shown as is (no count-up; Costco showed $1.32 -> $1.50, Jordans $219 -> $220 as if the price moved) and the stock counts from what you paid to what it is worth (Jordans: $220 down to $146 in red, Costco $1.50 up to $290). DCA keeps the old count-up. whatif2.js; after: research/2026-W47/whatif_reveal_count_after.jpg.
 - 2026-11-19 (daily review): MEME REACT stat row: equal columns with a 64 px gap (`"row_gap"`), and memereact.py shrinks the big values to fit their column, all at one size, so two numbers never read as one ("$115.8B -35%" on the Nvidia cover, "-49% +63%" on rice). Before/after: research/2026-W47/memereact_numbers_before_after.jpg.
 - 2026-11-18 (daily review): ngrid cells get `"place": "top"|"bottom"` so the label + number clear a face (the centered block covered SBF's eyes on the Nov 18 Academy grid). PLAYBOOK §4 ngrid. Before/after: research/2026-W47/ngrid_place_before_after.jpg.

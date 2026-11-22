@@ -1,0 +1,49 @@
+{
+ "type": "news",
+ "style": "v2",
+ "date": "NOV 16",
+ "slides": [
+  {
+   "kind": "nquote",
+   "photo": "cz.jpg",
+   "photo_pos": "50% 0%",
+   "quote": "No, Binance did [not sell] crypto.",
+   "name": "CZ",
+   "role": "Binance founder, on X, Nov 16",
+   "check_title": "WHAT THE DATA SAYS",
+   "check": [
+    {
+     "v": "7 days",
+     "l": "in a row of money leaving US Bitcoin ETFs",
+     "neg": true
+    },
+    {
+     "v": "$62K",
+     "l": "Bitcoin's Sunday low, lowest since July",
+     "neg": true
+    }
+   ],
+   "source": "The Block; Cointelegraph (CZ on X); CoinGecko"
+  },
+  {
+   "kind": "nquote",
+   "photo": "waller.jpg",
+   "photo_pos": "50% 12%",
+   "quote": "You might need to, like, [shock people].",
+   "name": "Christopher Waller",
+   "role": "Fed governor, on CNBC",
+   "check_title": "WHAT TRADERS BET",
+   "check": [
+    {
+     "v": "~95%",
+     "l": "odds of a 0.25 point hike on Dec 9"
+    },
+    {
+     "v": "~5%",
+     "l": "odds of the 0.5 point Waller floated"
+    }
+   ],
+   "source": "Decrypt (Nov 18), CME FedWatch"
+  }
+ ]
+}
