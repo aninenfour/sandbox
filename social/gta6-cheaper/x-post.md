@@ -4,7 +4,7 @@ Slides: out/gta6-01.png to gta6-10.png (1080x1350 @2x). X shows max 4 images: po
 Numbers = last price before launch vs lowest price since launch (stocks Nov 18 close vs Nov 19 to 20 intraday low; crypto Nov 19 00:00 UTC vs lowest hourly low through Nov 22).
 
 ## X
-GTA VI is out. The market crashed.
+The market situation since GTA VI is out 👇
 
 Lowest price since launch:
 $NVDA −17.5%
@@ -15,12 +15,12 @@ $SOL −11.9%
 $TSLA −10.3%
 Gold −6.4%
 
-GTA VI took 13 years. Your next trade takes seconds 🎮
+Your entry point is here: hotcoin.com 🎮
 
 Not financial advice.
 
 ## Instagram
-GTA VI dropped on Nov 19. So did the market 📉
+The market situation since GTA VI is out 📉
 
 Lowest price since launch, vs the day before:
 Nvidia −17.5% · Dogecoin −13.6% · Ether −13.5% · Bitcoin −12.6% · Solana −11.9% · Tesla −10.3% · Gold −6.4% · Take-Two −7.7%

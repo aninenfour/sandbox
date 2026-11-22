@@ -61,26 +61,37 @@ body{width:1080px;height:1350px;overflow:hidden;position:relative;background:#07
 .logo{position:absolute;left:64px;top:60px;height:40px}.pg{position:absolute;right:64px;top:68px;font-size:20px;color:rgba(255,255,255,.75)}
 .kick{position:absolute;left:64px;top:160px;display:flex;align-items:center;gap:16px;font-size:24px;font-weight:700}
 .kick img{width:44px;height:44px}
-.since{position:absolute;left:64px;top:218px;display:flex;align-items:center;gap:20px;font-size:58px;letter-spacing:-1px}
+.since{position:absolute;left:64px;top:218px;display:flex;align-items:center;gap:20px}
 .since .gta{height:110px}
-.big{position:absolute;left:52px;top:330px;font-size:280px;line-height:.9;letter-spacing:-12px}
+.big{position:absolute;left:52px;top:330px;line-height:.9}
 .prices{position:absolute;left:64px;right:64px;top:640px;display:flex;gap:0}
 .prices>div{flex:1}.prices>div+div{padding-left:44px;border-left:2px solid rgba(255,255,255,.22)}
 .prices .lb{font-size:20px;color:rgba(255,255,255,.72)}.prices .v{font-size:58px;font-weight:800;letter-spacing:-1.5px;margin-top:6px}
 .chart{position:absolute;left:64px;top:880px}`;
-const FONTS = `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=block">`;
+// Display font options: node carousel.mjs <bricolage|inter|anton|unbounded> [preview]
+const FONT_OPTS = {
+  bricolage: {css: "font-family:'Bricolage Grotesque';font-variation-settings:'opsz' 96,'wdth' 78;font-weight:800", h: 1, ls: 1},
+  inter: {css: "font-family:'Inter Tight';font-weight:800", h: 0.8, ls: 0.8},
+  anton: {css: "font-family:'Anton';font-weight:400;text-transform:none", h: 0.94, ls: 0.25},
+  unbounded: {css: "font-family:'Unbounded';font-weight:800", h: 0.6, ls: 0.45},
+};
+const FNAME = process.argv[2] || 'bricolage', PREVIEW = process.argv[3] === 'preview', F = FONT_OPTS[FNAME];
+const FONTS = `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Inter+Tight:wght@500;600;700;800;900&family=Anton&family=Unbounded:wght@700;800&family=JetBrains+Mono:wght@500;700&display=block">`;
+const FCSS = `.bri{${F.css}}:root{--h:${F.h};--ls:${F.ls}}
+.since{font-size:calc(58px*var(--h));letter-spacing:calc(-1px*var(--ls))}
+.big{font-size:calc(280px*var(--h));letter-spacing:calc(-12px*var(--ls))}`;
 const frame = (n, body) => `${body}<img class="logo" src="${BR}logo-official-white.png"><div class="pg mono">${String(n).padStart(2, '0')} / 10</div>`;
 const bg = (f, flip, pos = 'center') => `<img class="ph" src="${A}${f}" style="object-position:${pos};${flip ? 'transform:scaleX(-1)' : ''}"><div class="scr"></div>`;
 
 const slides = [];
-// 1 cover: no numbers (no spoilers), just the hook and a teaser line (S&P 500 hourly path, unlabelled values)
+// 1 cover: no numbers (no spoilers). Teaser line = S&P 500 hourly path, values unlabelled.
 slides.push(frame(1, `${bg('bg-0.jpg')}
- <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,10,.92) 0%,rgba(7,9,10,.7) 50%,rgba(7,9,10,.35) 66%,rgba(7,9,10,.85) 100%)"></div>
- <div class="mono" style="position:absolute;left:64px;top:160px;font-size:24px;font-weight:700;color:${RED}">Nov 19, 2026</div>
- <div style="position:absolute;left:64px;top:222px;display:flex;align-items:flex-end;gap:34px"><img src="${A}gta6-logo.png" style="height:300px"><div class="bri" style="font-size:176px;line-height:.82;letter-spacing:-6px;padding-bottom:6px">is<br>out.</div></div>
- <div class="bri" style="position:absolute;left:64px;top:575px;width:960px;font-size:150px;line-height:.86;letter-spacing:-5px;color:${RED}">The market<br>crashed.</div>
- <div class="chart" style="top:940px">${chart('SPX', 952, 230, RED)}</div>
- <div class="mono" style="position:absolute;right:64px;bottom:70px;font-size:22px;font-weight:700">How hard? Swipe →</div>`));
+ <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,10,.92) 0%,rgba(7,9,10,.75) 52%,rgba(7,9,10,.35) 68%,rgba(7,9,10,.85) 100%)"></div>
+ <div class="mono" style="position:absolute;left:64px;top:160px;font-size:24px;font-weight:700;color:${RED}">Nov 19 to 22, 2026</div>
+ <div class="bri" style="position:absolute;left:64px;top:214px;width:960px;font-size:calc(132px*var(--h));line-height:.88;letter-spacing:calc(-4px*var(--ls))">The market situation since</div>
+ <div style="position:absolute;left:64px;top:500px;display:flex;align-items:flex-end;gap:34px"><img src="${A}gta6-logo.png" style="height:270px"><div class="bri" style="font-size:calc(170px*var(--h));line-height:.84;letter-spacing:calc(-6px*var(--ls));padding-bottom:8px;color:${RED}">is<br>out.</div></div>
+ <div class="chart" style="top:930px">${chart('SPX', 952, 230, RED)}</div>
+ <div class="mono" style="position:absolute;right:64px;bottom:70px;font-size:22px;font-weight:700">Swipe →</div>`));
 // 2 to 9 items
 ITEMS.forEach((it, i) => {
   const p = pct(it.k);
@@ -91,22 +102,22 @@ ITEMS.forEach((it, i) => {
    <div class="prices"><div><div class="lb mono">Before launch</div><div class="v">${it.b}</div></div><div><div class="lb mono">Lowest · ${it.when}</div><div class="v" style="color:${RED}">${it.l}</div></div></div>
    <div class="chart">${chart(it.k, 952, 300, RED)}</div>`));
 });
-// 10 CTA (GTA V came out Sep 17, 2013; GTA VI Nov 19, 2026: 13 years)
+// 10 CTA
 slides.push(frame(10, `${bg('bg-4.jpg', true)}
- <div class="mono" style="position:absolute;left:64px;top:160px;font-size:24px;font-weight:700;color:#b8f26a">2013 → 2026</div>
- <div style="position:absolute;left:64px;top:222px;display:flex;align-items:flex-end;gap:30px"><img src="${A}gta6-logo.png" style="height:230px"><div class="bri" style="font-size:120px;line-height:.86;letter-spacing:-4px;padding-bottom:4px">took<br>13 years.</div></div>
- <div class="bri" style="position:absolute;left:64px;top:520px;width:960px;font-size:120px;line-height:.88;letter-spacing:-4px">Your next trade<br>takes <span style="color:#b8f26a">seconds.</span></div>
+ <div class="bri" style="position:absolute;left:64px;top:200px;width:960px;font-size:calc(176px*var(--h));line-height:.86;letter-spacing:calc(-6px*var(--ls))">Your entry point is <span style="color:#b8f26a">here.</span></div>
  <div style="position:absolute;left:64px;right:64px;bottom:72px;display:flex;align-items:center;justify-content:space-between">
   <div style="font-size:32px;font-weight:700;line-height:1.2">Crypto and U.S. stocks<br><span style="color:rgba(255,255,255,.7)">in one app.</span></div>
   <div style="background:#b8f26a;color:#0b0e11;font-weight:800;font-size:38px;padding:24px 46px;border-radius:99px">hotcoin.com</div></div>`));
 
 const b = await chromium.launch({args: ['--allow-file-access-from-files']});
-const pg = await b.newPage({viewport: {width: 1080, height: 1350}, deviceScaleFactor: 2});
+const pg = await b.newPage({viewport: {width: 1080, height: 1350}, deviceScaleFactor: PREVIEW ? 1 : 2});
 fs.mkdirSync(DIR + 'out', {recursive: true});
 for (const [i, body] of slides.entries()) {
+  if (PREVIEW && ![0, 2, 9].includes(i)) continue;
   const f = DIR + `_c-${process.pid}.html`;
-  fs.writeFileSync(f, `<!doctype html><html><head><meta charset="utf-8">${FONTS}<style>${CSS}</style></head><body>${body}</body></html>`);
+  fs.writeFileSync(f, `<!doctype html><html><head><meta charset="utf-8">${FONTS}<style>${CSS}${FCSS}</style></head><body>${body}</body></html>`);
   await pg.goto('file://' + f); await pg.evaluate(() => document.fonts.ready); await pg.waitForTimeout(350);
-  await pg.screenshot({path: DIR + `out/gta6-${String(i + 1).padStart(2, '0')}.png`}); fs.unlinkSync(f);
+  const n = String(i + 1).padStart(2, '0');
+  await pg.screenshot({path: DIR + (PREVIEW ? `out/font-${FNAME}-${n}.png` : `out/gta6-${n}.png`)}); fs.unlinkSync(f);
 }
-await b.close(); console.log('ok', slides.length);
+await b.close(); console.log('ok', FNAME, PREVIEW ? 'preview' : 'full');
