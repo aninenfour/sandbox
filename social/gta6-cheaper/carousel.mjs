@@ -73,15 +73,14 @@ const frame = (n, body) => `${body}<img class="logo" src="${BR}logo-official-whi
 const bg = (f, flip, pos = 'center') => `<img class="ph" src="${A}${f}" style="object-position:${pos};${flip ? 'transform:scaleX(-1)' : ''}"><div class="scr"></div>`;
 
 const slides = [];
-// 1 cover
-const top4 = ['NVDA', 'DOGE', 'ETH', 'BTC'];
+// 1 cover: no numbers (no spoilers), just the hook and a teaser line (S&P 500 hourly path, unlabelled values)
 slides.push(frame(1, `${bg('bg-0.jpg')}
- <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,10,.9) 0%,rgba(7,9,10,.55) 45%,rgba(7,9,10,.2) 62%,rgba(7,9,10,.92) 100%)"></div>
+ <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,10,.92) 0%,rgba(7,9,10,.7) 50%,rgba(7,9,10,.35) 66%,rgba(7,9,10,.85) 100%)"></div>
  <div class="mono" style="position:absolute;left:64px;top:160px;font-size:24px;font-weight:700;color:${RED}">Nov 19, 2026</div>
  <div style="position:absolute;left:64px;top:222px;display:flex;align-items:flex-end;gap:34px"><img src="${A}gta6-logo.png" style="height:300px"><div class="bri" style="font-size:176px;line-height:.82;letter-spacing:-6px;padding-bottom:6px">is<br>out.</div></div>
- <div class="bri" style="position:absolute;left:64px;top:580px;width:960px;font-size:84px;line-height:.94;letter-spacing:-2.5px">Almost everything else<br><span style="color:${RED}">went on sale.</span></div>
- <div class="mono" style="position:absolute;left:64px;bottom:200px;font-size:19px;color:rgba(255,255,255,.75)">Lowest price since launch</div>
- <div style="position:absolute;left:64px;right:64px;bottom:72px;display:flex;justify-content:space-between">${top4.map((k) => `<div><div class="mono" style="font-size:20px;color:rgba(255,255,255,.8)">${k}</div><div class="bri" style="font-size:72px;color:${RED};letter-spacing:-2px">${fmt(pct(k))}</div></div>`).join('')}</div>`));
+ <div class="bri" style="position:absolute;left:64px;top:575px;width:960px;font-size:150px;line-height:.86;letter-spacing:-5px;color:${RED}">The market<br>crashed.</div>
+ <div class="chart" style="top:940px">${chart('SPX', 952, 230, RED)}</div>
+ <div class="mono" style="position:absolute;right:64px;bottom:70px;font-size:22px;font-weight:700">How hard? Swipe →</div>`));
 // 2 to 9 items
 ITEMS.forEach((it, i) => {
   const p = pct(it.k);
@@ -92,15 +91,13 @@ ITEMS.forEach((it, i) => {
    <div class="prices"><div><div class="lb mono">Before launch</div><div class="v">${it.b}</div></div><div><div class="lb mono">Lowest · ${it.when}</div><div class="v" style="color:${RED}">${it.l}</div></div></div>
    <div class="chart">${chart(it.k, 952, 300, RED)}</div>`));
 });
-// 10 Sony + CTA
+// 10 CTA (GTA V came out Sep 17, 2013; GTA VI Nov 19, 2026: 13 years)
 slides.push(frame(10, `${bg('bg-4.jpg', true)}
- <div class="kick mono" style="color:${GREEN}">Sony · NYSE: SONY</div>
- <div class="since bri">Not on sale since ${GTA}</div>
- <div class="big bri" style="color:${GREEN}">${fmt(pct('SONY'))}</div>
- <div class="prices"><div><div class="lb mono">Before launch</div><div class="v">$26.67</div></div><div><div class="lb mono">Lowest since</div><div class="v" style="color:${GREEN}">$26.95</div></div></div>
- <div class="bri" style="position:absolute;left:64px;top:900px;width:950px;font-size:76px;line-height:.95;letter-spacing:-2px">The PlayStation maker never dipped below its launch-eve price.</div>
+ <div class="mono" style="position:absolute;left:64px;top:160px;font-size:24px;font-weight:700;color:#b8f26a">2013 → 2026</div>
+ <div style="position:absolute;left:64px;top:222px;display:flex;align-items:flex-end;gap:30px"><img src="${A}gta6-logo.png" style="height:230px"><div class="bri" style="font-size:120px;line-height:.86;letter-spacing:-4px;padding-bottom:4px">took<br>13 years.</div></div>
+ <div class="bri" style="position:absolute;left:64px;top:520px;width:960px;font-size:120px;line-height:.88;letter-spacing:-4px">Your next trade<br>takes <span style="color:#b8f26a">seconds.</span></div>
  <div style="position:absolute;left:64px;right:64px;bottom:72px;display:flex;align-items:center;justify-content:space-between">
-  <div style="font-size:32px;font-weight:700;line-height:1.2">Trade crypto and U.S. stocks<br><span style="color:rgba(255,255,255,.7)">in one app.</span></div>
+  <div style="font-size:32px;font-weight:700;line-height:1.2">Crypto and U.S. stocks<br><span style="color:rgba(255,255,255,.7)">in one app.</span></div>
   <div style="background:#b8f26a;color:#0b0e11;font-weight:800;font-size:38px;padding:24px 46px;border-radius:99px">hotcoin.com</div></div>`));
 
 const b = await chromium.launch({args: ['--allow-file-access-from-files']});
