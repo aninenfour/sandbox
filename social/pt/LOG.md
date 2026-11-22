@@ -54,6 +54,7 @@
 | 22/11 | 11:47 | Agenda (new layout) | Prazos da semana: feriado EUA 26/11, P2P/Earn 28/11, Ronaldinho 29/11, Spot #24 30/11 | scheduled |
 | 22/11 | 13:52 | Placar do dia | $PIEVERSE +25,2% x $BTC +1,1% (24h até 12:08), bicampeão | scheduled |
 | 22/11 | 16:41 | Learn do dia | Futuros: tamanho de posição pelo risco (pt_PT link in reply) | scheduled |
+| 22/11 | 21:13 | Text | domingo 21h: dieta, academia e stop loss | scheduled |
 
 ## Queued ideas (not scheduled yet)
 - Thu 19/11: Earn prazo fixo exclusivo launch (key visual from official banner, cut done), Wall Street Earnings last day (ends 12:59), Futures loss protection last call evening (ends 20/11 07:00).
@@ -89,3 +90,4 @@
 - 21/11 16:13 check 3: no new announcements. Nothing closes tonight or before 08:00 Sun (next close: P2P Sprint 28/11 07:00, Earn exclusive 28/11 08:00, Ronaldinho 29/11 04:00, Spot #24 30/11 12:59, TradFi Carnival 04/12 12:59). Meme 16:48 queued. Sun: GM + Agenda da semana (events closing next week) + Learn (Advanced futures orders).
 - 22/11 07:45 check 1: no new announcements. Team has nothing queued on PT. Agenda in a new vertical 'deadlines' layout (not last week's grid). No meme (had one 21/11; next 23/11). Placar at check 2.
 - 22/11 12:08 check 2: no new announcements. Placar PIEVERSE again (2nd day top gainer; CoinGecko 3.71, +26.1%), framed as bicampeão, 13:52.
+- 22/11 16:14 check 3: no new announcements. Nothing closes tonight or before 08:00 Mon. Added Sunday-night text 21:13. Mon 23/11 = weekly full review at check 1 (+ meme day, real template).
