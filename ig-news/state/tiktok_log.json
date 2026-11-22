@@ -428,8 +428,9 @@
   "format": "photo",
   "topic": "What's on this week Nov 23-29",
   "hook": "5 days, 1 big number: US inflation (PCE) drops Wed 21:30 UTC+8",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7710949498616319253"
  },
  {
   "id": "2026-11-22-whatif-musk-twitter-btc",
@@ -437,8 +438,9 @@
   "format": "video",
   "topic": "WHAT IF: Musk's $44B Twitter vs Bitcoin",
   "hook": "Musk paid $44B for Twitter. Same $44B in Bitcoin is about $128B now",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7710987698047061256"
  },
  {
   "id": "2026-11-23-academy-thanksgiving-week",
@@ -448,5 +450,14 @@
   "hook": "Stocks rose in Thanksgiving week 53 of the last 76 years",
   "status": "scheduled",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-23-trump-coin-dinner",
+  "slot": "2026-11-23T10:02:00+08:00",
+  "format": "photo",
+  "topic": "News: Trump coin dinner, $518 seat",
+  "hook": "One guest got into Trump's coin dinner with $518. Last time it took $55,000",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]

@@ -2122,7 +2122,7 @@
   "type": "weekly",
   "slot": "2026-11-22T19:00:00+08:00",
   "title": "What's on this week Nov 23-29: PCE + GDP Wed, Kalshi hearing, Thanksgiving, Black Friday",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig",
    "fb",
@@ -2136,14 +2136,15 @@
    "Newsquawk / Kiplinger weekly calendar (via search): GDP, PCE, claims Wed Nov 25; PMI Mon; consumer confidence Tue; Beige Book Wed 2 pm ET; early close Fri",
    "Kalshi hearing: The Block Nov 21 (Mon 11:30 a.m. ET, Justice Melissa Crane) + Reuters Nov 20 (state judge hears request Monday)"
   ],
-  "note": "PLAYBOOK §7 format (wcover + 5 wday + end CTA on IG/FB; TikTok and X without the CTA). Earnings (Dell, Workday, Zoom, HP etc.) left out: only one source confirmed the dates. MON unlock Nov 24 unconfirmed, left out. No Hotcoin listings found for the week."
+  "note": "PLAYBOOK §7 format (wcover + 5 wday + end CTA on IG/FB; TikTok and X without the CTA). Earnings (Dell, Workday, Zoom, HP etc.) left out: only one source confirmed the dates. MON unlock Nov 24 unconfirmed, left out. No Hotcoin listings found for the week.",
+  "ig_url": "https://www.instagram.com/p/DgCpjCZJRd1/"
  },
  {
   "id": "2026-11-22-whatif-musk-twitter-btc",
   "type": "reel-whatif-v2",
   "slot": "2026-11-22T21:30:00+08:00",
   "title": "Musk paid $44B for Twitter (Oct 27 2022) vs $44B in Bitcoin: ~$128B now (2.9x; low $34B FTX, top $271B Oct 2025)",
-  "status": "scheduled",
+  "status": "published",
   "music": "Never Going Broke (Arulo, Mixkit) #301",
   "platforms": [
    "ig_reel",
@@ -2158,7 +2159,8 @@
    "BTC Nov 22 2026 ~15:45 UTC+8: Coinbase $58,905, Yahoo $58,911, CoinGecko $58,965 (used $58,900)"
   ],
   "note": "Fresh angle: famous person + argued-about moment (faces). New whatif2.js options: unit 'B' (money in billions) and cover_face (face fills the top half, eyes ~y 350 so 4:5/3:4 crops keep them; cover text under the chin). Photo look, lump, 38.4 s, thumbnail fill 60%. Musk photo Royal Society portrait (Duncan.Hull, CC BY-SA 4.0), BTC coin on gold (Kanchanara/Unsplash rhm7H8X5J98, not the coin used Nov 17/19). Media commit 37f7a41. Publer covers confirmed = frame 0 (IG, FB, TikTok, X 4:5).",
-  "doc_row": true
+  "doc_row": true,
+  "ig_url": "https://www.instagram.com/reel/DgC6rgpDpiP/"
  },
  {
   "id": "2026-11-23-academy-thanksgiving-week",
@@ -2187,5 +2189,36 @@
   ],
   "note": "Exactly 4 slides, no CTA. Variant a (Nov 21 was b). ngrid 2x2 (2025/2024/2021/2018), 2018 cell face with place bottom, no text line. Media commit 37f7a41.",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-23-trump-coin-dinner",
+  "type": "news",
+  "slot": "2026-11-23T10:00:00+08:00",
+  "title": "Trump coin dinner: one guest got in with $518 (May 2025 dinner needed $55,000); TRUMP $0.89, -98.8% from $73.43; 5,000+ eligible holders never signed up",
+  "score": 11,
+  "status": "scheduled",
+  "layouts": [
+   "nhero",
+   "ngrid",
+   "nbars",
+   "nbig"
+  ],
+  "ngrid_used": true,
+  "nquote_used": false,
+  "nquote_note": "W48 experiment: not used. No person's claim in the story could be verified word for word in 2 sources (White House spokesman Davis Ingle line only via The Block/Bloomberg; Schiff Oct letter wording not found). Trump has not posted about the dinner/coin this year.",
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(10:02, tt/01-04)",
+   "ig_story(10:05)",
+   "x_research(11:00, 01-04)"
+  ],
+  "sources": [
+   "The Block, Nov 22 2026: Trump hosts second memecoin dinner Sunday Nov 22 at Trump National Golf Club, Northern Virginia; promoter Fight Fight Fight invited top 185 holders (avg holdings Sep 30-Nov 16); WaPo: holder No. 179 qualified with $518 bought in Oct-Nov; first dinner required at least $55,000; 5,000+ eligible holders never registered despite 4-day extension; TRUMP $0.8950 Sunday, -98.8% from ATH $73.43 (Jan 2025); May 2025 dinner hosted top 220",
+   "Anchorage Daily News (Washington Post), Nov 18 2026: top 185 registered holders invited, dinner Sunday Nov 22 at Trump's Northern Virginia golf club; one buyer got an invite with about $518; first gala needed at least $55,000; 5,000+ could have got an invite by filling in a form",
+   "CoinGecko official-trump, Nov 22 2026 23:41 UTC: $0.886, ATH $73.43 on Jan 19 2025, -98.8%"
+  ],
+  "note": "Score 11 (hook 3, relevance 2, fresh 3, visual 3). Skipped: Chainflip $12M hack (no face), Fusionist bridge exploit, BTC rebound (price recap), Ledger tampered devices (no new numbers), Kalshi NY (no ruling yet). Cover = Trump official portrait (same as Nov 20 Trump Media; Commons rate-limited 429 for a new one). Media commit 399d862.",
+  "doc_row": false
  }
 ]
