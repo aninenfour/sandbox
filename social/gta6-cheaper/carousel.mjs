@@ -74,9 +74,13 @@ const FONT_OPTS = {
   inter: {css: "font-family:'Inter Tight';font-weight:800", h: 0.8, ls: 0.8},
   anton: {css: "font-family:'Anton';font-weight:400;text-transform:none", h: 0.94, ls: 0.25},
   unbounded: {css: "font-family:'Unbounded';font-weight:800", h: 0.6, ls: 0.45},
+  // thin options (exchange-app look: light weight, big, tight)
+  interthin: {css: "font-family:'Inter Tight';font-weight:200", h: 0.84, ls: 0.6},
+  geist: {css: "font-family:'Geist';font-weight:200", h: 0.8, ls: 0.6},
+  manrope: {css: "font-family:'Manrope';font-weight:200", h: 0.78, ls: 0.55},
 };
 const FNAME = process.argv[2] || 'bricolage', PREVIEW = process.argv[3] === 'preview', F = FONT_OPTS[FNAME];
-const FONTS = `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Inter+Tight:wght@500;600;700;800;900&family=Anton&family=Unbounded:wght@700;800&family=JetBrains+Mono:wght@500;700&display=block">`;
+const FONTS = `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Inter+Tight:wght@200;300;500;600;700;800;900&family=Geist:wght@200;300&family=Manrope:wght@200;300&family=Anton&family=Unbounded:wght@700;800&family=JetBrains+Mono:wght@500;700&display=block">`;
 const FCSS = `.bri{${F.css}}:root{--h:${F.h};--ls:${F.ls}}
 .since{font-size:calc(58px*var(--h));letter-spacing:calc(-1px*var(--ls))}
 .big{font-size:calc(280px*var(--h));letter-spacing:calc(-12px*var(--ls))}`;
