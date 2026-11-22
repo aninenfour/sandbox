@@ -50,6 +50,10 @@
 | 21/11 | 13:27 | Placar do dia | $PIEVERSE +14,2% x $BTC −1,8% (24h até 12:09) | scheduled |
 | 21/11 | 16:48 | Meme (real template) | This is fine: BTC a US$ 60 mil, medo em 12 | scheduled |
 
+| 22/11 | 09:16 | GM | Olinda: linha sobre os telhados até a torre da Igreja do Carmo | scheduled |
+| 22/11 | 11:47 | Agenda (new layout) | Prazos da semana: feriado EUA 26/11, P2P/Earn 28/11, Ronaldinho 29/11, Spot #24 30/11 | scheduled |
+| 22/11 | 16:41 | Learn do dia | Futuros: tamanho de posição pelo risco (pt_PT link in reply) | scheduled |
+
 ## Queued ideas (not scheduled yet)
 - Thu 19/11: Earn prazo fixo exclusivo launch (key visual from official banner, cut done), Wall Street Earnings last day (ends 12:59), Futures loss protection last call evening (ends 20/11 07:00).
 - Spot #24 midterm ~24/11, P2P Sprint midterm ~22/11; last calls 27/11 evening (P2P) and 29-30/11 (Spot).
@@ -82,3 +86,4 @@
 - 20/11 check 2, check 3 and 21/11 check 1 MISSED (session worker restarted; triggers arrived late, read 21/11 12:08). All 20/11 posts published. No GM on 21/11 (too late for morning light).
 - 21/11 12:09 check 2: no new announcements. Placar PIEVERSE verified (CoinGecko pieverse 2.95, +14.0%; SOXSB skipped, leveraged ETF). Meme real template 'This is fine' 16:48. Owner said YES to deleting the duplicate 18/11 Nvidia text post, but Publer cannot delete it (published X posts carry no id in Publer): needs manual delete on X: https://x.com/1895401255163576320/status/2123070615334637974
 - 21/11 16:13 check 3: no new announcements. Nothing closes tonight or before 08:00 Sun (next close: P2P Sprint 28/11 07:00, Earn exclusive 28/11 08:00, Ronaldinho 29/11 04:00, Spot #24 30/11 12:59, TradFi Carnival 04/12 12:59). Meme 16:48 queued. Sun: GM + Agenda da semana (events closing next week) + Learn (Advanced futures orders).
+- 22/11 07:45 check 1: no new announcements. Team has nothing queued on PT. Agenda in a new vertical 'deadlines' layout (not last week's grid). No meme (had one 21/11; next 23/11). Placar at check 2.
