@@ -1,0 +1,86 @@
+{
+ "type": "news",
+ "style": "v2",
+ "date": "NOV 23",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "trump_portrait.jpg",
+   "photo_pos": "50% 20%",
+   "tag": "TRENDING",
+   "headline": "Trump coin dinner: one guest got in with [$518]"
+  },
+  {
+   "kind": "ngrid",
+   "title": "The price of a seat",
+   "text": "Seats go to the biggest holders. Cheaper coin, cheaper seat.",
+   "pill": "-99%",
+   "pill_neg": true,
+   "cells": [
+    {
+     "photo": "club.jpg",
+     "photo_pos": "50% 50%",
+     "label": "Dinner 1, May 2025: needed",
+     "value": "$55,000"
+    },
+    {
+     "photo": "entrance.jpg",
+     "photo_pos": "50% 60%",
+     "label": "Dinner 2, Nov 22: one guest got in with",
+     "value": "$518",
+     "neg": true
+    }
+   ],
+   "source": "The Block Nov 22; Washington Post via ADN Nov 18"
+  },
+  {
+   "kind": "nbars",
+   "tag": "BY THE NUMBERS",
+   "title": "TRUMP coin: peak vs now",
+   "bars": [
+    {
+     "l": "Peak, Jan 19 2025",
+     "v": 73.43,
+     "txt": "$73.43"
+    },
+    {
+     "l": "Nov 22, 2026",
+     "v": 0.89,
+     "txt": "$0.89",
+     "hi": true
+    }
+   ],
+   "text": [
+    "Down {98.8%} from the top.",
+    "The peak came [2 days after launch], in January 2025."
+   ],
+   "source": "The Block Nov 22; CoinGecko Nov 22"
+  },
+  {
+   "kind": "nbig",
+   "tag": "THE CATCH",
+   "title": "Free seats nobody took",
+   "kicker": "COULD GO, NEVER SIGNED UP",
+   "big": "5,000+",
+   "neg": true,
+   "label": "Getting a seat took [one form]",
+   "text": [
+    "185 seats were on offer this time, down from 220 in May 2025."
+   ],
+   "source": "The Block Nov 22; Washington Post via ADN Nov 18"
+  },
+  {
+   "kind": "end"
+  }
+ ],
+ "sources": [
+  "The Block, Nov 22 2026: Trump hosts second memecoin dinner Sunday Nov 22 at Trump National Golf Club, Northern Virginia; promoter Fight Fight Fight invited top 185 holders (avg holdings Sep 30-Nov 16); WaPo: holder No. 179 qualified with $518 bought in Oct-Nov; first dinner required at least $55,000; 5,000+ eligible holders never registered despite 4-day extension; TRUMP $0.8950 Sunday, -98.8% from ATH $73.43 (Jan 2025); May 2025 dinner hosted top 220",
+  "Anchorage Daily News (Washington Post), Nov 18 2026: top 185 registered holders invited, dinner Sunday Nov 22 at Trump's Northern Virginia golf club; one buyer got an invite with about $518; first gala needed at least $55,000; 5,000+ could have got an invite by filling in a form",
+  "CoinGecko official-trump, Nov 22 2026 23:41 UTC: $0.886, ATH $73.43 on Jan 19 2025, -98.8%"
+ ],
+ "photo_credits": [
+  "Donald Trump: Daniel Torok, The White House / Wikimedia Commons (public domain)",
+  "Trump National Golf Club, aerial: Wikimedia Commons (TrumpNGC.jpg)",
+  "Trump National Golf Club entrance: Wikimedia Commons (TrumpGolfDCentrance.jpg)"
+ ]
+}
