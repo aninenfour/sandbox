@@ -380,3 +380,4 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - PT meme 19/11 (IPVA): Stefan Szankowski, Unsplash XCUEhjswddI, Unsplash License, anonymous back view, mono.
 - PT GM 20/11 (Ponte Hercílio Luz, Florianópolis): Jucélio Silva, Unsplash ozqrMP0y-zE, Unsplash License. Mono + grain, lime line along the suspension chain.
 - PT meme 21/11: 'This is fine' template (KC Green, via imgflip), real meme template per owner rule 15/11, re-captioned.
+- PT GM 22/11 (Olinda, Igreja do Carmo): Edson Junior, Unsplash Mt1JYSpY35g, Unsplash License. Mono + grain, lime line over the roofs to the tower.
