@@ -418,8 +418,9 @@
   "format": "photo",
   "topic": "News: Kalshi vs New York",
   "hook": "New York wants $36B from Kalshi and a court hears it Monday",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7710810347896048917"
  },
  {
   "id": "2026-11-22-weekly-nov23",
@@ -429,5 +430,23 @@
   "hook": "5 days, 1 big number: US inflation (PCE) drops Wed 21:30 UTC+8",
   "status": "scheduled",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-22-whatif-musk-twitter-btc",
+  "slot": "2026-11-22T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Musk's $44B Twitter vs Bitcoin",
+  "hook": "Musk paid $44B for Twitter. Same $44B in Bitcoin is about $128B now",
+  "status": "scheduled",
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-23-academy-thanksgiving-week",
+  "slot": "2026-11-23T19:02:00+08:00",
+  "format": "photo",
+  "topic": "Academy: S&P 500 in Thanksgiving week",
+  "hook": "Stocks rose in Thanksgiving week 53 of the last 76 years",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]

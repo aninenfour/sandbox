@@ -2095,7 +2095,7 @@
   "slot": "2026-11-22T10:00:00+08:00",
   "title": "Kalshi says New York could shut it down everywhere (NY AG TRO hearing Mon Nov 23 11:30 ET; CFTC bid denied Nov 20; appeals courts 3-1 for states; $36B damages sought)",
   "score": 11,
-  "status": "scheduled",
+  "status": "published",
   "layouts": [
    "nhero",
    "nphoto",
@@ -2114,7 +2114,8 @@
    "Reuters via Investing.com, Nov 20 2026: Schofield rejected CFTC emergency bid, CFTC 'not established a likelihood of success on the merits'; three federal appeals courts say states can regulate Kalshi, a fourth said New Jersey could not, making Supreme Court review more likely; case returned to state court the day before; state judge to hear James's request Monday",
    "The Block, Jul 31 2026 + Wealth Professional / Al Jazeera Jul 31: New York sued Kalshi, seeking $36 billion in damages; Kalshi called it 'political theater'"
   ],
-  "note": "Score 11/12 (hook 3, relevance 2, fresh 3, visual 3). Beat: BTC back above $60K after $1.8B liquidations (price recap, Hotcoin X already ran the BTC-cheap post), Chainflip $4.86M drain (small), Nvidia -48% (Nvidia covered Nov 18). Cover face Letitia James (no free Tarek Mansour photo); no Kalshi logo badge (no clean logo file). Render: no warnings."
+  "note": "Score 11/12 (hook 3, relevance 2, fresh 3, visual 3). Beat: BTC back above $60K after $1.8B liquidations (price recap, Hotcoin X already ran the BTC-cheap post), Chainflip $4.86M drain (small), Nvidia -48% (Nvidia covered Nov 18). Cover face Letitia James (no free Tarek Mansour photo); no Kalshi logo badge (no clean logo file). Render: no warnings.",
+  "ig_url": "https://www.instagram.com/p/DgBruNWiPEI/"
  },
  {
   "id": "2026-11-22-weekly-nov23",
@@ -2136,5 +2137,55 @@
    "Kalshi hearing: The Block Nov 21 (Mon 11:30 a.m. ET, Justice Melissa Crane) + Reuters Nov 20 (state judge hears request Monday)"
   ],
   "note": "PLAYBOOK §7 format (wcover + 5 wday + end CTA on IG/FB; TikTok and X without the CTA). Earnings (Dell, Workday, Zoom, HP etc.) left out: only one source confirmed the dates. MON unlock Nov 24 unconfirmed, left out. No Hotcoin listings found for the week."
+ },
+ {
+  "id": "2026-11-22-whatif-musk-twitter-btc",
+  "type": "reel-whatif-v2",
+  "slot": "2026-11-22T21:30:00+08:00",
+  "title": "Musk paid $44B for Twitter (Oct 27 2022) vs $44B in Bitcoin: ~$128B now (2.9x; low $34B FTX, top $271B Oct 2025)",
+  "status": "scheduled",
+  "music": "Never Going Broke (Arulo, Mixkit) #301",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "ig_story(21:35)",
+   "tiktok",
+   "x_main(story_x45.mp4)"
+  ],
+  "sources": [
+   "Fortune Oct 27 2022 + Axios/MacRumors Oct 28 2022: Twitter deal closed Oct 27 2022 at $54.20/share, ~$44B",
+   "BTC close Oct 27 2022: Yahoo $20,285.84, Coinbase $20,296.97",
+   "BTC Nov 22 2026 ~15:45 UTC+8: Coinbase $58,905, Yahoo $58,911, CoinGecko $58,965 (used $58,900)"
+  ],
+  "note": "Fresh angle: famous person + argued-about moment (faces). New whatif2.js options: unit 'B' (money in billions) and cover_face (face fills the top half, eyes ~y 350 so 4:5/3:4 crops keep them; cover text under the chin). Photo look, lump, 38.4 s, thumbnail fill 60%. Musk photo Royal Society portrait (Duncan.Hull, CC BY-SA 4.0), BTC coin on gold (Kanchanara/Unsplash rhm7H8X5J98, not the coin used Nov 17/19). Media commit 37f7a41. Publer covers confirmed = frame 0 (IG, FB, TikTok, X 4:5).",
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-23-academy-thanksgiving-week",
+  "type": "academy",
+  "slot": "2026-11-23T19:00:00+08:00",
+  "title": "Stocks 101: The S&P 500 rose in Thanksgiving week 53 of 76 years (2019-2025: 6 of 7; 2021 -2.2%, 2018 -3.8%; avg +0.7%; Black Friday up 54 of 76)",
+  "status": "scheduled",
+  "variant": "a",
+  "layouts": [
+   "nhero",
+   "tslide-bars",
+   "ngrid",
+   "tslide-stats"
+  ],
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(19:02)",
+   "ig_story(19:05)",
+   "x_research(20:30)"
+  ],
+  "sources": [
+   "Yahoo Finance ^GSPC daily closes 1950-2025",
+   "FRED SP500 cross-check 2018/2021/2024/2025",
+   "NYSE 2026 holiday calendar"
+  ],
+  "note": "Exactly 4 slides, no CTA. Variant a (Nov 21 was b). ngrid 2x2 (2025/2024/2021/2018), 2018 cell face with place bottom, no text line. Media commit 37f7a41.",
+  "doc_row": false
  }
 ]
