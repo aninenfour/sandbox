@@ -3,3 +3,4 @@ out/*
 !out/gta6-contact-sheet.jpg
 _v-*.html
 _c-*.html
+!out/publish/
