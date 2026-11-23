@@ -394,5 +394,24 @@
   "looked_at": "skipped: weekly learning loop ran 30 min earlier (2026-W48) and covered 7-day numbers, last 24 h renders and hooks",
   "changes": [],
   "owner_ideas": []
+ },
+ {
+  "date": "2026-11-24",
+  "time_utc": "2026-11-23T22:50Z",
+  "metrics_summary": "Publer Nov 17-24 (06:50 UTC+8 Tue). Face-led WHAT IF vs object WHAT IF: Musk/Twitter (~33 h) IG 117 / TT 180 / FB 141, 0 shares, 0 saves; Costco IG 127 / TT 129 / FB 77; Jordans IG 127 / TT 38. IG: no lift (117 vs 127); TikTok: up (180 vs 129/38) but far below GTX 1080 857; FB: up (141 vs 77). Shares still 0 everywhere. Buffett lunch Reel (~9 h) and Thanksgiving Academy (~12 h): no insights synced yet, too early. Carousels: Trump coin dinner IG 31 / TT 210 (4 comments); Kalshi IG 44 / TT 301; S&P 2% Academy IG 25 / TT 601 (1 share); weekly preview IG 10 / TT 27. Team's Hetty Green story Reel IG 411 (best IG reach of the week), team GTA VI market post TT 495.",
+  "findings": [
+   "Face-led WHAT IF is not a clear win yet: one data point (Musk) is flat on IG, better on TikTok/FB, and still 0 shares. Wait for Buffett at 48 h before concluding.",
+   "Published: Thanksgiving Academy live on IG, FB, IG Story, TikTok photo, X Research (20:31); Buffett Reel live on IG Reel, FB Reel, IG Story, TikTok, X main. 0 failed posts Nov 23-24.",
+   "Renders checked (contact sheets): Trump coin news 5 slides + Story, Thanksgiving Academy 4 + Story, dividends Academy 4 + Story, Buffett Reel contact: no clipping, faces clear, numbers match post.json/captions.",
+   "Bug (line chart, tslide 'line'): the series minimum is printed on the right-hand scale under the end value, so the dividends slide 4 shows a grey '$0.56' right under '$2.04' next to '2025' and reads like the 2025 value. Fixed in extra_templates.svg_line for future posts; the scheduled dividends post (Tue 19:00) is not a factual error and was left untouched.",
+   "Hooks: Trump coin 'One guest got into Trump's coin dinner with $518' passes. Thanksgiving '53 of 76 years' passes; cover photo is an unrelated stock model (rule: real faces or a place/product), better a Wall Street / turkey-dinner photo. Buffett: frame 0 says 'LUNCH WITH BUFFETT $4.57M' but not who paid; W48 rule wants who + what they paid on the cover: better 'JUSTIN SUN PAID / $4.57M FOR LUNCH'. Dividends cover 'How to get paid to hold a stock, in 3 numbers' has a comma (style: comma = too long): better 'GET PAID TO HOLD A STOCK: 3 NUMBERS'. No new rule needed: existing rules cover all three.",
+   "Chore: tracker doc Scheduled -> IG link for Thanksgiving Academy + Buffett Reel; TikTok doc Scheduled -> TikTok link for the same two (only those 4 cells; dividends stays Scheduled). log.json ig_url/status and tiktok_log tiktok_url/status updated. TikTok doc still has 4 old Oct 28-31 Reel rows reading Scheduled (not touched)."
+  ],
+  "changes": [
+   "extra_templates.svg_line: when the line starts at its min (or max), that first value is labelled at the first point (small dot + label clear of the line) instead of on the right-hand scale; the bottom scale label is also hidden when the end value sits on it (falling lines overlapped '$0.56' with the end label). Tested by re-rendering the dividends carousel and a reversed (falling) copy to scratch. Before/after: research/2026-W48/line_first_label_before_after.jpg. Published/scheduled media untouched."
+  ],
+  "skipped": false,
+  "looked_at": "Publer published/failed Nov 23-24 (all channels), IG/TikTok/FB insights Nov 17-24; contact sheets of Trump coin news, Thanksgiving Academy, dividends Academy, Buffett WHAT IF contact.jpg",
+  "owner_decision": "Face-led WHAT IF (Musk) did not lift IG reach or shares; meme/joke posts remain the only shared format. Still open: swap one weekly WHAT IF slot for a MEME REACT; the team's history-person story Reels (Hetty Green IG 411) beat the desk on IG, worth a test as a 21:30 format. Tidy the 4 old 'Scheduled' TikTok-doc rows from Oct 28-31?"
  }
 ]

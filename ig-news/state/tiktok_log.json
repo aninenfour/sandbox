@@ -448,8 +448,9 @@
   "format": "photo",
   "topic": "Academy: S&P 500 in Thanksgiving week",
   "hook": "Stocks rose in Thanksgiving week 53 of the last 76 years",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7711320987639287061"
  },
  {
   "id": "2026-11-23-trump-coin-dinner",
@@ -467,8 +468,9 @@
   "format": "video",
   "topic": "WHAT IF: Buffett lunch (Justin Sun) vs Bitcoin",
   "hook": "Justin Sun paid $4.57M for one lunch with Warren Buffett. In Bitcoin it would be $32.7M today",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7711359530139208978"
  },
  {
   "id": "2026-11-24-academy-dividends",

@@ -87,10 +87,19 @@ def svg_line(v):
     marks = ''
     for m in v.get('marks', []):  # {i, text}
         marks += f'<circle cx="{X(m["i"]):.0f}" cy="{Y(ys[m["i"]]):.0f}" r="9" fill="#0E1012"/><text x="{X(m["i"]):.0f}" y="{Y(ys[m["i"]])-20:.0f}" font-size="{22*F:.0f}" font-weight="700" text-anchor="middle" fill="#0E1012">{_esc(m["text"])}</text>'
+    # Review Nov 24: when the line starts at its min (or max), label that first point where it is, not on the right-hand
+    # scale under the end value (dividends: a grey "$0.56" under "$2.04" read like the 2025 value).
+    t0 = fmt.format(ys[0]); lw = 0.62 * 22 * F * len(t0) + 10  # label width in svg units
+    near = [Y(y) for i, y in enumerate(ys) if X(i) <= X(0) + lw]  # line points under the label
+    ly = (min(near) - 16) if ys[0] == min(ys) else (max(near) + 22 * F + 12)
+    first_lbl = (f'<circle cx="{X(0):.1f}" cy="{Y(ys[0]):.1f}" r="7" fill="{col}"/>'
+                 f'<text x="{X(0):.0f}" y="{ly:.0f}" font-size="{22*F:.0f}" font-weight="700" fill="#5d646a">{_esc(t0)}</text>') if ys[0] in (min(ys), max(ys)) else ''
+    scale = ('' if abs(Y(ys[-1]) - Y(hi-pad)) < 44 or ys[0] == max(ys) else f'<text x="{w-100}" y="{Y(hi-pad)+8:.0f}" font-size="{20*F:.0f}" fill="#8a9095">{_esc(fmt.format(hi-pad))}</text>') \
+        + ('' if ys[0] == min(ys) or abs(Y(ys[-1]) - Y(lo+pad)) < 44 else f'<text x="{w-100}" y="{Y(lo+pad)+8:.0f}" font-size="{20*F:.0f}" fill="#8a9095">{_esc(fmt.format(lo+pad))}</text>') + first_lbl
     return f'''<svg width="100%" viewBox="0 0 {w} {h}"><defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{col}" stop-opacity=".35"/><stop offset="1" stop-color="{col}" stop-opacity="0"/></linearGradient></defs>
 {grid}<path d="{area}" fill="url(#ga)"/><polyline points="{pts}" fill="none" stroke="{col}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="{X(n-1):.1f}" cy="{Y(ys[-1]):.1f}" r="10" fill="{col}"/><text x="{X(n-1)+18:.0f}" y="{Y(ys[-1])+9:.0f}" font-size="{28*F:.0f}" font-weight="800" fill="#0E1012">{_esc(v.get("last_label", fmt.format(ys[-1])))}</text>
-{'' if abs(Y(ys[-1]) - Y(hi-pad)) < 44 else f'<text x="{w-100}" y="{Y(hi-pad)+8:.0f}" font-size="{20*F:.0f}" fill="#8a9095">{_esc(fmt.format(hi-pad))}</text>'}<text x="{w-100}" y="{Y(lo+pad)+8:.0f}" font-size="{20*F:.0f}" fill="#8a9095">{_esc(fmt.format(lo+pad))}</text>{marks}{lab}</svg>'''
+{scale}{marks}{lab}</svg>'''
 
 
 def svg_bars(v):
