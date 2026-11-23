@@ -56,6 +56,10 @@
 | 22/11 | 16:41 | Learn do dia | Futuros: tamanho de posição pelo risco (pt_PT link in reply) | scheduled |
 | 22/11 | 21:13 | Text | domingo 21h: dieta, academia e stop loss | scheduled |
 
+| 23/11 | 07:57 | GM | Porto Alegre: linha no contorno real dos prédios até o guindaste mais alto | scheduled |
+| 23/11 | 12:23 | Meme (real template) | Drake: usar stop loss x jurar que começa na segunda | scheduled |
+| 23/11 | 16:47 | Learn do dia | Guia do iniciante (pt_PT link in reply) | scheduled |
+
 ## Queued ideas (not scheduled yet)
 - Thu 19/11: Earn prazo fixo exclusivo launch (key visual from official banner, cut done), Wall Street Earnings last day (ends 12:59), Futures loss protection last call evening (ends 20/11 07:00).
 - Spot #24 midterm ~24/11, P2P Sprint midterm ~22/11; last calls 27/11 evening (P2P) and 29-30/11 (Spot).
@@ -91,3 +95,9 @@
 - 22/11 07:45 check 1: no new announcements. Team has nothing queued on PT. Agenda in a new vertical 'deadlines' layout (not last week's grid). No meme (had one 21/11; next 23/11). Placar at check 2.
 - 22/11 12:08 check 2: no new announcements. Placar PIEVERSE again (2nd day top gainer; CoinGecko 3.71, +26.1%), framed as bicampeão, 13:52.
 - 22/11 16:14 check 3: no new announcements. Nothing closes tonight or before 08:00 Mon. Added Sunday-night text 21:13. Mon 23/11 = weekly full review at check 1 (+ meme day, real template).
+- 23/11 07:46 check 1 + WEEKLY FULL REVIEW (Publer, 16 to 23/11, Hotcoin Português only):
+  Volume: ~100 posts in 7 days on the account (ours ~5/day + team ~7/day). Too many for ~200 followers.
+  Best: Ronaldinho official video (team, 4), SNDKB delay text update (ours, 2), TradFi Carnival launch, Placar JCT, Learn TradFi (1 each). Zero: GM Floripa, Sextou poll, Sunday text, Earn last night (link in post), Cointelegraph repost.
+  Changes: our share capped at 4 to 5 a day; new 'Atualização rápida' text format for operational changes; GM stays (owner) but rotate format later if it keeps scoring 0; links stay in first reply.
+  Team queued today on PT: 08:15 US Thanksgiving week, 09:30 ANT IPO, 10:45 NVDA (team), so no Thanksgiving or NVDA from us. Results for Spot #23 / P2P Challenge not announced yet.
+  Google Sheet still behind (no Sheets connector). Duplicate 18/11 Nvidia post still needs manual delete on X.

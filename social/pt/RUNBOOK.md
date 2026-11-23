@@ -22,7 +22,7 @@ Read `LOG.md` (what ran, what is queued) before planning.
 | 2 | ~12:05 | Re-check lists. Post **Placar do dia** with fresh data (section 3). Launch posts for anything new. Mark ended events. |
 | 3 | ~16:10 | Re-check closing times for tonight's posts, caps, sold-out pools. Schedule evening posts. Update LOG.md, commit, push. |
 
-## 2. What to post (a normal day is 5 to 7 posts, vary it)
+## 2. What to post (our share is 4 to 5 posts a day; the team adds its own, review 23/11: the account did ~100 posts in 7 days)
 - **GM** (morning): real photo, mono + grain, ONE lime line that follows a real path in the photo and points at something (rail, path, street). Brazilian places from now on (São Paulo, Rio, Floripa, BH, Salvador). Morning light only. No recolouring photos. Short text, logo small.
 - **Event key visual** (`day_br.mjs` `keyVisual()`): hero = 3D object cut from the event's official banner (`art/official/cut.py`, banners from `img.hotbtech.cn` on the event page), hook line, pool or reward as big number, 3 facts naming the reward type (Futures Trial Funds / Earn Trial Funds / futures fee voucher / USDT), deadline in Brasília, QR to event page.
 - **Milestones from plan.mjs**: LAUNCH, MIDTERM, 48H, LAST DAY, ENDED, results (+7 business days). Last-day and last-call posts go out the evening before if the event closes early morning Brasília.
@@ -35,6 +35,7 @@ Read `LOG.md` (what ran, what is queued) before planning.
   - *Serious photo + unhinged caption*: mono photo, lowercase X-style caption, Brazilian life (churrasco, miojo, gerente do banco, 0800, Pix, fim do mês).
   - Hard lines that stay: no fake endorsement (never make a celebrity or brand look like they use, recommend or partner with Hotcoin), no fake Hotcoin logo use on other brands, no politics, no club bashing, no hate. Prices in memes are real and dated (script comments + caption).
 - **Learn do dia** (max 1 per day, owner request 17/11): at check 1, re-read hotcoin.com/en_US/learn/ for new articles, add them to `tracker/learn.json` (newest first, skip dated news, outdated data, EU-only and political topics), post the next `queued` one, mark it `posted`. Nothing left → skip the day. Cover image = the article's official cover (img.hotbtech.cn). PT X: pt-BR hook + `/pt_PT/learn/<slug>/` link in first reply (note: pt_PT pages are UI-translated only, body is English). **Exception to PT-only:** the same article in English also goes to **Hotcoin Facebook** (`6a72f281aed075b6f35a33c0`, link in post) and **Hotcoin Research X** (`6ae9c2c6fae3382e748574da`, link in first reply), `/en_US/learn/<slug>/`. Nothing else ever goes to those accounts from this runbook.
+- **Atualização rápida** (text only, new 23/11): when Hotcoin changes a time or status (delays, relists, pool sold out), post a 3-line text update with the link in the reply. Best performer of week 2 among our posts.
 - **Text posts / polls**: city rivalry, quick questions, Sunday-night humour.
 
 ## 3. Data rules
