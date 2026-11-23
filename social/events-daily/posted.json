@@ -57,5 +57,18 @@
       "X main",
       "Facebook"
     ]
+  },
+  {
+    "date": "2026-11-23",
+    "time": "13:55 UTC+8 (scheduled)",
+    "slugs": [
+      "HotcoinP2PTradingSprint",
+      "spot-all-round-challenge-24"
+    ],
+    "layout": "flip",
+    "channels": [
+      "X main",
+      "Facebook"
+    ]
   }
 ]
