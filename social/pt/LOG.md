@@ -103,3 +103,4 @@
   Team queued today on PT: 08:15 US Thanksgiving week, 09:30 ANT IPO, 10:45 NVDA (team), so no Thanksgiving or NVDA from us. Results for Spot #23 / P2P Challenge not announced yet.
   Google Sheet still behind (no Sheets connector). Duplicate 18/11 Nvidia post still needs manual delete on X.
 - 23/11 12:10 check 2: no new announcements. Top 8 gainers were tokenized stocks/leveraged ETFs (MVLLB +27%, NVDAB +24.5% looks like weekend gap), skipped; Placar = CYS Cysic verified (CoinGecko 0.0482, +18.2%), 14:26. Runbook: Placar crypto only.
+- 23/11 16:13 check 3: no new announcements. Nothing closes tonight or before 08:00 Tue. No extra evening post (day already 7 with team). Tue: P2P Sprint midterm passed, results for P2P Challenge/Spot #23 to watch; Learn spot guide; GM.
