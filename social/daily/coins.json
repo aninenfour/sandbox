@@ -591,5 +591,12 @@
   "twitter": "pumpdotfun",
   "image": "https://coin-images.coingecko.com/coins/images/67164/large/pump.jpg?1751949376",
   "logo": "pump"
+ },
+ "MUUB": {
+  "id": "direxion-mu-bull-2x-etf-bstocks-tokenized-stock",
+  "name": "Direxion MU Bull 2X ETF (bStocks Tokenized ETF)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174770/large/muub.png?1784798377",
+  "logo": "muub"
  }
 }

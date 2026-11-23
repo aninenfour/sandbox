@@ -1,0 +1,59 @@
+{
+ "window": "24H to Nov 23 22:04 (UTC+8)",
+ "date": "NOV 23",
+ "day": "2026-11-23",
+ "template": "race",
+ "gainers": [
+  {
+   "sym": "SOXLB",
+   "name": "Semicon Bull 3X ETF (bStocks Tokenized ETF)",
+   "ch": 31.22,
+   "vol": 620899.89,
+   "handle": "",
+   "logo": "soxlb",
+   "bg": "#0063a6",
+   "glow": "#0063a6"
+  },
+  {
+   "sym": "CRWVB",
+   "name": "CoreWeave (bStocks Tokenized Stock)",
+   "ch": 30.29,
+   "vol": 677052.05,
+   "handle": "",
+   "logo": "crwvb",
+   "bg": "#f0f3fa",
+   "glow": "#173ade"
+  },
+  {
+   "sym": "MUUB",
+   "name": "Direxion MU Bull 2X ETF (bStocks Tokenized ETF)",
+   "ch": 23.84,
+   "vol": 691107.16,
+   "handle": "",
+   "logo": "muub",
+   "bg": "#0063a6",
+   "glow": "#0063a6"
+  },
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA (bStocks Tokenized Stock)",
+   "ch": 22.94,
+   "vol": 584183.05,
+   "handle": "",
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "NBISB",
+   "name": "Nebius (bStocks Tokenized Stock)",
+   "ch": 22.86,
+   "vol": 691273.77,
+   "handle": "",
+   "logo": "nbisb",
+   "bg": "#e1ff4f",
+   "glow": "#e1ff4f"
+  }
+ ],
+ "link": "📊 $SOXLB live price and chart: https://www.hotcoin.com/en_US/price/semicon-bull-3x-etf-tokenized-bstocks-soxlb/"
+}
