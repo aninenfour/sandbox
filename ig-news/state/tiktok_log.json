@@ -480,5 +480,23 @@
   "hook": "$10,000 in Pepsi pays you $421 a year. In Apple: $32",
   "status": "scheduled",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-24-binance-hack-doj",
+  "slot": "2026-11-24T10:02:00+08:00",
+  "format": "photo",
+  "topic": "News: US goes after $1.17B of Binance hack money",
+  "hook": "The US wants $1.17B of the Binance hack money",
+  "status": "scheduled",
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-24-memereact-netflix-btc",
+  "slot": "2026-11-24T12:30:00+08:00",
+  "format": "video",
+  "topic": "MEME REACT: Netflix bill +43% vs Bitcoin +9% in 5 years",
+  "hook": "5 years of HODL and my Netflix bill did better",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]
