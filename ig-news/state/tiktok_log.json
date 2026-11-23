@@ -457,7 +457,26 @@
   "format": "photo",
   "topic": "News: Trump coin dinner, $518 seat",
   "hook": "One guest got into Trump's coin dinner with $518. Last time it took $55,000",
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7711181610007219476"
+ },
+ {
+  "id": "2026-11-23-whatif-buffett-lunch-btc",
+  "slot": "2026-11-23T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Buffett lunch (Justin Sun) vs Bitcoin",
+  "hook": "Justin Sun paid $4.57M for one lunch with Warren Buffett. In Bitcoin it would be $32.7M today",
   "status": "scheduled",
-  "doc_row": true
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-24-academy-dividends",
+  "slot": "2026-11-24T19:02:00+08:00",
+  "format": "photo",
+  "topic": "Academy: dividends in 3 numbers",
+  "hook": "$10,000 in Pepsi pays you $421 a year. In Apple: $32",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]
