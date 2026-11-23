@@ -54,7 +54,7 @@ const branded = !!photo && photo.includes('.branded.');
 const caption = pick(BANK[key]);
 const out = `${DIR}/out/${date}`; fs.mkdirSync(out, {recursive: true});
 let image = null, look;
-if (day.photo && photo) {
+if (photo) { // any day with a photo in inbox/ gets the photo treatment (text-only days included)
   const {chromium} = require(process.env.PW_PATH);
   const b64 = f => `data:image/${f.endsWith('png') ? 'png' : 'jpeg'};base64,` + fs.readFileSync(f).toString('base64');
   // Avatar-style mark: official symbol SVG with the dot in white too (matches the X profile tile).
