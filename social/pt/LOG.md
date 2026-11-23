@@ -58,6 +58,7 @@
 
 | 23/11 | 07:57 | GM | Porto Alegre: linha no contorno real dos prédios até o guindaste mais alto | scheduled |
 | 23/11 | 12:23 | Meme (real template) | Drake: usar stop loss x jurar que começa na segunda | scheduled |
+| 23/11 | 14:26 | Placar do dia | $CYS +18,8% x $BTC +3,4% (24h até 12:10) | scheduled |
 | 23/11 | 16:47 | Learn do dia | Guia do iniciante (pt_PT link in reply) | scheduled |
 
 ## Queued ideas (not scheduled yet)
@@ -101,3 +102,4 @@
   Changes: our share capped at 4 to 5 a day; new 'Atualização rápida' text format for operational changes; GM stays (owner) but rotate format later if it keeps scoring 0; links stay in first reply.
   Team queued today on PT: 08:15 US Thanksgiving week, 09:30 ANT IPO, 10:45 NVDA (team), so no Thanksgiving or NVDA from us. Results for Spot #23 / P2P Challenge not announced yet.
   Google Sheet still behind (no Sheets connector). Duplicate 18/11 Nvidia post still needs manual delete on X.
+- 23/11 12:10 check 2: no new announcements. Top 8 gainers were tokenized stocks/leveraged ETFs (MVLLB +27%, NVDAB +24.5% looks like weekend gap), skipped; Placar = CYS Cysic verified (CoinGecko 0.0482, +18.2%), 14:26. Runbook: Placar crypto only.

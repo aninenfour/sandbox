@@ -40,7 +40,7 @@ Read `LOG.md` (what ran, what is queued) before planning.
 
 ## 3. Data rules
 - Every number verified at posting time; put the data time in the caption ("24h até 12:07, Brasília").
-- Top coin: `curl -s https://api.hotcoinfin.com/v1/market/ticker` → USDT pairs with amount > 200k, sort by `change`. Logo from CoinGecko only (`/api/v3/search?query=`). Skip leveraged ETF tokens (SOXSB, SQQQB...) and anything unclear.
+- Top coin: `curl -s https://api.hotcoinfin.com/v1/market/ticker` → USDT pairs with amount > 200k, sort by `change`. Logo from CoinGecko only (`/api/v3/search?query=`). Skip leveraged ETF tokens (SOXSB, SQQQB...), tokenized stocks (symbols ending in B, e.g. NVDAB) and anything unclear: Placar is crypto only (23/11: on Mondays the stock tokens show odd 24h moves after the weekend).
 - Chains: DefiLlama (`/v2/historicalChainTvl/<chain>`, `/overview/dexs/<chain>`, `/overview/fees/<chain>`). Do not feature chains run by competitor exchanges.
 - Never name competitors. Never fake a logo. Sources go in script comments, not on graphics.
 
