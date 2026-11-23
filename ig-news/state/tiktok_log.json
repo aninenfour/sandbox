@@ -468,7 +468,7 @@
   "topic": "WHAT IF: Buffett lunch (Justin Sun) vs Bitcoin",
   "hook": "Justin Sun paid $4.57M for one lunch with Warren Buffett. In Bitcoin it would be $32.7M today",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-24-academy-dividends",
@@ -477,6 +477,6 @@
   "topic": "Academy: dividends in 3 numbers",
   "hook": "$10,000 in Pepsi pays you $421 a year. In Apple: $32",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]

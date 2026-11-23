@@ -2242,7 +2242,7 @@
    "BTC Nov 23 2026 ~15:45 UTC+8: Coinbase $61,461, Yahoo $61,454, CoinGecko $61,410 (used $61,450)"
   ],
   "note": "W48 hook rule 'a person in the purchase': who + what they paid (Justin Sun), Buffett face cover (cover_face). New whatif2.js unit 'M' (millions, $4.57M). Photo look, lump, 40.9 s, thumbnail fill 34%. Buffett: Mark Hirschey/Commons CC BY-SA 2.0; BTC coin Kanchanara/Unsplash 7E3QGntO66M (not the Nov 22 coin). Media commit e3d89de. Publer covers confirmed = frame 0 (IG, TikTok).",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-24-academy-dividends",
@@ -2268,6 +2268,6 @@
    "Nasdaq dividend API (PEP, SBUX, MSFT, AAPL) + StockAnalysis (KO) + Yahoo Finance dividend events and Nov 20 2026 closes"
   ],
   "note": "W48 how-to promise hook with a number, no face needed. 4 slides, no CTA. Variant b (Nov 23 was a). Media commit 1ddf262.",
-  "doc_row": false
+  "doc_row": true
  }
 ]
