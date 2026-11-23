@@ -26,7 +26,7 @@ One run = one finished news-clip reel posted to Instagram (Reel), TikTok and Fac
 
 ## 2. Cut
 - Download only the part you need: `/usr/bin/ffmpeg -t <sec> -i <archive mp4 url> -c copy src/x.mp4`.
-- Transcribe with faster-whisper (base.en, word timestamps, VAD) to `src/x.txt` + `.json`, read it, pick 15 to 45 s
+- Transcribe: `/usr/bin/ffmpeg -i src/x.mp4 -ac 1 -ar 16000 src/x.wav && python3 transcribe.py src/x.wav src/x.txt base.en` (pip install faster-whisper soundfile first) -> `src/x.txt` + `.json`, read it, pick 15 to 45 s
   with one clear point. Several segments are fine (hard cuts).
 - Write `clips/<slug>/clip.json` (see make.py docstring): segments, crop (keep the face in frame, crop out TV
   lower-thirds/logos), kicker "DATE · PLACE", headline (plain words, ends with the watch hook, 12 to 20 words), 1 or 2

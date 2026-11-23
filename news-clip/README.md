@@ -9,7 +9,7 @@ lime JetBrains Mono kicker (date · place), Inter Tight 900 uppercase headline (
 (white, black outline) from faster-whisper, original audio loudness-normalised to -14 LUFS. Frame 1 shows the full design.
 
 Build: `cd news-clip && python3 make.py clips/<slug>/clip.json` -> out/<slug>.mp4 (see make.py docstring for clip.json).
-Transcribe: `python3 /tmp/tx.py src/x.wav src/x.txt base.en` style (faster-whisper, word timestamps, VAD).
+Transcribe: `python3 transcribe.py src/x.wav src/x.txt base.en` (faster-whisper, word timestamps, VAD).
 
 Footage access from the cloud sandbox (Nov 23):
 - YouTube: blocked (bot check / 429), yt-dlp can't fetch.
