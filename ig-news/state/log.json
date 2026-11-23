@@ -2269,7 +2269,8 @@
   "sources": [
    "Nasdaq dividend API (PEP, SBUX, MSFT, AAPL) + StockAnalysis (KO) + Yahoo Finance dividend events and Nov 20 2026 closes"
   ],
-  "note": "W48 how-to promise hook with a number, no face needed. 4 slides, no CTA. Variant b (Nov 23 was a). Media commit 1ddf262.",
-  "doc_row": true
+  "note": "W48 how-to promise hook with a number, no face needed. 4 slides, no CTA. Variant b (Nov 23 was a). Media commit 1ddf262. Nov 23 fix: slide 4 line chart re-rendered with c2c6f7c label fix ($0.56 now sits on the 2005 point, not under $2.04); media commit 94b0767. All 5 Publer posts (IG 19:00, FB 19:00, TikTok 19:02, IG Story 19:05, X Research 20:30) re-scheduled with new media; old 5 moved to drafts (old X draft caption prefixed [OLD MEDIA - replaced Nov 24, do not publish]). No first comment in post.json.",
+  "doc_row": true,
+  "media_commit": "94b076710a3ad16534c3c73b4f4f68e88f02966d"
  }
 ]
