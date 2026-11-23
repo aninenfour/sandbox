@@ -488,7 +488,7 @@
   "topic": "News: US goes after $1.17B of Binance hack money",
   "hook": "The US wants $1.17B of the Binance hack money",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-24-memereact-netflix-btc",
@@ -497,6 +497,6 @@
   "topic": "MEME REACT: Netflix bill +43% vs Bitcoin +9% in 5 years",
   "hook": "5 years of HODL and my Netflix bill did better",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
