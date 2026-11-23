@@ -9,7 +9,7 @@
 → Captions: 1 to 3 words, white with a heavy black outline, key words in brand green #7EC25A
 → Cover (scripts/thumb.sh): zoomed-in scene with the main character's face in the upper half, hook text in the lower third (Hand font, key words green), no logo
 → Sound: free TTS voice, whoosh on cuts, pop on Step cards, quiet Mixkit music bed (rotates daily), mastered to -14 LUFS
-→ Post every 2 days to Instagram Reel, TikTok, Facebook Reel. Same caption, dot keywords (TikTok gets #). Never name the account handle.
+→ Post every 3 days (owner, 2026-11-23; was every 2 days) to Instagram Reel, TikTok, Facebook Reel. Same caption, dot keywords (TikTok gets #). Never name the account handle.
 
 ## Image style block (paste into every Canva prompt)
 "Same illustration style as the reference image. Hand-drawn editorial cartoon in ink with fine crosshatching and textured paper grain. Muted palette of warm sepia, ochre, cream and warm grey, with ONE accent colour: a soft fresh green (like #7EC25A, slightly muted to sit with the ink). Characters are simple stick figures with large round plain white heads, small black dot eyes, expressive eyebrows, rounded egg-shaped bodies, thin black stick arms and legs. The main character wears green (a sweater, coat or vest); background characters wear sepia, brown or grey. Green also appears on one or two props per scene, never everywhere. No red bodies. Vertical composition, main subject in the middle third. No text, no letters, no words, no numbers, no watermark."
