@@ -1,0 +1,18 @@
+{
+  "src": "src/senate_first25.mp4",
+  "segments": [
+    [
+      541.9,
+      558.9
+    ]
+  ],
+  "transcript": "src/senate.txt.json",
+  "crop": "ih*0.70*0.915:ih*0.70:(iw-ow)/2:0",
+  "kicker": "OCT 8, 2014 · SENATE OF CANADA",
+  "headline": "A Fed governor just floated a “shock” rate hike. Watch what this man told Canada’s Senate in 2014",
+  "hi": [
+    "shock",
+    "2014"
+  ],
+  "hl_size": 80
+}
