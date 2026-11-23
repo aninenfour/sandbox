@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Back above $61K, up over 3% in 24h"},
+ {"sym": "PUMP", "kind": "crypto", "why": "Up about 10% in 24h on $1.1M Hotcoin volume"},
+ {"sym": "DELLB", "kind": "tradfi", "why": "Fell 11% Fri; FQ3 results Tue after the US close"},
+ {"sym": "SPYB", "kind": "tradfi", "why": "Holiday week: US markets shut Thu, Nov 26"},
+ {"sym": "XAUT", "kind": "tradfi", "why": "Gold up about 2% in 24h, near $3,600"}
+]}

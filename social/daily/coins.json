@@ -584,5 +584,12 @@
   "twitter": "Zebec_HQ",
   "image": "https://coin-images.coingecko.com/coins/images/37052/large/zbcn.jpeg?1713168241",
   "logo": "zbcn"
+ },
+ "PUMP": {
+  "id": "pump-fun",
+  "name": "Pump.fun",
+  "twitter": "pumpdotfun",
+  "image": "https://coin-images.coingecko.com/coins/images/67164/large/pump.jpg?1751949376",
+  "logo": "pump"
  }
 }

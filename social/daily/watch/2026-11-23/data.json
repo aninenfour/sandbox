@@ -1,0 +1,71 @@
+{
+ "date": "NOV 23",
+ "window": "Prices at Nov 23 11:57 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Back above $61K, up over 3% in 24h",
+   "last": 61374.81,
+   "ch": 3.31,
+   "vol": 765408745.05,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "PUMP",
+   "name": "Pump.fun",
+   "kind": "crypto",
+   "handle": "@pumpdotfun",
+   "why": "Up about 10% in 24h on $1.1M Hotcoin volume",
+   "last": 0.002542,
+   "ch": 9.61,
+   "vol": 1128415.07,
+   "logo": "pump",
+   "bg": "#ffffff",
+   "glow": "#54d592"
+  },
+  {
+   "sym": "DELLB",
+   "name": "Dell",
+   "kind": "tradfi",
+   "handle": "@Dell",
+   "why": "Fell 11% Fri; FQ3 results Tue after the US close",
+   "last": 295.53,
+   "ch": 3.15,
+   "vol": 681592.42,
+   "logo": "dellb",
+   "bg": "#017fc2",
+   "glow": "#017fc2"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Holiday week: US markets shut Thu, Nov 26",
+   "last": 706.88,
+   "ch": 0.97,
+   "vol": 670151.99,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  },
+  {
+   "sym": "XAUT",
+   "name": "Tether Gold",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Gold up about 2% in 24h, near $3,600",
+   "last": 3601.46,
+   "ch": 1.86,
+   "vol": 8218150.85,
+   "logo": "xaut",
+   "bg": "#ffffff",
+   "glow": "#d3b25b"
+  }
+ ]
+}
