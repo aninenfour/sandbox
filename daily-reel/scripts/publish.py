@@ -2,7 +2,8 @@
 TikTok and Facebook (Reel). Retries when Publer reports a clash with another post
 (it needs a one-minute gap). Prints the live links.
 
-Usage: PUBLER_API_KEY=... python3 scripts/publish.py out/<slug>.mp4 episodes/<slug>/caption.md [out/<slug>-thumb.jpg]
+Usage: PUBLER_API_KEY=... python3 scripts/publish.py out/<slug>.mp4 episodes/<slug>/caption.md [out/<slug>-thumb.jpg] [--at ISO-time]
+--at schedules the posts for that time (with UTC offset) instead of publishing now.
 The optional third argument is a cover image (see scripts/thumb.sh). It is uploaded to Publer and set as the
 default thumbnail on all three networks (Instagram cover, Facebook Reel cover, TikTok cover).
 The API key comes from the environment only. Never commit it.
@@ -46,6 +47,10 @@ def find_post(account, text_start):
     return {}
 
 
+AT = None  # optional --at 2026-11-25T20:30:00+08:00 schedules instead of posting now (uses /posts/schedule;
+# /posts/schedule/publish ignores scheduled_at and posts immediately, learned 2026-11-23). Untested: check Publer's queue after use.
+if '--at' in sys.argv:
+    i = sys.argv.index('--at'); AT = sys.argv[i + 1]; del sys.argv[i:i + 2]
 video, caption_file = sys.argv[1], sys.argv[2]
 caption = open(caption_file).read().strip()
 up = curl('-X', 'POST', f'{API}/media', '-F', f'file=@{video};type=video/mp4', '-F', 'in_library=true')
@@ -84,9 +89,9 @@ networks = {
 results = {}
 for net, payload in networks.items():
     body = json.dumps({'bulk': {'state': 'scheduled', 'posts': [
-        {'networks': {net: payload}, 'accounts': [{'id': ACCOUNTS[net]}]}]}})
+        {'networks': {net: payload}, 'accounts': [dict({'id': ACCOUNTS[net]}, **({'scheduled_at': AT} if AT else {}))]}]}})
     for attempt in range(5):
-        job = curl('-X', 'POST', f'{API}/posts/schedule/publish', '-H', 'Content-Type: application/json',
+        job = curl('-X', 'POST', f'{API}/posts/schedule' if AT else f'{API}/posts/schedule/publish', '-H', 'Content-Type: application/json',
                    '-d', body).get('job_id')
         st = wait_job(job) if job else {}
         fails = [p.get('failure', {}).get('message', '') for p in st.get('payload', []) if p.get('status') == 'failed']
@@ -94,6 +99,9 @@ for net, payload in networks.items():
             break
         print(f'{net}: attempt {attempt + 1} failed: {fails}')
         time.sleep(75)
+    if AT:
+        results[net] = {'state': 'scheduled' if not fails else 'failed', 'at': AT, 'error': fails or None}
+        print(net, results[net]); time.sleep(5); continue
     post = find_post(ACCOUNTS[net], caption.replace('•', '#')[:30] if net == 'tiktok' else caption[:30])
     results[net] = {'state': post.get('state'), 'link': post.get('post_link'), 'error': post.get('error')}
     print(net, results[net])
