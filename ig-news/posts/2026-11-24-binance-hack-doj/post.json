@@ -1,0 +1,91 @@
+{
+ "type": "news",
+ "style": "v2",
+ "date": "NOV 24",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "teng_p.jpg",
+   "photo_pos": "50% 15%",
+   "tag": "BREAKING",
+   "badge": {
+    "src": "usdc.svg",
+    "pos": "tr",
+    "fit": "100%",
+    "size": 300
+   },
+   "headline": "US goes after [$1.17B] of the {Binance hack} money"
+  },
+  {
+   "kind": "ngrid",
+   "title": "How much is back?",
+   "text": "Binance already covered its users' losses itself.",
+   "cells": [
+    {
+     "photo": "hacker.jpg",
+     "photo_pos": "50% 30%",
+     "label": "Taken from Binance, Oct 29",
+     "value": "$6.34B",
+     "neg": true
+    },
+    {
+     "photo": "doj.jpg",
+     "photo_pos": "50% 50%",
+     "label": "Frozen, seized or returned (US)",
+     "value": "$2.9B"
+    }
+   ],
+   "source": "The Block Nov 23; Cointelegraph Nov 23 (DOJ)"
+  },
+  {
+   "kind": "nquote",
+   "photo": "leatherman.jpg",
+   "photo_pos": "42% 0%",
+   "quote": "...moved quickly to [trace and freeze] stolen assets.",
+   "name": "Brett Leatherman",
+   "role": "FBI cyber operations director, Nov 23",
+   "check_title": "WHAT THE DATA SAYS",
+   "check": [
+    {
+     "v": "$1.17B",
+     "l": "in USDC the US asked a court to take, Nov 23"
+    },
+    {
+     "v": "$247M",
+     "l": "already pushed through Bitcoin mixers",
+     "neg": true
+    }
+   ],
+   "source": "The Block; Cointelegraph (DOJ statement); Elliptic via Decrypt, CoinDesk",
+   "bubble_top": 740,
+   "tail_x": 500
+  },
+  {
+   "kind": "nbig",
+   "tag": "THE CATCH",
+   "title": "The Bitcoin hasn't moved",
+   "kicker": "TAKEN STRAIGHT FROM BINANCE",
+   "big": "18,270 BTC",
+   "label": "Untouched since the night of the hack",
+   "text": [
+    "The rest moves through [27,000+ wallets] on 16 chains."
+   ],
+   "source": "Elliptic via Cointelegraph, Decrypt Nov 23"
+  },
+  {
+   "kind": "end"
+  }
+ ],
+ "sources": [
+  "The Block, Nov 23 2026: DOJ civil forfeiture complaint in D.C. federal court seeks about $1.17B in USDC tied to the Oct 29 Binance hack, 36 addresses on 18 blockchains; Circle blocked access; TRO obtained Nov 12; DOJ: helped freeze, seize or return more than $2.9B; Binance losses about $6.34B, fully replenished; Brett Leatherman (FBI Cyber operations director): 'Following the Binance theft, the FBI and our partners moved quickly to trace and freeze stolen assets.'",
+  "Cointelegraph, Nov 23 2026: DOJ seeks more than $1.1B held in USDC; nearly $3B frozen/seized/returned of $6B+; Binance committed $6.34B; Leatherman 'moved quickly to trace and freeze stolen assets'; Elliptic: $247M through mixers, 27,000+ wallets, 18,270 BTC taken directly has not moved",
+  "Decrypt, Nov 23 2026 (Elliptic): at least $247M into Bitcoin coinjoins; 18,270 BTC not moved since the hack; 27,000+ wallets",
+  "CoinDesk, Nov 23 2026: Binance hackers push $247M through coinjoins (Elliptic)"
+ ],
+ "photo_credits": [
+  "Richard Teng: Decrypt lead photo (Oct 31 post)",
+  "Brett Leatherman: FBI, via The Record",
+  "Hacker: Muhamed Alaa / Unsplash",
+  "DOJ building: Wikimedia Commons (Robert_F._Kennedy_Department_of_Justice_Building.jpg)"
+ ]
+}
