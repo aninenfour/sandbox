@@ -1,7 +1,7 @@
 # News-clip reels: Runbook
 
-One run = one finished news-clip reel posted to Instagram (Reel), TikTok and Facebook (Reel). Cadence: every 2 days
-(owner, Nov 23, 2026). Format approved by the owner on Nov 23 ("Looks good ... lets push"). See README.md for the format.
+One run = one finished news-clip reel posted to Instagram (Reel), TikTok and Facebook (Reel). Cadence: every 3 days
+(owner, Nov 23, 2026; runs the day after each story reel, at about 11:40 Beijing). Format approved by the owner on Nov 23 ("Looks good ... lets push"). See README.md for the format.
 
 ## Owner rules (Nov 23)
 - Plain words only. We post for a broad audience: everyone must get the point at once. No idioms or insider phrases in the

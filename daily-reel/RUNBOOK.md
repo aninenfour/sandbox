@@ -1,6 +1,6 @@
 # Daily Finance Reel: Runbook
 
-One run = one finished video posted to Instagram (Reel), TikTok and Facebook (Reel). Cadence: one video every 3 days (owner, 2026-11-23). News-clip reels (news-clip/) are planned every 2 days alongside, so check Publer and never post two reels within ~6 h.
+One run = one finished video posted to Instagram (Reel), TikTok and Facebook (Reel). Cadence: one video every 3 days (owner, 2026-11-23). News-clip reels (news-clip/) run every 3 days, the day after each story reel, so check Publer and never post two reels within ~6 h.
 Read `PLAYBOOK.md` first: it holds the locked format, the style rules, the topic bank, what already ran, and what the weekly review learned.
 
 ## 0. Setup (fresh session)

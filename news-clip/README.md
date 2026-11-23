@@ -1,6 +1,6 @@
 # News-clip reels (test, Nov 23, 2026)
 
-Owner brief (Nov 23): one video every 2 days, clean text over real footage of real people (news or archive, e.g. early
+Owner brief (Nov 23): one video every 3 days (changed from 2 the same day), clean text over real footage of real people (news or archive, e.g. early
 conversations about crypto), human-centric, clipped like news accounts do. Reference: evolving.ai style (footage on top,
 black panel, divider with logo, big uppercase headline).
 
