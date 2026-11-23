@@ -9,12 +9,12 @@
 //   buy: {label, sub, icon, counter}     icon: popcorn | console | phone | cash
 //   invest: {label, sub, ticker, color, counter}
 //   series: [[date, worth, spent]]   spent = money paid so far (lump: constant)
-//   unit: "B" (Nov 22, Musk/Twitter $44B): series values are in billions, money shows "$44.0B"
+//   unit: "B" (Nov 22, Musk/Twitter $44B): series values are in billions, money shows "$44.0B"; unit "M" (Nov 23, Buffett lunch) = millions, "$4.57M"
 //   events: [{d, txt, c}], reveal: {spent, worth, mult, note}, lesson: [{t, c}]
 const S = window.SPEC, PTS = S.series, N = PTS.length;
 Object.assign(P, {bg1: '#FFFFFF', bg2: '#EEF3EA', white: '#0E1A12', dim: '#6B756E', green: '#3E9B27', ink: '#FFFFFF'});
 if (window.HOTCOIN_LOGO_DARK) LOGO.src = window.HOTCOIN_LOGO_DARK;
-const money = v => S.unit === 'B' ? '$' + (Math.abs(v) < 100 && Math.abs(v - Math.round(v)) > .05 ? v.toFixed(1) : Math.round(v)) + 'B' : '$' + (Math.abs(v) < 10 && Math.abs(v - Math.round(v)) > .004 ? v.toFixed(2) : Math.round(v).toLocaleString('en-US'));  // cents under $10 (Nov 19: $1.50 hot dog)
+const money = v => (S.unit === 'B' || S.unit === 'M') ? '$' + (Math.abs(v) < 10 && Math.abs(v - Math.round(v)) > .005 ? v.toFixed(2) : Math.abs(v) < 100 && Math.abs(v - Math.round(v)) > .05 ? v.toFixed(1) : Math.round(v)) + S.unit : '$' + (Math.abs(v) < 10 && Math.abs(v - Math.round(v)) > .004 ? v.toFixed(2) : Math.round(v).toLocaleString('en-US'));  // cents under $10 (Nov 19: $1.50 hot dog)
 const COIN = S.invest.color || '#3E9B27';
 const RES = () => (S.reveal && S.reveal.neg) ? P.red : P.green;   // Nov 20: reveal.neg = the stock lost (Jordans vs Nike), result in red
 let INKC = '14,26,18';                         // chart grid/tick ink (photo look: white)
