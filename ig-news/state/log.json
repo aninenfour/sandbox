@@ -2377,5 +2377,38 @@
   "note": "W48 how-to promise hook with a number, no face needed; ties to Oct PCE + GDP Wed 21:30 UTC+8. 4 slides, no CTA. Variant a (Nov 24 was b). FRED/BEA unreachable from the sandbox; BEA data via DBnomics mirror, cross-checked with FOMC minutes. Media commit 5cbee43.",
   "doc_row": true,
   "media_commit": "5cbee431de3cc4b3e8aaf05c98f774d423fce9a4"
+ },
+ {
+  "id": "2026-11-25-btc-etf-exodus",
+  "type": "news",
+  "slot": "2026-11-25T10:00:00+08:00",
+  "title": "Investors pulled $4.7B out of US Bitcoin ETFs in November ($570M Mon Nov 23, IBIT $509M); BTC $59.8K, -53% from $126.1K ATH; Fear & Greed 11/100, extreme fear since Nov 14",
+  "score": 11,
+  "status": "scheduled",
+  "layouts": [
+   "nhero",
+   "ngrid",
+   "nbars",
+   "nbig"
+  ],
+  "ngrid_used": true,
+  "nquote_used": false,
+  "nquote_note": "W48 experiment: not used. No well-known person quoted word for word in 2 sources (CoinDesk quotes only Tesseract's Adam Haeems; The Block/Decrypt paraphrase Nansen/LMAX/Glassnode). Fink cover face = CEO of the fund behind most of Monday's outflow. Runner-up: Raskin probe of Trump Jr.'s 1789 Capital/Polymarket (Don Jr. 'suck my thumb' quote, 1 source; 3rd Trump/prediction-market story in 4 days).",
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(10:02, tt/01-04)",
+   "ig_story(10:05)",
+   "x_research(11:00, 01-04)"
+  ],
+  "sources": [
+   "CoinDesk Nov 24 (Farside): Nov net outflows $4.71B, Mon $570M, IBIT $509M",
+   "The Block Nov 24: $569.7M Mon, IBIT $509.3M, Nov nearing $5B, BTC below $60K",
+   "Decrypt Nov 24: BTC $59,992, >50% below Oct 2025 peak",
+   "CoinGecko ATH $126,080 Oct 6 2025, $59,767 + Coinbase $59,727 Nov 25 07:45 UTC+8",
+   "alternative.me F&G 11 Nov 24, <=13 since Nov 14"
+  ],
+  "note": "07:40 run. Skipped: Dell results/Nvidia-Jensen (main + PT X posted in 48h), Anthropic below IPO price, BlackRock HK tokenized MMF (9/12), South Korea ICO ban. Commons rate-limited (429): Unsplash for grid cells.",
+  "commit": "8bd7873"
  }
 ]
