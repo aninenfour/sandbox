@@ -598,5 +598,12 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102174770/large/muub.png?1784798377",
   "logo": "muub"
+ },
+ "SAHARA": {
+  "id": "sahara-ai",
+  "name": "Sahara AI",
+  "twitter": "SaharaAI",
+  "image": "https://coin-images.coingecko.com/coins/images/66681/large/Token_Logo_3x.png?1750362133",
+  "logo": "sahara"
  }
 }

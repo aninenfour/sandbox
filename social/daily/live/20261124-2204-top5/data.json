@@ -1,0 +1,59 @@
+{
+ "window": "24H to Nov 24 22:04 (UTC+8)",
+ "date": "NOV 24",
+ "day": "2026-11-24",
+ "template": "orbit",
+ "gainers": [
+  {
+   "sym": "URNA",
+   "name": "",
+   "ch": 41.84,
+   "vol": 250486.72,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "SOXSB",
+   "name": "Direxion SOXS · bStocks",
+   "ch": 19.67,
+   "vol": 679386.99,
+   "handle": "",
+   "logo": "soxsb",
+   "bg": "#0063a6",
+   "glow": "#0063a6"
+  },
+  {
+   "sym": "FLNCB",
+   "name": "Fluence Energy (bStocks Tokenized Stock)",
+   "ch": 17.38,
+   "vol": 571725.15,
+   "handle": "",
+   "logo": "flncb",
+   "bg": "#0050b5",
+   "glow": "#0050b5"
+  },
+  {
+   "sym": "SAHARA",
+   "name": "Sahara AI",
+   "ch": 13.42,
+   "vol": 333217.87,
+   "handle": "@SaharaAI",
+   "logo": "sahara",
+   "bg": "#eff795",
+   "glow": "#f7ff98"
+  },
+  {
+   "sym": "UNC",
+   "name": "",
+   "ch": 11.18,
+   "vol": 201930.42,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  }
+ ],
+ "link": "📊 $URNA live price and chart: https://www.hotcoin.com/en_US/price/urnaenergy-urna/"
+}
