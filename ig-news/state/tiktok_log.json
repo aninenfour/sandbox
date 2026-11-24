@@ -508,7 +508,7 @@
   "topic": "WHAT IF: Bill Gates' $30.8M notebook vs Microsoft",
   "hook": "Bill Gates paid $30.8M for a da Vinci notebook. Same $30.8M in Microsoft: $3.9B",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-25-academy-read-inflation",
@@ -517,6 +517,6 @@
   "topic": "Academy: how to read an inflation report",
   "hook": "Inflation is 3.6%, but gas is up 35%",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
