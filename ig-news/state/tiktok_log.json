@@ -487,8 +487,9 @@
   "format": "photo",
   "topic": "News: US goes after $1.17B of Binance hack money",
   "hook": "The US wants $1.17B of the Binance hack money",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7711552661862059285"
  },
  {
   "id": "2026-11-24-memereact-netflix-btc",
@@ -496,7 +497,26 @@
   "format": "video",
   "topic": "MEME REACT: Netflix bill +43% vs Bitcoin +9% in 5 years",
   "hook": "5 years of HODL and my Netflix bill did better",
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7711590429854092545"
+ },
+ {
+  "id": "2026-11-24-whatif-gates-codex-msft",
+  "slot": "2026-11-24T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Bill Gates' $30.8M notebook vs Microsoft",
+  "hook": "Bill Gates paid $30.8M for a da Vinci notebook. Same $30.8M in Microsoft: $3.9B",
   "status": "scheduled",
-  "doc_row": true
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-25-academy-read-inflation",
+  "slot": "2026-11-25T19:02:00+08:00",
+  "format": "photo",
+  "topic": "Academy: how to read an inflation report",
+  "hook": "Inflation is 3.6%, but gas is up 35%",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]

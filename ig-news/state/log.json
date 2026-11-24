@@ -2279,7 +2279,7 @@
   "slot": "2026-11-24T10:00:00+08:00",
   "title": "US goes after $1.17B of the Binance hack money (DOJ civil forfeiture of USDC, Nov 23); $2.9B+ of $6.34B frozen/seized/returned; $247M through BTC mixers; 18,270 BTC untouched",
   "score": 10,
-  "status": "scheduled",
+  "status": "published",
   "layouts": [
    "nhero",
    "ngrid",
@@ -2302,14 +2302,15 @@
    "Decrypt Nov 23 2026 (Elliptic: $247M coinjoins, 18,270 BTC not moved, 27,000+ wallets, 16 chains)",
    "CoinDesk Nov 23 2026 ($247M coinjoins)"
   ],
-  "note": "Score 10 (hook 3, relevance 3, fresh 3, visual 1: no famous face; Teng cover reused from Oct 31). Skipped: Jensen Huang back as Nvidia CEO, NVDA +30-35% (Hotcoin main + PT X posted it Nov 23 22:30, 48 h rule); Kalshi NY judge declined to block (temporary, Kalshi covered Sun); Saylor 'dots aren't done' (routine buy); Grayscale oversold; OKX-ICE (competitor). Circle replacement-USDC detail single-source (The Block), left out."
+  "note": "Score 10 (hook 3, relevance 3, fresh 3, visual 1: no famous face; Teng cover reused from Oct 31). Skipped: Jensen Huang back as Nvidia CEO, NVDA +30-35% (Hotcoin main + PT X posted it Nov 23 22:30, 48 h rule); Kalshi NY judge declined to block (temporary, Kalshi covered Sun); Saylor 'dots aren't done' (routine buy); Grayscale oversold; OKX-ICE (competitor). Circle replacement-USDC detail single-source (The Block), left out.",
+  "ig_url": "https://www.instagram.com/p/DgG1ZCjJaKa/"
  },
  {
   "id": "2026-11-24-memereact-netflix-btc",
   "type": "reel-memereact",
   "slot": "2026-11-24T12:30:00+08:00",
   "title": "MEME REACT: 5 years of Bitcoin, Netflix won. Netflix Standard +43% ($13.99 Nov 2021 -> $19.99) vs BTC +9% ($56.3K Nov 24 2021 -> $61.1K), IShowSpeed shocked + meme audio",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "tiktok"
@@ -2318,6 +2319,61 @@
    "Netflix US Standard $13.99 until Jan 14 2022 raise to $15.49 (Fortune, BNN Bloomberg); $19.99 since March 2026 raise from $17.99 (CBS News, KTVU)",
    "BTC: Yahoo BTC-USD close Nov 24 2021 $56,280; CoinGecko $61,118 + Coinbase $61,172 Nov 24 2026 ~07:50 UTC+8; CoinDesk Nov 23 'Bitcoin's 5-year return is nearly zero'"
   ],
-  "note": "Everyday-object joke (rice formula, owner feedback). Hook = feeling then number. Meme key similarity 0.14 (green Nigeria jersey). Cover: media/2026-11-24-memereact-netflix-btc/cover.jpg; Publer IG + TikTok images checked = cover."
+  "note": "Everyday-object joke (rice formula, owner feedback). Hook = feeling then number. Meme key similarity 0.14 (green Nigeria jersey). Cover: media/2026-11-24-memereact-netflix-btc/cover.jpg; Publer IG + TikTok images checked = cover.",
+  "ig_url": "https://www.instagram.com/reel/DgHGjO_ifY_/"
+ },
+ {
+  "id": "2026-11-24-whatif-gates-codex-msft",
+  "type": "reel-whatif-v2",
+  "slot": "2026-11-24T21:30:00+08:00",
+  "title": "Bill Gates paid $30.8M for Leonardo's Codex Leicester (Nov 11 1994) vs $30.8M in Microsoft: $3.90B now (127x; dot-com top $472M, 2009 low $120M, record $4.40B Nov 4 2026)",
+  "status": "scheduled",
+  "music": "Hip-Hop Beat (Mauro Urbina, Mixkit) #768",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "ig_story(21:35)",
+   "tiktok",
+   "x_main(story_x45.mp4)"
+  ],
+  "sources": [
+   "Bill Gates bought Leonardo da Vinci's Codex Leicester at Christie's New York on Nov 11 1994 for $30,802,500: Wikipedia (Codex Leicester) + Seattle Times (Oct 14 1997) + The Art Newspaper",
+   "MSFT close Nov 11 1994: Yahoo Finance $3.890625 split-adjusted ($62.25 before 4 two-for-one splits 1996-2003); Digrin Nov 1994 month-end $62.88 unadjusted ($3.93 adjusted, Yahoo Nov 30 $3.93)",
+   "MSFT close Nov 23 2026: Yahoo $492.50, Nasdaq.com $492.50",
+   "$30,802,500 / $3.890625 = 7.92M shares; x $492.50 = $3.90B (127x); dot-com top Dec 27 1999 $59.56 = $472M; low Mar 9 2009 $15.15 = $120M; record close Nov 4 2026 $555.80 = $4.40B"
+  ],
+  "note": "W48 hook rule 'a person in the purchase': Bill Gates face cover (cover_face). Photo look, lump, 84.4 s (32 years, chart_secs 60), thumbnail fill 52%. whatif2.js: unit 'M' now shows values >= 1000M as $X.XXB. Gates: Kuhlmann/MSC Commons CC BY 3.0 DE; Microsoft sign Commons PD. Media commit 65acaba. Publer bulk upload timed out; all 5 posts scheduled via media_url. Publer covers confirmed = frame 0 (IG, TikTok).",
+  "doc_row": true,
+  "media_commit": "65acaba24d449f6920527253fcaaed1e59d70302"
+ },
+ {
+  "id": "2026-11-25-academy-read-inflation",
+  "type": "academy",
+  "slot": "2026-11-25T19:00:00+08:00",
+  "title": "Money 101: How to read an inflation report in 3 numbers (PCE Sep 2026: 3.6% y/y, peak 7.2% Jun 2022; gas/energy goods +35%, groceries +1.5%, core 3.1%; core m/m 0.13-0.32% Jun-Sep)",
+  "status": "scheduled",
+  "variant": "a",
+  "layouts": [
+   "nhero",
+   "tslide-line",
+   "ngrid",
+   "tslide-bars"
+  ],
+  "ngrid_used": true,
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(19:02, tt/01-04)",
+   "ig_story(19:05)",
+   "x_research(20:30, 01-04)"
+  ],
+  "sources": [
+   "BEA NIPA Table 2.8.4 price indexes via DBnomics (BEA/NIPA-T20804), Sep 2026: PCE 132.257 (+3.65% y/y), core PCE 130.902 (+3.12% y/y, +0.32% m/m), gasoline and other energy goods +35.5% y/y, food at home +1.5% y/y; headline peak 7.2% Jun 2022",
+   "FOMC minutes Oct 27-28 2026 (Nov 18): staff estimate PCE inflation 3.6%, core 3.1% in September",
+   "Calendar: Oct personal income/PCE + GDP 2nd estimate Wed Nov 25 8:30 ET (21:30 UTC+8), Stocktitan/FinancialJuice (weekly post sources)"
+  ],
+  "note": "W48 how-to promise hook with a number, no face needed; ties to Oct PCE + GDP Wed 21:30 UTC+8. 4 slides, no CTA. Variant a (Nov 24 was b). FRED/BEA unreachable from the sandbox; BEA data via DBnomics mirror, cross-checked with FOMC minutes. Media commit 5cbee43.",
+  "doc_row": true,
+  "media_commit": "5cbee431de3cc4b3e8aaf05c98f774d423fce9a4"
  }
 ]
