@@ -1,0 +1,129 @@
+{
+ "type": "news",
+ "style": "v2",
+ "date": "NOV 25",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "fink2.jpg",
+   "photo_pos": "50% 12%",
+   "tag": "TRENDING",
+   "badge": {
+    "src": "btc.svg",
+    "pos": "tr",
+    "fit": "100%",
+    "size": 260
+   },
+   "headline": "Investors pulled [$4.7B] out of {Bitcoin ETFs} in November"
+  },
+  {
+   "kind": "ngrid",
+   "title": "Who is selling?",
+   "text": "BlackRock's fund was [$509M] of Monday's exit.",
+   "cells": [
+    {
+     "photo": "wallst.jpg",
+     "photo_pos": "50% 40%",
+     "label": "Out of US Bitcoin ETFs, November",
+     "value": "$4.7B",
+     "neg": true
+    },
+    {
+     "photo": "coins.jpg",
+     "photo_pos": "50% 50%",
+     "label": "Out in one day, Mon Nov 23",
+     "value": "$570M",
+     "neg": true
+    }
+   ],
+   "source": "CoinDesk Nov 24 (Farside); The Block Nov 24"
+  },
+  {
+   "kind": "nbars",
+   "tag": "WHY IT MATTERS",
+   "title": "Bitcoin is at half its top",
+   "bars": [
+    {
+     "l": "Record high, Oct 6 2025",
+     "v": 126080,
+     "txt": "$126.1K"
+    },
+    {
+     "l": "Now, Nov 25",
+     "v": 59767,
+     "txt": "$59.8K",
+     "neg": true
+    }
+   ],
+   "text": [
+    "Bitcoin slipped back under [$60K] on Tuesday.",
+    "That is {53% below} the top."
+   ],
+   "source": "CoinGecko, Coinbase Nov 25 07:45 UTC+8; Decrypt"
+  },
+  {
+   "kind": "nbig",
+   "tag": "THE MOOD",
+   "title": "Fear is stuck at the bottom",
+   "kicker": "CRYPTO FEAR & GREED INDEX",
+   "big": "11/100",
+   "neg": true,
+   "label": "Extreme fear, 11 days in a row",
+   "spark": [
+    68,
+    50,
+    51,
+    54,
+    50,
+    48,
+    51,
+    51,
+    30,
+    30,
+    34,
+    37,
+    26,
+    34,
+    50,
+    28,
+    25,
+    28,
+    29,
+    32,
+    29,
+    28,
+    20,
+    13,
+    10,
+    10,
+    12,
+    11,
+    10,
+    12,
+    12,
+    11,
+    11,
+    11
+   ],
+   "text": [
+    "Next test: US inflation and GDP, tonight [21:30] UTC+8."
+   ],
+   "source": "alternative.me Fear & Greed, Oct 22 - Nov 24"
+  },
+  {
+   "kind": "end"
+  }
+ ],
+ "sources": [
+  "CoinDesk Nov 24: November spot BTC ETF net outflows $4.71B; $570M Monday, IBIT $509M (Farside)",
+  "The Block Nov 24: $569.7M net outflows Monday, IBIT $509.3M, November total nearing $5B, BTC below $60K Tuesday",
+  "Decrypt Nov 24: BTC $59,992, more than 50% below October 2025 peak",
+  "CoinGecko: ATH $126,080 Oct 6 2025, $59,767 Nov 25 07:43 UTC+8; Coinbase spot $59,727",
+  "alternative.me Fear & Greed: 11 on Nov 24, Extreme Fear (<=13) since Nov 14"
+ ],
+ "credits": [
+  "Larry Fink: Kena Betancur/European Commission, CC BY 4.0 (Wikimedia Commons)",
+  "Wall Street: Cyril @cyrilczl / Unsplash",
+  "Bitcoins: Erling Løken Andersen / Unsplash"
+ ]
+}
