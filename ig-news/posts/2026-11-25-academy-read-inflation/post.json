@@ -1,0 +1,211 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "variant": "a",
+ "date": "NOV 25",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "cover.jpg",
+   "photo_pos": "50% 30%",
+   "tag": "MONEY 101",
+   "headline": "How to read an inflation report in [3 numbers]"
+  },
+  {
+   "kind": "tslide",
+   "photo": "p1.jpg",
+   "photo_pos": "60% 8%",
+   "title": "1. The <span class='g'>yearly</span> number",
+   "paras": [
+    "Prices vs a year ago. September: <g>3.6%</g>. The Fed wants 2%."
+   ],
+   "visual": {
+    "type": "line",
+    "title": "US PCE inflation, % vs a year ago",
+    "series": [
+     1.4,
+     1.4,
+     1.5,
+     1.6,
+     1.5,
+     1.4,
+     1.5,
+     1.4,
+     1.3,
+     1.3,
+     1.4,
+     1.6,
+     1.8,
+     1.7,
+     1.2,
+     0.5,
+     0.5,
+     0.8,
+     0.9,
+     1.2,
+     1.3,
+     1.2,
+     1.2,
+     1.3,
+     1.5,
+     1.8,
+     2.6,
+     3.6,
+     4.0,
+     4.2,
+     4.4,
+     4.5,
+     4.7,
+     5.3,
+     5.9,
+     6.0,
+     6.2,
+     6.5,
+     6.9,
+     6.6,
+     6.8,
+     7.2,
+     6.9,
+     6.7,
+     6.7,
+     6.5,
+     6.1,
+     5.6,
+     5.6,
+     5.2,
+     4.5,
+     4.5,
+     4.1,
+     3.3,
+     3.4,
+     3.4,
+     3.5,
+     3.1,
+     2.9,
+     2.9,
+     2.7,
+     2.8,
+     3.0,
+     2.8,
+     2.7,
+     2.6,
+     2.6,
+     2.4,
+     2.3,
+     2.4,
+     2.5,
+     2.6,
+     2.6,
+     2.6,
+     2.3,
+     2.3,
+     2.5,
+     2.6,
+     2.6,
+     2.7,
+     2.8,
+     2.7,
+     2.7,
+     2.8,
+     2.7,
+     2.8,
+     3.4,
+     3.6,
+     3.8,
+     3.5,
+     3.4,
+     3.4,
+     3.6
+    ],
+    "labels": [
+     "2019",
+     "Sep 2026"
+    ],
+    "marks": [
+     {
+      "i": 41,
+      "text": "7.2%"
+     }
+    ],
+    "fmt": "{:.1f}%",
+    "h": 230
+   },
+   "source": "BEA PCE price index (NIPA Table 2.8.4)"
+  },
+  {
+   "kind": "ngrid",
+   "title": "2. Headline vs core",
+   "text": "Core skips food and energy. The Fed watches core.",
+   "cells": [
+    {
+     "photo": "g0.jpg",
+     "label": "Gas and energy goods",
+     "value": "+35%",
+     "neg": true,
+     "photo_pos": "50% 50%"
+    },
+    {
+     "photo": "g1.jpg",
+     "label": "Groceries",
+     "value": "+1.5%",
+     "photo_pos": "50% 60%"
+    },
+    {
+     "photo": "g2.jpg",
+     "label": "Core (no food, energy)",
+     "value": "3.1%",
+     "photo_pos": "50% 40%"
+    }
+   ]
+  },
+  {
+   "kind": "tslide",
+   "photo": "p2.jpg",
+   "photo_pos": "80% 45%",
+   "title": "3. The <span class='g'>monthly</span> number",
+   "paras": [
+    "0.2% a month is about 2.4% a year. 0.3% is about 3.7%."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Core PCE, % vs the month before, Jun to Sep 2026",
+    "items": [
+     {
+      "l": "Jun",
+      "v": 0.13,
+      "txt": "0.13%"
+     },
+     {
+      "l": "Jul",
+      "v": 0.14,
+      "txt": "0.14%"
+     },
+     {
+      "l": "Aug",
+      "v": 0.26,
+      "txt": "0.26%"
+     },
+     {
+      "l": "Sep",
+      "v": 0.32,
+      "txt": "0.32%"
+     }
+    ]
+   },
+   "source": "BEA PCE excluding food and energy price index"
+  }
+ ],
+ "sources": [
+  "BEA NIPA Table 2.8.4 price indexes via DBnomics (BEA/NIPA-T20804), Sep 2026: PCE 132.257 (+3.65% y/y), core PCE 130.902 (+3.12% y/y, +0.32% m/m), gasoline and other energy goods +35.5% y/y, food at home +1.5% y/y; headline peak 7.2% Jun 2022",
+  "FOMC minutes Oct 27-28 2026 (Nov 18): staff estimate PCE inflation 3.6%, core 3.1% in September",
+  "Calendar: Oct personal income/PCE + GDP 2nd estimate Wed Nov 25 8:30 ET (21:30 UTC+8), Stocktitan/FinancialJuice (weekly post sources)"
+ ],
+ "photo_credits": [
+  "Shopper with cart: Napat Saeng / Unsplash (JeXY0uIwrsM)",
+  "Gas pump: engin akyurt / Unsplash (f4UbPVbJcjw)",
+  "Vegetable stand: Thomas Le / Unsplash (pRJhn4MbsMM)",
+  "Apartments: Marlene Celine Nordvik / Unsplash (5q1KnUjtjaM)",
+  "Grocery aisle: Allef Vinicius / Unsplash (U3rUX-UtmTQ)",
+  "Shopping cart: Bruno Kelzer / Unsplash (LvySG1hvuzI)"
+ ]
+}
