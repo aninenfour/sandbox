@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "NVDAB", "kind": "tradfi", "why": "Up 31% Mon after Jensen Huang was reinstated as CEO"},
+ {"sym": "DELLB", "kind": "tradfi", "why": "Up 20% Mon; FQ3 results after the US close today"},
+ {"sym": "QQQB", "kind": "tradfi", "why": "Nasdaq up 6.5% Mon, its best day since April 2025"},
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Slipping in 24h near $60K while stocks rallied"},
+ {"sym": "ETH", "kind": "crypto", "why": "Slipping in 24h, holding near $1,700"}
+]}

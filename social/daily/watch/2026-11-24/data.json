@@ -1,0 +1,71 @@
+{
+ "date": "NOV 24",
+ "window": "Prices at Nov 24 11:42 (UTC+8)",
+ "items": [
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA",
+   "kind": "tradfi",
+   "handle": "@nvidia",
+   "why": "Up 31% Mon after Jensen Huang was reinstated as CEO",
+   "last": 164.5,
+   "ch": 22.25,
+   "vol": 574660.07,
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "DELLB",
+   "name": "Dell",
+   "kind": "tradfi",
+   "handle": "@Dell",
+   "why": "Up 20% Mon; FQ3 results after the US close today",
+   "last": 333.78,
+   "ch": 12.77,
+   "vol": 683551.14,
+   "logo": "dellb",
+   "bg": "#017fc2",
+   "glow": "#017fc2"
+  },
+  {
+   "sym": "QQQB",
+   "name": "Nasdaq 100 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Nasdaq up 6.5% Mon, its best day since April 2025",
+   "last": 652.1,
+   "ch": 3.6,
+   "vol": 572334.73,
+   "logo": "qqqb",
+   "bg": "#000ad2",
+   "glow": "#000ad2"
+  },
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Slipping in 24h near $60K while stocks rallied",
+   "last": 60347.32,
+   "ch": -1.52,
+   "vol": 1054421603.2,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Slipping in 24h, holding near $1,700",
+   "last": 1695.7,
+   "ch": -2.05,
+   "vol": 262206442.22,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  }
+ ]
+}
