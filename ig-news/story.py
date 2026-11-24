@@ -19,6 +19,22 @@ W, H, FPS, SR = 1080, 1920, 30, 44100
 rs = np.random.default_rng(5)
 
 
+IG_STORY_MAX = 59.0   # IG Stories reject video over 60 s (Kindle 66.8 s Nov 18 and Gates 84.4 s Nov 24 Stories failed; <= 49 s all went out)
+
+
+def ig_story_cut(mp4, dur, dst, tail=15.0, xf=0.4):
+    """Daily review Nov 25: a Reel longer than IG_STORY_MAX gets story_ig.mp4 for the IG Story slot: the first part
+    (cover, hook, start of the chart) + a 0.4 s cross-fade + the last `tail` s (reveal, lesson, end card), <= 59 s."""
+    head = IG_STORY_MAX - tail + xf - .2
+    fc = (f'[0:v]trim=0:{head:.3f},setpts=PTS-STARTPTS[v0];[0:v]trim={dur - tail:.3f}:{dur:.3f},setpts=PTS-STARTPTS[v1];'
+          f'[v0][v1]xfade=transition=fade:duration={xf}:offset={head - xf:.3f}[v];'
+          f'[0:a]atrim=0:{head:.3f},asetpts=PTS-STARTPTS[a0];[0:a]atrim={dur - tail:.3f}:{dur:.3f},asetpts=PTS-STARTPTS[a1];'
+          f'[a0][a1]acrossfade=d={xf}[a]')
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(mp4), '-filter_complex', fc, '-map', '[v]', '-map', '[a]',
+                    '-c:v', 'libx264', '-crf', '20', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', str(dst)], check=True)
+    return head + tail - xf
+
+
 def env(n, a=.004, d=None):
     e = np.ones(n); k = max(1, int(a * SR)); e[:k] = np.linspace(0, 1, k)
     if d: e *= np.exp(-np.arange(n) / (d * SR))
@@ -131,6 +147,9 @@ def main():
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(mp4), '-vf', 'crop=1080:1350:0:180', '-c:v', 'libx264', '-crf', '20',
                         '-pix_fmt', 'yuv420p', '-c:a', 'copy', str(out / 'story_x45.mp4')], check=True)
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(out / 'cover.jpg'), '-vf', 'crop=1080:1350:0:285', str(out / 'cover_45.jpg')], check=True)
+    if dur > IG_STORY_MAX:  # IG Story limit: schedule the Story with story_ig.mp4, never story.mp4
+        d2 = ig_story_cut(mp4, dur, out / 'story_ig.mp4')
+        print(f'IG Story cut: story_ig.mp4 {d2:.1f}s (Reel is {dur:.1f}s > {IG_STORY_MAX:.0f}s; use it for the 21:35 IG Story)')
     print(mp4.relative_to(ROOT.parent), f'{dur:.1f}s'); print(track[1])
 
 

@@ -108,6 +108,7 @@ Examples (before → better):
   Before: "Microsoft: +50% since June". After: "+50% since June. Can Microsoft keep it?", with the slides answering from history (past earnings-week moves, distance to the record).
 
 ## Changelog
+- 2026-11-25 (daily review): Reels over 59 s get `story_ig.mp4` from story.py (first ~44 s + 0.4 s fade + the last 15 s: reveal, lesson, end card; 58.8 s for Gates) for the 21:35 IG Story; IG rejected the 66.8 s Kindle and 84.4 s Gates Stories. PLAYBOOK §7b. Test: Gates cut checked frame by frame in scratch.
 - 2026-11-24 (daily review): line chart (`tslide` visual `line`): the start value is labelled at the first point, not on the right-hand scale under the end value (dividends: grey "$0.56" under "$2.04" read as the 2025 value); a falling line no longer prints the scale min over its end label. extra_templates.py; before/after: research/2026-W48/line_first_label_before_after.jpg.
 - 2026-11-23 (weekly learning W48): `nquote` people-first quote slide (news2.py) replaces the white rows card for "what X said" slides; W48 hook rules (feeling then number, a person in the purchase, how-to promise). Before/after: research/2026-W48/before_after.jpg.
 - 2026-11-22 (daily review): WHAT IF reveal (lump mode): the price paid is shown as is (no count-up; Costco showed $1.32 -> $1.50, Jordans $219 -> $220 as if the price moved) and the stock counts from what you paid to what it is worth (Jordans: $220 down to $146 in red, Costco $1.50 up to $290). DCA keeps the old count-up. whatif2.js; after: research/2026-W47/whatif_reveal_count_after.jpg.

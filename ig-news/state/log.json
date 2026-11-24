@@ -2251,7 +2251,7 @@
   "type": "academy",
   "slot": "2026-11-24T19:00:00+08:00",
   "title": "Stocks 101: How to get paid to hold a stock, in 3 numbers (yield: PEP 4.21% ... AAPL 0.32%; $10K pays $421 vs $32; KO 64 years of raises, $0.56 -> $2.04 2005-2025)",
-  "status": "scheduled",
+  "status": "published",
   "variant": "b",
   "layouts": [
    "nhero",
@@ -2271,7 +2271,8 @@
   ],
   "note": "W48 how-to promise hook with a number, no face needed. 4 slides, no CTA. Variant b (Nov 23 was a). Media commit 1ddf262. Nov 23 fix: slide 4 line chart re-rendered with c2c6f7c label fix ($0.56 now sits on the 2005 point, not under $2.04); media commit 94b0767. All 5 Publer posts (IG 19:00, FB 19:00, TikTok 19:02, IG Story 19:05, X Research 20:30) re-scheduled with new media; old 5 moved to drafts (old X draft caption prefixed [OLD MEDIA - replaced Nov 24, do not publish]). No first comment in post.json.",
   "doc_row": true,
-  "media_commit": "94b076710a3ad16534c3c73b4f4f68e88f02966d"
+  "media_commit": "94b076710a3ad16534c3c73b4f4f68e88f02966d",
+  "ig_url": "https://www.instagram.com/p/DgHzLk5JcW3/"
  },
  {
   "id": "2026-11-24-binance-hack-doj",
@@ -2327,7 +2328,7 @@
   "type": "reel-whatif-v2",
   "slot": "2026-11-24T21:30:00+08:00",
   "title": "Bill Gates paid $30.8M for Leonardo's Codex Leicester (Nov 11 1994) vs $30.8M in Microsoft: $3.90B now (127x; dot-com top $472M, 2009 low $120M, record $4.40B Nov 4 2026)",
-  "status": "scheduled",
+  "status": "published",
   "music": "Hip-Hop Beat (Mauro Urbina, Mixkit) #768",
   "platforms": [
    "ig_reel",
@@ -2342,9 +2343,10 @@
    "MSFT close Nov 23 2026: Yahoo $492.50, Nasdaq.com $492.50",
    "$30,802,500 / $3.890625 = 7.92M shares; x $492.50 = $3.90B (127x); dot-com top Dec 27 1999 $59.56 = $472M; low Mar 9 2009 $15.15 = $120M; record close Nov 4 2026 $555.80 = $4.40B"
   ],
-  "note": "W48 hook rule 'a person in the purchase': Bill Gates face cover (cover_face). Photo look, lump, 84.4 s (32 years, chart_secs 60), thumbnail fill 52%. whatif2.js: unit 'M' now shows values >= 1000M as $X.XXB. Gates: Kuhlmann/MSC Commons CC BY 3.0 DE; Microsoft sign Commons PD. Media commit 65acaba. Publer bulk upload timed out; all 5 posts scheduled via media_url. Publer covers confirmed = frame 0 (IG, TikTok).",
+  "note": "W48 hook rule 'a person in the purchase': Bill Gates face cover (cover_face). Photo look, lump, 84.4 s (32 years, chart_secs 60), thumbnail fill 52%. whatif2.js: unit 'M' now shows values >= 1000M as $X.XXB. Gates: Kuhlmann/MSC Commons CC BY 3.0 DE; Microsoft sign Commons PD. Media commit 65acaba. Publer bulk upload timed out; all 5 posts scheduled via media_url. Publer covers confirmed = frame 0 (IG, TikTok). Nov 25 review: IG Story (21:35) FAILED in Publer (84.4 s > IG Story 60 s limit; same as Kindle 66.8 s Nov 18); IG Reel, FB Reel, TikTok, X went out.",
   "doc_row": true,
-  "media_commit": "65acaba24d449f6920527253fcaaed1e59d70302"
+  "media_commit": "65acaba24d449f6920527253fcaaed1e59d70302",
+  "ig_url": "https://www.instagram.com/reel/DgIEboOgDBo/"
  },
  {
   "id": "2026-11-25-academy-read-inflation",

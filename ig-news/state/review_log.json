@@ -413,5 +413,22 @@
   "skipped": false,
   "looked_at": "Publer published/failed Nov 23-24 (all channels), IG/TikTok/FB insights Nov 17-24; contact sheets of Trump coin news, Thanksgiving Academy, dividends Academy, Buffett WHAT IF contact.jpg",
   "owner_decision": "Face-led WHAT IF (Musk) did not lift IG reach or shares; meme/joke posts remain the only shared format. Still open: swap one weekly WHAT IF slot for a MEME REACT; the team's history-person story Reels (Hetty Green IG 411) beat the desk on IG, worth a test as a 21:30 format. Tidy the 4 old 'Scheduled' TikTok-doc rows from Oct 28-31?"
+ },
+ {
+  "date": "2026-11-25",
+  "time_utc": "2026-11-24T22:55Z",
+  "looked_at": "Publer published/failed Nov 23-25 (all channels), IG/TikTok/FB insights Nov 17-25; renders: Binance hack news 5 slides + Story, Netflix MEME REACT contact, dividends Academy 4 + Story, Gates WHAT IF contact (84.4 s), inflation Academy 4 + Story",
+  "metrics_summary": "Netflix MEME REACT (~18 h): IG reach 13 / TT 44, 0 shares (rice: 6 IG + 12 TT shares); joke-in-the-title did not travel this time. Buffett WHAT IF (~33 h, 48 h mark is tonight 21:35): IG 124 / TT 92 / FB 58, 0 shares, 1 comment (Musk at same age IG 122 / TT 208 / FB 152). Gates WHAT IF (~9 h): no insights synced; Publer gives no watch-time/retention field, so 'is 84 s too long' cannot be judged from data yet. Binance nquote news (~21 h): IG 29 / TT 68 (Trump coin IG 62 / TT 422). Thanksgiving Academy IG 12 / TT 269. Team's Internet Archive history-person story Reel: IG 3,201 reach, 4 shares, 2 saves; TT 488 (best of the week, Hetty Green IG 411 last week).",
+  "findings": [
+   "Bug: Reels over 60 s fail as IG Story. Gates (84.4 s) IG Story 21:35 Nov 24 = Failed in Publer; Kindle (66.8 s) Nov 18 Story also Failed. Every WHAT IF Story <= 49 s went out. IG Reel, FB Reel, TikTok and X for Gates published fine.",
+   "Renders: no clipping/overlap. Binance nquote slide (Leatherman) reads well; dividends slide 4 line label fix shows correctly; inflation Academy fine but cover is a stock model with a shopping cart (rule: real face or place/product). Netflix MEME REACT: Netflix logo is a tiny black dot, unreadable at thumbnail size.",
+   "Hooks: Binance 'US goes after $1.17B of the Binance hack money' passes. Netflix '5 years of Bitcoin. Netflix won.' passes (feeling then number). Gates frame 0 reads 'BACK IN 1994 / DA VINCI NOTEBOOK $30.8M' (photo_title default): W48 rule wants who paid; better photo_title 'BILL GATES PAID' (same miss as Buffett yesterday; it's per-post copy, the field exists). Inflation cover 'How to read an inflation report in 3 numbers' is OK; the TikTok hook 'Inflation is 3.6%, but gas is up 35%' is stronger and could be the cover. No new rule: existing rules cover these.",
+   "Chore: tracker doc Scheduled -> IG link for dividends Academy + Gates Reel; TikTok doc Scheduled -> TikTok link for the same two (only those 4 cells). log.json / tiktok_log.json updated (status, urls)."
+  ],
+  "changes": [
+   "story.py: Reels longer than 59 s also get media/<id>/story_ig.mp4 (first ~44 s + 0.4 s cross-fade + last 15 s: reveal, lesson, end card) for the 21:35 IG Story; PLAYBOOK §7b says to use it; STYLE_NOTES changelog. Tested on the Gates Reel into scratch: 58.8 s, frames at 0/5/30/43-45/50/56/58 s checked (cover, chart, fade into reveal, lesson, end card). Published/scheduled media and posts untouched; failed Gates Story not re-posted."
+  ],
+  "owner_decision": "(1) Team's history-person story Reels beat the desk again (Internet Archive IG 3,201 / 4 shares vs desk WHAT IF ~120): test one as the 21:30 format? (2) Gates WHAT IF runs 84 s under the owner's 'length follows the story' rule; no watch-time data in Publer to judge it: cap WHAT IF at ~60 s? (3) Re-post the failed Gates IG Story with the new 58.8 s cut? (needs a publish, not done).",
+  "skipped": false
  }
 ]
