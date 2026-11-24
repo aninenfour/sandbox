@@ -63,6 +63,7 @@
 
 | 24/11 | 08:38 | GM | Ouro Preto: linha sobe a ladeira até a curva | scheduled |
 | 24/11 | 11:36 | Event MIDTERM (text) | Metade do caminho: Ronaldinho (29/11 04:00) + Spot #24 (30/11 12:59), links in reply | scheduled |
+| 24/11 | 13:47 | Placar do dia | $SAHARA +7,9% x $BTC −4,6% (24h até 12:10), "entre as maiores altas" | scheduled |
 | 24/11 | 16:52 | Learn do dia | Guia de spot (pt_PT link in reply) | scheduled |
 
 ## Queued ideas (not scheduled yet)
@@ -109,3 +110,4 @@
 - 23/11 12:10 check 2: no new announcements. Top 8 gainers were tokenized stocks/leveraged ETFs (MVLLB +27%, NVDAB +24.5% looks like weekend gap), skipped; Placar = CYS Cysic verified (CoinGecko 0.0482, +18.2%), 14:26. Runbook: Placar crypto only.
 - 23/11 16:13 check 3: no new announcements. Nothing closes tonight or before 08:00 Tue. No extra evening post (day already 7 with team). Tue: P2P Sprint midterm passed, results for P2P Challenge/Spot #23 to watch; Learn spot guide; GM.
 - 24/11 07:45 check 1: no new announcements (P2P Challenge / Spot #23 results still not posted). Team queued DELL earnings at 10:00 on PT. Midterm for Ronaldinho + Spot #24 as one text post. No meme (had 23/11). Placar at check 2.
+- 24/11 12:10 check 2: no new announcements. UNC +51.5% and URNA +38.0% skipped (no CoinGecko match), CYS skipped (repeat). Placar SAHARA (CoinGecko sahara-ai +8.7%) vs BTC -4.6% at 60,012, 13:47.
