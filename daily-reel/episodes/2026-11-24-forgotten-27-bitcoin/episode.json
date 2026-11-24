@@ -1,0 +1,229 @@
+{
+  "slug": "forgotten-27-bitcoin",
+  "thumb": {
+    "text": "His forgotten $27 bought a home",
+    "hi": [
+      "$27",
+      "home"
+    ],
+    "kicker": "True story",
+    "img": "s15",
+    "zoom": 1.5,
+    "fx": 50,
+    "fy": 28
+  },
+  "highlight": [
+    "In2009",
+    "fake",
+    "forgot",
+    "apartment",
+    "encryption",
+    "thousand",
+    "worst",
+    "April2013",
+    "password",
+    "eighty-six",
+    "fifth",
+    "open"
+  ],
+  "scenes": [
+    {
+      "at": "In2009",
+      "img": "s01",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "a Norwegian student",
+      "img": "s01",
+      "mode": "close",
+      "fx": 50,
+      "fy": 30
+    },
+    {
+      "at": "spent",
+      "img": "s08",
+      "mode": "close",
+      "fx": 30,
+      "fy": 55
+    },
+    {
+      "at": "he called",
+      "img": "s03",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Then he forgot",
+      "img": "s04",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Four years later",
+      "img": "s05",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "it bought him",
+      "img": "s05",
+      "mode": "close",
+      "fx": 50,
+      "fy": 45
+    },
+    {
+      "at": "So how",
+      "img": "s01",
+      "mode": "close",
+      "fx": 20,
+      "fy": 45
+    },
+    {
+      "at": "Four steps",
+      "img": "s04",
+      "mode": "close",
+      "fx": 60,
+      "fy": 30
+    },
+    {
+      "at": "Step one",
+      "step": 1
+    },
+    {
+      "at": "While writing",
+      "img": "s07",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "Kristoffer Koch",
+      "img": "s07",
+      "mode": "close",
+      "fx": 55,
+      "fy": 50
+    },
+    {
+      "at": "five thousand",
+      "img": "s08",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "for a hundred",
+      "img": "s08",
+      "mode": "close",
+      "fx": 70,
+      "fy": 70
+    },
+    {
+      "at": "Step two",
+      "step": 2
+    },
+    {
+      "at": "He calls",
+      "img": "s03",
+      "mode": "close",
+      "fx": 50,
+      "fy": 38
+    },
+    {
+      "at": "and forgets",
+      "img": "s04",
+      "mode": "close",
+      "fx": 25,
+      "fy": 55
+    },
+    {
+      "at": "Step three",
+      "step": 3
+    },
+    {
+      "at": "In April2013",
+      "img": "s11",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "and he thinks",
+      "img": "s11",
+      "mode": "close",
+      "fx": 75,
+      "fy": 32
+    },
+    {
+      "at": "didn't I",
+      "img": "s11",
+      "mode": "close",
+      "fx": 25,
+      "fy": 40
+    },
+    {
+      "at": "Step four",
+      "step": 4
+    },
+    {
+      "at": "It takes",
+      "img": "s14",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "password",
+      "img": "s14",
+      "mode": "close",
+      "fx": 70,
+      "fy": 40
+    },
+    {
+      "at": "and the wallet shows",
+      "img": "s15",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "eight hundred",
+      "img": "s15",
+      "mode": "close",
+      "fx": 50,
+      "fy": 30
+    },
+    {
+      "at": "He sells",
+      "img": "s08",
+      "mode": "close",
+      "fx": 40,
+      "fy": 75
+    },
+    {
+      "at": "buys an apartment",
+      "img": "s05",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "A small bet",
+      "img": "s01",
+      "mode": "wide",
+      "fx": 50,
+      "fy": 50
+    },
+    {
+      "at": "but only",
+      "img": "s07",
+      "mode": "close",
+      "fx": 50,
+      "fy": 33
+    }
+  ]
+}
