@@ -70,5 +70,18 @@
       "X main",
       "Facebook"
     ]
+  },
+  {
+    "date": "2026-11-24",
+    "time": "14:07 UTC+8 (scheduled)",
+    "slugs": [
+      "HotcoinFixed-TermEarnExclusive",
+      "tradfi-0-fee-carnival"
+    ],
+    "layout": "stack",
+    "channels": [
+      "X main",
+      "Facebook"
+    ]
   }
 ]
