@@ -1,0 +1,12 @@
+{
+  "src": "src/senate_first25.mp4",
+  "segments": [[541.9, 558.9]],
+  "transcript": "src/senate.txt.json",
+  "crop": "ih*0.70*1.42:ih*0.70:(iw-ow)/2:0",
+  "format": "x45",
+  "name": "fed-shock-antonopoulos-pt-x",
+  "subs_lines": "lines_pt.json",
+  "kicker": "8 OUT 2014 · SENADO DO CANADÁ",
+  "headline": "Um diretor do Fed defende uma alta de juros maior para dar um “choque”. Veja o que este homem disse ao Senado do Canadá em 2014",
+  "hi": ["choque", "2014"]
+}

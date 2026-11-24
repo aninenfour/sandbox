@@ -1,6 +1,6 @@
 # Daily Finance Reel: Runbook
 
-One run = one finished video posted to Instagram (Reel), TikTok and Facebook (Reel). Cadence: one video every 2 days.
+One run = one finished video posted to Instagram (Reel), TikTok and Facebook (Reel). Cadence: one video every 3 days (owner, 2026-11-23). News-clip reels (news-clip/) run every 3 days, the day after each story reel, so check Publer and never post two reels within ~6 h.
 Read `PLAYBOOK.md` first: it holds the locked format, the style rules, the topic bank, what already ran, and what the weekly review learned.
 
 ## 0. Setup (fresh session)
@@ -18,7 +18,7 @@ pip install --break-system-packages -q edge-tts numpy
 ## 2. Write
 Create `episodes/<YYYY-MM-DD>-<slug>/` with:
 - `script.txt`: one sentence per line, 110 to 135 words (about 48 to 53 s of voice; build.py adds a 2 s hold on the last line and the 3 s end card). Hook line first, picked from the PLAYBOOK hook bank (rotate types; avoid the type used last time), then 1 or 2 lines of setup, then a **bridge line that announces the steps** so they don't come out of nowhere (e.g. "So here's how the first bitcoin purchase actually happened." / "Here's how it went wrong, in four steps." / "So how do you lose a fortune to a pizza? Four steps."), then "Step one." to "Step four." each starting its own line, then a one-line lesson. Never start a step without that bridge line right before Step one. Spoken rhythm, contractions, connectives. Say "legend says" for anything apocryphal. No price predictions, no "buy X", no em dashes.
-- `caption.md`: hook sentence, 2 short lines of story, 3 arrow (→) lessons, a question for comments, "Follow Hotcoin for more money stories.", then dot keywords (•finance •investing ...). Never name the account handle.
+- `caption.md`: hook sentence, 2 short lines of story, 3 arrow (→) lessons, a two-option question for comments (a pick between two things with two emoji or Yes/No, e.g. "Lose the password or lose the drive? 🔑/💾", "Would you have bought in the panic? Yes/No"; open questions got 0 comments on 13 of 13 IG story reels, two-option picks on the account's other posts get 1 to 2, see PLAYBOOK Learnings 2026-11-23), "Follow Hotcoin for more money stories.", then dot keywords (•finance •investing ...). Never name the account handle.
 - Fact-check every number and date in the script with a web search before going on.
 
 ## 3. Voice

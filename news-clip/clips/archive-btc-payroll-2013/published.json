@@ -1,0 +1,17 @@
+{
+ "instagram": {
+  "state": "scheduled",
+  "at": "2026-11-25T13:40:00+08:00",
+  "error": null
+ },
+ "tiktok": {
+  "state": "scheduled",
+  "at": "2026-11-25T13:40:00+08:00",
+  "error": null
+ },
+ "facebook": {
+  "state": "scheduled",
+  "at": "2026-11-25T13:40:00+08:00",
+  "error": null
+ }
+}
