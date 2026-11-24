@@ -528,6 +528,6 @@
   "topic": "News: $4.7B out of Bitcoin ETFs in November",
   "hook": "$4.7B just left Bitcoin ETFs in November",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
