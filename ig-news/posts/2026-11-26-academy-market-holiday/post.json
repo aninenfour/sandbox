@@ -1,0 +1,79 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "variant": "b",
+ "date": "NOV 26",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "cover.jpg",
+   "photo_pos": "50% 40%",
+   "tag": "STOCKS 101",
+   "headline": "How to trade a market holiday, in [3 numbers]"
+  },
+  {
+   "kind": "tslide",
+   "photo": "p2.jpg",
+   "photo_pos": "50% 45%",
+   "title": "1. Wall Street shuts <span class='g'>10 days</span> a year",
+   "paras": [
+    "Today is one: US stocks are closed for Thanksgiving. So, 251 trading days in 2026. Bitcoin trades all <g>365</g>."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Days you can trade in 2026",
+    "items": [
+     {"l": "US stocks", "v": 251, "txt": "251"},
+     {"l": "Bitcoin", "v": 365, "txt": "365"}
+    ]
+   },
+   "source": "NYSE holiday calendar 2026 (10 full closures; 261 weekdays - 10 = 251)"
+  },
+  {
+   "kind": "ngrid",
+   "title": "2. This week in UTC+8 time",
+   "text": "Friday is a [half day] in New York: closes 1 PM ET.",
+   "cells": [
+    {"photo": "g0.jpg", "label": "US stocks, Thu", "value": "CLOSED", "neg": true},
+    {"photo": "g1.jpg", "label": "Fri close", "value": "2 AM Sat", "photo_pos": "50% 30%"},
+    {"photo": "g2.jpg", "label": "Bitcoin", "value": "24/7"}
+   ]
+  },
+  {
+   "kind": "tslide",
+   "photo": "p3.jpg",
+   "photo_pos": "50% 50%",
+   "title": "3. Crypto still moves on <span class='g'>Thanksgiving</span>",
+   "paras": [
+    "Bitcoin on Thanksgiving Day, vs the day before. 2020: <r>-8.4%</r> while Wall Street was closed. Past data, not a promise."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Bitcoin on Thanksgiving Day, % move",
+    "items": [
+     {"l": "2019", "v": -1.2, "txt": "-1.2%"},
+     {"l": "2020", "v": -8.4, "txt": "-8.4%"},
+     {"l": "2021", "v": 3.2, "txt": "+3.2%"},
+     {"l": "2022", "v": 0.0, "txt": "0.0%"},
+     {"l": "2023", "v": -0.3, "txt": "-0.3%"},
+     {"l": "2024", "v": -0.3, "txt": "-0.3%"},
+     {"l": "2025", "v": 0.9, "txt": "+0.9%"}
+    ]
+   },
+   "source": "Bitstamp + Coin Metrics daily closes (UTC)"
+  }
+ ],
+ "sources": [
+  "NYSE Holidays & Trading Hours (nyse.com) + ICE press release (2026-2028 holiday calendar) + Fidelity/Kiplinger 2026 lists: 10 full closures in 2026 (Jan 1, Jan 19, Feb 16, Apr 3, May 25, Jun 19, Jul 3, Sep 7, Nov 26, Dec 25); early close 1:00 pm ET Fri Nov 27 and Thu Dec 24. 261 weekdays in 2026 - 10 = 251 trading days",
+  "1:00 pm ET (EST, UTC-5) Fri Nov 27 = 18:00 UTC = 02:00 Sat Nov 28 UTC+8",
+  "BTC Thanksgiving Day close vs Wednesday close (UTC daily): Bitstamp / Coin Metrics: 2019 -1.2/-1.2, 2020 -8.4/-8.7, 2021 +3.2/+3.3, 2022 -0.1/+0.1 (shown 0.0), 2023 -0.3/-0.2, 2024 -0.3/-0.3, 2025 +0.9/+1.0"
+ ],
+ "photo_credits": [
+  "NYSE with flag: Irvin Liang / Unsplash (ljll1KD2Kt8)",
+  "NYSE facade: Tomas Eidsvold / Unsplash (Vhr4lk8gNBk)",
+  "Thanksgiving turkey: Jed Owen / Unsplash (tZwcwRw6x1c)",
+  "Wall Street flags: Maria Lin Kim / Unsplash (PdtSqv_EWVQ)",
+  "Bitcoin on motherboard: Michael Foertsch / Unsplash (AA5sf7WTv10)",
+  "Bitcoin coins: Kanchanara / Unsplash (4KJJezDyo3M)"
+ ]
+}
