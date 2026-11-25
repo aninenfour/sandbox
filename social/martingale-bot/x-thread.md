@@ -1,5 +1,5 @@
 # Futures Martingale Bot: X thread (4 posts, one image each)
-Images: out/martingale-1..4.png. Facts from Hotcoin's guide:
+Images: out/martingale-1..4.png (green dot mascot version; first android version art in assets/v1/). Facts from Hotcoin's guide:
 https://www.hotcoin.com/en_US/support/Guide-to-Using-the-MartingaleStrategy-for-ContractTrading/
 
 ## 1/4 (image 1)
