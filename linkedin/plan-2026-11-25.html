@@ -1,167 +1,89 @@
 <title>Hotcoin LinkedIn Week Plan</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
 <style>
-/* Layout: a planning board. Week grid first, then one row per post: mockup left, copy right, like the calendar it will become. */
+/* Layout: compact planning board. Language toggle top right, week grid, then two-column post cards (cover left, copy right). */
 :root{
-  --bg:#F6F7F4; --surface:#FFFFFF; --fg:#0B0E11; --muted:#5B6168; --line:#E2E5E0;
-  --lime:#B8F26A; --green:#4E8F2E; --up:#17A86B; --down:#E5484D; --amber:#B7791F;
-  --chip-ready:#E3F6EA; --chip-make:#F1F7E4; --chip-input:#FDECEC;
-  --display:'Inter Tight',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --bg:#F6F7F4; --surface:#FFFFFF; --fg:#0B0E11; --muted:#5B6168; --line:#E2E5E0; --lime:#B8F26A; --green:#4E8F2E;
+  --up:#17A86B; --down:#E5484D; --ok-bg:#E3F6EA; --make-bg:#F1F7E4; --in-bg:#FDECEC;
+  --sans:'Inter Tight','Noto Sans SC',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#07090A; --surface:#111518; --fg:#EEF1EC; --muted:#9AA19B; --line:#232A2E;
-  --lime:#B8F26A; --green:#9BD873; --up:#2DBD85; --down:#F6465D; --amber:#E2B05A;
-  --chip-ready:#12301F; --chip-make:#1F2A12; --chip-input:#3A1518; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#07090A; --surface:#111518; --fg:#EEF1EC; --muted:#9AA19B; --line:#232A2E;
-  --lime:#B8F26A; --green:#9BD873; --up:#2DBD85; --down:#F6465D; --amber:#E2B05A;
-  --chip-ready:#12301F; --chip-make:#1F2A12; --chip-input:#3A1518; color-scheme:dark}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#07090A;--surface:#111518;--fg:#EEF1EC;--muted:#9AA19B;--line:#232A2E;--green:#9BD873;--up:#2DBD85;--down:#F6465D;--ok-bg:#12301F;--make-bg:#1F2A12;--in-bg:#3A1518;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#07090A;--surface:#111518;--fg:#EEF1EC;--muted:#9AA19B;--line:#232A2E;--green:#9BD873;--up:#2DBD85;--down:#F6465D;--ok-bg:#12301F;--make-bg:#1F2A12;--in-bg:#3A1518;color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:15px;line-height:1.5}
-.wrap{max-width:1080px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr);gap:56px}
-.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-h1{font-size:clamp(32px,5vw,52px);line-height:1.02;letter-spacing:-.02em;margin:10px 0 14px;font-weight:800;text-wrap:balance}
-h1 em,h2 em{font-style:normal;color:var(--green)}
-h2{font-size:26px;letter-spacing:-.01em;margin:0 0 4px;font-weight:800;text-wrap:balance}
-.lede{max-width:62ch;color:var(--muted);margin:0;font-size:17px}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:24px}
-.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:2px}
-.fact b{font-size:22px;font-variant-numeric:tabular-nums}
-.fact span{color:var(--muted);font-size:13px}
-.sub{color:var(--muted);margin:0 0 18px;max-width:70ch}
-/* week grid */
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:14px;line-height:1.5}
+#app[data-lang="en"] .zh,#app[data-lang="zh"] .en{display:none!important}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+header{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.05;letter-spacing:-.02em;margin:6px 0 6px;font-weight:800;text-wrap:balance}
+.lede{margin:0;color:var(--muted);font-size:15px}
+.toggle{display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:3px;background:var(--surface)}
+.toggle button{font:600 13px var(--sans);border:0;background:transparent;color:var(--muted);padding:7px 16px;border-radius:99px;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
-table.week{border-collapse:collapse;width:100%;min-width:720px;font-size:13px}
-.week th,.week td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
-.week thead th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+table.week{border-collapse:collapse;width:100%;min-width:640px;font-size:13px}
+.week th,.week td{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+.week thead th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);font-weight:500}
 .week tbody th{white-space:nowrap;font-weight:700}
-.week tbody th small{display:block;font-family:var(--mono);font-weight:500;color:var(--muted);font-size:11px}
-.week tr:last-child td,.week tr:last-child th{border-bottom:0}
-.slot{display:grid;gap:4px}
-.slot a{color:var(--fg);text-decoration:none;font-weight:600}
-.slot a:hover,.slot a:focus-visible{text-decoration:underline}
-.rest{color:var(--muted)}
-.pill{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;padding:2px 7px;border-radius:99px;border:1px solid var(--line);color:var(--muted);width:max-content}
-.st{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;padding:3px 8px;border-radius:99px;width:max-content;font-weight:700}
-.st.ready{background:var(--chip-ready);color:var(--up)}
-.st.make{background:var(--chip-make);color:var(--green)}
-.st.input{background:var(--chip-input);color:var(--down)}
-/* day sections */
-.day{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
-.dayhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--fg);padding-bottom:8px}
-.dayhead h2{margin:0}
-.post{display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;scroll-margin-top:16px}
-@media (max-width:720px){.post{grid-template-columns:minmax(0,1fr)}.post .mockcol{max-width:300px}}
-.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
-.time{font-family:var(--mono);font-weight:700;font-size:13px}
-.post h3{margin:0 0 10px;font-size:19px;line-height:1.25;text-wrap:balance}
-.copy{white-space:pre-wrap;font-size:14px;line-height:1.55;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:0;font-family:var(--display);max-width:72ch;overflow-wrap:anywhere}
-.notes{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:13px;display:grid;gap:3px}
-.copyrow.zh{margin-top:14px}
-.copy[lang="zh-Hans"]{font-family:var(--display),'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif}
-.copyrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px}
-.copyrow span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-button.cp{font-family:var(--mono);font-size:11px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:4px 10px;cursor:pointer}
-button.cp:focus-visible{outline:2px solid var(--green);outline-offset:2px}
-/* mockups: self-contained post images, fixed colours like the real graphics */
-.mock{container-type:inline-size;aspect-ratio:4/5;width:100%;max-width:100%;border-radius:8px;overflow:hidden;position:relative;box-shadow:0 1px 0 rgba(0,0,0,.04),0 8px 24px -12px rgba(0,0,0,.25)}
-.m-white{background:#fff;color:#0B0E11}
-.m-ink{background:#0B0E11;color:#F2F4EF}
-.m-pad{position:absolute;inset:0;padding:7cqw;display:flex;flex-direction:column}
-.m-k{font-family:var(--mono);font-size:3.2cqw;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
-.m-top{display:flex;justify-content:space-between;align-items:center}
-.m-h{font-weight:800;font-size:8.4cqw;line-height:1.02;letter-spacing:-.02em;margin-top:auto}
-.m-s{font-size:4.2cqw;line-height:1.3;margin-top:2.4cqw;opacity:.75}
-.m-big{font-weight:900;font-size:24cqw;line-height:.9;letter-spacing:-.04em}
-.m-dots{display:flex;gap:1.4cqw;margin-top:4cqw}
-.m-dots b{width:2cqw;height:2cqw;border-radius:50%;background:currentColor;opacity:.2}
-.m-dots b:first-child{opacity:1}
-.m-swipe{font-family:var(--mono);font-size:3cqw;letter-spacing:.1em;margin-top:3cqw;opacity:.7}
-.lime{color:#7EC25A}.red{color:#E5484D}.grn{color:#17A86B}
-.halftone{position:absolute;inset:0;background-image:radial-gradient(#0B0E11 22%,transparent 24%);background-size:2.6cqw 2.6cqw;opacity:.06;-webkit-mask-image:radial-gradient(circle at 85% 30%,#000 0,transparent 55%);mask-image:radial-gradient(circle at 85% 30%,#000 0,transparent 55%)}
-.halftone.inv{background-image:radial-gradient(#B8F26A 22%,transparent 24%);opacity:.18}
-.teams{display:grid;grid-template-columns:1fr 1fr;gap:1.8cqw;margin-top:5cqw}
-.teams div{border:1px solid rgba(242,244,239,.22);border-radius:1.6cqw;padding:2cqw 2.4cqw;font-size:3.3cqw;font-weight:600}
-.teams div span{font-family:var(--mono);color:#B8F26A;margin-right:1.4cqw}
-.tiles{display:grid;grid-template-columns:1fr 1fr;gap:2cqw;margin-top:4cqw}
-.tiles div{background:#F3F5F0;border-radius:2cqw;padding:3cqw;display:grid;gap:.6cqw}
-.tiles b{font-size:5.4cqw;letter-spacing:-.01em}
-.tiles span{font-size:3cqw;color:#5B6168;line-height:1.25}
-.bars{display:grid;gap:3.2cqw;margin-top:auto}
-.bar{display:grid;grid-template-columns:12cqw 1fr 13cqw;align-items:center;gap:2cqw;font-size:3.6cqw;font-weight:700}
-.bar .tr{height:4.6cqw;background:#EEF0EC;border-radius:1cqw;position:relative;overflow:hidden}
-.bar .tr i{position:absolute;inset:0 auto 0 0;background:#17A86B;border-radius:1cqw}
-.bar .tr::after{content:"";position:absolute;top:-1cqw;bottom:-1cqw;left:83.3%;border-left:.5cqw dashed #0B0E11}
-.poll{gap:3cqw}
-.poll .q{font-weight:800;font-size:6.4cqw;line-height:1.15;margin-bottom:2cqw}
-.poll .o{border:1.5px solid #0A66C2;color:#0A66C2;border-radius:99px;text-align:center;padding:2.6cqw;font-weight:700;font-size:4cqw}
-.poll small{font-size:3.2cqw;color:#5B6168;margin-top:auto}
-.vid{position:relative}
-.vid video{width:100%;height:100%;object-fit:cover;display:block;background:#0B0E11}
-.play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
-.play i{width:16cqw;height:16cqw;border-radius:50%;background:rgba(11,14,17,.72);display:grid;place-items:center}
-.play i::after{content:"";border-left:5cqw solid #B8F26A;border-top:3.2cqw solid transparent;border-bottom:3.2cqw solid transparent;margin-left:1.2cqw}
-.cover{width:100%;height:auto;aspect-ratio:4/5;display:block;border-radius:8px;box-shadow:0 8px 24px -12px rgba(0,0,0,.35)}
-.cap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;display:block}
-/* decision tables */
-table.opt{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
-.opt th,.opt td{border-bottom:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
-.opt thead th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
-.opt tr.rec td{background:var(--chip-make)}
-.opt td:nth-child(2){font-variant-numeric:tabular-nums;white-space:nowrap}
-.foot{color:var(--muted);font-size:13px;display:grid;gap:4px}
-.foot a{color:var(--fg)}
-@media (prefers-reduced-motion:no-preference){.post{transition:border-color .2s}.post:target{border-color:var(--green)}}
+.week tr:last-child>*{border-bottom:0}
+.week a{color:var(--fg);text-decoration:none;font-weight:600;display:inline-flex;gap:8px;align-items:center}
+.week a:hover{text-decoration:underline}
+.empty{color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.dot.ready{background:var(--up)}.dot.make{background:transparent;box-shadow:inset 0 0 0 2px var(--green)}.dot.input{background:var(--down)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;color:var(--muted);font-size:12px}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.day h2{font-size:18px;margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid var(--fg);font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:12px}
+.card{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;scroll-margin-top:12px}
+@media (max-width:480px){.card{grid-template-columns:110px minmax(0,1fr);gap:12px}}
+.media img,.media video,.vid{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;display:block;background:#0B0E11}
+.vid{position:relative;overflow:hidden}.vid img{border-radius:0}
+.play{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(11,14,17,.72)}
+.play::after{content:"";position:absolute;left:17px;top:13px;border-left:14px solid #B8F26A;border-top:9px solid transparent;border-bottom:9px solid transparent}
+.poll{aspect-ratio:4/5;border:1px solid var(--line);border-radius:8px;display:grid;align-content:center;gap:8px;padding:10px;background:var(--bg)}
+.poll div{border:1.5px solid #0A66C2;color:#0A66C2;border-radius:99px;text-align:center;font-weight:700;font-size:11px;padding:5px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:6px}
+.time{font-family:var(--mono);font-size:12px}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.04em;padding:2px 7px;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
+.st{font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px}
+.st.ready{background:var(--ok-bg);color:var(--up)}.st.make{background:var(--make-bg);color:var(--green)}.st.input{background:var(--in-bg);color:var(--down)}
+.card h3{margin:0 0 8px;font-size:15px;line-height:1.3;text-wrap:balance}
+.copy{white-space:pre-wrap;margin:0;font:13px/1.55 var(--sans);overflow-wrap:anywhere}
+.cap-wrap{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.cap-wrap.clamp{max-height:8.4em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}
+.actions{display:flex;gap:8px;margin-top:8px}
+.actions button{font:600 12px var(--sans);border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:4px 10px;cursor:pointer}
+.note{margin:8px 0 0;color:var(--muted);font-size:12px}
+footer{color:var(--muted);font-size:12px}
 </style>
-
+<div id="app" data-lang="en">
 <div class="wrap">
-
 <header>
-  <div class="kicker">Hotcoin · LinkedIn company page · Nov 25 to Dec 1, 2026</div>
-  <h1>Next 7 days on <em>LinkedIn</em></h1>
-  <p class="lede">12 posts and 3 videos, each with its job, its copy and what it still needs. Times are Beijing (UTC+8): 13:00 reaches Asia, 22:30 reaches Europe and the US. Event posts sit at 18:00 on video days.</p>
-  <div class="facts">
-    <div class="fact"><b>9</b><span>engagements on our best LinkedIn post in 90 days (100 posts). Mostly X copies.</span></div>
-    <div class="fact"><b>7.0%</b><span>engagement on PDF carousels, the top LinkedIn format (Socialinsider, 26k pages)</span></div>
-    <div class="fact"><b>3 videos / week</b><span>Mon, Wed, Fri, alternating how-to and archive</span></div>
+  <div>
+    <div class="kicker"><span class="en">Hotcoin · LinkedIn · Nov 25 to Dec 1, 2026</span><span class="zh" lang="zh-Hans">Hotcoin · LinkedIn · 2026年11月25日至12月1日</span></div>
+    <h1><span class="en">Next 7 days on LinkedIn</span><span class="zh" lang="zh-Hans">LinkedIn 未来7天</span></h1>
+    <p class="lede"><span class="en">12 posts, 3 videos. Beijing time: 13:00 for Asia, 22:30 for Europe and the US.</span><span class="zh" lang="zh-Hans">12条帖子，3个视频。北京时间：13:00 面向亚洲，22:30 面向欧美。</span></p>
   </div>
+  <div class="toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="zh" aria-pressed="false">中文</button></div>
 </header>
-
 <section>
-  <h2>The week at a glance</h2>
-  <p class="sub">Click a post to jump to its mockup and copy.</p>
-  <div class="scroll">
-  <table class="week">
-    <thead><tr><th>Day</th><th>13:00 · Asia</th><th>18:00 · event</th><th>22:30 · Europe / US</th></tr></thead>
-    <tbody>
-      <tr><th>Wed<small>Nov 25</small></th><td class="rest">passed</td><td class="rest">no slot</td><td><div class="slot"><a href="#p1">Archive: Bitcoin payroll, 2013</a><span class="st ready">READY</span></div></td></tr>
-      <tr><th>Thu<small>Nov 26</small></th><td><div class="slot"><a href="#p2">Bots: two thirds of trades</a><span class="st ready">COPY READY</span></div></td><td class="rest">no slot</td><td><div class="slot"><a href="#p3">8 teams behind an exchange</a><span class="st ready">COPY READY</span></div></td></tr>
-      <tr><th>Fri<small>Nov 27</small></th><td><div class="slot"><a href="#p4">Since 2017: our autumn</a><span class="st ready">COPY READY</span></div></td><td><div class="slot"><a href="#p5">Event: Earn Exclusive, last call</a><span class="st ready">COPY READY</span></div></td><td><div class="slot"><a href="#p6">How-to video: the 1% rule</a><span class="st make">TO PRODUCE</span></div></td></tr>
-      <tr><th>Sat<small>Nov 28</small></th><td><div class="slot"><a href="#p7">Poll: what protects an account</a><span class="st ready">READY</span></div></td><td class="rest">no slot</td><td class="rest">no slot</td></tr>
-      <tr><th>Sun<small>Nov 29</small></th><td class="rest" colspan="3">Rest day. Reply to comments only.</td></tr>
-      <tr><th>Mon<small>Nov 30</small></th><td><div class="slot"><a href="#p8">101: funding rate</a><span class="st ready">COPY READY</span></div></td><td><div class="slot"><a href="#p9">Event: TradFi 0 Fee Carnival</a><span class="st ready">COPY READY</span></div></td><td><div class="slot"><a href="#p10">Archive: living on Bitcoin, 2013</a><span class="st make">TO CUT</span></div></td></tr>
-      <tr><th>Tue<small>Dec 1</small></th><td><div class="slot"><a href="#p11">Data Desk: November in numbers</a><span class="st input">DATA ON DEC 1</span></div></td><td class="rest">no slot</td><td><div class="slot"><a href="#p12">Why Hotcoin: proof of reserves</a><span class="st input">CONFIRM SNAPSHOT</span></div></td></tr>
-    </tbody>
-  </table>
-  </div>
+  <div class="scroll"><table class="week">
+    <thead><tr><th><span class="en">Day</span><span class="zh" lang="zh-Hans">日期</span></th><th>13:00 · <span class="en">Asia</span><span class="zh" lang="zh-Hans">亚洲</span></th><th>18:00 · <span class="en">Event</span><span class="zh" lang="zh-Hans">活动</span></th><th>22:30 · <span class="en">Europe / US</span><span class="zh" lang="zh-Hans">欧美</span></th></tr></thead>
+    <tbody><tr><th><span class="en">Wed, Nov 25</span><span class="zh" lang="zh-Hans">11月25日 周三</span></th><td class="empty">·</td><td class="empty">·</td><td><a href="#p1"><i class="dot ready"></i><span class="en">Archive: Bitcoin payroll, 2013</span><span class="zh" lang="zh-Hans">档案：2013年比特币工资</span></a></td></tr><tr><th><span class="en">Thu, Nov 26</span><span class="zh" lang="zh-Hans">11月26日 周四</span></th><td><a href="#p2"><i class="dot ready"></i><span class="en">Bots: two thirds of trades</span><span class="zh" lang="zh-Hans">机器人：三分之二的交易</span></a></td><td class="empty">·</td><td><a href="#p3"><i class="dot ready"></i><span class="en">8 teams behind an exchange</span><span class="zh" lang="zh-Hans">交易所背后的8个团队</span></a></td></tr><tr><th><span class="en">Fri, Nov 27</span><span class="zh" lang="zh-Hans">11月27日 周五</span></th><td><a href="#p4"><i class="dot ready"></i><span class="en">Year 9: our autumn</span><span class="zh" lang="zh-Hans">第9年：我们的秋天</span></a></td><td><a href="#p5"><i class="dot ready"></i><span class="en">Event: Earn Exclusive, last call</span><span class="zh" lang="zh-Hans">活动：定期理财，最后机会</span></a></td><td><a href="#p6"><i class="dot make"></i><span class="en">How-to video: the 1% rule</span><span class="zh" lang="zh-Hans">教学视频：1%法则</span></a></td></tr><tr><th><span class="en">Sat, Nov 28</span><span class="zh" lang="zh-Hans">11月28日 周六</span></th><td><a href="#p7"><i class="dot ready"></i><span class="en">Poll: what protects an account</span><span class="zh" lang="zh-Hans">投票：什么最能保护账户</span></a></td><td class="empty">·</td><td class="empty">·</td></tr><tr><th><span class="en">Sun, Nov 29</span><span class="zh" lang="zh-Hans">11月29日 周日</span></th><td class="empty" colspan="3"><span class="en">Rest day, reply to comments</span><span class="zh" lang="zh-Hans">休息日，只回复评论</span></td></tr><tr><th><span class="en">Mon, Nov 30</span><span class="zh" lang="zh-Hans">11月30日 周一</span></th><td><a href="#p8"><i class="dot ready"></i><span class="en">101: funding rate</span><span class="zh" lang="zh-Hans">101：资金费率</span></a></td><td><a href="#p9"><i class="dot ready"></i><span class="en">Event: TradFi 0 Fee Carnival</span><span class="zh" lang="zh-Hans">活动：TradFi 零手续费嘉年华</span></a></td><td><a href="#p10"><i class="dot make"></i><span class="en">Archive: living on Bitcoin, 2013</span><span class="zh" lang="zh-Hans">档案：2013年只用比特币生活</span></a></td></tr><tr><th><span class="en">Tue, Dec 1</span><span class="zh" lang="zh-Hans">12月1日 周二</span></th><td><a href="#p11"><i class="dot input"></i><span class="en">Data Desk: November in numbers</span><span class="zh" lang="zh-Hans">数据台：11月数据回顾</span></a></td><td class="empty">·</td><td><a href="#p12"><i class="dot input"></i><span class="en">Why Hotcoin: proof of reserves</span><span class="zh" lang="zh-Hans">为什么选 Hotcoin：储备金证明</span></a></td></tr></tbody>
+  </table></div>
+  <div class="legend"><span><i class="dot ready"></i><span class="en">Ready</span><span class="zh" lang="zh-Hans">已就绪</span></span><span><i class="dot make"></i><span class="en">To produce</span><span class="zh" lang="zh-Hans">待制作</span></span><span><i class="dot input"></i><span class="en">Needs data or input</span><span class="zh" lang="zh-Hans">待数据或确认</span></span></div>
 </section>
-
-<!-- ============ WED ============ -->
-<section class="day">
-  <div class="dayhead"><h2>Wednesday, Nov 25</h2><span class="kicker">archive video</span></div>
-
-  <article class="post" id="p1">
-    <div class="mockcol">
-      <div class="mock vid"><video src="kahle-li45.mp4" poster="kahle-poster.jpg" controls preload="none" playsinline></video></div>
-      <span class="cap">Real render · 4:5 · 61 s · press play</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">22:30</span><span class="pill">ARCHIVE VIDEO</span><span class="st ready">READY</span></div>
-      <h3>In 2013, the Internet Archive offered to pay its staff in Bitcoin</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">In April 2013, the Internet Archive let its staff take part of their salary in Bitcoin.
+<section class="day"><h2><span class="en">Wednesday, Nov 25</span><span class="zh" lang="zh-Hans">11月25日 周三</span></h2><div class="grid"><article class="card" id="p1">
+  <div class="media"><video src="kahle-li45.mp4" poster="kahle-poster.jpg" controls preload="none" playsinline></video></div>
+  <div class="body">
+    <div class="meta"><b class="time">22:30</b><span class="tag"><span class="en">Archive video</span><span class="zh" lang="zh-Hans">档案视频</span></span><span class="tag"><span class="en">Video 4:5</span><span class="zh" lang="zh-Hans">视频 4:5</span></span><span class="st ready"><span class="en">Ready</span><span class="zh" lang="zh-Hans">已就绪</span></span></div>
+    <h3><span class="en">In 2013, the Internet Archive offered to pay its staff in Bitcoin</span><span class="zh" lang="zh-Hans">2013年，互联网档案馆用比特币发工资</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">In April 2013, the Internet Archive let its staff take part of their salary in Bitcoin.
 
 Founder Brewster Kahle told the story at a Bitcoin conference in San Jose that May:
 → His finance chief first said no
@@ -174,9 +96,7 @@ Blog readers said it would be robbed at once. He bet a Bitcoin nickel nobody wou
 Would you take part of your salary in Bitcoin? Yes / No
 
 Footage: Internet Archive, Bitcoin 2013 conference recording.
-#Bitcoin #CryptoHistory #FutureOfWork</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">2013年4月，互联网档案馆（Internet Archive）让员工可以用比特币领取部分工资。
+#Bitcoin #CryptoHistory #FutureOfWork</pre><pre class="copy zh" lang="zh-Hans">2013年4月，互联网档案馆（Internet Archive）让员工可以用比特币领取部分工资。
 
 创始人 Brewster Kahle 同年5月在圣何塞的一场比特币大会上讲了这个故事：
 → 财务主管一开始说不行
@@ -190,28 +110,17 @@ Footage: Internet Archive, Bitcoin 2013 conference recording.
 
 视频素材：Internet Archive，2013年比特币大会录像。
 #比特币 #加密历史 #未来工作</pre>
-      <ul class="notes">
-        <li>Re-cut so it ends on the payoff, "So it's still up and running." (the IG/TikTok version stopped before it).</li>
-        <li>Blocked: Publer needs an API key in the environment to upload the video. Ready to schedule as soon as it is added.</li>
-      </ul>
     </div>
-  </article>
-</section>
-
-<!-- ============ THU ============ -->
-<section class="day">
-  <div class="dayhead"><h2>Thursday, Nov 26</h2><span class="kicker">bots and tools · industry and careers</span></div>
-
-  <article class="post" id="p2">
-    <div class="mockcol">
-      <img class="cover" src="thu-bots.jpg" alt="" loading="lazy">
-      <span class="cap">Real render · cover of a 7-page PDF carousel</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">13:00</span><span class="pill">BOTS AND TOOLS</span><span class="pill">PDF CAROUSEL</span><span class="st ready">COPY READY</span></div>
-      <h3>How much of crypto is traded by machines?</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">About two thirds of on-chain crypto trades are made by bots.
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Re-cut to end on the payoff. Scheduling needs the Publer API key.</span><span class="zh" lang="zh-Hans">已重剪，结尾完整。排期需在环境中配置 Publer API key。</span></p>
+  </div>
+</article></div></section><section class="day"><h2><span class="en">Thursday, Nov 26</span><span class="zh" lang="zh-Hans">11月26日 周四</span></h2><div class="grid"><article class="card" id="p2">
+  <div class="media"><img src="thu-bots.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <div class="meta"><b class="time">13:00</b><span class="tag"><span class="en">Bots and tools</span><span class="zh" lang="zh-Hans">机器人与工具</span></span><span class="tag"><span class="en">PDF carousel</span><span class="zh" lang="zh-Hans">PDF 轮播</span></span><span class="st ready"><span class="en">Copy ready</span><span class="zh" lang="zh-Hans">文案就绪</span></span></div>
+    <h3><span class="en">How much of crypto is traded by machines?</span><span class="zh" lang="zh-Hans">加密交易有多少是机器完成的？</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">About two thirds of on-chain crypto trades are made by bots.
 They come from just 1 to 3% of wallets.
 
 That's the latest estimate from on-chain analytics firm Birdeye. Here's what the number measures, and what it doesn't:
@@ -230,9 +139,7 @@ What it means if you trade by hand:
 Do you trade by hand or with a bot? ✋ / 🤖
 
 Not financial advice.
-#CryptoMarkets #TradingBots #Hotcoin</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">链上加密交易中，大约三分之二由机器人完成。
+#CryptoMarkets #TradingBots #Hotcoin</pre><pre class="copy zh" lang="zh-Hans">链上加密交易中，大约三分之二由机器人完成。
 而这些机器人只来自1%到3%的钱包。
 
 这是链上数据公司 Birdeye 的最新估算。这个数字说明了什么，又没说明什么：
@@ -252,23 +159,17 @@ Not financial advice.
 
 不构成投资建议。
 #加密市场 #交易机器人 #Hotcoin</pre>
-      <ul class="notes">
-        <li>Source: Birdeye estimate as reported by BeInCrypto (Nov 2026). Methodology not yet published, so the post says "estimate".</li>
-        <li>We don't use the "65 to 80% of all crypto volume is bots" numbers: no primary source.</li>
-      </ul>
     </div>
-  </article>
-
-  <article class="post" id="p3">
-    <div class="mockcol">
-      <img class="cover" src="thu-careers.jpg" alt="" loading="lazy">
-      <span class="cap">Real render · photo style · cover of a 10-page PDF carousel</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">22:30</span><span class="pill">INDUSTRY AND CAREERS</span><span class="pill">PDF CAROUSEL</span><span class="st ready">COPY READY</span></div>
-      <h3>The teams you never see</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">Most people see one screen of a crypto exchange. Behind it are at least 8 teams.
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Source: Birdeye estimate (BeInCrypto, Nov 2026), labeled as an estimate.</span><span class="zh" lang="zh-Hans">来源：Birdeye 估算（BeInCrypto，2026年11月），文中注明为估算。</span></p>
+  </div>
+</article><article class="card" id="p3">
+  <div class="media"><img src="thu-careers.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <div class="meta"><b class="time">22:30</b><span class="tag"><span class="en">Careers</span><span class="zh" lang="zh-Hans">行业与职业</span></span><span class="tag"><span class="en">PDF carousel</span><span class="zh" lang="zh-Hans">PDF 轮播</span></span><span class="st ready"><span class="en">Copy ready</span><span class="zh" lang="zh-Hans">文案就绪</span></span></div>
+    <h3><span class="en">The teams you never see</span><span class="zh" lang="zh-Hans">你看不到的8个团队</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">Most people see one screen of a crypto exchange. Behind it are at least 8 teams.
 
 1 Risk: watches positions and liquidations around the clock
 2 Listing research: checks a project before its coin goes live
@@ -283,9 +184,7 @@ Thinking about a move into crypto? These are the doors.
 
 Which team would you join? Comment the number 👇
 
-#CryptoCareers #Fintech #Hotcoin</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">大多数人只看到加密交易所的一个界面。背后至少有8个团队。
+#CryptoCareers #Fintech #Hotcoin</pre><pre class="copy zh" lang="zh-Hans">大多数人只看到加密交易所的一个界面。背后至少有8个团队。
 
 1 风控：全天候盯着仓位和强平
 2 上币研究：项目上线前先做审查
@@ -301,28 +200,17 @@ Which team would you join? Comment the number 👇
 你会加入哪个团队？评论区留下数字 👇
 
 #加密行业求职 #金融科技 #Hotcoin</pre>
-      <ul class="notes">
-        <li>Cover photo: licensed conference crowd, seen from behind. Inner slides: icons, no staff names or faces.</li>
-        <li>Optional: HR adds 1 to 3 open roles on the last slide.</li>
-      </ul>
     </div>
-  </article>
-</section>
-
-<!-- ============ FRI ============ -->
-<section class="day">
-  <div class="dayhead"><h2>Friday, Nov 27</h2><span class="kicker">milestones · event · how-to video</span></div>
-
-  <article class="post" id="p4">
-    <div class="mockcol">
-      <img class="cover" src="fri-autumn.jpg" alt="" loading="lazy">
-      <span class="cap">Real render · photo style · cover, then TOKEN2049 photos</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">13:00</span><span class="pill">MILESTONES</span><span class="pill">MULTI-IMAGE</span><span class="st ready">COPY READY</span></div>
-      <h3>What a 9-year-old exchange shipped this autumn</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">Hotcoin has been running since 2017. Here's what this autumn looked like:
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Cover: licensed crowd photo from behind. Inner slides: icons only.</span><span class="zh" lang="zh-Hans">封面：授权的观众背影照片。内页只用图标。</span></p>
+  </div>
+</article></div></section><section class="day"><h2><span class="en">Friday, Nov 27</span><span class="zh" lang="zh-Hans">11月27日 周五</span></h2><div class="grid"><article class="card" id="p4">
+  <div class="media"><img src="fri-autumn.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <div class="meta"><b class="time">13:00</b><span class="tag"><span class="en">Milestones</span><span class="zh" lang="zh-Hans">里程碑</span></span><span class="tag"><span class="en">Multi-image</span><span class="zh" lang="zh-Hans">多图</span></span><span class="st ready"><span class="en">Copy ready</span><span class="zh" lang="zh-Hans">文案就绪</span></span></div>
+    <h3><span class="en">What a 9-year-old exchange shipped this autumn</span><span class="zh" lang="zh-Hans">9年交易所，这个秋天做了什么</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">Hotcoin has been running since 2017. Here's what this autumn looked like:
 
 1 Sep 7: we launched TradFi, 24/7 trading of US stock-linked products with stablecoins
 2 We met the industry at TOKEN2049 Singapore
@@ -333,9 +221,7 @@ Nine years in, the job is the same: keep it safe, keep it simple, keep shipping.
 
 Which one should we tell you more about? 1, 2, 3 or 4 👇
 
-#Hotcoin #Crypto #Fintech</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">Hotcoin 自2017年运营至今。这是我们今年秋天的样子：
+#Hotcoin #Crypto #Fintech</pre><pre class="copy zh" lang="zh-Hans">Hotcoin 自2017年运营至今。这是我们今年秋天的样子：
 
 1 9月7日：上线 TradFi，用稳定币7×24小时交易美股相关产品
 2 在新加坡 TOKEN2049 与行业见面
@@ -347,23 +233,17 @@ Which one should we tell you more about? 1, 2, 3 or 4 👇
 你最想了解哪一个？1、2、3 还是 4 👇
 
 #Hotcoin #加密货币 #金融科技</pre>
-      <ul class="notes">
-        <li>Multi-image: this cover, then our TOKEN2049 booth photos mixed with public Marina Bay Sands shots (Unsplash, licensed). Booth originals needed at full size.</li>
-        <li>Sources: TradFi launch release (Sep 7, 2026), PoR post (Oct 29), our TOKEN2049 and campaign posts.</li>
-      </ul>
     </div>
-  </article>
-
-  <article class="post" id="p5">
-    <div class="mockcol">
-      <img class="cover" src="fri-earn.jpg" alt="" loading="lazy">
-      <span class="cap">Real render · single image + sign-up link</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">18:00</span><span class="pill">EVENT</span><span class="pill">IMAGE + LINK</span><span class="st ready">COPY READY</span></div>
-      <h3>Why we pay Earn rewards as Futures Trial Funds</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">Why does Hotcoin pay Earn rewards as Futures Trial Funds?
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Then TOKEN2049 booth photos (originals needed) and public Marina Bay Sands shots.</span><span class="zh" lang="zh-Hans">后续图片：TOKEN2049 展台原图（待提供）与公开的滨海湾金沙照片。</span></p>
+  </div>
+</article><article class="card" id="p5">
+  <div class="media"><img src="fri-earn.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <div class="meta"><b class="time">18:00</b><span class="tag"><span class="en">Event</span><span class="zh" lang="zh-Hans">活动</span></span><span class="tag"><span class="en">Image + link</span><span class="zh" lang="zh-Hans">图片+链接</span></span><span class="st ready"><span class="en">Copy ready</span><span class="zh" lang="zh-Hans">文案就绪</span></span></div>
+    <h3><span class="en">Why we pay Earn rewards as Futures Trial Funds</span><span class="zh" lang="zh-Hans">为什么理财奖励发合约体验金</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">Why does Hotcoin pay Earn rewards as Futures Trial Funds?
 
 Most people who park USDT in Earn have never tried futures. Trial funds let them try with campaign rewards instead of their own deposit.
 
@@ -376,9 +256,7 @@ Limited spots, first come, first served. Full terms:
 https://www.hotcoin.com/en_US/announcement/HotcoinFixed-TermEarnExclusive/
 
 Not financial advice. Futures trading is high risk.
-#HotcoinEarn #Stablecoins</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">为什么 Hotcoin 用合约体验金发放理财奖励？
+#HotcoinEarn #Stablecoins</pre><pre class="copy zh" lang="zh-Hans">为什么 Hotcoin 用合约体验金发放理财奖励？
 
 很多把 USDT 放在理财里的人从没试过合约。体验金让他们用活动奖励而不是自己的本金去尝试。
 
@@ -392,20 +270,17 @@ https://www.hotcoinv5.com/zh_CN/announcement/HotcoinFixed-TermEarnExclusive/
 
 不构成投资建议。合约交易风险较高。
 #Hotcoin理财 #稳定币</pre>
-      <ul class="notes"><li>Numbers copied from the live campaign copy already published on our channels.</li></ul>
     </div>
-  </article>
-
-  <article class="post" id="p6">
-    <div class="mockcol">
-      <img class="cover" src="fri-1pct.jpg" alt="" loading="lazy">
-      <span class="cap">Real render · video thumbnail, 4:5</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">22:30</span><span class="pill">HOW-TO VIDEO</span><span class="pill">CHART STYLE</span><span class="st make">TO PRODUCE</span></div>
-      <h3>The 1% rule in 80 seconds</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">Most traders blow up on size, not on being wrong.
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Terms copied from the live campaign post.</span><span class="zh" lang="zh-Hans">规则摘自已发布的活动文案。</span></p>
+  </div>
+</article><article class="card" id="p6">
+  <div class="media"><img src="fri-1pct.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <div class="meta"><b class="time">22:30</b><span class="tag"><span class="en">How-to video</span><span class="zh" lang="zh-Hans">教学视频</span></span><span class="tag"><span class="en">Video 4:5</span><span class="zh" lang="zh-Hans">视频 4:5</span></span><span class="st make"><span class="en">To produce</span><span class="zh" lang="zh-Hans">待制作</span></span></div>
+    <h3><span class="en">The 1% rule in 80 seconds</span><span class="zh" lang="zh-Hans">80秒讲清1%法则</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">Most traders blow up on size, not on being wrong.
 
 The 1% rule in one line: risk at most 1% of your account on a single trade.
 
@@ -419,9 +294,7 @@ The 1% rule in one line: risk at most 1% of your account on a single trade.
 Do you size by rule or by feel? 📏 / 🎲
 
 Not financial advice. Futures trading is high risk.
-#RiskManagement #Hotcoin101</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">大多数交易者爆仓，不是因为看错，而是因为仓位太大。
+#RiskManagement #Hotcoin101</pre><pre class="copy zh" lang="zh-Hans">大多数交易者爆仓，不是因为看错，而是因为仓位太大。
 
 1% 法则一句话：单笔交易最多只拿账户的1%去冒险。
 
@@ -436,61 +309,37 @@ Not financial advice. Futures trading is high risk.
 
 不构成投资建议。合约交易风险较高。
 #风险管理 #Hotcoin101</pre>
-      <ul class="notes">
-        <li>Topic picked because position sizing is our best LinkedIn post so far (9 engagements).</li>
-        <li>Built in Remotion with original music. Math check: 10,000 × 0.99¹⁰ = 9,044.</li>
-      </ul>
     </div>
-  </article>
-</section>
-
-<!-- ============ SAT ============ -->
-<section class="day">
-  <div class="dayhead"><h2>Saturday, Nov 28</h2><span class="kicker">light weekend post</span></div>
-  <article class="post" id="p7">
-    <div class="mockcol">
-      <div class="mock m-white"><div class="m-pad poll">
-        <div class="q">What protects a trading account most?</div>
-        <div class="o">Position size</div><div class="o">Stop-loss</div><div class="o">Hedging</div><div class="o">No leverage</div>
-        <small>Native LinkedIn poll · 3 days</small>
-      </div></div>
-      <span class="cap">Mockup · LinkedIn poll</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">13:00</span><span class="pill">101</span><span class="pill">POLL</span><span class="st ready">READY</span></div>
-      <h3>One question, four answers</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">One answer only: what protects a trading account most?
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Our best LinkedIn topic so far. Math: 10,000 × 0.99¹⁰ = 9,044.</span><span class="zh" lang="zh-Hans">目前 LinkedIn 表现最好的主题。计算：10,000 × 0.99¹⁰ = 9,044。</span></p>
+  </div>
+</article></div></section><section class="day"><h2><span class="en">Saturday, Nov 28</span><span class="zh" lang="zh-Hans">11月28日 周六</span></h2><div class="grid"><article class="card" id="p7">
+  <div class="media"><div class="poll"><div><span class="en">Position size</span><span class="zh" lang="zh-Hans">仓位大小</span></div><div><span class="en">Stop-loss</span><span class="zh" lang="zh-Hans">止损</span></div><div><span class="en">Hedging</span><span class="zh" lang="zh-Hans">对冲</span></div><div><span class="en">No leverage</span><span class="zh" lang="zh-Hans">不加杠杆</span></div></div></div>
+  <div class="body">
+    <div class="meta"><b class="time">13:00</b><span class="tag"><span class="en">Hotcoin 101</span><span class="zh" lang="zh-Hans">Hotcoin 101</span></span><span class="tag"><span class="en">Poll</span><span class="zh" lang="zh-Hans">投票</span></span><span class="st ready"><span class="en">Ready</span><span class="zh" lang="zh-Hans">已就绪</span></span></div>
+    <h3><span class="en">One question, four answers</span><span class="zh" lang="zh-Hans">一个问题，四个答案</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">One answer only: what protects a trading account most?
 
 We'll share the results, and what the numbers say about each answer, next week.
 
-#Trading #RiskManagement #Hotcoin101</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">只能选一个：什么最能保护交易账户？
+#Trading #RiskManagement #Hotcoin101</pre><pre class="copy zh" lang="zh-Hans">只能选一个：什么最能保护交易账户？
 （选项：仓位大小 / 止损 / 对冲 / 不加杠杆）
 
 下周我们会公布结果，以及数据对每个答案的看法。
 
 #交易 #风险管理 #Hotcoin101</pre>
-      <ul class="notes"><li>Follows Friday's 1% rule video. Results feed a carousel next week.</li></ul>
     </div>
-  </article>
-</section>
-
-<!-- ============ MON ============ -->
-<section class="day">
-  <div class="dayhead"><h2>Monday, Nov 30</h2><span class="kicker">101 · event · archive video</span></div>
-
-  <article class="post" id="p8">
-    <div class="mockcol">
-      <img class="cover" src="mon-funding.jpg" alt="" loading="lazy">
-      <span class="cap">Real render · cover of a 6-page PDF carousel</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">13:00</span><span class="pill">101</span><span class="pill">PDF CAROUSEL</span><span class="st ready">COPY READY</span></div>
-      <h3>The small number that decides who pays whom</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">Funding rate: the small number on every perpetual futures screen that decides who pays whom.
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Native LinkedIn poll, no image. Results feed next week’s carousel.</span><span class="zh" lang="zh-Hans">LinkedIn 原生投票，无配图。结果用于下周轮播。</span></p>
+  </div>
+</article></div></section><section class="day"><h2><span class="en">Monday, Nov 30</span><span class="zh" lang="zh-Hans">11月30日 周一</span></h2><div class="grid"><article class="card" id="p8">
+  <div class="media"><img src="mon-funding.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <div class="meta"><b class="time">13:00</b><span class="tag"><span class="en">Hotcoin 101</span><span class="zh" lang="zh-Hans">Hotcoin 101</span></span><span class="tag"><span class="en">PDF carousel</span><span class="zh" lang="zh-Hans">PDF 轮播</span></span><span class="st ready"><span class="en">Copy ready</span><span class="zh" lang="zh-Hans">文案就绪</span></span></div>
+    <h3><span class="en">The small number that decides who pays whom</span><span class="zh" lang="zh-Hans">决定谁付钱给谁的小数字</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">Funding rate: the small number on every perpetual futures screen that decides who pays whom.
 
 → Perpetual futures never expire, so funding keeps their price close to spot
 → Positive funding: longs pay shorts
@@ -503,9 +352,7 @@ We'll share the results, and what the numbers say about each answer, next week.
 Have you ever paid funding without noticing? Yes / No
 
 Futures trading is high risk.
-#Hotcoin101 #Futures</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">资金费率：每个永续合约界面上的小数字，决定谁付钱给谁。
+#Hotcoin101 #Futures</pre><pre class="copy zh" lang="zh-Hans">资金费率：每个永续合约界面上的小数字，决定谁付钱给谁。
 
 → 永续合约没有到期日，资金费率让价格贴近现货
 → 费率为正：多头付给空头
@@ -519,20 +366,17 @@ Futures trading is high risk.
 
 合约交易风险较高。
 #Hotcoin101 #合约</pre>
-      <ul class="notes"><li>Slide 5 worked example uses a live Hotcoin funding rate pulled on the day, with its date.</li></ul>
     </div>
-  </article>
-
-  <article class="post" id="p9">
-    <div class="mockcol">
-      <img class="cover" src="mon-tradfi.jpg" alt="" loading="lazy">
-      <span class="cap">Real render · single image + sign-up link</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">18:00</span><span class="pill">EVENT</span><span class="pill">IMAGE + LINK</span><span class="st ready">COPY READY</span></div>
-      <h3>Why we're refunding TradFi fees</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">Why are we refunding 100% of TradFi trading fees?
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Worked example uses a live Hotcoin funding rate, with its date.</span><span class="zh" lang="zh-Hans">案例使用当天 Hotcoin 实时资金费率并注明日期。</span></p>
+  </div>
+</article><article class="card" id="p9">
+  <div class="media"><img src="mon-tradfi.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <div class="meta"><b class="time">18:00</b><span class="tag"><span class="en">Event</span><span class="zh" lang="zh-Hans">活动</span></span><span class="tag"><span class="en">Image + link</span><span class="zh" lang="zh-Hans">图片+链接</span></span><span class="st ready"><span class="en">Copy ready</span><span class="zh" lang="zh-Hans">文案就绪</span></span></div>
+    <h3><span class="en">Why we’re refunding TradFi fees</span><span class="zh" lang="zh-Hans">为什么返还 TradFi 手续费</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">Why are we refunding 100% of TradFi trading fees?
 
 TradFi lets you trade US stock-linked products 24/7 with stablecoins, including weekends when Wall Street is closed. We want first-time users to try it without the fee in the way.
 
@@ -545,9 +389,7 @@ Limited prize pool, first come, first served. Full terms:
 https://www.hotcoin.com/en_US/announcement/tradfi-0-fee-carnival/
 
 Not financial advice. Trading is high risk.
-#TradFi #Hotcoin</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">为什么我们返还100%的 TradFi 交易手续费？
+#TradFi #Hotcoin</pre><pre class="copy zh" lang="zh-Hans">为什么我们返还100%的 TradFi 交易手续费？
 
 TradFi 让你用稳定币7×24小时交易美股相关产品，包括华尔街休市的周末。我们希望新用户第一次尝试时，不被手续费挡住。
 
@@ -561,32 +403,24 @@ https://www.hotcoinv5.com/zh_CN/announcement/tradfi-0-fee-carnival/
 
 不构成投资建议。交易有风险。
 #TradFi #Hotcoin</pre>
-      <ul class="notes"><li>Numbers copied from the live campaign copy already published on our channels.</li></ul>
     </div>
-  </article>
-
-  <article class="post" id="p10">
-    <div class="mockcol">
-      <div class="mock vid" style="background:#0B0E11">
-        <img src="kahle-poster.jpg" alt="Brewster Kahle speaking at the Bitcoin 2013 conference" style="width:100%;height:100%;object-fit:cover;filter:saturate(.85)">
-        <div class="play"><i></i></div>
-      </div>
-      <span class="cap">Placeholder frame · same 2013 talk, part 2 · 4:5</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">22:30</span><span class="pill">ARCHIVE VIDEO</span><span class="st make">TO CUT</span></div>
-      <h3>In 2013, a Forbes reporter tried to live on Bitcoin for a week. Watch where she ate.</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">In May 2013, a Forbes reporter tried to live on Bitcoin alone for a week. In San Francisco, only a few places took it.
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Terms copied from the live campaign post.</span><span class="zh" lang="zh-Hans">规则摘自已发布的活动文案。</span></p>
+  </div>
+</article><article class="card" id="p10">
+  <div class="media"><div class="vid"><img src="kahle-poster.jpg" alt=""><i class="play"></i></div></div>
+  <div class="body">
+    <div class="meta"><b class="time">22:30</b><span class="tag"><span class="en">Archive video</span><span class="zh" lang="zh-Hans">档案视频</span></span><span class="tag"><span class="en">Video 4:5</span><span class="zh" lang="zh-Hans">视频 4:5</span></span><span class="st make"><span class="en">To cut</span><span class="zh" lang="zh-Hans">待剪辑</span></span></div>
+    <h3><span class="en">A Forbes reporter lived on Bitcoin for a week. Watch where she ate.</span><span class="zh" lang="zh-Hans">2013年，《福布斯》记者只用比特币生活一周</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">In May 2013, a Forbes reporter tried to live on Bitcoin alone for a week. In San Francisco, only a few places took it.
 
 One was the sushi restaurant next door to the Internet Archive. Founder Brewster Kahle tells how it became a Bitcoin dinner for about 60 people.
 
 Could you live on crypto alone for a week today? Yes / No
 
 Footage: Internet Archive, Bitcoin 2013 conference recording.
-#Bitcoin #CryptoHistory</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">2013年5月，一位《福布斯》记者尝试只用比特币生活一周。在旧金山，接受比特币的地方屈指可数。
+#Bitcoin #CryptoHistory</pre><pre class="copy zh" lang="zh-Hans">2013年5月，一位《福布斯》记者尝试只用比特币生活一周。在旧金山，接受比特币的地方屈指可数。
 
 其中一家是互联网档案馆隔壁的寿司店。创始人 Brewster Kahle 讲述了它如何变成一场约60人的比特币晚餐。
 
@@ -594,28 +428,17 @@ Footage: Internet Archive, Bitcoin 2013 conference recording.
 
 视频素材：Internet Archive，2013年比特币大会录像。
 #比特币 #加密历史</pre>
-      <ul class="notes">
-        <li>Footage is already downloaded and transcribed (7:12 to 8:00 of the same talk). It ends on a finished line: "It was just completely fun."</li>
-        <li>We leave out the bill amount: sources disagree on it.</li>
-      </ul>
     </div>
-  </article>
-</section>
-
-<!-- ============ TUE ============ -->
-<section class="day">
-  <div class="dayhead"><h2>Tuesday, Dec 1</h2><span class="kicker">flagship data · why Hotcoin</span></div>
-
-  <article class="post" id="p11">
-    <div class="mockcol">
-      <img class="cover" src="tue-datadesk.jpg" alt="" loading="lazy">
-      <span class="cap">Real render · preview numbers to Nov 25, final on Dec 1</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">13:00</span><span class="pill">DATA DESK · FLAGSHIP</span><span class="pill">PDF CAROUSEL</span><span class="st input">DATA ON DEC 1</span></div>
-      <h3>November 2026 in numbers</h3>
-      <div class="copyrow"><span>English · draft, numbers final on Dec 1</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">November 2026 in numbers.
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Footage downloaded and transcribed; ends on a finished line.</span><span class="zh" lang="zh-Hans">素材已下载并转写，结尾完整。</span></p>
+  </div>
+</article></div></section><section class="day"><h2><span class="en">Tuesday, Dec 1</span><span class="zh" lang="zh-Hans">12月1日 周二</span></h2><div class="grid"><article class="card" id="p11">
+  <div class="media"><img src="tue-datadesk.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <div class="meta"><b class="time">13:00</b><span class="tag"><span class="en">Data Desk</span><span class="zh" lang="zh-Hans">数据台</span></span><span class="tag"><span class="en">PDF carousel</span><span class="zh" lang="zh-Hans">PDF 轮播</span></span><span class="st input"><span class="en">Data on Dec 1</span><span class="zh" lang="zh-Hans">12月1日出数据</span></span></div>
+    <h3><span class="en">November 2026 in numbers</span><span class="zh" lang="zh-Hans">2026年11月数据回顾</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">November 2026 in numbers.
 
 → Bitcoin: [−X%] for the month, from $77,499 to [$X]
 → Ethereum: [−X%]
@@ -630,9 +453,7 @@ What was your November: bought the dip or stayed out? 🟩 / ⏸️
 
 Data: CoinGecko, DefiLlama, Hotcoin. As of Nov 30, 23:59 UTC.
 Not financial advice.
-#Bitcoin #CryptoMarkets #DataDesk</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">2026年11月数据回顾。
+#Bitcoin #CryptoMarkets #DataDesk</pre><pre class="copy zh" lang="zh-Hans">2026年11月数据回顾。
 
 → 比特币：本月 [−X%]，从 $77,499 到 [$X]
 → 以太坊：[−X%]
@@ -648,24 +469,17 @@ Not financial advice.
 数据：CoinGecko、DefiLlama、Hotcoin。截至11月30日 23:59 UTC。
 不构成投资建议。
 #比特币 #加密市场 #数据</pre>
-      <ul class="notes">
-        <li>Preview numbers (Nov 1 to Nov 25): BTC −23.7%, ETH −26.4%, stablecoins $296.4B to $282.4B, BTC dominance 57.7% (CoinGecko, DefiLlama).</li>
-        <li>Use "Notify employees" on this post (allowed once a week). Staff reshare it from their own accounts.</li>
-        <li>Check the "first monthly drop since" claim against the full DefiLlama series before it goes in.</li>
-      </ul>
     </div>
-  </article>
-
-  <article class="post" id="p12">
-    <div class="mockcol">
-      <img class="cover" src="tue-reserves.jpg" alt="" loading="lazy">
-      <span class="cap">Real render · Oct 29 snapshot, update if newer</span>
-    </div>
-    <div>
-      <div class="meta"><span class="time">22:30</span><span class="pill">WHY HOTCOIN</span><span class="pill">IMAGE</span><span class="st input">CONFIRM SNAPSHOT</span></div>
-      <h3>Proof of reserves, explained in one line</h3>
-      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy">What does a 105% reserve ratio mean?
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Preview to Nov 25: BTC −23.7%, ETH −26.4%, stablecoins −$14.0B. Use “Notify employees”.</span><span class="zh" lang="zh-Hans">截至11月25日：BTC −23.7%，ETH −26.4%，稳定币 −140亿美元。使用“通知员工”。</span></p>
+  </div>
+</article><article class="card" id="p12">
+  <div class="media"><img src="tue-reserves.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <div class="meta"><b class="time">22:30</b><span class="tag"><span class="en">Why Hotcoin</span><span class="zh" lang="zh-Hans">为什么选 Hotcoin</span></span><span class="tag"><span class="en">Image</span><span class="zh" lang="zh-Hans">图片</span></span><span class="st input"><span class="en">Confirm snapshot</span><span class="zh" lang="zh-Hans">待确认快照</span></span></div>
+    <h3><span class="en">Proof of reserves, explained in one line</span><span class="zh" lang="zh-Hans">一句话讲清储备金证明</span></h3>
+    <div class="cap-wrap clamp">
+      <pre class="copy en">What does a 105% reserve ratio mean?
 
 For every 1 BTC users hold on Hotcoin, we hold 1.05 BTC.
 
@@ -678,9 +492,7 @@ Above 100% means every user asset is covered, with a buffer on top. Any user can
 
 How often should exchanges publish this? Monthly / Weekly
 
-#ProofOfReserves #Hotcoin</pre>
-      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
-<pre class="copy" lang="zh-Hans">105% 的储备率是什么意思？
+#ProofOfReserves #Hotcoin</pre><pre class="copy zh" lang="zh-Hans">105% 的储备率是什么意思？
 
 用户在 Hotcoin 每持有1枚 BTC，我们就持有1.05枚。
 
@@ -694,25 +506,31 @@ How often should exchanges publish this? Monthly / Weekly
 交易所应该多久公布一次？每月 / 每周
 
 #储备金证明 #Hotcoin</pre>
-      <ul class="notes"><li>Needs input: is there a snapshot newer than Oct 29? If yes, we swap the numbers and the date.</li></ul>
     </div>
-  </article>
-</section>
-
-<footer class="foot">
-  <div>Covers: grainy collage family approved Nov 24 (stippled real-object cutouts, brand-green shapes, chrome numbers, film grain), official logo files only, Inter Tight and JetBrains Mono, no italics. Photos: Unsplash, credited.</div>
-  <div>Rules on every post: no em dashes, no competitor names, sources and dates checked, risk line on futures, Earn and price posts, links only in event posts.</div>
-  <div>Research: <a href="https://www.socialinsider.io/social-media-benchmarks/linkedin">Socialinsider LinkedIn benchmarks</a> · <a href="https://buffer.com/resources/how-often-to-post-on-linkedin/">Buffer posting frequency study</a> · <a href="https://beincrypto.com/birdeye-peak-institutional-crypto-trading-bots/">Birdeye bot estimate (BeInCrypto)</a> · <a href="https://www.newsfilecorp.com/release/312987">TradFi launch</a> · <a href="https://archive.org/details/Bitcoin2013conferenceBrewsterKahleJordanModell">Bitcoin 2013 footage</a></div>
-</footer>
+    <div class="actions"><button type="button" class="more"><span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span></button><button type="button" class="cp"><span class="en">Copy</span><span class="zh" lang="zh-Hans">复制</span></button></div>
+    <p class="note"><span class="en">Swap the numbers if a snapshot newer than Oct 29 exists.</span><span class="zh" lang="zh-Hans">如有晚于10月29日的快照，替换数字。</span></p>
+  </div>
+</article></div></section>
+<footer><span class="en">Covers use official logo files, Inter Tight and JetBrains Mono, no italics. Photos are licensed (Unsplash) and credited. Chinese event links use hotcoinv5.com.</span><span class="zh" lang="zh-Hans">封面使用官方 Logo 文件、Inter Tight 与 JetBrains Mono 字体，不用斜体。图片均为授权素材（Unsplash）并已署名。中文活动链接使用 hotcoinv5.com。</span></footer>
 </div>
-
 <script>
-document.querySelectorAll('button.cp').forEach(function(b){
-  b.addEventListener('click',function(){
-    var pre=b.closest('.copyrow').nextElementSibling;
-    var txt=pre.textContent;
-    function sel(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';}
-    try{navigator.clipboard.writeText(txt).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)},sel);}catch(e){sel();}
+(function(){
+  var KEY='li-week-lang',APP=document.getElementById('app');
+  function setLang(l){APP.dataset.lang=l;document.documentElement.lang=l==='zh'?'zh-Hans':'en';
+    document.querySelectorAll('.toggle button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.l===l))});
+    try{localStorage.setItem(KEY,l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
+  if(saved==='zh'||saved==='en')setLang(saved);
+  document.querySelectorAll('.toggle button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
+  document.querySelectorAll('.card').forEach(function(c){
+    var wrap=c.querySelector('.cap-wrap'),more=c.querySelector('.more'),cp=c.querySelector('.cp');
+    more.addEventListener('click',function(){var open=wrap.classList.toggle('clamp');
+      more.innerHTML=open?'<span class="en">Show all</span><span class="zh" lang="zh-Hans">展开全文</span>':'<span class="en">Show less</span><span class="zh" lang="zh-Hans">收起</span>'});
+    cp.addEventListener('click',function(){var pre=wrap.querySelector('pre.copy.'+APP.dataset.lang);
+      function done(ok){cp.dataset.t=cp.innerHTML;cp.textContent=ok?(APP.dataset.lang==='zh'?'已复制':'Copied'):(APP.dataset.lang==='zh'?'已选中':'Selected');setTimeout(function(){cp.innerHTML=cp.dataset.t},1400)}
+      function sel(){wrap.classList.remove('clamp');var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);done(false)}
+      try{navigator.clipboard.writeText(pre.textContent).then(function(){done(true)},sel)}catch(e){sel()}});
   });
-});
+})();
 </script>
+</div>
