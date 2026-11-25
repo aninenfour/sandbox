@@ -4,7 +4,7 @@
 → 9:16, 1080×1920, 60 fps, about 50 to 58 s in total (voice about 48 to 53 s, then the 2 s lesson hold and the 3 s end card). Running a bit over is fine, the owner is happy with this length.
 → Hook in the first 3 s that promises a payoff
 → Story in 4 numbered steps, each with a "Step N" card (number in brand green). A bridge line right before Step one announces the steps ("So here's how it happened, in four steps.")
-→ Visuals: 18 to 22 fresh images per video, a new image on most cuts
+→ Visuals: 18 to 22 fresh images per video, a new image on most cuts. Canva first; the shots Canva can't deliver in ~75 min come from Seedream 4 on fal (max 12 per run, owner 2026-11-25, see RUNBOOK step 4)
 → One-line lesson, then a 2 s hold: the whole lesson line stays on screen over the last image so it sinks in (build.py `HOLD_SECONDS`, owner request 2026-11-03), then the Hotcoin logo end card "Follow Hotcoin for more" (3 s)
 → Captions: 1 to 3 words, white with a heavy black outline, key words in brand green #7EC25A
 → Cover (scripts/thumb.sh): zoomed-in scene with the main character's face in the upper half, hook text in the lower third (Hand font, key words green), no logo
