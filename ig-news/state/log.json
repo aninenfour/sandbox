@@ -2433,7 +2433,7 @@
    "$250M / $127.33 = 1.96M BTC (about 17% of the ~11.8M supply then); worth $115.3B at $58,700 (461x); low Jan 14 2015 $171.41 = $337M; 2017 top Dec 16 $19,187.78 = $37.7B; FTX low Nov 21 2022 $15,766 = $31.0B; record close Oct 6 2025 $124,728 (Bitstamp) / $124,752.53 (Yahoo) = $245B"
   ],
   "note": "W48 hook rule 'a person in the purchase': Bezos face cover (cover_face), photo_title 'BEZOS PAID' on frame 0. Photo look, lump, 53.3 s (13 years). Thumbnail fill 32% (BTC photo cropped to the coin; first try 23% warned). Bezos photo: Seattle City Council Flickr CC BY 2.0 (Wikimedia rate-limited this run, 429). BTC 2013 prices from Bitstamp OHLC API + Coin Metrics community API (Yahoo BTC-USD starts Sep 2014). All 5 posts via commit-pinned media_url; Publer covers confirmed = frame 0 (IG, TikTok).",
-  "doc_row": false,
+  "doc_row": true,
   "media_commit": "11ee2731452d6312d59df836e5148d5a3811e9f7"
  },
  {
@@ -2463,7 +2463,7 @@
    "BTC Thanksgiving Day close vs Wednesday close (UTC daily): Bitstamp / Coin Metrics: 2019 -1.2/-1.2, 2020 -8.4/-8.7, 2021 +3.2/+3.3, 2022 -0.1/+0.1 (shown 0.0), 2023 -0.3/-0.2, 2024 -0.3/-0.3, 2025 +0.9/+1.0"
   ],
   "note": "US Thanksgiving, markets closed. W48 how-to promise hook with a number, no face (NYSE, turkey, coin photos). 4 slides, no CTA. Variant b (Nov 25 was a). Media commit e7af889.",
-  "doc_row": false,
+  "doc_row": true,
   "media_commit": "e7af889caef483f86e33fa8eb8960477bc5700a1"
  }
 ]

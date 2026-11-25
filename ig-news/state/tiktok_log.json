@@ -538,7 +538,7 @@
   "topic": "WHAT IF: Bezos Washington Post vs Bitcoin",
   "hook": "Bezos paid $250M for a newspaper. Same $250M in Bitcoin: $115B",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-26-academy-market-holiday",
@@ -547,6 +547,6 @@
   "topic": "Academy: how to trade a market holiday",
   "hook": "Wall Street is closed today, Bitcoin isn't",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
