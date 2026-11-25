@@ -114,6 +114,15 @@ if (photo) { // any day with a photo in inbox/ gets the photo treatment (text-on
       + `<div style="position:absolute;left:0;right:0;top:${my - 40}px;height:80px;background:linear-gradient(transparent,rgba(184,242,106,.22),transparent)"></div>`
       + `<div style="position:absolute;left:0;right:0;top:${my - 1}px;height:2px;background:${L};box-shadow:0 0 18px ${L}"></div>` + M(`right:64px;top:${my + 14}px`, dayLabel, L),
   };
+  // route (travel days, not in the rotation): annotate ring + label, a dashed flight path from meta.from [x,y]
+  // (e.g. a plane in the photo) into the ring, and the bottom ruler. meta.fromLabel tags the start point.
+  {
+    const [sx, sy] = meta.from || [mx - 300, my - 360], ex = mx - mr * .85, ey = my - mr * .85;
+    LAY.route = LAY.annotate + LAY.ruler
+      + `<svg width="1080" height="1350" style="position:absolute;inset:0"><path d="M${sx},${sy} Q${sx - 60},${ey} ${ex},${ey}" fill="none" stroke="${L}" stroke-width="2.5" stroke-dasharray="10 9"/>`
+      + `<circle cx="${sx}" cy="${sy}" r="11" fill="none" stroke="${L}" stroke-width="2.5"/><circle cx="${sx}" cy="${sy}" r="4" fill="${L}"/></svg>`
+      + M(`left:${sx + 22}px;top:${sy - 54}px`, meta.fromLabel || 'DEP');
+  }
   // Event days only: wordmark + event/time bar on top.
   const eventBar = meta.event ? grad(true) + `<img src="${wm}" style="position:absolute;left:64px;top:60px;height:34px">` + M('right:64px;top:64px', `${meta.event} <span style="color:${L}">●</span> ${meta.time || ''}`) : '';
   const overlay = (LAY[layout] ?? '') + eventBar;
