@@ -1,7 +1,7 @@
 <title>Hotcoin LinkedIn Week Plan</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
 <style>
 /* Layout: a planning board. Week grid first, then one row per post: mockup left, copy right, like the calendar it will become. */
 :root{
@@ -59,6 +59,8 @@ table.week{border-collapse:collapse;width:100%;min-width:720px;font-size:13px}
 .post h3{margin:0 0 10px;font-size:19px;line-height:1.25;text-wrap:balance}
 .copy{white-space:pre-wrap;font-size:14px;line-height:1.55;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:0;font-family:var(--display);max-width:72ch;overflow-wrap:anywhere}
 .notes{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:13px;display:grid;gap:3px}
+.copyrow.zh{margin-top:14px}
+.copy[lang="zh-Hans"]{font-family:var(--display),'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif}
 .copyrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px}
 .copyrow span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 button.cp{font-family:var(--mono);font-size:11px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:4px 10px;cursor:pointer}
@@ -158,7 +160,7 @@ table.opt{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
     <div>
       <div class="meta"><span class="time">22:30</span><span class="pill">ARCHIVE VIDEO</span><span class="st ready">READY</span></div>
       <h3>In 2013, the Internet Archive offered to pay its staff in Bitcoin</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">In April 2013, the Internet Archive let its staff take part of their salary in Bitcoin.
 
 Founder Brewster Kahle told the story at a Bitcoin conference in San Jose that May:
@@ -173,6 +175,21 @@ Would you take part of your salary in Bitcoin? Yes / No
 
 Footage: Internet Archive, Bitcoin 2013 conference recording.
 #Bitcoin #CryptoHistory #FutureOfWork</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">2013年4月，互联网档案馆（Internet Archive）让员工可以用比特币领取部分工资。
+
+创始人 Brewster Kahle 同年5月在圣何塞的一场比特币大会上讲了这个故事：
+→ 财务主管一开始说不行
+→ 几周后，他找到了办法
+→ 总部约三分之一的员工选择了比特币
+→ 他们在办公室做了一个全凭诚信的比特币兑现金小盒子
+
+博客读者说它马上会被偷。他拿5美分的比特币打赌，没人会偷。没人接这个赌，盒子一直在用。
+
+你愿意用比特币领取部分工资吗？愿意 / 不愿意
+
+视频素材：Internet Archive，2013年比特币大会录像。
+#比特币 #加密历史 #未来工作</pre>
       <ul class="notes">
         <li>Re-cut so it ends on the payoff, "So it's still up and running." (the IG/TikTok version stopped before it).</li>
         <li>Blocked: Publer needs an API key in the environment to upload the video. Ready to schedule as soon as it is added.</li>
@@ -193,7 +210,7 @@ Footage: Internet Archive, Bitcoin 2013 conference recording.
     <div>
       <div class="meta"><span class="time">13:00</span><span class="pill">BOTS AND TOOLS</span><span class="pill">PDF CAROUSEL</span><span class="st ready">COPY READY</span></div>
       <h3>How much of crypto is traded by machines?</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">About two thirds of on-chain crypto trades are made by bots.
 They come from just 1 to 3% of wallets.
 
@@ -214,6 +231,27 @@ Do you trade by hand or with a bot? ✋ / 🤖
 
 Not financial advice.
 #CryptoMarkets #TradingBots #Hotcoin</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">链上加密交易中，大约三分之二由机器人完成。
+而这些机器人只来自1%到3%的钱包。
+
+这是链上数据公司 Birdeye 的最新估算。这个数字说明了什么，又没说明什么：
+→ 统计的是交易笔数，不是交易额
+→ 数据来自链上，以 Solana 为主，那里的自动化交易最高占交易额的80%
+→ 机器人的判定标准是人类做不到的行为：每秒多笔交易、上币几秒内买入
+→ 完整方法论将于12月公布，请把它当作估算
+
+如果你是手动交易：
+→ 你很少是最快的，别拼速度
+→ 拼纪律：仓位、止损、持有周期
+→ 或者把重复的部分自动化：交易机器人每次都按你设定的规则执行
+
+共7页，最后一页附来源 👉
+
+你是手动交易还是用机器人？✋ / 🤖
+
+不构成投资建议。
+#加密市场 #交易机器人 #Hotcoin</pre>
       <ul class="notes">
         <li>Source: Birdeye estimate as reported by BeInCrypto (Nov 2026). Methodology not yet published, so the post says "estimate".</li>
         <li>We don't use the "65 to 80% of all crypto volume is bots" numbers: no primary source.</li>
@@ -229,7 +267,7 @@ Not financial advice.
     <div>
       <div class="meta"><span class="time">22:30</span><span class="pill">INDUSTRY AND CAREERS</span><span class="pill">PDF CAROUSEL</span><span class="st ready">COPY READY</span></div>
       <h3>The teams you never see</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">Most people see one screen of a crypto exchange. Behind it are at least 8 teams.
 
 1 Risk: watches positions and liquidations around the clock
@@ -246,6 +284,23 @@ Thinking about a move into crypto? These are the doors.
 Which team would you join? Comment the number 👇
 
 #CryptoCareers #Fintech #Hotcoin</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">大多数人只看到加密交易所的一个界面。背后至少有8个团队。
+
+1 风控：全天候盯着仓位和强平
+2 上币研究：项目上线前先做审查
+3 安全：保护钱包、私钥和账户
+4 流动性：让订单簿有深度，价格更公平
+5 合规：牌照、身份验证、各地监管
+6 客服：7×24小时，多语言服务用户
+7 产品与研发：做 App、图表和交易机器人
+8 资金管理：让储备金保持在用户资产的100%以上
+
+想转行进入加密行业？这些就是入口。
+
+你会加入哪个团队？评论区留下数字 👇
+
+#加密行业求职 #金融科技 #Hotcoin</pre>
       <ul class="notes">
         <li>Cover photo: licensed conference crowd, seen from behind. Inner slides: icons, no staff names or faces.</li>
         <li>Optional: HR adds 1 to 3 open roles on the last slide.</li>
@@ -266,7 +321,7 @@ Which team would you join? Comment the number 👇
     <div>
       <div class="meta"><span class="time">13:00</span><span class="pill">MILESTONES</span><span class="pill">MULTI-IMAGE</span><span class="st ready">COPY READY</span></div>
       <h3>What a 9-year-old exchange shipped this autumn</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">Hotcoin has been running since 2017. Here's what this autumn looked like:
 
 1 Sep 7: we launched TradFi, 24/7 trading of US stock-linked products with stablecoins
@@ -279,6 +334,19 @@ Nine years in, the job is the same: keep it safe, keep it simple, keep shipping.
 Which one should we tell you more about? 1, 2, 3 or 4 👇
 
 #Hotcoin #Crypto #Fintech</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">Hotcoin 自2017年运营至今。这是我们今年秋天的样子：
+
+1 9月7日：上线 TradFi，用稳定币7×24小时交易美股相关产品
+2 在新加坡 TOKEN2049 与行业见面
+3 10月29日：储备金证明 BTC 105%、ETH 109%、USDT 113%
+4 11月：与罗纳尔迪尼奥合作的全球传奇挑战赛
+
+第9年，初心不变：守住安全，保持简单，持续交付。
+
+你最想了解哪一个？1、2、3 还是 4 👇
+
+#Hotcoin #加密货币 #金融科技</pre>
       <ul class="notes">
         <li>Multi-image: this cover, then our TOKEN2049 booth photos mixed with public Marina Bay Sands shots (Unsplash, licensed). Booth originals needed at full size.</li>
         <li>Sources: TradFi launch release (Sep 7, 2026), PoR post (Oct 29), our TOKEN2049 and campaign posts.</li>
@@ -294,7 +362,7 @@ Which one should we tell you more about? 1, 2, 3 or 4 👇
     <div>
       <div class="meta"><span class="time">18:00</span><span class="pill">EVENT</span><span class="pill">IMAGE + LINK</span><span class="st ready">COPY READY</span></div>
       <h3>Why we pay Earn rewards as Futures Trial Funds</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">Why does Hotcoin pay Earn rewards as Futures Trial Funds?
 
 Most people who park USDT in Earn have never tried futures. Trial funds let them try with campaign rewards instead of their own deposit.
@@ -309,6 +377,21 @@ https://www.hotcoin.com/en_US/announcement/HotcoinFixed-TermEarnExclusive/
 
 Not financial advice. Futures trading is high risk.
 #HotcoinEarn #Stablecoins</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">为什么 Hotcoin 用合约体验金发放理财奖励？
+
+很多把 USDT 放在理财里的人从没试过合约。体验金让他们用活动奖励而不是自己的本金去尝试。
+
+定期理财专享活动，截止时间：11月28日 19:00（UTC+8）
+→ 年化收益提升：USDT/USDC 4.00% 至 6.00%，期限7至180天
+→ 认购里程碑：最高2,000 USDT 合约体验金，5,000 USDT 起
+→ 邀请好友：最高50 USDT 现货手续费抵扣券
+
+名额有限，先到先得。完整规则：
+https://www.hotcoinv5.com/zh_CN/announcement/HotcoinFixed-TermEarnExclusive/
+
+不构成投资建议。合约交易风险较高。
+#Hotcoin理财 #稳定币</pre>
       <ul class="notes"><li>Numbers copied from the live campaign copy already published on our channels.</li></ul>
     </div>
   </article>
@@ -321,7 +404,7 @@ Not financial advice. Futures trading is high risk.
     <div>
       <div class="meta"><span class="time">22:30</span><span class="pill">HOW-TO VIDEO</span><span class="pill">CHART STYLE</span><span class="st make">TO PRODUCE</span></div>
       <h3>The 1% rule in 80 seconds</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">Most traders blow up on size, not on being wrong.
 
 The 1% rule in one line: risk at most 1% of your account on a single trade.
@@ -337,6 +420,22 @@ Do you size by rule or by feel? 📏 / 🎲
 
 Not financial advice. Futures trading is high risk.
 #RiskManagement #Hotcoin101</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">大多数交易者爆仓，不是因为看错，而是因为仓位太大。
+
+1% 法则一句话：单笔交易最多只拿账户的1%去冒险。
+
+→ 账户：10,000 USDT，所以最大风险是100 USDT
+→ 止损：入场价下方5%
+→ 仓位：100 ÷ 5% = 2,000 USDT
+→ 看错了？亏100。连续亏10次，账户仍剩约90%。
+
+上方80秒图表讲解 👆
+
+你是按规则定仓位，还是凭感觉？📏 / 🎲
+
+不构成投资建议。合约交易风险较高。
+#风险管理 #Hotcoin101</pre>
       <ul class="notes">
         <li>Topic picked because position sizing is our best LinkedIn post so far (9 engagements).</li>
         <li>Built in Remotion with original music. Math check: 10,000 × 0.99¹⁰ = 9,044.</li>
@@ -360,12 +459,19 @@ Not financial advice. Futures trading is high risk.
     <div>
       <div class="meta"><span class="time">13:00</span><span class="pill">101</span><span class="pill">POLL</span><span class="st ready">READY</span></div>
       <h3>One question, four answers</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">One answer only: what protects a trading account most?
 
 We'll share the results, and what the numbers say about each answer, next week.
 
 #Trading #RiskManagement #Hotcoin101</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">只能选一个：什么最能保护交易账户？
+（选项：仓位大小 / 止损 / 对冲 / 不加杠杆）
+
+下周我们会公布结果，以及数据对每个答案的看法。
+
+#交易 #风险管理 #Hotcoin101</pre>
       <ul class="notes"><li>Follows Friday's 1% rule video. Results feed a carousel next week.</li></ul>
     </div>
   </article>
@@ -383,7 +489,7 @@ We'll share the results, and what the numbers say about each answer, next week.
     <div>
       <div class="meta"><span class="time">13:00</span><span class="pill">101</span><span class="pill">PDF CAROUSEL</span><span class="st ready">COPY READY</span></div>
       <h3>The small number that decides who pays whom</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">Funding rate: the small number on every perpetual futures screen that decides who pays whom.
 
 → Perpetual futures never expire, so funding keeps their price close to spot
@@ -398,6 +504,21 @@ Have you ever paid funding without noticing? Yes / No
 
 Futures trading is high risk.
 #Hotcoin101 #Futures</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">资金费率：每个永续合约界面上的小数字，决定谁付钱给谁。
+
+→ 永续合约没有到期日，资金费率让价格贴近现货
+→ 费率为正：多头付给空头
+→ 费率为负：空头付给多头
+→ 按你的仓位大小在固定时间收取（看合约页面的倒计时）
+→ 费率很高，通常说明交易过于拥挤
+
+共6页，附实际案例 👉
+
+你有没有在不知情的情况下付过资金费？有 / 没有
+
+合约交易风险较高。
+#Hotcoin101 #合约</pre>
       <ul class="notes"><li>Slide 5 worked example uses a live Hotcoin funding rate pulled on the day, with its date.</li></ul>
     </div>
   </article>
@@ -410,7 +531,7 @@ Futures trading is high risk.
     <div>
       <div class="meta"><span class="time">18:00</span><span class="pill">EVENT</span><span class="pill">IMAGE + LINK</span><span class="st ready">COPY READY</span></div>
       <h3>Why we're refunding TradFi fees</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">Why are we refunding 100% of TradFi trading fees?
 
 TradFi lets you trade US stock-linked products 24/7 with stablecoins, including weekends when Wall Street is closed. We want first-time users to try it without the fee in the way.
@@ -424,6 +545,21 @@ Limited prize pool, first come, first served. Full terms:
 https://www.hotcoin.com/en_US/announcement/tradfi-0-fee-carnival/
 
 Not financial advice. Trading is high risk.
+#TradFi #Hotcoin</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">为什么我们返还100%的 TradFi 交易手续费？
+
+TradFi 让你用稳定币7×24小时交易美股相关产品，包括华尔街休市的周末。我们希望新用户第一次尝试时，不被手续费挡住。
+
+TradFi 零手续费嘉年华，截止时间：12月4日 23:59（UTC+8）
+→ 手续费返还：100%，最高300 USDT，以合约体验金发放
+→ 交易量奖励：最高100 USDT 合约体验金（仅按最高档发放，各档不叠加）
+→ 第一档：TradFi 交易量达1,000 USDT 以上，得5 USDT
+
+奖池有限，先到先得。完整规则：
+https://www.hotcoinv5.com/zh_CN/announcement/tradfi-0-fee-carnival/
+
+不构成投资建议。交易有风险。
 #TradFi #Hotcoin</pre>
       <ul class="notes"><li>Numbers copied from the live campaign copy already published on our channels.</li></ul>
     </div>
@@ -440,7 +576,7 @@ Not financial advice. Trading is high risk.
     <div>
       <div class="meta"><span class="time">22:30</span><span class="pill">ARCHIVE VIDEO</span><span class="st make">TO CUT</span></div>
       <h3>In 2013, a Forbes reporter tried to live on Bitcoin for a week. Watch where she ate.</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">In May 2013, a Forbes reporter tried to live on Bitcoin alone for a week. In San Francisco, only a few places took it.
 
 One was the sushi restaurant next door to the Internet Archive. Founder Brewster Kahle tells how it became a Bitcoin dinner for about 60 people.
@@ -449,6 +585,15 @@ Could you live on crypto alone for a week today? Yes / No
 
 Footage: Internet Archive, Bitcoin 2013 conference recording.
 #Bitcoin #CryptoHistory</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">2013年5月，一位《福布斯》记者尝试只用比特币生活一周。在旧金山，接受比特币的地方屈指可数。
+
+其中一家是互联网档案馆隔壁的寿司店。创始人 Brewster Kahle 讲述了它如何变成一场约60人的比特币晚餐。
+
+今天，你能只靠加密货币生活一周吗？能 / 不能
+
+视频素材：Internet Archive，2013年比特币大会录像。
+#比特币 #加密历史</pre>
       <ul class="notes">
         <li>Footage is already downloaded and transcribed (7:12 to 8:00 of the same talk). It ends on a finished line: "It was just completely fun."</li>
         <li>We leave out the bill amount: sources disagree on it.</li>
@@ -469,7 +614,7 @@ Footage: Internet Archive, Bitcoin 2013 conference recording.
     <div>
       <div class="meta"><span class="time">13:00</span><span class="pill">DATA DESK · FLAGSHIP</span><span class="pill">PDF CAROUSEL</span><span class="st input">DATA ON DEC 1</span></div>
       <h3>November 2026 in numbers</h3>
-      <div class="copyrow"><span>Draft copy (numbers final on Dec 1)</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English · draft, numbers final on Dec 1</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">November 2026 in numbers.
 
 → Bitcoin: [−X%] for the month, from $77,499 to [$X]
@@ -486,6 +631,23 @@ What was your November: bought the dip or stayed out? 🟩 / ⏸️
 Data: CoinGecko, DefiLlama, Hotcoin. As of Nov 30, 23:59 UTC.
 Not financial advice.
 #Bitcoin #CryptoMarkets #DataDesk</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">2026年11月数据回顾。
+
+→ 比特币：本月 [−X%]，从 $77,499 到 [$X]
+→ 以太坊：[−X%]
+→ 稳定币供应：[−$X B]，为 [月份] 以来首次月度下降
+→ 比特币市占率：[X%]
+
+数据说明了什么：[一句话结论]
+
+共8页：价格、稳定币流向、资金费率，以及 Hotcoin 本月涨跌榜 👉
+
+你的11月：抄底了还是观望？🟩 / ⏸️
+
+数据：CoinGecko、DefiLlama、Hotcoin。截至11月30日 23:59 UTC。
+不构成投资建议。
+#比特币 #加密市场 #数据</pre>
       <ul class="notes">
         <li>Preview numbers (Nov 1 to Nov 25): BTC −23.7%, ETH −26.4%, stablecoins $296.4B to $282.4B, BTC dominance 57.7% (CoinGecko, DefiLlama).</li>
         <li>Use "Notify employees" on this post (allowed once a week). Staff reshare it from their own accounts.</li>
@@ -502,7 +664,7 @@ Not financial advice.
     <div>
       <div class="meta"><span class="time">22:30</span><span class="pill">WHY HOTCOIN</span><span class="pill">IMAGE</span><span class="st input">CONFIRM SNAPSHOT</span></div>
       <h3>Proof of reserves, explained in one line</h3>
-      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+      <div class="copyrow"><span>English</span><button class="cp" type="button">Copy</button></div>
 <pre class="copy">What does a 105% reserve ratio mean?
 
 For every 1 BTC users hold on Hotcoin, we hold 1.05 BTC.
@@ -517,6 +679,21 @@ Above 100% means every user asset is covered, with a buffer on top. Any user can
 How often should exchanges publish this? Monthly / Weekly
 
 #ProofOfReserves #Hotcoin</pre>
+      <div class="copyrow zh"><span>中文 · Chinese</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy" lang="zh-Hans">105% 的储备率是什么意思？
+
+用户在 Hotcoin 每持有1枚 BTC，我们就持有1.05枚。
+
+最新快照（10月29日 10:00 UTC+8）：
+→ BTC 105%
+→ ETH 109%
+→ USDT 113%
+
+高于100% 意味着每一份用户资产都有覆盖，还有额外缓冲。任何用户都可以在储备金证明页面，用快照核对自己的余额。
+
+交易所应该多久公布一次？每月 / 每周
+
+#储备金证明 #Hotcoin</pre>
       <ul class="notes"><li>Needs input: is there a snapshot newer than Oct 29? If yes, we swap the numbers and the date.</li></ul>
     </div>
   </article>
@@ -526,14 +703,13 @@ How often should exchanges publish this? Monthly / Weekly
   <div>Covers: grainy collage family approved Nov 24 (stippled real-object cutouts, brand-green shapes, chrome numbers, film grain), official logo files only, Inter Tight and JetBrains Mono, no italics. Photos: Unsplash, credited.</div>
   <div>Rules on every post: no em dashes, no competitor names, sources and dates checked, risk line on futures, Earn and price posts, links only in event posts.</div>
   <div>Research: <a href="https://www.socialinsider.io/social-media-benchmarks/linkedin">Socialinsider LinkedIn benchmarks</a> · <a href="https://buffer.com/resources/how-often-to-post-on-linkedin/">Buffer posting frequency study</a> · <a href="https://beincrypto.com/birdeye-peak-institutional-crypto-trading-bots/">Birdeye bot estimate (BeInCrypto)</a> · <a href="https://www.newsfilecorp.com/release/312987">TradFi launch</a> · <a href="https://archive.org/details/Bitcoin2013conferenceBrewsterKahleJordanModell">Bitcoin 2013 footage</a></div>
-  <div>Prepared Nov 25, 2026. Full strategy: linkedin/STRATEGY.md in the content repo.</div>
 </footer>
 </div>
 
 <script>
 document.querySelectorAll('button.cp').forEach(function(b){
   b.addEventListener('click',function(){
-    var pre=b.closest('div').parentElement.querySelector('pre.copy');
+    var pre=b.closest('.copyrow').nextElementSibling;
     var txt=pre.textContent;
     function sel(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';}
     try{navigator.clipboard.writeText(txt).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)},sel);}catch(e){sel();}
