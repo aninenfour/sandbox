@@ -29,6 +29,8 @@ FF = "/usr/bin/ffmpeg"
 FORMATS = {
     "reel": dict(W=1080, H=1920, BOX_H=1180, BOTTOM=330, SUB_UP=210, SUB_PX=58, KICK_PX=34, HL_PX=76, LOGO_PX=40),
     "x45":  dict(W=1080, H=1350, BOX_H=760,  BOTTOM=48,  SUB_UP=150, SUB_PX=50, KICK_PX=28, HL_PX=62, LOGO_PX=34),
+    # LinkedIn 4:5 (owner, Nov 25): taller footage window so the speaker sits lower with headroom; panel pushed down
+    "li45": dict(W=1080, H=1350, BOX_H=900,  BOTTOM=56,  SUB_UP=120, SUB_PX=50, KICK_PX=28, HL_PX=58, LOGO_PX=34),
 }
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LOGO = os.path.join(ROOT, "..", "hotcoin-tradfi", "public", "brand", "logo-official-white.png")

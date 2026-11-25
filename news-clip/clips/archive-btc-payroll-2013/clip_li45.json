@@ -27,7 +27,7 @@
     ]
   ],
   "transcript": "src/kahle.txt.json",
-  "crop": "600*0.915:600:302:0",
+  "crop": "864:720:170:0",
   "kicker": "MAY 2013 \u00b7 BITCOIN CONFERENCE, SAN JOSE",
   "headline": "In 2013, the Internet Archive offered to pay its staff in Bitcoin. Watch what happened next",
   "hi": [
@@ -38,7 +38,7 @@
     "bitcoins": "bitcoin",
     "Bitcoins": "bitcoin"
   },
-  "hl_size": 60,
+  "hl_size": 62,
   "name": "archive-btc-payroll-2013-li45",
-  "format": "x45"
+  "format": "li45"
 }
