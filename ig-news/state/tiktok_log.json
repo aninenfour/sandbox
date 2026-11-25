@@ -558,7 +558,7 @@
   "topic": "News: Nvidia $290M crypto mining settlement",
   "hook": "Nvidia will pay $290M over its 2018 crypto mining sales",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-26-memereact-turkey-btc",
@@ -567,6 +567,6 @@
   "topic": "MEME REACT: Thanksgiving turkey vs Bitcoin",
   "hook": "Even the turkey beat my Bitcoin: turkey +10%, Bitcoin -34%",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
