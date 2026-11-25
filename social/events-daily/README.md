@@ -18,3 +18,7 @@ Slides now use `proto/grain.mjs` (title + headline only, brand-green shapes, sti
 2. `python3 proto/cutout-solid.py <slug> <slug>` -> art/solid-<slug>.png (rembg + bg-diff mask, holes filled).
 3. `node proto/grain.mjs a,b` -> out/proto/grain-{dark,lime}-<slug>.png; alternate dark/lime by day, post as poster-N-<slug>.
 Vary the elements from time to time (owner: "we can play with those elements").
+
+## Telegram (from Nov 25)
+Also schedule to Telegram "Hotcoin Announcements" 2 minutes after the Facebook time: Facebook caption (full details + links),
+hashtags OK at the end, no @handles, same poster images (first poster only if Telegram rejects several).
