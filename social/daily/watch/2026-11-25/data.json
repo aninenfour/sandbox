@@ -1,0 +1,71 @@
+{
+ "date": "NOV 25",
+ "window": "Prices at Nov 25 11:52 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Below $60K after a weekend selloff and liquidations",
+   "last": 59346.66,
+   "ch": -1.53,
+   "vol": 674126189.37,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Near $1,660, down about 2% in 24h ahead of US PCE",
+   "last": 1661.9,
+   "ch": -1.88,
+   "vol": 170244467.4,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "DELLB",
+   "name": "Dell",
+   "kind": "tradfi",
+   "handle": "@Dell",
+   "why": "Fell 12% Tue; FQ3 sales doubled to $54.9B after close",
+   "last": 293.26,
+   "ch": -11.85,
+   "vol": 623213.2,
+   "logo": "dellb",
+   "bg": "#017fc2",
+   "glow": "#017fc2"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "US PCE inflation and Q3 GDP today, 21:30 UTC+8",
+   "last": 715.1,
+   "ch": -1.23,
+   "vol": 591992.17,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  },
+  {
+   "sym": "XAUT",
+   "name": "Tether Gold",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Gold fell about 2.7% Tue, near $3,550",
+   "last": 3542.81,
+   "ch": -2.27,
+   "vol": 6497003.85,
+   "logo": "xaut",
+   "bg": "#ffffff",
+   "glow": "#d3b25b"
+  }
+ ]
+}

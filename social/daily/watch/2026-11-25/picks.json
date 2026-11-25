@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Below $60K after a weekend selloff and liquidations"},
+ {"sym": "ETH", "kind": "crypto", "why": "Near $1,660, down about 2% in 24h ahead of US PCE"},
+ {"sym": "DELLB", "kind": "tradfi", "why": "Fell 12% Tue; FQ3 sales doubled to $54.9B after close"},
+ {"sym": "SPYB", "kind": "tradfi", "why": "US PCE inflation and Q3 GDP today, 21:30 UTC+8"},
+ {"sym": "XAUT", "kind": "tradfi", "why": "Gold fell about 2.7% Tue, near $3,550"}
+]}
