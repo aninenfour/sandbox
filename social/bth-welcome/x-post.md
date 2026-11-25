@@ -1,6 +1,6 @@
 # Hotcoin x BTH welcome giveaway (X)
 
-Graphic: hotcoin-bth-welcome.png (1080x1080 @2x).
+Graphics: hotcoin-bth-candy-A.png (pink, candies pouring) or hotcoin-bth-candy-B.png (lime, candy jar), 1080x1080 @2x; render-candy.mjs. Candy art: Nano Banana 2 edit with the BTH logo as reference. Older dark version: hotcoin-bth-welcome.png.
 Rewards: $500 total in futures trial vouchers
 - 10 random UIDs x $20 (reply with Hotcoin UID)
 - 60 x $5, first come first served, new users who register via the referral link
