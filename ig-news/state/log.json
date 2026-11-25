@@ -2384,7 +2384,7 @@
   "slot": "2026-11-25T10:00:00+08:00",
   "title": "Investors pulled $4.7B out of US Bitcoin ETFs in November ($570M Mon Nov 23, IBIT $509M); BTC $59.8K, -53% from $126.1K ATH; Fear & Greed 11/100, extreme fear since Nov 14",
   "score": 11,
-  "status": "scheduled",
+  "status": "published",
   "layouts": [
    "nhero",
    "ngrid",
@@ -2409,6 +2409,61 @@
    "alternative.me F&G 11 Nov 24, <=13 since Nov 14"
   ],
   "note": "07:40 run. Skipped: Dell results/Nvidia-Jensen (main + PT X posted in 48h), Anthropic below IPO price, BlackRock HK tokenized MMF (9/12), South Korea ICO ban. Commons rate-limited (429): Unsplash for grid cells.",
-  "commit": "8bd7873"
+  "commit": "8bd7873",
+  "ig_url": "https://www.instagram.com/p/DgJaJ1jCre_/"
+ },
+ {
+  "id": "2026-11-25-whatif-bezos-wapo-btc",
+  "type": "reel-whatif-v2",
+  "slot": "2026-11-25T21:30:00+08:00",
+  "title": "Jeff Bezos paid $250M for The Washington Post (Oct 1 2013) vs $250M in Bitcoin: ~$115B now (461x; low $337M Jan 2015, 2017 top $37.7B, FTX low $31B, record $245B Oct 2025)",
+  "status": "scheduled",
+  "music": "RnB (Arulo, Mixkit) #224",
+  "platforms": [
+   "ig_reel",
+   "fb_reel",
+   "ig_story(21:35, story.mp4: 53.3 s, no story_ig cut needed)",
+   "tiktok",
+   "x_main(story_x45.mp4)"
+  ],
+  "sources": [
+   "Jeff Bezos's $250M purchase of The Washington Post closed Oct 1 2013 (Nash Holdings, his private company, not Amazon): Washington Post (Oct 1 2013) + CNBC / CBS News (Aug 5 2013 announcement)",
+   "BTC close Oct 1 2013: Bitstamp $127.33, Coin Metrics $127.58",
+   "BTC Nov 25 2026 ~15:45 UTC+8: Coinbase $58,716, CoinGecko $58,739, Bitstamp $58,744 (used $58,700)",
+   "$250M / $127.33 = 1.96M BTC (about 17% of the ~11.8M supply then); worth $115.3B at $58,700 (461x); low Jan 14 2015 $171.41 = $337M; 2017 top Dec 16 $19,187.78 = $37.7B; FTX low Nov 21 2022 $15,766 = $31.0B; record close Oct 6 2025 $124,728 (Bitstamp) / $124,752.53 (Yahoo) = $245B"
+  ],
+  "note": "W48 hook rule 'a person in the purchase': Bezos face cover (cover_face), photo_title 'BEZOS PAID' on frame 0. Photo look, lump, 53.3 s (13 years). Thumbnail fill 32% (BTC photo cropped to the coin; first try 23% warned). Bezos photo: Seattle City Council Flickr CC BY 2.0 (Wikimedia rate-limited this run, 429). BTC 2013 prices from Bitstamp OHLC API + Coin Metrics community API (Yahoo BTC-USD starts Sep 2014). All 5 posts via commit-pinned media_url; Publer covers confirmed = frame 0 (IG, TikTok).",
+  "doc_row": false,
+  "media_commit": "11ee2731452d6312d59df836e5148d5a3811e9f7"
+ },
+ {
+  "id": "2026-11-26-academy-market-holiday",
+  "type": "academy",
+  "slot": "2026-11-26T19:00:00+08:00",
+  "title": "Stocks 101: How to trade a market holiday, in 3 numbers (NYSE 10 closures, 251 trading days 2026 vs BTC 365; Fri Nov 27 close 1 PM ET = 2 AM Sat UTC+8; BTC on Thanksgiving Day 2019-2025, 2020 -8.4%)",
+  "status": "scheduled",
+  "variant": "b",
+  "layouts": [
+   "nhero",
+   "tslide-bars",
+   "ngrid",
+   "tslide-bars"
+  ],
+  "ngrid_used": true,
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(19:02, tt/01-04)",
+   "ig_story(19:05)",
+   "x_research(20:30, 01-04)"
+  ],
+  "sources": [
+   "NYSE Holidays & Trading Hours (nyse.com) + ICE press release (2026-2028 holiday calendar) + Fidelity/Kiplinger 2026 lists: 10 full closures in 2026 (Jan 1, Jan 19, Feb 16, Apr 3, May 25, Jun 19, Jul 3, Sep 7, Nov 26, Dec 25); early close 1:00 pm ET Fri Nov 27 and Thu Dec 24. 261 weekdays in 2026 - 10 = 251 trading days",
+   "1:00 pm ET (EST, UTC-5) Fri Nov 27 = 18:00 UTC = 02:00 Sat Nov 28 UTC+8",
+   "BTC Thanksgiving Day close vs Wednesday close (UTC daily): Bitstamp / Coin Metrics: 2019 -1.2/-1.2, 2020 -8.4/-8.7, 2021 +3.2/+3.3, 2022 -0.1/+0.1 (shown 0.0), 2023 -0.3/-0.2, 2024 -0.3/-0.3, 2025 +0.9/+1.0"
+  ],
+  "note": "US Thanksgiving, markets closed. W48 how-to promise hook with a number, no face (NYSE, turkey, coin photos). 4 slides, no CTA. Variant b (Nov 25 was a). Media commit e7af889.",
+  "doc_row": false,
+  "media_commit": "e7af889caef483f86e33fa8eb8960477bc5700a1"
  }
 ]

@@ -527,7 +527,26 @@
   "format": "photo",
   "topic": "News: $4.7B out of Bitcoin ETFs in November",
   "hook": "$4.7B just left Bitcoin ETFs in November",
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7711923704808082709"
+ },
+ {
+  "id": "2026-11-25-whatif-bezos-wapo-btc",
+  "slot": "2026-11-25T21:30:00+08:00",
+  "format": "video",
+  "topic": "WHAT IF: Bezos Washington Post vs Bitcoin",
+  "hook": "Bezos paid $250M for a newspaper. Same $250M in Bitcoin: $115B",
   "status": "scheduled",
-  "doc_row": true
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-26-academy-market-holiday",
+  "slot": "2026-11-26T19:02:00+08:00",
+  "format": "photo",
+  "topic": "Academy: how to trade a market holiday",
+  "hook": "Wall Street is closed today, Bitcoin isn't",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]
