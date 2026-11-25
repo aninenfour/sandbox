@@ -25,7 +25,7 @@ h1{position:absolute;left:72px;top:${v.top.h1}px;font:400 84px/0.98 'Russo One';
 h1 span{color:${v.hl}}
 .big{position:absolute;left:66px;top:${v.top.big}px;font:400 210px/0.9 'Russo One';letter-spacing:-7px;color:${v.bigColor}}
 .sub{position:absolute;left:72px;top:${v.top.sub}px;font-size:44px;font-weight:800;letter-spacing:-.5px;color:${v.subC}}
-.rows{position:absolute;left:72px;top:${v.top.row}px;display:flex;flex-direction:column;gap:18px}
+.rows{position:absolute;left:52px;top:${v.top.row - 20}px;display:flex;flex-direction:column;gap:14px;padding:22px 30px 22px 20px;border-radius:26px;background:rgba(255,255,255,.55);backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(11,14,17,.08)}
 .r{display:flex;align-items:baseline;gap:18px}.r .v{font:400 54px 'Russo One';letter-spacing:-1px;min-width:220px}.r .v b{font-weight:400;color:${PINK}}
 .r .l{font-size:32px;font-weight:700}
 </style></head><body>
