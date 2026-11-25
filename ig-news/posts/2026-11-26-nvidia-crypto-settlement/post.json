@@ -1,0 +1,65 @@
+{
+ "type": "news",
+ "style": "v2",
+ "date": "NOV 26",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "jh1.jpg",
+   "photo_pos": "50% 10%",
+   "tag": "BREAKING",
+   "badge": {"src": "NVDA.png", "pos": "tr", "fit": "70%", "size": 300, "bg": "#fff"},
+   "headline": "Nvidia agrees to pay [$290M] over {crypto mining sales}"
+  },
+  {
+   "kind": "ngrid",
+   "title": "The 2018 crypto bill",
+   "text": "For investors who bought Aug 2017 to Nov 2018.",
+   "cells": [
+    {"photo": "gpu.jpg", "photo_pos": "50% 50%", "label": "Crypto card sales not flagged (claim)", "value": "$1.1B", "neg": true},
+    {"photo": "gavel.jpg", "photo_pos": "40% 50%", "label": "Settlement filed Nov 24 2026", "value": "$290M"}
+   ],
+   "source": "Decrypt Nov 25; Cointelegraph Nov 25; The Block Nov 25"
+  },
+  {
+   "kind": "nquote",
+   "photo": "jh2.jpg",
+   "photo_pos": "40% 0%",
+   "quote": "The crypto hangover lasted [longer than we expected].",
+   "name": "Jensen Huang",
+   "role": "Nvidia CEO, earnings call, Nov 15 2018",
+   "check_title": "WHAT THE DATA SAYS",
+   "check": [
+    {"v": "-28.5%", "l": "Nvidia stock in the next 2 trading days", "neg": true},
+    {"v": "$290M", "l": "to settle the investors' lawsuit, 2026"}
+   ],
+   "source": "Motley Fool call transcript Nov 18 2018; Reuters via Express Tribune Nov 16 2018; The Block, Cointelegraph Nov 25 2026",
+   "bubble_top": 760,
+   "tail_x": 460
+  },
+  {
+   "kind": "nbars",
+   "tag": "THE CATCH",
+   "title": "Lawyers want a slice",
+   "bars": [
+    {"l": "Max damages at trial (claim)", "v": 2060, "txt": "$2.06B"},
+    {"l": "Settlement", "v": 290, "txt": "$290M"},
+    {"l": "Lawyers' fee ask (21.4%)", "v": 62, "txt": "$62M", "neg": true}
+   ],
+   "text": ["Nvidia denies wrongdoing. A judge still has to [approve the deal]."],
+   "source": "Decrypt Nov 25 ($2.06B, 14%, 21.4% / $62M); Cointelegraph Nov 25 (14%, 21.4%); The Block Nov 25 ($62M)"
+  },
+  {"kind": "end"}
+ ],
+ "sources": [
+  "Decrypt, Nov 25 2026: Nvidia to pay $290M cash to settle 2018 shareholder suit (court filing Tue Nov 24); class Aug 10 2017 to Nov 15 2018; ~14% of ~$2.06B max trial damages (plaintiffs' expert); plaintiffs estimate $1.1B understated crypto GPU sales; lawyers seek up to 21.4% (~$62M); denies wrongdoing; needs court approval; stock fell ~28% over two sessions in Nov 2018",
+  "Cointelegraph, Nov 25 2026: $290M, Tuesday filing, needs court approval; class Aug 10 2017 to Nov 15 2018; $1.1B understated May 2017 to Jul 2018 (plaintiff analysis); stock -28.5% over two sessions after Nov 2018 forecast cut; 14% of damages claimed; up to 21.4% fees; dismissed 2021, revived 2023, Supreme Court dismissed Dec 2024, class certified Mar 2026; preliminary approval hearing Feb 4 2027",
+  "The Block, Nov 25 2026: $290M settlement filed Nov 24 in N.D. Cal., needs approval; up to $62M legal fees; 28.5% drop over two sessions Nov 2018; SEC $5.5M settlement 2022",
+  "Jensen Huang quote 'The crypto hangover lasted longer than we expected.': Motley Fool (Nov 18 2018, Q3 FY2019 call) and Reuters via The Express Tribune (Nov 16 2018, 'Huang said on a conference call')"
+ ],
+ "photo_credits": [
+  "Jensen Huang: Office of the President of Taiwan / Wikimedia Commons (Jensen_Huang_20231109), CC BY 2.0",
+  "Graphics card: Christian Wiediger / Unsplash",
+  "Gavel: Wesley Tingey / Unsplash"
+ ]
+}
