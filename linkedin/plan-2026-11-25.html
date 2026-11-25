@@ -1,0 +1,646 @@
+<title>Hotcoin LinkedIn Week Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Instrument+Serif:ital@1&display=swap">
+<style>
+/* Layout: a planning board. Week grid first, then one row per post: mockup left, copy right, like the calendar it will become. */
+:root{
+  --bg:#F6F7F4; --surface:#FFFFFF; --fg:#0B0E11; --muted:#5B6168; --line:#E2E5E0;
+  --lime:#B8F26A; --green:#4E8F2E; --up:#17A86B; --down:#E5484D; --amber:#B7791F;
+  --chip-ready:#E3F6EA; --chip-make:#F1F7E4; --chip-input:#FDECEC;
+  --display:'Inter Tight',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace; --serif:'Instrument Serif',Georgia,serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#07090A; --surface:#111518; --fg:#EEF1EC; --muted:#9AA19B; --line:#232A2E;
+  --lime:#B8F26A; --green:#9BD873; --up:#2DBD85; --down:#F6465D; --amber:#E2B05A;
+  --chip-ready:#12301F; --chip-make:#1F2A12; --chip-input:#3A1518; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#07090A; --surface:#111518; --fg:#EEF1EC; --muted:#9AA19B; --line:#232A2E;
+  --lime:#B8F26A; --green:#9BD873; --up:#2DBD85; --down:#F6465D; --amber:#E2B05A;
+  --chip-ready:#12301F; --chip-make:#1F2A12; --chip-input:#3A1518; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:15px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr);gap:56px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.02;letter-spacing:-.02em;margin:10px 0 14px;font-weight:800;text-wrap:balance}
+h1 em,h2 em{font-family:var(--serif);font-weight:400;font-style:italic;letter-spacing:0}
+h2{font-size:26px;letter-spacing:-.01em;margin:0 0 4px;font-weight:800;text-wrap:balance}
+.lede{max-width:62ch;color:var(--muted);margin:0;font-size:17px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:24px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:2px}
+.fact b{font-size:22px;font-variant-numeric:tabular-nums}
+.fact span{color:var(--muted);font-size:13px}
+.sub{color:var(--muted);margin:0 0 18px;max-width:70ch}
+/* week grid */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table.week{border-collapse:collapse;width:100%;min-width:720px;font-size:13px}
+.week th,.week td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+.week thead th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.week tbody th{white-space:nowrap;font-weight:700}
+.week tbody th small{display:block;font-family:var(--mono);font-weight:500;color:var(--muted);font-size:11px}
+.week tr:last-child td,.week tr:last-child th{border-bottom:0}
+.slot{display:grid;gap:4px}
+.slot a{color:var(--fg);text-decoration:none;font-weight:600}
+.slot a:hover,.slot a:focus-visible{text-decoration:underline}
+.rest{color:var(--muted)}
+.pill{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;padding:2px 7px;border-radius:99px;border:1px solid var(--line);color:var(--muted);width:max-content}
+.st{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;padding:3px 8px;border-radius:99px;width:max-content;font-weight:700}
+.st.ready{background:var(--chip-ready);color:var(--up)}
+.st.make{background:var(--chip-make);color:var(--green)}
+.st.input{background:var(--chip-input);color:var(--down)}
+/* day sections */
+.day{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.dayhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--fg);padding-bottom:8px}
+.dayhead h2{margin:0}
+.post{display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;scroll-margin-top:16px}
+@media (max-width:720px){.post{grid-template-columns:minmax(0,1fr)}.post .mockcol{max-width:300px}}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.time{font-family:var(--mono);font-weight:700;font-size:13px}
+.post h3{margin:0 0 10px;font-size:19px;line-height:1.25;text-wrap:balance}
+.copy{white-space:pre-wrap;font-size:14px;line-height:1.55;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:0;font-family:var(--display);max-width:72ch;overflow-wrap:anywhere}
+.notes{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:13px;display:grid;gap:3px}
+.copyrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px}
+.copyrow span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+button.cp{font-family:var(--mono);font-size:11px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:4px 10px;cursor:pointer}
+button.cp:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+/* mockups: self-contained post images, fixed colours like the real graphics */
+.mock{container-type:inline-size;aspect-ratio:4/5;width:100%;max-width:100%;border-radius:8px;overflow:hidden;position:relative;box-shadow:0 1px 0 rgba(0,0,0,.04),0 8px 24px -12px rgba(0,0,0,.25)}
+.m-white{background:#fff;color:#0B0E11}
+.m-ink{background:#0B0E11;color:#F2F4EF}
+.m-pad{position:absolute;inset:0;padding:7cqw;display:flex;flex-direction:column}
+.m-k{font-family:var(--mono);font-size:3.2cqw;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.m-logo{font-weight:800;font-size:4.4cqw;letter-spacing:-.01em;display:flex;align-items:center;gap:1.6cqw}
+.m-logo i{display:inline-block;width:3.6cqw;height:3.6cqw;border-radius:50%;background:#B8F26A}
+.m-top{display:flex;justify-content:space-between;align-items:center}
+.m-h{font-weight:800;font-size:8.4cqw;line-height:1.02;letter-spacing:-.02em;margin-top:auto}
+.m-h em{font-family:var(--serif);font-weight:400;font-style:italic}
+.m-s{font-size:4.2cqw;line-height:1.3;margin-top:2.4cqw;opacity:.75}
+.m-big{font-weight:900;font-size:24cqw;line-height:.9;letter-spacing:-.04em}
+.m-dots{display:flex;gap:1.4cqw;margin-top:4cqw}
+.m-dots b{width:2cqw;height:2cqw;border-radius:50%;background:currentColor;opacity:.2}
+.m-dots b:first-child{opacity:1}
+.m-swipe{font-family:var(--mono);font-size:3cqw;letter-spacing:.1em;margin-top:3cqw;opacity:.7}
+.lime{color:#7EC25A}.red{color:#E5484D}.grn{color:#17A86B}
+.halftone{position:absolute;inset:0;background-image:radial-gradient(#0B0E11 22%,transparent 24%);background-size:2.6cqw 2.6cqw;opacity:.06;-webkit-mask-image:radial-gradient(circle at 85% 30%,#000 0,transparent 55%);mask-image:radial-gradient(circle at 85% 30%,#000 0,transparent 55%)}
+.halftone.inv{background-image:radial-gradient(#B8F26A 22%,transparent 24%);opacity:.18}
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:1.8cqw;margin-top:5cqw}
+.teams div{border:1px solid rgba(242,244,239,.22);border-radius:1.6cqw;padding:2cqw 2.4cqw;font-size:3.3cqw;font-weight:600}
+.teams div span{font-family:var(--mono);color:#B8F26A;margin-right:1.4cqw}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:2cqw;margin-top:4cqw}
+.tiles div{background:#F3F5F0;border-radius:2cqw;padding:3cqw;display:grid;gap:.6cqw}
+.tiles b{font-size:5.4cqw;letter-spacing:-.01em}
+.tiles span{font-size:3cqw;color:#5B6168;line-height:1.25}
+.bars{display:grid;gap:3.2cqw;margin-top:auto}
+.bar{display:grid;grid-template-columns:12cqw 1fr 13cqw;align-items:center;gap:2cqw;font-size:3.6cqw;font-weight:700}
+.bar .tr{height:4.6cqw;background:#EEF0EC;border-radius:1cqw;position:relative;overflow:hidden}
+.bar .tr i{position:absolute;inset:0 auto 0 0;background:#17A86B;border-radius:1cqw}
+.bar .tr::after{content:"";position:absolute;top:-1cqw;bottom:-1cqw;left:83.3%;border-left:.5cqw dashed #0B0E11}
+.poll{gap:3cqw}
+.poll .q{font-weight:800;font-size:6.4cqw;line-height:1.15;margin-bottom:2cqw}
+.poll .o{border:1.5px solid #0A66C2;color:#0A66C2;border-radius:99px;text-align:center;padding:2.6cqw;font-weight:700;font-size:4cqw}
+.poll small{font-size:3.2cqw;color:#5B6168;margin-top:auto}
+.vid{position:relative}
+.vid video{width:100%;height:100%;object-fit:cover;display:block;background:#0B0E11}
+.play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.play i{width:16cqw;height:16cqw;border-radius:50%;background:rgba(11,14,17,.72);display:grid;place-items:center}
+.play i::after{content:"";border-left:5cqw solid #B8F26A;border-top:3.2cqw solid transparent;border-bottom:3.2cqw solid transparent;margin-left:1.2cqw}
+.cap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;display:block}
+/* decision tables */
+table.opt{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+.opt th,.opt td{border-bottom:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
+.opt thead th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.opt tr.rec td{background:var(--chip-make)}
+.opt td:nth-child(2){font-variant-numeric:tabular-nums;white-space:nowrap}
+.foot{color:var(--muted);font-size:13px;display:grid;gap:4px}
+.foot a{color:var(--fg)}
+@media (prefers-reduced-motion:no-preference){.post{transition:border-color .2s}.post:target{border-color:var(--green)}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Hotcoin · LinkedIn company page · Nov 25 to Dec 1, 2026</div>
+  <h1>Next 7 days on <em>LinkedIn</em></h1>
+  <p class="lede">12 posts and 3 videos, each with its job, its copy and what it still needs. Times are Beijing (UTC+8): 13:00 reaches Asia, 22:30 reaches Europe and the US. Event posts sit at 18:00 on video days.</p>
+  <div class="facts">
+    <div class="fact"><b>9</b><span>engagements on our best LinkedIn post in 90 days (100 posts). Mostly X copies.</span></div>
+    <div class="fact"><b>7.0%</b><span>engagement on PDF carousels, the top LinkedIn format (Socialinsider, 26k pages)</span></div>
+    <div class="fact"><b>3 videos / week</b><span>Mon, Wed, Fri, alternating how-to and archive</span></div>
+  </div>
+</header>
+
+<section>
+  <h2>The week at a glance</h2>
+  <p class="sub">Click a post to jump to its mockup and copy.</p>
+  <div class="scroll">
+  <table class="week">
+    <thead><tr><th>Day</th><th>13:00 · Asia</th><th>18:00 · event</th><th>22:30 · Europe / US</th></tr></thead>
+    <tbody>
+      <tr><th>Wed<small>Nov 25</small></th><td class="rest">passed</td><td class="rest">no slot</td><td><div class="slot"><a href="#p1">Archive: Bitcoin payroll, 2013</a><span class="st ready">READY</span></div></td></tr>
+      <tr><th>Thu<small>Nov 26</small></th><td><div class="slot"><a href="#p2">Bots: two thirds of trades</a><span class="st ready">COPY READY</span></div></td><td class="rest">no slot</td><td><div class="slot"><a href="#p3">8 teams behind an exchange</a><span class="st ready">COPY READY</span></div></td></tr>
+      <tr><th>Fri<small>Nov 27</small></th><td><div class="slot"><a href="#p4">Since 2017: our autumn</a><span class="st ready">COPY READY</span></div></td><td><div class="slot"><a href="#p5">Event: Earn Exclusive, last call</a><span class="st ready">COPY READY</span></div></td><td><div class="slot"><a href="#p6">How-to video: the 1% rule</a><span class="st make">TO PRODUCE</span></div></td></tr>
+      <tr><th>Sat<small>Nov 28</small></th><td><div class="slot"><a href="#p7">Poll: what protects an account</a><span class="st ready">READY</span></div></td><td class="rest">no slot</td><td class="rest">no slot</td></tr>
+      <tr><th>Sun<small>Nov 29</small></th><td class="rest" colspan="3">Rest day. Reply to comments only.</td></tr>
+      <tr><th>Mon<small>Nov 30</small></th><td><div class="slot"><a href="#p8">101: funding rate</a><span class="st ready">COPY READY</span></div></td><td><div class="slot"><a href="#p9">Event: TradFi 0 Fee Carnival</a><span class="st ready">COPY READY</span></div></td><td><div class="slot"><a href="#p10">Archive: living on Bitcoin, 2013</a><span class="st make">TO CUT</span></div></td></tr>
+      <tr><th>Tue<small>Dec 1</small></th><td><div class="slot"><a href="#p11">Data Desk: November in numbers</a><span class="st input">DATA ON DEC 1</span></div></td><td class="rest">no slot</td><td><div class="slot"><a href="#p12">Why Hotcoin: proof of reserves</a><span class="st input">CONFIRM SNAPSHOT</span></div></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============ WED ============ -->
+<section class="day">
+  <div class="dayhead"><h2>Wednesday, Nov 25</h2><span class="kicker">archive video</span></div>
+
+  <article class="post" id="p1">
+    <div class="mockcol">
+      <div class="mock vid"><video src="kahle-li45.mp4" poster="kahle-poster.jpg" controls preload="none" playsinline></video></div>
+      <span class="cap">Real render · 4:5 · 61 s · press play</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">22:30</span><span class="pill">ARCHIVE VIDEO</span><span class="st ready">READY</span></div>
+      <h3>In 2013, the Internet Archive offered to pay its staff in Bitcoin</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">In April 2013, the Internet Archive let its staff take part of their salary in Bitcoin.
+
+Founder Brewster Kahle told the story at a Bitcoin conference in San Jose that May:
+→ His finance chief first said no
+→ A couple of weeks later he found a way
+→ About a third of headquarters staff said yes
+→ They built an honor-based Bitcoin to cash box in the office
+
+Blog readers said it would be robbed at once. He bet a Bitcoin nickel nobody would. No one took the bet, and the box kept running.
+
+Would you take part of your salary in Bitcoin? Yes / No
+
+Footage: Internet Archive, Bitcoin 2013 conference recording.
+#Bitcoin #CryptoHistory #FutureOfWork</pre>
+      <ul class="notes">
+        <li>Re-cut so it ends on the payoff, "So it's still up and running." (the IG/TikTok version stopped before it).</li>
+        <li>Blocked: Publer needs an API key in the environment to upload the video. Ready to schedule as soon as it is added.</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ THU ============ -->
+<section class="day">
+  <div class="dayhead"><h2>Thursday, Nov 26</h2><span class="kicker">bots and tools · industry and careers</span></div>
+
+  <article class="post" id="p2">
+    <div class="mockcol">
+      <div class="mock m-white"><div class="halftone"></div><div class="m-pad">
+        <div class="m-top"><div class="m-logo"><i></i>Hotcoin</div><div class="m-k">Data Desk · Nov 2026</div></div>
+        <div style="margin-top:auto"><div class="m-big grn">~2/3</div><div class="m-s" style="opacity:1;font-weight:700">of on-chain crypto trades are made by bots.</div><div class="m-s">They come from just 1 to 3% of wallets.</div></div>
+        <div class="m-dots"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="m-swipe">SWIPE →</div>
+      </div></div>
+      <span class="cap">Mockup · PDF carousel, 7 pages · white data style</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">13:00</span><span class="pill">BOTS AND TOOLS</span><span class="pill">PDF CAROUSEL</span><span class="st ready">COPY READY</span></div>
+      <h3>How much of crypto is traded by machines?</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">About two thirds of on-chain crypto trades are made by bots.
+They come from just 1 to 3% of wallets.
+
+That's the latest estimate from on-chain analytics firm Birdeye. Here's what the number measures, and what it doesn't:
+→ It counts trades, not trading volume
+→ It's on-chain data, led by Solana, where automated activity reaches up to 80% of volume
+→ Bots are flagged by behaviour no human can do: several trades per second, buys within seconds of a listing
+→ The full methodology is due in December, so treat it as an estimate
+
+What it means if you trade by hand:
+→ You're rarely the fastest. Don't compete on speed.
+→ Compete on discipline: position size, stops, time horizon.
+→ Or automate the boring part: a trading bot follows the rules you set, every time.
+
+7 slides, sources on the last one 👉
+
+Do you trade by hand or with a bot? ✋ / 🤖
+
+Not financial advice.
+#CryptoMarkets #TradingBots #Hotcoin</pre>
+      <ul class="notes">
+        <li>Source: Birdeye estimate as reported by BeInCrypto (Nov 2026). Methodology not yet published, so the post says "estimate".</li>
+        <li>We don't use the "65 to 80% of all crypto volume is bots" numbers: no primary source.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="post" id="p3">
+    <div class="mockcol">
+      <div class="mock m-ink"><div class="halftone inv"></div><div class="m-pad">
+        <div class="m-top"><div class="m-logo"><i></i>Hotcoin</div><div class="m-k">Careers in crypto</div></div>
+        <div class="m-h" style="margin-top:7cqw">8 teams behind <em class="lime">every</em> crypto exchange</div>
+        <div class="teams"><div><span>01</span>Risk</div><div><span>02</span>Listing research</div><div><span>03</span>Security</div><div><span>04</span>Liquidity</div><div><span>05</span>Compliance</div><div><span>06</span>Support</div><div><span>07</span>Product</div><div><span>08</span>Treasury</div></div>
+        <div class="m-swipe" style="margin-top:auto">SWIPE →</div>
+      </div></div>
+      <span class="cap">Mockup · PDF carousel, 10 pages · no faces</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">22:30</span><span class="pill">INDUSTRY AND CAREERS</span><span class="pill">PDF CAROUSEL</span><span class="st ready">COPY READY</span></div>
+      <h3>The teams you never see</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">Most people see one screen of a crypto exchange. Behind it are at least 8 teams.
+
+1 Risk: watches positions and liquidations around the clock
+2 Listing research: checks a project before its coin goes live
+3 Security: protects wallets, keys and accounts
+4 Liquidity: keeps order books deep so prices stay fair
+5 Compliance: licences, identity checks, local rules
+6 Support: answers users 24/7, in many languages
+7 Product and engineering: builds the app, the charts, the bots
+8 Treasury: keeps reserves above 100% of user assets
+
+Thinking about a move into crypto? These are the doors.
+
+Which team would you join? Comment the number 👇
+
+#CryptoCareers #Fintech #Hotcoin</pre>
+      <ul class="notes">
+        <li>Owner decision: faceless. Icons and real office details only, no staff names or faces.</li>
+        <li>Optional: HR adds 1 to 3 open roles on the last slide.</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ FRI ============ -->
+<section class="day">
+  <div class="dayhead"><h2>Friday, Nov 27</h2><span class="kicker">milestones · event · how-to video</span></div>
+
+  <article class="post" id="p4">
+    <div class="mockcol">
+      <div class="mock m-white"><div class="m-pad">
+        <div class="m-top"><div class="m-logo"><i></i>Hotcoin</div><div class="m-k">Autumn 2026</div></div>
+        <div class="m-h" style="margin-top:6cqw;font-size:11cqw">Since <em>2017</em></div>
+        <div class="tiles">
+          <div><b>Sep 7</b><span>TradFi launch: US stock-linked products, 24/7, with stablecoins</span></div>
+          <div><b>TOKEN2049</b><span>Our booth at Singapore, Level 5</span></div>
+          <div><b class="grn">105 to 113%</b><span>Proof of reserves, Oct 29 snapshot</span></div>
+          <div><b>Legends</b><span>Global Legends Challenge, November</span></div>
+        </div>
+      </div></div>
+      <span class="cap">Mockup · multi-image (4 photos + cover)</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">13:00</span><span class="pill">MILESTONES</span><span class="pill">MULTI-IMAGE</span><span class="st ready">COPY READY</span></div>
+      <h3>What a 9-year-old exchange shipped this autumn</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">Hotcoin has been running since 2017. Here's what this autumn looked like:
+
+1 Sep 7: we launched TradFi, 24/7 trading of US stock-linked products with stablecoins
+2 We met the industry at TOKEN2049 Singapore
+3 Oct 29: proof of reserves at BTC 105%, ETH 109%, USDT 113%
+4 November: the Global Legends Challenge with Ronaldinho
+
+Nine years in, the job is the same: keep it safe, keep it simple, keep shipping.
+
+Which one should we tell you more about? 1, 2, 3 or 4 👇
+
+#Hotcoin #Crypto #Fintech</pre>
+      <ul class="notes">
+        <li>Photos: booth and product shots without faces. No ambassador photo on our graphic.</li>
+        <li>Sources: TradFi launch release (Sep 7, 2026), PoR post (Oct 29), our TOKEN2049 and campaign posts.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="post" id="p5">
+    <div class="mockcol">
+      <div class="mock m-ink"><div class="m-pad">
+        <div class="m-top"><div class="m-logo"><i></i>Hotcoin</div><div class="m-k">Earn · ends Nov 28</div></div>
+        <div style="margin-top:auto"><div class="m-k" style="opacity:.8">Boosted APR up to</div><div class="m-big lime">6.00%</div>
+        <div class="m-s" style="opacity:1">+ up to 2,000 USDT in <b>Futures Trial Funds</b></div>
+        <div class="m-s">USDT / USDC · 7 to 180 days</div></div>
+        <div class="m-k" style="margin-top:5cqw">Nov 28 · 19:00 UTC+8</div>
+      </div></div>
+      <span class="cap">Mockup · single image + sign-up link</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">18:00</span><span class="pill">EVENT</span><span class="pill">IMAGE + LINK</span><span class="st ready">COPY READY</span></div>
+      <h3>Why we pay Earn rewards as Futures Trial Funds</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">Why does Hotcoin pay Earn rewards as Futures Trial Funds?
+
+Most people who park USDT in Earn have never tried futures. Trial funds let them try with campaign rewards instead of their own deposit.
+
+Fixed-Term Earn Exclusive, ends Nov 28, 19:00 (UTC+8):
+→ Boosted APR: 4.00% to 6.00% on USDT/USDC, 7 to 180 days
+→ Subscription milestones: up to 2,000 USDT in Futures Trial Funds, from 5,000 USDT
+→ Invite friends: up to 50 USDT in Spot Fee Deduction Vouchers
+
+Limited spots, first come, first served. Full terms:
+https://www.hotcoin.com/en_US/announcement/HotcoinFixed-TermEarnExclusive/
+
+Not financial advice. Futures trading is high risk.
+#HotcoinEarn #Stablecoins</pre>
+      <ul class="notes"><li>Numbers copied from the live campaign copy already published on our channels.</li></ul>
+    </div>
+  </article>
+
+  <article class="post" id="p6">
+    <div class="mockcol">
+      <div class="mock m-white"><div class="m-pad">
+        <div class="m-top"><div class="m-logo"><i></i>Hotcoin</div><div class="m-k">101 · video</div></div>
+        <div class="m-h" style="margin-top:5cqw;font-size:9cqw">The <em>1%</em> rule</div>
+        <svg viewBox="0 0 200 120" style="width:100%;margin-top:4cqw" role="img" aria-label="Account balance after ten losing trades at 1% risk each, falling from 10,000 to about 9,044">
+          <line x1="10" y1="20" x2="190" y2="20" stroke="#E6E8EB" stroke-width="1"/>
+          <line x1="10" y1="100" x2="190" y2="100" stroke="#E6E8EB" stroke-width="1"/>
+          <polyline fill="none" stroke="#E5484D" stroke-width="3" stroke-linejoin="round" points="10,20 28,27.6 46,35.2 64,42.6 82,49.9 100,57.1 118,64.3 136,71.3 154,78.2 172,85 190,91.6"/>
+          <circle cx="190" cy="91.6" r="4" fill="#E5484D"/>
+          <text x="10" y="14" font-size="9" font-family="JetBrains Mono, monospace" fill="#5B6168">10,000</text>
+          <text x="190" y="114" font-size="9" font-family="JetBrains Mono, monospace" fill="#0B0E11" text-anchor="end" font-weight="700">9,044 after 10 losses</text>
+        </svg>
+        <div class="m-s" style="margin-top:auto">Risk 1% per trade. Ten losses in a row still leave about 90%.</div>
+      </div></div>
+      <span class="cap">Mockup of a frame · video 4:5, ~80 s</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">22:30</span><span class="pill">HOW-TO VIDEO</span><span class="pill">CHART STYLE</span><span class="st make">TO PRODUCE</span></div>
+      <h3>The 1% rule in 80 seconds</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">Most traders blow up on size, not on being wrong.
+
+The 1% rule in one line: risk at most 1% of your account on a single trade.
+
+→ Account: 10,000 USDT, so max risk is 100 USDT
+→ Stop: 5% below entry
+→ Position size: 100 ÷ 5% = 2,000 USDT
+→ Wrong? You lose 100. Ten losses in a row still leave about 90% of the account.
+
+80-second chart walk-through above 👆
+
+Do you size by rule or by feel? 📏 / 🎲
+
+Not financial advice. Futures trading is high risk.
+#RiskManagement #Hotcoin101</pre>
+      <ul class="notes">
+        <li>Topic picked because position sizing is our best LinkedIn post so far (9 engagements).</li>
+        <li>Built in Remotion with original music. Math check: 10,000 × 0.99¹⁰ = 9,044.</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ SAT ============ -->
+<section class="day">
+  <div class="dayhead"><h2>Saturday, Nov 28</h2><span class="kicker">light weekend post</span></div>
+  <article class="post" id="p7">
+    <div class="mockcol">
+      <div class="mock m-white"><div class="m-pad poll">
+        <div class="q">What protects a trading account most?</div>
+        <div class="o">Position size</div><div class="o">Stop-loss</div><div class="o">Hedging</div><div class="o">No leverage</div>
+        <small>Native LinkedIn poll · 3 days</small>
+      </div></div>
+      <span class="cap">Mockup · LinkedIn poll</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">13:00</span><span class="pill">101</span><span class="pill">POLL</span><span class="st ready">READY</span></div>
+      <h3>One question, four answers</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">One answer only: what protects a trading account most?
+
+We'll share the results, and what the numbers say about each answer, next week.
+
+#Trading #RiskManagement #Hotcoin101</pre>
+      <ul class="notes"><li>Follows Friday's 1% rule video. Results feed a carousel next week.</li></ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ MON ============ -->
+<section class="day">
+  <div class="dayhead"><h2>Monday, Nov 30</h2><span class="kicker">101 · event · archive video</span></div>
+
+  <article class="post" id="p8">
+    <div class="mockcol">
+      <div class="mock m-white"><div class="m-pad">
+        <div class="m-top"><div class="m-logo"><i></i>Hotcoin</div><div class="m-k">Hotcoin 101</div></div>
+        <div class="m-h" style="margin-top:5cqw">Funding rate, <em>in 6 slides</em></div>
+        <svg viewBox="0 0 200 90" style="width:100%;margin-top:4cqw" role="img" aria-label="Illustrative funding rate bars, positive above the line and negative below">
+          <line x1="0" y1="45" x2="200" y2="45" stroke="#0B0E11" stroke-width="1"/>
+          <g fill="#17A86B"><rect x="6" y="33" width="14" height="12"/><rect x="26" y="27" width="14" height="18"/><rect x="46" y="20" width="14" height="25"/><rect x="66" y="10" width="14" height="35"/><rect x="146" y="36" width="14" height="9"/><rect x="166" y="30" width="14" height="15"/></g>
+          <g fill="#E5484D"><rect x="86" y="45" width="14" height="10"/><rect x="106" y="45" width="14" height="22"/><rect x="126" y="45" width="14" height="14"/></g>
+          <text x="198" y="10" font-size="8" font-family="JetBrains Mono, monospace" fill="#17A86B" text-anchor="end">longs pay</text>
+          <text x="198" y="86" font-size="8" font-family="JetBrains Mono, monospace" fill="#E5484D" text-anchor="end">shorts pay</text>
+        </svg>
+        <div class="m-dots" style="margin-top:auto"><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="m-swipe">SWIPE →</div>
+      </div></div>
+      <span class="cap">Mockup · PDF carousel, 6 pages · illustrative chart</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">13:00</span><span class="pill">101</span><span class="pill">PDF CAROUSEL</span><span class="st ready">COPY READY</span></div>
+      <h3>The small number that decides who pays whom</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">Funding rate: the small number on every perpetual futures screen that decides who pays whom.
+
+→ Perpetual futures never expire, so funding keeps their price close to spot
+→ Positive funding: longs pay shorts
+→ Negative funding: shorts pay longs
+→ It's charged on your position size at set times (see the countdown on the contract page)
+→ Very high funding usually means a crowded trade
+
+6 slides with a worked example 👉
+
+Have you ever paid funding without noticing? Yes / No
+
+Futures trading is high risk.
+#Hotcoin101 #Futures</pre>
+      <ul class="notes"><li>Slide 5 worked example uses a live Hotcoin funding rate pulled on the day, with its date.</li></ul>
+    </div>
+  </article>
+
+  <article class="post" id="p9">
+    <div class="mockcol">
+      <div class="mock m-ink"><div class="m-pad">
+        <div class="m-top"><div class="m-logo"><i></i>Hotcoin</div><div class="m-k">TradFi · ends Dec 4</div></div>
+        <div style="margin-top:auto"><div class="m-k" style="opacity:.8">TradFi trading fees back</div><div class="m-big lime">100%</div>
+        <div class="m-s" style="opacity:1">up to 300 USDT, as <b>Futures Trial Funds</b></div>
+        <div class="m-s">+ up to 100 USDT volume rewards</div></div>
+        <div class="m-k" style="margin-top:5cqw">Dec 4 · 23:59 UTC+8</div>
+      </div></div>
+      <span class="cap">Mockup · single image + sign-up link</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">18:00</span><span class="pill">EVENT</span><span class="pill">IMAGE + LINK</span><span class="st ready">COPY READY</span></div>
+      <h3>Why we're refunding TradFi fees</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">Why are we refunding 100% of TradFi trading fees?
+
+TradFi lets you trade US stock-linked products 24/7 with stablecoins, including weekends when Wall Street is closed. We want first-time users to try it without the fee in the way.
+
+TradFi 0 Fee Carnival, ends Dec 4, 23:59 (UTC+8):
+→ Fee rebate: 100%, up to 300 USDT, paid as Futures Trial Funds
+→ Volume rewards: up to 100 USDT in Futures Trial Funds (highest tier only, tiers don't stack)
+→ First tier: 5 USDT at 1,000+ USDT TradFi volume
+
+Limited prize pool, first come, first served. Full terms:
+https://www.hotcoin.com/en_US/announcement/tradfi-0-fee-carnival/
+
+Not financial advice. Trading is high risk.
+#TradFi #Hotcoin</pre>
+      <ul class="notes"><li>Numbers copied from the live campaign copy already published on our channels.</li></ul>
+    </div>
+  </article>
+
+  <article class="post" id="p10">
+    <div class="mockcol">
+      <div class="mock vid" style="background:#0B0E11">
+        <img src="kahle-poster.jpg" alt="Brewster Kahle speaking at the Bitcoin 2013 conference" style="width:100%;height:100%;object-fit:cover;filter:saturate(.85)">
+        <div class="play"><i></i></div>
+      </div>
+      <span class="cap">Placeholder frame · same 2013 talk, part 2 · 4:5</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">22:30</span><span class="pill">ARCHIVE VIDEO</span><span class="st make">TO CUT</span></div>
+      <h3>In 2013, a Forbes reporter tried to live on Bitcoin for a week. Watch where she ate.</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">In May 2013, a Forbes reporter tried to live on Bitcoin alone for a week. In San Francisco, only a few places took it.
+
+One was the sushi restaurant next door to the Internet Archive. Founder Brewster Kahle tells how it became a Bitcoin dinner for about 60 people.
+
+Could you live on crypto alone for a week today? Yes / No
+
+Footage: Internet Archive, Bitcoin 2013 conference recording.
+#Bitcoin #CryptoHistory</pre>
+      <ul class="notes">
+        <li>Footage is already downloaded and transcribed (7:12 to 8:00 of the same talk). It ends on a finished line: "It was just completely fun."</li>
+        <li>We leave out the bill amount: sources disagree on it.</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ TUE ============ -->
+<section class="day">
+  <div class="dayhead"><h2>Tuesday, Dec 1</h2><span class="kicker">flagship data · why Hotcoin</span></div>
+
+  <article class="post" id="p11">
+    <div class="mockcol">
+      <div class="mock m-white"><div class="halftone"></div><div class="m-pad">
+        <div class="m-top"><div class="m-logo"><i></i>Hotcoin</div><div class="m-k">Data Desk · Nov 2026</div></div>
+        <div style="margin-top:5cqw"><div class="m-k">Bitcoin in November</div><div class="m-big red" style="font-size:20cqw">−23.7%</div>
+        <div class="m-s" style="opacity:1;font-weight:700">$77,499 to $59,138</div><div class="m-s">Preview: Nov 1 to Nov 25. Final on Dec 1.</div></div>
+        <div style="margin-top:auto;display:grid;gap:1.6cqw;font-size:3.6cqw">
+          <div style="display:flex;justify-content:space-between;border-top:1px solid #E6E8EB;padding-top:1.6cqw"><span>Ethereum</span><b class="red">−26.4%</b></div>
+          <div style="display:flex;justify-content:space-between;border-top:1px solid #E6E8EB;padding-top:1.6cqw"><span>Stablecoin supply</span><b class="red">−$14.0B</b></div>
+          <div style="display:flex;justify-content:space-between;border-top:1px solid #E6E8EB;padding-top:1.6cqw"><span>BTC dominance</span><b>57.7%</b></div>
+        </div>
+      </div></div>
+      <span class="cap">Mockup with live numbers to Nov 25 · PDF carousel, 8 pages</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">13:00</span><span class="pill">DATA DESK · FLAGSHIP</span><span class="pill">PDF CAROUSEL</span><span class="st input">DATA ON DEC 1</span></div>
+      <h3>November 2026 in numbers</h3>
+      <div class="copyrow"><span>Draft copy (numbers final on Dec 1)</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">November 2026 in numbers.
+
+→ Bitcoin: [−X%] for the month, from $77,499 to [$X]
+→ Ethereum: [−X%]
+→ Stablecoin supply: [−$X B], the first monthly drop since [month]
+→ Bitcoin dominance: [X%]
+
+What it tells us: [one plain line from the data]
+
+8 slides: prices, stablecoin flows, funding, and the top movers on Hotcoin 👉
+
+What was your November: bought the dip or stayed out? 🟩 / ⏸️
+
+Data: CoinGecko, DefiLlama, Hotcoin. As of Nov 30, 23:59 UTC.
+Not financial advice.
+#Bitcoin #CryptoMarkets #DataDesk</pre>
+      <ul class="notes">
+        <li>Preview numbers (Nov 1 to Nov 25): BTC −23.7%, ETH −26.4%, stablecoins $296.4B to $282.4B, BTC dominance 57.7% (CoinGecko, DefiLlama).</li>
+        <li>Use "Notify employees" on this post (allowed once a week). Staff reshare it from their own accounts.</li>
+        <li>Check the "first monthly drop since" claim against the full DefiLlama series before it goes in.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="post" id="p12">
+    <div class="mockcol">
+      <div class="mock m-white"><div class="m-pad">
+        <div class="m-top"><div class="m-logo"><i></i>Hotcoin</div><div class="m-k">Proof of reserves</div></div>
+        <div class="m-h" style="margin-top:5cqw;font-size:8cqw">What does <em>105%</em> mean?</div>
+        <div class="m-s">For every 1 BTC users hold, we hold 1.05 BTC.</div>
+        <div class="bars">
+          <div class="bar"><span>BTC</span><div class="tr"><i style="width:87.5%"></i></div><span>105%</span></div>
+          <div class="bar"><span>ETH</span><div class="tr"><i style="width:90.8%"></i></div><span>109%</span></div>
+          <div class="bar"><span>USDT</span><div class="tr"><i style="width:94.2%"></i></div><span>113%</span></div>
+        </div>
+        <div class="m-k" style="margin-top:4cqw">Dashed line = 100% · Snapshot Oct 29, 2026</div>
+      </div></div>
+      <span class="cap">Mockup · single image · update if a newer snapshot exists</span>
+    </div>
+    <div>
+      <div class="meta"><span class="time">22:30</span><span class="pill">WHY HOTCOIN</span><span class="pill">IMAGE</span><span class="st input">CONFIRM SNAPSHOT</span></div>
+      <h3>Proof of reserves, explained in one line</h3>
+      <div class="copyrow"><span>LinkedIn copy</span><button class="cp" type="button">Copy</button></div>
+<pre class="copy">What does a 105% reserve ratio mean?
+
+For every 1 BTC users hold on Hotcoin, we hold 1.05 BTC.
+
+Latest snapshot (Oct 29, 10:00 UTC+8):
+→ BTC 105%
+→ ETH 109%
+→ USDT 113%
+
+Above 100% means every user asset is covered, with a buffer on top. Any user can check their own balance against the snapshot on our proof of reserves page.
+
+How often should exchanges publish this? Monthly / Weekly
+
+#ProofOfReserves #Hotcoin</pre>
+      <ul class="notes"><li>Needs input: is there a snapshot newer than Oct 29? If yes, we swap the numbers and the date.</li></ul>
+    </div>
+  </article>
+</section>
+
+<section>
+  <h2>For the team to decide</h2>
+  <p class="sub">The plan above follows option B. Everything else in the plan works with any option.</p>
+  <div class="scroll">
+  <table class="opt">
+    <thead><tr><th>Option</th><th>Per week</th><th>Pros</th><th>Risks</th></tr></thead>
+    <tbody>
+      <tr><td><b>A.</b> 2 posts + 1 event post every day + 3 videos</td><td>24</td><td>Most presence</td><td>3 posts a day compete with each other; daily event posts repeat the same offer; heavy production</td></tr>
+      <tr class="rec"><td><b>B. Recommended.</b> 2 posts on weekdays, events 3 times a week, 1 weekend post, 3 videos</td><td>17</td><td>Posts 8+ hours apart, every post has a job, quality stays high</td><td>Fewer total impressions than A</td></tr>
+      <tr><td><b>C.</b> 1 post a day + 3 videos for 2 weeks, then grow</td><td>10</td><td>Fast start, tests formats</td><td>Slower growth</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>What we need from the team</h2>
+  <div class="scroll">
+  <table class="opt">
+    <thead><tr><th>Need</th><th>From</th><th>Blocks</th></tr></thead>
+    <tbody>
+      <tr><td>Publer API key added to the environment settings (never in chat)</td><td>Account owner</td><td>Scheduling every video and carousel</td></tr>
+      <tr><td>Newest proof of reserves snapshot, if newer than Oct 29</td><td>Treasury / ops</td><td>Tue Dec 1, 22:30</td></tr>
+      <tr><td>1 to 3 open roles for the careers carousel</td><td>HR</td><td>Optional last slide, Thu 22:30</td></tr>
+      <tr><td>Booth and office photos without faces (TOKEN2049, office, product)</td><td>Marketing</td><td>Fri 13:00 multi-image</td></tr>
+      <tr><td>Staff willing to reshare the Tuesday flagship from their own accounts</td><td>Everyone</td><td>Reach: staff networks are about 10x the page's followers</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<footer class="foot">
+  <div>Rules on every post: no em dashes, no competitor names, sources and dates checked, risk line on futures, Earn and price posts, links only in event posts.</div>
+  <div>Research: <a href="https://www.socialinsider.io/social-media-benchmarks/linkedin">Socialinsider LinkedIn benchmarks</a> · <a href="https://buffer.com/resources/how-often-to-post-on-linkedin/">Buffer posting frequency study</a> · <a href="https://beincrypto.com/birdeye-peak-institutional-crypto-trading-bots/">Birdeye bot estimate (BeInCrypto)</a> · <a href="https://www.newsfilecorp.com/release/312987">TradFi launch</a> · <a href="https://archive.org/details/Bitcoin2013conferenceBrewsterKahleJordanModell">Bitcoin 2013 footage</a></div>
+  <div>Prepared Nov 25, 2026. Full strategy: linkedin/STRATEGY.md in the content repo.</div>
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('button.cp').forEach(function(b){
+  b.addEventListener('click',function(){
+    var pre=b.closest('div').parentElement.querySelector('pre.copy');
+    var txt=pre.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';}
+    try{navigator.clipboard.writeText(txt).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)},sel);}catch(e){sel();}
+  });
+});
+</script>
