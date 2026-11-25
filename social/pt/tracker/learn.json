@@ -63,14 +63,14 @@
    "date": "2025-08-05",
    "title": "Perpetual Contract U-Based Operation Guide",
    "pt_hook": "Futuros perpétuos em USDT, passo a passo",
-   "status": "next"
+   "status": "posted 25/11 16:23 (PT)"
   },
   {
    "slug": "follower-copy-trading-operation-guide",
    "date": "2025-08-05",
    "title": "Follower Copy Trading Operation Guide",
    "pt_hook": "Copy trading: como seguir um trader",
-   "status": "queued"
+   "status": "next (last one in queue)"
   }
  ],
  "skip": {

@@ -66,6 +66,10 @@
 | 24/11 | 13:47 | Placar do dia | $SAHARA +7,9% x $BTC −4,6% (24h até 12:10), "entre as maiores altas" | scheduled |
 | 24/11 | 16:52 | Learn do dia | Guia de spot (pt_PT link in reply) | scheduled |
 
+| 25/11 | 08:33 | GM | Catedral de Brasília: linha pela borda do teto e sobe a nervura central até a cruz | scheduled |
+| 25/11 | 16:23 | Learn do dia | Futuros perpétuos em USDT (pt_PT link in reply) | scheduled |
+| 25/11 | 19:47 | Meme (serious photo) | celular nas costas: tia na ceia pergunta do bitcoin | scheduled |
+
 ## Queued ideas (not scheduled yet)
 - Thu 19/11: Earn prazo fixo exclusivo launch (key visual from official banner, cut done), Wall Street Earnings last day (ends 12:59), Futures loss protection last call evening (ends 20/11 07:00).
 - Spot #24 midterm ~24/11, P2P Sprint midterm ~22/11; last calls 27/11 evening (P2P) and 29-30/11 (Spot).
@@ -112,3 +116,4 @@
 - 24/11 07:45 check 1: no new announcements (P2P Challenge / Spot #23 results still not posted). Team queued DELL earnings at 10:00 on PT. Midterm for Ronaldinho + Spot #24 as one text post. No meme (had 23/11). Placar at check 2.
 - 24/11 12:10 check 2: no new announcements. UNC +51.5% and URNA +38.0% skipped (no CoinGecko match), CYS skipped (repeat). Placar SAHARA (CoinGecko sahara-ai +8.7%) vs BTC -4.6% at 60,012, 13:47.
 - 24/11 16:13 check 3: no new announcements. Nothing closes tonight or before 08:00 Wed. No evening post (BTC -4.6% day, 5 posts with team). Wed: meme required (serious photo kind), Learn futures guide, GM. Thu 26 US holiday; Fri-Mon closings (P2P/Earn Sat 28, Ronaldinho Sun 29, Spot #24 Mon 30): last calls Fri evening and Sat evening.
+- 25/11 07:45 check 1: no new announcements, team has nothing queued on PT. Placar at check 2. Learn queue: only copy trading left (rainbow on hold), then skip days until new articles.
