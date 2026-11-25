@@ -1,4 +1,5 @@
 // Hotcoin Português (Brazil): news formats. pt-BR, Brasília time.
+// Top coin 25/11: MANTRA/USDT +35.29% (last 0.0023), BTC/USDT -3.35% (58,012), Hotcoin ticker 2026-11-25 12:09 Brasília. KOR (+76.5%) skipped (no CoinGecko match). MANTRA = MANTRA (CoinGecko mantra 0.00229, +34.4%), RWA-focused Layer 1.
 // Top coin 24/11: SAHARA/USDT +7.85% (last 0.00563), BTC/USDT -4.64% (60,012.85), Hotcoin ticker 2026-11-24 12:10 Brasília. UNC (+51.5%) and URNA (+38.0%) skipped (no CoinGecko match); CYS (+10.7%) skipped (yesterday's pick). SAHARA = Sahara AI (CoinGecko sahara-ai 0.00567, +8.7%). Caption says 'entre as maiores altas'.
 // Top coin 23/11: CYS/USDT +18.83% (last 0.04852), BTC/USDT +3.36% (62,984.71), Hotcoin ticker 2026-11-23 12:10 Brasília. Tokenized stocks/leveraged ETF tokens (MVLLB, SOXLB, MUUB, NVDAB...) skipped. CYS = Cysic (CoinGecko cysic, 0.0482, +18.2%), ZK proof and hardware compute network.
 // Top coin 22/11: PIEVERSE/USDT +25.23% (last 3.6858), BTC/USDT +1.07% (60,943.05), Hotcoin ticker 2026-11-22 12:08 Brasília. CoinGecko pieverse 3.71, +26.1%. Second day in a row as top gainer.
@@ -41,23 +42,23 @@ const placar = `<!doctype html><html><head>${head}</head><body>
 <img src="${L('logo-official-white.png')}" style="position:absolute;left:72px;top:64px;height:38px">
 <div class="b" style="position:absolute;left:72px;right:72px;top:150px;font-size:88px;font-weight:800;letter-spacing:-2px;line-height:.95;font-variation-settings:'opsz' 96,'wdth' 85">Placar do dia.</div>
 <div style="position:absolute;left:60px;right:60px;top:330px;background:#050607;border:6px solid #1C2227;border-radius:22px;padding:36px 40px 40px;box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 40px rgba(0,0,0,.8)">
-  <div class="mm" style="display:flex;justify-content:space-between;font-size:18px;letter-spacing:3px;color:#7D868E"><span>HOTCOIN · 24H</span><span>24/11 · 12:10 BRASÍLIA</span></div>
+  <div class="mm" style="display:flex;justify-content:space-between;font-size:18px;letter-spacing:3px;color:#7D868E"><span>HOTCOIN · 24H</span><span>25/11 · 12:09 BRASÍLIA</span></div>
   <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-top:30px;gap:10px">
-    <div style="text-align:center"><img src="${N('sahara.png')}" style="width:120px;height:120px;border-radius:50%;background:#fff"><div class="d" style="font-size:54px;margin-top:14px">SAHARA</div></div>
+    <div style="text-align:center"><img src="${N('mantra.png')}" style="width:120px;height:120px;border-radius:50%;background:#fff"><div class="d" style="font-size:54px;margin-top:14px">MANTRA</div></div>
     <div class="d" style="font-size:44px;color:#5B636B">×</div>
     <div style="text-align:center"><div style="width:120px;height:120px;border-radius:50%;margin:0 auto;border:4px solid #2A3137;display:grid;place-items:center" class="d"><span style="font-size:44px;color:#9AA2A9">₿</span></div><div class="d" style="font-size:54px;margin-top:14px;color:#9AA2A9">BTC</div></div>
   </div>
   <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-top:24px">
-    <div class="d" style="text-align:center;font-size:100px;color:${LIME};text-shadow:0 0 30px rgba(184,242,106,.45)">+7,9</div>
+    <div class="d" style="text-align:center;font-size:100px;color:${LIME};text-shadow:0 0 30px rgba(184,242,106,.45)">+35,3</div>
     <div class="d" style="font-size:60px;color:#5B636B">:</div>
-    <div class="d" style="text-align:center;font-size:100px;color:#F6465D;text-shadow:0 0 30px rgba(246,70,93,.35)">-4,6</div>
+    <div class="d" style="text-align:center;font-size:100px;color:#F6465D;text-shadow:0 0 30px rgba(246,70,93,.35)">-3,4</div>
   </div>
   <div class="mm" style="text-align:center;font-size:18px;letter-spacing:3px;color:#7D868E;margin-top:8px">VARIAÇÃO EM %</div>
 </div>
 <div style="position:absolute;left:0;right:0;bottom:0;height:330px;background:linear-gradient(180deg,rgba(7,9,10,.2),rgba(7,9,10,.88) 55%)"></div>
 <div style="position:absolute;left:72px;right:72px;bottom:96px">
-  <div class="b" style="font-size:44px;font-weight:700;letter-spacing:-.5px">Sahara AI ($SAHARA) goleou o mercado.</div>
-  <div class="i" style="font-size:27px;color:rgba(255,255,255,.75);margin-top:8px">Plataforma de IA. Entre as maiores altas em 24h na Hotcoin, num dia de BTC em queda.</div>
+  <div class="b" style="font-size:44px;font-weight:700;letter-spacing:-.5px">MANTRA ($MANTRA) goleou o mercado.</div>
+  <div class="i" style="font-size:27px;color:rgba(255,255,255,.75);margin-top:8px">Layer 1 de ativos do mundo real (RWA). Maior alta cripto verificada em 24h na Hotcoin.</div>
 </div>
 </body></html>`;
 
