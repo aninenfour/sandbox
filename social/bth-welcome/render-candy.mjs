@@ -12,19 +12,19 @@ const PINK = '#e0087a', INK = '#0b0e11';
 
 const V = {
   A: {bg: 'candy-a.png', sx: 300, sy: 0, base: 'linear-gradient(180deg,#f6c6d8 0%,#f3c9da 60%,#e4f1c6 100%)', bigColor: INK, hl: PINK, subC: INK, top: {h1: 180, big: 380, sub: 600, row: 700}},
-  B: {bg: 'candy-b.png', sx: 270, sy: 210, base: '#c9ec7a', bigColor: PINK, hl: PINK, subC: INK, top: {h1: 180, big: 380, sub: 600, row: 700}},
+  B: {bg: 'candy-b.png', sx: 0, sy: 0, base: '#c9ec7a', bigColor: PINK, hl: PINK, subC: INK, top: {h1: 150, big: 316, sub: 500, row: 830}, h1s: 74, bigs: 190},
 };
 const page = (v) => `<!doctype html><html><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter+Tight:wght@600;700;800&display=block">
 <style>*{margin:0;padding:0;box-sizing:border-box}
 body{width:1080px;height:1080px;overflow:hidden;position:relative;color:${INK};font-family:'Inter Tight';background:${v.base}}
-.bg{position:absolute;left:${v.sx}px;top:${v.sy}px;width:1080px;height:1080px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 160px),linear-gradient(180deg,transparent 0,#000 ${v.sy ? 160 : 0}px);-webkit-mask-composite:source-in;mask-composite:intersect}
+.bg{position:absolute;left:${v.sx}px;top:${v.sy}px;width:1080px;height:1080px;${v.sx ? '-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 160px);' : ''}}
 .hd{position:absolute;left:72px;top:68px;display:flex;align-items:center;gap:22px}
 .hd .hc{height:44px}.hd .x{font:400 30px 'Russo One';color:rgba(11,14,17,.5)}.hd .bth{height:74px;margin:-14px 0}
-h1{position:absolute;left:72px;top:${v.top.h1}px;font:400 84px/0.98 'Russo One';letter-spacing:-1.5px}
+h1{position:absolute;left:72px;top:${v.top.h1}px;font:400 ${v.h1s || 84}px/0.98 'Russo One';letter-spacing:-1.5px}
 h1 span{color:${v.hl}}
-.big{position:absolute;left:66px;top:${v.top.big}px;font:400 210px/0.9 'Russo One';letter-spacing:-7px;color:${v.bigColor}}
-.sub{position:absolute;left:72px;top:${v.top.sub}px;font-size:44px;font-weight:800;letter-spacing:-.5px;color:${v.subC}}
+.big{position:absolute;left:66px;top:${v.top.big}px;font:400 ${v.bigs || 210}px/0.9 'Russo One';letter-spacing:-7px;color:${v.bigColor}}
+.sub{position:absolute;left:72px;top:${v.top.sub}px;font-size:${v.bigs ? 40 : 44}px;font-weight:800;letter-spacing:-.5px;color:${v.subC}}
 .rows{position:absolute;left:52px;top:${v.top.row - 20}px;display:flex;flex-direction:column;gap:14px;padding:22px 30px 22px 20px;border-radius:26px;background:rgba(255,255,255,.55);backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(11,14,17,.08)}
 .r{display:flex;align-items:baseline;gap:18px}.r .v{font:400 54px 'Russo One';letter-spacing:-1px;min-width:220px}.r .v b{font-weight:400;color:${PINK}}
 .r .l{font-size:32px;font-weight:700}
