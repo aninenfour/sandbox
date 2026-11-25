@@ -518,8 +518,9 @@
   "format": "photo",
   "topic": "Academy: how to read an inflation report",
   "hook": "Inflation is 3.6%, but gas is up 35%",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7712063273318812948"
  },
  {
   "id": "2026-11-25-btc-etf-exodus",
@@ -537,8 +538,9 @@
   "format": "video",
   "topic": "WHAT IF: Bezos Washington Post vs Bitcoin",
   "hook": "Bezos paid $250M for a newspaper. Same $250M in Bitcoin: $115B",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7712101795387968788"
  },
  {
   "id": "2026-11-26-academy-market-holiday",

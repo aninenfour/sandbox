@@ -430,5 +430,22 @@
   ],
   "owner_decision": "(1) Team's history-person story Reels beat the desk again (Internet Archive IG 3,201 / 4 shares vs desk WHAT IF ~120): test one as the 21:30 format? (2) Gates WHAT IF runs 84 s under the owner's 'length follows the story' rule; no watch-time data in Publer to judge it: cap WHAT IF at ~60 s? (3) Re-post the failed Gates IG Story with the new 58.8 s cut? (needs a publish, not done).",
   "skipped": false
+ },
+ {
+  "date": "2026-11-26",
+  "time_utc": "2026-11-25T22:55Z",
+  "looked_at": "Publer published/scheduled/failed Nov 24-26 (all channels), IG/TikTok/FB insights Nov 19-26; renders: BTC ETF exodus news 5 slides + Story, inflation Academy 4 + Story, Bezos WHAT IF contact (53.3 s), market-holiday Academy 4 + Story",
+  "metrics_summary": "Netflix MEME REACT (~42 h): IG reach 19 / TT 195, 0 shares (rice had 6 IG + 12 TT shares): joke-in-title did not travel. Gates WHAT IF 84 s (~25 h): IG 126 / FB 60 / TT 11 (!), 0 shares. Buffett 60 s (~49 h): IG 125, FB ~58, TT 92 at 33 h; Musk IG 123 / FB 153 / TT 208. IG reach is flat ~125 whatever the length; TikTok is where Gates collapsed (11 vs 92-208), consistent with a completion-rate penalty for 84 s, but one data point. Bezos (53 s) and inflation Academy just went live, no insights yet. ETF news (~21 h): IG 17 / TT 89 / FB 7 (Binance at final: IG 57 / TT 294). Dividends Academy (~36 h): IG 15 / TT 52 / FB 9. Team Koch story Reel (~42 h): IG 117 / TT 90 / FB 188; Internet Archive story Reel IG 3,240 / TT 506 still the week's best.",
+  "findings": [
+   "Failed posts Nov 24-26: only the known Gates IG Story (84 s, Nov 24 21:35). Bezos IG Story (53.3 s) published 21:37 Nov 25; every other Nov 25 desk post (news, Academy, Reel on IG/FB/TT/X/Story) published.",
+   "Renders: no clipping/overlap. ETF news reads well (Fink cover + BTC badge, bars, fear card). Bezos frame 0 now 'BEZOS PAID / WASHINGTON POST $250M' (W48 who-paid rule followed). Holiday Academy fine; slide 4 bar chart clear.",
+   "Hooks: ETF '$4.7B out of Bitcoin ETFs in November' passes. Bezos passes. Holiday cover 'How to trade a market holiday, in 3 numbers' has a comma: second Academy in 3 days with 'How to X, in 3 numbers' (dividends too) despite the rule; better 'TRADE A MARKET HOLIDAY: 3 NUMBERS' or the TikTok hook 'Wall Street is closed today, Bitcoin isn't'. Recurring miss -> automated warning (change below). Not a factual error, so the scheduled post (Thu 19:00) is untouched.",
+   "Chore: tracker doc Scheduled -> IG link for inflation Academy + Bezos Reel; TikTok doc Scheduled -> TikTok link for the same two (only those 4 cells, verified via Drive). log.json ig_url/status and tiktok_log tiktok_url/status updated."
+  ],
+  "changes": [
+   "render.py: hook lint, `WARNING slide 1 hook:` when the nhero cover headline contains a comma or more than 10 words (enforces existing STYLE_NOTES/PLAYBOOK rules; warning only). Tested on a scratch copy of the holiday Academy: original fires the warning, 'Trade a market holiday: [3 numbers]' renders clean (before/after research/2026-W48/hook_comma_lint_before_after.jpg). Published/scheduled media and posts untouched. STYLE_NOTES changelog."
+  ],
+  "owner_decision": "(1) Cap WHAT IF at ~60 s? Gates 84 s got TikTok reach 11 vs 92-208 for <=60 s ones (IG unchanged ~125); one data point, Bezos 53 s will be the next check. (2) Team history-person story Reels still beat the desk on IG (Internet Archive 3,240): test one as the 21:30 format? (3) Re-post the failed Gates IG Story with the 58.8 s cut (needs a publish)?",
+  "skipped": false
  }
 ]

@@ -6,7 +6,7 @@ Also writes media/<id>/story.jpg (1080x1920 Instagram Story announcing the post)
 Slide kinds: ncover, nbars, nbig, nrows, nphoto, ngrid (news v2, see news2.py) · cover, text, end (old news) · tcover, tslide (tutorial) · wcover, wday (weekly).
 Inline markup in "html" fields: <g>green</g> <r>red</r> <u>underlined</u> <b>bold</b> <q>quote</q>.
 """
-import json, sys, pathlib, base64, mimetypes, html as H
+import json, re, sys, pathlib, base64, mimetypes, html as H
 from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent
@@ -220,6 +220,16 @@ def main():
         for k, x in enumerate(spec['slides'], 1):
             if x['kind'] in ('tslide', 'ngrid'):  # ngrid = visual-first photo grid (W46), usable as an Academy chapter
                 x['of'] = f'{k}/{N}'; x['num'] = f'{k:02d}'; x['_last'] = (k == N)
+    # Hook lint (daily review Nov 26): STYLE_NOTES "if it needs a comma, it's too long" + PLAYBOOK §4 "<= 10 words".
+    # The Nov 24 dividends and Nov 26 holiday Academy covers both shipped "How to X, in 3 numbers".
+    s1 = spec['slides'][0] if spec.get('slides') else {}
+    if s1.get('kind') == 'nhero' and s1.get('headline'):
+        plain = re.sub(r'<[^>]+>|[\[\]{}]', '', s1['headline'])
+        if ',' in plain:
+            print(f'WARNING slide 1 hook: comma in cover headline ("{plain}"); STYLE_NOTES: a comma = too long, '
+                  'split it or use a colon (e.g. "GET PAID TO HOLD A STOCK: 3 NUMBERS")', file=sys.stderr)
+        if len(plain.split()) > 10:
+            print(f'WARNING slide 1 hook: {len(plain.split())} words on the cover; PLAYBOOK §4 nhero: <= 10', file=sys.stderr)
     files = []
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')

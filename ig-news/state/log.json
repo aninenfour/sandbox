@@ -2353,7 +2353,7 @@
   "type": "academy",
   "slot": "2026-11-25T19:00:00+08:00",
   "title": "Money 101: How to read an inflation report in 3 numbers (PCE Sep 2026: 3.6% y/y, peak 7.2% Jun 2022; gas/energy goods +35%, groceries +1.5%, core 3.1%; core m/m 0.13-0.32% Jun-Sep)",
-  "status": "scheduled",
+  "status": "published",
   "variant": "a",
   "layouts": [
    "nhero",
@@ -2376,7 +2376,8 @@
   ],
   "note": "W48 how-to promise hook with a number, no face needed; ties to Oct PCE + GDP Wed 21:30 UTC+8. 4 slides, no CTA. Variant a (Nov 24 was b). FRED/BEA unreachable from the sandbox; BEA data via DBnomics mirror, cross-checked with FOMC minutes. Media commit 5cbee43.",
   "doc_row": true,
-  "media_commit": "5cbee431de3cc4b3e8aaf05c98f774d423fce9a4"
+  "media_commit": "5cbee431de3cc4b3e8aaf05c98f774d423fce9a4",
+  "ig_url": "https://www.instagram.com/p/DgKX_zrit9h/"
  },
  {
   "id": "2026-11-25-btc-etf-exodus",
@@ -2417,7 +2418,7 @@
   "type": "reel-whatif-v2",
   "slot": "2026-11-25T21:30:00+08:00",
   "title": "Jeff Bezos paid $250M for The Washington Post (Oct 1 2013) vs $250M in Bitcoin: ~$115B now (461x; low $337M Jan 2015, 2017 top $37.7B, FTX low $31B, record $245B Oct 2025)",
-  "status": "scheduled",
+  "status": "published",
   "music": "RnB (Arulo, Mixkit) #224",
   "platforms": [
    "ig_reel",
@@ -2434,7 +2435,8 @@
   ],
   "note": "W48 hook rule 'a person in the purchase': Bezos face cover (cover_face), photo_title 'BEZOS PAID' on frame 0. Photo look, lump, 53.3 s (13 years). Thumbnail fill 32% (BTC photo cropped to the coin; first try 23% warned). Bezos photo: Seattle City Council Flickr CC BY 2.0 (Wikimedia rate-limited this run, 429). BTC 2013 prices from Bitstamp OHLC API + Coin Metrics community API (Yahoo BTC-USD starts Sep 2014). All 5 posts via commit-pinned media_url; Publer covers confirmed = frame 0 (IG, TikTok).",
   "doc_row": true,
-  "media_commit": "11ee2731452d6312d59df836e5148d5a3811e9f7"
+  "media_commit": "11ee2731452d6312d59df836e5148d5a3811e9f7",
+  "ig_url": "https://www.instagram.com/reel/DgKpcIfNfF9/"
  },
  {
   "id": "2026-11-26-academy-market-holiday",
