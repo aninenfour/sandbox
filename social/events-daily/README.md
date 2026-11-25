@@ -11,3 +11,10 @@ Posted on X (main) and Facebook every day around 14:00 UTC+8 (time varies, rough
 4. Avoid posting the same pair two days in a row (see `posted.json`); swap one campaign when another is running.
 5. Captions: `out/<date>/caption-x.txt` (links go in the first reply) and `caption-fb.txt`. Futures campaigns carry
    "Futures trading is high risk", others "Not financial advice".
+
+## Poster design: grainy collage (approved Nov 24, live from Nov 25)
+Slides now use `proto/grain.mjs` (title + headline only, brand-green shapes, stippled symbol, chrome candles, film grain):
+1. `render.mjs --pick=a,b` as before (picks campaigns, writes captions).
+2. `python3 proto/cutout-solid.py <slug> <slug>` -> art/solid-<slug>.png (rembg + bg-diff mask, holes filled).
+3. `node proto/grain.mjs a,b` -> out/proto/grain-{dark,lime}-<slug>.png; alternate dark/lime by day, post as poster-N-<slug>.
+Vary the elements from time to time (owner: "we can play with those elements").
