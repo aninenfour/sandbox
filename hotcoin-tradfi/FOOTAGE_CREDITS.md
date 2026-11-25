@@ -384,3 +384,7 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Balance scale with eagle: Nellie Adamyan, unsplash.com/photos/I2Ge7bLAhV4
 - Payment terminal with receipt: Towfiqu barbhuiya, unsplash.com/photos/xkArbdUcUeE
 - Bank vault locking wheel: Jason Dent, unsplash.com/photos/3wPJxh-piRw (maker's engraving covered by our number disc)
+- Marina Bay Sands at night, reflection: Claudio Schwarz, unsplash.com/photos/Zirbpu09_e0 (Fri TOKEN2049 cover)
+- Marina Bay Sands at night: Chuan, unsplash.com/photos/BjxaxGN_8CY (TOKEN2049 multi-image)
+- Conference audience from behind: Headway, unsplash.com/photos/F2KRf_QfCqw (careers cover)
+- Official TOKEN2049 photos (credited "photos: TOKEN2049") are not openly licensed: not used without written permission.

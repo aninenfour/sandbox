@@ -5,13 +5,14 @@
 // Logo: official PNGs only (white wordmark on dark, black on lime/white). Fonts: Inter Tight + JetBrains Mono (Google, display=block).
 // Sources for numbers: Birdeye bot estimate via BeInCrypto (Nov 2026); campaign terms from Hotcoin's published campaign posts;
 // PoR snapshot Oct 29, 2026 10:00 UTC+8 (hotcoin.com reserve page); BTC Nov 1 to Nov 25: CoinGecko ($77,499 to $59,138).
-// Photos: Unsplash, credited in hotcoin-tradfi/FOOTAGE_CREDITS.md.
+// Photos: Unsplash, credited in hotcoin-tradfi/FOOTAGE_CREDITS.md. TOKEN2049 fact: held at Marina Bay Sands, Oct 7 to 8, 2026 (TOKEN2049 press release, Aug 2026).
 // Run: node linkedin/covers/render.mjs [id,id]   -> linkedin/covers/out/<id>.png (2160x2700)
 import fs from 'fs'; import path from 'path'; import {createRequire} from 'module';
 const require = createRequire(import.meta.url);
 const {chromium} = require(process.env.PW_PATH || 'playwright');
 const DIR = path.dirname(new URL(import.meta.url).pathname), ROOT = path.resolve(DIR, '../..');
 const b64 = (f) => `data:image/png;base64,` + fs.readFileSync(f).toString('base64');
+const b64j = (f) => `data:image/jpeg;base64,` + fs.readFileSync(f).toString('base64');
 const BRAND = `${ROOT}/hotcoin-tradfi/public/brand`;
 const LOGO = {white: b64(`${BRAND}/logo-official-white.png`), black: b64(`${BRAND}/logo-official-black.png`)};
 const SYM = b64(`${BRAND}/symbol-mono-white.png`);
@@ -29,10 +30,8 @@ const candle = ([x, y, h, s = 1, tint]) => `<g transform="translate(${x} ${y}) s
 const COVERS = [
   {id: 'thu-bots', theme: 'dark', v: 0, title: 'Who trades crypto on-chain?', head: 'Bots make <b class="ch">2/3</b><br>of the trades',
    obj: {n: 'robot', x: 300, y: 690, w: 900}, candles: [[96, 760, 110, .9], [168, 850, 70, .7]], swipe: true},
-  {id: 'thu-careers', theme: 'lime', v: 1, title: 'Careers in crypto', head: '8 teams behind<br>every exchange',
-   obj: {n: 'headphones', x: 90, y: 700, w: 960, rot: -8}, candles: [[880, 560, 120, .85], [950, 470, 80, .7]], swipe: true},
-  {id: 'fri-autumn', theme: 'dark', v: 1, title: 'Hotcoin, since 2017', head: 'Year <b class="ch">9</b>.<br>What we shipped',
-   obj: {n: 'trophy', x: 560, y: 560, w: 470}, candles: [[120, 900, 120, .9], [200, 980, 80, .7], [60, 1060, 60, .6]], swipe: false},
+  {id: 'thu-careers', photo: {f: 'crowd.jpg', pos: '100% 50%'}, kicker: 'CAREERS IN CRYPTO', title: 'Who runs a crypto exchange?', head: '8 teams behind<br>every exchange', swipe: true},
+  {id: 'fri-autumn', photo: {f: 'mbs-bay.jpg', pos: '50% 8%'}, kicker: 'TOKEN2049 · MARINA BAY SANDS · OCT 7 TO 8', title: 'Hotcoin, since 2017 · our autumn', head: 'Year 9.<br>What we shipped', swipe: false},
   {id: 'fri-earn', theme: 'lime', v: 0, title: 'Fixed-Term Earn · ends Nov 28', head: 'Up to <b class="ch">6.00%</b><br>APR',
    obj: {n: 'jar', x: 180, y: 760, w: 980, rot: -4}, candles: [[90, 620, 120, .85], [170, 700, 80, .7]], swipe: false},
   {id: 'fri-1pct', theme: 'dark', v: 0, title: 'Hotcoin 101 · 80-second video', head: 'The <b class="ch">1%</b><br>rule',
@@ -47,6 +46,37 @@ const COVERS = [
   {id: 'tue-reserves', theme: 'dark', v: 0, title: 'For every 1 BTC users hold, we hold', head: '<b class="ch">1.05</b> BTC',
    obj: {n: 'vault', x: 300, y: 640, w: 760, disc: '105%'}, candles: [[100, 820, 110, .85], [180, 900, 70, .7]], swipe: false},
 ];
+
+
+// Photo style (Nov 25, owner: mix real event photos so not every cover is the grain look): full-bleed licensed photo,
+// light ink grade for legibility, thin lime frame with corner ticks, mono kicker, light grain for texture.
+const pagePhoto = (c) => `<!doctype html><html><head><meta charset="utf-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=JetBrains+Mono:wght@700&display=block');
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1350px;background:#07090A;color:#F2F4EF;font-family:'Inter Tight',sans-serif;overflow:hidden;position:relative}
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${c.photo.pos};filter:saturate(.9) contrast(1.05)}
+.grade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,10,.88) 0%,rgba(7,9,10,.55) 34%,rgba(7,9,10,0) 58%,rgba(7,9,10,.35) 100%)}
+.frame{position:absolute;inset:28px;border:2px solid rgba(184,242,106,.85);border-radius:6px}
+.tick{position:absolute;width:44px;height:44px;border-color:#B8F26A;border-style:solid}
+.kick{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:20px;letter-spacing:4px;color:#B8F26A}
+.title{font-weight:600;font-size:44px;letter-spacing:-1px;color:rgba(242,244,239,.88);margin-top:22px}
+.head{font-weight:800;font-size:112px;letter-spacing:-4.5px;line-height:.98;margin-top:12px;text-shadow:0 6px 30px rgba(0,0,0,.45)}
+.swipe{position:absolute;right:64px;bottom:60px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:24px;letter-spacing:4px;color:#0B0E11;background:#B8F26A;padding:12px 20px;border-radius:99px}
+</style></head><body>
+<img class="ph" src="${b64j(`${DIR}/src/${c.photo.f}`)}">
+<div class="grade"></div>
+<div class="frame"></div>
+<div class="tick" style="left:20px;top:20px;border-width:6px 0 0 6px"></div><div class="tick" style="right:20px;top:20px;border-width:6px 6px 0 0"></div>
+<div class="tick" style="left:20px;bottom:20px;border-width:0 0 6px 6px"></div><div class="tick" style="right:20px;bottom:20px;border-width:0 6px 6px 0"></div>
+<img src="${LOGO.white}" style="position:absolute;left:72px;top:72px;height:40px">
+<div style="position:absolute;left:72px;right:72px;top:168px">
+  <div class="kick">${c.kicker}</div><div class="title">${c.title}</div><div class="head">${c.head}</div>
+</div>
+${c.swipe ? '<div class="swipe">SWIPE →</div>' : ''}
+<canvas id="grain" width="1080" height="1350" style="position:absolute;left:0;top:0;mix-blend-mode:overlay;opacity:.12"></canvas>
+<script>(async()=>{await document.fonts.ready;const g=document.getElementById('grain').getContext('2d'),d=g.createImageData(1080,1350);let s=5;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+for(let i=0;i<d.data.length;i+=4){const n=r()*255;d.data[i]=d.data[i+1]=d.data[i+2]=n;d.data[i+3]=255}g.putImageData(d,0,0);document.body.dataset.done=1})();</script>
+</body></html>`;
 
 const page = (c) => {
   const T = THEMES[c.theme], v = c.v;
@@ -116,7 +146,7 @@ const OUT = `${DIR}/out`; fs.mkdirSync(OUT, {recursive: true});
 const br = await chromium.launch(); const p = await br.newPage({viewport: {width: 1080, height: 1350}, deviceScaleFactor: 2});
 for (const c of COVERS) {
   if (only.length && !only.includes(c.id)) continue;
-  await p.setContent(page(c), {waitUntil: 'networkidle'});
+  await p.setContent(c.photo ? pagePhoto(c) : page(c), {waitUntil: 'networkidle'});
   await p.waitForSelector('body[data-done]', {timeout: 60000}); await p.waitForTimeout(150);
   const fontsOk = await p.evaluate(() => ['800 50px "Inter Tight"', '700 20px "JetBrains Mono"'].every(f => document.fonts.check(f)));
   if (!fontsOk) throw new Error('fonts not loaded for ' + c.id);
