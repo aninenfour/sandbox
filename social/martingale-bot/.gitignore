@@ -2,3 +2,4 @@ _m-*.html
 out/*
 !out/martingale-*.png
 !out/martingale-sheet.jpg
+!out/publish/

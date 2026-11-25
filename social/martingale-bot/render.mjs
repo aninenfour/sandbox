@@ -4,7 +4,7 @@
 //   BTC example from the guide: 60,000 / 58,800 / 57,600 USDT, 0.01 BTC each, average entry 58,800 (before fees).
 // Art: Nano Banana 2 edit with brand-kit/mascot/mascot-101-reference.png (green dot head: one eye, no mouth), charcoal style. assets/dot-1..4.png
 // (first android version kept in assets/v1/)
-// Run: PW_PATH=$(npm root -g)/playwright node social/martingale-bot/render.mjs
+// Run: PW_PATH=$(npm root -g)/playwright node social/martingale-bot/render.mjs [pt]
 import {createRequire} from 'module';
 import fs from 'fs';
 const require = createRequire(import.meta.url);
@@ -30,6 +30,24 @@ const SLIDES = [
    cta: 'Try it: Trading Bot on hotcoin.com'},
 ];
 
+const SLIDES_PT = [
+  {art: 'dot-1.png', pos: 'top', dy: 60, k: 'Novo na Hotcoin · Bot de futuros',
+   q: 'O que é o <span>Bot Martingale</span> de Futuros?',
+   a: 'Um bot que aumenta sua posição em futuros em etapas quando o preço vai contra você, reduz o preço médio de entrada e realiza lucro na recuperação.'},
+  {art: 'dot-2.png', pos: 'right', dx: -250, dy: 70, k: 'P2 · Como funciona?',
+   q: 'Compra a queda <span>em etapas</span>',
+   a: 'Exemplo Long: BTC a 60.000, compra mais em 58.800 e 57.600. O preço médio cai para 58.800 e o lucro pode sair antes de voltar a 60.000.',
+   strip: ['60.000', '58.800', '57.600', 'média 58.800']},
+  {art: 'dot-3.png', pos: 'top', dy: 80, k: 'P3 · Quando funciona melhor?',
+   q: 'Feito para mercados <span>laterais</span>',
+   a: 'Mercados em range e de correção e recuperação, Long ou Short. Tendências fortes numa só direção e volatilidade extrema não são para ele.'},
+  {art: 'dot-4.png', pos: 'top', dy: 130, k: 'P4 · Quais são os riscos?',
+   q: 'Conheça seus <span>limites</span>',
+   a: 'Se a tendência continuar, o bot continua comprando: mais exposição e, com alavancagem, risco de liquidação. Defina ordens máximas, alavancagem e stop-loss.',
+   cta: 'Teste: Trading Bot em hotcoin.com'},
+];
+const LANG = process.argv[2] === 'pt' ? 'pt' : 'en';
+const RUN = LANG === 'pt' ? SLIDES_PT : SLIDES;
 const page = (s, i) => `<!doctype html><html><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=block">
 <style>*{margin:0;padding:0;box-sizing:border-box}
@@ -59,10 +77,10 @@ ${s.cta ? `<div class="cta">${s.cta}</div>` : ''}</div>
 const b = await chromium.launch({args: ['--allow-file-access-from-files']});
 const p = await b.newPage({viewport: {width: 1080, height: 1350}, deviceScaleFactor: 2});
 fs.mkdirSync(DIR + 'out', {recursive: true});
-for (const [i, s] of SLIDES.entries()) {
+for (const [i, s] of RUN.entries()) {
   const f = DIR + `_m-${process.pid}.html`;
   fs.writeFileSync(f, page(s, i));
   await p.goto('file://' + f); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(400);
-  await p.screenshot({path: DIR + `out/martingale-${i + 1}.png`}); fs.unlinkSync(f);
+  await p.screenshot({path: DIR + `out/martingale-${LANG === 'pt' ? 'pt-' : ''}${i + 1}.png`}); fs.unlinkSync(f);
 }
 await b.close(); console.log('ok');
