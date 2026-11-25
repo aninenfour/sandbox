@@ -7,14 +7,10 @@ Rewards: $500 total in futures trial vouchers
 CONFIRM: listing date Dec 2 (from the promoter's X bio), end date, and the BTH handle (@bigmiracle777 calls itself an influencer).
 
 ## X post
-Welcome $BTH to Hotcoin 🎁 $500 giveaway
+Welcome $BTH to Hotcoin 🎁 $500 in futures trial vouchers with @bigmiracle777
 
-🎲 10 winners × $20
-1️⃣ Follow @HotcoinGlobal and @bigmiracle777
-2️⃣ Like and repost
-3️⃣ Reply with your Hotcoin UID
+🎲 10 × $20: follow @HotcoinGlobal + @bigmiracle777, like, repost, reply with your UID
 
-⚡ First 60 new users × $5
-Register here: https://www.hotcoin.com/register?icCode=At602670c&hotcoinid=1
+⚡ 60 × $5: first 60 new users via https://www.hotcoin.com/register?icCode=At602670c&hotcoinid=1
 
-Rewards are futures trial vouchers. Futures trading is high risk.
+Futures trading is high risk.
