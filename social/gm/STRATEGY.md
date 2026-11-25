@@ -84,3 +84,10 @@ Added in code on top of every photo day, zero AI cost. No counter numbers. No tw
 2. Market-mood tint: ruler ticks red (#E5484D) on red days, lime on green days.
 3. New layouts to add to the rotation: film-strip border, split frame (photo + solid lime panel with the caption line).
 4. Track likes/view per layout in Publer; drop the weakest after 4 weeks.
+
+## Colour + travel update (Nov 25, 2026)
+- Product colour on GM objects is the logo **dot green `#7EC25A`** (`brand/swatch-dotgreen.png`, fal copy uploaded), not lime `#B8F26A`.
+  Prompt wording that works: "fresh leaf green with exactly the same hue and saturation as image 2 (not olive, not khaki, not neon)".
+  "Muted" in the prompt gives olive. Off-colour objects can be shifted locally with `dotgreen.py` (works on solid fabrics, blotches on dark canvas).
+- Travel gear/garment series (owner request): duffel, luggage tag, passport holder, windbreaker, bucket hat in `inbox/spare/travel-*`.
+  Rejects: faces, phone-frame borders, extra crests/badges (backpack, sweatshirt). Always ask for "no other patches or badges".
