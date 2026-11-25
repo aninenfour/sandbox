@@ -605,5 +605,19 @@
   "twitter": "SaharaAI",
   "image": "https://coin-images.coingecko.com/coins/images/66681/large/Token_Logo_3x.png?1750362133",
   "logo": "sahara"
+ },
+ "MANTRA": {
+  "id": "mantra",
+  "name": "MANTRA",
+  "twitter": "MANTRA_Chain",
+  "image": "https://coin-images.coingecko.com/coins/images/102172151/large/OM_Token_Primary-1K.png?1771922964",
+  "logo": "mantra"
+ },
+ "SSV": {
+  "id": "ssv-network",
+  "name": "SSV Network",
+  "twitter": "ssv_network",
+  "image": "https://coin-images.coingecko.com/coins/images/19155/large/ssv.png?1696518606",
+  "logo": "ssv"
  }
 }

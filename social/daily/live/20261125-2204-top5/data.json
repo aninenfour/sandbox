@@ -1,0 +1,59 @@
+{
+ "window": "24H to Nov 25 22:04 (UTC+8)",
+ "date": "NOV 25",
+ "day": "2026-11-25",
+ "template": "race",
+ "gainers": [
+  {
+   "sym": "KOR",
+   "name": "Kor Protocol",
+   "ch": 90.0,
+   "vol": 346574.58,
+   "handle": "@korprotocol",
+   "logo": "kor",
+   "bg": "#0629db",
+   "glow": "#0629db"
+  },
+  {
+   "sym": "NEFE",
+   "name": "NEFE COIN",
+   "ch": 68.33,
+   "vol": 184101.96,
+   "handle": "@NEFECoin",
+   "logo": "nefe",
+   "bg": "#653a92",
+   "glow": "#653a92"
+  },
+  {
+   "sym": "MANTRA",
+   "name": "MANTRA",
+   "ch": 30.23,
+   "vol": 505972.26,
+   "handle": "@MANTRA_Chain",
+   "logo": "mantra",
+   "bg": "#ff97d6",
+   "glow": "#ff97d6"
+  },
+  {
+   "sym": "SOXSB",
+   "name": "Direxion SOXS · bStocks",
+   "ch": 27.27,
+   "vol": 661163.52,
+   "handle": "",
+   "logo": "soxsb",
+   "bg": "#0063a6",
+   "glow": "#0063a6"
+  },
+  {
+   "sym": "SSV",
+   "name": "SSV Network",
+   "ch": 18.4,
+   "vol": 154012.95,
+   "handle": "@ssv_network",
+   "logo": "ssv",
+   "bg": "#ffffff",
+   "glow": "#1ba5f8"
+  }
+ ],
+ "link": "📊 $KOR live price and chart: https://www.hotcoin.com/en_US/price/kor-protocol-kor/"
+}

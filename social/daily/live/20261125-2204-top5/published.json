@@ -1,0 +1,20 @@
+{
+ "twitter": {
+  "state": "published",
+  "link": "https://x.com/1065817584396713984/status/2125591717298479114",
+  "id": "6b06eb2967a8b92dae04b28d",
+  "error": null,
+  "verified_full_text": true
+ },
+ "facebook": {
+  "state": "published",
+  "link": "https://www.facebook.com/107965200554050_1678130667439034",
+  "id": "6b06eb45e01471e65373efd9",
+  "error": null
+ },
+ "telegram": {
+  "state": "published",
+  "link": "https://t.me/c/2399913285/6062",
+  "via": "Publer MCP, Hotcoin Announcements"
+ }
+}
