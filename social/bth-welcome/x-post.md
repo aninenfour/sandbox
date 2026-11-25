@@ -1,27 +1,20 @@
 # Hotcoin x BTH welcome giveaway (X)
 
-Graphic: hotcoin-bth-welcome.png (1080x1080 @2x). Values live in CONFIG at the top of render.mjs.
-CONFIRM BEFORE POSTING: listing date (Dec 2 is from the promoter's X bio), prize pool / winners / end date (proposed),
-and that @bigmiracle777 is the account BTH wants tagged (its bio says "Social Media Influencer" and lists other listings).
-
-## Plan
-- Dec 1 (eve): this post on @HotcoinGlobal, pinned. Ask BTH to quote-repost it the same hour.
-- Dec 2: listing post when trading opens (reply under the giveaway post with the trade link).
-- Dec 9: giveaway closes. Draw 50 random valid replies (follows checked, UID valid).
-- Dec 10: winners post (UIDs masked) and rewards sent to Hotcoin accounts.
+Graphic: hotcoin-bth-welcome.png (1080x1080 @2x).
+Rewards: $500 total in futures trial vouchers
+- 10 random UIDs x $20 (reply with Hotcoin UID)
+- 60 x $5, first come first served, new users who register via the referral link
+CONFIRM: listing date Dec 2 (from the promoter's X bio), end date, and the BTH handle (@bigmiracle777 calls itself an influencer).
 
 ## X post
-Welcome $BTH to Hotcoin 🎁
+Welcome $BTH to Hotcoin 🎁 $500 giveaway
 
-$BTH lists on Hotcoin on Dec 2. To celebrate: 500 USDT in $BTH for our community.
-
+🎲 10 winners × $20
 1️⃣ Follow @HotcoinGlobal and @bigmiracle777
-2️⃣ Like and repost this post
-3️⃣ Reply with your Hotcoin UID 👇
+2️⃣ Like and repost
+3️⃣ Reply with your Hotcoin UID
 
-50 random winners get 10 USDT in $BTH each. Ends Dec 9.
+⚡ First 60 new users × $5
+Register here: https://www.hotcoin.com/register?icCode=At602670c&hotcoinid=1
 
-Crypto prices are volatile. Not financial advice.
-
-## Reply to pin (when trading opens Dec 2)
-$BTH trading is now live on Hotcoin: hotcoin.com
+Rewards are futures trial vouchers. Futures trading is high risk.
