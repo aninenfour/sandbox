@@ -39,6 +39,9 @@ One run = one finished news-clip reel posted to Instagram (Reel), TikTok and Fac
 cd news-clip && python3 make.py clips/<slug>/clip.json        # -> out/<slug>.mp4
 /usr/bin/ffmpeg -i out/<slug>.mp4 -frames:v 1 -q:v 2 out/<slug>-thumb.jpg   # cover = frame 1 (full design)
 ```
+End on a finished thought (owner, Nov 25): read the transcript at least 30 s past your planned out-point and end on the
+payoff sentence, not mid-story. Then grab the last frame (`-sseof -0.1`) and transcribe the last 2 s: no half word and
+no next sentence starting (trim the out-point to the end of the last word).
 Look at frame 1 and a contact sheet: face visible, no TV logos or tickers, subtitles readable, headline not cut off and
 above the Reels caption zone, no em dashes.
 

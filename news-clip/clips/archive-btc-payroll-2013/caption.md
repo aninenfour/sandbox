@@ -17,3 +17,19 @@ Follow Hotcoin for more
 The finance chief said no at first. Two weeks later he found a way, and a third of the office opted in.
 
 Would you take part of your salary in $BTC? Yes/No
+
+## LinkedIn (4:5 re-cut, Nov 25, 2026: out/archive-btc-payroll-2013-li45.mp4, 61 s, ends on "So it's still up and running.")
+In April 2013, the Internet Archive let its staff take part of their salary in Bitcoin.
+
+Founder Brewster Kahle told the story at a Bitcoin conference in San Jose that May:
+→ His finance chief first said no
+→ A couple of weeks later he found a way
+→ About a third of headquarters staff said yes
+→ They built an honor-based Bitcoin to cash box in the office
+
+Blog readers said it would be robbed at once. He bet a Bitcoin nickel nobody would. No one took the bet, and the box kept running.
+
+Would you take part of your salary in Bitcoin? Yes / No
+
+Footage: Internet Archive, Bitcoin 2013 conference recording.
+#Bitcoin #CryptoHistory #FutureOfWork
