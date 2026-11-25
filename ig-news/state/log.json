@@ -2467,5 +2467,54 @@
   "note": "US Thanksgiving, markets closed. W48 how-to promise hook with a number, no face (NYSE, turkey, coin photos). 4 slides, no CTA. Variant b (Nov 25 was a). Media commit e7af889.",
   "doc_row": true,
   "media_commit": "e7af889caef483f86e33fa8eb8960477bc5700a1"
+ },
+ {
+  "id": "2026-11-26-nvidia-crypto-settlement",
+  "type": "news",
+  "slot": "2026-11-26T10:00:00+08:00",
+  "title": "Nvidia agrees to pay $290M to settle the 2018 crypto mining sales lawsuit (filed Nov 24, needs court approval); plaintiffs: $1.1B crypto GPU sales not flagged; -28.5% in 2 sessions Nov 2018; lawyers ask up to $62M (21.4%); 14% of ~$2.06B max damages",
+  "score": 11,
+  "status": "scheduled",
+  "layouts": [
+   "nhero",
+   "ngrid",
+   "nquote",
+   "nbars"
+  ],
+  "ngrid_used": true,
+  "nquote_used": true,
+  "nquote_note": "W48 experiment: used. Jensen Huang 'The crypto hangover lasted longer than we expected.' word for word in Motley Fool (Q3 FY2019 call transcript, Nov 18 2018) and Reuters via The Express Tribune (Nov 16 2018). Check band: -28.5% in 2 sessions (The Block, Cointelegraph) + $290M. Looser crop (uncropped Commons file) than the cover.",
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(10:02, tt/01-04)",
+   "ig_story(10:05)",
+   "x_research(11:00, 01-04)"
+  ],
+  "sources": [
+   "Decrypt Nov 25 2026",
+   "Cointelegraph Nov 25 2026",
+   "The Block Nov 25 2026",
+   "Motley Fool Nov 18 2018 + Reuters/Express Tribune Nov 16 2018 (quote)"
+  ],
+  "note": "07:40 run (Thanksgiving). Score 11/12 (hook 2, relevance 3, fresh 3, visual 3). Main X posted Nvidia reinstatement/stock (What to Watch, Nov 24 12:01): different story, settlement not covered by any channel. Skipped: BTC <$58K/PCE recap (price recap, ETF fear theme Wed), Musk X bot-farm judgment ('Don't mess with X', 9/12), Fidelity Chainlink ETF (8/12), Ukraine crypto law 23% tax (8/12). Cover hook 8 words, no comma; render.py no warnings.",
+  "commit": "b74b158"
+ },
+ {
+  "id": "2026-11-26-memereact-turkey-btc",
+  "type": "reel-memereact",
+  "slot": "2026-11-26T12:30:00+08:00",
+  "title": "MEME REACT (Thanksgiving): Even the turkey beat my Bitcoin. 16 lb turkey +10% ($21.50 -> $23.68, AFBF 2026) vs BTC -34% ($91.3K Thanksgiving 2025 -> $60.3K), crying Ronaldo (face toward camera) + sad violin, bubble 'This year I'm thankful for the turkey.'",
+  "status": "scheduled",
+  "platforms": [
+   "ig_reel",
+   "tiktok"
+  ],
+  "sources": [
+   "American Farm Bureau Federation 2026 survey (fb.org): 16-lb turkey $23.68 vs $21.50 2025, dinner for 10 $58.63 (+6%); KTVU/Fox + Gray TV (WOWT/KBTX) Nov 18 2026 same figures",
+   "BTC Nov 27 2025: Yahoo close $91,285, CoinGecko $90,516; Nov 26 2026 ~07:50 UTC+8: CoinGecko $60,306, Coinbase $60,255"
+  ],
+  "note": "Everyday-object joke tied to Thanksgiving (rice formula: object photo vs flat BTC logo, crying Ronaldo, sad violin). Hook = feeling then number. Meme segment 6.1-7.6 s x8 (frontal face, after the source watermark leaves the frame), y_offset 50 so the face sits under the stat labels; numbers in 2 columns (row_gap 64); bubble inside the right safe zone. Cover: media/2026-11-26-memereact-turkey-btc/cover.jpg; Publer IG + TikTok images checked = cover.",
+  "commit": "e77416c"
  }
 ]

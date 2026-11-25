@@ -550,5 +550,23 @@
   "hook": "Wall Street is closed today, Bitcoin isn't",
   "status": "scheduled",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-26-nvidia-crypto-settlement",
+  "slot": "2026-11-26T10:02:00+08:00",
+  "format": "photo",
+  "topic": "News: Nvidia $290M crypto mining settlement",
+  "hook": "Nvidia will pay $290M over its 2018 crypto mining sales",
+  "status": "scheduled",
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-26-memereact-turkey-btc",
+  "slot": "2026-11-26T12:30:00+08:00",
+  "format": "video",
+  "topic": "MEME REACT: Thanksgiving turkey vs Bitcoin",
+  "hook": "Even the turkey beat my Bitcoin: turkey +10%, Bitcoin -34%",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]
