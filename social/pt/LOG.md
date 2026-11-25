@@ -67,6 +67,7 @@
 | 24/11 | 16:52 | Learn do dia | Guia de spot (pt_PT link in reply) | scheduled |
 
 | 25/11 | 08:33 | GM | Catedral de Brasília: linha pela borda do teto e sobe a nervura central até a cruz | scheduled |
+| 25/11 | 13:42 | Placar do dia | $MANTRA +35,3% x $BTC −3,4% (24h até 12:09) | scheduled |
 | 25/11 | 16:23 | Learn do dia | Futuros perpétuos em USDT (pt_PT link in reply) | scheduled |
 | 25/11 | 19:47 | Meme (serious photo) | celular nas costas: tia na ceia pergunta do bitcoin | scheduled |
 
@@ -117,3 +118,4 @@
 - 24/11 12:10 check 2: no new announcements. UNC +51.5% and URNA +38.0% skipped (no CoinGecko match), CYS skipped (repeat). Placar SAHARA (CoinGecko sahara-ai +8.7%) vs BTC -4.6% at 60,012, 13:47.
 - 24/11 16:13 check 3: no new announcements. Nothing closes tonight or before 08:00 Wed. No evening post (BTC -4.6% day, 5 posts with team). Wed: meme required (serious photo kind), Learn futures guide, GM. Thu 26 US holiday; Fri-Mon closings (P2P/Earn Sat 28, Ronaldinho Sun 29, Spot #24 Mon 30): last calls Fri evening and Sat evening.
 - 25/11 07:45 check 1: no new announcements, team has nothing queued on PT. Placar at check 2. Learn queue: only copy trading left (rainbow on hold), then skip days until new articles.
+- 25/11 12:09 check 2: no new announcements. KOR +76.5% skipped (no CoinGecko match; only KOR* ETF tokens). Placar MANTRA (CoinGecko mantra +34.4%), BTC 58,012 (-3.35%), 13:42.
