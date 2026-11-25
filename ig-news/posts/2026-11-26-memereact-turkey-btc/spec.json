@@ -1,0 +1,59 @@
+{
+  "title": "EVEN THE _TURKEY_\nBEAT MY *BITCOIN*.",
+  "handle": "",
+  "stats": [
+    {
+      "label": "16 LB TURKEY",
+      "sub": "$21.50 to $23.68",
+      "icon": "turkey.jpg",
+      "value": "+10%",
+      "tone": "pos"
+    },
+    {
+      "label": "BITCOIN",
+      "sub": "$91.3K to $60.3K",
+      "icon": "../../assets/logos/BTC.svg",
+      "value": "-34%",
+      "tone": "neg"
+    }
+  ],
+  "row_gap": 64,
+  "punch": {
+    "text": "This year I'm thankful for the turkey. 🦃",
+    "top": 970,
+    "left": 540,
+    "width": 300
+  },
+  "meme": {
+    "start": 6.1,
+    "end": 7.6,
+    "loops": 8,
+    "crop": [
+      72,
+      320,
+      648,
+      876
+    ],
+    "scale": 1.2,
+    "x": -120,
+    "key": "auto",
+    "similarity": 0.28,
+    "blend": 0.06,
+    "feather_right": 0,
+    "volume": 0,
+    "y_offset": 50
+  },
+  "audio": {
+    "start": 0.6,
+    "fade_out": 1.2,
+    "lufs": -14
+  },
+  "wm_opacity": 0.07,
+  "sources": {
+    "turkey": "American Farm Bureau Federation 2026 Thanksgiving survey (fb.org, Nov 18-19 2026): 16-lb turkey $23.68 vs $21.50 in 2025 (+10%); dinner for 10 $58.63, +6%. Same figures: KTVU/Fox 2026, Gray TV (WOWT, KBTX) Nov 18 2026",
+    "btc": "Thanksgiving 2025 (Nov 27 2025): Yahoo BTC-USD close $91,285, CoinGecko $90,516 (00:00 UTC); now Nov 26 2026 ~07:50 UTC+8: CoinGecko $60,306, Coinbase $60,255",
+    "meme": "https://greenscreenmemes.com/ronaldo-crying-after-being-eliminated-by-spain-green-screen/ (segment 6.1-7.6 s: face toward camera, after the source watermark leaves the frame)",
+    "music": "https://archive.org/details/SadViolinMLGSoundEffectsHD",
+    "photo": "Roast bird: Albert Vinas / Unsplash (rgn8H-bdCAI); Bitcoin logo assets/logos/BTC.svg"
+  }
+}
