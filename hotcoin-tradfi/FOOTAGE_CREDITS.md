@@ -374,3 +374,13 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
   Stock logos: Nvidia (nvidia.com official SVG), Take-Two (take2games.com official PNG). Tesla: no logo (site blocks downloads), ticker badge instead.
 - News-clip test "fed-shock-antonopoulos" (Nov 23, 2026): Andreas M. Antonopoulos testimony, Senate of Canada Standing Committee on Banking, Trade and Commerce, Oct 8, 2014 (Senate broadcast via archive.org/details/youtube-GP_eT6E4os8), 9:02 to 9:19. News clip, no endorsement implied.
 - News-clip test "archive-btc-payroll-2013": Brewster Kahle talk, Bitcoin 2013 conference, San Jose, recorded by Red Pill Recording (archive.org/details/Bitcoin2013conferenceBrewsterKahleJordanModell), 5:36 to 7:12 (LinkedIn and full re-cut Nov 25, 2026: extended to the "still up and running" payoff). News clip, no endorsement implied.
+
+## LinkedIn covers, week of Nov 26, 2026 (linkedin/covers, Unsplash license, grain-stippled cutouts)
+- Robotic hand: Enchanted Tools, unsplash.com/photos/9NpAU2OqYiI
+- Headphones: Lee Campbell, unsplash.com/photos/GI6L2pkiZgQ
+- Silver star trophy: Kier in Sight Archives, unsplash.com/photos/fQ9zEPdizcs
+- Glass jar with coins: Napendra Singh, unsplash.com/photos/XmvQveCDsQI
+- Hand reaching up: Mikey Parkin, unsplash.com/photos/ZKuwluHInR0
+- Balance scale with eagle: Nellie Adamyan, unsplash.com/photos/I2Ge7bLAhV4
+- Payment terminal with receipt: Towfiqu barbhuiya, unsplash.com/photos/xkArbdUcUeE
+- Bank vault locking wheel: Jason Dent, unsplash.com/photos/3wPJxh-piRw (maker's engraving covered by our number disc)

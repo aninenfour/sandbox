@@ -93,6 +93,16 @@ Publer free plan allows up to 12 LinkedIn page posts per day, so all options fit
 - How-to videos: one idea, chart-led, numbers checked, risk line in the caption. Original music from
   hotcoin-tradfi/scripts/make-*-beat.py.
 
+## 7b. Visual style for covers (Nov 25)
+- Grainy collage family, approved by the owner on Nov 24 for event posters (origin/claude/beautiful-noether-8uelys,
+  social/events-daily): organic brand-green shapes, stippled Hotcoin symbol, chrome candlesticks, film grain.
+- LinkedIn adds stippled real-object cutouts (Unsplash photo, rembg, coarse grain: linkedin/covers/cutouts.py) and one
+  chrome hero number (ink chrome with a white edge on lime). Alternate dark and lime grounds; white for data posts.
+- Title + headline only, one hero per cover, no detail rows, no italics. Fonts: Inter Tight, JetBrains Mono.
+- Logo: official PNG only (logo-official-white on dark, logo-official-black on lime/white), 40 px at left 72, top 68.
+  Never a dot or retyped "Hotcoin" as a placeholder. Cover third-party engravings or text in photos.
+- Render: python3 linkedin/covers/cutouts.py, then node linkedin/covers/render.mjs; log photos in FOOTAGE_CREDITS.md.
+
 ## 8. Bots vs people: how we use public data
 No reliable public figure separates bot and human volume on centralized exchanges (Tradersunion, Birdeye methodology
 notes). The "65% to 80% of crypto volume is bots" numbers that circulate are loosely sourced. So:
