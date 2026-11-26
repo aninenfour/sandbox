@@ -1,0 +1,71 @@
+{
+ "date": "NOV 26",
+ "window": "Prices at Nov 26 11:57 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Spot BTC ETFs saw about $4.7B outflows in Nov to Nov 23",
+   "last": 60766.01,
+   "ch": 2.35,
+   "vol": 926275210.77,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Near $1,700 with Fear & Greed at 13, extreme fear",
+   "last": 1697.89,
+   "ch": 2.08,
+   "vol": 229381178.06,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "XRP",
+   "name": "XRP",
+   "kind": "crypto",
+   "handle": "@Ripple",
+   "why": "Led the majors in Wednesday's crypto bounce",
+   "last": 0.9581,
+   "ch": 4.07,
+   "vol": 14419399.78,
+   "logo": "xrp",
+   "bg": "#ffffff",
+   "glow": "#23292f"
+  },
+  {
+   "sym": "NVDAB",
+   "name": "NVIDIA",
+   "kind": "tradfi",
+   "handle": "@nvidia",
+   "why": "Fell 3.9% Wed to $149.30; S&P put its AA rating on watch",
+   "last": 152.78,
+   "ch": 0.13,
+   "vol": 586527.0,
+   "logo": "nvdab",
+   "bg": "#82bd05",
+   "glow": "#457608"
+  },
+  {
+   "sym": "ORCLB",
+   "name": "Oracle",
+   "kind": "tradfi",
+   "handle": "@Oracle",
+   "why": "Fell 5.1% Wed; US markets closed today for Thanksgiving",
+   "last": 106.24,
+   "ch": -1.59,
+   "vol": 870800.58,
+   "logo": "orclb",
+   "bg": "#e32124",
+   "glow": "#e32124"
+  }
+ ]
+}

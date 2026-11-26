@@ -619,5 +619,12 @@
   "twitter": "ssv_network",
   "image": "https://coin-images.coingecko.com/coins/images/19155/large/ssv.png?1696518606",
   "logo": "ssv"
+ },
+ "XRP": {
+  "id": "ripple",
+  "name": "XRP",
+  "twitter": "Ripple",
+  "image": "https://coin-images.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
+  "logo": "xrp"
  }
 }
