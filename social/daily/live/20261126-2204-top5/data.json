@@ -1,0 +1,59 @@
+{
+ "window": "24H to Nov 26 22:04 (UTC+8)",
+ "date": "NOV 26",
+ "day": "2026-11-26",
+ "template": "orbit",
+ "gainers": [
+  {
+   "sym": "SSV",
+   "name": "SSV Network",
+   "ch": 43.49,
+   "vol": 155436.27,
+   "handle": "@ssv_network",
+   "logo": "ssv",
+   "bg": "#ffffff",
+   "glow": "#1ba5f8"
+  },
+  {
+   "sym": "PIEVERSE",
+   "name": "Pieverse",
+   "ch": 28.95,
+   "vol": 459169.13,
+   "handle": "@pieverse_io",
+   "logo": "pieverse",
+   "bg": "#ffffff",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "FLNCB",
+   "name": "Fluence Energy (bStocks Tokenized Stock)",
+   "ch": 23.95,
+   "vol": 567711.55,
+   "handle": "",
+   "logo": "flncb",
+   "bg": "#0050b5",
+   "glow": "#0050b5"
+  },
+  {
+   "sym": "SOXLB",
+   "name": "Semicon Bull 3X ETF (bStocks Tokenized ETF)",
+   "ch": 22.8,
+   "vol": 672470.38,
+   "handle": "",
+   "logo": "soxlb",
+   "bg": "#0063a6",
+   "glow": "#0063a6"
+  },
+  {
+   "sym": "SKY",
+   "name": "Sky",
+   "ch": 20.46,
+   "vol": 411975.14,
+   "handle": "@SkyEcosystem",
+   "logo": "sky",
+   "bg": "#bdeee8",
+   "glow": "#ef72cb"
+  }
+ ],
+ "link": "📊 $SSV live price and chart: https://www.hotcoin.com/en_US/price/ssv-network-ssv/"
+}

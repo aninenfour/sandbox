@@ -626,5 +626,12 @@
   "twitter": "Ripple",
   "image": "https://coin-images.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
   "logo": "xrp"
+ },
+ "SKY": {
+  "id": "sky",
+  "name": "Sky",
+  "twitter": "SkyEcosystem",
+  "image": "https://coin-images.coingecko.com/coins/images/39925/large/sky.jpg?1724827980",
+  "logo": "sky"
  }
 }
