@@ -49,6 +49,9 @@ def find_post(account, text_start):
 
 AT = None  # optional --at 2026-11-25T20:30:00+08:00 schedules instead of posting now (uses /posts/schedule;
 # /posts/schedule/publish ignores scheduled_at and posts immediately, learned 2026-11-23). Untested: check Publer's queue after use.
+ONLY = None  # optional --only tiktok,facebook (e.g. to finish a run that stopped after one network)
+if '--only' in sys.argv:
+    i = sys.argv.index('--only'); ONLY = sys.argv[i + 1].split(','); del sys.argv[i:i + 2]
 if '--at' in sys.argv:
     i = sys.argv.index('--at'); AT = sys.argv[i + 1]; del sys.argv[i:i + 2]
 video, caption_file = sys.argv[1], sys.argv[2]
@@ -88,13 +91,17 @@ networks = {
 
 results = {}
 for net, payload in networks.items():
+    if ONLY and net not in ONLY:
+        continue
     body = json.dumps({'bulk': {'state': 'scheduled', 'posts': [
         {'networks': {net: payload}, 'accounts': [dict({'id': ACCOUNTS[net]}, **({'scheduled_at': AT} if AT else {}))]}]}})
     for attempt in range(5):
         job = curl('-X', 'POST', f'{API}/posts/schedule' if AT else f'{API}/posts/schedule/publish', '-H', 'Content-Type: application/json',
                    '-d', body).get('job_id')
         st = wait_job(job) if job else {}
-        fails = [p.get('failure', {}).get('message', '') for p in st.get('payload', []) if p.get('status') == 'failed']
+        pl = st.get('payload', []) if isinstance(st, dict) else []
+        pl = pl if isinstance(pl, list) else []  # /posts/schedule returns a string payload on success (seen 2026-11-26)
+        fails = [p.get('failure', {}).get('message', '') for p in pl if isinstance(p, dict) and p.get('status') == 'failed']
         if not fails:
             break
         print(f'{net}: attempt {attempt + 1} failed: {fails}')

@@ -1,0 +1,11 @@
+{
+  "src": "src/tucker.mp4",
+  "segments": [[128.7, 142.45], [154.9, 158.95], [159.05, 163.3]],
+  "seg_crops": ["476:520:400:40", "476:520:400:40", "549:600:560:0"],
+  "transcript": "src/tucker.txt.json",
+  "kicker": "2014 · BITCOIN EXPO, TORONTO",
+  "headline": "In 2013, this man sold one bow tie for 3 bitcoin. Today that is about $180,000. Watch what he said",
+  "hi": ["3 bitcoin", "$180,000"],
+  "sub_fix": {"bitcoins": "bitcoin"},
+  "hl_size": 76
+}

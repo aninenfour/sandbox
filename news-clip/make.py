@@ -9,6 +9,7 @@ clip.json:
   "segments": [[542.0, 558.6], ...],                 # source in/out seconds, joined with hard cuts
   "transcript": "news-clip/src/senate.txt.json",     # faster-whisper json with word timings (for subtitles)
   "crop": "ih*1.0:ih:(iw-ow)/2:0",                    # optional ffmpeg crop before scaling into the footage box
+  "seg_crops": ["476:520:400:40", null, ...],        # optional per-segment crop (null = use "crop"); for wide vs close shots
   "kicker": "OCT 8, 2014 · SENATE OF CANADA",
   "headline": "12 years ago he told Canada's Senate why Bitcoin doesn't wait on central bankers",
   "hi": ["Bitcoin", "central bankers"],               # words shown in lime
@@ -204,10 +205,11 @@ def main(path, export_lines=False):
     subprocess.run(["node", f"{tmp}/r.js", f"{tmp}/page.html", tmp, f"{tmp}/subs.json", str(W), str(H), str(F["BOTTOM"])], check=True, env=env)
 
     # 1) cut + join segments, footage scaled to fill the box
-    crop = c.get("crop")
-    vf_box = (f"crop={crop}," if crop else "") + f"scale={W}:{BOX_H}:force_original_aspect_ratio=increase,crop={W}:{BOX_H},setsar=1"
+    seg_crops = c.get("seg_crops") or []
     parts = []
     for i, (a, b) in enumerate(segs):
+        crop = (seg_crops[i] if i < len(seg_crops) else None) or c.get("crop")
+        vf_box = (f"crop={crop}," if crop else "") + f"scale={W}:{BOX_H}:force_original_aspect_ratio=increase,crop={W}:{BOX_H},setsar=1"
         pth = f"{tmp}/seg{i}.mp4"
         run([FF, "-loglevel", "error", "-y", "-ss", str(a), "-to", str(b), "-i", c["src"],
              "-vf", vf_box + ",fps=30,setpts=PTS-STARTPTS", "-af", "aresample=48000,asetpts=PTS-STARTPTS", "-c:v", "libx264", "-crf", "14", "-preset", "fast",
