@@ -14,6 +14,9 @@ import {Reflector} from 'three/addons/objects/Reflector.js';
 const P = new URLSearchParams(location.search);
 const W = +P.get('w') || 1080, H = +P.get('h') || 1350, ASPECT = W / H, ARMS = P.get('arms') === '1';
 const TALL = ASPECT < 0.7; // 9:16 cut
+// v2 (?v=2): speed aura, afterimages, cheeky butt gag on the rooftop, smoothed camera; beat grid of the hip-hop score
+const V2 = P.get('v') === '2';
+const BEAT = 60 / 92.75, DROP = 2.95 + 16 * BEAT; // drop lands on the rooftop landing (13.30 s)
 const DUR = 20;
 
 // ---------- helpers ----------
@@ -82,6 +85,8 @@ const toCam = CAM_END.clone().sub(LOGO_DOT).normalize();
 const DOT_TARGET = LOGO_DOT.clone().addScaledVector(toCam, DOT_R_LOGO * 1.05);
 const SCALE_TARGET = DOT_R_LOGO * (CAM_END.distanceTo(DOT_TARGET) / CAM_END.distanceTo(LOGO_DOT));
 const ROOF_SPOT = V(0, ROOFY, Z_LAND);
+function wig(t) { return V2 ? sm(seg(t, 13.42, 13.55)) - sm(seg(t, 14.05, 14.2)) : 0; } // rooftop butt wiggle window
+const wigS = (t) => Math.sin((t - DROP) / BEAT * 2 * Math.PI);
 
 // body centre in world space at time t (including the ending flight)
 function flightK(t) { return seg(t, 16.85, 18.2); }
@@ -356,6 +361,8 @@ const dotRoot = new THREE.Group(), yawG = new THREE.Group(), leanG = new THREE.G
 dotRoot.add(yawG); yawG.add(leanG); leanG.add(bodyG); scene.add(dotRoot);
 const bodyMat = new THREE.MeshPhysicalMaterial({color: GREEN, roughness: .34, metalness: 0, clearcoat: 1, clearcoatRoughness: .06, emissive: '#2c5a14', emissiveIntensity: .45, envMapIntensity: .8, transparent: true});
 const body = new THREE.Mesh(new THREE.SphereGeometry(1, 64, 48), bodyMat); bodyG.add(body);
+const butt = []; // v2 gag: two small cheeks on the lower back (from the front the dot stays a perfect circle)
+if (V2) for (const sd of [-1, 1]) { const m = new THREE.Mesh(new THREE.SphereGeometry(.31, 32, 24), bodyMat); m.scale.set(1, .95, .7); m.position.set(sd * .19, -.4, -.84); bodyG.add(m); butt.push(m); }
 // eye: flattened ellipsoid with a canvas-drawn face, planar UVs so the drawing maps like the 2D character
 const eyeC = canvas(512, 512), eyeG = eyeC.getContext('2d'), eyeT = ctex(eyeC);
 const eyeGeo = new THREE.SphereGeometry(1, 64, 48);
@@ -371,6 +378,52 @@ const loop = new THREE.Mesh(new THREE.TorusGeometry(.22, .042, 12, 32, Math.PI),
 const limbMat = new THREE.MeshPhysicalMaterial({color: '#5a9e38', roughness: .4, clearcoat: .8, transparent: true});
 const legs = [-1, 1].map((sd) => { const piv = new THREE.Group(); piv.position.set(sd * .36, -.78, 0); const m = new THREE.Mesh(new THREE.CapsuleGeometry(.13, .2, 6, 14), limbMat); m.position.y = -.22; piv.add(m); bodyG.add(piv); return piv; });
 const arms = ARMS ? [-1, 1].map((sd) => { const piv = new THREE.Group(); piv.position.set(sd * .92, .02, 0); const m = new THREE.Mesh(new THREE.CapsuleGeometry(.1, .24, 6, 12), limbMat); m.position.y = -.22; piv.add(m); bodyG.add(piv); return piv; }) : [];
+// ---------- v2 speed aura ----------
+const AURA_VS = `uniform float uT, uS; varying vec3 vN, vV; varying float vK;
+void main(){ vec3 p = position, n = normal; float a = atan(p.x, p.y);
+ float f1 = .5 + .5 * sin(a * 6. + uT * 9. + p.z * 4.), f2 = .5 + .5 * sin(a * 11. - uT * 13. + p.y * 3.);
+ float back = clamp(-p.z, 0., 1.);
+ p += n * (.04 + .1 * f1 * f2 + .22 * back * f1 * uS); p.z -= back * back * uS * 1.7 * (.65 + .35 * f2);
+ vK = back; vec4 mv = modelViewMatrix * vec4(p, 1.); vN = normalize(normalMatrix * n); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }`;
+const AURA_FS = `uniform vec3 uC; uniform float uI, uP; varying vec3 vN, vV; varying float vK;
+void main(){ float f = pow(1. - abs(dot(vN, vV)), uP); gl_FragColor = vec4(uC * uI * f * (1. - .45 * vK), 1.); }`;
+const auraMats = [], ghosts = [], machs = [];
+let auraSparks = null;
+const MACH_T = [2.95, 5.0, 6.6, 11.2, 12.15];
+if (V2) {
+  for (const [r, pw, col] of [[1.08, 3.0, '#e9ffd0'], [1.24, 2.2, '#B8F26A']]) {
+    const m = new THREE.ShaderMaterial({uniforms: {uT: {value: 0}, uS: {value: 0}, uI: {value: 0}, uP: {value: pw}, uC: {value: new THREE.Color(col)}}, vertexShader: AURA_VS, fragmentShader: AURA_FS, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.BackSide});
+    const mesh = new THREE.Mesh(new THREE.SphereGeometry(r, 64, 40), m); bodyG.add(mesh); auraMats.push(m);
+  }
+  for (let k = 0; k < 4; k++) { const g = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 24), new THREE.MeshBasicMaterial({color: neon('#B8F26A', 1.4), transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false})); scene.add(g); ghosts.push(g); }
+  for (const mt of MACH_T) { const m = new THREE.Mesh(new THREE.RingGeometry(.92, 1.0, 72), new THREE.MeshBasicMaterial({color: neon('#f0ffe0', 3), transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide})); scene.add(m); machs.push({t: mt, m}); }
+  const AS = 140, ag = new THREE.BufferGeometry();
+  ag.setAttribute('position', new THREE.BufferAttribute(new Float32Array(AS * 3), 3)); ag.setAttribute('color', new THREE.BufferAttribute(new Float32Array(AS * 3), 3));
+  auraSparks = new THREE.Points(ag, new THREE.PointsMaterial({size: .2, map: SPRITE, vertexColors: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false}));
+  auraSparks.frustumCulled = false; scene.add(auraSparks);
+}
+function auraAmt(t) {
+  if (!V2) return 0;
+  const run = cl(speed(t) / 16) * .45, charge = .9 * ease(seg(t, 2.3, 2.95)) * (1 - seg(t, 3.6, 4.3)), fly = .75 * (sm(seg(t, 16.85, 17.1)) - sm(seg(t, 18.0, 18.3)));
+  return cl(run + .5 * boost(t) + .8 * charge + fly);
+}
+function updateAura(t, scl) {
+  if (!V2) return;
+  const a = auraAmt(t), sp = cl(speed(t) / 16);
+  auraMats.forEach((m, i) => { m.uniforms.uT.value = t; m.uniforms.uS.value = sp * (.6 + .6 * boost(t)); m.uniforms.uI.value = a * (i ? 1.7 : 1.2) * (.85 + .15 * Math.sin(t * 23 + i)); });
+  ghosts.forEach((g, k) => { const tt = Math.max(0, t - .04 * (k + 1)); g.position.copy(centerAt(tt)); g.scale.setScalar(scl); g.material.opacity = .11 * a * sp * (1 - k / 4.5); g.visible = g.material.opacity > .003; });
+  machs.forEach(({t: mt, m}) => { const k = seg(t, mt, mt + .42); m.visible = t > mt && k < 1; if (!m.visible) return;
+    const p = centerAt(mt), q = centerAt(mt + .03); m.position.copy(p); m.lookAt(q); m.scale.setScalar(1.2 + 4.5 * eo(k)); m.material.opacity = (1 - k) * .9; });
+  const pa = auraSparks.geometry.attributes.position.array, ca = auraSparks.geometry.attributes.color.array, AS = pa.length / 3, life = .55;
+  for (let i = 0; i < AS; i++) {
+    const ph = hash(i * 1.7) * life, cyc = Math.floor((t - ph) / life), t0 = cyc * life + ph, age = t - t0, h1 = hash(i * 3.3 + cyc * 7.1), h2 = hash(i * 5.9 + cyc * 2.3);
+    const th = h1 * Math.PI * 2, phi = Math.acos(2 * h2 - 1), dir = V(Math.sin(phi) * Math.cos(th), Math.cos(phi), Math.sin(phi) * Math.sin(th));
+    const c0 = centerAt(Math.max(0, t0)), p = c0.addScaledVector(dir, 1.15 * scl + .9 * age).add(V(0, 1.2 * age, 0));
+    pa.set([p.x, p.y, p.z], i * 3); const k = 2 * auraAmt(Math.max(0, t0)) * (1 - age / life) * (t0 < 0 ? 0 : 1);
+    ca.set([LIME.r * k, LIME.g * k, LIME.b * k], i * 3);
+  }
+  auraSparks.geometry.attributes.position.needsUpdate = true; auraSparks.geometry.attributes.color.needsUpdate = true;
+}
 const shadow = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 2.6), new THREE.MeshBasicMaterial({map: blobShadowTex(), transparent: true, depthWrite: false, opacity: .6}));
 scene.add(shadow);
 
@@ -433,7 +486,12 @@ function yawAt(t) {
     const off = froll(t) > .3 ? 0 : cl(Math.atan2(dx, -dz) * .6, -.5, .5);
     return Math.PI - off;
   }
-  if (t < 16.85) return lerp(Math.PI, 0.32, ease(seg(t, 13.55, 14.35)));
+  if (t < 16.85) {
+    if (!V2) return lerp(Math.PI, 0.32, ease(seg(t, 13.55, 14.35)));
+    // lands facing away, wiggles on the beat, smug look back over the shoulder, then turns round
+    let y = lerp(Math.PI, 1.35, ease(seg(t, 14.15, 14.42))); y = lerp(y, .32, ease(seg(t, 14.6, 14.95)));
+    return y + .16 * wigS(t) * wig(t);
+  }
   const k = flightK(t); return lerp(.32, 0, ease(k));
 }
 // chase-camera spherical offset around the dot
@@ -451,7 +509,7 @@ function anchorAt(t) { // lagged dot centre for a smooth chase
   for (let i = 0; i < N; i++) { const p = centerAt(Math.max(0, t - .3 * i / N)); ax += p.x; ay += p.y; }
   return V(ax / N, ay / N, c.z);
 }
-function camAt(t) {
+function camRaw(t) {
   const C0 = V(0, BODY_H, 0);
   // opening: front three-quarter, then orbit round the right side to a low over-the-shoulder shot of the billboard
   const kB = ease(seg(t, .95, 1.85));
@@ -466,7 +524,7 @@ function camAt(t) {
   }
   if (t > 13.2) { // landed: swing in for the look at camera
     const w = ease(seg(t, 13.3, 14.4)), D = ROOF_SPOT.clone().add(V(0, BODY_H, 0));
-    const posL = D.clone().add(sph(.36, .16, 5.4)), lookL = D.clone().add(V(0, .35, 0));
+    const posL = D.clone().add(sph(.36, V2 ? .1 : .16, V2 ? 5.0 : 5.4)), lookL = D.clone().add(V(0, V2 ? .08 : .35, 0));
     pos = pos.clone().lerp(posL, w); look = look.clone().lerp(lookL, w); fov = lerp(fov, 44, w);
     // pull back to reveal the sign
     const w2 = ease(seg(t, 15.0, 16.7));
@@ -476,6 +534,15 @@ function camAt(t) {
     const w3 = ease(seg(t, 16.8, 18.5));
     pos.lerp(CAM_END, w3); look.lerp(LOOK_END, w3); fov = lerp(fov, 50, w3);
   }
+  return {pos, look, fov};
+}
+function camAt(t) {
+  let pos, look, fov;
+  if (V2) { // weighted average of the recent camera path: removes snaps in the swings
+    pos = V(); look = V(); fov = 0; let ws = 0;
+    for (let i = 0; i < 7; i++) { const w = 1 - i / 7, r = camRaw(Math.max(0, t - i * .03)); pos.addScaledVector(r.pos, w); look.addScaledVector(r.look, w); fov += r.fov * w; ws += w; }
+    pos.divideScalar(ws); look.divideScalar(ws); fov /= ws;
+  } else ({pos, look, fov} = camRaw(t));
   // impact shakes
   const sk = .16 * Math.exp(-Math.max(0, t - CANDLE_T) * 7) * (t > CANDLE_T ? 1 : 0) + .12 * Math.exp(-Math.max(0, t - 13.3) * 8) * (t > 13.3 ? 1 : 0);
   pos.x += sk * Math.sin(t * 91); pos.y += sk * Math.sin(t * 73 + 1);
@@ -491,6 +558,7 @@ function eyeState(t) {
   const dodge = ease(seg(t, 9.8, 9.95)) - ease(seg(t, 10.45, 10.8)); narrow *= 1 - dodge; lx = lerp(lx, .65, dodge); pupil = 1 - .18 * dodge;
   // at the camera after landing, then a glance back at the sign lighting up, then delighted
   const glance = ease(seg(t, 15.1, 15.3)) - ease(seg(t, 15.7, 15.95)); lx = lerp(lx, .55, glance); ly = lerp(ly, -.45, glance);
+  if (V2) { const smug = ease(seg(t, 14.12, 14.3)) - ease(seg(t, 14.62, 14.85)); narrow = lerp(narrow, .42, smug); lx = lerp(lx, -.78, smug); ly = lerp(ly, .05, smug); open = Math.min(open, 1 - bump(t, 14.4, 14.52)); }
   happy = .5 * ease(seg(t, 15.9, 16.3)) * (1 - .6 * bump(t, 16.85, 17.6));
   if (t > 18.2) happy = lerp(happy, .55, ease(seg(t, 18.25, 18.55)));
   plain = ease(seg(t, 18.95, 19.35));
@@ -516,7 +584,8 @@ function bodyState(t) { // squash/stretch, lean, run cycle
   const fa = bump(t, 16.55, 16.85); sy -= .2 * fa; sx += .12 * fa; // wind-up for the flight home
   if (t > 16.85) { const k = flightK(t); legTuck = cl(1 - seg(t, 18.0, 18.2)); const st = bump(t, 16.85, 17.4); sy += .16 * st; sx -= .08 * st; }
   const ld = t > 18.2 ? Math.exp(-(t - 18.2) * 9) * Math.cos((t - 18.2) * 24) : 0; sy -= .14 * ld; sx += .1 * ld;
-  return {sx, sy, lean, bob, leg, legTuck};
+  if (V2) { const w = wig(t); sy -= .05 * w * Math.abs(wigS(t)); }
+  return {sx, sy, lean, bob, leg, legTuck, ph, runA, air};
 }
 
 let fontsReady = false;
@@ -527,7 +596,8 @@ window.setT = (t) => {
   let scl = 1; if (t > 16.85) scl = lerp(1, SCALE_TARGET, ease(seg(t, 17.2, 18.2)));
   dotRoot.position.copy(c).addScaledVector(up, -BODY_H * scl);
   dotRoot.rotation.set(0, 0, roll); dotRoot.scale.setScalar(scl);
-  yawG.rotation.y = yawAt(t); leanG.rotation.x = bs.lean;
+  yawG.rotation.y = yawAt(t); leanG.rotation.x = bs.lean; leanG.rotation.z = V2 ? .2 * wigS(t) * wig(t) : 0;
+  butt.forEach((m, i) => { const sd = i ? 1 : -1; m.position.y = -.4 + sd * .04 * Math.sin(bs.ph) * bs.runA * (1 - bs.air) + .03 * wig(t) * sd * wigS(t); m.scale.y = .95 + .06 * wig(t) * Math.abs(wigS(t)); });
   bodyG.position.y = BODY_H + bs.bob; bodyG.scale.set(bs.sx, bs.sy, bs.sx);
   legs.forEach((l, i) => { l.rotation.x = (i ? 1 : -1) * bs.leg - bs.legTuck * .9; l.scale.setScalar(1 - .35 * bs.legTuck * (t > 16.85 ? 1 : 0)); });
   arms.forEach((a, i) => { a.rotation.x = (i ? -1 : 1) * bs.leg * .8 - bs.legTuck * 1.4; a.rotation.z = (i ? 1 : -1) * .45; });
@@ -639,6 +709,7 @@ window.setT = (t) => {
     logoNoDotMat.opacity = t < 15.8 ? 0 : 1 - ease(seg(t, 19.0, 19.45)) * 0; // stays; full logo is drawn on top
     logoFullMat.opacity = ease(seg(t, 19.05, 19.45));
   }
+  updateAura(t, scl);
   renderer.setRenderTarget(null);
   composer.render();
 };

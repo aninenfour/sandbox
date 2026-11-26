@@ -2,6 +2,7 @@ node_modules
 fonts
 _a-*.html
 out/still*.jpg
+out/contact-sheet-v2.jpg
 out/*silent*.mp4
-out/music.wav
+out/music*.wav
 out/render.log

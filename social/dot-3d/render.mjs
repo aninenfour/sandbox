@@ -3,6 +3,7 @@
 // Usage (from repo root):
 //   node social/dot-3d/render.mjs stills [45|916] [t1,t2,...]   -> out/still-*.jpg + out/contact-sheet[-916].jpg
 //   node social/dot-3d/render.mjs video  [45|916]               -> out/dot-3d-silent[-916].mp4
+// V2=1 renders the v2 cut (aura, butt gag, smoothed camera; files get -v2), FPS=60 for 60 fps.
 // GPU=metal uses the Mac GPU (--enable-gpu --use-angle=metal); default is SwiftShader (software WebGL, works anywhere).
 import {createRequire} from 'module';
 import {spawn, execSync} from 'child_process';
@@ -13,8 +14,9 @@ const require = createRequire(import.meta.url);
 let pw; try { pw = require('playwright'); } catch { pw = require(path.join(execSync('npm root -g').toString().trim(), 'playwright')); }
 const DIR = path.dirname(new URL(import.meta.url).pathname), ROOT = path.resolve(DIR, '../..'), OUT = path.join(DIR, 'out');
 const MODE = process.argv[2] || 'stills', FMT = process.argv[3] || '45';
-const [W, H] = FMT === '916' ? [1080, 1920] : [1080, 1350], SUF = FMT === '916' ? '-916' : '';
-const FPS = 30, DUR = 20;
+const V2 = !!process.env.V2;
+const [W, H] = FMT === '916' ? [1080, 1920] : [1080, 1350], SUF = (FMT === '916' ? '-916' : '') + (V2 ? '-v2' : '');
+const FPS = +process.env.FPS || 30, DUR = 20;
 const FFMPEG = fs.existsSync('/usr/bin/ffmpeg') ? '/usr/bin/ffmpeg' : 'ffmpeg';
 const TYPES = {'.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.png': 'image/png', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.json': 'application/json'};
 const server = http.createServer((req, res) => {
@@ -26,11 +28,12 @@ await new Promise((r) => server.listen(0, '127.0.0.1', r));
 const port = server.address().port;
 const args = process.env.GPU === 'metal' ? ['--enable-gpu', '--use-angle=metal', '--ignore-gpu-blocklist']
   : ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'];
-const browser = await pw.chromium.launch({args});
+// on the Mac, the full Chromium build (new headless) uses the GPU; the log prints the GL renderer so you can check it says Metal/Apple
+const browser = await pw.chromium.launch(process.env.GPU === 'metal' ? {args, channel: 'chromium'} : {args});
 const page = await browser.newPage({viewport: {width: W, height: H}});
 page.on('pageerror', (e) => console.error('PAGE ERROR', e.message));
 page.on('console', (m) => { if (m.type() === 'error') console.error('console:', m.text()); });
-await page.goto(`http://127.0.0.1:${port}/social/dot-3d/scene.html?w=${W}&h=${H}${process.env.ARMS ? '&arms=1' : ''}`);
+await page.goto(`http://127.0.0.1:${port}/social/dot-3d/scene.html?w=${W}&h=${H}${process.env.ARMS ? '&arms=1' : ''}${V2 ? '&v=2' : ''}`);
 const info = await page.evaluate(() => window.READY);
 console.log('ready', JSON.stringify(info), 'gl:', await page.evaluate(() => { const g = document.querySelector('canvas').getContext('webgl2'); const d = g.getExtension('WEBGL_debug_renderer_info'); return d ? g.getParameter(d.UNMASKED_RENDERER_WEBGL) : '?'; }));
 fs.mkdirSync(OUT, {recursive: true});
