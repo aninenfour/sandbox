@@ -392,7 +392,7 @@ const AURA_FS = `uniform vec3 uC; uniform float uI, uP; varying vec3 vN, vV; var
 void main(){ float f = pow(1. - abs(dot(vN, vV)), uP); gl_FragColor = vec4(uC * uI * f * (1. - .45 * vK), 1.); }`;
 const auraMats = [], ghosts = [], machs = [];
 let auraSparks = null;
-const MACH_T = [2.95, 5.0, 6.6, 11.2, 12.15];
+const MACH_T = [2.95, 5.0, 6.6, 11.2]; // no shock ring on the rooftop jump: it tilts into the lens
 if (V2) {
   for (const [r, pw, col] of [[1.08, 3.0, '#e9ffd0'], [1.24, 2.2, '#B8F26A']]) {
     const m = new THREE.ShaderMaterial({uniforms: {uT: {value: 0}, uS: {value: 0}, uI: {value: 0}, uP: {value: pw}, uC: {value: new THREE.Color(col)}}, vertexShader: AURA_VS, fragmentShader: AURA_FS, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.BackSide});

@@ -56,11 +56,11 @@ if (MODE === 'stills') {
   execSync(`${FFMPEG} -loglevel error -y ${inputs.map((a) => (a === '-i' ? a : `"${a}"`)).join(' ')} -filter_complex "${fc}" -map "[out]" -q:v 3 "${path.join(OUT, `contact-sheet${SUF}.jpg`)}"`);
   console.log('contact sheet', rows, 'rows');
 } else {
-  const out = path.join(OUT, `dot-3d-silent${SUF}.mp4`);
+  const out = path.join(OUT, `dot-3d-silent${SUF}${process.env.F0 ? '-patch' : ''}.mp4`);
   const ff = spawn(FFMPEG, ['-loglevel', 'error', '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',
     '-c:v', 'libx264', '-crf', '17', '-preset', 'slow', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out], {stdio: ['pipe', 'inherit', 'inherit']});
-  const N = DUR * FPS, t0 = Date.now();
-  for (let i = 0; i < N; i++) {
+  const N = DUR * FPS, t0 = Date.now(), F0 = +process.env.F0 || 0, F1 = +process.env.F1 || N; // F0/F1: re-render a frame range
+  for (let i = F0; i < F1; i++) {
     await page.evaluate(([t, sh]) => window.renderFrame(t, sh), [i / FPS, 1 / (2 * FPS)]);
     const buf = await shot();
     if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
