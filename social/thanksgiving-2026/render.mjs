@@ -16,14 +16,12 @@ body{width:1080px;height:1350px;overflow:hidden;position:relative;background:#2a
 .blur{filter:blur(40px) saturate(1.05);transform:scale(1.08);-webkit-mask-image:linear-gradient(180deg,#000 0,#000 41%,transparent 54%)}
 .scr{position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,18,4,.55) 0%,rgba(40,18,4,.2) 30%,rgba(40,18,4,0) 45%,rgba(30,12,2,0) 80%,rgba(30,12,2,.45) 100%)}
 .logo{position:absolute;left:64px;top:60px;height:42px}
-.k{position:absolute;left:0;right:0;top:170px;text-align:center;font:700 22px 'JetBrains Mono';letter-spacing:6px;color:#fff3d6}
-h1{position:absolute;left:0;right:0;top:206px;text-align:center;font:400 112px/0.95 'Russo One';letter-spacing:-2px;text-shadow:0 6px 40px rgba(80,30,0,.45)}
+h1{position:absolute;left:0;right:0;top:170px;text-align:center;font:400 112px/0.95 'Russo One';letter-spacing:-2px;text-shadow:0 6px 40px rgba(80,30,0,.45)}
 h1 span{color:#b8f26a}
-.sub{position:absolute;left:0;right:0;top:446px;text-align:center;font-size:36px;font-weight:700;color:#fff6e4;text-shadow:0 2px 18px rgba(60,20,0,.5)}
+.sub{position:absolute;left:0;right:0;top:410px;text-align:center;font-size:36px;font-weight:700;color:#fff6e4;text-shadow:0 2px 18px rgba(60,20,0,.5)}
 </style></head><body>
 <img class="art" src="assets/dot-autumn.png"><img class="blur" src="assets/dot-autumn.png"><div class="scr"></div>
 <img class="logo" src="${BR}logo-official-white.png">
-<div class="k">NOV 26, 2026</div>
 <h1>Happy<br><span>Thanksgiving</span></h1>
 <div class="sub">Thank you for trading with us.</div>
 </body></html>`;
