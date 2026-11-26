@@ -5,4 +5,4 @@ out/still*.jpg
 out/contact-sheet-v2.jpg
 out/*silent*.mp4
 out/music*.wav
-out/render.log
+out/render*.log
