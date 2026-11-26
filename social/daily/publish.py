@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Post one image to X and Facebook through Publer, right now. (LinkedIn paused by the owner, Nov 19 2026.)
+"""Post one image to X, Facebook (and Telegram) through Publer, right now. (LinkedIn paused by the owner, Nov 19 2026.)
 
-  PUBLER_API_KEY=... python3 social/daily/publish.py <image.png> <caption.txt> [--draft] [--only x,facebook,linkedin]
+  PUBLER_API_KEY=... python3 social/daily/publish.py <image.png> <caption.txt> [--draft] [--only x,facebook,telegram]
 
-<caption.txt> is the X caption (with @handles). Facebook and LinkedIn get the same text with the @handles
-removed, unless facebook.txt / linkedin.txt sit next to it (watch.py writes those). --draft saves drafts
+<caption.txt> is the X caption (with @handles). Facebook gets the same text with the @handles removed, unless
+facebook.txt sits next to it. Telegram (the "Hotcoin Announcements" channel) is added automatically when
+telegram.txt sits next to the caption (watch.py writes one: What to Watch goes to Telegram too, owner Nov 26 2026). --draft saves drafts
 instead of publishing (for tests). Writes published.json next to the caption with each network's link.
 The API key comes from the environment only. Never commit it.
 """
@@ -16,6 +17,7 @@ ACCOUNTS = {
     'twitter': '6a72f2aa4bc9fe4b339c4e09',   # Hotcoin 🟩 (X)
     'facebook': '6a72f281aed075b6f35a33c0',  # Hotcoin page
     'linkedin': '6a980801cb0f88ac5ed64d81',  # Hotcoin company page
+    'telegram': '6b06a3329879bc40ec04e64e',  # Hotcoin Announcements channel
 }
 API = 'https://app.publer.com/api/v1'
 H = ['-H', f'Authorization: Bearer-API {KEY}', '-H', f'Publer-Workspace-Id: {WS}']
@@ -105,8 +107,11 @@ ap = argparse.ArgumentParser()
 ap.add_argument('image')
 ap.add_argument('caption')
 ap.add_argument('--draft', action='store_true')
-ap.add_argument('--only', default='twitter,facebook')
+ap.add_argument('--only', default='auto')
 a = ap.parse_args()
+if a.only == 'auto':
+    has_tg = os.path.exists(os.path.join(os.path.dirname(os.path.abspath(a.caption)), 'telegram.txt'))
+    a.only = 'twitter,facebook' + (',telegram' if has_tg else '')
 # LinkedIn is paused (owner, Nov 19 2026: no daily Top 5 / What to Watch updates there until a new LinkedIn strategy).
 if 'linkedin' in a.only.split(','):
     sys.exit('LinkedIn is paused by the owner (Nov 19, 2026). Remove linkedin from --only.')
@@ -114,7 +119,7 @@ if 'linkedin' in a.only.split(','):
 d = os.path.dirname(os.path.abspath(a.caption))
 x_text = open(a.caption).read().strip()
 texts = {'twitter': x_text}
-for net, f in (('facebook', 'facebook.txt'), ('linkedin', 'linkedin.txt')):
+for net, f in (('facebook', 'facebook.txt'), ('linkedin', 'linkedin.txt'), ('telegram', 'telegram.txt')):
     p = os.path.join(d, f)
     texts[net] = open(p).read().strip() if os.path.exists(p) else strip_handles(x_text)
 
@@ -122,7 +127,7 @@ for net, f in (('facebook', 'facebook.txt'), ('linkedin', 'linkedin.txt')):
 # x-short.txt (watch.py writes one) or skip X rather than post a truncated caption.
 x_long = x_len(texts['twitter']) > 280
 x_skip = None
-if 'twitter' in a.only or 'x' in a.only.split(','):
+if 'twitter' in a.only.split(',') or 'x' in a.only.split(','):
     if x_long and not x_premium(ACCOUNTS['twitter']):
         short = os.path.join(d, 'x-short.txt')
         if os.path.exists(short) and x_len(open(short).read().strip()) <= 280:
@@ -130,6 +135,8 @@ if 'twitter' in a.only or 'x' in a.only.split(','):
             print('twitter: account not Premium, using x-short.txt', file=sys.stderr)
         else:
             x_skip = f'caption is {x_len(texts["twitter"])} weighted chars, account not Premium and no x-short.txt <= 280'
+if 'telegram' in a.only.split(',') and len(texts['telegram']) > 1024:
+    sys.exit(f'telegram caption is {len(texts["telegram"])} chars, Telegram allows 1024 under a photo')
 print(f'twitter: weighted length {x_len(texts["twitter"])}, long_post={x_long}', file=sys.stderr)
 
 up = curl('-X', 'POST', f'{API}/media', '-F', f'file=@{a.image};type=image/png', '-F', 'in_library=false')

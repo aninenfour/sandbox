@@ -5,6 +5,9 @@
 //   sq-cards   collectible-card fan
 //   sq-orbit   ink, coins climbing a lime trajectory, few numbers (daily rotation)
 //   sq-race    off-white race track, coins speeding to a checkered finish, few numbers (daily rotation)
+// What to Watch (watch.py rotates these five, never one of the last two posted days):
+//   sq-watch (list, white rows) · sq-watch-ink (black hairline watchlist) · sq-watch-bento (hero + 2x2 cards)
+//   sq-watch-board (lime page, split-flap departure board) · sq-watch-paper (editorial front page)
 //   node social/daily/square.mjs [names...]
 import {createRequire} from 'module';
 import {spawn} from 'child_process';
@@ -247,6 +250,175 @@ ${mark(980, 420, -170, '#0B0E11', '#7EC25A', 0.045)}
 </div></body></html>`;
 };
 
+// ---------- What to Watch: four more styles that rotate with sq-watch (watch.py picks one per day) ----------
+const SERIF = '<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=block" rel="stylesheet">';
+const wprice = (v) => v >= 1 ? '$' + v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '$' + Number(v.toPrecision(4));
+const wchg = (v, up, dn) => `<span style="color:${v >= 0 ? up : dn}">${v >= 0 ? '▲' : '▼'}${Math.abs(v).toFixed(2)}%</span>`;
+const kindLabel = (g) => g.kind === 'crypto' ? 'CRYPTO' : 'TRADFI';
+const symSize = (g, base) => g.sym.length > 6 ? base * 0.72 : g.sym.length > 5 ? base * 0.85 : base;
+
+// ink: black, dot field, numbered hairline watchlist, serif italic "today"
+const W_INK = () => {
+  const it = D.items || [];
+  return `${HEAD}${SERIF}<style>
+body{background:#07090A;color:#F2F4EF}
+.bgl{position:absolute;inset:0;background:radial-gradient(50% 40% at 92% 6%,#B8F26A2a,transparent 70%),radial-gradient(40% 35% at 0% 100%,#7EC25A1e,transparent 70%)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(#ffffff1a 1.4px,transparent 1.6px);background-size:22px 22px;-webkit-mask:linear-gradient(200deg,#000 0%,transparent 45%);mask:linear-gradient(200deg,#000 0%,transparent 45%)}
+.head h1{font-size:60px;margin-top:32px}
+.head h1 em{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-size:82px;letter-spacing:-1px;color:#B8F26A;margin-left:14px}
+.pill{background:#15181B;color:#C9CDD2;margin-top:18px}
+.list{position:relative;flex:1;display:flex;flex-direction:column;margin-top:24px;border-top:1.5px solid #ffffff22}
+.r{flex:1;display:flex;align-items:center;gap:20px;border-bottom:1.5px solid #ffffff22;padding:0 2px}
+.r .n{font-family:'JetBrains Mono';font-weight:800;font-size:18px;color:#5E656D;width:30px;flex:none}
+.r .bz{box-shadow:0 0 0 1px #ffffff22,0 0 34px var(--g),0 12px 24px rgba(0,0,0,.5)}
+.r .mid{flex:1;min-width:0}
+.r .top{display:flex;align-items:center;gap:12px}
+.r .sym{font-family:Unbounded;font-weight:900;font-size:30px;letter-spacing:-.5px}
+.r .nm{font-size:15px;color:#8A919C;font-weight:600;white-space:nowrap}
+.r .k{font-family:'JetBrains Mono';font-weight:800;font-size:11px;letter-spacing:2px;color:#B8F26A;border:1.5px solid #B8F26A66;border-radius:999px;padding:3px 9px;flex:none}
+.r .k.tradfi{color:#C9CDD2;border-color:#ffffff40}
+.r .why{font-size:20px;font-weight:500;color:#C9CDD2;margin-top:7px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.r .px{text-align:right;flex:none;width:190px}
+.r .px b{display:block;font-family:Unbounded;font-weight:800;font-size:25px;letter-spacing:-.5px}
+.r .px span{font-family:'JetBrains Mono';font-weight:800;font-size:20px}
+.ft{position:relative;display:flex;justify-content:space-between;margin-top:20px;font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:2px;color:#8A919C}
+</style></head><body><div class="s"><div class="bgl"></div><div class="dots"></div>
+${mark(760, 560, 420, '#ffffff', '#7EC25A', 0.035)}
+<div class="head"><img src="/hotcoin-tradfi/public/brand/logo-official-white.png"><h1>What to Watch<em>today</em></h1><div class="pill"><span class="dot"></span>${D.window}</div></div>
+<div class="list">${it.map((g, i) => `<div class="r" style="--g:${g.glow}66"><span class="n">0${i + 1}</span>${bezel(g, 80, 'steel')}
+  <div class="mid"><div class="top"><span class="sym" style="font-size:${symSize(g, 30)}px">${g.sym}</span><span class="nm">${g.name}</span><span class="k ${g.kind}">${kindLabel(g)}</span></div>
+  <div class="why">${g.why}</div></div>
+  <div class="px"><b>${wprice(g.last)}</b>${wchg(g.ch, '#2DBD85', '#F6465D')}</div></div>`).join('')}</div>
+<div class="ft"><span>${D.date} · CRYPTO + TRADFI · 24H</span><span>HOTCOIN.COM</span></div>
+</div></body></html>`;
+};
+
+// bento: warm off-white, pick #1 as a dark hero card, the other four in a 2x2 grid
+const W_BENTO = () => {
+  const [h, ...rest] = D.items || [];
+  return `${HEAD}<style>
+body{background:#F4F1EA;color:#0B0E11}
+.pill{background:#fff;color:#0B0E11;box-shadow:0 6px 16px rgba(11,14,17,.06)}
+.head h1 .t5{font-size:50px}
+.grid{position:relative;flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.2fr 1fr 1fr;gap:16px;margin-top:28px}
+.c{position:relative;background:#fff;border-radius:28px;box-shadow:0 14px 34px rgba(11,14,17,.07);border:1.5px solid #0B0E110f;padding:20px 22px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.c .gl{position:absolute;inset:0;opacity:.16;background:radial-gradient(70% 90% at 0% 0%,var(--g),transparent 70%)}
+.c .top{position:relative;display:flex;align-items:center;gap:16px}
+.c .id{flex:1;min-width:0}
+.c .sym{font-family:Unbounded;font-weight:900;font-size:26px;letter-spacing:-.5px;line-height:1.1}
+.c .sub{display:flex;align-items:center;gap:8px;margin-top:5px}
+.c .nm{font-size:14px;color:#6B7280;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.k{font-family:'JetBrains Mono';font-weight:800;font-size:11px;letter-spacing:2px;border-radius:999px;padding:4px 9px;flex:none}
+.k.crypto{background:#B8F26A;color:#0B0E11}.k.tradfi{background:#0B0E11;color:#fff}
+.c .px{text-align:right;flex:none}
+.c .px b{display:block;font-family:Unbounded;font-weight:800;font-size:21px;letter-spacing:-.5px}
+.c .px span{font-family:Unbounded;font-weight:900;font-size:17px}
+.c .why{position:relative;font-size:19px;font-weight:600;color:#1F2328;line-height:1.28;margin-top:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.c.hero{grid-column:1/3;background:#0B0E11;color:#F2F4EF;border:none;padding:24px 34px;box-shadow:0 24px 50px rgba(11,14,17,.22)}
+.c.hero .gl{opacity:.32;background:radial-gradient(60% 120% at 0% 50%,var(--g),transparent 70%)}
+.c.hero .top{gap:26px}
+.c.hero .kick{font-family:'JetBrains Mono';font-weight:800;font-size:13px;letter-spacing:3px;color:#B8F26A}
+.c.hero .sym{font-size:44px;margin-top:6px}
+.c.hero .nm{color:#8A919C;font-size:16px}
+.c.hero .why{color:#E4E7E2;font-size:23px;margin-top:8px}
+.c.hero .px b{font-size:32px}.c.hero .px span{font-size:22px}
+.ft{position:relative;display:flex;justify-content:space-between;margin-top:22px;font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:2px;color:#6B7280}
+</style></head><body><div class="s">
+${mark(760, 600, -150, '#0B0E11', '#7EC25A', 0.045)}
+<div class="head"><img src="/hotcoin-tradfi/public/brand/logo-official-black.png"><h1>What to Watch<span class="t5">TODAY</span></h1><div class="pill"><span class="dot"></span>${D.window}</div></div>
+<div class="grid">
+ <div class="c hero" style="--g:${h.glow}"><div class="gl"></div><div class="top">${bezel(h, 132, 'gold')}
+  <div class="id"><div class="kick">01 · ${kindLabel(h)}</div><div class="sym" style="font-size:${symSize(h, 44)}px">${h.sym} <span class="nm">${h.name}</span></div><div class="why">${h.why}</div></div>
+  <div class="px"><b>${wprice(h.last)}</b>${wchg(h.ch, '#2DBD85', '#F6465D')}</div></div></div>
+ ${rest.map((g) => `<div class="c" style="--g:${g.glow}"><div class="gl"></div><div class="top">${bezel(g, 62, 'steel')}
+  <div class="id"><div class="sym" style="font-size:${symSize(g, 26)}px">${g.sym}</div><div class="sub"><span class="k ${g.kind}">${kindLabel(g)}</span><span class="nm">${g.name}</span></div></div>
+  <div class="px"><b>${wprice(g.last)}</b>${wchg(g.ch, '#14A04B', '#D64545')}</div></div>
+  <div class="why">${g.why}</div></div>`).join('')}
+</div>
+<div class="ft"><span>${D.date} · CRYPTO + TRADFI · 24H</span><span>HOTCOIN.COM</span></div>
+</div></body></html>`;
+};
+
+// board: lime page, ink departure board with split-flap ticker tiles
+const W_BOARD = () => {
+  const it = D.items || [];
+  const tiles = (s) => [...s].map((ch) => `<i>${ch}</i>`).join('');
+  return `${HEAD}<style>
+body{background:#B8F26A;color:#0B0E11}
+.head h1 .t5{background:#0B0E11;color:#B8F26A;font-size:50px}
+.pill{background:#0B0E11;color:#B8F26A}
+.pill .dot{background:#B8F26A;box-shadow:0 0 0 4px #B8F26A44}
+.bd{position:relative;flex:1;margin-top:28px;border-radius:30px;background:#0B0E11;padding:12px 28px 8px;display:flex;flex-direction:column;box-shadow:0 30px 60px rgba(11,14,17,.28)}
+.bd .tex{position:absolute;inset:0;border-radius:30px;background-image:radial-gradient(#ffffff0d 1.3px,transparent 1.5px);background-size:18px 18px}
+.hr{position:relative;display:grid;grid-template-columns:262px 1fr 168px;gap:20px;padding:14px 0 12px;border-bottom:1.5px solid #ffffff1c;font-family:'JetBrains Mono';font-weight:800;font-size:12px;letter-spacing:3px;color:#5E656D}
+.hr span:last-child{text-align:right}
+.r{position:relative;flex:1;display:grid;grid-template-columns:262px 1fr 168px;gap:20px;align-items:center;border-bottom:1.5px dashed #ffffff18}
+.r:last-child{border-bottom:none}
+.a{display:flex;align-items:center;gap:14px}
+.a .bz{box-shadow:0 0 0 1px #ffffff22,0 8px 18px rgba(0,0,0,.5)}
+.tl{display:flex;gap:3px}
+.tl i{position:relative;font-style:normal;width:var(--w);height:44px;border-radius:6px;background:linear-gradient(180deg,#22272C 0 49%,#191D21 51% 100%);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-weight:800;font-size:var(--f);color:#B8F26A;box-shadow:inset 0 0 0 1px #ffffff10}
+.tl i::after{content:'';position:absolute;left:0;right:0;top:50%;height:1.5px;background:#0B0E11}
+.a .nm{font-size:13px;color:#8A919C;font-weight:600;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
+.a .nm b{font-family:'JetBrains Mono';font-weight:800;font-size:10px;letter-spacing:2px;color:#5E656D;margin-right:6px}
+.why{font-size:19px;font-weight:500;color:#D9DCD6;line-height:1.28;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.px{text-align:right;font-family:'JetBrains Mono';font-weight:800}
+.px b{display:block;font-size:22px;color:#F2F4EF}
+.px span{font-size:18px}
+.ft{position:relative;display:flex;justify-content:space-between;margin-top:20px;font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:2px;color:#0B0E11aa}
+</style></head><body><div class="s">
+${mark(820, 520, -230, '#0B0E11', '#0B0E11', 0.06)}
+<div class="head"><img src="/hotcoin-tradfi/public/brand/logo-official-black.png"><h1>What to Watch<span class="t5">TODAY</span></h1><div class="pill"><span class="dot"></span>${D.window}</div></div>
+<div class="bd"><div class="tex"></div>
+ <div class="hr"><span>ASSET</span><span>WHY TODAY</span><span>LAST · 24H</span></div>
+ ${it.map((g) => {
+    const n = g.sym.length, w = n > 5 ? Math.floor(150 / n) : 30, f = n > 5 ? 20 : 24;
+    return `<div class="r"><div class="a">${bezel(g, 56, 'steel')}<div><div class="tl" style="--w:${w}px;--f:${f}px">${tiles(g.sym)}</div><div class="nm"><b>${kindLabel(g)}</b>${g.name}</div></div></div>
+  <div class="why">${g.why}</div>
+  <div class="px"><b>${wprice(g.last)}</b>${wchg(g.ch, '#2DBD85', '#F6465D')}</div></div>`;
+  }).join('')}
+</div>
+<div class="ft"><span>${D.date} · CRYPTO + TRADFI · 24H</span><span>HOTCOIN.COM</span></div>
+</div></body></html>`;
+};
+
+// paper: editorial front page, serif numerals, hairline rules
+const W_PAPER = () => {
+  const it = D.items || [];
+  return `${HEAD}${SERIF}<style>
+body{background:#FAF8F3;color:#0B0E11}
+.mast{position:relative;display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:4px double #0B0E11}
+.mast img{height:40px}
+.mast span{font-family:'JetBrains Mono';font-weight:800;font-size:15px;letter-spacing:3px}
+.ttl{position:relative;display:flex;align-items:flex-end;justify-content:space-between;margin-top:26px}
+.ttl h1{font-family:'Inter Tight';font-weight:800;font-size:76px;letter-spacing:-3px;line-height:.95}
+.ttl h1 em{font-family:'Instrument Serif';font-style:italic;font-weight:400;letter-spacing:-1px;color:#4E8F2E;font-size:92px}
+.ttl .tm{font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:1px;color:#6B7280;text-align:right;line-height:1.5;padding-bottom:10px}
+.list{position:relative;flex:1;display:flex;flex-direction:column;margin-top:24px;border-top:1.5px solid #0B0E11}
+.r{flex:1;display:flex;align-items:center;gap:22px;border-bottom:1px solid #0B0E1126}
+.r:last-child{border-bottom:1.5px solid #0B0E11}
+.r .n{font-family:'Instrument Serif';font-size:76px;line-height:1;width:44px;text-align:center;flex:none;color:#0B0E11}
+.r .mid{flex:1;min-width:0}
+.r .top{display:flex;align-items:baseline;gap:10px}
+.r .sym{font-family:'Inter Tight';font-weight:800;font-size:30px;letter-spacing:-.5px}
+.r .nm{font-family:'Instrument Serif';font-style:italic;font-size:23px;color:#4B5058}
+.r .k{font-family:'JetBrains Mono';font-weight:800;font-size:11px;letter-spacing:2px;color:#6B7280;margin-left:auto;flex:none}
+.r .why{font-size:20px;font-weight:500;margin-top:5px;line-height:1.28;color:#1F2328;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.r .px{text-align:right;flex:none;width:182px}
+.r .px b{display:block;font-family:'Inter Tight';font-weight:800;font-size:27px;letter-spacing:-.5px}
+.r .px span{font-family:'JetBrains Mono';font-weight:800;font-size:19px}
+.ft{position:relative;display:flex;justify-content:space-between;margin-top:18px;font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:2px;color:#6B7280}
+</style></head><body><div class="s">
+<div class="mast"><img src="/hotcoin-tradfi/public/brand/logo-official-black.png"><span>${D.dow ? D.dow + ' · ' : ''}${D.date}</span></div>
+<div class="ttl"><h1>What to Watch <em>today</em></h1><div class="tm">${D.window.replace(' (UTC+8)', '<br>UTC+8')}</div></div>
+<div class="list">${it.map((g, i) => `<div class="r"><span class="n">${i + 1}</span>${bezel(g, 74, 'steel')}
+  <div class="mid"><div class="top"><span class="sym" style="font-size:${symSize(g, 30)}px">${g.sym}</span><span class="nm">${g.name}</span><span class="k">${kindLabel(g)}</span></div>
+  <div class="why">${g.why}</div></div>
+  <div class="px"><b>${wprice(g.last)}</b>${wchg(g.ch, '#17A86B', '#E5484D')}</div></div>`).join('')}</div>
+<div class="ft"><span>CRYPTO + TRADFI · 24H CHANGE</span><span>HOTCOIN.COM</span></div>
+</div></body></html>`;
+};
+
 // ---------- orbit: visual, low on numbers. Ink, coins climbing a lime trajectory ----------
 // #5 bottom left to #1 top right; coin size by rank; only a small % chip per coin.
 const ORBIT = () => {
@@ -319,7 +491,7 @@ ${D.gainers.map((g, i) => {
 </div></body></html>`;
 };
 
-const PAGES = {'sq-orbit': ORBIT, 'sq-race': RACE, 'sq-watch': WATCH, 'sq-white': () => POD(false), 'sq-black': () => POD(true), 'sq-mark': MARK, 'sq-cards': CARDS, 'sq-top1': TOP1};
+const PAGES = {'sq-orbit': ORBIT, 'sq-race': RACE, 'sq-watch': WATCH, 'sq-watch-ink': W_INK, 'sq-watch-bento': W_BENTO, 'sq-watch-board': W_BOARD, 'sq-watch-paper': W_PAPER, 'sq-white': () => POD(false), 'sq-black': () => POD(true), 'sq-mark': MARK, 'sq-cards': CARDS, 'sq-top1': TOP1};
 const want = process.argv.slice(2);
 fs.mkdirSync(DIR + '/build', {recursive: true});
 const server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1', '--directory', ROOT], {stdio: 'ignore'});

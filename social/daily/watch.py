@@ -13,9 +13,11 @@ picks.json (written by the run after its news research, see RUNBOOK.md):
 
 Checks every symbol against Hotcoin's live ticker (exits non-zero if one is missing), takes live price and
 24h change, renders the poster (square.mjs sq-watch) and writes three captions next to picks.json:
-  x.txt (with @handles), facebook.txt and linkedin.txt (no @handles). Each carries one Hotcoin page link (links.py).
+  x.txt (with @handles), facebook.txt, linkedin.txt and telegram.txt (no @handles). Each carries one Hotcoin page link.
+The poster style rotates through TEMPLATES (--template list|ink|bento|board|paper to force one); the image is always
+sq-watch.png and the style is saved as "template" in data.json.
 """
-import datetime as dt, json, os, re, subprocess, sys
+import datetime as dt, glob, json, os, random, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import links  # noqa: E402  (one Hotcoin page link per post: Converter here)
@@ -36,6 +38,10 @@ TRADFI = {
     'XAUT': ('Tether Gold', None), 'PAXG': ('PAX Gold', 'PaxosGlobal'),
 }
 TZ = live.TZ
+# Five poster styles rotate so the morning post doesn't look the same every day (owner, Nov 26 2026).
+# 'auto' picks at random, never a style used on either of the last two posted days.
+TEMPLATES = {'list': 'sq-watch', 'ink': 'sq-watch-ink', 'bento': 'sq-watch-bento', 'board': 'sq-watch-board', 'paper': 'sq-watch-paper'}
+TG_MAX = 1024  # Telegram photo caption limit
 LIGHT = ((0, 4351), (8192, 8205), (8208, 8223), (8242, 8247))
 
 
@@ -56,8 +62,27 @@ def base(sym):
     return sym[:-1] if sym.endswith('B') and sym[:-1] in TRADFI else sym
 
 
+def pick_template(out, want):
+    if want != 'auto':
+        return want
+    here = os.path.basename(out)
+    recent = []
+    for d in sorted(glob.glob(os.path.join(live.HERE, 'watch', '20*')), reverse=True):
+        if os.path.basename(d) < here and os.path.exists(os.path.join(d, 'published.json')):
+            try:
+                recent.append(json.load(open(os.path.join(d, 'data.json'))).get('template', 'list'))
+            except Exception:
+                recent.append('list')
+        if len(recent) == 2:
+            break
+    return random.choice([t for t in TEMPLATES if t not in recent])
+
+
 def main():
     picks_path = sys.argv[1]
+    want = sys.argv[sys.argv.index('--template') + 1] if '--template' in sys.argv else 'auto'
+    if want not in ('auto', *TEMPLATES):
+        sys.exit(f'--template must be auto or one of {list(TEMPLATES)}')
     out = os.path.dirname(os.path.abspath(picks_path))
     picks = json.load(open(picks_path))['items']
     if len(picks) != 5:
@@ -94,10 +119,15 @@ def main():
     json.dump(cache, open(live.CACHE, 'w'), indent=1, ensure_ascii=False)
 
     now = dt.datetime.now(TZ)
-    data = {'date': now.strftime('%b %-d').upper(), 'window': f'Prices at {now.strftime("%b %-d %H:%M")} (UTC+8)', 'items': items}
+    tpl = pick_template(out, want)
+    data = {'date': now.strftime('%b %-d').upper(), 'dow': now.strftime('%a').upper(), 'template': tpl,
+            'window': f'Prices at {now.strftime("%b %-d %H:%M")} (UTC+8)', 'items': items}
     json.dump(data, open(os.path.join(out, 'data.json'), 'w'), indent=1, ensure_ascii=False)
-    subprocess.run(['node', os.path.join(live.HERE, 'square.mjs'), 'sq-watch'], check=True,
+    page = TEMPLATES[tpl]
+    subprocess.run(['node', os.path.join(live.HERE, 'square.mjs'), page], check=True,
                    env={**os.environ, 'DATA': os.path.join(out, 'data.json'), 'OUT_DIR': out}, stdout=subprocess.DEVNULL)
+    if page != 'sq-watch':
+        os.replace(os.path.join(out, f'{page}.png'), os.path.join(out, 'sq-watch.png'))  # the post image is always sq-watch.png
 
     def price(v):
         return f'${v:,.2f}' if v >= 1 else f'${v:.6g}'
@@ -128,12 +158,25 @@ def main():
                 return t
         return t
 
-    caps = {'x': caption(True), 'x-short': short_caption(), 'facebook': caption(False), 'linkedin': caption(False)}
+    def telegram_caption():
+        """Telegram channel: no @handles (they'd point at Telegram users), no hashtags, reactions instead of replies,
+        and it must fit Telegram's 1024-char photo caption."""
+        lines = [f'👀 What to Watch Today on Hotcoin | {now.strftime("%b %-d")}', '']
+        for g in items:
+            lines += [f'🟩 ${g["sym"]} {price(g["last"])} {pct(g["ch"])}', f'→ {g["why"]}', '']
+        lines += [f'⏱ {data["window"]}, 24h change', link, '', 'Which one is on your list? Vote with a reaction 👇']
+        t = '\n'.join(lines)
+        if len(t) > TG_MAX:
+            sys.exit(f'telegram caption is {len(t)} chars (max {TG_MAX}): shorten the "why" lines')
+        return t
+
+    caps = {'x': caption(True), 'x-short': short_caption(), 'facebook': caption(False), 'linkedin': caption(False),
+            'telegram': telegram_caption()}
     for k, v in caps.items():
         if '—' in v:
             sys.exit('em dash in caption, rewrite the "why" lines')
         open(os.path.join(out, f'{k}.txt'), 'w').write(v)
-    print(json.dumps({'dir': out, 'image': os.path.join(out, 'sq-watch.png'), 'items': items,
+    print(json.dumps({'dir': out, 'image': os.path.join(out, 'sq-watch.png'), 'template': tpl, 'items': items,
                       'x_len': x_len(caps['x']), 'x_short_len': x_len(caps['x-short'])}, ensure_ascii=False, indent=1))
 
 

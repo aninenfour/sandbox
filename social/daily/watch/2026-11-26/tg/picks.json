@@ -1,0 +1,30 @@
+{
+ "items": [
+  {
+   "sym": "BTC",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Spot BTC ETFs saw about $4.7B outflows in Nov to Nov 23"
+  },
+  {
+   "sym": "ETH",
+   "kind": "crypto",
+   "why": "Near $1,700 with Fear & Greed at 13, extreme fear"
+  },
+  {
+   "sym": "XRP",
+   "kind": "crypto",
+   "why": "Led the majors in Wednesday's crypto bounce"
+  },
+  {
+   "sym": "NVDAB",
+   "kind": "tradfi",
+   "why": "Fell 3.9% Wed to $149.30; S&P put its AA rating on watch"
+  },
+  {
+   "sym": "ORCLB",
+   "kind": "tradfi",
+   "why": "Fell 5.1% Wed; US markets closed today for Thanksgiving"
+  }
+ ]
+}
