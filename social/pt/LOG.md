@@ -71,6 +71,9 @@
 | 25/11 | 16:23 | Learn do dia | Futuros perpétuos em USDT (pt_PT link in reply) | scheduled |
 | 25/11 | 19:47 | Meme (serious photo) | celular nas costas: tia na ceia pergunta do bitcoin | scheduled |
 
+| 26/11 | 08:41 | GM | Fortaleza: linha é a linha da pipa, da praia até o kite | scheduled |
+| 26/11 | 16:31 | Learn do dia | Copy trading (pt_PT link in reply), last article in queue | scheduled |
+
 ## Queued ideas (not scheduled yet)
 - Thu 19/11: Earn prazo fixo exclusivo launch (key visual from official banner, cut done), Wall Street Earnings last day (ends 12:59), Futures loss protection last call evening (ends 20/11 07:00).
 - Spot #24 midterm ~24/11, P2P Sprint midterm ~22/11; last calls 27/11 evening (P2P) and 29-30/11 (Spot).
@@ -120,3 +123,4 @@
 - 25/11 07:45 check 1: no new announcements, team has nothing queued on PT. Placar at check 2. Learn queue: only copy trading left (rainbow on hold), then skip days until new articles.
 - 25/11 12:09 check 2: no new announcements. KOR +76.5% skipped (no CoinGecko match; only KOR* ETF tokens). Placar MANTRA (CoinGecko mantra +34.4%), BTC 58,012 (-3.35%), 13:42.
 - 25/11 16:14 check 3: no new announcements. Nothing closes tonight or before 08:00 Thu. Meme 19:47 queued. Thu 26: US holiday (no TradFi stock post), GM + copy trading Learn (last in queue) + placar. Fri 27 evening: last calls P2P Sprint + Earn exclusive (both Sat 28 morning). Sat 28 evening: last call Ronaldinho (Sun 04:00). Sun 29 evening: last call Spot #24 (Mon 12:59).
+- 26/11 07:45 check 1: no new announcements, team has nothing queued. US Thanksgiving (no stock post). Learn queue now empty (rainbow on hold). No meme (had 25/11; next 27/11). Placar at check 2.

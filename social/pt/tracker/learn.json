@@ -1,5 +1,5 @@
 {
- "_note": "Hotcoin Learn articles mapped 17/11/2026 from hotcoin.com/en_US/learn/ (date = cover image upload date in img.hotbtech.cn/cms/support/<date>/). pt_PT pages exist but the article body is English (only site UI is Portuguese). One Learn post per day max, newest OK first; skip days when nothing is left. PT X: pt-BR hook + pt_PT link in first reply. FB + Hotcoin Research X: English copy + en_US link.",
+ "_note": "Hotcoin Learn articles mapped 17/11/2026 from hotcoin.com/en_US/learn/ (date = cover image upload date in img.hotbtech.cn/cms/support/<date>/). pt_PT pages exist but the article body is English (only site UI is Portuguese). One Learn post per day max, newest OK first; skip days when nothing is left. PT X: pt-BR hook + pt_PT link in first reply. FB + Hotcoin Research X: English copy + en_US link. Queue empty after 26/11 (rainbow chart on hold): skip Learn days until new articles appear.",
  "queue": [
   {
    "slug": "stock-split",
@@ -70,7 +70,7 @@
    "date": "2025-08-05",
    "title": "Follower Copy Trading Operation Guide",
    "pt_hook": "Copy trading: como seguir um trader",
-   "status": "next (last one in queue)"
+   "status": "posted 26/11 16:31 (PT)"
   }
  ],
  "skip": {
