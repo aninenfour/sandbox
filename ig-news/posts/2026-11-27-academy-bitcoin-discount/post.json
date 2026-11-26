@@ -1,0 +1,147 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "variant": "a",
+ "date": "NOV 27",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "cover.jpg",
+   "photo_pos": "30% 15%",
+   "tag": "CRYPTO 101",
+   "headline": "How to read Bitcoin's [51% discount] in 3 steps"
+  },
+  {
+   "kind": "tslide",
+   "photo": "p1.jpg",
+   "photo_pos": "50% 40%",
+   "title": "1. Measure from the <span class='g'>top</span>",
+   "paras": [
+    "Top close $124,753. Now $60,555: <r>51% off</r>."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "Bitcoin, top close to lowest close",
+    "items": [
+     {
+      "l": "2017-18",
+      "v": -83.4,
+      "txt": "-83%"
+     },
+     {
+      "l": "2021-22",
+      "v": -76.6,
+      "txt": "-77%"
+     },
+     {
+      "l": "Now",
+      "v": -51.5,
+      "txt": "-51%"
+     }
+    ],
+    "row": 50
+   },
+   "source": "Yahoo Finance BTC-USD daily closes (CoinMarketCap data), CoinGecko"
+  },
+  {
+   "kind": "ngrid",
+   "title": "2. Losses need bigger gains back",
+   "text": "Lose half and you must [double] just to break even.",
+   "cells": [
+    {
+     "photo": "g0.jpg",
+     "label": "Any 50% drop",
+     "value": "+100%",
+     "photo_pos": "50% 50%"
+    },
+    {
+     "photo": "g1.jpg",
+     "label": "Bitcoin now, -51%",
+     "value": "+106%",
+     "photo_pos": "40% 40%"
+    },
+    {
+     "photo": "g2.jpg",
+     "label": "2018 low, -83%",
+     "value": "+502%",
+     "neg": true,
+     "photo_pos": "50% 45%"
+    }
+   ]
+  },
+  {
+   "kind": "tslide",
+   "photo": "p3.jpg",
+   "photo_pos": "50% 12%",
+   "title": "3. Count the <span class='g'>months</span> back",
+   "paras": [
+    "2022 low to old top: <g>15 months</g>. 2018: 23."
+   ],
+   "visual": {
+    "type": "line",
+    "title": "Bitcoin, Nov 2021 top to Mar 2024",
+    "series": [
+     67567,
+     57230,
+     47687,
+     38743,
+     44355,
+     46282,
+     38469,
+     29799,
+     19269,
+     23314,
+     20127,
+     19312,
+     20485,
+     15787,
+     16967,
+     16625,
+     23724,
+     23647,
+     28411,
+     28092,
+     26820,
+     30590,
+     29676,
+     25801,
+     27984,
+     35437,
+     38689,
+     44167,
+     43076,
+     62441,
+     68330
+    ],
+    "labels": [
+     "Nov 2021",
+     "Mar 2024"
+    ],
+    "marks": [
+     {
+      "i": 13,
+      "text": "$15.8K low"
+     }
+    ],
+    "fmt": "${:,.0f}",
+    "last_label": "$68.3K",
+    "h": 170
+   },
+   "source": "Yahoo Finance BTC-USD daily closes"
+  }
+ ],
+ "sources": [
+  "Yahoo Finance BTC-USD daily closes (CoinMarketCap data): top close $124,752.53 Oct 6 2025; Nov 26 2026 $60,554.66 (-51.5%); CoinGecko spot $60,561 Nov 26 2026 15:45 UTC+8",
+  "Past drawdowns (close to close): Dec 16 2017 $19,497.40 to Dec 15 2018 $3,236.76 (-83.4%); Nov 8 2021 $67,566.83 to Nov 21 2022 $15,787.28 (-76.6%)",
+  "Recovery: back above old top close Nov 30 2020 ($19,625.84, 23.5 months after Dec 15 2018 low) and Mar 4 2024 ($68,330.41, 15.4 months after Nov 21 2022 low)",
+  "Math: gain needed = 1/(1-drop)-1: 50% -> 100%, 51.5% -> 106%, 83.4% -> 502%"
+ ],
+ "photo_credits": [
+  "Man looking at phone: sayan Nath / Unsplash (ChlmPNBVhsg)",
+  "50% discount signs: Artem Beliaikin / Unsplash (cE8cwN2A2-c)",
+  "SALE sign: Justin Lim / Unsplash (JKjBsuKpatU)",
+  "Bitcoin on gold: Kanchanara / Unsplash (rhm7H8X5J98)",
+  "Golden Bitcoin: Kanchanara / Unsplash (7E3QGntO66M)",
+  "Black Friday sale tags: Tamanna Rumee / Unsplash (mIqyYpSNq3o)"
+ ]
+}
