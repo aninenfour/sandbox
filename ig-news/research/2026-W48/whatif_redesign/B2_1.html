@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Serif';src:url(fonts/InstrumentSerif-Regular.ttf)}
+@font-face{font-family:'Serif';font-style:italic;src:url(fonts/InstrumentSerif-Italic.ttf)}
+@font-face{font-family:'Archivo';src:url(../../../assets/fonts/Archivo.ttf);font-weight:100 900;font-stretch:62% 125%}
+@font-face{font-family:'Manrope';src:url(../../../assets/fonts/Manrope.ttf);font-weight:200 800}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+.f{position:relative;width:1080px;height:1920px;overflow:hidden}
+.abs{position:absolute}
+
+body{background:#060807;color:#fff;font-family:'Inter Display','Inter',sans-serif}
+.glow{position:absolute;border-radius:50%;filter:blur(90px)}
+.pill{position:absolute;display:inline-flex;align-items:center;gap:14px;padding:16px 28px;border-radius:999px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);font:600 26px 'Inter';letter-spacing:.2em;text-transform:uppercase;color:#d9e2d6}
+.pill i{width:12px;height:12px;border-radius:50%;background:#7EC25A;box-shadow:0 0 16px #7EC25A}
+.glass{position:absolute;border-radius:48px;background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.025));
+  border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 40px 120px rgba(0,0,0,.6);backdrop-filter:blur(30px)}
+.grad{background:linear-gradient(180deg,#fff 30%,#b9c4b5);-webkit-background-clip:text;color:transparent}
+.mute{color:#8b958a}
+.noise{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(126,194,90,.10),transparent 60%)}
+
+.bgl{position:absolute;inset:0;pointer-events:none}
+.bloom{position:absolute;border-radius:50%;pointer-events:none}
+.grain{position:absolute;inset:0;background:url(grain.png);background-size:540px 540px;mix-blend-mode:overlay;opacity:.7;pointer-events:none}
+.vig{position:absolute;inset:0;background:radial-gradient(120% 85% at 50% 45%,transparent 45%,rgba(0,0,0,.72) 100%);pointer-events:none}
+</style></head><body><div class="f"><div class="bgl" style="background:url(bgphoto_1.jpg) center/cover;opacity:0.55"></div><div class="bgl" style="background:linear-gradient(180deg,rgba(3,5,4,.35) 0%,rgba(3,5,4,.10) 28%,rgba(3,5,4,.7) 47%,rgba(3,5,4,.85) 58%,rgba(3,5,4,.92) 80%,#030504 100%)"></div><div class="grain"></div><div class="vig"></div>
+<div class="glow" style="left:220px;top:300px;width:700px;height:700px;background:rgba(126,194,90,.28)"></div>
+<div class="pill" style="left:72px;top:240px"><i></i>What if</div>
+<img class="abs" src="bezos_cut.png" style="left:-30px;top:330px;width:1110px;
+  -webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 98%);filter:contrast(1.05) saturate(.9) drop-shadow(0 0 1.5px rgba(200,245,170,.55)) drop-shadow(-4px -3px 14px rgba(126,194,90,.38))">
+<div class="abs" style="left:72px;top:1080px;font:700 108px/1 'Inter Display';letter-spacing:-.035em">
+  <span class="grad">$250M</span><br><span class="grad">on a newspaper.</span></div>
+<div class="abs" style="left:72px;top:1320px;font:600 64px/1 'Inter Display';letter-spacing:-.02em;color:#7EC25A">What if it was Bitcoin?</div>
+</div></body></html>

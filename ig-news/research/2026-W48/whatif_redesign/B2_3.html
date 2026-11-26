@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Serif';src:url(fonts/InstrumentSerif-Regular.ttf)}
+@font-face{font-family:'Serif';font-style:italic;src:url(fonts/InstrumentSerif-Italic.ttf)}
+@font-face{font-family:'Archivo';src:url(../../../assets/fonts/Archivo.ttf);font-weight:100 900;font-stretch:62% 125%}
+@font-face{font-family:'Manrope';src:url(../../../assets/fonts/Manrope.ttf);font-weight:200 800}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+.f{position:relative;width:1080px;height:1920px;overflow:hidden}
+.abs{position:absolute}
+
+body{background:#060807;color:#fff;font-family:'Inter Display','Inter',sans-serif}
+.glow{position:absolute;border-radius:50%;filter:blur(90px)}
+.pill{position:absolute;display:inline-flex;align-items:center;gap:14px;padding:16px 28px;border-radius:999px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);font:600 26px 'Inter';letter-spacing:.2em;text-transform:uppercase;color:#d9e2d6}
+.pill i{width:12px;height:12px;border-radius:50%;background:#7EC25A;box-shadow:0 0 16px #7EC25A}
+.glass{position:absolute;border-radius:48px;background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.025));
+  border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 40px 120px rgba(0,0,0,.6);backdrop-filter:blur(30px)}
+.grad{background:linear-gradient(180deg,#fff 30%,#b9c4b5);-webkit-background-clip:text;color:transparent}
+.mute{color:#8b958a}
+.noise{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(126,194,90,.10),transparent 60%)}
+
+.bgl{position:absolute;inset:0;pointer-events:none}
+.bloom{position:absolute;border-radius:50%;pointer-events:none}
+.grain{position:absolute;inset:0;background:url(grain.png);background-size:540px 540px;mix-blend-mode:overlay;opacity:.7;pointer-events:none}
+.vig{position:absolute;inset:0;background:radial-gradient(120% 85% at 50% 45%,transparent 45%,rgba(0,0,0,.72) 100%);pointer-events:none}
+</style></head><body><div class="f"><div class="bgl" style="background:url(bgphoto_3.jpg) center/cover;opacity:0.85"></div><div class="bgl" style="background:radial-gradient(70% 22% at 45% 62%,rgba(3,5,4,.85),rgba(3,5,4,0)),linear-gradient(180deg,rgba(3,5,4,.35) 0%,rgba(3,5,4,.25) 40%,rgba(3,5,4,.7) 75%,rgba(3,5,4,.92) 100%)"></div><div class="grain"></div><div class="vig"></div>
+<div class="glow" style="left:190px;top:340px;width:600px;height:600px;background:rgba(126,194,90,.30)"></div>
+<div class="abs" style="left:300px;top:450px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(126,194,90,0.32)"></div><div class="abs" style="left:210px;top:360px;width:560px;height:560px;border-radius:50%;border:1px solid rgba(126,194,90,0.26)"></div><div class="abs" style="left:110px;top:260px;width:760px;height:760px;border-radius:50%;border:1px solid rgba(126,194,90,0.2)"></div><div class="abs" style="left:0px;top:150px;width:980px;height:980px;border-radius:50%;border:1px solid rgba(126,194,90,0.14)"></div>
+<div class="glass" style="left:370px;top:520px;width:240px;height:240px;border-radius:64px;display:grid;place-items:center">
+  <img src="../../../assets/symbol.svg" style="width:128px"></div>
+<div class="abs" style="left:72px;right:160px;top:980px;text-align:center;font:700 96px/1.02 'Inter Display';letter-spacing:-.035em">
+  <span class="grad">Trade Bitcoin</span><br><span style="color:#7EC25A">on Hotcoin</span></div>
+<div class="abs" style="left:150px;width:680px;top:1236px;height:124px;border-radius:999px;background:linear-gradient(180deg,#9ad677,#6fb24c);
+  box-shadow:0 0 0 1px rgba(255,255,255,.25) inset,0 20px 60px rgba(126,194,90,.45);display:flex;align-items:center;justify-content:center;gap:22px;
+  font:700 44px 'Inter Display';color:#06140a">Download Hotcoin <span style="font-size:40px">&#8594;</span></div>
+<div class="abs mute" style="left:72px;right:160px;top:1394px;text-align:center;font:500 30px 'Inter'">Link in bio &nbsp;&middot;&nbsp; @hotcoinex</div>
+<img class="abs" src="../../../assets/logo-official-white.png" style="left:72px;top:240px;height:46px;opacity:.9">
+</div></body></html>
