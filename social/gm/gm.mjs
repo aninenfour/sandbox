@@ -109,7 +109,7 @@ if (photo) { // any day with a photo in inbox/ gets the photo treatment (text-on
       + [450, 900].map(y => `<div style="position:absolute;top:${y}px;left:0;height:1px;width:1080px;background:rgba(255,255,255,.35)"></div>`).join('')
       + [[360, 450], [720, 450], [360, 900], [720, 900]].map(([x, y]) => `<div style="position:absolute;left:${x - 12}px;top:${y - 1}px;width:24px;height:3px;background:${L}"></div><div style="position:absolute;left:${x - 1}px;top:${y - 12}px;width:3px;height:24px;background:${L}"></div>`).join(''),
     inset: `<div style="position:absolute;inset:36px;border:2px solid rgba(255,255,255,.85);border-radius:28px"></div>`
-      + `<div class="m" style="position:absolute;left:50%;bottom:22px;transform:translateX(-50%);background:${L};color:#0B0E11;font-size:22px;letter-spacing:3px;padding:6px 16px 5px;border-radius:999px">${dayLabel}</div>`,
+      + `<div class="m" style="position:absolute;left:50%;bottom:22px;transform:translateX(-50%);background:${L};color:#0B0E11;font-size:22px;letter-spacing:3px;padding:6px 16px 5px;border-radius:999px">${meta.pill || dayLabel}</div>`,
     scan: `<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.10) 0 2px,transparent 2px 5px)"></div>`
       + `<div style="position:absolute;left:0;right:0;top:${my - 40}px;height:80px;background:linear-gradient(transparent,rgba(184,242,106,.22),transparent)"></div>`
       + `<div style="position:absolute;left:0;right:0;top:${my - 1}px;height:2px;background:${L};box-shadow:0 0 18px ${L}"></div>` + M(`right:64px;top:${my + 14}px`, dayLabel, L),
