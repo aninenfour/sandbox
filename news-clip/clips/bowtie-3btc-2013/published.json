@@ -1,5 +1,15 @@
 {
- "instagram": {"state": "scheduled", "at": "2026-11-26T15:40:00+08:00"},
- "tiktok": {"state": "scheduled", "at": "2026-11-26T15:40:00+08:00"},
- "facebook": {"state": "scheduled", "at": "2026-11-26T15:40:00+08:00"}
+ "instagram": {
+  "state": "published",
+  "link": "https://www.instagram.com/reel/DgMl4L7u7cw/"
+ },
+ "tiktok": {
+  "state": "published",
+  "link": "https://www.tiktok.com/@hotcoin.com/video/7712381937142402324"
+ },
+ "facebook": {
+  "state": "published",
+  "link": "https://www.facebook.com/reel/1714425713359711"
+ },
+ "published_at": "2026-11-26T15:40:00+08:00"
 }
