@@ -97,5 +97,19 @@
       "Facebook",
       "Telegram (Hotcoin Announcements, posted 17:53 UTC+8)"
     ]
+  },
+  {
+    "date": "2026-11-26",
+    "time": "14:11 UTC+8 (scheduled), Telegram 14:13",
+    "slugs": [
+      "HotcoinFixed-TermEarnExclusive",
+      "tradfi-0-fee-carnival"
+    ],
+    "layout": "grain-dark",
+    "channels": [
+      "X main",
+      "Facebook",
+      "Telegram"
+    ]
   }
 ]
