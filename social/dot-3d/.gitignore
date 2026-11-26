@@ -1,0 +1,7 @@
+node_modules
+fonts
+_a-*.html
+out/still*.jpg
+out/*silent*.mp4
+out/music.wav
+out/render.log
