@@ -2558,5 +2558,25 @@
   "note": "Black Friday (US half-day). W48 how-to promise hook with a number, no comma, 8 words. Face cover (man on phone), ngrid objects only (sale sign, coins). 4 slides, no CTA. Variant a (Nov 26 was b). Media commit f146280. Nov 26 fix: slide 4 line chart re-rendered with d4dfdb8 label fix ($15.8K low label above the line, no duplicate $15,787 on the right scale); media commit 9216050. All 5 Publer posts (IG 19:00, FB 19:00, TikTok 19:02, IG Story 19:05, X Research 20:30) re-scheduled with new media; old 5 moved to drafts (old X draft caption prefixed [OLD MEDIA - replaced Nov 27, do not publish]).",
   "doc_row": true,
   "media_commit": "9216050d1b0674ab9dde3c11e78cbab6b6af81d7"
+ },
+ {
+  "id": "2026-11-27-musk-spacex-world-economy",
+  "type": "news",
+  "slot": "2026-11-27T10:00:00+08:00",
+  "title": "Musk: SpaceX could be worth a million world economies (X post Nov 26: multiplanetary + a millionth of the Sun's energy; 'These are obviously absurdly difficult goals'); SpaceX ~$1.7T (Nov 25 close $127.44) vs world GDP 2025 $118T; 2 shares per US kid with a Trump Account (~$255, ~$18B; Dec + June 2027)",
+  "score": 11,
+  "status": "scheduled",
+  "layouts": [
+   "nhero",
+   "nquote",
+   "ngrid",
+   "nbig"
+  ],
+  "sources": [
+   "Decrypt Nov 26 2026",
+   "Yahoo Finance Nov 26 2026",
+   "World Bank 2025 GDP via Decrypt"
+  ],
+  "note": "07:40 run (Black Friday). Score 11/12 (hook 3, relevance 2: SpaceX stock/tokenized, big name; fresh 3; visual 3). nquote experiment: Musk's exact words in 2 sources (Decrypt + Yahoo Finance). Not covered by any Hotcoin channel in 48h. Skipped: JPMorgan 'capitulation' via Strategy NAV (10/12, no famous quote), Galaxy withdraws bottom call (9), Spain freeze-without-judge (8, no visual), Binance withdrawal recovery (Binance hack Tue), BitMart shortfall (competitor), BTC ETF bleed (Wed). 68M vs 75M-fold multiple left out (sources disagree); 'locked till 18' single source, left out. Cover 9 words, no comma; render.py no warnings. Media commit 3d851c2. IG+FB 10:00, TikTok 10:02 (tt/ 1080x1350), IG Story 10:05, X Research 11:00 (01-04)."
  }
 ]
