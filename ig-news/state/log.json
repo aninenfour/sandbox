@@ -2474,7 +2474,7 @@
   "slot": "2026-11-26T10:00:00+08:00",
   "title": "Nvidia agrees to pay $290M to settle the 2018 crypto mining sales lawsuit (filed Nov 24, needs court approval); plaintiffs: $1.1B crypto GPU sales not flagged; -28.5% in 2 sessions Nov 2018; lawyers ask up to $62M (21.4%); 14% of ~$2.06B max damages",
   "score": 11,
-  "status": "scheduled",
+  "status": "published",
   "layouts": [
    "nhero",
    "ngrid",
@@ -2498,14 +2498,15 @@
    "Motley Fool Nov 18 2018 + Reuters/Express Tribune Nov 16 2018 (quote)"
   ],
   "note": "07:40 run (Thanksgiving). Score 11/12 (hook 2, relevance 3, fresh 3, visual 3). Main X posted Nvidia reinstatement/stock (What to Watch, Nov 24 12:01): different story, settlement not covered by any channel. Skipped: BTC <$58K/PCE recap (price recap, ETF fear theme Wed), Musk X bot-farm judgment ('Don't mess with X', 9/12), Fidelity Chainlink ETF (8/12), Ukraine crypto law 23% tax (8/12). Cover hook 8 words, no comma; render.py no warnings.",
-  "commit": "b74b158"
+  "commit": "b74b158",
+  "ig_url": "https://www.instagram.com/p/DgL-8UsCqN9/"
  },
  {
   "id": "2026-11-26-memereact-turkey-btc",
   "type": "reel-memereact",
   "slot": "2026-11-26T12:30:00+08:00",
   "title": "MEME REACT (Thanksgiving): Even the turkey beat my Bitcoin. 16 lb turkey +10% ($21.50 -> $23.68, AFBF 2026) vs BTC -34% ($91.3K Thanksgiving 2025 -> $60.3K), crying Ronaldo (face toward camera) + sad violin, bubble 'This year I'm thankful for the turkey.'",
-  "status": "scheduled",
+  "status": "published",
   "platforms": [
    "ig_reel",
    "tiktok"
@@ -2515,6 +2516,46 @@
    "BTC Nov 27 2025: Yahoo close $91,285, CoinGecko $90,516; Nov 26 2026 ~07:50 UTC+8: CoinGecko $60,306, Coinbase $60,255"
   ],
   "note": "Everyday-object joke tied to Thanksgiving (rice formula: object photo vs flat BTC logo, crying Ronaldo, sad violin). Hook = feeling then number. Meme segment 6.1-7.6 s x8 (frontal face, after the source watermark leaves the frame), y_offset 50 so the face sits under the stat labels; numbers in 2 columns (row_gap 64); bubble inside the right safe zone. Cover: media/2026-11-26-memereact-turkey-btc/cover.jpg; Publer IG + TikTok images checked = cover.",
-  "commit": "e77416c"
+  "commit": "e77416c",
+  "ig_url": "https://www.instagram.com/reel/DgMQGg7uI4E/"
+ },
+ {
+  "id": "2026-11-26-reel-skip",
+  "type": "reel",
+  "slot": "2026-11-26T21:30:00+08:00",
+  "title": "21:30 Reel slot left empty",
+  "status": "skipped",
+  "note": "Owner Nov 26 (PLAYBOOK 7b): WHAT IF Reels paused pending redesign; no Reel built. 15:40 run only filled Nov 27 19:00 Academy."
+ },
+ {
+  "id": "2026-11-27-academy-bitcoin-discount",
+  "type": "academy",
+  "slot": "2026-11-27T19:00:00+08:00",
+  "title": "Crypto 101: How to read Bitcoin's 51% discount in 3 steps (Black Friday). Top close $124,753 Oct 6 2025 -> $60,555 Nov 26 2026 (-51%); past drawdowns 2017-18 -83%, 2021-22 -77%; gain needed: -50% +100%, -51% +106%, -83% +502%; low to old top 15 months (2022) / 23 months (2018)",
+  "status": "scheduled",
+  "variant": "a",
+  "layouts": [
+   "nhero",
+   "tslide-bars",
+   "ngrid",
+   "tslide-line"
+  ],
+  "ngrid_used": true,
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(19:02, tt/01-04)",
+   "ig_story(19:05)",
+   "x_research(20:30, 01-04)"
+  ],
+  "sources": [
+   "Yahoo Finance BTC-USD daily closes (CoinMarketCap data): top close $124,752.53 Oct 6 2025; Nov 26 2026 $60,554.66 (-51.5%); CoinGecko spot $60,561 Nov 26 2026",
+   "Dec 16 2017 $19,497.40 -> Dec 15 2018 $3,236.76 (-83.4%); Nov 8 2021 $67,566.83 -> Nov 21 2022 $15,787.28 (-76.6%)",
+   "Back above old top close: Nov 30 2020 (23.5 months after low), Mar 4 2024 $68,330 (15.4 months)",
+   "Gain needed = 1/(1-drop)-1"
+  ],
+  "note": "Black Friday (US half-day). W48 how-to promise hook with a number, no comma, 8 words. Face cover (man on phone), ngrid objects only (sale sign, coins). 4 slides, no CTA. Variant a (Nov 26 was b). Media commit f146280.",
+  "doc_row": false,
+  "media_commit": "f146280152ab846db1c35ce10b6cf6bc06345273"
  }
 ]
