@@ -31,6 +31,7 @@ const COVERS = [
   {id: 'thu-bots', theme: 'dark', v: 0, title: 'Who trades crypto on-chain?', head: 'Bots make <b class="ch">2/3</b><br>of the trades',
    obj: {n: 'robot', x: 300, y: 690, w: 900}, candles: [[96, 760, 110, .9], [168, 850, 70, .7]], swipe: true},
   {id: 'thu-careers', photo: {f: 'crowd.jpg', pos: '100% 50%'}, kicker: 'CAREERS IN CRYPTO', title: 'Who runs a crypto exchange?', head: '8 teams behind<br>every exchange', swipe: true},
+  {id: 'thu-hiring', photo: {f: 'mbs-night.jpg', pos: '50% 30%'}, kicker: 'WE\'RE HIRING · MOSTLY REMOTE', title: 'Join Hotcoin, 9 years in crypto', head: '16 open<br>roles', swipe: true},
   {id: 'fri-autumn', photo: {f: 'mbs-bay.jpg', pos: '50% 8%'}, kicker: 'TOKEN2049 · MARINA BAY SANDS · OCT 7 TO 8', title: 'Hotcoin, since 2017 · our autumn', head: 'Year 9.<br>What we shipped', swipe: false},
   {id: 'fri-earn', theme: 'lime', v: 0, title: 'Fixed-Term Earn · ends Nov 28', head: 'Up to <b class="ch">6.00%</b><br>APR',
    obj: {n: 'jar', x: 180, y: 760, w: 980, rot: -4}, candles: [[90, 620, 120, .85], [170, 700, 80, .7]], swipe: false},

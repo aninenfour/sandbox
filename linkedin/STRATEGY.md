@@ -7,8 +7,20 @@ day, plus 1 event post a day, plus 3 videos a week (Mon, Wed, Fri: how-to strate
 and the archive/history clips we already post on IG and TikTok). Publish through Publer, scheduled directly (no draft
 review step, owner Nov 25).
 
-Owner decisions (Nov 25): bot numbers from public data only (no internal stats); human stories are faceless (no staff
-names or faces); archive videos must end on a finished thought (the Kahle payroll reel was cut before the payoff).
+Owner decisions (Nov 25): bot numbers from public data only (no internal stats); archive videos must end on a finished
+thought (the Kahle payroll reel was cut before the payoff).
+
+Owner decisions (Nov 26, these override older rules here and in CLAUDE.md where they conflict):
+- MAIN GOAL: more followers. Every format, time and theme is judged by followers gained and reach.
+- Faces are allowed: staff, booth and team photos, real people in stories and archive clips. Logos are allowed in
+  context (partners, coins, events, news). Do not drop a strong content style for caution. We still never invent
+  quotes, endorsements or numbers: every claim stays true and sourced.
+- Mix photo styles (real event photos, TOKEN2049, photo covers) with the grain covers so the feed is never one look.
+- Hiring is a pillar: scan moledao.io/companies/hotcoin/jobs/ weekly, post open roles as a designed carousel with
+  pay ranges, the Moledao link, a "DM us" call to action and many hashtags (up to ~15).
+- Run day by day: the daily run produces and schedules that day's LinkedIn posts and fills the tracker
+  (https://claude.ai/artifact/R7pmTZfEGjH8Kp1DyLf4x5). Themes and rules are reviewed and refreshed at least weekly
+  (Monday), so nothing repeats. See linkedin/RUNBOOK.md.
 
 ## 1. Where we start (Publer, Aug 27 to Nov 25, 2026)
 - 100 LinkedIn posts in 90 days, most mirrored from X. Best post: 9 engagements. Many posts: 0.
