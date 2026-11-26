@@ -548,8 +548,9 @@
   "format": "photo",
   "topic": "Academy: how to trade a market holiday",
   "hook": "Wall Street is closed today, Bitcoin isn't",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7712434368798559508"
  },
  {
   "id": "2026-11-26-nvidia-crypto-settlement",

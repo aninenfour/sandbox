@@ -86,7 +86,15 @@ def svg_line(v):
     lab = ''.join(f'<text x="{X(int(i*(n-1)/(len(v.get("labels",[]))-1 or 1))):.0f}" y="{h-6}" font-size="{21*F:.0f}" fill="#8a9095" text-anchor="{'start' if i==0 else ('end' if i==len(v.get('labels',[]))-1 else 'middle')}">{_esc(l)}</text>' for i, l in enumerate(v.get('labels', [])))
     marks = ''
     for m in v.get('marks', []):  # {i, text}
-        marks += f'<circle cx="{X(m["i"]):.0f}" cy="{Y(ys[m["i"]]):.0f}" r="9" fill="#0E1012"/><text x="{X(m["i"]):.0f}" y="{Y(ys[m["i"]])-20:.0f}" font-size="{22*F:.0f}" font-weight="700" text-anchor="middle" fill="#0E1012">{_esc(m["text"])}</text>'
+        # Review Nov 27: put the label above every line point under its width (BTC discount: the line ran through
+        # "$15.8K low"), with a paper-white halo so a crossing line never cuts the letters.
+        mi = m['i']; mw = 0.62 * 22 * F * len(m['text']) / 2 + 8
+        top = min(Y(y) for i, y in enumerate(ys) if abs(X(i) - X(mi)) <= mw)
+        my = max(min(Y(ys[mi]) - 20, top - 14), 22 * F)
+        marks += (f'<circle cx="{X(mi):.0f}" cy="{Y(ys[mi]):.0f}" r="9" fill="#0E1012"/><text x="{X(mi):.0f}" y="{my:.0f}" font-size="{22*F:.0f}" '
+                  f'font-weight="700" text-anchor="middle" fill="#0E1012" stroke="#fff" stroke-width="8" stroke-linejoin="round" paint-order="stroke">{_esc(m["text"])}</text>')
+    # a mark on the min / max point already names that value: no second copy on the right-hand scale (Nov 27: "$15,787")
+    mk = {ys[m['i']] for m in v.get('marks', [])}
     # Review Nov 24: when the line starts at its min (or max), label that first point where it is, not on the right-hand
     # scale under the end value (dividends: a grey "$0.56" under "$2.04" read like the 2025 value).
     t0 = fmt.format(ys[0]); lw = 0.62 * 22 * F * len(t0) + 10  # label width in svg units
@@ -94,8 +102,8 @@ def svg_line(v):
     ly = (min(near) - 16) if ys[0] == min(ys) else (max(near) + 22 * F + 12)
     first_lbl = (f'<circle cx="{X(0):.1f}" cy="{Y(ys[0]):.1f}" r="7" fill="{col}"/>'
                  f'<text x="{X(0):.0f}" y="{ly:.0f}" font-size="{22*F:.0f}" font-weight="700" fill="#5d646a">{_esc(t0)}</text>') if ys[0] in (min(ys), max(ys)) else ''
-    scale = ('' if abs(Y(ys[-1]) - Y(hi-pad)) < 44 or ys[0] == max(ys) else f'<text x="{w-100}" y="{Y(hi-pad)+8:.0f}" font-size="{20*F:.0f}" fill="#8a9095">{_esc(fmt.format(hi-pad))}</text>') \
-        + ('' if ys[0] == min(ys) or abs(Y(ys[-1]) - Y(lo+pad)) < 44 else f'<text x="{w-100}" y="{Y(lo+pad)+8:.0f}" font-size="{20*F:.0f}" fill="#8a9095">{_esc(fmt.format(lo+pad))}</text>') + first_lbl
+    scale = ('' if abs(Y(ys[-1]) - Y(hi-pad)) < 44 or ys[0] == max(ys) or max(ys) in mk else f'<text x="{w-100}" y="{Y(hi-pad)+8:.0f}" font-size="{20*F:.0f}" fill="#8a9095">{_esc(fmt.format(hi-pad))}</text>') \
+        + ('' if ys[0] == min(ys) or min(ys) in mk or abs(Y(ys[-1]) - Y(lo+pad)) < 44 else f'<text x="{w-100}" y="{Y(lo+pad)+8:.0f}" font-size="{20*F:.0f}" fill="#8a9095">{_esc(fmt.format(lo+pad))}</text>') + first_lbl
     return f'''<svg width="100%" viewBox="0 0 {w} {h}"><defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{col}" stop-opacity=".35"/><stop offset="1" stop-color="{col}" stop-opacity="0"/></linearGradient></defs>
 {grid}<path d="{area}" fill="url(#ga)"/><polyline points="{pts}" fill="none" stroke="{col}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="{X(n-1):.1f}" cy="{Y(ys[-1]):.1f}" r="10" fill="{col}"/><text x="{X(n-1)+18:.0f}" y="{Y(ys[-1])+9:.0f}" font-size="{28*F:.0f}" font-weight="800" fill="#0E1012">{_esc(v.get("last_label", fmt.format(ys[-1])))}</text>

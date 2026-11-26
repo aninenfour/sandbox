@@ -447,5 +447,23 @@
   ],
   "owner_decision": "(1) Cap WHAT IF at ~60 s? Gates 84 s got TikTok reach 11 vs 92-208 for <=60 s ones (IG unchanged ~125); one data point, Bezos 53 s will be the next check. (2) Team history-person story Reels still beat the desk on IG (Internet Archive 3,240): test one as the 21:30 format? (3) Re-post the failed Gates IG Story with the 58.8 s cut (needs a publish)?",
   "skipped": false
+ },
+ {
+  "date": "2026-11-27",
+  "time_utc": "2026-11-26T22:55Z",
+  "looked_at": "Publer published/scheduled/failed Nov 25-27 (IG/FB/TikTok + team channels), IG/TikTok insights Nov 19-27, FB Nov 24-27; renders: Nvidia $290M news 5 slides + Story (nquote, Jensen Huang), turkey MEME REACT cover + contact (vs rice cover), market-holiday Academy 4 + Story, BTC 51% discount Academy 4 + Story (scheduled 19:00 Nov 27)",
+  "metrics_summary": "Turkey MEME REACT (~10 h): IG reach 116, 0 shares, 1 save, 1 comment; TT 53, 0 shares (rice: 6 IG + 12 TT shares). Third MEME REACT in a row without a share; better IG reach than Netflix (19) but owner already set variety rules Nov 26 (Ronaldo cutout now used 3x). Nvidia nquote news (~13 h): IG 32 / TT 170 / FB 9 vs last week's news IG 41 / TT 384 at final; ETF news at the same age was IG 17 / TT 89, so on pace, too early to call the nquote. Bezos WHAT IF 53 s (~25 h): TT 17 (Gates 84 s: TT 15), IG 141, FB 57: the TikTok collapse is not about length (yesterday's 84 s hypothesis is wrong), useful for the WHAT IF redesign. Inflation Academy final-ish IG 21 / TT 53 / FB 14. Market-holiday Academy, team bow-tie story Reel and Thanksgiving greeting: no insights synced yet.",
+  "findings": [
+   "Failed posts Nov 25-27: none. Holiday Academy published on IG 19:01, FB, TikTok 19:09, IG Story 19:05. BTC discount Academy queued on IG/FB/TT/Story for Nov 27.",
+   "Renders: Nvidia news clean; nquote bubble sits under Huang's mouth, face visible. Slide 3 repeats the $290M stat from slide 2 (minor). Holiday Academy fine. Turkey MEME REACT: turkey photo is a dark 150 px circle, weaker than the bright rice bowl (190 px) but readable at full size; no change.",
+   "Bug (BTC discount Academy slide 4, line chart): the '$15.8K low' mark label sat 20 px above its dot, so the line ran through the letters; and the scale printed a second grey '$15,787' on the right for the same min. Same class as the Nov 24 first-label fix.",
+   "Hooks: Nvidia 'Nvidia agrees to pay $290M over crypto mining sales' passes. Turkey 'Even the turkey beat my Bitcoin' passes (owner's own example). Holiday cover had the comma (already flagged, lint added Nov 26). BTC discount cover 'How to read Bitcoin's 51% discount in 3 steps' passes the lint (9 words, no comma); TikTok hook 'Bitcoin is 51% off its top this Black Friday' is the stronger line, as with inflation. No new rule.",
+   "Chore: tracker doc Scheduled -> IG link and TikTok doc Scheduled -> TikTok link for the market-holiday Academy (only those 2 cells; checked by re-reading both docs). log.json / tiktok_log.json updated. Nothing else from Nov 24-26 was still Scheduled."
+  ],
+  "changes": [
+   "extra_templates.py svg_line: a mark label now sits above every line point within its width (with a white halo), and the right-hand scale no longer repeats a min/max value that a mark already labels. Tested by re-rendering the BTC discount Academy into scratch (slide 4 clean: label clear of the line, no stray $15,787); before/after research/2026-W48/line_mark_label_before_after.jpg. The scheduled Nov 27 post was NOT replaced (legibility issue, not a wrong fact); STYLE_NOTES changelog."
+  ],
+  "owner_decision": "(1) BTC discount Academy (19:00 today) ships with the line through '$15.8K low' and a duplicate '$15,787' on slide 4; a fixed render is one re-render away if you want it swapped (draft-and-reschedule, §8). (2) WHAT IF on TikTok sits at ~15-17 reach whether 53 s or 84 s: worth checking in the redesign whether TikTok is suppressing the format/template itself (IG holds ~125-140). (3) MEME REACT has had 0 shares on 3 posts since rice: consider a new meme cutout + no-bubble variant (as per your Nov 26 rules) before judging the format.",
+  "skipped": false
  }
 ]

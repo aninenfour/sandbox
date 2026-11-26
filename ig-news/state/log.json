@@ -2443,7 +2443,7 @@
   "type": "academy",
   "slot": "2026-11-26T19:00:00+08:00",
   "title": "Stocks 101: How to trade a market holiday, in 3 numbers (NYSE 10 closures, 251 trading days 2026 vs BTC 365; Fri Nov 27 close 1 PM ET = 2 AM Sat UTC+8; BTC on Thanksgiving Day 2019-2025, 2020 -8.4%)",
-  "status": "scheduled",
+  "status": "published",
   "variant": "b",
   "layouts": [
    "nhero",
@@ -2466,7 +2466,8 @@
   ],
   "note": "US Thanksgiving, markets closed. W48 how-to promise hook with a number, no face (NYSE, turkey, coin photos). 4 slides, no CTA. Variant b (Nov 25 was a). Media commit e7af889.",
   "doc_row": true,
-  "media_commit": "e7af889caef483f86e33fa8eb8960477bc5700a1"
+  "media_commit": "e7af889caef483f86e33fa8eb8960477bc5700a1",
+  "ig_url": "https://www.instagram.com/p/DgM8x3zFZ2t/"
  },
  {
   "id": "2026-11-26-nvidia-crypto-settlement",
