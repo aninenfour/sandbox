@@ -15,7 +15,8 @@ let pw; try { pw = require('playwright'); } catch { pw = require(path.join(execS
 const DIR = path.dirname(new URL(import.meta.url).pathname), ROOT = path.resolve(DIR, '../..'), OUT = path.join(DIR, 'out');
 const MODE = process.argv[2] || 'stills', FMT = process.argv[3] || '45';
 const VER = +process.env.V || (process.env.V2 ? 2 : 1), MB = +process.env.MB || 1;
-const [W, H] = FMT === '916' ? [1080, 1920] : [1080, 1350], SUF = (FMT === '916' ? '-916' : '') + (VER > 1 ? '-v' + VER : '');
+const STYLE = process.env.STYLE || '';
+const [W, H] = FMT === '916' ? [1080, 1920] : [1080, 1350], SUF = (FMT === '916' ? '-916' : '') + (VER > 1 ? '-v' + VER : '') + (STYLE ? '-' + STYLE : '');
 const FPS = +process.env.FPS || 30, DUR = 20;
 const FFMPEG = fs.existsSync('/usr/bin/ffmpeg') ? '/usr/bin/ffmpeg' : 'ffmpeg';
 const TYPES = {'.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.png': 'image/png', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.json': 'application/json'};
@@ -33,7 +34,7 @@ const browser = await pw.chromium.launch(process.env.GPU === 'metal' ? {args, ch
 const page = await browser.newPage({viewport: {width: W, height: H}});
 page.on('pageerror', (e) => console.error('PAGE ERROR', e.message));
 page.on('console', (m) => { if (m.type() === 'error') console.error('console:', m.text()); });
-await page.goto(`http://127.0.0.1:${port}/social/dot-3d/scene.html?w=${W}&h=${H}${process.env.ARMS ? '&arms=1' : ''}&v=${VER}&mb=${MB}`);
+await page.goto(`http://127.0.0.1:${port}/social/dot-3d/scene.html?w=${W}&h=${H}${process.env.ARMS ? '&arms=1' : ''}&v=${VER}&mb=${MB}${STYLE ? '&style=' + STYLE : ''}`);
 const info = await page.evaluate(() => window.READY);
 console.log('ready', JSON.stringify(info), 'gl:', await page.evaluate(() => { const g = document.querySelector('canvas').getContext('webgl2'); const d = g.getExtension('WEBGL_debug_renderer_info'); return d ? g.getParameter(d.UNMASKED_RENDERER_WEBGL) : '?'; }));
 fs.mkdirSync(OUT, {recursive: true});

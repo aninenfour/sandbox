@@ -18,6 +18,7 @@ const TALL = ASPECT < 0.7; // 9:16 cut
 // v2 (?v=2): speed aura, afterimages, cheeky butt gag on the rooftop, smoothed camera; beat grid of the hip-hop score
 const VER = +(P.get('v') || 1), V2 = VER >= 2, INK = VER >= 3; // v3: ink palette (#0B0E11 world, white + lime light only), lens pass
 const MB = +P.get('mb') || 1; // motion-blur sub-frames per frame
+const STYLE = P.get('style') || ''; // ink painting looks: shuimo | guofeng | nightink (post-process on the same 3D scene)
 const BEAT = 60 / 92.75, DROP = 2.95 + 16 * BEAT; // drop lands on the rooftop landing (13.30 s)
 const DUR = 20;
 
@@ -726,7 +727,7 @@ window.setT = (t) => {
   updateAura(t, scl);
   lens.uniforms.uT.value = t; lens.uniforms.uAmt.value = 1 + .8 * boost(t);
   renderer.setRenderTarget(null);
-  composer.render();
+  if (STYLE) inkRender(t); else composer.render();
 };
 const outC = canvas(W, H), oc = outC.getContext('2d');
 if (MB > 1) { outC.style.cssText = 'position:absolute;left:0;top:0'; document.body.appendChild(outC); }
@@ -751,6 +752,112 @@ function drawLogoReveal(k) {
 }
 
 // ---------- async assets (fonts, logo, sign) ----------
+// ---------- ink painting styles (水墨 / 国风 / 墨夜) ----------
+// G-buffer pass (view normals, depth, dot mask) + colour pass, composited into brush outlines, stepped ink washes,
+// paper grain and spot colour (lime, red); the dot keeps its colour with cel steps.
+const SIDX = {shuimo: 0, guofeng: 1, nightink: 2}[STYLE] ?? 0;
+let rtC, rtG, gMat, postScene, postCam, postMat, gHide = null;
+if (STYLE) {
+  reflector.visible = false;
+  const sky = (stops) => { const c = canvas(8, 512), g = c.getContext('2d'), gr = g.createLinearGradient(0, 0, 0, 512); stops.forEach(([o, col]) => gr.addColorStop(o, col)); g.fillStyle = gr; g.fillRect(0, 0, 8, 512); return ctex(c); };
+  if (SIDX === 0) {
+    scene.background = sky([[0, '#e9e3d4'], [1, '#f1ece0']]); scene.fog = new THREE.FogExp2('#ece6d8', .0085);
+    hemi.color.set('#ffffff'); hemi.groundColor.set('#6f6a60'); hemi.intensity = 1.9; key.intensity = 2.6;
+    MATS.forEach((m) => { m.color.set('#9aa0a2'); m.emissiveIntensity = .03; m.metalness = .1; m.roughness = .85; });
+    rain.material.color.set('#3a3d40'); rain.material.opacity = .22;
+  } else if (SIDX === 1) {
+    scene.background = sky([[0, '#203f4a'], [.45, '#5f8f92'], [.8, '#e9d6b4'], [1, '#f3e6c9']]); scene.fog = new THREE.FogExp2('#d9c9a8', .0075);
+    hemi.color.set('#ffe9c8'); hemi.groundColor.set('#2c3a40'); hemi.intensity = 1.6; key.color.set('#ffe0b0'); key.intensity = 2.6;
+    MATS.forEach((m) => { m.color.set('#3e5157'); m.emissiveIntensity = .55; m.metalness = .2; m.roughness = .7; });
+    rain.material.color.set('#e8dcc4'); rain.material.opacity = .25;
+  } else {
+    scene.background = sky([[0, '#060708'], [1, '#0d1013']]); scene.fog = new THREE.FogExp2('#0B0E11', .009);
+    MATS.forEach((m) => { m.color.set('#2a2f33'); m.emissiveIntensity = .7; });
+  }
+  rtC = new THREE.WebGLRenderTarget(W, H, {type: THREE.HalfFloatType, samples: 4});
+  rtG = new THREE.WebGLRenderTarget(W, H, {type: THREE.HalfFloatType, samples: 0});
+  gMat = new THREE.ShaderMaterial({uniforms: {uDot: {value: 0}},
+    vertexShader: 'varying vec3 vN; varying float vD; void main(){ vec4 mv = modelViewMatrix * vec4(position, 1.); vN = normalize(normalMatrix * normal); vD = -mv.z; gl_Position = projectionMatrix * mv; }',
+    fragmentShader: 'uniform float uDot; varying vec3 vN; varying float vD; void main(){ vec3 n = normalize(vN); gl_FragColor = vec4(n.xy * .5 + .5, clamp(vD / 400., 0., 1.), uDot); }'});
+  dotRoot.traverse((o) => { if (o.isMesh && !o.material.isShaderMaterial) {
+    o.onBeforeRender = (r, sc, c, g, m) => { if (m === gMat) { m.uniforms.uDot.value = 1; m.uniformsNeedUpdate = true; } };
+    o.onAfterRender = (r, sc, c, g, m) => { if (m === gMat) { m.uniforms.uDot.value = 0; m.uniformsNeedUpdate = true; } }; o.userData.isDot = true; } });
+  postMat = new THREE.ShaderMaterial({
+    uniforms: {tC: {value: rtC.texture}, tG: {value: rtG.texture}, uRes: {value: new THREE.Vector2(W, H)}, uS: {value: SIDX}, uT: {value: 0},
+      uPaper: {value: new THREE.Color(SIDX === 2 ? '#e8e2d2' : '#f1ebdd')}, uInk: {value: new THREE.Color(SIDX === 2 ? '#0B0E11' : SIDX === 1 ? '#1d1712' : '#15171A')}},
+    vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }',
+    fragmentShader: `uniform sampler2D tC, tG; uniform vec2 uRes; uniform int uS; uniform float uT; uniform vec3 uPaper, uInk; varying vec2 vUv;
+float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float n2(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3. - 2. * f); return mix(mix(h(i), h(i + vec2(1., 0.)), f.x), mix(h(i + vec2(0., 1.)), h(i + vec2(1., 1.)), f.x), f.y); }
+float fbm(vec2 p){ float s = 0., a = .5; for (int i = 0; i < 5; i++) { s += a * n2(p); p = p * 2.03 + 1.7; a *= .5; } return s; }
+vec3 tone(vec3 c){ c = 1. - exp(-c * 1.15); return pow(c, vec3(1. / 2.2)); }
+vec3 srgb(vec3 c){ return pow(c, vec3(1. / 2.2)); }
+vec3 cel(vec3 c){ float L = dot(c, vec3(.3, .59, .11)); float q = floor(L * 3. + .55) / 3.; return mix(c, c / max(L, .001) * q, .65); }
+void main(){
+  vec2 px = 1. / uRes, A = vec2(uRes.x / uRes.y, 1.);
+  vec2 wob = (vec2(fbm(vUv * A * 7.), fbm(vUv * A * 7. + 5.3)) - .5) * px * 7.;
+  vec2 uv = vUv + wob;
+  vec4 g0 = texture2D(tG, uv);
+  float r = 1.3 + 1.6 * fbm(vUv * A * 24.);
+  float ed = 0., en = 0.;
+  for (int i = 0; i < 8; i++) { float a = float(i) * .785398; vec4 g = texture2D(tG, uv + vec2(cos(a), sin(a)) * px * r); ed += abs(g.b - g0.b); en += length(g.rg - g0.rg); }
+  float far = g0.b;
+  float edge = clamp(smoothstep(.25, .9, ed / (g0.b + .003)) + smoothstep(.5, 1.3, en), 0., 1.);
+  edge *= (1. - smoothstep(.12, .6, far)) * (.6 + .5 * fbm(vUv * A * 90.));
+  vec3 c = tone(texture2D(tC, vUv).rgb);
+  float L = dot(c, vec3(.3, .59, .11)), mx = max(c.r, max(c.g, c.b)), sat = mx - min(c.r, min(c.g, c.b));
+  float lime = smoothstep(.22, .42, sat) * step(c.r, c.g) * step(c.b * 1.4, c.g);
+  float red = smoothstep(.25, .45, sat) * step(c.g * 1.5, c.r);
+  float isDot = texture2D(tG, vUv).a;
+  float grain = .9 + .1 * fbm(vUv * A * 160.) + .03 * (h(floor(vUv * uRes) + uT) - .5);
+  float sky = step(.999, texture2D(tG, vUv).b);
+  vec3 o;
+  if (uS == 0) {
+    float wash = 1. - smoothstep(.08, .88, L);
+    wash = floor(wash * 4. + .55 * fbm(vUv * A * 10.)) / 4.;
+    wash *= 1. - .85 * smoothstep(.08, .75, far);
+    vec3 paper = uPaper * grain;
+    o = mix(paper, uInk, clamp(wash, 0., 1.) * .8);
+    // distant ink mountains in the sky
+    float x = vUv.x;
+    float m1 = .52 + .16 * fbm(vec2(x * 2.2, 1.3)) , m2 = .46 + .12 * fbm(vec2(x * 3.7 + 4., 2.1));
+    float mtn = max(smoothstep(m1 + .004, m1 - .004, vUv.y) * .32, smoothstep(m2 + .004, m2 - .004, vUv.y) * .5);
+    mtn *= .6 + .4 * fbm(vUv * A * vec2(6., 18.));
+    if (sky > .5) o = mix(paper, uInk, mtn * smoothstep(.25, .6, vUv.y) * .75);
+    o = mix(o, srgb(vec3(.48, .75, .28)) * grain * (.75 + .5 * L), lime * .9);
+    o = mix(o, srgb(vec3(.79, .07, .09)) * grain, red * .9);
+    if (isDot > .5) o = cel(c);
+    o = mix(o, uInk, edge * .92);
+  } else if (uS == 1) {
+    vec3 q = c / max(L, .001) * (floor(L * 4. + .5) / 4.);
+    o = mix(c, q, .75) * mix(1., grain, .6);
+    if (isDot > .5) o = cel(c);
+    o = mix(o, uInk, edge * .88);
+  } else {
+    float wash = smoothstep(.03, .75, L); wash = floor(wash * 4. + .55 * fbm(vUv * A * 10.)) / 4.;
+    wash *= 1. - .7 * smoothstep(.08, .75, far);
+    o = mix(uInk * (.85 + .3 * fbm(vUv * A * 160.)), uPaper, clamp(wash, 0., 1.) * .5);
+    o = mix(o, c, max(lime, red));
+    if (isDot > .5) o = cel(c);
+    o = mix(o, uPaper * .82, edge * .75);
+  }
+  gl_FragColor = vec4(o, 1.);
+}`});
+  postScene = new THREE.Scene(); postCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+  postScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), postMat));
+}
+function inkRender(t) {
+  if (!gHide) { gHide = []; scene.traverse((o) => { if (o.userData.isDot) return; const m = o.material;
+    if (o.isPoints || o.isLine || o.isInstancedMesh || (m && (m.transparent || m.isShaderMaterial || m.blending === THREE.AdditiveBlending))) gHide.push(o); }); }
+  renderer.setRenderTarget(rtC); renderer.clear(); renderer.render(scene, camera);
+  const vis = gHide.map((o) => o.visible); gHide.forEach((o) => { o.visible = false; });
+  const bg = scene.background, fog = scene.fog; scene.background = null; scene.fog = null; scene.overrideMaterial = gMat;
+  renderer.setClearColor(new THREE.Color(.5, .5, 1), 0); renderer.setRenderTarget(rtG); renderer.clear(); renderer.render(scene, camera);
+  scene.overrideMaterial = null; scene.background = bg; scene.fog = fog; renderer.setClearColor(0x000000, 0);
+  gHide.forEach((o, i) => { o.visible = vis[i]; });
+  postMat.uniforms.uT.value = t; renderer.setRenderTarget(null); renderer.render(postScene, postCam);
+}
+
 window.READY = (async () => {
   const ff = [['Inter Tight', '800', 'inter-tight-latin-800-normal.woff2'], ['Inter Tight', '700', 'inter-tight-latin-700-normal.woff2']];
   for (const [fam, wt, file] of ff) { const f = new FontFace(fam, `url(/social/dot-3d/node_modules/@fontsource/inter-tight/files/${file})`, {weight: wt}); await f.load(); document.fonts.add(f); }
