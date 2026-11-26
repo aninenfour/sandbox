@@ -1,8 +1,8 @@
-# Original hip-hop score for the dot 3D test v2 (20 s). numpy + scipy + soundfile, nothing sampled.
+# Original hip-hop score for the dot 3D test v2/v3 (20 s). numpy + scipy + soundfile, nothing sampled.
 # Boom-bap at 92.75 BPM, downbeat grid starts at the dash (2.95 s) so beat 16 lands on the rooftop landing (13.30 s).
-# 0-2.95 s: vinyl crackle, dusty keys, riser into the dash. 2.95: drums + 808 in. 5.0 / 6.6 / 11.2: ring chimes.
-# 9.95: candle impact. 13.30: drop (808 hit), 13.42-14.15 bouncy wiggle groove, 14.27 scratch on the look back.
-# 15.0: lighter groove under the reveal, 18.2 pop, 19.0 end chord and a tape stop. About -16 LUFS.
+# Music only, no sound effects: 0-2.95 s filtered beat teaser + keys + reverse cymbal into the dash; 2.95 full beat,
+# 808, whistle hook; hat rolls into the ring boosts; snare fill into the drop; 13.30 drop (808 hit), bouncy wiggle
+# groove, scratch on the look back (14.27); 14.92 groove back with the hook; 19.0 end chord and tape stop. About -16 LUFS.
 # Run: python3 social/dot-3d/make-music-hiphop.py social/dot-3d/out/music-v2.wav
 import sys
 import numpy as np
@@ -13,12 +13,13 @@ from scipy.signal import butter, lfilter
 SR = 48000; DUR = 20.0; N = int(SR * DUR); BEAT = 60 / 92.75; T0 = 2.95; DROP = T0 + 16 * BEAT
 out = np.zeros((N, 2)); rng = np.random.default_rng(93)
 def midi(m): return 440 * 2 ** ((m - 69) / 12)
-def add(sig, t0, pan=0.0, g=1.0):
+def add(sig, t0, pan=0.0, g=1.0, buf=None):
+    o = out if buf is None else buf
     i = int(round(t0 * SR))
     if i >= N or i + len(sig) <= 0: return
     if i < 0: sig = sig[-i:]; i = 0
     j = min(N, i + len(sig)); s = sig[:j - i] * g
-    out[i:j, 0] += s * (1 - max(0, pan)); out[i:j, 1] += s * (1 + min(0, pan))
+    o[i:j, 0] += s * (1 - max(0, pan)); o[i:j, 1] += s * (1 + min(0, pan))
 def env(n, a, r):
     e = np.ones(n); na = min(n, int(a * SR)); nr = min(n - na, int(r * SR))
     if na: e[:na] = np.linspace(0, 1, na)
@@ -60,10 +61,9 @@ ROOT = [33, 29, 26, 28]
 # ---- intro: crackle, keys, riser ----
 crk = np.zeros(N); idx = rng.integers(0, N, 900); crk[idx] = rng.standard_normal(900) * 3
 crk = hp(crk, 1500) + hp(lp(noise(DUR), 5000), 800)[:N] * .05
-out[:, 0] += crk * .018; out[:, 1] += np.roll(crk, 1211) * .018
-add(lp(keys(CH[0], 1.5, .6), 1600), .05, g=.32); add(lp(keys(CH[1], 1.4, .6), 1600), 1.45, g=.32)
-n = int(1.0 * SR); t = np.arange(n) / SR; add(bp(noise(1.0), 1500, 6000) * (t / 1.0) ** 2, 1.95, g=.18)  # riser into the dash
-add(np.sin(2 * np.pi * 2400 * np.arange(int(.03 * SR)) / SR) * np.exp(-np.arange(int(.03 * SR)) / SR * 140), .5, g=.04)  # blink tick
+out[:, 0] += crk * .012; out[:, 1] += np.roll(crk, 1211) * .012
+add(lp(keys(CH[0], 1.5, .6), 1800), .02, g=.3); add(lp(keys(CH[1], 1.6, .6), 1800), 1.45, g=.3)
+n = int(1.1 * SR); t = np.arange(n) / SR; add(hp(noise(1.1), 4000) * (t / 1.1) ** 3, 1.85, g=.22)  # reverse cymbal into the dash
 
 # ---- main groove: 2.95 to 13.30 (16 beats = 4 bars) ----
 SW = .085  # swing on the off-16ths, in beats
@@ -83,6 +83,29 @@ def groove(b0, b1, light=False):
             add(b808(ROOT[chord] + 12, 1.6 * BEAT), t, g=.5 if not light else .35)
             add(b808(ROOT[chord] + 12, .9 * BEAT), beat_t(b + 2.5), g=.38 if not light else .28)
 groove(0, 16)
+# filtered teaser of the groove before the dash (like hearing it through a wall), opening up as he charges
+teaser = np.zeros((N, 2))
+for b in range(-4, 0):
+    t = beat_t(b); bar_b = b % 4
+    if bar_b in (0, 2): add(kick(), t, g=.75, buf=teaser)
+    if bar_b == 1: add(kick(.8), beat_t(b + .5), g=.6, buf=teaser)
+    if bar_b in (1, 3): add(snare(), t, g=.5, buf=teaser)
+    for k in range(4): add(hat(g=.6), beat_t(b + k / 4 + (SW if k % 2 else 0)), g=.1, buf=teaser)
+add(b808(ROOT[0] + 12, 2 * BEAT), beat_t(-4), g=.4, buf=teaser)
+for ch_ in range(2): teaser[:, ch_] = lp(teaser[:, ch_], 450)
+out += teaser * 1.3
+# whistle hook (A minor pentatonic), call and response over the groove
+def whistle(m, d):
+    n = int(d * SR); tt = np.arange(n) / SR; f = midi(m) * (1 + .006 * np.sin(2 * np.pi * 5.5 * tt) * np.clip(tt / .15, 0, 1))
+    s = np.sin(2 * np.pi * np.cumsum(f) / SR) + .08 * np.sin(4 * np.pi * np.cumsum(f) / SR) + .05 * bp(noise(d), 1500, 5000)
+    return s * env(n, .03, min(.12, d * .4))
+HOOK = [(0, 76, .6), (.75, 74, .6), (1.5, 72, .45), (2, 69, .9), (3, 72, .4), (3.5, 74, .45),
+        (4, 76, .6), (4.5, 79, .6), (5.25, 76, .6), (6, 74, .45), (6.5, 72, .45), (7, 69, 1.2)]
+def hook(b0, g=.13):
+    for (o, m, d) in HOOK: add(whistle(m, d * BEAT * 1.6), beat_t(b0 + o), pan=.15, g=g)
+hook(4); hook(12, .11)
+# snare fill into the drop
+for k in range(8): add(snare(.5 + k * .07), DROP - BEAT / 2 + k * BEAT / 16, pan=(-.2 if k % 2 else .2), g=.32)
 # hat rolls into each ring boost
 for r in (5.0, 6.6, 11.2):
     for k in range(6): add(hat(g=.7), r - .26 + k * BEAT / 8, pan=.3, g=.1)
@@ -106,33 +129,12 @@ add(snare(1.1), 14.27 + .36, g=.5); add(kick(), 14.92, g=.6)
 # ---- reveal groove 15.0 onward, lighter ----
 bstart = int(np.ceil((14.92 - T0) / BEAT)); bend = int((19.0 - T0) / BEAT)
 groove(bstart, bend, light=True)
+hook(bstart + 1, .1)
 # end chord + tape stop
 n = int(1.4 * SR); t = np.arange(n) / SR
 end = keys([45, 57, 60, 64, 71], 1.4, .8); rate = np.clip(1 - (t / 1.2) ** 1.6, 0, 1); pos = np.cumsum(rate) / SR
 end_stop = np.interp(pos * SR, np.arange(len(end)), end) * np.clip(rate * 3, 0, 1)
 add(lp(end_stop, 2500), 19.0, g=.5); add(b808(33, 1.0), 19.0, g=.45)
-
-# ---- quiet sound effects ----
-def whoosh(d, lo, hi):
-    n = int(d * SR); x = noise(d); k = np.arange(n) / n
-    return sum(bp(x, lo + (hi - lo) * a, lo + (hi - lo) * a + 900) for a in (.2, .5, .8)) / 3 * np.sin(np.pi * k) ** 2
-def chime(t0, root):
-    for i, m in enumerate([root, root + 3, root + 7, root + 12]):
-        n = int(.8 * SR); tt = np.arange(n) / SR; f = midi(m)
-        add(np.sin(2 * np.pi * f * tt) * np.exp(-tt * 5) * env(n, .002, .15), t0 + i * .03, pan=(i - 1.5) * .25, g=.07)
-def thud(t0, g):
-    n = int(.5 * SR); tt = np.arange(n) / SR; f = 36 + 55 * np.exp(-tt * 14)
-    add(np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tt * 7), t0, g=g)
-add(whoosh(.6, 300, 2500), 2.8, g=.2)
-for r, root in [(5.0, 81), (6.6, 84), (11.2, 88)]: chime(r - .02, root); add(whoosh(.35, 1500, 5000), r - .2, g=.1)
-add(whoosh(.9, 800, 3000), 7.55, pan=.3, g=.16); add(whoosh(.5, 400, 1800), 9.5, g=.1); thud(9.95, .4)
-add(whoosh(.8, 500, 3500), 12.0, g=.16)
-for a, b in [(15.1, 15.16), (15.26, 15.34), (15.4, 15.9)]:
-    n = int((b - a) * SR); tt = np.arange(n) / SR
-    add(lp(np.sign(np.sin(2 * np.pi * 120 * tt)) * .3 + bp(noise(b - a), 2000, 4000) * .4, 3000) * env(n, .003, .02), a, g=.05)
-n = int(1.0 * SR); add(hp(noise(1.0), 6000) * np.sin(np.pi * np.arange(n) / n) ** 2, 15.8, g=.05)
-add(whoosh(1.3, 600, 4000), 16.85, g=.16)
-n = int(.25 * SR); tt = np.arange(n) / SR; add(np.sin(2 * np.pi * (600 + 500 * np.exp(-tt * 30)) * tt) * np.exp(-tt * 18), 18.2, g=.1)
 
 # ---- mix bus: light glue, fades, loudness ----
 out = np.tanh(out * 1.2) / 1.2

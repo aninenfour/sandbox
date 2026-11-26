@@ -3,7 +3,7 @@
 // Usage (from repo root):
 //   node social/dot-3d/render.mjs stills [45|916] [t1,t2,...]   -> out/still-*.jpg + out/contact-sheet[-916].jpg
 //   node social/dot-3d/render.mjs video  [45|916]               -> out/dot-3d-silent[-916].mp4
-// V2=1 renders the v2 cut (aura, butt gag, smoothed camera; files get -v2), FPS=60 for 60 fps.
+// V=3 renders the ink cut, V=2 (or V2=1) the v2 cut; MB=2 adds 2-sub-frame motion blur. V2=1 renders the v2 cut (aura, butt gag, smoothed camera; files get -v2), FPS=60 for 60 fps.
 // GPU=metal uses the Mac GPU (--enable-gpu --use-angle=metal); default is SwiftShader (software WebGL, works anywhere).
 import {createRequire} from 'module';
 import {spawn, execSync} from 'child_process';
@@ -14,8 +14,8 @@ const require = createRequire(import.meta.url);
 let pw; try { pw = require('playwright'); } catch { pw = require(path.join(execSync('npm root -g').toString().trim(), 'playwright')); }
 const DIR = path.dirname(new URL(import.meta.url).pathname), ROOT = path.resolve(DIR, '../..'), OUT = path.join(DIR, 'out');
 const MODE = process.argv[2] || 'stills', FMT = process.argv[3] || '45';
-const V2 = !!process.env.V2;
-const [W, H] = FMT === '916' ? [1080, 1920] : [1080, 1350], SUF = (FMT === '916' ? '-916' : '') + (V2 ? '-v2' : '');
+const VER = +process.env.V || (process.env.V2 ? 2 : 1), MB = +process.env.MB || 1;
+const [W, H] = FMT === '916' ? [1080, 1920] : [1080, 1350], SUF = (FMT === '916' ? '-916' : '') + (VER > 1 ? '-v' + VER : '');
 const FPS = +process.env.FPS || 30, DUR = 20;
 const FFMPEG = fs.existsSync('/usr/bin/ffmpeg') ? '/usr/bin/ffmpeg' : 'ffmpeg';
 const TYPES = {'.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.png': 'image/png', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.json': 'application/json'};
@@ -33,7 +33,7 @@ const browser = await pw.chromium.launch(process.env.GPU === 'metal' ? {args, ch
 const page = await browser.newPage({viewport: {width: W, height: H}});
 page.on('pageerror', (e) => console.error('PAGE ERROR', e.message));
 page.on('console', (m) => { if (m.type() === 'error') console.error('console:', m.text()); });
-await page.goto(`http://127.0.0.1:${port}/social/dot-3d/scene.html?w=${W}&h=${H}${process.env.ARMS ? '&arms=1' : ''}${V2 ? '&v=2' : ''}`);
+await page.goto(`http://127.0.0.1:${port}/social/dot-3d/scene.html?w=${W}&h=${H}${process.env.ARMS ? '&arms=1' : ''}&v=${VER}&mb=${MB}`);
 const info = await page.evaluate(() => window.READY);
 console.log('ready', JSON.stringify(info), 'gl:', await page.evaluate(() => { const g = document.querySelector('canvas').getContext('webgl2'); const d = g.getExtension('WEBGL_debug_renderer_info'); return d ? g.getParameter(d.UNMASKED_RENDERER_WEBGL) : '?'; }));
 fs.mkdirSync(OUT, {recursive: true});
@@ -42,7 +42,7 @@ if (MODE === 'stills') {
   const times = (process.argv[4] || '0,1.9,5.05,8.4,10.05,12.7,14.6,16.2,18.4,19.8').split(',').map(Number);
   const files = [];
   for (const t of times) {
-    const t0 = Date.now(); await page.evaluate((t) => window.setT(t), t);
+    const t0 = Date.now(); await page.evaluate(([t, sh]) => window.renderFrame(t, sh), [t, 1 / (2 * FPS)]);
     const f = path.join(OUT, `still${SUF}-${t.toFixed(2)}.jpg`); fs.writeFileSync(f, await shot()); files.push(f);
     console.log('still', t, (Date.now() - t0) + 'ms');
   }
@@ -61,7 +61,7 @@ if (MODE === 'stills') {
     '-c:v', 'libx264', '-crf', '17', '-preset', 'slow', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out], {stdio: ['pipe', 'inherit', 'inherit']});
   const N = DUR * FPS, t0 = Date.now();
   for (let i = 0; i < N; i++) {
-    await page.evaluate((t) => window.setT(t), i / FPS);
+    await page.evaluate(([t, sh]) => window.renderFrame(t, sh), [i / FPS, 1 / (2 * FPS)]);
     const buf = await shot();
     if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
     if (i % 30 === 0) console.log(`frame ${i}/${N} ${((Date.now() - t0) / (i + 1)).toFixed(0)}ms/f`);
