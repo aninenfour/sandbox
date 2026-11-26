@@ -186,5 +186,7 @@ for net in nets:
     print(net, json.dumps(results[net], ensure_ascii=False))
 
 if not a.draft:
-    json.dump(results, open(os.path.join(d, 'published.json'), 'w'), indent=1)
+    pj = os.path.join(d, 'published.json')
+    prev = json.load(open(pj)) if os.path.exists(pj) else {}  # a retry with --only keeps the other networks' links
+    json.dump({**prev, **results}, open(pj, 'w'), indent=1)
 sys.exit(1 if any(r['error'] for r in results.values()) else 0)
