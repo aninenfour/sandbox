@@ -1,0 +1,83 @@
+{
+ "type": "news",
+ "style": "v2",
+ "date": "NOV 27",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "musk1.jpg",
+   "photo_pos": "50% 8%",
+   "tag": "TRENDING",
+   "headline": "Musk: SpaceX could be worth [a million] world economies"
+  },
+  {
+   "kind": "nquote",
+   "photo": "musk2.jpg",
+   "photo_pos": "50% 100%",
+   "quote": "These are obviously [absurdly difficult] goals.",
+   "name": "Elon Musk",
+   "role": "SpaceX CEO, on X, Nov 26",
+   "check_title": "WHAT THE DATA SAYS",
+   "check": [
+    {
+     "v": "$1.7T",
+     "l": "SpaceX's value at Wednesday's close"
+    },
+    {
+     "v": "$118T",
+     "l": "the whole world economy in 2025 (World Bank)"
+    }
+   ],
+   "source": "Decrypt Nov 26; Yahoo Finance Nov 26 (Musk on X, word for word); World Bank 2025 GDP $118.35T via Decrypt",
+   "tail_x": 500
+  },
+  {
+   "kind": "ngrid",
+   "title": "His goal: 1 million of these",
+   "text": "No timeline given for either goal.",
+   "pill": "x1 MILLION?",
+   "cells": [
+    {
+     "photo": "rocket.jpg",
+     "photo_pos": "50% 40%",
+     "label": "SpaceX today",
+     "value": "$1.7T"
+    },
+    {
+     "photo": "city.jpg",
+     "photo_pos": "50% 50%",
+     "label": "World economy, 2025",
+     "value": "$118T"
+    }
+   ],
+   "source": "Decrypt Nov 26 ($118.35T World Bank; ~$1.7T implied); khanlist/extended coverage '$1.7 trillion market capitalization as of Wednesday's close'; Yahoo Finance close $127.44 Nov 25"
+  },
+  {
+   "kind": "nbig",
+   "tag": "THE GIFT",
+   "title": "Free SpaceX shares for US kids",
+   "kicker": "SPACEX SHARES PER KID",
+   "big": "2",
+   "label": "Worth about $255 at Wednesday's close",
+   "text": [
+    "One from SpaceX in December, one from Musk in June 2027.",
+    "About [$18B] in all."
+   ],
+   "source": "Decrypt Nov 26 (Reuters estimate ~$18B; ~$255); Yahoo Finance Nov 26 (December / June 2027, ~$255, ~$18B)"
+  },
+  {
+   "kind": "end"
+  }
+ ],
+ "sources": [
+  "Decrypt, Nov 26 2026: Musk X post Thu Nov 26, quotes word for word; World Bank 2025 GDP $118.35T, a million times ~ $118 quintillion; 2 SpaceX shares per child with an active Trump Account, SpaceX share in December, Musk's in June 2027; Reuters ~$18B; two shares ~$255; no deadline",
+  "Yahoo Finance, Nov 26 2026: same quotes; SpaceX closed $127.44 Wed Nov 25; 2 shares ~$255; ~$18B; December + June 2027 (post-IPO lockup); no timeline",
+  "Coverage via khanlist/extended search: ~75 million-fold from $1.7T market cap as of Wednesday's close"
+ ],
+ "photo_credits": [
+  "Elon Musk (cover): Duncan.Hull / Wikimedia Commons (Elon_Musk_Royal_Society.jpg), CC BY-SA 4.0",
+  "Elon Musk (quote): Heisenberg Media / Wikimedia Commons (Elon_Musk_2015.jpg), CC BY 2.0",
+  "Falcon 9 launch: SpaceX / Unsplash",
+  "City at night: Nastya Dulhiier / Unsplash"
+ ]
+}
