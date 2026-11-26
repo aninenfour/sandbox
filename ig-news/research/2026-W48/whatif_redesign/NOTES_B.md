@@ -16,3 +16,20 @@ Grain sits under the content so faces and type stay clean.
 - Frame 1, printing press: Aleksandr Galichkin, https://unsplash.com/photos/QRykXu51r_0
 - Frame 2, trading screens: Jakub Zerdzicki, https://unsplash.com/photos/vKNRKjSNbTo
 - Frame 3, green bokeh: Amit Sen, https://unsplash.com/photos/wktVEK7k-pI
+
+## v2 copy: full sentences (owner feedback "don't cut phrases")
+Applied to both B1 and B2; backgrounds, cut-out, safe zones and the CTA frame (3) are unchanged.
+Overview: `options_B_v2.jpg` (rows B1, B2).
+- Frame 1: "Bezos spent $250M / on a newspaper" + small round Washington Post badge, then
+  "What if he just bought / Bitcoin instead?" (Bitcoin in brand green). Headline 96 px, question 66 px, starts y=1040.
+- Frame 2: pill "What if"; card reads "Bitcoin bought in Oct 2013", "The same $250M in Bitcoin is worth" + $115B,
+  "461x more than he paid".
+
+## Washington Post logo
+`wapo_wp.png` is the paper's own "wp" app/site icon (256x256 PNG), unmodified, shown clipped to a circle.
+Source: the icon washingtonpost.com publishes, fetched via Google's favicon service
+(https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&url=https://www.washingtonpost.com&size=256),
+cross-checked against https://www.washingtonpost.com/favicon.ico (same mark, 48 px). washingtonpost.com itself
+blocks scripted page fetches, and the Commons API was rate-limited (429); the Commons files for the paper
+(File:The_Washington_Post_logo.svg) are the long wordmark, too wide for a small badge.
+Trademark of The Washington Post, used here only to identify the paper in an editorial reference.

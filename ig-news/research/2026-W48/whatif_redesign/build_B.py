@@ -1,7 +1,7 @@
 """WHAT IF option B, richer backgrounds: B1 "Market texture", B2 "Photo depth".
 
 python3 ig-news/research/2026-W48/whatif_redesign/build_B.py
--> B1_{1,2,3}.html/.png, B2_{1,2,3}.html/.png (1080x1920) + options_B.jpg (rows B, B1, B2).
+-> B1_{1,2,3}.html/.png, B2_{1,2,3}.html/.png (1080x1920) + options_B_v2.jpg (rows B1, B2).
 Content and layout are option B from build.py untouched; only background layers are added
 under the content (and a soft rim light on the Bezos cut-out).
 Photo backgrounds (B2) are prepared once from Unsplash originals by prep_photos(); see NOTES_B.md.
@@ -156,6 +156,47 @@ def b2(n, html):
     return inject(html, back)
 
 
+# ------------------------------------------------------------------ v2 copy: full sentences
+# Owner feedback on v1: "don't cut phrases". Frame 1 headline is two full sentences, with a small
+# Washington Post badge (the paper's real "wp" mark, wapo_wp.png, source in NOTES_B.md) after "newspaper".
+# Frame 2 swaps its label fragments for a sentence; frame 3 (CTA) is unchanged.
+WAPO = ('<img src="wapo_wp.png" alt="The Washington Post" style="display:inline-block;width:92px;height:92px;'
+        'border-radius:50%;vertical-align:-6px;margin-left:22px;box-shadow:0 0 0 4px rgba(255,255,255,.9),'
+        '0 10px 30px rgba(0,0,0,.55)">')
+
+
+def f1():
+    S = B.S
+    return B.page(B.B_CSS, f'''
+<div class="glow" style="left:220px;top:300px;width:700px;height:700px;background:rgba(126,194,90,.28)"></div>
+<div class="pill" style="left:72px;top:240px"><i></i>What if</div>
+<img class="abs" src="bezos_cut.png" style="left:-30px;top:330px;width:1110px;
+  -webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 98%);filter:contrast(1.05) saturate(.9)">
+<div class="abs" style="left:72px;top:1040px;width:860px;font:700 96px/1.04 'Inter Display';letter-spacing:-.035em">
+  <span class="grad">Bezos spent {S["paid"]}</span><br><span class="grad">on a {S["thing"]}</span>{WAPO}</div>
+<div class="abs" style="left:72px;top:1286px;width:860px;font:600 66px/1.12 'Inter Display';letter-spacing:-.02em;color:#eef2ec">
+  What if he just bought<br><span style="color:#7EC25A">Bitcoin</span> instead?</div>
+''')
+
+
+F2_SWAPS = (
+    ('<i></i>Same {paid}, in Bitcoin</div>', '<i></i>What if</div>'),
+    ('&nbsp;since {month}</span>', '&nbsp;bought in {month}</span>'),
+    ('''<div class="abs mute" style="left:110px;top:560px;font:600 28px 'Inter';letter-spacing:.18em">WORTH TODAY</div>''',
+     '''<div class="abs" style="left:110px;top:526px;font:600 40px 'Inter';letter-spacing:-.01em;color:#d9e2d6">The same {paid} in Bitcoin is worth</div>'''),
+    ('>vs {paid} paid</span>', '>more than he paid</span>'),
+)
+
+
+def f2():
+    h = B.b2()
+    for a, b in F2_SWAPS:
+        a, b = a.format(**B.S), b.format(**B.S)
+        assert a in h, a
+        h = h.replace(a, b, 1)
+    return h
+
+
 # ------------------------------------------------------------------ render
 def main():
     import sys
@@ -164,7 +205,7 @@ def main():
     if len(sys.argv) > 1:
         prep_photos(sys.argv[1])
     make_grain()
-    base = {1: rim(B.b1()), 2: B.b2(), 3: B.b3()}
+    base = {1: rim(f1()), 2: f2(), 3: B.b3()}
     jobs = {}
     for n, h in base.items():
         jobs[f'B1_{n}'] = b1(n, h)
@@ -181,17 +222,17 @@ def main():
             pg.screenshot(path=str(HERE / f'{name}.png'))
         br.close()
     fw, fh, lab, gap = 360, 640, 90, 16
-    W, H = lab + 3 * fw + 4 * gap, 3 * fh + 4 * gap
+    W, H = lab + 3 * fw + 4 * gap, 2 * fh + 3 * gap
     ov = Image.new('RGB', (W, H), (232, 232, 228))
     d = ImageDraw.Draw(ov)
     font = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Bold.otf', 40)
-    for r, k in enumerate(('B', 'B1', 'B2')):
+    for r, k in enumerate(('B1', 'B2')):
         y = gap + r * (fh + gap)
         d.text((lab // 2 + 4, y + fh // 2), k, fill=(20, 20, 20), font=font, anchor='mm')
         for c in range(3):
             im = Image.open(HERE / f'{k}_{c + 1}.png').convert('RGB').resize((fw, fh), Image.LANCZOS)
             ov.paste(im, (lab + gap + c * (fw + gap), y))
-    ov.save(HERE / 'options_B.jpg', quality=90)
+    ov.save(HERE / 'options_B_v2.jpg', quality=90)
 
 
 if __name__ == '__main__':
