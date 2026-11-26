@@ -578,6 +578,6 @@
   "topic": "Academy: how to read Bitcoin's 51% discount",
   "hook": "Bitcoin is 51% off its top this Black Friday",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]

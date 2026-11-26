@@ -2555,7 +2555,7 @@
    "Gain needed = 1/(1-drop)-1"
   ],
   "note": "Black Friday (US half-day). W48 how-to promise hook with a number, no comma, 8 words. Face cover (man on phone), ngrid objects only (sale sign, coins). 4 slides, no CTA. Variant a (Nov 26 was b). Media commit f146280.",
-  "doc_row": false,
+  "doc_row": true,
   "media_commit": "f146280152ab846db1c35ce10b6cf6bc06345273"
  }
 ]
