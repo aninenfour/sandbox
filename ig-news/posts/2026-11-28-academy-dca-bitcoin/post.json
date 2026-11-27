@@ -1,0 +1,181 @@
+{
+ "type": "tutorial",
+ "style": "v2",
+ "variant": "b",
+ "date": "NOV 28",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "cover.jpg",
+   "photo_pos": "50% 20%",
+   "tag": "CRYPTO 101",
+   "headline": "How to buy Bitcoin [$100 a month] in 3 numbers"
+  },
+  {
+   "kind": "tslide",
+   "photo": "p2.jpg",
+   "photo_pos": "50% 50%",
+   "title": "1. Buy the same <span class='g'>$100</span> every month",
+   "paras": [
+    "60 buys since Dec 2021: $6,000 in. Your average Bitcoin price: <g>$43,200</g>. Nov 26 close: $60,495."
+   ],
+   "visual": {
+    "type": "bars",
+    "title": "$100 a month, Dec 2021 to Nov 2026",
+    "items": [
+     {
+      "l": "Put in",
+      "v": 6000,
+      "txt": "$6,000"
+     },
+     {
+      "l": "Bitcoin",
+      "v": 8402,
+      "txt": "$8,402"
+     },
+     {
+      "l": "S&P 500",
+      "v": 8383,
+      "txt": "$8,383"
+     }
+    ],
+    "row": 50
+   },
+   "source": "Yahoo Finance BTC-USD + SPY closes, cross-checked with Coin Metrics / Nasdaq"
+  },
+  {
+   "kind": "ngrid",
+   "title": "2. All at once? It depends",
+   "text": "Bought at a top? [Monthly] won. Steady climb? All at once.",
+   "cells": [
+    {
+     "photo": "g0.jpg",
+     "label": "Bitcoin, one buy",
+     "value": "$6,342",
+     "photo_pos": "50% 50%"
+    },
+    {
+     "photo": "g1.jpg",
+     "label": "Bitcoin, monthly",
+     "value": "$8,402",
+     "photo_pos": "50% 60%"
+    },
+    {
+     "photo": "g2.jpg",
+     "label": "S&P 500, one buy",
+     "value": "$9,545",
+     "photo_pos": "50% 40%"
+    },
+    {
+     "photo": "g3.jpg",
+     "label": "S&P 500, monthly",
+     "value": "$8,383",
+     "photo_pos": "50% 50%"
+    }
+   ]
+  },
+  {
+   "kind": "tslide",
+   "photo": "p3.jpg",
+   "photo_pos": "50% 50%",
+   "title": "3. Keep buying in the <span class='g'>dips</span>",
+   "paras": [
+    "Jul 2022: $800 in, worth <r>$424</r>. Oct 2025: $14,441. Past data, not a forecast."
+   ],
+   "visual": {
+    "type": "line",
+    "title": "Your $100-a-month Bitcoin pot",
+    "series": [
+     100,
+     183,
+     249,
+     385,
+     502,
+     517,
+     501,
+     424,
+     613,
+     629,
+     703,
+     846,
+     801,
+     885,
+     1362,
+     1458,
+     1852,
+     1931,
+     1943,
+     2317,
+     2347,
+     2141,
+     2422,
+     3167,
+     3558,
+     4162,
+     4159,
+     6128,
+     6941,
+     5901,
+     6959,
+     6560,
+     6921,
+     6170,
+     6648,
+     7693,
+     10871,
+     10651,
+     11455,
+     9891,
+     9892,
+     11307,
+     12480,
+     12585,
+     13593,
+     13205,
+     14441,
+     13496,
+     10685,
+     11083,
+     9714,
+     8396,
+     8795,
+     10200,
+     9405,
+     8013,
+     8481,
+     10560,
+     11676,
+     10867,
+     8402
+    ],
+    "labels": [
+     "Dec 2021",
+     "Nov 2026"
+    ],
+    "marks": [
+     {
+      "i": 46,
+      "text": "$14.4K Oct 2025"
+     }
+    ],
+    "fmt": "${:,.0f}",
+    "last_label": "$8.4K",
+    "h": 170
+   },
+   "source": "Yahoo Finance BTC-USD closes, Coin Metrics PriceUSD"
+  }
+ ],
+ "sources": [
+  "Yahoo Finance BTC-USD daily closes; Coin Metrics community API PriceUSD (max diff 0.6% on the 60 buy dates). $100 bought at the close of the 1st calendar day of each month, Dec 1 2021 to Nov 1 2026 (60 buys, $6,000). Valued at Nov 26 2026 close $60,494.71 (Yahoo) / $60,415 (Coin Metrics): DCA $8,402 / $8,392, avg cost $43,202 / $43,193; lump sum Dec 1 2021 at $57,230: $6,342 / $6,339. Worst: Jul 1 2022 $424 on $800 (-47%); peak Oct 1 2025 $14,441.",
+  "SPY (S&P 500 ETF) closes, Yahoo Finance + Nasdaq.com historical (identical): $100 on the first trading day of each month Dec 1 2021 to Nov 2 2026, valued at Nov 25 2026 close $716.70: DCA $8,383 (avg $512.95), lump Dec 1 2021 at $450.50: $9,545. Price only, dividends not included."
+ ],
+ "photo_credits": [
+  "Man smiling at phone: Ali Pli / Unsplash (HwPiswam8tI)",
+  "Monthly planner: Eric Rothermel / Unsplash (FoKO4DpXamQ)",
+  "Gold Bitcoin: Andre Francois McKenzie / Unsplash (iGYiBhdNTpE)",
+  "Piggy bank and coins: Katie Harp / Unsplash (Rel6bBC6AuA)",
+  "NYSE flags: Viktorija Demjanenko / Unsplash (KMAED5u3-Xk)",
+  "NYSE facade: Aditya Vyas / Unsplash (mHdATQY9fIU)",
+  "Candlestick chart: Maxim Hopman / Unsplash (fiXLQXAhCfk)"
+ ]
+}
