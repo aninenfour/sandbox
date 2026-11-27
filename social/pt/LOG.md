@@ -75,6 +75,12 @@
 | 26/11 | 13:44 | Placar do dia | $PIEVERSE +22,2% x $BTC +3,4% (24h até 12:08), tricampeão | scheduled |
 | 26/11 | 16:31 | Learn do dia | Copy trading (pt_PT link in reply), last article in queue | scheduled |
 
+| 27/11 | 08:22 | GM | Forte do Castelo, Belém: linha pelo guarda-corpo até o portão | scheduled |
+| 27/11 | 10:13 | Event TEASER | 9º aniversário x Ronaldinho: 6.000.000 USDT, campeonato até 4.000.000, BTC/Rolex/Porsche (link in reply) | scheduled |
+| 27/11 | 11:37 | Atualização rápida (text) | 0G troca de contrato BEP20 1:1, depósitos/saques pausados, trading normal | scheduled |
+| 27/11 | 16:48 | Meme (real template) | Distracted Boyfriend: carteira de longo prazo x moeda que subiu 70% | scheduled |
+| 27/11 | 19:42 | Event LAST CALL (text) | P2P Sprint (sáb 07:00) + Earn exclusivo (sáb 08:00), links in reply | scheduled |
+
 ## Queued ideas (not scheduled yet)
 - Thu 19/11: Earn prazo fixo exclusivo launch (key visual from official banner, cut done), Wall Street Earnings last day (ends 12:59), Futures loss protection last call evening (ends 20/11 07:00).
 - Spot #24 midterm ~24/11, P2P Sprint midterm ~22/11; last calls 27/11 evening (P2P) and 29-30/11 (Spot).
@@ -127,3 +133,4 @@
 - 26/11 07:45 check 1: no new announcements, team has nothing queued. US Thanksgiving (no stock post). Learn queue now empty (rainbow on hold). No meme (had 25/11; next 27/11). Placar at check 2.
 - 26/11 12:08 check 2: no new announcements. Placar PIEVERSE 3rd time top (CoinGecko +22.2%), framed tricampeão, 13:44.
 - 26/11 16:14 check 3: no new announcements. Nothing closes tonight or before 08:00 Fri. Fri 27: GM, meme (real template), placar, evening LAST CALL for P2P Sprint (Sat 07:00) + Earn exclusive (Sat 08:00).
+- 27/11 07:46 check 1: NEW 9th Anniversary teaser (6M USDT, no dates yet; Early Bird page anniversary9) and 0G BEP20 contract swap (deposits/withdrawals paused, trading normal, 1:1 auto). Placar rebuilt (placar.mjs, 4 rotating backgrounds, official BTC logo) per owner feedback; today's at check 2. 6 posts ours (team queue empty).
