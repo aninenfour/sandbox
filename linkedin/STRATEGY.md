@@ -115,6 +115,12 @@ Publer free plan allows up to 12 LinkedIn page posts per day, so all options fit
   Never a dot or retyped "Hotcoin" as a placeholder. Cover third-party engravings or text in photos.
 - Render: python3 linkedin/covers/cutouts.py, then node linkedin/covers/render.mjs; log photos in FOOTAGE_CREDITS.md.
 
+## 7c. Pixel style for how-to videos (Nov 27)
+- Owner rejected the plain animated chart video ("0 value graphics"). New default for how-to videos: brand-green
+  ground (#0E5A31), real-photo cutouts rebuilt as square halftone pixels, numbers, charts and bars made from the same
+  pixels and morphing scene to scene, one clean text line through the middle. Template: linkedin/videos/onepct-pixel.mjs.
+- Change the figures, palette accent and chart type every video so the series never looks repeated.
+
 ## 8. Bots vs people: how we use public data
 No reliable public figure separates bot and human volume on centralized exchanges (Tradersunion, Birdeye methodology
 notes). The "65% to 80% of crypto volume is bots" numbers that circulate are loosely sourced. So:

@@ -390,3 +390,6 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Official TOKEN2049 photos (credited "photos: TOKEN2049") are not openly licensed: not used without written permission.
 - Trading screen numbers: Aedrian Salazar, unsplash.com/photos/OKNJX7B-cbc (Nov 27 "Year 9" carousel, TradFi slide)
 - Corner flag at Parc des Princes: Chris Kursikowski, unsplash.com/photos/mkiMSN-beYg (Nov 27 "Year 9" carousel, Legends slide)
+- Man looking at phone: Victor Puerta, unsplash.com/photos/hEY14e_tDgI (Nov 27 "1% rule" pixel video)
+- Person walking up stairs: Khiet Tam, unsplash.com/photos/1jQLyh4h1MQ (Nov 27 "1% rule" pixel video)
+- Hand reaching up (Mikey Parkin, above) also reused in the "1% rule" pixel video.

@@ -26,6 +26,8 @@ JOBS = {
     'scale':      (None, 'rembg'),
     'terminal':   (None, 'rembg'),
     'vault':      ((0.40, 0.635, 0.30), 'circle'),
+    'phoneman':   (None, 'rembg'),   # 1% rule pixel video
+    'stairs':     (None, 'rembg'),   # 1% rule pixel video
 }
 
 
