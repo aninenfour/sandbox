@@ -2628,7 +2628,8 @@
   "fb_url": "https://www.facebook.com/107965200554050_1797320048238668",
   "x_url": "https://x.com/1065817584396713984/status/2126232850533912785",
   "tg_url": "https://t.me/c/2399913285/0",
-  "note": "Owner Nov 27: release right away (published 'now' ~16:32). Built with dotmotion.py (spec posts/2026-11-27-dotmatrix-brand/spec.json). IG/FB/X/TG one post each; TikTok got v916_tiktok.mp4 (end card without CTA). Media commit 22bac26. Photos: Unsplash (Hans Eiskonen bull, Eze Joseph basketball, Victor Puerta phone). Next: Sun Nov 29 16:00 (scheduled by the 07:40 run)."
+  "note": "Owner Nov 27: release right away (published 'now' ~16:32). Built with dotmotion.py (spec posts/2026-11-27-dotmatrix-brand/spec.json). IG/FB/X/TG one post each; TikTok got v916_tiktok.mp4 (end card without CTA). Media commit 22bac26. Photos: Unsplash (Hans Eiskonen bull, Eze Joseph basketball, Victor Puerta phone). Next: Sun Nov 29 16:00 (scheduled by the 07:40 run).",
+  "doc_row": true
  },
  {
   "id": "2026-11-28-bitcoin-death-cross",

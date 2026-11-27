@@ -608,7 +608,7 @@
   "topic": "DOT MATRIX brand motion #1 (bull, breakout, athlete, phone, Bitcoin)",
   "hook": "Bull or bear? You pick",
   "status": "published",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-28-bitcoin-death-cross",
@@ -617,6 +617,6 @@
   "topic": "News: Bitcoin death cross, 13 past crosses",
   "hook": "Bitcoin's death cross is near. After the 2022 one it fell 64%",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]
