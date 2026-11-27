@@ -1,0 +1,12 @@
+{
+  "slug": "0g-contract-swap",
+  "tag": "Contract Swap",
+  "title": "0G (BEP20) Contract Swap",
+  "title2": "Deposits & Withdrawals Suspended",
+  "sub": "Swap ratio 1:1 · Spot & futures trading not affected",
+  "rows": [
+    ["Old contract (BEP20)", "0x4B948d64dE1F71fCd12fB586f4c776421a35b3eE"],
+    ["New contract (BEP20)", "0x2C2d4d99F95643C8EC2EbD1d73a6Fd0273068B1e"]
+  ],
+  "link": "hotcoin.com · Announcements"
+}
