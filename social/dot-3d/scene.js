@@ -792,6 +792,19 @@ float n2(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3. - 2. * f); re
 float fbm(vec2 p){ float s = 0., a = .5; for (int i = 0; i < 5; i++) { s += a * n2(p); p = p * 2.03 + 1.7; a *= .5; } return s; }
 vec3 tone(vec3 c){ c = 1. - exp(-c * 1.15); return pow(c, vec3(1. / 2.2)); }
 vec3 srgb(vec3 c){ return pow(c, vec3(1. / 2.2)); }
+vec3 inkDot(vec3 c, float L, float sat, vec3 paper, float rim, vec2 q){
+  float l = L + (fbm(q * 14.) - .5) * .14;
+  vec3 col = vec3(.24, .44, .15);
+  col = mix(col, vec3(.36, .60, .24), smoothstep(.25, .33, l));
+  col = mix(col, vec3(.49, .76, .35), smoothstep(.40, .48, l));
+  col = mix(col, vec3(.62, .83, .43), smoothstep(.58, .66, l));
+  col *= .9 + .2 * fbm(q * 70.);                                   // pigment granulation
+  col = mix(col, col * .68, smoothstep(.08, .55, rim));             // wet edge pools at the rim
+  float white = smoothstep(.7, .84, L) * (1. - smoothstep(.12, .3, sat));
+  col = mix(col, paper, white);                                     // highlights and eye white stay paper
+  col = mix(col, uInk, smoothstep(.2, .07, L));                     // pupil and deepest darks in ink
+  return col * mix(1., paper.r / max(uPaper.r, .01), .5);
+}
 vec3 cel(vec3 c){ float L = dot(c, vec3(.3, .59, .11)); float q = floor(L * 3. + .55) / 3.; return mix(c, c / max(L, .001) * q, .65); }
 void main(){
   vec2 px = 1. / uRes, A = vec2(uRes.x / uRes.y, 1.);
@@ -809,6 +822,10 @@ void main(){
   float lime = smoothstep(.22, .42, sat) * step(c.r, c.g) * step(c.b * 1.4, c.g);
   float red = smoothstep(.25, .45, sat) * step(c.g * 1.5, c.r);
   float isDot = texture2D(tG, vUv).a;
+  float dIn = 0., dOut = 0.;
+  for (int i = 0; i < 12; i++) { float a = float(i) * .5236; vec2 d = vec2(cos(a), sin(a)) * px;
+    dIn += texture2D(tG, vUv + d * 8.).a; dOut += texture2D(tG, uv + d * (2.2 + 2.2 * fbm(vUv * A * 30.))).a; }
+  float rim = 1. - dIn / 12., contour = (1. - isDot) * smoothstep(.04, .3, dOut / 12.);
   float grain = .9 + .1 * fbm(vUv * A * 160.) + .03 * (h(floor(vUv * uRes) + uT) - .5);
   float sky = step(.999, texture2D(tG, vUv).b);
   vec3 o;
@@ -826,8 +843,8 @@ void main(){
     if (sky > .5) o = mix(paper, uInk, mtn * smoothstep(.25, .6, vUv.y) * .75);
     o = mix(o, srgb(vec3(.48, .75, .28)) * grain * (.75 + .5 * L), lime * .9);
     o = mix(o, srgb(vec3(.79, .07, .09)) * grain, red * .9);
-    if (isDot > .5) o = cel(c);
-    o = mix(o, uInk, edge * .92);
+    if (isDot > .5) o = inkDot(c, L, sat, uPaper * grain, rim, vUv * A);
+    o = mix(o, uInk, max(edge * .92, contour * (.75 + .25 * fbm(vUv * A * 55.))));
   } else if (uS == 1) {
     vec3 q = c / max(L, .001) * (floor(L * 4. + .5) / 4.);
     o = mix(c, q, .75) * mix(1., grain, .6);
