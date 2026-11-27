@@ -2608,5 +2608,25 @@
   "status": "scheduled",
   "note": "15:40 run Nov 27: no Reel (WHAT IF paused). Variant b after Nov 27 a. Hook = how-to promise with a number (W48). Line chart: only the peak mark (a Jul 2022 mark collided with the $100 first-point label). All 5 posts verified scheduled in Publer.",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-27-dotmatrix-brand",
+  "type": "dotmatrix",
+  "slot": "2026-11-27T16:32:00+08:00",
+  "title": "DOT MATRIX #1: Bull or bear? You pick. / It broke out. Did you see it? / Move fast when the market does / Trade it from your phone / Start with a little Bitcoin / end card Trade crypto on Hotcoin + Download Hotcoin (14.4 s)",
+  "status": "published",
+  "channels": [
+   "instagram reel",
+   "tiktok",
+   "facebook video",
+   "x main",
+   "telegram"
+  ],
+  "music": "Mixkit 175 Digital Clouds (Alejandro Magana) from 5.8 s, -14 LUFS",
+  "ig_url": "https://www.instagram.com/reel/DgPQdpCT4dA/",
+  "fb_url": "https://www.facebook.com/107965200554050_1797320048238668",
+  "x_url": "https://x.com/1065817584396713984/status/2126232850533912785",
+  "tg_url": "https://t.me/c/2399913285/0",
+  "note": "Owner Nov 27: release right away (published 'now' ~16:32). Built with dotmotion.py (spec posts/2026-11-27-dotmatrix-brand/spec.json). IG/FB/X/TG one post each; TikTok got v916_tiktok.mp4 (end card without CTA). Media commit 22bac26. Photos: Unsplash (Hans Eiskonen bull, Eze Joseph basketball, Victor Puerta phone). Next: Sun Nov 29 16:00 (scheduled by the 07:40 run)."
  }
 ]

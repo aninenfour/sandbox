@@ -599,5 +599,14 @@
   "hook": "$100 a month into Bitcoin since Dec 2021 is worth $8,402 now",
   "status": "scheduled",
   "doc_row": true
+ },
+ {
+  "id": "2026-11-27-dotmatrix-brand",
+  "slot": "2026-11-27T16:32:00+08:00",
+  "format": "video",
+  "topic": "DOT MATRIX brand motion #1 (bull, breakout, athlete, phone, Bitcoin)",
+  "hook": "Bull or bear? You pick",
+  "status": "published",
+  "doc_row": false
  }
 ]
