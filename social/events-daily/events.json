@@ -81,7 +81,7 @@
       ]
     ],
     "foot": "Tap Join Now first. Both events combine.",
-    "x": "🤝 P2P Trading Sprint: up to 50 USDT in Futures Trial Funds plus referral vouchers. Ends {endShort}"
+    "x": "🤝 P2P Trading Sprint: up to 50 USDT in Futures Trial Funds + referral vouchers. Ends {endShort}"
   },
   "HotcoinFixed-TermEarnExclusive": {
     "short": "Fixed-Term Earn Exclusive",
@@ -106,7 +106,7 @@
       ]
     ],
     "foot": "No early redemption. Quotas first come, first served.",
-    "x": "💰 Fixed-Term Earn Exclusive: up to 6.00% APR plus up to 2,000 USDT in Futures Trial Funds. Ends {endShort}"
+    "x": "💰 Fixed-Term Earn Exclusive: up to 6.00% APR + up to 2,000 USDT in Futures Trial Funds. Ends {endShort}"
   },
   "spot-all-round-challenge-24": {
     "short": "Spot All-Round Challenge #24",

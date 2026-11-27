@@ -111,5 +111,19 @@
       "Facebook",
       "Telegram"
     ]
+  },
+  {
+    "date": "2026-11-27",
+    "time": "13:47 UTC+8 (scheduled), Telegram 13:49",
+    "slugs": [
+      "HotcoinP2PTradingSprint",
+      "HotcoinFixed-TermEarnExclusive"
+    ],
+    "layout": "grain-lime",
+    "channels": [
+      "X main",
+      "Facebook",
+      "Telegram"
+    ]
   }
 ]
