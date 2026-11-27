@@ -1,0 +1,15 @@
+{
+  "asof": "Nov 27, 2026",
+  "events": [
+    {"name": "P2P Trading Sprint", "kind": "Platform", "prize": "10K USDT pool", "ends": "Nov 28 · 10:00", "hot": true},
+    {"name": "Fixed-Term Earn Exclusive", "kind": "Platform", "prize": "Up to 6% APR + up to 2,000 USDT trial funds", "ends": "Nov 28 · 11:00", "hot": true},
+    {"name": "Portuguese new-user giveaway", "kind": "X", "prize": "10 winners × $50", "ends": "Last chance", "hot": true},
+    {"name": "Ronaldinho Global Legends Challenge", "kind": "Platform", "prize": "Tasks · jersey, iPhone 18 Pro & more", "ends": "Nov 29 · 04:00", "hot": true},
+    {"name": "Ronaldinho Battle of Legends", "kind": "Platform", "prize": "200K USDT for first trades · Patek Philippe for #1", "ends": "Nov 29 · 07:00", "hot": true},
+    {"name": "Spot All-Round Challenge #24", "kind": "Platform", "prize": "300K USDT pool · 8,888 USDT for 1st", "ends": "Nov 30 · 15:59"},
+    {"name": "Welcome $BTH giveaway", "kind": "X", "prize": "$500 · 10 × $20 + first 60 new users $5", "ends": "Results ~Dec 2"},
+    {"name": "R10 Giveaway", "kind": "X", "prize": "200 USDT · 10 winners · reply with a Ronaldinho GIF + UID", "ends": "Draw Dec 3"},
+    {"name": "TradFi 0 Fee Carnival", "kind": "Platform", "prize": "100K USDT fee rebates + 500K USDT volume pool", "ends": "Dec 4 · 15:59"},
+    {"name": "R10 Hotcoin Sprint", "kind": "Zealy", "prize": "3,500 USDT · 200 winners", "ends": "Dec 13"}
+  ]
+}
