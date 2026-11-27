@@ -19,3 +19,5 @@ Embed description:
 8. [R10 Giveaway](https://x.com/HotcoinGlobal/status/2125453272119214399): 200 USDT, 10 winners · draw Dec 3
 9. [TradFi 0 Fee Carnival](https://www.hotcoin.com/en_US/announcement/tradfi-0-fee-carnival/): 100K rebates + 500K volume pool · ends <t:1796399940:R>
 10. [R10 Hotcoin Sprint on Zealy](https://zealy.io/cw/hotcoin/questboard): 3,500 USDT, 200 winners · until Dec 13
+
+**ENGAGE POINTS ARE DOUBLED** 👉 <#ENGAGE_CHANNEL_ID>
