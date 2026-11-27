@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Original calm beat for the 1% rule video: 92 bpm, soft kick, closed hat, minor pad. 62 s, 48 kHz stereo WAV."""
-import numpy as np, soundfile as sf, sys
-SR, DUR, BPM = 48000, 62.0, 92
+import numpy as np, soundfile as sf, sys, os
+SR = 48000
+DUR, BPM = float(os.environ.get("DUR", 62.0)), float(os.environ.get("BPM", 92))  # v3 uses DUR=40.5 BPM=112
 n = int(SR * DUR); t = np.arange(n) / SR; out = np.zeros(n)
 beat = 60 / BPM
 def env(length, a=0.005, d=0.3):
@@ -10,12 +11,12 @@ def env(length, a=0.005, d=0.3):
 # kick on 1 and 3, from bar 2
 for i in range(int(DUR / beat)):
     st = int(i * beat * SR)
-    if i >= 4 and i % 2 == 0:
+    if i >= int(os.environ.get('KICK_FROM', 4)) and i % 2 == 0:
         L = int(0.35 * SR); k = np.arange(L) / SR
         f = 55 + 70 * np.exp(-k * 30)
         sig = np.sin(2 * np.pi * np.cumsum(f) / SR) * env(0.35, 0.002, 0.12)[:L]
         out[st:st + L] += 0.55 * sig[:max(0, min(L, n - st))]
-    if i >= 8:
+    if i >= int(os.environ.get('HAT_FROM', 8)):
         L = int(0.06 * SR); hh = np.random.default_rng(i).standard_normal(L) * env(0.06, 0.001, 0.015)[:L]
         hh = np.diff(hh, prepend=0)
         st2 = st + int(beat * SR / 2)
