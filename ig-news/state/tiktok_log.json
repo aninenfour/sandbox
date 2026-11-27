@@ -578,8 +578,9 @@
   "format": "photo",
   "topic": "Academy: how to read Bitcoin's 51% discount",
   "hook": "Bitcoin is 51% off its top this Black Friday",
-  "status": "scheduled",
-  "doc_row": true
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7712805507752348929"
  },
  {
   "id": "2026-11-27-musk-spacex-world-economy",

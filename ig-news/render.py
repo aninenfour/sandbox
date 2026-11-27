@@ -230,6 +230,19 @@ def main():
                   'split it or use a colon (e.g. "GET PAID TO HOLD A STOCK: 3 NUMBERS")', file=sys.stderr)
         if len(plain.split()) > 10:
             print(f'WARNING slide 1 hook: {len(plain.split())} words on the cover; PLAYBOOK §4 nhero: <= 10', file=sys.stderr)
+    # nquote repeat lint (daily review Nov 28): the "WHAT THE DATA SAYS" band should add a number, not preview the next
+    # slides. Nvidia (Nov 26) showed $290M on 3 slides; Musk/SpaceX (Nov 27) showed $1.7T and $118T on slides 2 and 3.
+    def _nums(x):
+        out = [c.get('v') for c in x.get('check', [])] + [c.get('value') for c in x.get('cells', [])]
+        out += [b.get('txt') for b in x.get('bars', [])] + [x.get('big')]
+        return {re.sub(r'[\s\[\]{}~]', '', str(v)) for v in out if v not in (None, '')}
+    for n, x in enumerate(spec.get('slides', []), 1):
+        if x.get('kind') == 'nquote':
+            others = set().union(*[_nums(y) for m, y in enumerate(spec['slides'], 1) if m != n] or [set()])
+            dup = sorted(_nums(x) & others)
+            if dup:
+                print(f'WARNING slide {n} nquote: {", ".join(dup)} also shown on another slide; use a number that checks '
+                      'the quote and is not repeated (PLAYBOOK §4 nquote)', file=sys.stderr)
     files = []
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')

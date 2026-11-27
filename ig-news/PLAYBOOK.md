@@ -63,6 +63,9 @@ Every number, date, name and quote must match **two independent sources** (or on
   in rotation. Use a different photo of the person than the cover (or a looser crop). Face in the top ~45%: move the bubble with
   `bubble_top` so it never covers the eyes or mouth; point the tail at the mouth with `tail_x`. Never invent or paraphrase a
   quote inside the bubble: paraphrase goes in the check band, not in quote marks.
+  **Check band adds, never previews (daily review Nov 28):** its 1-2 numbers must not repeat a value shown on another slide
+  (Nvidia: $290M on 3 slides; Musk: $1.7T and $118T on slides 2 and 3). Pick a number that tests the quote itself;
+  render.py prints `WARNING slide N nquote:` on a repeat.
 - **No source line on the slides (owner, Oct 29).** Keep `source` in post.json for the log, and put sources in the first comment / caption.
 - **Collision check (owner, Oct 29):** render.py prints `WARNING slide N collision: ...` for overlapping boxes, cut-off text and anything off the slide edge. A post with any warning is not finished: shorten the text or change the layout, re-render, and only schedule when render.py prints no WARNING lines. Still look at the contact sheet yourself.
 Voice: confident, plain English, slightly provocative hook, no hype words ("moon", "huge"), no price predictions, no trading advice.

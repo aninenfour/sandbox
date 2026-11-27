@@ -465,5 +465,23 @@
   ],
   "owner_decision": "(1) BTC discount Academy (19:00 today) ships with the line through '$15.8K low' and a duplicate '$15,787' on slide 4; a fixed render is one re-render away if you want it swapped (draft-and-reschedule, §8). (2) WHAT IF on TikTok sits at ~15-17 reach whether 53 s or 84 s: worth checking in the redesign whether TikTok is suppressing the format/template itself (IG holds ~125-140). (3) MEME REACT has had 0 shares on 3 posts since rice: consider a new meme cutout + no-bubble variant (as per your Nov 26 rules) before judging the format.",
   "skipped": false
+ },
+ {
+  "date": "2026-11-28",
+  "time_utc": "2026-11-27T22:55Z",
+  "looked_at": "Publer published/failed Nov 26-28 (IG/FB/TikTok + team channels), IG/TikTok insights Nov 19-28, FB Nov 24-28; renders: Musk/SpaceX nquote news 5 slides + Story, BTC 51% discount Academy 4 + Story (re-rendered slide 4), DOT MATRIX #1 contact_916 (14.4 s), DCA $100-a-month Academy 4 + Story (scheduled 19:00 Nov 28)",
+  "metrics_summary": "DOT MATRIX #1 (published 16:32 Fri, ~6 h): Publer has not synced insights for it on any channel yet, nor for the BTC discount Academy (19:00); no early numbers, compare tomorrow. Baselines at ~24-36 h: turkey MEME REACT IG 145 reach / 1 share / 2 saves, TT 250 / 0 shares; Bezos WHAT IF IG 142 / TT 23 / 0 shares. Team 'gm, the dot paints the city lime' Reel (10:21 Fri, ~12 h): IG 123, TT 59, 0 shares. nquote news: Nvidia/Huang (~40 h) IG 54 / TT 497 / FB 9, 1 comment, beats last week's news (IG 41 / TT 384); Musk/SpaceX (~13 h) IG 24 / TT 146 / FB 9 (Huang at 13 h: IG 32 / TT 170), on a similar pace. Team bow-tie story Reel IG 128 / TT 338. Market-holiday Academy final-ish IG 16 / TT 60 / FB 12.",
+  "findings": [
+   "Failed posts Nov 26-28: none. BTC discount Academy published IG 19:00, IG Story 19:05, TikTok 19:09, X Research 20:30. DOT MATRIX #1 on IG/TikTok 16:32-16:37.",
+   "Renders: no clipping/overlap. Musk nquote: bubble below the mouth, face clear. BTC discount slide 4 now clean ($15.8K low label clear of the line). DOT MATRIX frames readable, end card + Download pill fine. DCA Academy clean: slide 4 peak label above the line, bars proportional.",
+   "Recurring: the nquote 'WHAT THE DATA SAYS' band repeats numbers from the following slides: Nvidia $290M on slides 2, 3 and 4 (flagged Nov 27 as minor), Musk $1.7T and $118T on slides 2 and 3 (ngrid). 2 of 2 nquote posts = wasted slide space; lint added (below).",
+   "Hooks: Musk 'Musk: SpaceX could be worth a million world economies' passes (person + number, 9 words). DCA cover 'How to buy Bitcoin $100 a month in 3 numbers' passes the lint; TikTok hook '$100 a month into Bitcoin since Dec 2021 is worth $8,402 now' is stronger (result number). Fourth Academy in a row where the TikTok hook beats the IG cover (inflation, holiday, discount, DCA). Not changed: the W48 how-to promise rule came from weekly learning; raised as an owner idea.",
+   "Chore: tracker doc Scheduled -> instagram.com/p/DgPhggzipT7/ and TikTok doc Scheduled -> tiktok.com/@hotcoin.com/video/7712805507752348929 for the BTC discount Academy (only those 2 cells; tracker doc re-read, TikTok doc revision-locked update, no errors). DOT MATRIX has no doc rows. log.json / tiktok_log.json updated."
+  ],
+  "changes": [
+   "render.py: `WARNING slide N nquote:` when a check-band number repeats a value on another slide (check, ngrid cell, nbars txt, nbig). Tested on a scratch copy of the Musk post: original fires ($1.7T, $118T); a version with non-repeating numbers renders clean (an overlong value is still caught by the existing cut-off check); the Nvidia spec fires too ($290M). PLAYBOOK §4 nquote rule + STYLE_NOTES changelog; before/after research/2026-W48/nquote_repeat_before_after.jpg. No published or scheduled post touched."
+  ],
+  "owner_decision": "Academy covers: in 4 posts the TikTok hook (result number, e.g. '$100 a month into Bitcoin since Dec 2021 is worth $8,402 now') read stronger than the IG 'How to X in 3 numbers' cover; try the result-number line as the IG cover for a week? DOT MATRIX: no insights synced yet, judge vs MEME REACT/WHAT IF tomorrow.",
+  "skipped": false
  }
 ]
