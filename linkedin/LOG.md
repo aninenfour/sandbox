@@ -6,12 +6,12 @@ Tracker with every released post and its numbers: https://claude.ai/artifact/R7p
 - Aug 27 to Nov 25, 2026: 100 posts, mostly X copies. Best post 9 engagements. #Hotcoin101 led; promo/meme posts 0.
 
 ## Week 1 (Nov 26 to Dec 1, 2026)
-- Nov 26: bots carousel 13:00, hiring carousel (16 Moledao roles) 18:00, Kahle archive video 22:30. All scheduled.
+- Nov 26: bots carousel 13:00, hiring carousel (16 Moledao roles) 18:00, Kahle archive video 22:30. All published.
+  Bots carousel after ~20 h: reach 9, 1 like, 2 clicks (page ~800 followers, reach rate 1.1%). Others not synced yet.
+- Nov 27: "Year 9" photo carousel 13:00 (6 slides), Earn Exclusive last call 18:00, "The 1% rule" video 22:30 (62 s,
+  canvas animation, linkedin/videos/onepct.mjs). All scheduled.
 
 ## Next up (copy and covers in linkedin/plan-2026-11-25.html and linkedin/copy-*.json; covers in linkedin/covers)
-- Fri Nov 27: 13:00 "Year 9, what we shipped" multi-image (photo cover fri-autumn + TOKEN2049 booth photos with faces,
-  ask the team for full-size originals; until then cover + public Marina Bay Sands photos). 18:00 Earn Exclusive last
-  call (ends Nov 28 19:00, cover fri-earn). 22:30 how-to video "The 1% rule" (to produce, Remotion, 4:5, ~80 s).
 - Sat Nov 28: 13:00 native poll "What protects a trading account most?" (no image).
 - Sun Nov 29: rest.
 - Mon Nov 30: 13:00 101 funding rate carousel (6 slides, cover mon-funding). 18:00 TradFi 0 Fee Carnival (ends Dec 4,

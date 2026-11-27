@@ -388,3 +388,5 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Marina Bay Sands at night: Chuan, unsplash.com/photos/BjxaxGN_8CY (TOKEN2049 multi-image)
 - Conference audience from behind: Headway, unsplash.com/photos/F2KRf_QfCqw (careers cover)
 - Official TOKEN2049 photos (credited "photos: TOKEN2049") are not openly licensed: not used without written permission.
+- Trading screen numbers: Aedrian Salazar, unsplash.com/photos/OKNJX7B-cbc (Nov 27 "Year 9" carousel, TradFi slide)
+- Corner flag at Parc des Princes: Chris Kursikowski, unsplash.com/photos/mkiMSN-beYg (Nov 27 "Year 9" carousel, Legends slide)

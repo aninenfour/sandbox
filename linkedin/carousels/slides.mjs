@@ -3,6 +3,9 @@
 // Sources:
 //  - bots: Birdeye estimate as reported by BeInCrypto (Nov 2026): ~2/3 of on-chain trades by bots, 1 to 3% of wallets,
 //    up to 80% of Solana volume automated; methodology due Dec 2026.
+//  - autumn: TradFi launch Sep 7, 2026 (newsfilecorp release 312987); TOKEN2049 Singapore Oct 7 to 8, 2026 at Marina Bay Sands
+//    (TOKEN2049 press release Aug 2026), booth Level 5 PB5-5 + PB5-6 (our Oct posts); PoR snapshot Oct 29, 2026 (BTC 105%,
+//    ETH 109%, USDT 113%); Global Legends Challenge prizes from our campaign post (jersey, ball, gift box, iPhone 18 Pro).
 //  - hiring: moledao.io/companies/hotcoin/jobs/ (21 listings, 16 distinct roles), pulled Nov 26, 2026.
 // Run: node linkedin/carousels/slides.mjs <deck>   -> linkedin/carousels/out/<deck>/NN.png + <deck>.pdf
 import fs from 'fs'; import path from 'path'; import {createRequire} from 'module'; import {execFileSync} from 'child_process';
@@ -39,10 +42,42 @@ body{width:1080px;height:1350px;background:#07090A;color:#F2F4EF;font-family:'In
 <script>(async()=>{await document.fonts.ready;const g=document.getElementById('g').getContext('2d'),d=g.createImageData(1080,1350);let s=7;const r=()=>(s=(s*16807)%2147483647)/2147483647;for(let i=0;i<d.data.length;i+=4){const v=r()*255;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255}g.putImageData(d,0,0);document.body.dataset.done=1})();</script>
 </body></html>`;
 
+
+// Photo slide (Nov 27): full-bleed licensed photo, ink grade, lime frame, kicker, big date/number, headline, sub.
+const b64j = (f) => `data:image/jpeg;base64,` + fs.readFileSync(f).toString('base64');
+const photoShell = (o, n, total) => `<!doctype html><html><head><meta charset="utf-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=block');
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1350px;background:#07090A;color:#F2F4EF;font-family:'Inter Tight',sans-serif;overflow:hidden;position:relative}
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${o.pos || '50% 50%'};transform:scale(${o.zoom || 1});transform-origin:${o.origin || '50% 50%'};filter:saturate(.85) contrast(1.05)}
+.grade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,10,.2) 0%,rgba(7,9,10,0) 30%,rgba(7,9,10,.55) 55%,rgba(7,9,10,.94) 78%)}
+.frame{position:absolute;inset:28px;border:2px solid rgba(184,242,106,.85);border-radius:6px}
+.k{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:22px;letter-spacing:4px;color:#B8F26A;text-transform:uppercase}
+.big{font-weight:900;font-size:150px;letter-spacing:-7px;line-height:.9;margin-top:14px;background:linear-gradient(180deg,#fff 30%,#B8F26A 150%);-webkit-background-clip:text;color:transparent}
+.h{font-weight:800;font-size:64px;letter-spacing:-2.6px;line-height:1.04;margin-top:16px}
+.s{font-weight:600;font-size:32px;letter-spacing:-.4px;line-height:1.3;color:rgba(242,244,239,.84);margin-top:18px}
+.pg{position:absolute;right:72px;top:76px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:20px;letter-spacing:3px;color:#F2F4EF;background:rgba(7,9,10,.55);padding:6px 12px;border-radius:99px}
+</style></head><body>
+<img class="ph" src="${b64j(`${ROOT}/linkedin/covers/src/${o.photo}`)}">
+<div class="grade"></div><div class="frame"></div>
+<img src="${LOGO_W}" style="position:absolute;left:72px;top:72px;height:40px">
+<div class="pg">${String(n).padStart(2, '0')} / ${String(total).padStart(2, '0')}</div>
+<div style="position:absolute;left:72px;right:72px;bottom:96px">${o.html}</div>
+<canvas id="g" width="1080" height="1350" style="position:absolute;inset:0;mix-blend-mode:overlay;opacity:.12"></canvas>
+<script>(async()=>{await document.fonts.ready;const g=document.getElementById('g').getContext('2d'),d=g.createImageData(1080,1350);let s=9;const r=()=>(s=(s*16807)%2147483647)/2147483647;for(let i=0;i<d.data.length;i+=4){const v=r()*255;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255}g.putImageData(d,0,0);document.body.dataset.done=1})();</script>
+</body></html>`;
+
 const JOBS = JSON.parse(fs.readFileSync(`${DIR}/hotcoin-jobs.json`, 'utf8'));
 const jobRows = (ids) => ids.map(id => { const j = JOBS.find(x => x.key === id); return `<div class="job"><div><div class="r">${j.en}</div><div class="zh">${j.zh}</div></div><div><div class="p">${j.pay || 'Pay on request'}</div><div class="w">${j.where}</div></div></div>`; }).join('');
 
 const DECKS = {
+  autumn: {cover: `${ROOT}/linkedin/covers/out/fri-autumn.png`, slides: [
+    {photo: 'screen.jpg', pos: '50% 40%', html: `<div class="k">September 7</div><div class="big">TradFi</div><div class="h">US stock-linked products, 24/7, with stablecoins.</div><div class="s">Trade when Wall Street sleeps, weekends included.</div>`},
+    {photo: 'mbs-night.jpg', pos: '50% 35%', html: `<div class="k">October 7 to 8 · Singapore</div><div class="big">TOKEN2049</div><div class="h">Our green booth at Marina Bay Sands.</div><div class="s">Level 5, PB5-5 and PB5-6. Two days of traders, builders and football.</div>`},
+    {photo: 'vault.jpg', pos: '0% 0%', zoom: 2.1, origin: '30% 8%', html: `<div class="k">October 29 · Proof of reserves</div><div class="big">105%+</div><div class="h">BTC 105%, ETH 109%, USDT 113%.</div><div class="s">Every user asset covered, with a buffer on top.</div>`},
+    {photo: 'pitch.jpg', pos: '50% 30%', html: `<div class="k">November · ends Nov 29</div><div class="big">Legends</div><div class="h">The Global Legends Challenge with Ronaldinho.</div><div class="s">A limited-edition jersey, ball and gift box, plus an iPhone 18 Pro, up for grabs.</div>`},
+    `<div class="k">Year 9</div><div class="h" style="font-size:96px">Same job since 2017.</div><div class="s" style="font-size:40px">Keep it safe. Keep it simple. Keep shipping.</div><div style="margin-top:auto"><div class="h" style="font-size:72px">Which one should we<br>tell you more about?<br><span style="color:#B8F26A">1, 2, 3 or 4</span></div></div>`,
+  ]},
   bots: {cover: `${ROOT}/linkedin/covers/out/thu-bots.png`, slides: [
     `<div class="k">The estimate</div><div class="big" style="margin-top:40px">~2/3</div><div class="h" style="font-size:72px">of on-chain crypto trades<br>are made by bots.</div><div class="s">They come from just <b style="color:#B8F26A">1 to 3%</b> of wallets.</div>`,
     `<div class="k">Read it right</div><div class="h">It counts trades,<br>not volume.</div><div class="s">One bot can fire hundreds of small trades a minute. Each one counts once, whatever its size. So “2/3 of trades” does not mean bots move 2/3 of the money.</div>`,
@@ -73,10 +108,10 @@ const total = D.slides.length + 1;
 fs.copyFileSync(D.cover, `${OUT}/01.png`);
 const br = await chromium.launch(); const p = await br.newPage({viewport: {width: 1080, height: 1350}, deviceScaleFactor: 2});
 for (const [i, inner] of D.slides.entries()) {
-  await p.setContent(shell(inner, i + 2, total, i % 2 ? {cx: -120, cy: 1250, cx2: 1100, cy2: 1320} : {}), {waitUntil: 'networkidle'});
+  await p.setContent(typeof inner === 'object' ? photoShell(inner, i + 2, total) : shell(inner, i + 2, total, i % 2 ? {cx: -120, cy: 1250, cx2: 1100, cy2: 1320} : {}), {waitUntil: 'networkidle'});
   await p.waitForSelector('body[data-done]'); await p.waitForTimeout(120);
-  const ov = await p.evaluate(() => { const c = document.querySelector('body>div:nth-of-type(2)'); return c.scrollHeight - c.clientHeight; });
-  if (ov > 2) console.warn(`slide ${i + 2}: content overflows by ${ov}px`);
+  if (typeof inner !== 'object') { const ov = await p.evaluate(() => { const c = document.querySelector('body>div:nth-of-type(2)'); return c.scrollHeight - c.clientHeight; });
+  if (ov > 2) console.warn(`slide ${i + 2}: content overflows by ${ov}px`); }
   await p.screenshot({path: `${OUT}/${String(i + 2).padStart(2, '0')}.png`});
 }
 await br.close();
