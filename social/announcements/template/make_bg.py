@@ -4,13 +4,15 @@ import math, random
 from PIL import Image, ImageDraw, ImageFilter
 ROOT = '/home/user/sandbox'
 W, H = 1600, 900
-OUT = ROOT + '/social/announcements/template/bg-lime-1600x900.png'
+import sys
+THEME = sys.argv[1] if len(sys.argv) > 1 else 'lime'
+OUT = ROOT + f'/social/announcements/template/bg-{THEME}-1600x900.png'
 random.seed(9)
 
 # base: soft lime gradient
 bg = Image.new('RGB', (W, H))
 px = bg.load()
-c1, c2 = (206, 247, 120), (160, 226, 74)
+c1, c2 = ((206, 247, 120), (160, 226, 74)) if THEME == 'lime' else ((16, 20, 18), (6, 8, 7))
 for y in range(H):
     for x in range(W):
         t = min(1, max(0, (x / W) * 0.35 + (y / H) * 0.65))
@@ -35,7 +37,10 @@ for gy in range(0, H, step):
         if v < 0.06 or random.random() > 0.55 * v + 0.05: continue
         s = 2 + int(v * 3.2 * random.uniform(0.6, 1.1))
         alpha = int(25 + 95 * v * random.uniform(0.5, 1))
-        col = (24, 70, 20, alpha) if random.random() > 0.3 else (255, 255, 255, int(alpha * 1.1))
+        if THEME == 'lime':
+            col = (24, 70, 20, alpha) if random.random() > 0.3 else (255, 255, 255, int(alpha * 1.1))
+        else:
+            col = (126, 194, 90, int(alpha * 0.9)) if random.random() > 0.25 else (255, 255, 255, int(alpha * 0.45))
         d.rectangle([x - s / 2, y - s / 2, x + s / 2, y + s / 2], fill=col)
 out = Image.alpha_composite(bg.convert('RGBA'), dots).convert('RGB')
 out.save(OUT); print(OUT)
