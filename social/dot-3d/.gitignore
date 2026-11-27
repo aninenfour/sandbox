@@ -6,3 +6,5 @@ out/contact-sheet-v2.jpg
 out/*silent*.mp4
 out/music*.wav
 out/render*.log
+out/contact-sheet-v2-*.jpg
+out/_scroll/

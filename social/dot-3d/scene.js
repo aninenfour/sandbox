@@ -3,6 +3,8 @@
 //   rings: hotcoin-tradfi/public/brand/symbol-official-white.png
 //   ending: brand-kit/logo/hotcoin-logo-white.svg with its green dot path hidden (the mascot lands there),
 //           then hotcoin-tradfi/public/brand/logo-official-white.png crossfades in (the exact mark).
+//   ink styles: brand-kit/logo/hotcoin-logo-black.svg (dot path hidden) brushed on, then logo-official-black.png;
+//               ring symbol from brand-kit/logo/hotcoin-symbol-black.svg. Logos are overlaid untouched by the ink pass.
 // URL params: w, h (frame size), arms=1 (add stubby arms; off by default per the character board).
 import * as THREE from 'three';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
@@ -18,6 +20,7 @@ const TALL = ASPECT < 0.7; // 9:16 cut
 // v2 (?v=2): speed aura, afterimages, cheeky butt gag on the rooftop, smoothed camera; beat grid of the hip-hop score
 const VER = +(P.get('v') || 1), V2 = VER >= 2, INK = VER >= 3; // v3: ink palette (#0B0E11 world, white + lime light only), lens pass
 const MB = +P.get('mb') || 1; // motion-blur sub-frames per frame
+const STYLE = P.get('style') || ''; // ink painting looks: shuimo | guofeng | nightink (post-process on the same 3D scene)
 const BEAT = 60 / 92.75, DROP = 2.95 + 16 * BEAT; // drop lands on the rooftop landing (13.30 s)
 const DUR = 20;
 
@@ -208,7 +211,7 @@ function neonWordTex(text, vertical, color = '#B8F26A', w = 256, h = 1024) {
 
 // ---------- world ----------
 const MATS = [0, 1].map((v) => new THREE.MeshStandardMaterial({color: INK ? '#0B0E11' : '#0b1114', roughness: INK ? .5 : .62, metalness: INK ? .5 : .35, emissive: '#ffffff', emissiveMap: windowTex(v), emissiveIntensity: .95}));
-const roofDark = new THREE.MeshStandardMaterial({color: '#0a0f0e', roughness: .5, metalness: .3});
+const roofDark = new THREE.MeshStandardMaterial({color: STYLE === 'shuimo' ? '#8c9090' : '#0a0f0e', roughness: .5, metalness: .3});
 const NEON_LIME = new THREE.MeshBasicMaterial({color: neon('#B8F26A', 5)});
 const NEON_WHITE = new THREE.MeshBasicMaterial({color: neon('#e9fff0', 3.2)});
 function boxGeo(w, h, d, tile = 13) {
@@ -260,7 +263,7 @@ for (let i = 0; i < 70; i++) { const a = rnd() * Math.PI * 2, r = 140 + rnd() * 
 {
   const d = Z_EDGE - (Z_T + 5);
   const rb = new THREE.Mesh(boxGeo(60, ROOFY, d), MATS[0]); rb.position.set(0, ROOFY / 2, Z_EDGE - d / 2); scene.add(rb);
-  const roof = new THREE.Mesh(new THREE.PlaneGeometry(60, d), new THREE.MeshStandardMaterial({color: '#0d1312', roughness: .3, metalness: .25, envMapIntensity: 1.1}));
+  const roof = new THREE.Mesh(new THREE.PlaneGeometry(60, d), new THREE.MeshStandardMaterial(STYLE === 'shuimo' ? {color: '#b4b6b2', roughness: .85, metalness: 0} : {color: '#0d1312', roughness: .3, metalness: .25, envMapIntensity: 1.1}));
   roof.rotation.x = -Math.PI / 2; roof.position.set(0, ROOFY + .01, Z_EDGE - d / 2); scene.add(roof);
   const lip = new THREE.Mesh(new THREE.BoxGeometry(60, .5, .4), roofDark); lip.position.set(0, ROOFY + .25, Z_EDGE - .2); scene.add(lip);
   const strip = new THREE.Mesh(new THREE.BoxGeometry(60, .12, .12), NEON_LIME); strip.position.set(0, ROOFY + .52, Z_EDGE - .2); scene.add(strip);
@@ -276,7 +279,7 @@ for (let i = 0; i < 70; i++) { const a = rnd() * Math.PI * 2, r = 140 + rnd() * 
 }
 // sign panel + hotcoin.com neon tubes (off until the reveal)
 const signPanel = new THREE.Mesh(new THREE.PlaneGeometry(31, 16.5), new THREE.MeshStandardMaterial({color: '#030605', roughness: .8, metalness: .2}));
-signPanel.position.set(0, 27.3, Z_T + .12); scene.add(signPanel);
+signPanel.position.set(0, 27.3, Z_T + .12); if (!STYLE) scene.add(signPanel);
 let signMat, logoNoDotMat, logoFullMat, logoNoDotCanvas, logoNoDotG, logoNoDotImg;
 
 // ground: wet asphalt = planar reflector under a dark asphalt layer with puddle holes
@@ -343,6 +346,7 @@ const rings = RINGS.map((rt) => {
   const halo = new THREE.Mesh(new THREE.TorusGeometry(2.05, .32, 8, 64), new THREE.MeshBasicMaterial({color: neon('#B8F26A', .6), transparent: true, opacity: .35, blending: THREE.AdditiveBlending, depthWrite: false})); g.add(halo);
   const symMat = new THREE.MeshBasicMaterial({map: symTex, transparent: true, opacity: .9, depthWrite: false, color: neon('#ffffff', 1.0), side: THREE.DoubleSide});
   const sym = new THREE.Mesh(new THREE.PlaneGeometry(2.3, 2.3), symMat); g.add(sym);
+  if (STYLE === 'shuimo') { halo.visible = false; torus.geometry = new THREE.TorusGeometry(2.05, .16, 12, 64); }
   scene.add(g); return {t: rt, g, torus, torusMat, halo, sym, symMat, c};
 });
 
@@ -413,7 +417,7 @@ function auraAmt(t) {
 function updateAura(t, scl) {
   if (!V2) return;
   const a = auraAmt(t), sp = cl(speed(t) / 16);
-  auraMats.forEach((m, i) => { m.uniforms.uT.value = t; m.uniforms.uS.value = sp * (.6 + .6 * boost(t)); m.uniforms.uI.value = a * (i ? 1.7 : 1.2) * (.85 + .15 * Math.sin(t * 23 + i)); });
+  auraMats.forEach((m, i) => { m.uniforms.uT.value = t; m.uniforms.uS.value = sp * (.6 + .6 * boost(t)); m.uniforms.uI.value = a * (i ? 1.7 : 1.2) * (.85 + .15 * Math.sin(t * 23 + i)) * (STYLE === 'shuimo' ? .45 : 1); });
   ghosts.forEach((g, k) => { const tt = Math.max(0, t - .04 * (k + 1)); g.position.copy(centerAt(tt)); g.scale.setScalar(scl); g.material.opacity = .11 * a * sp * (1 - k / 4.5); g.visible = g.material.opacity > .003; });
   machs.forEach(({t: mt, m}) => { const k = seg(t, mt, mt + .42); m.visible = t > mt && k < 1; if (!m.visible) return;
     const p = centerAt(mt), q = centerAt(mt + .03); m.position.copy(p); m.lookAt(q); m.scale.setScalar(1.2 + 4.5 * eo(k)); m.material.opacity = (1 - k) * .9; });
@@ -646,6 +650,7 @@ window.setT = (t) => {
     r.g.scale.setScalar(1 + .45 * eo(k) * (pass ? 1 : 0));
     const flash = pass ? Math.exp(-(t - r.t) * 6) : 0;
     r.torusMat.color.copy(LIME).multiplyScalar(INK ? 2.3 + 1.2 * flash : 2.6 + 2.5 * flash);
+    if (STYLE === 'shuimo') { r.torusMat.color.set('#3f9a12'); r.torusMat.fog = false; r.halo.visible = false; }
     const vis = (pass ? 1 - eo(k) : 1) * cl((camera.position.distanceTo(r.g.position) - (INK ? 4 : 2)) / (INK ? 6 : 5)); r.torusMat.transparent = true; r.torusMat.opacity = vis; r.halo.material.opacity = .35 * vis; r.symMat.opacity = .9 * vis * (1 - .8 * bump(t, r.t - .1, r.t + .1));
     r.g.visible = vis > .01;
   }
@@ -726,7 +731,7 @@ window.setT = (t) => {
   updateAura(t, scl);
   lens.uniforms.uT.value = t; lens.uniforms.uAmt.value = 1 + .8 * boost(t);
   renderer.setRenderTarget(null);
-  composer.render();
+  if (STYLE) inkRender(t); else composer.render();
 };
 const outC = canvas(W, H), oc = outC.getContext('2d');
 if (MB > 1) { outC.style.cssText = 'position:absolute;left:0;top:0'; document.body.appendChild(outC); }
@@ -751,17 +756,202 @@ function drawLogoReveal(k) {
 }
 
 // ---------- async assets (fonts, logo, sign) ----------
+// ---------- ink painting styles (水墨 / 国风 / 墨夜) ----------
+// G-buffer pass (view normals, depth, dot mask) + colour pass, composited into brush outlines, stepped ink washes,
+// paper grain and spot colour (lime, red); the dot keeps its colour with cel steps.
+const SIDX = {shuimo: 0, guofeng: 1, nightink: 2}[STYLE] ?? 0;
+let rtC, rtG, gMat, postScene, postCam, postMat, gHide = null;
+if (STYLE) {
+  reflector.visible = false;
+  const sky = (stops) => { const c = canvas(8, 512), g = c.getContext('2d'), gr = g.createLinearGradient(0, 0, 0, 512); stops.forEach(([o, col]) => gr.addColorStop(o, col)); g.fillStyle = gr; g.fillRect(0, 0, 8, 512); return ctex(c); };
+  if (SIDX === 0) {
+    scene.background = sky([[0, '#e9e3d4'], [1, '#f1ece0']]); scene.fog = new THREE.FogExp2('#ece6d8', .0085);
+    hemi.color.set('#ffffff'); hemi.groundColor.set('#6f6a60'); hemi.intensity = 1.9; key.intensity = 2.6;
+    MATS.forEach((m) => { m.color.set('#9aa0a2'); m.emissiveIntensity = .03; m.metalness = .1; m.roughness = .85; });
+    rain.material.color.set('#3a3d40'); rain.material.opacity = .22;
+  } else if (SIDX === 1) {
+    scene.background = sky([[0, '#203f4a'], [.45, '#5f8f92'], [.8, '#e9d6b4'], [1, '#f3e6c9']]); scene.fog = new THREE.FogExp2('#d9c9a8', .0075);
+    hemi.color.set('#ffe9c8'); hemi.groundColor.set('#2c3a40'); hemi.intensity = 1.6; key.color.set('#ffe0b0'); key.intensity = 2.6;
+    MATS.forEach((m) => { m.color.set('#3e5157'); m.emissiveIntensity = .55; m.metalness = .2; m.roughness = .7; });
+    rain.material.color.set('#e8dcc4'); rain.material.opacity = .25;
+  } else {
+    scene.background = sky([[0, '#060708'], [1, '#0d1013']]); scene.fog = new THREE.FogExp2('#0B0E11', .009);
+    MATS.forEach((m) => { m.color.set('#2a2f33'); m.emissiveIntensity = .7; });
+  }
+  rtC = new THREE.WebGLRenderTarget(W, H, {type: THREE.HalfFloatType, samples: 4});
+  rtG = new THREE.WebGLRenderTarget(W, H, {type: THREE.HalfFloatType, samples: 0});
+  gMat = new THREE.ShaderMaterial({uniforms: {uDot: {value: 0}},
+    vertexShader: 'varying vec3 vN; varying float vD; void main(){ vec4 mv = modelViewMatrix * vec4(position, 1.); vN = normalize(normalMatrix * normal); vD = -mv.z; gl_Position = projectionMatrix * mv; }',
+    fragmentShader: 'uniform float uDot; varying vec3 vN; varying float vD; void main(){ vec3 n = normalize(vN); gl_FragColor = vec4(n.xy * .5 + .5, clamp(vD / 400., 0., 1.), uDot); }'});
+  dotRoot.traverse((o) => { if (o.isMesh && !o.material.isShaderMaterial) {
+    o.onBeforeRender = (r, sc, c, g, m) => { if (m === gMat) { m.uniforms.uDot.value = 1; m.uniformsNeedUpdate = true; } };
+    o.onAfterRender = (r, sc, c, g, m) => { if (m === gMat) { m.uniforms.uDot.value = 0; m.uniformsNeedUpdate = true; } }; o.userData.isDot = true; } });
+  postMat = new THREE.ShaderMaterial({
+    uniforms: {tC: {value: rtC.texture}, tG: {value: rtG.texture}, uRes: {value: new THREE.Vector2(W, H)}, uS: {value: SIDX}, uT: {value: 0}, uDraw: {value: 1}, uSp: {value: Array.from({length: 6}, () => new THREE.Vector4(0, 0, 0, -1))}, uSpC: {value: Array.from({length: 6}, () => new THREE.Vector3())},
+      uPaper: {value: new THREE.Color(SIDX === 2 ? '#e8e2d2' : '#f1ebdd')}, uInk: {value: new THREE.Color(SIDX === 2 ? '#0B0E11' : SIDX === 1 ? '#1d1712' : '#15171A')}},
+    vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }',
+    fragmentShader: `uniform sampler2D tC, tG; uniform vec2 uRes; uniform int uS; uniform float uT, uDraw; uniform vec3 uPaper, uInk; uniform vec4 uSp[6]; uniform vec3 uSpC[6]; varying vec2 vUv;
+float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float n2(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3. - 2. * f); return mix(mix(h(i), h(i + vec2(1., 0.)), f.x), mix(h(i + vec2(0., 1.)), h(i + vec2(1., 1.)), f.x), f.y); }
+float fbm(vec2 p){ float s = 0., a = .5; for (int i = 0; i < 5; i++) { s += a * n2(p); p = p * 2.03 + 1.7; a *= .5; } return s; }
+vec3 tone(vec3 c){ c = 1. - exp(-c * 1.15); return pow(c, vec3(1. / 2.2)); }
+vec3 srgb(vec3 c){ return pow(c, vec3(1. / 2.2)); }
+vec3 inkDot(vec3 c, float L, float sat, vec3 paper, float rim, vec2 q){
+  float l = L + (fbm(q * 14.) - .5) * .14;
+  vec3 col = vec3(.24, .44, .15);
+  col = mix(col, vec3(.36, .60, .24), smoothstep(.25, .33, l));
+  col = mix(col, vec3(.49, .76, .35), smoothstep(.40, .48, l));
+  col = mix(col, vec3(.62, .83, .43), smoothstep(.58, .66, l));
+  col *= .9 + .2 * fbm(q * 70.);                                   // pigment granulation
+  col = mix(col, col * .68, smoothstep(.08, .55, rim));             // wet edge pools at the rim
+  float white = smoothstep(.7, .84, L) * (1. - smoothstep(.12, .3, sat));
+  col = mix(col, paper, white);                                     // highlights and eye white stay paper
+  col = mix(col, uInk, smoothstep(.2, .07, L));                     // pupil and deepest darks in ink
+  return col * mix(1., paper.r / max(uPaper.r, .01), .5);
+}
+vec3 cel(vec3 c){ float L = dot(c, vec3(.3, .59, .11)); float q = floor(L * 3. + .55) / 3.; return mix(c, c / max(L, .001) * q, .65); }
+void main(){
+  vec2 px = 1. / uRes, A = vec2(uRes.x / uRes.y, 1.);
+  float tb = floor(uT * 8.); vec2 bo = vec2(tb * 3.71, tb * 1.93); // line boil, 8 drawings a second
+  vec2 wob = (vec2(fbm(vUv * A * 7. + bo), fbm(vUv * A * 7. + 5.3 + bo)) - .5) * px * 7.;
+  vec2 uv = vUv + wob;
+  vec4 g0 = texture2D(tG, uv);
+  float r = 1.3 + 1.6 * fbm(vUv * A * 24. + bo);
+  float ed = 0., en = 0.;
+  for (int i = 0; i < 8; i++) { float a = float(i) * .785398; vec4 g = texture2D(tG, uv + vec2(cos(a), sin(a)) * px * r); ed += abs(g.b - g0.b); en += length(g.rg - g0.rg); }
+  float far = g0.b;
+  float edge = clamp(smoothstep(.25, .9, ed / (g0.b + .003)) + smoothstep(.5, 1.3, en), 0., 1.);
+  edge *= (1. - smoothstep(.12, .6, far)) * (.6 + .5 * fbm(vUv * A * 90. + bo));
+  // drawing frontier: near things are drawn first, lines lead and washes follow; uDraw runs it forward and back
+  float nf = fbm(vUv * A * 2.6 + 11.), dd = far * 1.6 + nf * .45, reach = uDraw;
+  float lineOn = smoothstep(reach * 1.25 + .04, reach * 1.25 - .05, dd), washOn = smoothstep(reach * 1.05 + .03, reach * 1.05 - .06, dd + .12);
+  vec3 c = tone(texture2D(tC, vUv).rgb);
+  float L = dot(c, vec3(.3, .59, .11)), mx = max(c.r, max(c.g, c.b)), sat = mx - min(c.r, min(c.g, c.b));
+  float lime = smoothstep(.22, .42, sat) * step(c.r, c.g) * step(c.b * 1.4, c.g);
+  float red = smoothstep(.25, .45, sat) * step(c.g * 1.5, c.r);
+  float isDot = texture2D(tG, vUv).a;
+  float dIn = 0., dOut = 0.;
+  for (int i = 0; i < 12; i++) { float a = float(i) * .5236; vec2 d = vec2(cos(a), sin(a)) * px;
+    dIn += texture2D(tG, vUv + d * 8.).a; dOut += texture2D(tG, uv + d * (2.2 + 2.2 * fbm(vUv * A * 30. + bo))).a; }
+  float rim = 1. - dIn / 12., contour = (1. - isDot) * smoothstep(.04, .3, dOut / 12.);
+  float grain = .9 + .1 * fbm(vUv * A * 160.) + .03 * (h(floor(vUv * uRes) + uT) - .5);
+  float sky = step(.999, texture2D(tG, vUv).b);
+  vec3 o;
+  if (uS == 0) {
+    float wr = (1. - smoothstep(.08, .88, L)) * (1. - .85 * smoothstep(.08, .75, far)) * washOn;
+    float ws = wr * 4. + .55 * fbm(vUv * A * 10.), wash = floor(ws) / 4.;
+    float pool = smoothstep(.8, .98, fract(ws)) * step(.2, wash);   // pigment pools where two washes meet
+    vec3 paper = uPaper * grain;
+    o = mix(paper, uInk, clamp(wash * .8 + pool * .14, 0., 1.)) * (.95 + .05 * fbm(vUv * A * 45.));
+    // distant ink mountains in the sky
+    float x = vUv.x;
+    float m1 = .52 + .16 * fbm(vec2(x * 2.2, 1.3)) , m2 = .46 + .12 * fbm(vec2(x * 3.7 + 4., 2.1));
+    float mtn = max(smoothstep(m1 + .004, m1 - .004, vUv.y) * .32, smoothstep(m2 + .004, m2 - .004, vUv.y) * .5);
+    mtn *= .6 + .4 * fbm(vUv * A * vec2(6., 18.));
+    if (sky > .5) o = mix(paper, uInk, mtn * smoothstep(.25, .6, vUv.y) * .75 * smoothstep(.55, .95, reach));
+    o = mix(o, srgb(vec3(.48, .75, .28)) * grain * (.75 + .5 * L), lime * .9 * washOn);
+    o = mix(o, srgb(vec3(.79, .07, .09)) * grain, red * .9 * washOn);
+    edge *= max(lineOn, isDot);
+    for (int i = 0; i < 6; i++) { vec4 sp = uSp[i]; if (sp.w < 0.) continue;
+      vec2 d = (vUv - sp.xy) * A; float dl = length(d), grow = sp.z * (1. - exp(-sp.w * 14.));
+      float rr = grow * (.7 + .6 * fbm(normalize(d + 1e-5) * 2.5 + float(i) * 7.3));
+      float blob = smoothstep(rr, rr * .82, dl);
+      float drop = step(.986, h(floor(d * 95.) + float(i) * 13.)) * step(dl, grow * 2.) * step(rr, dl);
+      o = mix(o, uSpC[i] * (.9 + .1 * fbm(d * 40.)), clamp(blob + drop, 0., 1.) * (1. - smoothstep(.45, .95, sp.w)) * .88); }
+    if (isDot > .5) o = inkDot(c, L, sat, uPaper * grain, rim, vUv * A);
+    o = mix(o, uInk, max(edge * .92, contour * (.75 + .25 * fbm(vUv * A * 55.))));
+  } else if (uS == 1) {
+    vec3 q = c / max(L, .001) * (floor(L * 4. + .5) / 4.);
+    o = mix(c, q, .75) * mix(1., grain, .6);
+    if (isDot > .5) o = cel(c);
+    o = mix(o, uInk, edge * .88);
+  } else {
+    float wash = smoothstep(.03, .75, L); wash = floor(wash * 4. + .55 * fbm(vUv * A * 10.)) / 4.;
+    wash *= 1. - .7 * smoothstep(.08, .75, far);
+    o = mix(uInk * (.85 + .3 * fbm(vUv * A * 160.)), uPaper, clamp(wash, 0., 1.) * .5);
+    o = mix(o, c, max(lime, red));
+    if (isDot > .5) o = cel(c);
+    o = mix(o, uPaper * .82, edge * .75);
+  }
+  gl_FragColor = vec4(o, 1.);
+}`});
+  postScene = new THREE.Scene(); postCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+  postScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), postMat));
+}
+let logoScene = null; const logoInkMats = [];
+const SPLATS = STYLE === 'shuimo' ? [
+  {t: 2.95, p: V(0, .05, 0), r: .08, c: [.08, .09, .1]},
+  ...RINGS.map((rt) => ({t: rt, p: V(fx(rt), fy(rt) + 2.15, zAt(rt)), r: .075, c: [.49, .76, .35]})),
+  {t: CANDLE_T, p: V(CANDLE_X, .2, CANDLE_Z), r: .1, c: [.08, .09, .1]},
+  {t: 13.3, p: ROOF_SPOT.clone(), r: .11, c: [.08, .09, .1]}] : [];
+function drawAmt(t) { return lerp(.3, 1, eo(seg(t, 0, 1.4))) * (1 - ease(seg(t, 16.6, 18.0))); }
+function updateInk(t) {
+  postMat.uniforms.uDraw.value = SIDX === 0 ? drawAmt(t) : 1;
+  SPLATS.forEach((sp, i) => {
+    const age = t - sp.t, v = sp.p.clone().project(camera), U = postMat.uniforms.uSp.value[i];
+    if (age < 0 || age > 1 || v.z > 1) { U.w = -1; return; }
+    U.set(v.x * .5 + .5, v.y * .5 + .5, sp.r, age); postMat.uniforms.uSpC.value[i].set(...sp.c);
+  });
+  if (logoInkMats.length) {
+    logoInkMats[0].uniforms.uK.value = ease(seg(t, 15.3, 16.5)); logoInkMats[0].uniforms.uO.value = 1;
+    logoInkMats[1].uniforms.uK.value = 1; logoInkMats[1].uniforms.uO.value = ease(seg(t, 19.05, 19.45));
+  }
+}
+const NOISE_GLSL = `float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float n2(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3. - 2. * f); return mix(mix(h(i), h(i + vec2(1., 0.)), f.x), mix(h(i + vec2(0., 1.)), h(i + vec2(1., 1.)), f.x), f.y); }
+float fbm(vec2 p){ float s = 0., a = .5; for (int i = 0; i < 5; i++) { s += a * n2(p); p = p * 2.03 + 1.7; a *= .5; } return s; }`;
+function logoInkMat(tex) { // brush-stroke reveal of an untouched logo texture (raw sRGB in, raw out)
+  const m = new THREE.ShaderMaterial({uniforms: {map: {value: tex}, uK: {value: 0}, uO: {value: 0}}, transparent: true, depthTest: false, depthWrite: false,
+    vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }',
+    fragmentShader: `uniform sampler2D map; uniform float uK, uO; varying vec2 vUv; ${NOISE_GLSL}
+    void main(){ vec4 tx = texture2D(map, vUv); float x = vUv.x + (fbm(vUv * vec2(10., 3.)) - .5) * .2 + (vUv.y - .5) * .06;
+      float f = uK * 1.3 - .1, m = smoothstep(f + .03, f - .05, x);
+      float dry = mix(step(.42, fbm(vUv * vec2(70., 6.))), 1., smoothstep(0., .1, f - x));
+      gl_FragColor = vec4(tx.rgb, tx.a * m * dry * uO); }`});
+  logoInkMats.push(m); return m;
+}
+function inkRender(t) {
+  updateInk(t);
+  if (!gHide) { gHide = []; scene.traverse((o) => { if (o.userData.isDot) return; const m = o.material;
+    if (o.isPoints || o.isLine || o.isInstancedMesh || (m && (m.transparent || m.isShaderMaterial || m.blending === THREE.AdditiveBlending))) gHide.push(o); }); }
+  renderer.setRenderTarget(rtC); renderer.clear(); renderer.render(scene, camera);
+  const vis = gHide.map((o) => o.visible); gHide.forEach((o) => { o.visible = false; });
+  const bg = scene.background, fog = scene.fog; scene.background = null; scene.fog = null; scene.overrideMaterial = gMat;
+  renderer.setClearColor(new THREE.Color(.5, .5, 1), 0); renderer.setRenderTarget(rtG); renderer.clear(); renderer.render(scene, camera);
+  scene.overrideMaterial = null; scene.background = bg; scene.fog = fog; renderer.setClearColor(0x000000, 0);
+  gHide.forEach((o, i) => { o.visible = vis[i]; });
+  postMat.uniforms.uT.value = t; renderer.setRenderTarget(null); renderer.render(postScene, postCam);
+  if (logoScene) { renderer.autoClear = false; renderer.render(logoScene, camera); renderer.autoClear = true; }
+}
+
 window.READY = (async () => {
   const ff = [['Inter Tight', '800', 'inter-tight-latin-800-normal.woff2'], ['Inter Tight', '700', 'inter-tight-latin-700-normal.woff2']];
   for (const [fam, wt, file] of ff) { const f = new FontFace(fam, `url(/social/dot-3d/node_modules/@fontsource/inter-tight/files/${file})`, {weight: wt}); await f.load(); document.fonts.add(f); }
   fontsReady = true;
   makeBlades();
-  // hotcoin.com neon sign (typed domain, not the logo)
-  { const c = canvas(2048, 420), g = c.getContext('2d'); g.font = '800 250px "Inter Tight"'; g.textAlign = 'center'; g.textBaseline = 'middle';
+  // hotcoin.com neon sign (typed domain, not the logo); the ink cut shows the logo only
+  if (!STYLE) { const c = canvas(2048, 420), g = c.getContext('2d'); g.font = '800 250px "Inter Tight"'; g.textAlign = 'center'; g.textBaseline = 'middle';
     g.lineJoin = 'round'; g.strokeStyle = 'rgba(255,255,255,.55)'; g.lineWidth = 18; g.shadowColor = '#ffffff'; g.shadowBlur = 20; g.strokeText('hotcoin.com', 1024, 220);
     g.shadowBlur = 0; g.lineWidth = 7; g.strokeStyle = '#ffffff'; g.strokeText('hotcoin.com', 1024, 220);
     signMat = new THREE.MeshBasicMaterial({map: ctex(c), transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, fog: false});
     const m = new THREE.Mesh(new THREE.PlaneGeometry(26, 26 * 420 / 2048), signMat); m.position.set(0, SIGN_Y, Z_T + .25); scene.add(m); }
+  if (STYLE) { // official black logo for paper: dot path hidden for the brush-on, then the exact PNG
+    const svgB = await (await fetch('/brand-kit/logo/hotcoin-logo-black.svg')).text();
+    const noDotB = svgB.replace(/<path fill="#7ec25a"[^>]*\/>/i, '').replace('<svg ', '<svg width="4010" height="656" ');
+    if (noDotB === svgB) throw new Error('green dot path not found in black logo svg');
+    const img = new Image(); img.src = URL.createObjectURL(new Blob([noDotB], {type: 'image/svg+xml'})); await img.decode();
+    const lc = canvas(4010, 656); lc.getContext('2d').drawImage(img, 0, 0, 4010, 656);
+    const tA = new THREE.CanvasTexture(lc); tA.anisotropy = 8;
+    const tB = await new THREE.TextureLoader().loadAsync('/hotcoin-tradfi/public/brand/logo-official-black.png'); tB.anisotropy = 8;
+    logoScene = new THREE.Scene();
+    const la = new THREE.Mesh(new THREE.PlaneGeometry(LOGO_W, LOGO_H), logoInkMat(tA)); la.position.set(0, LOGO_Y, Z_T + .35); logoScene.add(la);
+    const lb = new THREE.Mesh(new THREE.PlaneGeometry(LOGO_W, LOGO_H), logoInkMat(tB)); lb.position.set(0, LOGO_Y, Z_T + .5); lb.renderOrder = 2; logoScene.add(lb);
+    // ring symbol: official black symbol so it reads on paper
+    const ss = await (await fetch('/brand-kit/logo/hotcoin-symbol-black.svg')).text();
+    const si = new Image(); si.src = URL.createObjectURL(new Blob([ss.replace('<svg ', '<svg width="656" height="656" ')], {type: 'image/svg+xml'})); await si.decode();
+    const sc = canvas(656, 656); sc.getContext('2d').drawImage(si, 0, 0, 656, 656); const st = ctex(sc);
+    rings.forEach((r) => { r.symMat.map = st; r.symMat.color.setScalar(1); r.symMat.needsUpdate = true; });
+  }
   // official logo SVG with the green dot path hidden
   const svg = await (await fetch('/brand-kit/logo/hotcoin-logo-white.svg')).text();
   const noDot = svg.replace(/<path fill="#7ec25a"[^>]*\/>/i, '').replace('<svg ', '<svg width="4010" height="656" ');
