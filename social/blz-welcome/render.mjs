@@ -23,10 +23,10 @@ body{background:#04070d;color:#fff}
 .art{position:absolute;left:0;top:0;width:1080px;height:1340px;object-fit:cover}
 .scr{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,7,13,0) 70%,rgba(4,7,13,.85) 82%,#04070d 92%)}
 .logo{position:absolute;left:60px;top:58px;height:40px}
-.cb{position:absolute;right:56px;top:44px;display:flex;align-items:center;gap:14px;font:700 20px 'JetBrains Mono';letter-spacing:3px;color:rgba(255,255,255,.85)}
-.cb img{width:68px;height:68px;box-shadow:0 0 0 3px rgba(255,255,255,.14),0 8px 24px rgba(0,0,0,.5)}
-.eng{position:absolute;left:384px;width:322px;top:640px;text-align:center;color:rgba(28,70,4,.82);text-shadow:0 1.5px 0 rgba(235,255,190,.45),0 -1px 0 rgba(0,0,0,.18)}
-.eng .s{font:800 19px 'JetBrains Mono';letter-spacing:4px}
+.cb{position:absolute;right:52px;top:30px;display:flex;align-items:center;gap:14px;font:700 20px 'JetBrains Mono';letter-spacing:3px;color:rgba(255,255,255,.85)}
+.cb img{width:100px;height:100px;box-shadow:0 0 0 3px rgba(255,255,255,.14),0 8px 24px rgba(0,0,0,.5)}
+.eng{position:absolute;left:384px;width:322px;top:715px;text-align:center;color:rgba(28,70,4,.82);text-shadow:0 1.5px 0 rgba(235,255,190,.45),0 -1px 0 rgba(0,0,0,.18)}
+.eng .s{font:800 26px 'JetBrains Mono';letter-spacing:6px}
 .eng .n{font:400 118px/1 'Russo One';letter-spacing:-3px;margin-top:16px}
 .eng .u{font:800 20px/1.35 'JetBrains Mono';letter-spacing:2px;margin-top:14px}
 .eng .ln{width:120px;height:3px;border-radius:2px;background:rgba(28,70,4,.55);margin:26px auto 0;box-shadow:0 1.5px 0 rgba(235,255,190,.4)}
@@ -39,8 +39,8 @@ h1 span{color:#b8f26a}
 </style></head><body>
 <img class="art" src="assets/tag-1.jpg"><div class="scr"></div>
 <img class="logo" src="${BR}logo-official-white.png">
-<div class="cb"><span>$BLZ</span><img class="coin" src="assets/blz-original.jpg"></div>
-<div class="eng"><div class="s">GOOD DOGS GET</div><div class="n">$500</div><div class="u">FUTURES TRIAL<br>VOUCHERS</div><div class="ln"></div><div class="x">BLZ × HOTCOIN</div></div>
+<div class="cb"><span>HOTCOIN × BLUZO</span><img class="coin" src="assets/blz-original.jpg"></div>
+<div class="eng"><div class="s">GIVEAWAY</div><div class="n">$500</div><div class="u">FUTURES TRIAL<br>VOUCHERS</div></div>
 <h1>Welcome <span>$BLZ</span> to Hotcoin</h1>
 <div class="pills"><div class="pill"><b>10 × $20</b>lucky draw</div><div class="pill"><b>60 × $5</b>first new users</div></div>
 </body></html>`;
