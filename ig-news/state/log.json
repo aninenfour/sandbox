@@ -2629,5 +2629,37 @@
   "x_url": "https://x.com/1065817584396713984/status/2126232850533912785",
   "tg_url": "https://t.me/c/2399913285/0",
   "note": "Owner Nov 27: release right away (published 'now' ~16:32). Built with dotmotion.py (spec posts/2026-11-27-dotmatrix-brand/spec.json). IG/FB/X/TG one post each; TikTok got v916_tiktok.mp4 (end card without CTA). Media commit 22bac26. Photos: Unsplash (Hans Eiskonen bull, Eze Joseph basketball, Victor Puerta phone). Next: Sun Nov 29 16:00 (scheduled by the 07:40 run)."
+ },
+ {
+  "id": "2026-11-28-bitcoin-death-cross",
+  "type": "news",
+  "slot": "2026-11-28T10:00:00+08:00",
+  "title": "Bitcoin death cross is near (50-day SMA <4% above 200-day, 12% a month ago); 13 past crosses since 2011: 3 fell 59%+ (2011, 2014, 2022 -64%), 3 fell 6% or less (2015, Sep 2023 ~0%, Apr 2025), 7 in between; BTC -52% from Oct 2025 top; signal lags",
+  "score": 10,
+  "status": "scheduled",
+  "layouts": [
+   "nhero",
+   "nbars",
+   "ngrid",
+   "nrows"
+  ],
+  "ngrid_used": true,
+  "nquote_used": false,
+  "nquote_note": "Not used: data story, no well-known person's exact words in 2 sources (ECB nominee de Cos quote only in CoinDesk; OpenAI/Apple countersuit quotes only from filings).",
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok_photo(10:02, tt/01-04)",
+   "ig_story(10:05)",
+   "x_research(11:00, 01-04)"
+  ],
+  "sources": [
+   "CoinDesk Nov 27 2026 (death cross history, 13 signals)",
+   "Coin Metrics community API PriceUSD (own 50/200-day SMA calc)",
+   "Decrypt Nov 26 2026 (EMA cross)",
+   "Yahoo Finance BTC-USD (top close)"
+  ],
+  "note": "07:40 run (Sat). Score 10/12 (hook 3, relevance 3, fresh 3, visual 1: no face, coin photo). Not covered by any Hotcoin channel in 48h. Skipped: ECB nominee de Cos tokenized deposits (10, weak face/hook, quote single source), OpenAI countersuit vs Apple (9, low crypto relevance), Binance tokenized IPOs (competitor), Nvidia Blackwell China (Nvidia Thu), Franklin HYPE ETF (8). Median drop left out (CoinDesk ~24% vs our calc 17%); 2014 depth 66% vs 64% so only 2022 -64% (both agree) on the cover. Cover 8 words, no comma, no badge (no drawn logos); render.py no warnings. Media commit d38b5ce. All 5 verified scheduled in Publer.",
+  "doc_row": true
  }
 ]
