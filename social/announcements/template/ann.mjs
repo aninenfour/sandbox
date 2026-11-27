@@ -16,7 +16,7 @@ const page = (footer) => `<!doctype html><html><head><meta charset="utf-8"><styl
 *{box-sizing:border-box;margin:0;padding:0}
 body{width:1600px;height:900px;overflow:hidden;font-family:'Inter Tight',sans-serif;color:#0B0E11}
 .s{position:relative;width:1600px;height:900px;background:url(${f(T + '/bg-lime-1600x900.png')}) center/cover;display:flex;flex-direction:column;align-items:center}
-.logo{margin-top:52px;height:52px}
+.logo{margin-top:48px;height:64px}
 .main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 80px;${footer ? 'margin-bottom:6px' : ''}}
 .tag{font-family:'JetBrains Mono';font-weight:700;font-size:20px;letter-spacing:4px;text-transform:uppercase;background:#0B0E11;color:#B8F26A;border-radius:999px;padding:8px 20px}
 h1{font-weight:900;font-size:${footer ? 96 : 112}px;letter-spacing:-2px;line-height:1;margin-top:${footer ? 20 : 26}px}
@@ -26,18 +26,19 @@ h2{font-weight:800;font-size:${footer ? 54 : 62}px;letter-spacing:-1px;line-heig
 .r{display:flex;gap:18px;align-items:baseline;font-size:${footer ? 19 : 21}px}
 .r b{font-weight:700;width:230px;text-align:right;color:#1F3A12}
 .r code{font-family:'JetBrains Mono';font-weight:700;letter-spacing:.3px}
-.sym{height:34px;margin-bottom:34px;opacity:.9}
-.ft{position:relative;width:100%;height:230px;background:linear-gradient(90deg,#050706,#0B0E11 60%,#111A0B);display:flex;align-items:center;overflow:hidden;color:#fff}
-.ft .rd{position:absolute;left:60px;bottom:0;height:230px}
-.ft .tx{margin-left:330px;display:flex;flex-direction:column;gap:8px}
-.ft .pill{align-self:flex-start;font-weight:700;font-size:20px;color:#1A1405;background:linear-gradient(90deg,#F7E7B0,#D9B45A);border-radius:999px;padding:5px 16px}
-.ft .big{font-weight:900;font-size:50px;letter-spacing:-1px;line-height:1}
+.url{font-family:'JetBrains Mono';font-weight:700;font-size:18px;letter-spacing:3px;margin-bottom:36px;opacity:.75}
+.ftw{position:relative;width:100%;height:150px}
+.ft{position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(90deg,#050706,#0B0E11 60%,#111A0B);display:flex;align-items:center;color:#fff;border-top:2px solid rgba(214,180,90,.55)}
+.rd{position:absolute;left:70px;bottom:0;height:330px;filter:drop-shadow(0 10px 24px rgba(0,0,0,.35));z-index:2}
+.ft .tx{margin-left:420px;display:flex;flex-direction:column;gap:6px}
+.ft .pill{align-self:flex-start;font-weight:700;font-size:16px;color:#1A1405;background:linear-gradient(90deg,#F7E7B0,#D9B45A);border-radius:999px;padding:5px 16px}
+.ft .big{font-weight:900;font-size:40px;letter-spacing:-1px;line-height:1}
 .ft .big span{color:#8EE04E}
-.ft .sm{font-size:24px;color:#C9CDD2;font-weight:600}
-.ft .lg{position:absolute;right:56px;bottom:40px;height:40px}
-.ft .em{position:absolute;right:56px;top:36px;font-size:15px;color:#8B9097}
+.ft .sm{font-size:20px;color:#C9CDD2;font-weight:600}
+.ft .lg{position:absolute;right:56px;bottom:34px;height:34px}
+.ft .em{position:absolute;right:56px;top:30px;font-size:14px;color:#8B9097}
 </style></head><body><div class="s">
-<img class="logo" src="${f(ROOT + '/hotcoin-tradfi/public/brand/logo-official-black.png')}">
+<img class="logo" src="${f(T + '/symbol-black.png')}">
 <div class="main">
  <span class="tag">${A.tag}</span>
  <h1>${A.title}</h1>
@@ -45,12 +46,11 @@ h2{font-weight:800;font-size:${footer ? 54 : 62}px;letter-spacing:-1px;line-heig
  <div class="sub">${A.sub}</div>
  ${A.rows && A.rows.length ? `<div class="rows">${A.rows.map(([k, v]) => `<div class="r"><b>${k}</b><code>${v}</code></div>`).join('')}</div>` : ''}
 </div>
-${footer ? `<div class="ft">
- <img class="rd" src="${f(T + '/ronaldinho-footer.png')}">
+${footer ? `<div class="ftw"><div class="ft">
  <div class="tx"><span class="pill">9th Anniversary</span><div class="big"><span>6,000,000 USDT</span> in rewards</div><div class="sm">Celebrate 9 years with Ronaldinho</div></div>
  <span class="em">Embaixador da Hotcoin (Brasil)</span>
  <img class="lg" src="${f(ROOT + '/hotcoin-tradfi/public/brand/logo-official-white.png')}">
-</div>` : `<img class="sym" src="${f(T + '/symbol-black.png')}">`}
+</div><img class="rd" src="${f(T + '/ronaldinho-cutout.png')}"></div>` : `<div class="url">hotcoin.com</div>`}
 </div></body></html>`;
 
 const browser = await chromium.launch();
