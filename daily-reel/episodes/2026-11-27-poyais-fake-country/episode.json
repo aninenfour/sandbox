@@ -1,0 +1,194 @@
+{
+ "slug": "poyais-fake-country",
+ "thumb": {
+  "text": "He sold London a fake country",
+  "hi": [
+   "fake",
+   "country"
+  ],
+  "kicker": "True story",
+  "img": "s01",
+  "zoom": 1.5,
+  "fx": 50,
+  "fy": 24
+ },
+ "highlight": [
+  "In 1822",
+  "country",
+  "exist",
+  "MacGregor",
+  "Poyais",
+  "pound",
+  "dream",
+  "gold",
+  "jungle",
+  "died",
+  "acquitted",
+  "real"
+ ],
+ "scenes": [
+  {
+   "at": "In1822",
+   "img": "s01",
+   "mode": "wide"
+  },
+  {
+   "at": "sold London",
+   "img": "s02",
+   "mode": "wide"
+  },
+  {
+   "at": "There was just",
+   "img": "s03",
+   "mode": "wide"
+  },
+  {
+   "at": "It didn't exist",
+   "img": "s20",
+   "mode": "wide"
+  },
+  {
+   "at": "His name was",
+   "img": "s01",
+   "mode": "close",
+   "fx": 50,
+   "fy": 30
+  },
+  {
+   "at": "the Cazique",
+   "img": "s03",
+   "mode": "close",
+   "fx": 72,
+   "fy": 42
+  },
+  {
+   "at": "So how do",
+   "img": "s02",
+   "mode": "close",
+   "fx": 50,
+   "fy": 35
+  },
+  {
+   "at": "Step one",
+   "step": 1
+  },
+  {
+   "at": "Make it look",
+   "img": "s04",
+   "mode": "wide"
+  },
+  {
+   "at": "printed banknotes",
+   "img": "s08",
+   "mode": "close",
+   "fx": 50,
+   "fy": 45
+  },
+  {
+   "at": "two hundred thousand",
+   "img": "s07",
+   "mode": "wide"
+  },
+  {
+   "at": "Step two",
+   "step": 2
+  },
+  {
+   "at": "Sell the dream",
+   "img": "s05",
+   "mode": "wide"
+  },
+  {
+   "at": "an opera house",
+   "img": "s05",
+   "mode": "close",
+   "fx": 50,
+   "fy": 35
+  },
+  {
+   "at": "rivers of gold",
+   "img": "s06",
+   "mode": "close",
+   "fx": 45,
+   "fy": 80
+  },
+  {
+   "at": "Step three",
+   "step": 3
+  },
+  {
+   "at": "Ship people out",
+   "img": "s09",
+   "mode": "wide"
+  },
+  {
+   "at": "About two hundred",
+   "img": "s10",
+   "mode": "wide"
+  },
+  {
+   "at": "found only",
+   "img": "s11",
+   "mode": "wide"
+  },
+  {
+   "at": "jungle and swamp",
+   "img": "s12",
+   "mode": "wide"
+  },
+  {
+   "at": "Step four",
+   "step": 4
+  },
+  {
+   "at": "Walk away",
+   "img": "s15",
+   "mode": "wide"
+  },
+  {
+   "at": "More than half",
+   "img": "s13",
+   "mode": "wide"
+  },
+  {
+   "at": "them died",
+   "img": "s14",
+   "mode": "close",
+   "fx": 50,
+   "fy": 40
+  },
+  {
+   "at": "MacGregor fled",
+   "img": "s15",
+   "mode": "close",
+   "fx": 50,
+   "fy": 45
+  },
+  {
+   "at": "and a court",
+   "img": "s16",
+   "mode": "close",
+   "fx": 50,
+   "fy": 68
+  },
+  {
+   "at": "He kept selling",
+   "img": "s17",
+   "mode": "close",
+   "fx": 50,
+   "fy": 32
+  },
+  {
+   "at": "A glossy story",
+   "img": "s19",
+   "mode": "wide"
+  },
+  {
+   "at": "Check that",
+   "img": "s19",
+   "mode": "close",
+   "fx": 50,
+   "fy": 40
+  }
+ ]
+}
