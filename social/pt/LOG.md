@@ -78,6 +78,7 @@
 | 27/11 | 08:22 | GM | Forte do Castelo, Belém: linha pelo guarda-corpo até o portão | scheduled |
 | 27/11 | 10:13 | Event TEASER | 9º aniversário x Ronaldinho: 6.000.000 USDT, campeonato até 4.000.000, BTC/Rolex/Porsche (link in reply) | scheduled |
 | 27/11 | 11:37 | Atualização rápida (text) | 0G troca de contrato BEP20 1:1, depósitos/saques pausados, trading normal | scheduled |
+| 27/11 | 13:47 | Placar do dia (podium bg) | $CFG +12,9% x $BTC −1,4% (24h até 12:09) | scheduled |
 | 27/11 | 16:48 | Meme (real template) | Distracted Boyfriend: carteira de longo prazo x moeda que subiu 70% | scheduled |
 | 27/11 | 19:42 | Event LAST CALL (text) | P2P Sprint (sáb 07:00) + Earn exclusivo (sáb 08:00), links in reply | scheduled |
 
@@ -134,3 +135,4 @@
 - 26/11 12:08 check 2: no new announcements. Placar PIEVERSE 3rd time top (CoinGecko +22.2%), framed tricampeão, 13:44.
 - 26/11 16:14 check 3: no new announcements. Nothing closes tonight or before 08:00 Fri. Fri 27: GM, meme (real template), placar, evening LAST CALL for P2P Sprint (Sat 07:00) + Earn exclusive (Sat 08:00).
 - 27/11 07:46 check 1: NEW 9th Anniversary teaser (6M USDT, no dates yet; Early Bird page anniversary9) and 0G BEP20 contract swap (deposits/withdrawals paused, trading normal, 1:1 auto). Placar rebuilt (placar.mjs, 4 rotating backgrounds, official BTC logo) per owner feedback; today's at check 2. 6 posts ours (team queue empty).
+- 27/11 12:09 check 2: no new announcements beyond this morning's. Placar CFG Centrifuge (CoinGecko centrifuge-2 +12.8%), first with placar.mjs (podium background, official BTC logo), 13:47.
