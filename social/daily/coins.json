@@ -640,5 +640,19 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102175185/large/amznb.png?1785456628",
   "logo": "amznb"
+ },
+ "OPG": {
+  "id": "opengradient",
+  "name": "OpenGradient",
+  "twitter": "OpenGradient",
+  "image": "https://coin-images.coingecko.com/coins/images/102172863/large/coingecko_logo.png?1776349115",
+  "logo": "opg"
+ },
+ "SNXXB": {
+  "id": "tradr-2x-long-sndk-etf-bstocks-tokenized-stock",
+  "name": "Tradr 2X Long SNDK ETF (bStocks Tokenized ETF)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102174764/large/SNXXB.png?1784797018",
+  "logo": "snxxb"
  }
 }

@@ -1,0 +1,59 @@
+{
+ "window": "24H to Nov 27 22:04 (UTC+8)",
+ "date": "NOV 27",
+ "day": "2026-11-27",
+ "template": "podium",
+ "gainers": [
+  {
+   "sym": "UNC",
+   "name": "",
+   "ch": 22.48,
+   "vol": 431370.12,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "SSV",
+   "name": "SSV Network",
+   "ch": 19.69,
+   "vol": 144984.52,
+   "handle": "@ssv_network",
+   "logo": "ssv",
+   "bg": "#ffffff",
+   "glow": "#1ba5f8"
+  },
+  {
+   "sym": "DNA",
+   "name": "NeoSoul",
+   "ch": 16.56,
+   "vol": 318259.17,
+   "handle": "@NeoSoulAI",
+   "logo": "dna",
+   "bg": "#000000",
+   "glow": "#ff9330"
+  },
+  {
+   "sym": "OPG",
+   "name": "OpenGradient",
+   "ch": 14.48,
+   "vol": 326607.5,
+   "handle": "@OpenGradient",
+   "logo": "opg",
+   "bg": "#04374c",
+   "glow": "#053d54"
+  },
+  {
+   "sym": "SNXXB",
+   "name": "Tradr 2X Long SNDK ETF (bStocks Tokenized ETF)",
+   "ch": 14.28,
+   "vol": 474955.27,
+   "handle": "",
+   "logo": "snxxb",
+   "bg": "#ffffff",
+   "glow": "#ff7523"
+  }
+ ],
+ "link": "📊 $UNC live price and chart: https://www.hotcoin.com/en_US/price/utility-net-unc/"
+}
