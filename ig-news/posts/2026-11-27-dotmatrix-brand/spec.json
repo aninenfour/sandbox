@@ -1,0 +1,20 @@
+{
+  "id": "2026-11-27-dotmatrix-brand",
+  "out_dir": "ig-news/media/2026-11-27-dotmatrix-brand",
+  "music": {"path": "ig-news/assets/music/175.mp3", "start": 5.8,
+            "credit": "Music: \"Digital Clouds\" by Alejandro Magaña (Mixkit, Mixkit Stock Music Free License)"},
+  "scenes": [
+    {"subject": {"type": "photo", "cutout": "ig-news/assets/dotmotion/bull.png", "fade": 0.2, "equalize": 0.4},
+     "text": "Bull or bear?\nYou pick.", "accent": "Bull", "dur": 2.4},
+    {"subject": {"type": "chart", "seed": 5}, "text": "It broke out.\nDid you see it?", "accent": "broke out.",
+     "dur": 2.2, "reveal": "scan_lr"},
+    {"subject": {"type": "photo", "cutout": "ig-news/assets/dotmotion/dribble.png", "equalize": 0.85, "floor": 0.22, "gamma": 1.1,
+                 "streaks": [[0.25, 0.0, 0.28, 0.22], [0.33, 0.05, 0.33, 0.16], [0.62, 0.0, 0.25, 0.2], [0.7, 0.08, 0.31, 0.12]]},
+     "text": "Move fast when\nthe market does", "accent": "fast", "dur": 2.2, "reveal": "sparkle"},
+    {"subject": {"type": "photo", "cutout": "ig-news/assets/dotmotion/phone.png", "crop": [0, 0, 1, 0.62], "fade": 0.16,
+                 "equalize": 0.55, "floor": 0.18, "detail": 1.1, "screen": [0.3528, 0.3677, 0.6428, 0.4505]},
+     "text": "Trade it from\nyour phone", "accent": "phone", "dur": 2.2, "reveal": "ripple", "origin": [0.5, 0.45]},
+    {"subject": {"type": "coin", "scale": 0.8}, "text": "Start with a\nlittle Bitcoin", "accent": "Bitcoin", "dur": 2.2, "reveal": "ripple"},
+    {"end": true, "text": "Trade crypto\non Hotcoin", "accent": "Hotcoin", "pill": "Download Hotcoin", "dur": 3.2, "reveal": "ripple"}
+  ]
+}
