@@ -587,7 +587,17 @@
   "format": "photo",
   "topic": "News: Musk says SpaceX could be worth a million world economies",
   "hook": "Musk says SpaceX could be worth a million world economies",
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7712665847227010324"
+ },
+ {
+  "id": "2026-11-28-academy-dca-bitcoin",
+  "slot": "2026-11-28T19:02:00+08:00",
+  "format": "photo",
+  "topic": "Academy: How to buy Bitcoin $100 a month in 3 numbers",
+  "hook": "$100 a month into Bitcoin since Dec 2021 is worth $8,402 now",
   "status": "scheduled",
-  "doc_row": true
+  "doc_row": false
  }
 ]
