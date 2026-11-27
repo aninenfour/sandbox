@@ -23,8 +23,9 @@ body{background:#04070d;color:#fff}
 .art{position:absolute;left:0;top:0;width:1080px;height:1340px;object-fit:cover}
 .scr{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,7,13,0) 70%,rgba(4,7,13,.85) 82%,#04070d 92%)}
 .logo{position:absolute;left:60px;top:58px;height:40px}
-.cb{position:absolute;right:52px;top:30px;display:flex;align-items:center;gap:14px;font:700 20px 'JetBrains Mono';letter-spacing:3px;color:rgba(255,255,255,.85)}
-.cb img{width:100px;height:100px;box-shadow:0 0 0 3px rgba(255,255,255,.14),0 8px 24px rgba(0,0,0,.5)}
+.cb{position:absolute;left:0;right:0;top:40px;display:flex;justify-content:center;align-items:center;gap:26px;font:700 20px 'JetBrains Mono';letter-spacing:3px;color:rgba(255,255,255,.85)}
+.cb .coin,.hs{width:100px;height:100px;box-shadow:0 0 0 3px rgba(255,255,255,.14),0 8px 24px rgba(0,0,0,.5)}
+.hs{border-radius:50%;background:#0b0e11;display:flex;align-items:center;justify-content:center}.hs img{width:52px}
 .eng{position:absolute;left:384px;width:322px;top:715px;text-align:center;color:rgba(28,70,4,.82);text-shadow:0 1.5px 0 rgba(235,255,190,.45),0 -1px 0 rgba(0,0,0,.18)}
 .eng .s{font:800 26px 'JetBrains Mono';letter-spacing:6px}
 .eng .n{font:400 118px/1 'Russo One';letter-spacing:-3px;margin-top:16px}
@@ -38,8 +39,7 @@ h1 span{color:#b8f26a}
 .pill b{font:800 28px 'JetBrains Mono';color:#b8f26a}
 </style></head><body>
 <img class="art" src="assets/tag-1.jpg"><div class="scr"></div>
-<img class="logo" src="${BR}logo-official-white.png">
-<div class="cb"><span>HOTCOIN × BLUZO</span><img class="coin" src="assets/blz-original.jpg"></div>
+<div class="cb"><div class="hs"><img src="${BR}symbol-official-white.png"></div><span>HOTCOIN × BLUZO</span><img class="coin" src="assets/blz-original.jpg"></div>
 <div class="eng"><div class="s">GIVEAWAY</div><div class="n">$500</div><div class="u">FUTURES TRIAL<br>VOUCHERS</div></div>
 <h1>Welcome <span>$BLZ</span> to Hotcoin</h1>
 <div class="pills"><div class="pill"><b>10 × $20</b>lucky draw</div><div class="pill"><b>60 × $5</b>first new users</div></div>
