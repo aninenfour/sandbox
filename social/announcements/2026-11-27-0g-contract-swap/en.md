@@ -9,14 +9,15 @@ Announcement: https://www.hotcoin.com/en_US/announcement/HotcoinWillSupportthe0G
 
 ## X post
 
-ANNOUNCEMENT
+📢 ANNOUNCEMENT
 
 0G (BEP20) contract swap
 
-0G (BEP20) deposits & withdrawals are suspended. Spot & futures trading are not affected.
-Swap ratio: 1:1
+⏸️ 0G (BEP20) deposits & withdrawals suspended
+✅ Spot & futures trading not affected
+🔁 Swap ratio 1:1
 
 Old: 0x4B948d64dE1F71fCd12fB586f4c776421a35b3eE
 New: 0x2C2d4d99F95643C8EC2EbD1d73a6Fd0273068B1e
 
-Details: https://www.hotcoin.com/en_US/announcement/HotcoinWillSupportthe0GBEP20ContractSwap/
+👉 https://www.hotcoin.com/en_US/announcement/HotcoinWillSupportthe0GBEP20ContractSwap/
