@@ -8,11 +8,12 @@ os.makedirs(tmp, exist_ok=True)
 rng = np.random.default_rng(7)
 W, H, VH = 1080, 1920, 1350
 # paper: warm off-white with fibres and soft blotches (matches the shader's #f1ebdd paper)
-base = np.array([241, 235, 221], float)
-fine = rng.normal(0, 4.0, (H, W))
+base = np.array([206.5, 194.4, 169.0], float)  # sampled from the rendered paper
+fine = np.array(Image.fromarray(rng.normal(128, 30, (H // 2, W // 2)).clip(0, 255).astype(np.uint8)).resize((W, H), Image.BICUBIC), float) - 128
+fine *= .12
 blot = np.array(Image.fromarray(rng.normal(128, 40, (H // 24, W // 24)).clip(0, 255).astype(np.uint8)).resize((W, H), Image.BICUBIC), float) - 128
 fib = np.array(Image.fromarray(rng.normal(128, 60, (H // 2, W // 16)).clip(0, 255).astype(np.uint8)).resize((W, H), Image.BICUBIC), float) - 128
-paper = base[None, None, :] + (fine + blot * .06 + fib * .025)[:, :, None]
+paper = base[None, None, :] + (fine + blot * .04 + fib * .02)[:, :, None]
 Image.fromarray(paper.clip(0, 255).astype(np.uint8)).save(f'{tmp}/paper.png')
 # feathered alpha mask for the painting (soft deckle edge at top and bottom)
 y = np.arange(VH)[:, None]; edge = np.minimum(y, VH - 1 - y).astype(float)
@@ -20,7 +21,7 @@ wob = np.array(Image.fromarray(rng.normal(128, 70, (1, W // 6)).clip(0, 255).ast
 a = np.clip((edge - 10 - 30 * wob) / 50, 0, 1)
 Image.fromarray((a * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(3)).save(f'{tmp}/mask.png')
 top = (H - VH) // 2
-subprocess.run(['/usr/bin/ffmpeg', '-loglevel', 'error', '-y', '-loop', '1', '-i', f'{tmp}/paper.png', '-i', src, '-loop', '1', '-i', f'{tmp}/mask.png',
+subprocess.run(['/usr/bin/ffmpeg', '-loglevel', 'error', '-y', '-loop', '1', '-framerate', '60', '-t', '20', '-i', f'{tmp}/paper.png', '-i', src, '-loop', '1', '-framerate', '60', '-t', '20', '-i', f'{tmp}/mask.png',
   '-filter_complex', f'[1:v]format=rgba[v];[2:v]format=gray,scale={W}:{VH}[m];[v][m]alphamerge[vm];[0:v][vm]overlay=0:{top}:shortest=1,format=yuv420p[o]',
-  '-map', '[o]', '-map', '1:a?', '-c:v', 'libx264', '-crf', '17', '-preset', 'slow', '-c:a', 'copy', '-movflags', '+faststart', dst], check=True)
+  '-map', '[o]', '-map', '1:a?', '-t', '20', '-r', '60', '-c:v', 'libx264', '-crf', '20', '-preset', 'medium', '-maxrate', '14M', '-bufsize', '28M', '-c:a', 'copy', '-movflags', '+faststart', dst], check=True)
 print('ok', dst)
