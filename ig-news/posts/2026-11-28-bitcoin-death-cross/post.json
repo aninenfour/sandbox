@@ -1,0 +1,104 @@
+{
+ "type": "news",
+ "style": "v2",
+ "date": "NOV 28",
+ "slides": [
+  {
+   "kind": "nhero",
+   "photo": "cover_crop.jpg",
+   "photo_pos": "50% 50%",
+   "tag": "DATA",
+   "headline": "Bitcoin [death cross] is near. 2022's one: {-64%}"
+  },
+  {
+   "kind": "nbars",
+   "tag": "WHAT HAPPENED",
+   "title": "The gap is closing fast",
+   "bars": [
+    {
+     "l": "50-day over 200-day, a month ago",
+     "v": 12,
+     "txt": "12%"
+    },
+    {
+     "l": "50-day over 200-day, now",
+     "v": 3.7,
+     "txt": "<4%",
+     "hi": true,
+     "neg": true
+    }
+   ],
+   "text": [
+    "When the 50-day average drops under the 200-day, traders call it a [death cross].",
+    "Bitcoin is {52%} below its Oct 2025 top."
+   ],
+   "source": "CoinDesk Nov 27 (3.45% gap, 12% a month earlier); Coin Metrics PriceUSD SMA calc (3.8% Nov 26, 12.1% Oct 27); top close $124,753 Oct 6 2025 (Yahoo) / $124,824 (Coin Metrics) vs ~$59.8K Nov 27"
+  },
+  {
+   "kind": "ngrid",
+   "title": "Same signal. Very different endings",
+   "text": "Drop from the cross to the low before the next golden cross.",
+   "cells": [
+    {
+     "photo": "g2022.jpg",
+     "photo_pos": "50% 50%",
+     "label": "Jan 2022 cross",
+     "value": "-64%",
+     "neg": true
+    },
+    {
+     "photo": "g2023.jpg",
+     "photo_pos": "50% 50%",
+     "label": "Sep 2023 cross",
+     "value": "~0%"
+    }
+   ],
+   "source": "CoinDesk Nov 27 (Jan 14 2022: 64%; Sep 12 2023: 0.3%); Coin Metrics calc (Jan 15 2022: -63.5%; Sep 11 2023: 0.0%)"
+  },
+  {
+   "kind": "nrows",
+   "tag": "BY THE NUMBERS",
+   "title": "13 death crosses since 2011",
+   "rows": [
+    {
+     "emoji": "📉",
+     "l": "Fell 59% or more",
+     "sub": "2011, 2014, 2022",
+     "v": "3",
+     "neg": true
+    },
+    {
+     "emoji": "↔️",
+     "l": "Fell 6% or less",
+     "sub": "2015, 2023, April 2025",
+     "v": "3",
+     "pos": true
+    },
+    {
+     "emoji": "📊",
+     "l": "Somewhere in between",
+     "sub": "11% to 55%",
+     "v": "7"
+    }
+   ],
+   "text": [
+    "The catch: averages lag, so the cross shows up [after] the fall has started."
+   ],
+   "source": "CoinDesk Nov 27 (13 signals; 59/64/66% deepest; 0.3/2.9/5.7% shallowest); Coin Metrics calc (13 crosses, 62/64/64% and 0.0/1.8/3.9%; middle 7 between 11.6% and 53.4%)"
+  },
+  {
+   "kind": "end"
+  }
+ ],
+ "sources": [
+  "CoinDesk, Nov 27 2026 (Omkar Godbole): 50-day SMA ~3.45% above 200-day, from 12% a month earlier; 13 previous death crosses; median ~24% drop to the low before the next golden cross; deepest 66% (Sep 4 2014), 64% (Jan 14 2022), 59% (Sep 26 2011); shallowest 0.3% (Sep 12 2023), 2.9% (Sep 14 2015), 5.7% (Apr 7 2025); 'a death cross usually appears after a decline has already started'",
+  "Coin Metrics community API PriceUSD daily, own 50/200-day SMA calc: 13 death crosses since 2011, gap 3.8% Nov 26, 12.1% Oct 27; drops 62.4/64.1/63.5% and 0.0/1.8/3.9%; middle 7 between 11.6% and 53.4%; median 17% (differs from CoinDesk 24%, left out)",
+  "Decrypt, Nov 26 2026: 50-day EMA already below 200-day EMA ($71,478 vs $74,516, TradingView), BTC ~$60.5K",
+  "Top: Yahoo BTC-USD close $124,753 Oct 6 2025; Coin Metrics $124,824; Nov 27 ~$59.8K (CoinDesk price box $59,738) = -52%"
+ ],
+ "photo_credits": [
+  "Bitcoin on red: Yumu (cdd20) / Unsplash (o-QQF0epaQQ)",
+  "Candlestick screen: Austin Hervias / Unsplash (VLpWpv3oDB4)",
+  "Bitcoin chart screen: Nick Chong / Unsplash (N__BnvQ_w18)"
+ ]
+}
