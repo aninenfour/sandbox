@@ -1,0 +1,25 @@
+// PT meme 27/11: real template "Distracted Boyfriend" (imgflip 1ur9b0, stock photo by Antonio Guillem), re-captioned in pt-BR (owner rule 15/11).
+// No data claims ("subiu 70%" is a generic joke, no coin named). Run: PW_PATH=$(npm root -g)/playwright node social/pt/meme_distracted.mjs
+import {createRequire} from 'module';
+import fs from 'fs';
+const require = createRequire(import.meta.url);
+const {chromium} = require(process.env.PW_PATH);
+const DIR = '/home/user/sandbox/social/pt';
+const T = 'data:image/jpeg;base64,' + fs.readFileSync(`${DIR}/art/meme/template-distracted.jpg`).toString('base64');
+const L = 'data:image/png;base64,' + fs.readFileSync('/home/user/sandbox/hotcoin-tradfi/public/brand/logo-official-black.png').toString('base64');
+const k = 984 / 1200, X = 48, Y = 190;
+const tag = (x, y, t) => `<div style="position:absolute;left:${X + x * k}px;top:${Y + y * k}px;transform:translateX(-50%);background:#fff;color:#0B0E11;font-family:'Inter Tight';font-weight:700;font-size:34px;line-height:1.1;padding:10px 16px;border-radius:10px;text-align:center;max-width:330px;box-shadow:0 4px 18px rgba(0,0,0,.25)">${t}</div>`;
+const html = `<!doctype html><html><head><meta charset="utf-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&display=block');
+*{margin:0;padding:0;box-sizing:border-box}body{width:1080px;height:1080px;overflow:hidden;position:relative;background:#fff}
+</style></head><body>
+<div style="position:absolute;left:72px;right:72px;top:64px;font-family:'Inter Tight';font-size:46px;font-weight:600;line-height:1.2;color:#0B0E11;letter-spacing:-.4px">eu numa sexta-feira qualquer:</div>
+<img src="${T}" style="position:absolute;left:${X}px;top:${Y}px;width:984px">
+${tag(330, 600, 'a moeda aleatória que subiu 70% hoje')}
+${tag(700, 380, 'eu')}
+${tag(1010, 160, 'minha carteira de longo prazo')}
+<img src="${L}" style="position:absolute;right:60px;bottom:48px;height:26px">
+</body></html>`;
+const br = await chromium.launch(); const pg = await br.newPage({viewport: {width: 1080, height: 1080}, deviceScaleFactor: 2});
+await pg.setContent(html, {waitUntil: 'networkidle'}); await pg.evaluate(() => document.fonts.ready); await pg.waitForTimeout(400);
+fs.mkdirSync(`${DIR}/day-2026-11-27-br`, {recursive: true}); await pg.screenshot({path: `${DIR}/day-2026-11-27-br/meme-distracted.png`}); await br.close(); console.log('ok');

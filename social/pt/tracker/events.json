@@ -108,6 +108,15 @@
    "url": "https://www.hotcoin.com/en_US/announcement/tradfi-0-fee-carnival/",
    "hook": "Taxas TradFi devolvidas até 300 USDT + até 100 USDT por volume",
    "reward_type": "Futures Trial Funds"
+  },
+  {
+   "id": "anniversary9",
+   "pt": "9º aniversário Hotcoin x Ronaldinho (teaser)",
+   "start": "2026-11-27T00:00:00+08:00",
+   "end": "2026-12-31T23:59:00+08:00",
+   "url": "https://www.hotcoin.com/en_US/announcement/9th-anniversary-is-coming/",
+   "hook": "6.000.000 USDT, campeonato até 4.000.000 USDT, BTC/Rolex/Porsche; datas ainda não publicadas (end = placeholder)",
+   "reward_type": "TBD"
   }
  ]
 }
