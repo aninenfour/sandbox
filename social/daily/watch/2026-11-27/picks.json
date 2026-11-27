@@ -1,0 +1,7 @@
+{"items": [
+ {"sym": "BTC", "kind": "crypto", "handle": "", "why": "Holding above $61K, up about 1.4% in the last 24h"},
+ {"sym": "HYPE", "kind": "crypto", "why": "Top major mover on Hotcoin, up about 7% in 24h"},
+ {"sym": "SOL", "kind": "crypto", "why": "Up about 2.7% in 24h, ahead of ETH and BTC"},
+ {"sym": "SPYB", "kind": "tradfi", "why": "Black Friday: US stocks close early, 02:00 UTC+8 Sat"},
+ {"sym": "AMZNB", "kind": "tradfi", "why": "Black Friday opens the US holiday shopping season"}
+]}

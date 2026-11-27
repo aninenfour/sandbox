@@ -633,5 +633,12 @@
   "twitter": "SkyEcosystem",
   "image": "https://coin-images.coingecko.com/coins/images/39925/large/sky.jpg?1724827980",
   "logo": "sky"
+ },
+ "AMZNB": {
+  "id": "amazon-bstocks-tokenized-stock",
+  "name": "Amazon (bStocks Tokenized Stock)",
+  "twitter": "binance",
+  "image": "https://coin-images.coingecko.com/coins/images/102175185/large/amznb.png?1785456628",
+  "logo": "amznb"
  }
 }

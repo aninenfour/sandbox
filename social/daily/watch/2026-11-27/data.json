@@ -1,0 +1,73 @@
+{
+ "date": "NOV 27",
+ "dow": "FRI",
+ "template": "paper",
+ "window": "Prices at Nov 27 11:42 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Holding above $61K, up about 1.4% in the last 24h",
+   "last": 61583.27,
+   "ch": 1.42,
+   "vol": 700902362.77,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "HYPE",
+   "name": "Hyperliquid",
+   "kind": "crypto",
+   "handle": "@HyperliquidX",
+   "why": "Top major mover on Hotcoin, up about 7% in 24h",
+   "last": 66.024,
+   "ch": 6.88,
+   "vol": 5964897.39,
+   "logo": "hype",
+   "bg": "#072722",
+   "glow": "#96fce4"
+  },
+  {
+   "sym": "SOL",
+   "name": "Solana",
+   "kind": "crypto",
+   "handle": "@solana",
+   "why": "Up about 2.7% in 24h, ahead of ETH and BTC",
+   "last": 72.97,
+   "ch": 2.71,
+   "vol": 15842145.03,
+   "logo": "sol",
+   "bg": "#ffffff",
+   "glow": "#8d4df7"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Black Friday: US stocks close early, 02:00 UTC+8 Sat",
+   "last": 728.46,
+   "ch": 0.94,
+   "vol": 639777.46,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  },
+  {
+   "sym": "AMZNB",
+   "name": "Amazon",
+   "kind": "tradfi",
+   "handle": "@amazon",
+   "why": "Black Friday opens the US holiday shopping season",
+   "last": 250.45,
+   "ch": 1.13,
+   "vol": 649125.1,
+   "logo": "amznb",
+   "bg": "#fe5300",
+   "glow": "#fe5300"
+  }
+ ]
+}
