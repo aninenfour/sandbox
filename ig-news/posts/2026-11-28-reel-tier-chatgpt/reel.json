@@ -1,0 +1,18 @@
+{"music":"304","title":"4 years since ChatGPT",
+ "tier":{"tiers":["S","A","B","C","D"],
+  "legend":"Price change since ChatGPT launched: Nov 30, 2022 to Nov 27, 2026",
+  "items":[
+   {"name":"S&P 500","tier":"D","logo":"SPY.png","why":"1.8x: 4,080 to 7,297"},
+   {"name":"Microsoft","tier":"C","logo":"MSFT.png","why":"1.9x: $255 to $493"},
+   {"name":"Tesla","tier":"C","logo":"TSLA.png","why":"2.1x: $195 to $400"},
+   {"name":"Gold","tier":"C","logo":"XAUT.svg","why":"2.1x: $1,746 to $3,640 an ounce"},
+   {"name":"Apple","tier":"B","logo":"AAPL.png","why":"2.4x: $148 to $359"},
+   {"name":"Amazon","tier":"B","logo":"AMZN.png","why":"2.6x: $96.54 to $254"},
+   {"name":"Google","tier":"B","logo":"GOOGL.png","why":"2.7x: $101 to $275"},
+   {"name":"Bitcoin","tier":"A","logo":"BTC.svg","why":"3.5x: $17,169 to $59,710"},
+   {"name":"Meta","tier":"A","logo":"META.png","why":"5.3x: $118 to $629"},
+   {"name":"Nvidia","tier":"S","logo":"NVDA.png","why":"8.9x: $16.92 to $150"}]},
+ "slides":[
+  {"photo":"hook.jpg","pos":"50% 55%","hook":true,"tag":"TIER LIST","text":"ChatGPT turns 4.\n10 assets [ranked]"},
+  {"kind":"tier_all"},
+  {"kind":"cta"}]}
