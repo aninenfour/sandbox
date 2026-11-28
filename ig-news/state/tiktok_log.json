@@ -628,7 +628,7 @@
   "topic": "Tier list: 4 years since ChatGPT (10 assets)",
   "hook": "Since ChatGPT launched, Nvidia went 8.9x. Microsoft: 1.9x",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-29-weekly-nov30",
@@ -637,7 +637,7 @@
   "topic": "What's on this week Nov 30-Dec 6",
   "hook": "Your week: US jobs report Fri 21:30 UTC+8, CrowdStrike + Salesforce results",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  },
  {
   "id": "2026-11-29-dotmatrix-clock",
@@ -646,6 +646,6 @@
   "topic": "DOT MATRIX #2 (clock, gold, one account)",
   "hook": "3 a.m. and the crypto market is still open",
   "status": "scheduled",
-  "doc_row": false
+  "doc_row": true
  }
 ]

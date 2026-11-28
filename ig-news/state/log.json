@@ -2685,7 +2685,8 @@
    "BTC: Yahoo 17,168.57 (Nov 30 2022) -> 59,708 (Nov 28 2026); CoinGecko 59,712 Nov 28"
   ],
   "note": "Fresh tier theme (last: Nov 14 game stocks, 5y; no tier list Nov 21). ChatGPT 4th anniversary Mon Nov 30, mixes stocks + gold + BTC per tier rule. Same frame/tier look as before (reel.py). Hook photo: Tim Witzdam / Unsplash (qSN755lI9Cw, phone showing chatgpt.com). Logos MSFT/GOOGL/AMZN added to assets/logos (financialmodelingprep image-stock). X gets the square cut per PLAYBOOK 7b (tier lists use reel.py --square, no story_x45 for this template). Publer covers checked (IG + TikTok = frame 0 hook). Media commit e238b49.",
-  "commit": "e238b49"
+  "commit": "e238b49",
+  "doc_row": true
  },
  {
   "id": "2026-11-29-weekly-nov30",
@@ -2709,7 +2710,8 @@
    "OpenAI + Wikipedia: ChatGPT launched Nov 30 2022"
   ],
   "note": "Cover: Sam Altman (TechCrunch, Commons CC BY 2.0; Commons API rate-limited, credit from file page knowledge). Day photos Unsplash: Levart_Photographer, TruckRun, Markus Spiske, Wei Liang, Eric Prouzet. Media commit d2c0a2c.",
-  "commit": "d2c0a2c"
+  "commit": "d2c0a2c",
+  "doc_row": true
  },
  {
   "id": "2026-11-29-dotmatrix-clock",
@@ -2738,6 +2740,7 @@
    "Roksana Krezalek / Unsplash (zHgfhTblOvo, person + laptop)"
   ],
   "note": "New subjects vs #1 (bull/candle/athlete/phone/BTC coin). Bear statue scene dropped (read as a blob in dots). rembg isnet cutouts. Frame 0 = lit clock + line; contact sheets checked. Media commit 4e9a03b. Next DOT MATRIX: Tue Dec 1 16:00.",
-  "commit": "4e9a03b"
+  "commit": "4e9a03b",
+  "doc_row": true
  }
 ]
