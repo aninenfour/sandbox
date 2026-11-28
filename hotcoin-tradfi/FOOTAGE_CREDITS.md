@@ -393,3 +393,10 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - Man looking at phone: Victor Puerta, unsplash.com/photos/hEY14e_tDgI (Nov 27 "1% rule" pixel video)
 - Person walking up stairs: Khiet Tam, unsplash.com/photos/1jQLyh4h1MQ (Nov 27 "1% rule" pixel video)
 - Hand reaching up (Mikey Parkin, above) also reused in the "1% rule" pixel video.
+
+## LinkedIn "Hiring, then and now" series (Nov 28, 2026)
+Public-domain educational films from the Prelinger Archives on archive.org (Creative Commons public domain mark on each item page).
+- How to Keep a Job (Coronet Instructional Films, 1949): archive.org/details/HowtoKee1949 (EP 1, interview scene 1:13 to 2:48)
+- Candidates for later episodes, same licence: Office Etiquette (EBF, 1950) archive.org/details/OfficeEt1950;
+  Office Courtesy: Meeting the Public (EBF, 1952) archive.org/details/OfficeCo1952; I Want to Be a Secretary (Coronet, 1941)
+  archive.org/details/IWanttoB1941; Selling as a Career (1953) archive.org/details/selling_as_a_career

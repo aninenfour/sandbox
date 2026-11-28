@@ -1,0 +1,25 @@
+{
+  "name": "thennow-ep1-interview-1949",
+  "src": "HowtoKee1949.mp4",
+  "source_note": "How to Keep a Job (Coronet, 1949), Prelinger Archives, archive.org/details/HowtoKee1949, CC public domain mark",
+  "transcript": "HowtoKee1949.txt.json",
+  "segments": [[73.7, 77.7], [85.9, 92.4], [99.2, 104.3], [105.1, 113.5], [158.3, 167.6]],
+  "flags": [[101.1, "Trashes his last company"], [112.6, "\"It wasn't my fault\""], [165.3, "No idea how his work was seen"]],
+  "sub_fix": {"fellow": "fellow's"},
+  "endDur": 7.6,
+  "card": {
+    "kicker": "HIRING, THEN AND NOW · EP 1",
+    "head1": "A job interview from 1949.",
+    "head2": "Count the red flags.",
+    "year": "1949",
+    "end": {
+      "h1": "Same red flags in 2026.",
+      "h2": "What works instead:",
+      "sub": "OUR TAKE, FROM THE OTHER SIDE OF THE TABLE",
+      "tips": ["Say what you learned, not who was bad", "Tell your exit story in one honest line", "Ask what great work looks like here"],
+      "roles": ["BD and partnerships · Growth · Operations", "Product · Engineering · Media", "Internships too. Most roles are remote."],
+      "cta1": "Apply on Moledao or DM us",
+      "cta2": "moledao.io/companies/hotcoin/jobs"
+    }
+  }
+}

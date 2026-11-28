@@ -122,6 +122,15 @@ Publer free plan allows up to 12 LinkedIn page posts per day, so all options fit
   every 5 to 8 s with constant motion, 35 to 45 s total. Pixels only as an accent (transitions, the 100-square grid).
 - Template: linkedin/videos/onepct-v3.mjs + onepct-v3.page.js. Check contact sheets of every scene before sending.
 
+## 7d. Careers video series: "Hiring, then and now" (Nov 28)
+- Why: the hiring carousel reached 160 (19% reach rate, 228 clicks), about 8x any other post in week 1, and the owner
+  liked a funny but realistic interview skit from a recruiter page. We don't repost other people's videos; we use
+  public-domain 1940s/50s workplace films (Prelinger Archives) and add our own scorecard, advice and open roles.
+- Format: linkedin/videos/thennow.mjs + episodes/epN.json. Off-white paper, film window with year chip, burned
+  subtitles, live "red flags" scorecard, end card with 3 tips and the hiring panel (Moledao link, DM us). 35 to 45 s.
+- Ep 1: How to Keep a Job (1949) interview. Next: the clock-watcher (same film), Office Etiquette (1950) first-job
+  mistakes, Office Courtesy (1952) waiting room, I Want to Be a Secretary (1941) job search.
+
 ## 8. Bots vs people: how we use public data
 No reliable public figure separates bot and human volume on centralized exchanges (Tradersunion, Birdeye methodology
 notes). The "65% to 80% of crypto volume is bots" numbers that circulate are loosely sourced. So:
