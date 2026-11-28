@@ -16,9 +16,14 @@ Tracker with every released post and its numbers: https://claude.ai/artifact/R7p
   every other post). Thanksgiving 33, bots 21, Kahle video 20 (11 views, 1 comment), Year 9 carousel 10 (1 repost).
   Read: jobs content travels far beyond our followers. Monday review: test a second careers post this week.
 - Nov 28: 13:00 native poll "What protects a trading account most?" (7 days, links back to the 1% rule video).
+  21:00 "Hiring, then and now" ep 1, a 1949 job interview with a red-flags scorecard (41 s, linkedin/videos/thennow.mjs).
+  New series approved by the owner, every 3 days.
 
 ## Next up (copy and covers in linkedin/plan-2026-11-25.html and linkedin/copy-*.json; covers in linkedin/covers)
 - Sun Nov 29: rest.
+- "Hiring, then and now" episodes (every 3 days): ep 2 Tue Dec 1 18:00 (the clock-watcher, How to Keep a Job 1949,
+  ~6:05 to 6:40), ep 3 Fri Dec 4 13:00 in place of that day's static post (Office Etiquette 1950: first-job mistakes,
+  "Experience: none"), ep 4 Mon Dec 7, ep 5 Thu Dec 10. Transcripts in linkedin/videos/src/pd/*.txt.
 - Mon Nov 30: 13:00 101 funding rate carousel (6 slides, cover mon-funding). 18:00 TradFi 0 Fee Carnival (ends Dec 4,
   cover mon-tradfi). 22:30 archive part 2 "living on Bitcoin for a week" (Kahle talk 7:12 to 8:00, li45 layout).
 - Tue Dec 1: 13:00 Data Desk "November in numbers" (final month data, notify employees). 22:30 proof of reserves

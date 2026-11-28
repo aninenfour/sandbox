@@ -128,6 +128,8 @@ Publer free plan allows up to 12 LinkedIn page posts per day, so all options fit
   public-domain 1940s/50s workplace films (Prelinger Archives) and add our own scorecard, advice and open roles.
 - Format: linkedin/videos/thennow.mjs + episodes/epN.json. Off-white paper, film window with year chip, burned
   subtitles, live "red flags" scorecard, end card with 3 tips and the hiring panel (Moledao link, DM us). 35 to 45 s.
+- Cadence (owner, Nov 28): one episode every 3 days, first one Nov 28 21:00. Default slot 21:00 Beijing (Europe
+  afternoon, US morning, when careers posts travel); never within 3 h of another LinkedIn post.
 - Ep 1: How to Keep a Job (1949) interview. Next: the clock-watcher (same film), Office Etiquette (1950) first-job
   mistakes, Office Courtesy (1952) waiting room, I Want to Be a Secretary (1941) job search.
 
