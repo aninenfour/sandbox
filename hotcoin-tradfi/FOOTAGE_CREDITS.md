@@ -389,3 +389,4 @@ Data: CoinMarketCap (Altcoin Season Index, altcoin market cap, BTC dominance), B
 - PT GM 26/11 (Fortaleza, kite): Rafael Oliveira, Unsplash 5VQh0sQGG8M, Unsplash License. Mono + grain, kite brand text blurred, lime line as kite string.
 - PT GM 27/11 (Forte do Castelo, Belém): Kawê Rodrigues, Unsplash fG_vP8KcVds, Unsplash License. Mono + grain, lime line along the railing to the gate.
 - PT meme 27/11: Distracted Boyfriend template (imgflip, stock photo by Antonio Guillem), real meme template per owner rule 15/11.
+- PT GM 28/11 (Arcos da Lapa, Rio): Simone Dinoia, Unsplash yn3cGswqcaA, Unsplash License. Mono + grain, lime line along the aqueduct to the tram.
