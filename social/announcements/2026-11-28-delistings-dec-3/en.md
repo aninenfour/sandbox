@@ -12,14 +12,22 @@ Trading stops: Dec 3, 2026, 16:00 (UTC+8)
 Withdrawal deadline: Jan 2, 2027, 16:00 (UTC+8)
 https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedTradingPairson2026-12-03/
 
-## X post
+## Post (X, Facebook, Telegram)
 
-📢 ANNOUNCEMENT: Dec 3 delistings, UTC+8
+Image: delistings-dec-3-dark.png (no footer)
 
-Futures: RVNUSDT, AXLUSDT, PROVEUSDT
-New positions stop 14:30, delisted 15:00
-https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedPerpetualFutureson2026-12-03/
+📢 ANNOUNCEMENT
 
-Spot: ZORA/USDT, ESP/USDT, UB/USDT
-Deposits off Dec 2 16:00, trading ends Dec 3 16:00, withdraw by Jan 2 16:00
-https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedTradingPairson2026-12-03/
+Hotcoin will delist selected perpetual futures and spot trading pairs on Dec 3 (UTC+8)
+
+⚠️ Perpetual futures: RVNUSDT, AXLUSDT, PROVEUSDT
+⏸️ New positions paused: Dec 3, 14:30
+❌ Delisting & settlement: Dec 3, 15:00
+All open orders will be cancelled after delisting.
+👉 https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedPerpetualFutureson2026-12-03/
+
+⚠️ Spot pairs: ZORA/USDT, ESP/USDT, UB/USDT
+⏸️ Deposits suspended: Dec 2, 16:00
+❌ Trading stops: Dec 3, 16:00
+✅ Withdrawals open until: Jan 2, 2027, 16:00
+👉 https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedTradingPairson2026-12-03/
