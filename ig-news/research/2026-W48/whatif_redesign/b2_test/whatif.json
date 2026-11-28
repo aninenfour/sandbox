@@ -1,0 +1,13 @@
+{
+ "look": "b2",
+ "person": "Bezos", "pronoun": "he", "verb": "spent", "amount": 250000000, "amount_label": "$250M", "object": "on a newspaper",
+ "object_logo": "../wapo_wp.png",
+ "asset": {"name": "Bitcoin", "ticker": "BTC", "logo": "BTC.svg"},
+ "date": "2013-10-01",
+ "series_file": "../../../../posts/2026-11-25-whatif-bezos-wapo-btc/whatif.json", "series_col": 1, "series_scale": 1e6,
+ "result": {"value": "$115B", "mult": "461x"},
+ "bg": [{"src": "../bgphoto_1.jpg", "graded": true}, {"src": "../bgphoto_2.jpg", "graded": true}, {"src": "../bgphoto_3.jpg", "graded": true}],
+ "cutout": "../bezos_cut.png",
+ "sources": ["see posts/2026-11-25-whatif-bezos-wapo-btc/whatif.json (purchase Oct 1 2013, BTC closes Bitstamp + Coin Metrics, Nov 25 2026 close cross-checked Coinbase/CoinGecko/Bitstamp)"],
+ "photo_credits": ["Bezos: Seattle City Council / Flickr CC BY 2.0", "backgrounds: Unsplash (see ../NOTES_B.md)"]
+}

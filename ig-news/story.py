@@ -3,6 +3,7 @@
 
 Usage: python3 ig-news/story.py ig-news/posts/<id> [--music <mixkit id>] [--frames-only]
   WHAT IF Reels (owner, Oct 28): a post with whatif.json uses the shared stories/whatif.js template instead of scene.js.
+  WHAT IF B2 (owner, Nov 28, current design): whatif.json with "look": "b2" is rendered by whatif_b2.py (stories/whatif_b2.js).
   reads <post>/scene.js (defines draw(t), window.DURATION, window.CUES) on top of ig-news/stories/kit.js,
   writes ig-news/media/<id>/story.mp4 (1080x1920, 30 fps) + cover.jpg + contact.jpg (one frame per second)
   + thumb_tiktok.jpg (= frame 0, the TikTok/IG cover) and prints a thumbnail check (frame 0 fill, near-blank early frames).
@@ -80,6 +81,9 @@ def sfx(name, pitch=1.0):
 
 def main():
     post = pathlib.Path(sys.argv[1]).resolve()
+    if (post / 'whatif.json').exists() and json.loads((post / 'whatif.json').read_text()).get('look') == 'b2':
+        import whatif_b2   # WHAT IF B2 "Photo depth" (owner, Nov 28): its own DOM motion template + outputs
+        return whatif_b2.main([str(post / 'whatif.json')] + sys.argv[2:])
     out = ROOT / 'media' / post.name; frames = out / 'story_frames'
     shutil.rmtree(frames, ignore_errors=True); frames.mkdir(parents=True)
     kit = (ROOT / 'stories' / 'kit.js').read_text()
