@@ -30,8 +30,8 @@ const node = ([id, x, y, w, h, t, s]) => {
 };
 // arrows: [x1,y1,x2,y2,label]
 const A = [
-  [300, 175, 400, 175], [650, 175, 720, 140, 'Yes'], [980, 140, 1060, 160], [1320, 160, 1370, 160, 'No'],
-  [1190, 240, 1190, 360, 'Yes'], [1465, 210, 1290, 410], [1330, 445, 1370, 450, 'Yes'], [1040, 445, 910, 455, 'No'],
+  [300, 175, 400, 175], [675, 175, 722, 160, 'Yes'], [980, 140, 1060, 160], [1340, 160, 1372, 160, 'No'],
+  [1190, 240, 1190, 360, 'Yes'], [1465, 210, 1290, 410], [1345, 445, 1372, 450, 'Yes'], [1040, 445, 910, 455, 'No'],
   [775, 540, 775, 620, 'Yes'], [640, 460, 540, 460, 'No'], [420, 520, 400, 640], [270, 810, 260, 900, 'Yes'],
   [480, 790, 620, 880, 'No'], [900, 675, 1010, 760], [860, 935, 1010, 905], [420, 950, 560, 935, 'then'],
 ];
@@ -39,7 +39,8 @@ const arrow = ([x1, y1, x2, y2, l]) => {
   const ang = Math.atan2(y2 - y1, x2 - x1), hx = x2 - 22 * Math.cos(ang - .45), hy = y2 - 22 * Math.sin(ang - .45), kx = x2 - 22 * Math.cos(ang + .45), ky = y2 - 22 * Math.sin(ang + .45);
   const mx = (x1 + x2) / 2 + (y2 - y1) * .06, my = (y1 + y2) / 2 - (x2 - x1) * .06;
   return `<path d="M${x1} ${y1} Q${mx} ${my} ${x2} ${y2}" fill="none" stroke="${RED}" stroke-width="4.5" stroke-linecap="round"/><path d="M${hx} ${hy} L${x2} ${y2} L${kx} ${ky}" fill="none" stroke="${RED}" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>`
-    + (l ? `<text x="${mx}" y="${my - 10}" text-anchor="middle" font-family="Gochi Hand" font-size="28" fill="${RED}">${l}</text>` : '');
+    + (l ? (() => { const vert = Math.abs(y2 - y1) > Math.abs(x2 - x1); const short = Math.hypot(x2 - x1, y2 - y1) < 70; const lx = vert ? mx + 34 : mx, ly = vert ? my + 8 : short ? my - 30 : my - 16;
+      return `<text x="${lx}" y="${ly}" text-anchor="middle" font-family="Gochi Hand" font-size="28" fill="${RED}" stroke="#fff" stroke-width="8" paint-order="stroke" stroke-linejoin="round">${l}</text>`; })() : '');
 };
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=block');
@@ -48,7 +49,7 @@ body{margin:0;width:${W}px;height:${H}px;background:#F4F2EC;font-family:'Gochi H
 <div style="position:absolute;inset:26px;background:#fff;border-radius:18px;box-shadow:0 2px 0 #ddd"></div>
 <div style="position:absolute;left:0;right:0;top:34px;text-align:center;font-size:46px;color:${INK}">Should You Check The Chart Right Now?</div>
 <div style="position:absolute;left:0;right:0;top:84px;text-align:center;font-size:30px;color:${INK}">(totally accurate)</div>
-<div style="position:absolute;left:0;top:70px;width:${W}px;height:${H - 70}px"><svg width="${W}" height="${H}" style="position:absolute;inset:0;overflow:visible">${A.map(arrow).join('')}</svg>
+<div style="position:absolute;left:0;top:70px;width:${W}px;height:${H - 70}px"><svg width="${W}" height="${H}" style="position:absolute;inset:0;overflow:visible;z-index:5">${A.map(arrow).join('')}</svg>
 ${N.map(node).join('')}</div>
 </body></html>`;
 const br = await chromium.launch(); const p = await br.newPage({viewport: {width: W, height: H}, deviceScaleFactor: 2});

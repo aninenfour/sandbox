@@ -55,7 +55,7 @@ const quad = `<!doctype html><html><head><meta charset="utf-8"><style>${fonts}
 body{margin:0;width:1200px;height:1200px;background:#E9E9E6;font-family:'Inter Tight';position:relative}</style></head><body>
 <div style="position:absolute;inset:28px;background:#F6F6F4;border-radius:22px"></div>
 <div style="position:absolute;left:70px;top:62px;font-weight:800;font-size:46px;letter-spacing:-1px;color:#111;line-height:1.05">Who actually held up<br>this year?</div>
-<div class="m" style="position:absolute;right:70px;top:70px;font:500 16px 'JetBrains Mono';letter-spacing:2px;color:#555;text-align:right">TOP 22 COINS<br>NOV 28, 2026<br>Y AXIS: LOG SCALE</div>
+<div class="m" style="position:absolute;right:70px;top:70px;font:500 16px 'JetBrains Mono';letter-spacing:2px;color:#555;text-align:right">TOP 22 COINS<br>Y AXIS: LOG SCALE</div>
 <svg width="1200" height="1200" style="position:absolute;inset:0">
  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10" fill="none" stroke="#222" stroke-width="1.8"/></marker></defs>
  <line x1="${PL}" y1="${cy}" x2="${PR}" y2="${cy}" stroke="#222" stroke-width="2" marker-end="url(#a)" marker-start="url(#a)"/>
