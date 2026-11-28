@@ -654,5 +654,12 @@
   "twitter": "binance",
   "image": "https://coin-images.coingecko.com/coins/images/102174764/large/SNXXB.png?1784797018",
   "logo": "snxxb"
+ },
+ "CRWDB": {
+  "id": "crowdstrike-bstocks-tokenized-stock",
+  "name": "CrowdStrike (bStocks Tokenized Stock)",
+  "twitter": null,
+  "image": "https://coin-images.coingecko.com/coins/images/102179139/large/crwdb.png?1791293069",
+  "logo": "crwdb"
  }
 }

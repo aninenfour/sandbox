@@ -1,0 +1,30 @@
+{
+ "items": [
+  {
+   "sym": "BTC",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Hovering near $60K, down about 2.4% in 24h"
+  },
+  {
+   "sym": "ETH",
+   "kind": "crypto",
+   "why": "Down about 4% in 24h, trading near $1,660"
+  },
+  {
+   "sym": "CFG",
+   "kind": "crypto",
+   "why": "Top mover on Hotcoin, up about 32% in 24h"
+  },
+  {
+   "sym": "CRWDB",
+   "kind": "tradfi",
+   "why": "Week ahead: FQ3 results Tue Dec 1 after the US close"
+  },
+  {
+   "sym": "SPYB",
+   "kind": "tradfi",
+   "why": "Week ahead: US jobs report Fri Dec 4, 21:30 UTC+8"
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "date": "NOV 28",
+ "dow": "SAT",
+ "template": "bento",
+ "window": "Prices at Nov 28 12:51 (UTC+8)",
+ "items": [
+  {
+   "sym": "BTC",
+   "name": "Bitcoin",
+   "kind": "crypto",
+   "handle": "",
+   "why": "Hovering near $60K, down about 2.4% in 24h",
+   "last": 60046.32,
+   "ch": -2.35,
+   "vol": 707200396.7,
+   "logo": "btc",
+   "bg": "#f7931a",
+   "glow": "#f7931a"
+  },
+  {
+   "sym": "ETH",
+   "name": "Ethereum",
+   "kind": "crypto",
+   "handle": "@ethereum",
+   "why": "Down about 4% in 24h, trading near $1,660",
+   "last": 1664.82,
+   "ch": -4.0,
+   "vol": 173621320.51,
+   "logo": "eth",
+   "bg": "#ffffff",
+   "glow": "#62688f"
+  },
+  {
+   "sym": "CFG",
+   "name": "Centrifuge",
+   "kind": "crypto",
+   "handle": "@centrifuge",
+   "why": "Top mover on Hotcoin, up about 32% in 24h",
+   "last": 0.0695,
+   "ch": 31.87,
+   "vol": 654088.0,
+   "logo": "cfg",
+   "bg": "#ffffff",
+   "glow": "#9AA3B5"
+  },
+  {
+   "sym": "CRWDB",
+   "name": "CrowdStrike",
+   "kind": "tradfi",
+   "handle": "@CrowdStrike",
+   "why": "Week ahead: FQ3 results Tue Dec 1 after the US close",
+   "last": 216.97,
+   "ch": 0.41,
+   "vol": 656006.05,
+   "logo": "crwdb",
+   "bg": "#fc0000",
+   "glow": "#fc0001"
+  },
+  {
+   "sym": "SPYB",
+   "name": "S&P 500 ETF",
+   "kind": "tradfi",
+   "handle": "",
+   "why": "Week ahead: US jobs report Fri Dec 4, 21:30 UTC+8",
+   "last": 731.31,
+   "ch": 0.15,
+   "vol": 606229.61,
+   "logo": "spyb",
+   "bg": "#fcfcfc",
+   "glow": "#f8ab25"
+  }
+ ]
+}
