@@ -1,0 +1,69 @@
+{
+  "format": "IN COMMON",
+  "question": "What do Steve Jobs and Winston Churchill have in common?",
+  "people": [
+    {"name": "STEVE JOBS", "cut": "photos/jobs2010_cut.png", "x": 235, "h": 840},
+    {"name": "WINSTON CHURCHILL", "cut": "photos/ch1940_hook_cut.png", "x": 790, "h": 840}
+  ],
+  "vo": {"file": "vo/vo.mp3", "words": "vo/words.json", "cta_file": "vo/cta.mp3", "cta_words": "vo/cta_words.json", "gap": 0.16, "tempo": 1.1,
+         "model": "elevenlabs/tts/eleven-v4", "voice": "Brian", "stability": 0.45},
+  "cta": "Trade stocks and crypto on Hotcoin",
+  "hand": "photos/hand_cut.png", "hand_tip": [0.353, 0.998], "hand_w": 300,
+  "music": {"id": "480", "start": 0},
+  "chart": {"ticker": "AAPL", "start": "1991-01-01", "end": "2026-11-27", "label": "Apple stock (AAPL)", "logo": "AAPL.png", "log": true,
+            "low_before": "1999-01-01",
+            "source": "AAPL daily closes, split-adjusted (Yahoo Finance), log scale. Price only. Not financial advice."},
+  "scenes": [
+    {"type": "hook", "say": "What do Steve Jobs and Winston Churchill have in common?"},
+
+    {"type": "beat", "bg": "cream", "say": "In 1985, Apple pushed out its own {co-founder.}",
+     "print": {"src": "photos/jobs84.jpg", "w": 620, "h": 800, "x": 470, "y": 1010, "rot": -3},
+     "tag": {"text": "1985", "color": "red", "at": "1985", "x": 96, "y": 560, "rot": -7},
+     "stamp": {"text": "PUSHED OUT", "at": "pushed", "x": 190, "y": 1300, "rot": -8}},
+
+    {"type": "beat", "bg": "green", "say": "In 1915, Churchill",
+     "print": {"src": "photos/ch1914madrid.jpg", "grade": "sepia", "w": 600, "h": 860, "x": 470, "y": 1000, "rot": 3},
+     "tag": {"text": "1915", "color": "red", "at": "1915", "x": 96, "y": 520, "rot": -6}},
+
+    {"type": "beat", "bg": "cream", "say": "was blamed for {Gallipoli} and lost his Navy job.",
+     "print": {"src": "photos/gallipoli.jpg", "grade": "bw", "w": 800, "h": 580, "x": 470, "y": 930, "rot": -2},
+     "label": {"text": "Gallipoli, 1915", "x": 110, "y": 1250, "rot": -2},
+     "stamp": {"text": "BLAMED", "at": "blamed", "x": 430, "y": 1110, "rot": 9}},
+
+    {"type": "beat", "bg": "ink", "say": "Jobs stayed away for {eleven years.}",
+     "big": {"value": 11, "label": "YEARS", "at": "eleven", "x": 360, "y": 520, "size": 470},
+     "cut": {"src": "photos/jobs84_cut.png", "bw": true, "x": 760, "y": 1680, "h": 880, "from": "right"}},
+
+    {"type": "beat", "bg": "green", "say": "Churchill spent {ten years} out of power.",
+     "big": {"value": 10, "label": "YEARS", "at": "ten", "x": 520, "y": 520, "size": 500},
+     "cut": {"src": "photos/ch1929_cut.png", "bw": true, "flip": true, "x": 165, "y": 1640, "h": 900, "from": "left"},
+     "label": {"text": "1929 to 1939", "at": "out", "x": 560, "y": 1180, "rot": -3}},
+
+    {"type": "beat", "bg": "cream", "say": "In 1997, Apple lost a {billion dollars.}",
+     "print": {"src": "photos/infloop.jpg", "w": 760, "h": 500, "x": 520, "y": 720, "rot": 3},
+     "tag": {"text": "1997", "color": "red", "at": "1997", "x": 70, "y": 520, "rot": -6},
+     "doc": {"title": "Apple, fiscal year 1997", "rows": [["Revenue", "$7.1 billion"], ["Net loss", "$1.0 billion"]], "mark": 1,
+             "x": 450, "y": 960, "w": 700, "rot": -2},
+     "pen": {"at": "billion", "shape": "circle", "target": "doc"}},
+
+    {"type": "beat", "bg": "ink", "say": "In 1940, Hitler invaded France.",
+     "print": {"src": "photos/ch1940desk.jpg", "grade": "bw", "w": 820, "h": 620, "x": 470, "y": 960, "rot": -2},
+     "tag": {"text": "MAY 1940", "color": "red", "at": "1940", "x": 90, "y": 560, "rot": -5},
+     "label": {"text": "10 May 1940", "x": 560, "y": 1290, "rot": 2}},
+
+    {"type": "twist", "say": "And both men got called back.", "lead": "And both men got", "big_words": ["CALLED", "BACK"], "at": ["called", "back"]},
+
+    {"type": "beat", "bg": "cream", "pause": 0.45, "say": "Churchill became {Prime Minister.} Jobs ran {Apple} again.",
+     "cut": {"src": "photos/ch1940_cut.png", "x": 260, "y": 1560, "h": 860, "from": "left"},
+     "tag": {"text": "PRIME MINISTER", "color": "green", "at": "prime", "x": 60, "y": 1300, "rot": -4, "size": 44},
+     "second": {"at": "jobs", "cut": {"src": "photos/jobs2010_cut.png", "x": 740, "y": 1560, "h": 860, "from": "right"},
+                "tag": {"text": "BACK AT APPLE", "color": "ink", "at": "apple", "x": 560, "y": 1360, "rot": 4, "size": 44}}},
+
+    {"type": "chart", "bg": "ink", "say": "By 1997, Apple stock had lost {82 percent.} Since then, it is up over {three thousand times.}",
+     "capmode": "sentence", "dip_at": "82", "rise_at": "since", "chip_at": "three"},
+
+    {"type": "end"}
+  ],
+  "sources": [],
+  "photo_credits": []
+}
