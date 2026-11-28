@@ -1,0 +1,64 @@
+{
+  "id": "2026-11-29-dotmatrix-clock",
+  "out_dir": "ig-news/media/2026-11-29-dotmatrix-clock",
+  "music": {
+    "path": "ig-news/assets/music/134.mp3",
+    "start": 0.5,
+    "credit": "Music: \"Deep Techno Ambience\" by Alejandro Magaña (A. M.) (Mixkit, Mixkit Stock Music Free License)"
+  },
+  "scenes": [
+    {
+      "subject": {
+        "type": "photo",
+        "cutout": "ig-news/posts/2026-11-29-dotmatrix-clock/clock.png",
+        "equalize": 0.5
+      },
+      "text": "3 a.m.?\nCrypto is open.",
+      "accent": "open.",
+      "dur": 3.0
+    },
+    {
+      "subject": {
+        "type": "photo",
+        "cutout": "ig-news/posts/2026-11-29-dotmatrix-clock/gold.png",
+        "equalize": 0.6,
+        "floor": 0.18
+      },
+      "text": "Gold, without\nthe vault",
+      "accent": "Gold,",
+      "dur": 3.0,
+      "reveal": "sparkle"
+    },
+    {
+      "subject": {
+        "type": "photo",
+        "cutout": "ig-news/posts/2026-11-29-dotmatrix-clock/laptop.png",
+        "crop": [
+          0,
+          0,
+          1,
+          0.55
+        ],
+        "fade": 0.14,
+        "equalize": 0.7,
+        "floor": 0.22
+      },
+      "text": "Stocks, crypto,\none account",
+      "accent": "one",
+      "dur": 3.0,
+      "reveal": "ripple",
+      "origin": [
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "end": true,
+      "text": "Trade crypto\non Hotcoin",
+      "accent": "Hotcoin",
+      "pill": "Download Hotcoin",
+      "dur": 3.2,
+      "reveal": "ripple"
+    }
+  ]
+}

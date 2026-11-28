@@ -608,7 +608,8 @@
   "topic": "DOT MATRIX brand motion #1 (bull, breakout, athlete, phone, Bitcoin)",
   "hook": "Bull or bear? You pick",
   "status": "published",
-  "doc_row": true
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7712765406343171380"
  },
  {
   "id": "2026-11-28-bitcoin-death-cross",
@@ -616,7 +617,26 @@
   "format": "photo",
   "topic": "News: Bitcoin death cross, 13 past crosses",
   "hook": "Bitcoin's death cross is near. After the 2022 one it fell 64%",
+  "status": "published",
+  "doc_row": true,
+  "tiktok_url": "https://www.tiktok.com/@hotcoin.com/video/7713036896846236948"
+ },
+ {
+  "id": "2026-11-28-reel-tier-chatgpt",
+  "slot": "2026-11-28T21:30:00+08:00",
+  "format": "video",
+  "topic": "Tier list: 4 years since ChatGPT (10 assets)",
+  "hook": "Since ChatGPT launched, Nvidia went 8.9x. Microsoft: 1.9x",
   "status": "scheduled",
-  "doc_row": true
+  "doc_row": false
+ },
+ {
+  "id": "2026-11-29-weekly-nov30",
+  "slot": "2026-11-29T19:02:00+08:00",
+  "format": "photo",
+  "topic": "What's on this week Nov 30-Dec 6",
+  "hook": "Your week: US jobs report Fri 21:30 UTC+8, CrowdStrike + Salesforce results",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]

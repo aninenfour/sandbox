@@ -2637,7 +2637,7 @@
   "slot": "2026-11-28T10:00:00+08:00",
   "title": "Bitcoin death cross is near (50-day SMA <4% above 200-day, 12% a month ago); 13 past crosses since 2011: 3 fell 59%+ (2011, 2014, 2022 -64%), 3 fell 6% or less (2015, Sep 2023 ~0%, Apr 2025), 7 in between; BTC -52% from Oct 2025 top; signal lags",
   "score": 10,
-  "status": "scheduled",
+  "status": "published",
   "layouts": [
    "nhero",
    "nbars",
@@ -2661,6 +2661,54 @@
    "Yahoo Finance BTC-USD (top close)"
   ],
   "note": "07:40 run (Sat). Score 10/12 (hook 3, relevance 3, fresh 3, visual 1: no face, coin photo). Not covered by any Hotcoin channel in 48h. Skipped: ECB nominee de Cos tokenized deposits (10, weak face/hook, quote single source), OpenAI countersuit vs Apple (9, low crypto relevance), Binance tokenized IPOs (competitor), Nvidia Blackwell China (Nvidia Thu), Franklin HYPE ETF (8). Median drop left out (CoinDesk ~24% vs our calc 17%); 2014 depth 66% vs 64% so only 2022 -64% (both agree) on the cover. Cover 8 words, no comma, no badge (no drawn logos); render.py no warnings. Media commit d38b5ce. All 5 verified scheduled in Publer.",
-  "doc_row": true
+  "doc_row": true,
+  "ig_url": "https://www.instagram.com/p/DgRIfe2inIZ/"
+ },
+ {
+  "id": "2026-11-28-reel-tier-chatgpt",
+  "type": "reel-tier",
+  "slot": "2026-11-28T21:30:00+08:00",
+  "title": "Tier list: 4 years since ChatGPT (Nov 30 2022 close to Nov 27 2026): S Nvidia 8.9x; A Meta 5.3x, Bitcoin 3.5x; B Google 2.7x, Amazon 2.6x, Apple 2.4x; C Gold 2.1x, Tesla 2.1x, Microsoft 1.9x; D S&P 500 1.8x",
+  "hook": "ChatGPT turns 4. 10 assets ranked",
+  "status": "scheduled",
+  "music": "Torey (Arulo, Mixkit) #304",
+  "platforms": [
+   "ig_reel 21:30",
+   "fb_reel 21:30",
+   "ig_story 21:35 (reel.mp4, 31.6 s)",
+   "tiktok 21:30 (reel_tiktok.mp4)",
+   "x_main 21:30 (reel_square.mp4, no CTA)"
+  ],
+  "sources": [
+   "Yahoo Finance daily closes Nov 30 2022 -> Nov 27 2026: NVDA 16.923->150.49, META 118.10->628.96, GOOGL 100.99->274.96, AMZN 96.54->254.12, AAPL 148.03->358.54, TSLA 194.70->400.00, MSFT 255.14->492.85, ^GSPC 4080.11->7297.49, GC=F 1746.0->3639.6",
+   "Nasdaq.com historical: Nov 24/25 2026 closes match Yahoo for all 7 stocks",
+   "BTC: Yahoo 17,168.57 (Nov 30 2022) -> 59,708 (Nov 28 2026); CoinGecko 59,712 Nov 28"
+  ],
+  "note": "Fresh tier theme (last: Nov 14 game stocks, 5y; no tier list Nov 21). ChatGPT 4th anniversary Mon Nov 30, mixes stocks + gold + BTC per tier rule. Same frame/tier look as before (reel.py). Hook photo: Tim Witzdam / Unsplash (qSN755lI9Cw, phone showing chatgpt.com). Logos MSFT/GOOGL/AMZN added to assets/logos (financialmodelingprep image-stock). X gets the square cut per PLAYBOOK 7b (tier lists use reel.py --square, no story_x45 for this template). Publer covers checked (IG + TikTok = frame 0 hook). Media commit e238b49.",
+  "commit": "e238b49"
+ },
+ {
+  "id": "2026-11-29-weekly-nov30",
+  "type": "weekly",
+  "slot": "2026-11-29T19:00:00+08:00",
+  "title": "What's on this week Nov 30-Dec 6: ChatGPT turns 4, ISM Tue/Thu, CrowdStrike + Salesforce results, Hotcoin delistings Thu, US jobs report Fri 21:30",
+  "status": "scheduled",
+  "platforms": [
+   "ig",
+   "fb",
+   "tiktok(19:02, 01-06)",
+   "ig_story(19:05)",
+   "x_research(20:30, 01,03,05,06)"
+  ],
+  "sources": [
+   "BLS schedule + Oct 2026 Employment Situation: Nov report Fri Dec 4 8:30 ET; Hotcoin What to Watch Nov 28: jobs Fri Dec 4 21:30 UTC+8",
+   "ISM ROB calendar + CME: Manufacturing Tue Dec 1, Services Thu Dec 3, 10:00 ET",
+   "CrowdStrike IR (Nov 4) + Hotcoin What to Watch Nov 28: FQ3 Tue Dec 1 after close, call 5 pm ET",
+   "Salesforce IR (Nov 10) + Finviz: Q3 FY27 Wed Dec 2 after close",
+   "Hotcoin announcements Nov 28: perps delist Dec 3 15:00, spot pairs stop 16:00 UTC+8",
+   "OpenAI + Wikipedia: ChatGPT launched Nov 30 2022"
+  ],
+  "note": "Cover: Sam Altman (TechCrunch, Commons CC BY 2.0; Commons API rate-limited, credit from file page knowledge). Day photos Unsplash: Levart_Photographer, TruckRun, Markus Spiske, Wei Liang, Eric Prouzet. Media commit d2c0a2c.",
+  "commit": "d2c0a2c"
  }
 ]
