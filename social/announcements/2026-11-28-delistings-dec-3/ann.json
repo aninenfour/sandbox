@@ -5,9 +5,49 @@
   "title2": "Perpetual futures & spot pairs",
   "sub": "All times UTC+8",
   "cards": [
-    {"head": "Perpetual futures", "items": "RVNUSDT · AXLUSDT · PROVEUSDT",
-     "rows": [["New positions paused", "Dec 3 · 14:30"], ["Delisting & settlement", "Dec 3 · 15:00"], ["Open orders", "Cancelled"]]},
-    {"head": "Spot pairs", "items": "ZORA/USDT · ESP/USDT · UB/USDT",
-     "rows": [["Deposits suspended", "Dec 2 · 16:00"], ["Trading stops", "Dec 3 · 16:00"], ["Withdrawals until", "Jan 2, 2027 · 16:00"]]}
+    {
+      "head": "Perpetual futures",
+      "items": [
+        "RVNUSDT",
+        "AXLUSDT",
+        "PROVEUSDT"
+      ],
+      "rows": [
+        [
+          "New positions paused",
+          "Dec 3 · 14:30"
+        ],
+        [
+          "Delisting & settlement",
+          "Dec 3 · 15:00"
+        ],
+        [
+          "Open orders",
+          "Cancelled"
+        ]
+      ]
+    },
+    {
+      "head": "Spot pairs",
+      "items": [
+        "ZORA/USDT",
+        "ESP/USDT",
+        "UB/USDT"
+      ],
+      "rows": [
+        [
+          "Deposits suspended",
+          "Dec 2 · 16:00"
+        ],
+        [
+          "Trading stops",
+          "Dec 3 · 16:00"
+        ],
+        [
+          "Withdrawals until",
+          "Jan 2, 2027 · 16:00"
+        ]
+      ]
+    }
   ]
 }

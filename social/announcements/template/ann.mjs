@@ -11,6 +11,8 @@ const [DIR, SCR] = process.argv.slice(2);
 const A = JSON.parse(fs.readFileSync(DIR + '/ann.json', 'utf8'));
 const f = (p) => 'file://' + p;
 
+// "RVNUSDT" / "ZORA/USDT" -> bold base + dimmed quote
+const chip = (s) => { const m = s.match(/^(.+?)(\/?)(USDT|USDC|BTC|ETH)$/); return m ? `<span class="pc"><b>${m[1]}</b><i>${m[2]}${m[3]}</i></span>` : `<span class="pc"><b>${s}</b></span>`; };
 const page = (footer, theme) => {
  const dark = theme === 'dark';
  return `<!doctype html><html><head><meta charset="utf-8"><style>
@@ -32,7 +34,10 @@ h2{font-weight:800;font-size:${footer ? 38 : 44}px;letter-spacing:-1px;line-heig
 .cards{display:flex;gap:22px;margin-top:${footer ? 20 : 28}px}
 .card{width:560px;text-align:left;border-radius:16px;padding:${footer ? '16px 22px' : '20px 24px'};background:${dark ? 'rgba(16,20,17,.94)' : 'rgba(255,255,255,.82)'};border:1px solid ${dark ? 'rgba(184,242,106,.28)' : 'rgba(11,14,17,.08)'}}
 .ch{font-family:'JetBrains Mono';font-weight:700;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:${dark ? '#B8F26A' : '#1F3A12'}}
-.ci{font-weight:800;font-size:${footer ? 24 : 27}px;margin:6px 0 10px;letter-spacing:-.3px}
+.ci{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 14px}
+.pc{display:inline-flex;align-items:baseline;border-radius:10px;padding:${footer ? '6px 14px' : '8px 16px'};background:${dark ? 'rgba(184,242,106,.10)' : 'rgba(11,14,17,.06)'};border:1px solid ${dark ? 'rgba(184,242,106,.35)' : 'rgba(11,14,17,.12)'}}
+.pc b{font-family:'JetBrains Mono';font-weight:700;font-size:${footer ? 24 : 28}px;letter-spacing:.5px}
+.pc i{font-style:normal;font-family:'JetBrains Mono';font-weight:500;font-size:${footer ? 17 : 19}px;margin-left:3px;opacity:.55}
 .cr{display:flex;justify-content:space-between;font-size:${footer ? 18 : 20}px;padding:${footer ? 5 : 7}px 0;border-top:1px solid ${dark ? 'rgba(255,255,255,.1)' : 'rgba(11,14,17,.1)'}}
 .cr span{opacity:.75}
 .cr b{font-family:'JetBrains Mono';font-weight:700}
@@ -54,7 +59,7 @@ ${dark ? '<div style="height:60px"></div>' : `<img class="logo" src="${f(T + '/s
  <h1>${A.title}</h1>
  <h2>${A.title2}</h2>
  <div class="sub">${A.sub}</div>
- ${A.cards ? `<div class="cards">${A.cards.map((c) => `<div class="card"><div class="ch">${c.head}</div><div class="ci">${c.items}</div>${c.rows.map(([k, v]) => `<div class="cr"><span>${k}</span><b>${v}</b></div>`).join('')}</div>`).join('')}</div>` : ''}
+ ${A.cards ? `<div class="cards">${A.cards.map((c) => `<div class="card"><div class="ch">${c.head}</div><div class="ci">${(Array.isArray(c.items) ? c.items : [c.items]).map(chip).join('')}</div>${c.rows.map(([k, v]) => `<div class="cr"><span>${k}</span><b>${v}</b></div>`).join('')}</div>`).join('')}</div>` : ''}
  ${A.rows && A.rows.length ? `<div class="rows">${A.rows.map(([k, v]) => `<div class="r"><b>${k}</b><code>${v}</code></div>`).join('')}</div>` : ''}
 </div>
 ${footer ? `<div class="ftw"><div class="ft">
