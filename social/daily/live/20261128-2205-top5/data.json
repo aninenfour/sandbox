@@ -1,0 +1,59 @@
+{
+ "window": "24H to Nov 28 22:05 (UTC+8)",
+ "date": "NOV 28",
+ "day": "2026-11-28",
+ "template": "orbit",
+ "gainers": [
+  {
+   "sym": "O",
+   "name": "",
+   "ch": 50.77,
+   "vol": 405552.7,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "LAB",
+   "name": "LAB",
+   "ch": 17.19,
+   "vol": 222348.1,
+   "handle": "@LABtrade_",
+   "logo": "lab",
+   "bg": "#000000",
+   "glow": "#a0fe07"
+  },
+  {
+   "sym": "MYC",
+   "name": "",
+   "ch": 13.83,
+   "vol": 274473.46,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "OCA",
+   "name": "",
+   "ch": 11.68,
+   "vol": 60806.68,
+   "handle": "",
+   "logo": "missing",
+   "bg": "#141414",
+   "glow": "#B8F26A"
+  },
+  {
+   "sym": "UP",
+   "name": "Unitas",
+   "ch": 11.51,
+   "vol": 417924.8,
+   "handle": "@UnitasLabs",
+   "logo": "up",
+   "bg": "#000809",
+   "glow": "#494e4f"
+  }
+ ],
+ "link": "📊 $O live price and chart: https://www.hotcoin.com/en_US/price/o1-exchange-o/"
+}

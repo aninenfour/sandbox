@@ -53,9 +53,16 @@ def get_json(url, tries=6):
     raise RuntimeError(f'rate-limited: {url}')
 
 
-def gainers(min_vol, n=5):
+MAX_CH = 1000  # % above this = listing-price artifact (e.g. KCS Nov 28: open 0.002 -> 0.74), never a real 24h gain
+
+
+def gainers(min_vol, n=5, exclude=()):
     t = json.loads(get(TICKER))['ticker']
-    rows = [x for x in t if x['symbol'].endswith('_usdt') and float(x['amount']) >= min_vol]
+    rows = [x for x in t if x['symbol'].endswith('_usdt') and float(x['amount']) >= min_vol
+            and x['symbol'][:-5].upper() not in exclude]
+    for x in [x for x in rows if float(x['change']) > MAX_CH]:
+        print(f"{x['symbol']}: +{x['change']}% from open {x['open']} looks like a listing artifact, skipped", file=sys.stderr)
+    rows = [x for x in rows if float(x['change']) <= MAX_CH]
     rows.sort(key=lambda x: -float(x['change']))
     return [{'sym': x['symbol'][:-5].upper(), 'ch': float(x['change']), 'last': float(x['last']), 'vol': float(x['amount'])} for x in rows[:n]]
 
@@ -178,6 +185,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('kind', choices=['top1', 'top5'])
     ap.add_argument('--min-vol', type=float, default=50000)
+    ap.add_argument('--exclude', default='', help='comma-separated tickers to leave out (e.g. a broken listing)')
     ap.add_argument('--template', default='auto', choices=['auto', *TEMPLATES])
     ap.add_argument('--rerender', help='existing live/<stamp>-top5 folder: keep its numbers, render again (e.g. after a coins.json fix)')
     a = ap.parse_args()
@@ -195,7 +203,7 @@ def main():
         return
 
     tpl = pick_template(now, a.template) if a.kind == 'top5' else None
-    top = gainers(a.min_vol)
+    top = gainers(a.min_vol, exclude={x.strip().upper() for x in a.exclude.split(',') if x.strip()})
     cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
     for g in top:
         info = resolve(g['sym'], g['last'], cache)

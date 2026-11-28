@@ -661,5 +661,12 @@
   "twitter": null,
   "image": "https://coin-images.coingecko.com/coins/images/102179139/large/crwdb.png?1791293069",
   "logo": "crwdb"
+ },
+ "LAB": {
+  "id": "lab",
+  "name": "LAB",
+  "twitter": "LABtrade_",
+  "image": "https://coin-images.coingecko.com/coins/images/70014/large/lab.png?1760352822",
+  "logo": "lab"
  }
 }
