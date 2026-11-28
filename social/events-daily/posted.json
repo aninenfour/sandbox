@@ -125,5 +125,19 @@
       "Facebook",
       "Telegram"
     ]
+  },
+  {
+    "date": "2026-11-28",
+    "time": "15:50 UTC+8 (late: worker restart missed 13:58), Telegram 15:52",
+    "slugs": [
+      "HotcoinFixed-TermEarnExclusive",
+      "spot-all-round-challenge-24"
+    ],
+    "layout": "grain-dark",
+    "channels": [
+      "X main",
+      "Facebook",
+      "Telegram"
+    ]
   }
 ]
