@@ -17,12 +17,9 @@ https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedTradingPairs
 📢 ANNOUNCEMENT: Dec 3 delistings (UTC+8)
 
 ⚠️ Futures: RVNUSDT, AXLUSDT, PROVEUSDT
-No new positions from 14:30, delisted at 15:00
+New positions paused 14:30, delisted 15:00
+https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedPerpetualFutureson2026-12-03/
 
-⚠️ Spot: ZORA, ESP, UB (USDT pairs)
-Deposits off Dec 2 16:00
-Trading ends Dec 3 16:00
-Withdraw by Jan 2 16:00
-
-👉 https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedPerpetualFutureson2026-12-03/
-👉 https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedTradingPairson2026-12-03/
+⚠️ Spot: ZORA/USDT, ESP/USDT, UB/USDT
+Deposits off Dec 2 16:00, trading ends Dec 3 16:00, withdraw by Jan 2 16:00
+https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedTradingPairson2026-12-03/
