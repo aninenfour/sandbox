@@ -83,6 +83,7 @@
 | 27/11 | 19:42 | Event LAST CALL (text) | P2P Sprint (sáb 07:00) + Earn exclusivo (sáb 08:00), links in reply | scheduled |
 
 | 28/11 | 08:44 | GM | Arcos da Lapa, Rio: linha pelo topo do aqueduto até o bondinho | scheduled |
+| 28/11 | 13:47 | Placar do dia (lights bg) | $UP Unitas +19,1% x $BTC +0,5% (24h até 12:07) | scheduled |
 | 28/11 | 19:38 | Event LAST CALL (text) | Ronaldinho x Hotcoin termina dom 29/11 04:00 (link in reply) | scheduled |
 
 ## Queued ideas (not scheduled yet)
@@ -141,3 +142,4 @@
 - 27/11 12:09 check 2: no new announcements beyond this morning's. Placar CFG Centrifuge (CoinGecko centrifuge-2 +12.8%), first with placar.mjs (podium background, official BTC logo), 13:47.
 - 27/11 16:14 check 3: no new announcements. P2P Sprint (ends 28/11 07:00) and Earn exclusive (ends 28/11 08:00) pages unchanged, no sold-out/early-end notice: last call 19:42 stays. Sat 28: GM, placar, evening last call Ronaldinho (Sun 04:00). Sun 29: Agenda + evening last call Spot #24 (Mon 12:59). Mon 30: weekly review.
 - 28/11 07:45 check 1: no new announcements. P2P Sprint ended 07:00, Earn exclusivo ends 08:00. Team queued a Black Friday meme 10:00 on PT, so no meme from us today. Placar at check 2.
+- 28/11 12:07 check 2: no new announcements (latest: 9th anniversary teaser and 0G swap, both 27/11, covered). Placar UP Unitas (CoinGecko unitas +18.1%), lights background, 13:47. Skipped KCS (broken +37045%) and O (no CoinGecko match).
