@@ -2710,5 +2710,34 @@
   ],
   "note": "Cover: Sam Altman (TechCrunch, Commons CC BY 2.0; Commons API rate-limited, credit from file page knowledge). Day photos Unsplash: Levart_Photographer, TruckRun, Markus Spiske, Wei Liang, Eric Prouzet. Media commit d2c0a2c.",
   "commit": "d2c0a2c"
+ },
+ {
+  "id": "2026-11-29-dotmatrix-clock",
+  "type": "dotmatrix",
+  "slot": "2026-11-29T16:00:00+08:00",
+  "title": "DOT MATRIX #2: 3 a.m.? Crypto is open. / Gold, without the vault / Stocks, crypto, one account / end card Trade crypto on Hotcoin",
+  "status": "scheduled",
+  "scenes": [
+   "alarm clock cutout",
+   "gold bars cutout",
+   "person with laptop cutout",
+   "Hotcoin symbol end card"
+  ],
+  "channels": [
+   "ig_reel 16:00 (v916.mp4)",
+   "tiktok 16:00 (v916_tiktok.mp4)",
+   "fb video 16:00 (v169.mp4)",
+   "x_main 16:00 (v169.mp4)",
+   "telegram Hotcoin Announcements 16:00 (v169.mp4)"
+  ],
+  "music": "Deep Techno Ambience (Alejandro Magana, Mixkit) #134 from 0.5 s",
+  "length": "12.2 s",
+  "photos": [
+   "insung yoon / Unsplash (w2JtIQQXoRU, clock)",
+   "Scottsdale Mint / Unsplash (j980acjBHtY, gold)",
+   "Roksana Krezalek / Unsplash (zHgfhTblOvo, person + laptop)"
+  ],
+  "note": "New subjects vs #1 (bull/candle/athlete/phone/BTC coin). Bear statue scene dropped (read as a blob in dots). rembg isnet cutouts. Frame 0 = lit clock + line; contact sheets checked. Media commit 4e9a03b. Next DOT MATRIX: Tue Dec 1 16:00.",
+  "commit": "4e9a03b"
  }
 ]

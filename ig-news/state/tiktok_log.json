@@ -638,5 +638,14 @@
   "hook": "Your week: US jobs report Fri 21:30 UTC+8, CrowdStrike + Salesforce results",
   "status": "scheduled",
   "doc_row": false
+ },
+ {
+  "id": "2026-11-29-dotmatrix-clock",
+  "slot": "2026-11-29T16:00:00+08:00",
+  "format": "video",
+  "topic": "DOT MATRIX #2 (clock, gold, one account)",
+  "hook": "3 a.m. and the crypto market is still open",
+  "status": "scheduled",
+  "doc_row": false
  }
 ]
