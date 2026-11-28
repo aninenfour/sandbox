@@ -14,7 +14,7 @@ https://www.hotcoin.com/en_US/announcement/HotcoinWillDelistSelectedTradingPairs
 
 ## X post
 
-📢 ANNOUNCEMENT: Dec 3 delistings (UTC+8)
+📢 ANNOUNCEMENT: Dec 3 delistings, UTC+8
 
 Futures: RVNUSDT, AXLUSDT, PROVEUSDT
 New positions stop 14:30, delisted 15:00
