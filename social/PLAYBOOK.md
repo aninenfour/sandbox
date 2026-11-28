@@ -73,3 +73,12 @@ Always check the current date in **both** zones (`TZ=Asia/Shanghai date`,
 - TOKEN2049 Singapore: Oct 7–8, 2026 (week of side events Oct 5–11).
 - Newcomer Level-Up Week #2 runs until Oct 9, 15:59 UTC.
 - Follow-up idea: announce the "winner" of the Oct 2 memecoin pick.
+
+## Publishing to X: long posts
+
+- X cuts anything over 280 characters unless the post is sent as a long post. For every X post longer
+  than 280 (count links as 23), pass `network_options: {"details": {"type": "long_post"}}` in
+  `submit_publer_posts`. It needs X Premium on the account; Hotcoin 🟩 has it.
+- After publishing, read the post back (`list_publer_posts`, state published) and compare the caption
+  with what was sent. If X shows a "Show more" cut where it shouldn't, fix it right away.
+- 2026-11-28: the Dec 3 delisting post went out cut on X because this option was missing (fixed by hand).
