@@ -1,8 +1,12 @@
 // WHAT IF "B2 Photo depth" (owner pick, Nov 28): dark premium motion template, 1080x1920, 30 fps.
 // Rendered by ig-news/whatif_b2.py (or story.py with "look": "b2"); DOM + CSS, driven by draw(t, variant).
 // Scenes: 1 hook (person cut-out with green rim light on a graded story photo, full-sentence hook + real logo badge)
-//         2 glass card (count-up result, multiple chip, price line drawn left to right with a glowing head, dates, source)
-//         3 end card (real Hotcoin symbol, "Trade X on Hotcoin", Download button, link in bio). variant "nocta" (TikTok, X):
+//         2 the choice (owner, Nov 28): "What if he just bought {Bitcoin} instead?" + big VS: object's real logo in a circle
+//           (left) vs the asset's real logo (right), labels "<object label> / $amount" and "<asset> / $amount" under them;
+//           circles slide in from the sides, VS pops, the asset side glows
+//         3 glass card (count-up starts as the card lands, multiple chip right after the number, price line drawn left to
+//           right with a glowing head, dates, source)
+//         4 end card (real Hotcoin symbol, "Trade X on Hotcoin", Download button, link in bio). variant "nocta" (TikTok, X):
 //           no CTA text, no button: symbol + @hotcoinex only, shorter.
 // Safe zones: key content inside y 220..1480 and x <= 920 below y=700. Frame 0 = the finished hook (thumbnail).
 // window.SPEC is prepared by whatif_b2.py (texts resolved, images as data URIs, series as [[date, value in $]]).
@@ -15,10 +19,11 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const accent = s => esc(s).replace(/\{([^}]+)\}/g, '<span style="color:#7EC25A">$1</span>');   // {word} = brand green
 
 // ---- timeline (s)
-const T = {hookOut: 2.75, card: 3.15, count0: 4.3, count1: 8.6, line0: 4.3, line1: 8.6, endIn: 11.4};   // the number counts while the line draws
+const T = {hookOut: 2.5, ch: 2.7, chOut: 5.55, card: 5.75};
+T.count0 = T.line0 = T.card + .55; T.count1 = T.line1 = T.count0 + 3.6; T.endIn = T.count1 + 2.3;   // the number counts while the line draws
 T.end = T.endIn + 5.0; T.endNo = T.endIn + 2.4;
 window.DURATION = T.end; window.DURATION_NOCTA = T.endNo; window.END_T = T.endIn;
-window.CUES = [{t: 2.8, s: 'whoosh'}, {t: T.card + .1, s: 'hop'}, {t: T.count1, s: 'chime'}, {t: T.endIn - .1, s: 'whoosh'}, {t: T.endIn + .45, s: 'thud'}];
+window.CUES = [{t: T.hookOut + .05, s: 'whoosh'}, {t: T.ch + .35, s: 'whoosh', pitch: 1.3}, {t: T.ch + .95, s: 'thud'}, {t: T.chOut + .05, s: 'whoosh'}, {t: T.card + .1, s: 'hop'}, {t: T.count1, s: 'chime'}, {t: T.endIn - .1, s: 'whoosh'}, {t: T.endIn + .45, s: 'thud'}];
 window.COVER_T = 0;
 
 // ---- money format (values in $)
@@ -49,18 +54,26 @@ const I = S.img;
 const shade = {
   1: 'linear-gradient(180deg,rgba(3,5,4,.35) 0%,rgba(3,5,4,.10) 28%,rgba(3,5,4,.7) 47%,rgba(3,5,4,.85) 58%,rgba(3,5,4,.92) 80%,#030504 100%)',
   2: 'linear-gradient(180deg,rgba(3,5,4,.45) 0%,rgba(3,5,4,.35) 50%,rgba(3,5,4,.85) 85%)',
+  c: 'radial-gradient(60% 30% at 50% 50%,rgba(3,5,4,.55),rgba(3,5,4,.2)),linear-gradient(180deg,rgba(3,5,4,.55) 0%,rgba(3,5,4,.35) 45%,rgba(3,5,4,.8) 80%,#030504 100%)',
   3: 'radial-gradient(70% 22% at 45% 62%,rgba(3,5,4,.85),rgba(3,5,4,0)),linear-gradient(180deg,rgba(3,5,4,.35) 0%,rgba(3,5,4,.25) 40%,rgba(3,5,4,.7) 75%,rgba(3,5,4,.92) 100%)'};
-const bgOp = {1: .55, 2: .55, 3: .85};
+const bgOp = {1: .55, c: .6, 2: .55, 3: .85};
 const cut = S.cutout || {};
 const badge = I.object_logo ? `<img src="${I.object_logo}" style="display:inline-block;width:92px;height:92px;border-radius:50%;vertical-align:-6px;margin-left:22px;object-fit:cover;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.9),0 10px 30px rgba(0,0,0,.55)">` : '';
 const hook = S.hook.map((l, i) => `<span class="line hk" style="font:700 ${S.hook_px}px/1.04 'Inter Display';letter-spacing:-.035em"><span class="grad">${esc(l)}</span>${i === S.hook.length - 1 ? badge : ''}</span>`).join('');
-const ques = S.question.map(l => `<span class="line hk" style="font:600 ${S.question_px}px/1.12 'Inter Display';letter-spacing:-.02em;color:#eef2ec">${accent(l)}</span>`).join('');
+const ques = S.question.map(l => `<span class="line qq" style="font:700 ${S.question_px}px/1.06 'Inter Display';letter-spacing:-.03em;color:#f3f6f1">${accent(l)}</span>`).join('');
+const VD = 300;   // VS circle diameter
+const circ = (id, img, fallback, ring) => `<div id="${id}" class="a" style="top:0;left:0;width:${VD}px;height:${VD}px;border-radius:50%;overflow:hidden;display:grid;place-items:center;
+  background:#0b0f0c;box-shadow:${ring}">${img ? `<img src="${img}" style="width:100%;height:100%;object-fit:cover">` : `<span style="font:800 96px 'Inter Display'">${esc(fallback)}</span>`}</div>`;
+const vlabel = (id, x, name, amt) => `<div id="${id}" class="a" style="left:${x - 210}px;width:420px;top:${S.vs_top + VD + 40}px;text-align:center">
+  <span class="line" style="font:700 36px/1.2 'Inter Display';letter-spacing:-.01em;color:#eef2ec">${esc(name)}</span>
+  <span class="line mute" style="font:600 32px/1.3 'Inter';margin-top:4px">${esc(amt)}</span></div>`;
+const LX = 250, RX = 742;   // circle centres (right edge 892 < 920: safe zone)
 const rings = [[300, 450, 380, .32], [210, 360, 560, .26], [110, 260, 760, .2], [0, 150, 980, .14]]
   .map(([x, y, d, o]) => `<div class="a ring" style="left:${x}px;top:${y}px;width:${d}px;height:${d}px;border-radius:50%;border:1px solid rgba(${G},${o})"></div>`).join('');
 document.head.insertAdjacentHTML('beforeend', `<style>${css}</style>`);
 document.body.innerHTML = `
 <div id="bgs" class="l">
-  ${[1, 2, 3].map(n => `<div id="bg${n}" class="l"><div class="bg" id="bgi${n}" style="background-image:url(${I['bg' + n]});opacity:${bgOp[n]}"></div><div class="l" style="background:${shade[n]}"></div></div>`).join('')}
+  ${[1, 'c', 2, 3].map(n => `<div id="bg${n}" class="l"><div class="bg" id="bgi${n}" style="background-image:url(${I['bg' + n]});opacity:${bgOp[n]};${n === 'c' && S.bgc_blur ? `filter:blur(${S.bgc_blur}px);` : ''}"></div><div class="l" style="background:${shade[n]}"></div></div>`).join('')}
   <div id="refl" class="l"><div class="a" style="left:110px;top:1430px;height:170px;width:760px;background:radial-gradient(50% 50% at 50% 0%,rgba(${G},.22),rgba(${G},0));filter:blur(18px)"></div>
     <div class="a" style="left:90px;top:1424px;width:800px;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)"></div></div>
   <div id="grain" class="grain" style="background-image:url(${I.grain})"></div><div class="vig"></div>
@@ -69,7 +82,18 @@ document.body.innerHTML = `
   <div id="glow1" class="glow" style="left:220px;top:300px;width:700px;height:700px;background:rgba(${G},.28)"></div>
   <img id="cut" class="a" src="${I.cutout}" style="left:${cut.x ?? -30}px;top:${cut.y ?? 330}px;width:${cut.w ?? 1110}px;transform-origin:50% 30%;
     -webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 98%)">
-  <div class="a" style="left:72px;top:${S.hook_top}px;width:880px">${hook}<div style="height:${S.gap}px"></div>${ques}</div>
+  <div class="a" style="left:72px;top:${S.hook_top}px;width:880px">${hook}</div>
+</div>
+<div id="sc" class="l">
+  <div id="glowc" class="glow" style="left:${RX - 260}px;top:${S.vs_top - 110}px;width:520px;height:520px;background:rgba(${G},.5)"></div>
+  <div class="a" style="left:60px;top:${S.vs_top + VD - 20}px;width:870px;height:160px;background:radial-gradient(50% 50% at 50% 30%,rgba(${G},.16),rgba(${G},0));filter:blur(14px)"></div>
+  <div class="a" style="left:72px;width:848px;top:${S.q_top}px;text-align:center">${ques}</div>
+  <div id="vl" class="a" style="left:${LX - VD / 2}px;top:${S.vs_top}px;width:${VD}px;height:${VD}px">${circ('cl', I.object_logo, S.vs.left_initials, '0 0 0 5px rgba(255,255,255,.88),0 30px 80px rgba(0,0,0,.6)')}</div>
+  <div id="vr" class="a" style="left:${RX - VD / 2}px;top:${S.vs_top}px;width:${VD}px;height:${VD}px">${circ('cr', I.asset_logo, S.asset.name, '0 0 0 5px rgba(126,194,90,.95),0 30px 80px rgba(0,0,0,.6)')}</div>
+  <div id="vs" class="a" style="left:${(LX + RX) / 2 - 70}px;top:${S.vs_top + VD / 2 - 70}px;width:140px;height:140px;border-radius:50%;display:grid;place-items:center;
+    background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(20px);
+    box-shadow:0 20px 60px rgba(0,0,0,.6);font:800 60px 'Inter Display';letter-spacing:-.03em;font-style:italic">VS</div>
+  ${vlabel('ll', LX, S.vs.left_label, S.vs.left_amount)}${vlabel('lr', RX, S.vs.right_label, S.vs.right_amount)}
 </div>
 <div id="s2" class="l">
   <div class="l" style="background:radial-gradient(ellipse at 50% 120%,rgba(${G},.10),transparent 60%)"></div>
@@ -123,12 +147,12 @@ function partial(k) {  // points up to fraction k of the x-axis, with an interpo
 }
 const $ = id => document.getElementById(id);
 const E = {};
-['bg1', 'bg2', 'bg3', 'bgi1', 'bgi2', 'bgi3', 'refl', 'grain', 's1', 's2', 's3', 'glow1', 'cut', 'card', 'glow2', 'num', 'chip', 'lpath', 'lglow', 'area', 'h0', 'h1', 'h2', 'd0', 'd1', 'src',
+['bg1', 'bgc', 'bg2', 'bg3', 'bgi1', 'bgic', 'bgi2', 'bgi3', 'sc', 'glowc', 'vl', 'vr', 'cr', 'vs', 'll', 'lr', 'refl', 'grain', 's1', 's2', 's3', 'glow1', 'cut', 'card', 'glow2', 'num', 'chip', 'lpath', 'lglow', 'area', 'h0', 'h1', 'h2', 'd0', 'd1', 'src',
   'glow3', 'rings', 'tile', 'cta1', 'btn', 'link', 'handle', 'word', 'pill'].forEach(id => E[id] = $(id));
 // number size: the widest count-up string must fit the card (760 px)
 (() => { const n = $('num'); let w = 0; for (let k = 0; k <= 80; k++) { n.textContent = money(S.amount * Math.pow(S.result.raw / S.amount, k / 80)); w = Math.max(w, n.offsetWidth); }
   n.textContent = S.result.value; w = Math.max(w, n.offsetWidth); if (w > 760) n.style.fontSize = Math.floor(S.num_px * 760 / w) + 'px'; })();
-const HK = [...document.querySelectorAll('.hk')], C2 = [...document.querySelectorAll('.c2')];
+const HK = [...document.querySelectorAll('.hk')], QQ = [...document.querySelectorAll('.qq')], C2 = [...document.querySelectorAll('.c2')];
 function st(el, o = 1, y = 0, s = 1, x = 0) {
   el.style.opacity = o; el.style.transform = (x || y || s !== 1) ? `translate(${x}px,${y}px) scale(${s})` : 'none';
   el.style.visibility = o <= .001 ? 'hidden' : 'visible';
@@ -139,14 +163,15 @@ window.draw = function (t, variant = 'cta') {
   // grain: re-seeded every 2 frames (film grain, not a dirty screen)
   const g = Math.floor(t * 15); E.grain.style.transform = `translate(${(g * 137) % 60 - 30}px,${(g * 61) % 60 - 30}px)`;
   // ---- backgrounds: cross-fades + slow push-in
-  const x12 = eio(prog(t, 2.8, 3.6)), x23 = eio(prog(t, T.endIn, T.endIn + .8));
-  st(E.bg1, 1 - x12); E.bgi1.style.transform = `scale(${1 + .06 * eio(prog(t, 0, 3.6))})`;
-  st(E.bg2, x12 * (1 - x23)); E.bgi2.style.transform = `scale(${1.08 - .06 * eo(prog(t, 2.8, T.endIn + .8))})`;
+  const x1c = eio(prog(t, T.hookOut + .05, T.hookOut + .8)), x12 = eio(prog(t, T.chOut, T.chOut + .8)), x23 = eio(prog(t, T.endIn, T.endIn + .8));
+  st(E.bg1, 1 - x1c); E.bgi1.style.transform = `scale(${1 + .06 * eio(prog(t, 0, T.hookOut + .8))})`;
+  st(E.bgc, x1c * (1 - x12)); E.bgic.style.transform = `scale(${1.12 - .06 * eo(prog(t, T.hookOut, T.chOut + .8))})`;
+  st(E.bg2, x12 * (1 - x23)); E.bgi2.style.transform = `scale(${1.08 - .06 * eo(prog(t, T.chOut, T.endIn + .8))})`;
   st(E.bg3, x23); E.bgi3.style.transform = `scale(${1.06 - .06 * eo(prog(t, T.endIn, T.end))})`;
   st(E.refl, x12 * (1 - x23));
   // ---- scene 1: hook (frame 0 = finished cover; lines settle up, photo pushes in, rim light pulses)
   const out1 = prog(t, T.hookOut, T.hookOut + .55);
-  st(E.s1, t < 3.6 ? 1 : 0);
+  st(E.s1, t < T.hookOut + .7 ? 1 : 0);
   const pulse = .5 + .5 * Math.sin(t * 2 * Math.PI / 1.6 - Math.PI / 2);
   E.cut.style.filter = `contrast(1.05) saturate(.9) drop-shadow(0 0 ${1.5 + pulse}px rgba(200,245,170,${.5 + .25 * pulse})) drop-shadow(-4px -3px ${12 + 8 * pulse}px rgba(${G},${.3 + .22 * pulse}))`;
   st(E.cut, 1 - eio(prog(t, T.hookOut, T.hookOut + .55)), -30 * eio(out1), 1 + .035 * eio(prog(t, 0, 3.4)));
@@ -155,7 +180,20 @@ window.draw = function (t, variant = 'cta') {
     const k = eo(prog(t, .05 + i * .1, .95 + i * .1)), q = eio(prog(t, T.hookOut + i * .05, T.hookOut + .45 + i * .05));
     st(el, 1 - q, 26 * (1 - k) - 70 * q);
   });
-  // ---- scene 2: glass card
+  // ---- scene 2: the choice (VS)
+  const c0 = T.ch, cO = eio(prog(t, T.chOut, T.chOut + .45));
+  st(E.sc, t > c0 - .05 && cO < 1 ? 1 : 0);
+  QQ.forEach((el, i) => { const k = eo(prog(t, c0 + i * .1, c0 + .55 + i * .1)); st(el, k * (1 - cO), 30 * (1 - k) - 60 * cO); });
+  const kl0 = eo(prog(t, c0 + .3, c0 + .9)), kr0 = eo(prog(t, c0 + .4, c0 + 1.0));
+  st(E.vl, kl0 * (1 - cO), 40 * cO, 1 - .06 * cO, -460 * (1 - kl0) - 120 * cO);
+  st(E.vr, kr0 * (1 - cO), 40 * cO, 1 - .06 * cO, 460 * (1 - kr0) + 120 * cO);
+  const kv = prog(t, c0 + .9, c0 + 1.35); st(E.vs, kv > 0 ? eo(kv) * (1 - cO) : 0, 40 * cO, kv > 0 ? .4 + .6 * back(kv) : 1);
+  [E.ll, E.lr].forEach((el, i) => { const k = eo(prog(t, c0 + 1.05 + i * .12, c0 + 1.55 + i * .12)); st(el, k * (1 - cO), 18 * (1 - k) + 40 * cO); });
+  const gp = .5 + .5 * Math.sin((t - c0 - 1.2) * 2 * Math.PI / 1.1);          // glow pulse on the asset side
+  const gOn = eo(prog(t, c0 + 1.0, c0 + 1.5)) * (1 - cO);
+  st(E.glowc, gOn * (.6 + .4 * gp), 0, .92 + .16 * gp);
+  E.cr.style.boxShadow = `0 0 0 5px rgba(126,194,90,.95),0 0 ${30 + 50 * gp * gOn}px ${6 + 10 * gp * gOn}px rgba(${G},${.25 + .45 * gp * gOn}),0 30px 80px rgba(0,0,0,.6)`;
+  // ---- scene 3: glass card
   const cin = eo(prog(t, T.card, T.card + .8)), cout = eio(prog(t, T.endIn, T.endIn + .45));
   st(E.s2, t > T.card - .05 && cout < 1 ? 1 : 0);
   st(E.card, cin * (1 - cout), 160 * (1 - cin) - 80 * cout, 1 - .04 * cout);
@@ -181,7 +219,7 @@ window.draw = function (t, variant = 'cta') {
   st(E.src, eo(prog(t, T.line1, T.line1 + .6)));
   // pill: over scenes 1-2
   st(E.pill, 1 - eio(prog(t, T.endIn, T.endIn + .5)));
-  // ---- scene 3: end card
+  // ---- scene 4: end card
   const e0 = T.endIn + .4;
   st(E.s3, t >= T.endIn ? 1 : 0);
   st(E.glow3, x23 * (.85 + .15 * Math.sin(t * 2)));

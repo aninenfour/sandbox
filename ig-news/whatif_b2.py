@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """WHAT IF "B2 Photo depth" Reel (owner pick, Nov 28): dark premium motion template, spec-driven.
 
+Scenes (~17 s): 1 hook (frame 0, cover): cut-out + "<Person> <verb> <$amount> / <object>" + logo badge, ~2.5 s.
+  2 the choice: "What if he just bought {Asset} instead?" + VS (object logo circle | VS | asset logo circle, labels with
+  the amount), circles slide in from the sides, VS pops, asset side glows, ~2.9 s. 3 glass card: count-up starts as the
+  card lands, line draws with it, multiple chip right after the number, source line. 4 end card (CTA; nocta for TikTok/X).
+
 Usage:
   python3 ig-news/whatif_b2.py ig-news/posts/<id>/whatif.json [--out <dir>] [--music <mixkit id>] [--frames-only]
   python3 ig-news/story.py ig-news/posts/<id>                    # same thing when whatif.json has "look": "b2"
@@ -14,15 +19,19 @@ cover.jpg (= frame 0, the hook) + cover_45.jpg, thumb_tiktok.jpg, contact.jpg (o
 Spec (whatif.json, "look": "b2"); paths are relative to the spec file, logo names resolve in ig-news/assets/logos/:
   person "Bezos", pronoun "he", verb "spent", amount 250000000, amount_label "$250M", object "on a newspaper"
     -> hook ["Bezos spent $250M", "on a newspaper"]  (or give "hook": [lines]; full sentences, never cut phrases)
-  question (optional) ["What if he just bought", "{Bitcoin} instead?"]   {word} = brand green
-  object_logo "wapo_wp.png"   real logo only (round badge after the hook); omit if there is no real logo
+  question (optional) ["What if he just bought", "{Bitcoin} instead?"]   {word} = brand green; headline of scene 2 (the choice)
+  object_logo "wapo_wp.png"   real logo only (round badge after the hook + big left circle of the VS); omit if there is no
+    real logo (the VS circle then shows object_initials, e.g. "WP")
+  object_label "The Washington Post"   name under the left VS circle (required); object_amount_label (optional, default
+    amount_label); asset_label / asset_amount_label (optional, default asset name / amount_label) under the right circle
   asset {"name": "Bitcoin", "ticker": "BTC", "logo": "BTC.svg"}   (+ "logo_round": true for square stock logos)
   date "2013-10-01" (purchase); series [[date, value of the money in $]] or series_file + series_col + series_scale
     (e.g. an older whatif.json in $M: series_scale 1e6) or "fetch": true (daily closes via closes(), amount / first close)
   result (optional) {"value": "$115B", "mult": "461x", "chip_text": "more than he paid", "neg": false}
   source (optional, small line under the chart), log (optional, log price scale), cta (optional 2 lines)
-  bg [scene1 story photo, scene2 trading screens, scene3 green bokeh]: path (graded here: blur + black/green duotone)
+  bg [scene1 story photo, card trading screens, end green bokeh]: path (graded here: blur + black/green duotone)
     or {"src": path, "graded": true} for an already graded 1080x1920 file; optional "fx" (0..1 crop x), "blur"
+  bg_choice (optional, same forms): background of the VS scene; default = the scene 1 photo, blurred harder (same family)
   cutout "bezos_cut.png" (transparent PNG of the person) + optional cutout_box {"x": -30, "y": 330, "w": 1110}
 """
 import base64, json, math, pathlib, shutil, subprocess, sys, urllib.request, wave
@@ -152,14 +161,21 @@ def resolve(spec_path):
         'cta': sp.get('cta') or [f"Trade {a['name']}", 'on Hotcoin'],
         'cutout': sp.get('cutout_box', {}),
     }
-    out['hook_px'] = fit(hook, 96, 70, 860, 'Bold', -.035, extra_last=118 if logo else 0)
-    out['question_px'] = min(fit(question, 66, 52, 860, 'SemiBold', -.02), out['hook_px'] - 22)
+    out['hook_px'] = fit(hook, 112, 70, 860, 'Bold', -.035, extra_last=118 if logo else 0)
+    out['question_px'] = fit(question, 92, 60, 840, 'Bold', -.03)
     counts = [money(amount * (raw / amount) ** (k / 80)) for k in range(81)] if raw > 0 else []
     out['num_px'] = fit([max(counts + [res['value']], key=lambda x: text_w(x, 100, 'ExtraBold', -.05))], 250, 120, 760, 'ExtraBold', -.05)  # widest count-up string fits
     out['cta_px'] = fit(out['cta'], 96, 64, 820, 'Bold', -.035)
-    out['gap'] = 34
-    block = len(hook) * out['hook_px'] * 1.04 + out['gap'] + len(question) * out['question_px'] * 1.12
-    out['hook_top'] = round(min(1040, 1450 - block))
+    block = len(hook) * out['hook_px'] * 1.04
+    out['hook_top'] = round(min(1110, 1450 - block))
+    # scene 2 (VS): headline block, then the circles (300 px) and their labels; all inside y 220..1480, x <= 920
+    out['q_top'] = 580; out['vs_top'] = round(580 + len(question) * out['question_px'] * 1.06 + 110)
+    if not sp.get('object_label'): raise SystemExit('spec needs object_label (name under the VS circle, e.g. "The Washington Post")')
+    out['vs'] = {'left_label': sp['object_label'], 'left_amount': sp.get('object_amount_label') or amount_label,
+                 'right_label': sp.get('asset_label') or a['name'], 'right_amount': sp.get('asset_amount_label') or amount_label,
+                 'left_initials': sp.get('object_initials') or ''.join(w[0] for w in sp['object_label'].split()[:3]).upper()}
+    for k in ('left_label', 'right_label'):
+        if text_w(out['vs'][k], 36, 'Bold') > 420: raise SystemExit(f"VS label too long (max ~420 px at 36 px): {out['vs'][k]!r}")
     if out['worth_label'] and text_w(out['worth_label'], 40, 'SemiBold') > 770:
         raise SystemExit(f"worth_label too long for the card: {out['worth_label']!r}")
     bgs = sp['bg']
@@ -170,6 +186,12 @@ def resolve(spec_path):
     for n, b in enumerate(bgs, 1):
         b = b if isinstance(b, dict) else {'src': b}
         img[f'bg{n}'] = data_uri(base / b['src']) if b.get('graded') else grade(base / b['src'], b.get('fx', .5), b.get('blur', 14))
+    bc = sp.get('bg_choice')
+    if bc:
+        bc = bc if isinstance(bc, dict) else {'src': bc}
+        img['bgc'] = data_uri(base / bc['src']) if bc.get('graded') else grade(base / bc['src'], bc.get('fx', .5), bc.get('blur', 22))
+    else:
+        img['bgc'] = img['bg1']; out['bgc_blur'] = 14
     out['img'] = img
     return sp, out
 
